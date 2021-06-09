@@ -1,0 +1,13 @@
+{
+  "name": "phase-4-deploying-app-demo",
+  "description": "Build scripts for Heroku",
+  "engines": {
+    "node": ">= 14"
+  },
+  "scripts": {
+    "build": "npm install --prefix client && npm run build --prefix client",
+    "clean": "rm -rf public",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+  }
+}

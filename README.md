@@ -157,4 +157,5 @@ To install Postgres for OSX, you can use Homebrew:
 brew install postgresql
 ```
 
+[awesome readmes]: https://github.com/matiassingers/awesome-readme
 [postgresql wsl]: https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-database#install-postgresql

@@ -2,8 +2,8 @@
 
 ## Description
 
-This project is scaffolded so that you can build a React frontend
-and Rails backend together, and easily deploy them to Heroku.
+This project is scaffolded so that you can build a React frontend and Rails
+backend together, and easily deploy them to Heroku.
 
 ## Requirements
 
@@ -12,8 +12,8 @@ and Rails backend together, and easily deploy them to Heroku.
 - Heroku CLI
 - Postgresql
 
-See [Environment Setup](#environment-setup) for instructions on installing these
-tools if you don't already have them.
+See [Environment Setup](#environment-setup) below for instructions on installing
+these tools if you don't already have them.
 
 ## Setup
 
@@ -44,19 +44,20 @@ application to Heroku. It's recommended to deploy your project early and push up
 changes often to ensure that your code works equally well in production and
 development environments.
 
-To deploy, first login to your Heroku account using the Heroku CLI:
+To deploy, first log in to your Heroku account using the Heroku CLI:
 
 ```sh
 heroku login
 ```
 
-Create new Heroku app:
+Create the new Heroku app:
 
 ```sh
 heroku create my-app-name
 ```
 
-Add build for Heroku to run Rails app on Ruby and build the React app on Node:
+Add the builds for Heroku to run the Rails app on Ruby and build the React app
+on Node:
 
 ```sh
 heroku buildpacks:add heroku/nodejs --index 1
@@ -105,7 +106,7 @@ rvm install 2.7.3
 rvm --default use 2.7.3
 ```
 
-You should also install the latest version of `bundler` and `rails`:
+You should also install the latest versions of `bundler` and `rails`:
 
 ```sh
 gem install bundler

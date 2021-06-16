@@ -185,7 +185,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   listen (~> 3.3)
-  pg (~> 1.1)
+  pg
   puma (~> 5.0)
   rails (~> 6.1.3, >= 6.1.3.2)
   rspec-json_expectations

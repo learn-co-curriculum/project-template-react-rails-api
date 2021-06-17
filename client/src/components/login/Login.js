@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import logo from '../../logo.png';
 import { Alert } from 'reactstrap';
+import { Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
 
 const Login = ({ onLogin }) => {
 	const [username, setUsername] = useState("");
@@ -51,7 +52,7 @@ const Login = ({ onLogin }) => {
 			{isLoading ? "Loading..." : "Login"}
 			</button>
 			{errors.map((err) => (
-          <Alert color="danger" style={{marginTop: "10px"}} key={err}>{err}</Alert>
+          <Alert color="danger" style={{marginTop: "5px"}} key={err}>{err}</Alert>
         ))}
 		  </div>
 		</div>

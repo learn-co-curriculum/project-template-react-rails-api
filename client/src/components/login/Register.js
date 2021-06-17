@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import logo from '../../logo.png'
+import React, { useState } from 'react';
+import logo from '../../logo.png';
+import { Alert } from 'reactstrap';
 
 const Register = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -88,7 +89,7 @@ const Register = ({ onLogin }) => {
 			{isLoading ? "Loading..." : "Sign Up"}
 			</button>
 			{errors.map((err) => (
-          <error key={err}>{err}</error>
+		<Alert color="danger" style={{marginTop: "10px"}} key={err}>{err}</Alert>
         ))}
 		  </div>
 		</div>

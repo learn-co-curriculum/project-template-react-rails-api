@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_06_17_012927) do
 
   create_table "specialists", force: :cascade do |t|
     t.string "image_url"
+    t.string "name"
     t.string "about_me"
     t.string "language"
     t.float "rating"

@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Login from './components/login/Login';
 import { Switch, Route, BrowserRouter as Router} from "react-router-dom";
 import Index from './components/login/Index';
+import NavBar from './components/NavBar'
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <>
-    {/* <NavBar user={user} setUser={setUser} /> */}
+    <NavBar user={user} setUser={setUser} />
     <Router>
     <main>
       <Switch>

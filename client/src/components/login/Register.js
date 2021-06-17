@@ -87,9 +87,9 @@ const Register = ({ onLogin }) => {
 			<button type="submit" className="btn">
 			{isLoading ? "Loading..." : "Sign Up"}
 			</button>
-			{/* {errors.map((err) => (
-          <error key={err}>{err}</error> */}
-        {/* ))} */}
+			{errors.map((err) => (
+          <error key={err}>{err}</error>
+        ))}
 		  </div>
 		</div>
 		</form>

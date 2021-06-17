@@ -5,6 +5,8 @@ import Login from './components/login/Login';
 import { Switch, Route, BrowserRouter as Router} from "react-router-dom";
 import Index from './components/login/Index';
 import NavBar from './components/NavBar'
+import Wellness from './pages/Wellness';
+import Therapist from './pages/Therapist';
 
 
 function App() {
@@ -27,8 +29,14 @@ function App() {
     <Router>
     <main>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
+        </Route>
+        <Route path="/wellness">
+          <Wellness />
+        </Route>
+        <Route path="/therapist">
+          <Therapist />
         </Route>
       </Switch>
     </main>

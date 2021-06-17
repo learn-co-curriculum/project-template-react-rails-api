@@ -24,10 +24,10 @@ const NavBar = ({ props, user, setUser})=> {
        <Collapse isOpen={!collapsed} navbar>
          <Nav navbar>
            <NavItem>
-             <NavLink style={{color: "rgb(212,175,55)", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/new">Wellness</NavLink>
+             <NavLink style={{color: "rgb(212,175,55)", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/wellness">Wellness</NavLink>
            </NavItem>
            <NavItem>
-             <NavLink style={{color: "rgb(212,175,55)", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/bridesmaid">Mental Health</NavLink>
+             <NavLink style={{color: "rgb(212,175,55)", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/therapist">Mental Health</NavLink>
            </NavItem>
            <NavItem>
              <button style={{backgroundColor: "rgb(212,175,55)", width: "100px", border: "none", padding: "10px", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} onClick={handleLogoutClick}>Log Out</button>

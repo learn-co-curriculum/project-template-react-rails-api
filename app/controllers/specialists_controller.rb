@@ -1,0 +1,2 @@
+class SpecialistsController < ApplicationController
+end

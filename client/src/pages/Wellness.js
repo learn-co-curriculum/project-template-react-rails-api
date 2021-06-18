@@ -36,11 +36,16 @@ return (
         <Label for="exampleSelect">Select language:</Label>
         <Input type="select" name="select" id="exampleSelect">
           <option>--Select--</option>
-          <option>English</option>
+          <option>English</option> 
+          {/* 3 english speaking */}
           <option>Spanish</option>
+          {/* 3 spanish speaking */}
           <option>French</option>
+          {/* 2 french speaking */}
           <option>Italian</option>
+          {/* 2 italina speaking */}
           <option>German</option>
+          {/* 2 german speaking */}
         </Input>
       </FormGroup>
           </div>

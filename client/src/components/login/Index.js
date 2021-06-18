@@ -35,7 +35,7 @@ class Index extends React.Component {
     const current = isLogginActive ? "Register" : "Login";
     const currentActive = isLogginActive ? "login" : "register";
     return (
-      <div style={{backgroundImage: `url("https://wallpaperaccess.com/full/3575130.jpg")`, backgroundRepeat: "no-repeat", backgroundSize: "cover", width: "100vw", height: "100vh"}} className="App">
+      <div style={{backgroundImage: `url("https://www.oregonmetro.gov/sites/default/files/styles/slideshow_compact/public/2019/07/23/MetroPaint%20green%20leaves.jpg?itok=Aid4g3mv")`, backgroundRepeat: "no-repeat", backgroundSize: "cover", width: "100vw", height: "100vh"}} className="App">
         <div className="login">
           <div className="container" ref={ref => (this.container = ref)}>
             {isLogginActive && (

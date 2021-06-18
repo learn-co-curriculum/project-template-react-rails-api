@@ -67,7 +67,7 @@
     flex-direction: column;
     justify-content: center;
     height: 90%;
-    background-color: #F6398B;
+    background-color: #E5AE6A;
     width: 100%;
     position: absolute;
     right: -34%;
@@ -107,14 +107,14 @@
   font-size: 21px;
   padding: 10px 20px;
   border: 0;
-  background-color: #FCE941;
+  background-color: #E6AE69;
   color: #fff;
   border-radius: 3px;
   transition: all 250ms ease-in-out;
   cursor: pointer;
 }
   .btn:hover {
-    background-color: #FCE941;
+    background-color: #E6AE69;
   }
   .btn:focus {
     outline: none;

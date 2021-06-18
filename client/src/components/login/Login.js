@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import logo from '../../logo.png';
 import { Alert } from 'reactstrap';
+import './style.css';
 import { Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
 
 const Login = ({ onLogin }) => {

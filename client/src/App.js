@@ -7,7 +7,7 @@ import Index from './components/login/Index';
 import NavBar from './components/NavBar'
 import Wellness from './pages/Wellness';
 import Therapist from './pages/Therapist';
-import Trainers from './pages/TrainerCard';
+import Trainers from './pages/Trainers'
 import Trainerscheduler from './pages/Trainerscheduler';
 
 

@@ -5,34 +5,12 @@ import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
   } from 'reactstrap';
-  
-//    t.string :image_url
-//   t.string :name
-//   t.string :about_me
-//   t.string :language
-//   t.float :rating
-//   t.string :specialty 
-
-// function handleUpdateRating(id, pct) {
-//     const newRating = pct * 5;
-//     fetch(`/spices/${id}`, {
-//       method: "PATCH",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ rating: newRating }),
-//     })
-//       .then((r) => r.json())
-//       .then();
-//   }
-
-
 
 const TrainerCard = ({ specialist }) => {
+	return (
 
-  return (
-      <div className="card-container">
-      {/* <div className="image-container">
+	<div className="card-container">
+      <div className="image-container">
         <img top width="100%" src={specialist.image_url} alt="Card image cap"></img>
         </div>
         <div className="card-content">
@@ -48,13 +26,12 @@ const TrainerCard = ({ specialist }) => {
         </div>
       <p>Specialty: {specialist.specialty}</p>
       <Link to="trainerschedular"> 
-          <Button onClick={()=> console()}>Book Appointment</Button>
+          <Button>Book Appointment</Button>
       </Link>
         </div>
-        </div> */}
+        </div>
     </div>
-    
-  )
+	)
 }
 
-export default TrainerCard;
+export default TrainerCard

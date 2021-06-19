@@ -7,10 +7,13 @@ import Index from './components/login/Index';
 import NavBar from './components/NavBar'
 import Wellness from './pages/Wellness';
 import Therapist from './pages/Therapist';
+import Trainers from './pages/TrainerCard';
+import Trainerscheduler from './pages/Trainerscheduler';
 
 
 function App() {
-  const [user, setUser] = useState(null);
+  const[user, setUser] = useState(null);
+  const [specialists, setSpecialists] = useState([]);
 
   useEffect(() => {
     // auto-login
@@ -19,6 +22,12 @@ function App() {
         r.json().then((user) => setUser(user));
       }
     });
+  }, []);
+
+  useEffect(() => {
+    fetch("/specialists")
+      .then((r) => r.json())
+      .then(setSpecialists);
   }, []);
 
   if (!user) return <Index onLogin={setUser} />;
@@ -38,6 +47,12 @@ function App() {
         <Route path="/therapist">
           <Therapist />
         </Route>
+        <Route path="/trainers">
+      <Trainers specialists={specialists} />
+      </Route>
+    <Route path="/trainerschedular">
+    <Trainerscheduler />
+    </Route>
       </Switch>
     </main>
       </Router>

@@ -3,6 +3,7 @@ import wellness from './wellness.jpg';
 import { Card, Button, CardHeader, CardFooter, CardBody,
   CardTitle, CardText } from 'reactstrap';
 import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 
@@ -11,7 +12,7 @@ const Wellness = (props) => {
 return (
 
     <div>
-    <h1 style={{textAlign: "center", fontFamily: "Permanent Marker, cursive", fontWeight: "bold", fontSize: "50px", backgroundColor: "#D4AF36"}}>Wellness</h1>
+    <h1 style={{textAlign: "center", fontFamily: "fantasy", fontWeight: "bold", fontSize: "50px"}}>Wellness</h1>
     <div style={{display: "block", textAlign: "center"}}>
     <img style={{height: "900px", width: "90%"}} src={wellness} />
     </div>
@@ -57,7 +58,9 @@ return (
           </Label>
         </FormGroup>
           </div>
+          <Link to="/trainers">
           <Button style={{marginTop: "10px"}}>Book Appointments</Button>
+          </Link>
         </CardBody>
         <CardFooter>Licensed Trainers</CardFooter>
       </Card>

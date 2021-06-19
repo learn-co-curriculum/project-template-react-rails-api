@@ -1,0 +1,107 @@
+﻿// uploader theme file
+// uploader layout styles
+@include export-module('uploader-theme') {
+
+  .e-upload {
+    border: $upload-border;
+
+    #{if(&, '&', '*')} .e-file-drop {
+      color: $drop-text-color;
+    }
+
+    #{if(&, '&', '*')} .e-upload-files {
+      border-top: $list-bottom-border;
+
+      .e-upload-file-list {
+        border-bottom: $list-bottom-border;
+
+        .e-file-container {
+
+          .e-file-name {
+            color: $drop-text-color;
+          }
+
+          .e-file-type {
+            color: $drop-text-color;
+          }
+
+          .e-file-size {
+            color: $file-size-color;
+          }
+
+          .e-file-status,
+          .e-file-information {
+            color: $drop-text-color;
+          }
+
+          .e-file-status.e-upload-success {
+            color: $upload-success-color;
+          }
+
+          .e-file-status.e-upload-fails {
+            color: $upload-failure-color;
+          }
+
+          .e-file-status.e-validation-fails {
+            color: $upload-failure-color;
+          }
+
+          #{if(&, '&', '*')} .e-progress-inner-wrap {
+            background-color: $progress-background-color;
+
+            #{if(&, '&', '*')} .e-upload-progress-bar {
+
+              #{if(&, '&', '*')}.e-upload-progress {
+                background: $upload-in-progress-color;
+              }
+
+              #{if(&, '&', '*')}.e-upload-success {
+                background: $upload-success-color;
+              }
+
+              #{if(&, '&', '*')}.e-upload-failed {
+                background: $upload-failure-color;
+              }
+
+            }
+
+          }
+
+          #{if(&, '&', '*')} .e-progress-bar-text {
+            color: $drop-text-color;
+          }
+        }
+      }
+
+      #{if(&, '&', '*')} .e-file-remove-btn.e-icons,
+      #{if(&, '&', '*')} .e-file-delete-btn.e-icons,
+      #{if(&, '&', '*')} .e-file-reload-btn.e-icons,
+      #{if(&, '&', '*')} .e-file-abort-btn.e-icons,
+      #{if(&, '&', '*')} .e-file-pause-btn.e-icons,
+      #{if(&, '&', '*')} .e-file-play-btn.e-icons {
+        color: $remove-icon-color;
+
+        #{if(&, '&', '*')}:hover {
+          color: $upload-hover-icon-color;
+        }
+      }
+
+      #{if(&, '&', '*')} .e-file-remove-btn.e-icons:not(.e-upload-progress):focus,
+      #{if(&, '&', '*')} .e-file-delete-btn.e-icons:not(.e-upload-progress):focus,
+      #{if(&, '&', '*')} .e-file-pause-btn.e-icons:not(.e-upload-progress):focus,
+      #{if(&, '&', '*')} .e-file-play-btn.e-icons:not(.e-upload-progress):focus,
+      #{if(&, '&', '*')} .e-file-reload-btn.e-icons:focus,
+      #{if(&, '&', '*')} .e-file-abort-btn.e-icons:not(.e-disabled):focus,
+      #{if(&, '&', '*')} .e-clear-icon-focus {
+        background-color: $clear-icon-focus-color;
+        border-color: transparent;
+        box-shadow: 0 0 0 transparent;
+      }
+    }
+  }
+
+  .e-upload-drag-hover {
+    outline: $drag-hover-border;
+  }
+
+}

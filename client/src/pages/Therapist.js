@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
+
 
 const Therapist = () => {
 	return (
 		<div>
-			Hello
 		</div>
 	)
 }

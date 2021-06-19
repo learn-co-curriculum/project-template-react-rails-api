@@ -1,0 +1,38 @@
+import { TestHelper } from '@syncfusion/ej2-base/helpers/e2e';
+export declare class datetimepickerHelper extends TestHelper {
+    id: string;
+    wrapperFn: Function;
+    constructor(id: string, wrapperFn: Function);
+    selector(arg: any): any;
+    getElement(): any;
+    getDateIcon(): any;
+    getTimeIcon(): any;
+    getClearIcon(): any;
+    getInputFocus(): any;
+    getPopupElement(): any;
+    getCalender(): any;
+    getCalendarMonthHeader(): any;
+    getCalendarYearHeader(): any;
+    getCalendarDecadeHeader(): any;
+    getTitleElement(): any;
+    getIconContainer(): any;
+    getPrevIcon(): any;
+    getNextIcon(): any;
+    getWeeKHeader(): any;
+    getCellElement(): any;
+    getOtherMonthCellElement(): any;
+    getSelectedCellElement(): any;
+    getTodayElement(): any;
+    getDisabledElement(): any;
+    getFocusedElement(): any;
+    getWeenkendElement(): any;
+    getFooterContainer(): any;
+    getToday(): any;
+    getWeekNumber(): any;
+    getTimePopup(): any;
+    getTimePopupContent(): any;
+    getTimePopupItem(): any;
+    getTimePopupActiveItem(): any;
+    getTimePopupHoverItem(): any;
+    getTimePopupDisabledItem(): any;
+}

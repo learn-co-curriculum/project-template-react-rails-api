@@ -1,0 +1,91 @@
+import { select, detach } from '@syncfusion/ej2-base';
+import { VScroll } from './v-scroll';
+import { HScroll } from './h-scroll';
+/**
+ * Used to add scroll in menu.
+ *
+ * @param {createElementType} createElement - Specifies the create element model
+ * @param {HTMLElement} container - Specifies the element container
+ * @param {HTMLElement} content - Specifies the content element
+ * @param {string} scrollType - Specifies the scroll type
+ * @param {boolean} enableRtl - Specifies the enable RTL property
+ * @param {boolean} offset - Specifies the offset value
+ * @returns {HTMLElement} - Element
+ * @hidden
+ */
+export function addScrolling(createElem, container, content, scrollType, enableRtl, offset) {
+    var containerOffset;
+    var contentOffset;
+    var parentElem = container.parentElement;
+    if (scrollType === 'vscroll') {
+        containerOffset = offset || container.getBoundingClientRect().height;
+        contentOffset = content.getBoundingClientRect().height;
+    }
+    else {
+        containerOffset = container.getBoundingClientRect().width;
+        contentOffset = content.getBoundingClientRect().width;
+    }
+    if (containerOffset < contentOffset) {
+        return createScrollbar(createElem, container, content, scrollType, enableRtl, offset);
+    }
+    else if (parentElem) {
+        var width = parentElem.getBoundingClientRect().width;
+        if (width < containerOffset) {
+            contentOffset = width;
+            container.style.maxWidth = width + "px";
+            return createScrollbar(createElem, container, content, scrollType, enableRtl, offset);
+        }
+        return content;
+    }
+    else {
+        return content;
+    }
+}
+function createScrollbar(createElement, container, content, scrollType, enableRtl, offset) {
+    var scrollEle = createElement('div', { className: 'e-menu-' + scrollType });
+    container.appendChild(scrollEle);
+    scrollEle.appendChild(content);
+    if (offset) {
+        scrollEle.style.overflow = 'hidden';
+        scrollEle.style.height = offset + 'px';
+    }
+    else {
+        scrollEle.style.maxHeight = container.style.maxHeight;
+        container.style.overflow = 'hidden';
+    }
+    var scrollObj;
+    if (scrollType === 'vscroll') {
+        scrollObj = new VScroll({ enableRtl: enableRtl }, scrollEle);
+        scrollObj.scrollStep = select('.e-' + scrollType + '-bar', container).offsetHeight / 2;
+    }
+    else {
+        scrollObj = new HScroll({ enableRtl: enableRtl }, scrollEle);
+        scrollObj.scrollStep = select('.e-' + scrollType + '-bar', container).offsetWidth;
+    }
+    return scrollEle;
+}
+/**
+ * Used to destroy the scroll option.
+ *
+ * @param {VScroll | HScroll} scrollObj - Specifies the scroller object
+ * @param {Element} element - Specifies the element
+ * @param {HTMLElement} skipEle - Specifies the skip  element
+ * @returns {void}
+ * @hidden
+ */
+export function destroyScroll(scrollObj, element, skipEle) {
+    if (scrollObj) {
+        var menu = select('.e-menu-parent', element);
+        if (menu) {
+            if (!skipEle || skipEle === menu) {
+                scrollObj.destroy();
+                element.parentElement.appendChild(menu);
+                detach(element);
+            }
+        }
+        else {
+            scrollObj.destroy();
+            detach(element);
+        }
+    }
+}

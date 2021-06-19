@@ -9,6 +9,17 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <meta name="description" content="Essential JS 2 for React Components" />
+    <meta name="author" content="Syncfusion" />
+    <link href="//cdn.syncfusion.com/ej2/ej2-base/styles/material.css" rel="stylesheet" />
+    <link href="//cdn.syncfusion.com/ej2/ej2-react-buttons/styles/material.css" rel="stylesheet" />
+    <link href="//cdn.syncfusion.com/ej2/ej2-react-calendars/styles/material.css" rel="stylesheet" />
+    <link href="//cdn.syncfusion.com/ej2/ej2-react-dropdowns/styles/material.css" rel="stylesheet" />
+    <link href="//cdn.syncfusion.com/ej2/ej2-react-inputs/styles/material.css" rel="stylesheet" />
+    <link href="//cdn.syncfusion.com/ej2/ej2-react-navigations/styles/material.css" rel="stylesheet" />
+    <link href="//cdn.syncfusion.com/ej2/ej2-react-popups/styles/material.css" rel="stylesheet" />
+    <link href="//cdn.syncfusion.com/ej2/ej2-react-schedule/styles/material.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.38/system.js"></script>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -25,10 +36,31 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Wholeness</title>
+    <style>
+      #loader {
+          color: #008cff;
+          height: 40px;
+          left: 45%;
+          position: absolute;
+          top: 45%;
+          width: 30%;
+      }
+  
+      .e-past-app {
+          background-color: chocolate !important;
+      }
+  
+      .custom-class.e-schedule .e-vertical-view .e-all-day-appointment-wrapper .e-appointment,
+      .custom-class.e-schedule .e-vertical-view .e-day-wrapper .e-appointment,
+      .custom-class.e-schedule .e-month-view .e-appointment {
+          background: green;
+      }
+  </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+  </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

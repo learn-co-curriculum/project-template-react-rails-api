@@ -1,0 +1,31 @@
+import { TestHelper } from '@syncfusion/ej2-base/helpers/e2e';
+export declare class uploaderHelper extends TestHelper {
+    id: string;
+    wrapperFn: Function;
+    constructor(id: string, wrapperFn: Function);
+    selector(arg: any): any;
+    getElement(): any;
+    getWrapperElement(): any;
+    getSelectWrapperElement(): any;
+    getButtonElement(): any;
+    getFileWrapperElement(): any;
+    getInputElement(): any;
+    getDropElement(): any;
+    getUploadedContainer(): any;
+    getUploadedSuccessElement(): any;
+    getFileContainerElement(): any;
+    getFileNameElement(): any;
+    getFileTypeElement(): any;
+    getFileSizeElement(): any;
+    getFileStatusElement(): any;
+    getDeleteIcon(): any;
+    getUploadFileElement(): any;
+    getFileRemoveIcon(): any;
+    getActionElements(): any;
+    getClearActionElement(): any;
+    getUploadActionElement(): any;
+    getPlayActionElement(): any;
+    getPauseActionElement(): any;
+    getFileAbortIcon(): any;
+    getFileReloadIcon(): any;
+}

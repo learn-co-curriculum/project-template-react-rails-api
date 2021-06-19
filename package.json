@@ -10,10 +10,8 @@
     "deploy": "cp -a client/build/. public/",
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
-  "devDependencies": {
-    "node-sass": "^6.0.0"
-  },
   "dependencies": {
+    "@syncfusion/ej2-react-schedule": "^19.1.69",
     "bootstrap": "^5.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

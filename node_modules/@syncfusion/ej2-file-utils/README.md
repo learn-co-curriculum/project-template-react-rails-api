@@ -1,0 +1,1 @@
+A common package of Essential Javascript 2 file libraries, methods and class definitions.

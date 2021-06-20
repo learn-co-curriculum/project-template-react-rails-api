@@ -19,18 +19,21 @@ const NavBar = ({ props, user, setUser})=> {
  return (
    <div>
      <Navbar color="faded" light>
-       <NavbarBrand style={{color: "rgb(212,175,55)", fontSize: "30px", fontFamily: "Permanent Marker, cursive"}} href="/" className="mr-auto">Menu</NavbarBrand>
-       <NavbarToggler style={{color: "rgb(212,175,55)"}} onClick={toggleNavbar} className="mr-2" />
+       <NavbarBrand style={{color: "#9D7E68", fontSize: "30px", fontFamily: "Permanent Marker, cursive"}} href="/" className="mr-auto">Menu</NavbarBrand>
+       <NavbarToggler style={{color: "#9D7E68"}} onClick={toggleNavbar} className="mr-2" />
        <Collapse isOpen={!collapsed} navbar>
          <Nav navbar>
            <NavItem>
-             <NavLink style={{color: "rgb(212,175,55)", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/wellness">Wellness</NavLink>
+             <NavLink style={{color: "#9D7E68", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/wellness">Wellness</NavLink>
            </NavItem>
            <NavItem>
-             <NavLink style={{color: "rgb(212,175,55)", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/therapist">Mental Health</NavLink>
+             <NavLink style={{color: "#9D7E68", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/therapist">Mental Health</NavLink>
            </NavItem>
            <NavItem>
-             <button style={{backgroundColor: "rgb(212,175,55)", width: "100px", border: "none", padding: "10px", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} onClick={handleLogoutClick}>Log Out</button>
+             <NavLink style={{color: "#9D7E68", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/blogs">Blogs</NavLink>
+           </NavItem>
+           <NavItem>
+             <button style={{backgroundColor: "#9D7E68", color: "white", width: "100px", border: "none", padding: "10px", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} onClick={handleLogoutClick}>Log Out</button>
            </NavItem>
          </Nav>
        </Collapse>

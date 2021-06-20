@@ -11,13 +11,28 @@ function StarRating({ percentage, onClick }) {
   }
 
   return (
-    <div className="star-rating" onClick={handleClick} ref={elementRef}>
-      <span className="foreground" style={{ width: widthPct }}>
+    <div style={style} onClick={handleClick} ref={elementRef}>
+      <span style={{ width: widthPct,  color: "var(--theme-primary)",
+  position: "absolute",
+  display: "flex",
+  overflow: "hidden" }}>
         ★★★★★
       </span>
-      <span className="background">★★★★★</span>
+      <span style={background}>★★★★★</span>
     </div>
   );
+}
+const style = {
+  color: "rgba(0, 0, 0, 0.1)",
+  fontSize: "1.5rem",
+  position: "relative",
+  display: "inline-block",
+  cursor: "pointer"
+}
+
+
+const background = {
+  display: "flex"
 }
 
 export default StarRating;

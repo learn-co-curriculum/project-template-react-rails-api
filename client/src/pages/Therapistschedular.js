@@ -2,12 +2,12 @@ import * as React from 'react';
 import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
 import { Alert } from 'reactstrap';
 
-class Trainerscheduler extends React.Component {
-    constructor() {
+class Therapistschedular extends React.Component {
+	constructor() {
         super(...arguments);
         this.data = [{
                 Id: 2,
-                Subject: 'Meet Your Trainers',
+                Subject: 'Meet Your Therapist',
                 StartTime: new Date(2021, 5, 15, 10, 0),
                 EndTime: new Date(2021, 5, 15, 11, 30),
                 IsAllDay: false,
@@ -28,6 +28,6 @@ class Trainerscheduler extends React.Component {
 </div>
 		)
     }
-}
-export default Trainerscheduler;
 
+}
+	export default Therapistschedular;

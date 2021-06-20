@@ -9,11 +9,14 @@ import Wellness from './pages/Wellness';
 import Therapist from './pages/Therapist';
 import Trainers from './pages/Trainers'
 import Trainerscheduler from './pages/Trainerscheduler';
+import Therapistschedular from './pages/Therapistschedular';
+import Blogs from './pages/blogs';
 
 
 function App() {
   const[user, setUser] = useState(null);
   const [specialists, setSpecialists] = useState([]);
+  const [filters, setFilters] = useState({specialty: 'all'})
 
   useEffect(() => {
     // auto-login
@@ -25,10 +28,32 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch("/specialists")
+    fetch("/specialists/?specialty=Trainer")
       .then((r) => r.json())
       .then(setSpecialists);
   }, []);
+
+  //update rating
+  function handleUpdateSpecialist(updatedSpecialist) {
+    setSpecialists((specialists) =>
+      specialists.map((specialist) => {
+        return specialist.id === updatedSpecialist.id ? updatedSpecialist : specialist;
+      })
+    );
+  }
+
+ const onFilterSpecialist = () =>{
+  let url = '/specialists';
+  if (specialists.filters.specialty !== 'all'){
+    url += `?specialty=${specialists.filters.specialty}`
+  }
+  fetch(url)
+  .then(res => res.json())
+  .then(specialists => setSpecialists({ specialists: specialists}))
+  }
+ const onChangeType = ({target: {value} }) =>{
+    setFilters( {filters: {type: value}})
+  }
 
   if (!user) return <Index onLogin={setUser} />;
 
@@ -42,16 +67,27 @@ function App() {
           <Home />
         </Route>
         <Route path="/wellness">
-          <Wellness />
+          <Wellness 
+          filters = {onFilterSpecialist}
+           onChangeType={onChangeType}
+          />
         </Route>
         <Route path="/therapist">
           <Therapist />
         </Route>
+        <Route path="/blogs">
+          <Blogs />
+        </Route>
         <Route path="/trainers">
-      <Trainers specialists={specialists} />
+      <Trainers 
+      onUpdatedSpecialist={handleUpdateSpecialist}
+      specialists={specialists} />
       </Route>
     <Route path="/trainerschedular">
     <Trainerscheduler />
+    </Route>
+    <Route path="/therapistschedular">
+    <Therapistschedular />
     </Route>
       </Switch>
     </main>

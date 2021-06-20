@@ -38,7 +38,7 @@
     flex-direction: column;
     justify-content: center;
     height: 90%;
-    background-color: #E5AE6A;
+    background-color: #9D7E68;
     width: 100%;
     position: absolute;
     right: -34%;
@@ -78,14 +78,13 @@
   font-size: 21px;
   padding: 10px 20px;
   border: 0;
-  background-color: #E6AE69;
-  color: #fff;
+  background-color: #9D7E68;
   border-radius: 3px;
   transition: all 250ms ease-in-out;
   cursor: pointer;
 }
   .btn:hover {
-    background-color: #E6AE69;
+    background-color: #9D7E68;
   }
   .btn:focus {
     outline: none;
@@ -107,9 +106,23 @@ video {
 	border-radius: 5%;
 	overflow: hidden;
 	width: 15vw;
-	height: auto;
+	height: 35vw;
 	margin: 10px;
-	display: flex;
+	display: inline-block;
   	flex-wrap: wrap;
   	justify-content: center;
+} 
+
+:root {
+  --main-bg-color: rgb(255, 248, 231);
+  --main-font-color: rgb(0, 0, 0);
+  --theme-primary: rgb(254, 202, 27);
+}
+
+.therapy-container {
+  background-image: url("https://www.apa.org/images/about-psychologists-title-image_tcm7-266411.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw; 
+  height: 100vh;
 }

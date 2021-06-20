@@ -41,7 +41,7 @@ const Register = ({ onLogin }) => {
 		<div className="header" style={{fontFamily: "Permanent Marker, cursive", fontWeight: "bold"}}>Register</div>
 		<div className="content">
 			<div className="image">
-				<img src={logo} />
+				<img src={logo} alt="logo"/>
 			</div>
 			<div className="form">
 				<div className="form-group">

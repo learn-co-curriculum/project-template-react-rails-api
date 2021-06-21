@@ -9,5 +9,11 @@
     "clean": "rm -rf public",
     "deploy": "cp -a client/build/. public/",
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "express-session": "^1.17.2",
+    "google-auth-library": "^7.1.2",
+    "react-google-login": "^5.2.2"
   }
 }

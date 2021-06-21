@@ -1,0 +1,6 @@
+{
+  "extends": ["eslint-config-ag"],
+  "rules": {
+    "react/forbid-prop-types": 0
+  }
+}

@@ -24,7 +24,7 @@ function App() {
 
   // const { OAuth2Client } = require('google-auth-library')
   // const client = new OAuth2Client(process.env.CLIENT_ID)
-  // server.post("/api/v1/auth/google", async (req, res) => {
+  //  server.post("/api/v1/auth/google", async (req, res) => {
   //     const { token }  = req.body
   //     const ticket = await client.verifyIdToken({
   //         idToken: token,
@@ -61,16 +61,13 @@ function App() {
 //   })
 // })
 
-// // "Me" route
+// "Me" route
 
 // server.get("/me", async (req, res) => {
 //   res.status(200)
 //   res.json(req.user)
 // })
 
-
-  return (
-    <div className="App">
   <GoogleLogin
     clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
     buttonText="Log in with Google"
@@ -78,6 +75,10 @@ function App() {
     onFailure={handleLogin}
     cookiePolicy={'single_host_origin'}
 />
+
+  return (
+    <div className="App">
+blah blah test
     </div>
   );
 }

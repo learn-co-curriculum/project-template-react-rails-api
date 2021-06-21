@@ -6,7 +6,8 @@
 
 # Ignore bundler config.
 /.bundle
-
+#this ignores the API keys and passwords and ignores pushing it on heroku
+/.env
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-*

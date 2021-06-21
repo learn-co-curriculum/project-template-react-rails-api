@@ -11,6 +11,7 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "cookie-parser": "^1.4.5",
     "express-session": "^1.17.2",
     "google-auth-library": "^7.1.2",

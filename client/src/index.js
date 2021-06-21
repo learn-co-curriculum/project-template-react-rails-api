@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import GLogin from './GLogin';
 import reportWebVitals from './reportWebVitals';
 
+
 ReactDOM.render(
- 
-    <App />,
+    <React.StrictMode>
+    <GLogin />,
+  </React.StrictMode>,
+   
  document.getElementById('root')
  
 );

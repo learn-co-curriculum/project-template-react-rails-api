@@ -43,31 +43,32 @@ function App() {
   }
 
 
-  const onFilterSpecialist = () =>{
-    let url = '/specialists';
-    if ("http://localhost:4000//wellness" && "http://localhost:4000//trainer") {
-      specialists.filters.specialty = 'Trainer'
-    }
-    fetch(url)
-    .then(res => res.json())
-    .then(specialists => setSpecialists({ specialists: specialists}))
-    }
+  // const onFilterSpecialist = () =>{
+  //   let url = '/specialists';
+  //   if ("http://localhost:4000//wellness" && ) {
+  //     "http://localhost:4000//trainer"
+  //     specialists.filters.specialty = 'Trainer'
+  //   }
+  //   fetch(url)
+  //   .then(res => res.json())
+  //   .then(specialists => setSpecialists({ specialists: specialists}))
+  //   }
   //  const onChangeType = ({target: {value} }) =>{
   //     setFilters( {filters: {type: value}})
   //   }
 
-//  const onFilterSpecialist = () =>{
-//   let url = '/specialists';
-//   if (specialists.filters.specialty !== 'all'){
-//     url += `?specialty=${specialists.filters.specialty}`
-//   }
-//   fetch(url)
-//   .then(res => res.json())
-//   .then(specialists => setSpecialists({ specialists: specialists}))
-//   }
-//  const onChangeType = ({target: {value} }) =>{
-//     setFilters( {filters: {type: value}})
-//   }
+ const onFilterSpecialist = () =>{
+  let url = '/specialists';
+  if (specialists.filters.specialty !== 'all'){
+    url += `?specialty=${specialists.filters.specialty}`
+  }
+  fetch(url)
+  .then(res => res.json())
+  .then(specialists => setSpecialists({ specialists: specialists}))
+  }
+ const onChangeType = ({target: {value} }) =>{
+    setFilters( {filters: {type: value}})
+  }
 
   if (!user) return <Index onLogin={setUser} />;
 
@@ -83,7 +84,7 @@ function App() {
         <Route path="/wellness">
           <Wellness 
           filters = {onFilterSpecialist}
-          //  onChangeType={onChangeType}
+           onChangeType={onChangeType}
           />
         </Route>
         <Route path="/therapist">

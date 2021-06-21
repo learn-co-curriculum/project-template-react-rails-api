@@ -2,6 +2,6 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id, :username, :hobbies
 
   has_many :appointments
-  has_many :specialist
+  has_many :specialists
   
 end

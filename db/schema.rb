@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_06_17_012927) do
     t.string "image_url"
     t.string "name"
     t.string "about_me"
+    t.string "gender"
     t.string "language"
     t.float "rating"
     t.string "specialty"

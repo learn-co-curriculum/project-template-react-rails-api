@@ -24,7 +24,7 @@ const TrainerCard = ({ onUpdatedSpecialist, specialist, filters }) => {
 
 	<div className="card-container">
       <div className="image-container">
-        <img top width="100%" style={{height: "15vw"}} src={specialist.image_url} alt="Card image cap"></img>
+        <img top width="100%" style={{height: "13vw"}} src={specialist.image_url} alt="Card image cap"></img>
         </div>
         <div className="card-content">
         <div className="card-body">
@@ -32,6 +32,7 @@ const TrainerCard = ({ onUpdatedSpecialist, specialist, filters }) => {
           </div>
           <div className="card-body">
           <p style={{color: "darkgrey"}}>About me: {specialist.about_me}</p>
+          <p>Gender: {specialist.gender}</p>
           <p>Language: {specialist.language}</p>
       <div>
           Rating:{" "}

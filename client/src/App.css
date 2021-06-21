@@ -126,3 +126,21 @@ video {
   width: 100vw; 
   height: 100vh;
 }
+
+/* @media only screen and (min-width: 1200px) {
+	.card-container {
+	  width: 84%;
+	}
+  }
+  
+  @media only screen and (min-width: 1024px) {
+	.cards-container {
+	  display: flex;
+	}
+  }
+  
+  @media only screen and (max-width: 1024px) {
+	.cards-container {
+	  margin-bottom: 2rem;
+	}
+  } */

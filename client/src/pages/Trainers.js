@@ -4,12 +4,11 @@ import TrainerCard from './TrainerCard'
 const Trainers = (props) => {
 	return (
 	<div className="specialist-collection">
-   {props.specialists.map((specialist) => {
+   {props.trainers.map((trainer) => {
 				return <TrainerCard 
 				filters={props.filters}
-				onUpdatedChecklist={props.handleUpdateChecklist}
-				specialist={specialist} 
-				key={specialist.id}	
+				trainer={trainer} 
+				key={trainer.id}	
 				/>
 				})}
     </div>

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 const Therapist = (props) => {
+
 	return (
 		<div>
 		<h1 style={{textAlign: "center", fontFamily: "fantasy", fontWeight: "bold", fontSize: "50px", color: "#9D7E68"}}>Therapy</h1>
@@ -16,8 +17,8 @@ const Therapist = (props) => {
 			<CardBody>
 			  <CardTitle tag="h5">Learn more about our Therapists</CardTitle>
 			  <CardText>Wholeness- offers it's members one of the top world's best psychologist. We understand being healthy doesn't only stem from the physical aspect but also mental so we offer our members the option to speak with one of our therapists. You can sort the therapist based on their gender or language they speak. </CardText>
-			  <div>
-			  <FormGroup>
+			  {/* <select onChange={props.onChangeType}> */}
+			  <FormGroup onChange={props.onChangeType}>
 			<Label for="exampleSelect">Select Gender:</Label>
 			<Input type="select" name="select" id="exampleSelect">
 			  <option>--Select--</option>
@@ -25,8 +26,6 @@ const Therapist = (props) => {
 			  <option>Male</option>
 			</Input>
 		  </FormGroup>
-			  </div>
-			  <div>
 			  <FormGroup>
 			<Label for="exampleSelect">Select language:</Label>
 			<Input type="select" name="select" id="exampleSelect">
@@ -43,7 +42,7 @@ const Therapist = (props) => {
 			  {/* 2 german speaking */}
 			</Input>
 		  </FormGroup>
-			  </div>
+			  {/* </select> */}
 			  <div style={{marginTop: "5px"}}>
 			  <FormGroup check>
 			  <Label check>
@@ -52,8 +51,8 @@ const Therapist = (props) => {
 			  </Label>
 			</FormGroup>
 			  </div>
-			  <Link to="/therapist">
-			  <Button style={{backgroundColor: "#9D7E68", marginTop: "10px"}} onClick={props.filter}>Book Appointments</Button>
+			  <Link to="/psychologists">
+			  <Button style={{backgroundColor: "#9D7E68", marginTop: "10px"}} onClick={props.onFilter}>Book Appointments</Button>
 			  </Link>
 			</CardBody>
 			<CardFooter style={{backgroundColor: "#9D7E68", color: "white"}}>Licensed Therapist</CardFooter>

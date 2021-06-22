@@ -2,14 +2,15 @@ import React from 'react';
 import StarRating from "./StarRating";
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
+import { checkPropTypes } from 'prop-types';
 
-const TrainerCard = ({ onUpdatedSpecialist, trainer, filters }) => {
-	const { id, rating } = trainer;
+const TherapistCard = ({ onUpdatedSpecialist, psychologist, filters, onSubmitPyschologist }) => {
+	const { id, rating } = psychologist;
 
 	function handleUpdateRating(pct) {
 		const newRating = pct * 5;
 	
-		fetch(`/trainers/${id}`, {
+		fetch(`/psychologists/${id}`, {
 		  method: "PATCH",
 		  headers: {
 			"Content-Type": "application/json",
@@ -24,22 +25,22 @@ const TrainerCard = ({ onUpdatedSpecialist, trainer, filters }) => {
 
 	<div className="card-container">
       <div className="image-container">
-        <img top width="100%" style={{height: "13vw"}} src={trainer.image_url} alt="Card image cap"></img>
+        <img top width="100%" style={{height: "13vw"}} src={psychologist.image_url} alt="Card image cap"></img>
         </div>
         <div className="card-content">
         <div className="card-body">
-          <h4>{trainer.name}</h4>
+          <h4>{psychologist.name}</h4>
           </div>
           <div className="card-body">
-          <p style={{color: "darkgrey"}}>About me: {trainer.about_me}</p>
-          <p>Gender: {trainer.gender}</p>
-          <p>Language: {trainer.language}</p>
+          <p style={{color: "darkgrey"}}>About me: {psychologist.about_me}</p>
+          <p>Gender: {psychologist.gender}</p>
+          <p>Language: {psychologist.language}</p>
       <div>
           Rating:{" "}
-          <StarRating onClick={handleUpdateRating} percentage={trainer.rating / 5} />
+          <StarRating onClick={handleUpdateRating} percentage={psychologist.rating / 5} />
         </div>
-      <p>Specialty: {trainer.specialty}</p>
-      <Link to="trainerschedular"> 
+      <p>Specialty: {psychologist.specialty}</p>
+      <Link to="therapistschedular"> 
           <Button style={{backgroundColor: "#9D7E68"}}>Book Appointment</Button>
       </Link>
         </div>
@@ -48,4 +49,4 @@ const TrainerCard = ({ onUpdatedSpecialist, trainer, filters }) => {
 	)
 }
 
-export default TrainerCard
+export default TherapistCard

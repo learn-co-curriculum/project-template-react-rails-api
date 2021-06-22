@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :appointments
-  resources :specialists
+  resources :trainers
+  resources :psychologists
 
   post "/signup", to: "users#create"
   get "/me", to: "users#show"

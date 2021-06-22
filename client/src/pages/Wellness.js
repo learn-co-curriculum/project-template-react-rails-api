@@ -14,6 +14,7 @@ return (
     <h1 style={{textAlign: "center", fontFamily: "fantasy", fontWeight: "bold", fontSize: "50px", color: "#9D7E68"}}>Wellness</h1>
     <video style={{height: "45vw"}} src='/video/wellness.mp4' autoPlay loop muted/>
     <div style={{width: "30%"}}>
+    <form onSubmitTrainer={props.onSubmitTrainer}>
     <Card style={{border: "none", marginTop: "0px"}}>
         <CardHeader style={{fontFamily: "Permanent Marker, cursive", fontWeight: "bold", backgroundColor: "#9D7E68", fontSize: "20px", color: "white"}}>About Our Trainers</CardHeader>
         <CardBody>
@@ -61,6 +62,7 @@ return (
         </CardBody>
         <CardFooter style={{backgroundColor: "#9D7E68", color: "white"}}>Licensed Trainers</CardFooter>
       </Card>
+    </form>
     </div> 
     </div>  
   )

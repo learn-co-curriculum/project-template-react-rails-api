@@ -1,7 +1,7 @@
 class PsychologistsController < ApplicationController
 
 	def index
-		psychologists = Psychologist.where(gender: params[:gender]) 
+		psychologists = Psychologist.where(gender: params[:gender], language: params[:language]) 
 		render json: psychologists
 	end 
 

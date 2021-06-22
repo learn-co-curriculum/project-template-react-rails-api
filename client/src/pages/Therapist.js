@@ -18,7 +18,7 @@ const Therapist = (props) => {
 			  <CardTitle tag="h5">Learn more about our Therapists</CardTitle>
 			  <CardText>Wholeness- offers it's members one of the top world's best psychologist. We understand being healthy doesn't only stem from the physical aspect but also mental so we offer our members the option to speak with one of our therapists. You can sort the therapist based on their gender or language they speak. </CardText>
 			  {/* <select onChange={props.onChangeType}> */}
-			  <FormGroup onChange={props.onChangeType}>
+			  <FormGroup onChange={e =>props.setFilterGender(e.target.value)}>
 			<Label for="exampleSelect">Select Gender:</Label>
 			<Input type="select" name="select" id="exampleSelect">
 			  <option>--Select--</option>
@@ -26,7 +26,7 @@ const Therapist = (props) => {
 			  <option>Male</option>
 			</Input>
 		  </FormGroup>
-			  <FormGroup onChange={props.onChangeType}>
+			  <FormGroup onChange={e =>props.setFilterLanguage(e.target.value)}>
 			<Label for="exampleSelect">Select language:</Label>
 			<Input type="select" name="select" id="exampleSelect">
 			  <option>--Select--</option>

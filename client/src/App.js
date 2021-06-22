@@ -18,7 +18,8 @@ function App() {
   const[user, setUser] = useState(null);
   const [trainers, setTrainers] = useState([]);
   const [psychologists, setPsychologists] = useState([]);
-  const [filter, setFilter] = useState({gender: 'all'})
+  const [filterGender, setFilterGender] = useState('all')
+  const [filterLanguage, setFilterLanguage] = useState('all')
 
   useEffect(() => {
     // auto-login
@@ -35,20 +36,6 @@ useEffect(() => {
     .then((r) => r.json())
     .then(setTrainers);
 }, []);
-//fetch psychologists without useEffect
-
-  // const onSubmitPsychologist = () => {
-  //   fetch("http://localhost:3000/psychologists")
-  //     .then((r) => r.json())
-  //     .then(psychologists => setPsychologists({ psychologists}));
-  // };
-
-  //fetch psychologist with useEffect
-  // useEffect(() => {
-  //   fetch("/psychologists")
-  //     .then((r) => r.json())
-  //     .then(setPsychologists);
-  // }, []);
 
   //update rating
   function handleUpdateSpecialist(updatedSpecialist) {
@@ -59,21 +46,19 @@ useEffect(() => {
     );
   }
 
-
+//fetch psychologists with filter
  const onFilter = () =>{
   let url = '/psychologists';
-  if (filter.gender !== 'all'){
-    url += `?gender=${filter.gender}`
+  if (filterGender !== 'all' && filterLanguage !== 'all'){
+    url += `?gender=${filterGender}&language=${filterLanguage}`
   }
+  
   fetch(url,
     {mode: 'cors',
     credentials: 'include'})
   .then(res => res.json())
   .then(filteredItem => setPsychologists(filteredItem))
   console.log(url)
-  }
- const onChangeType = ({target: {value} }) =>{
-    setFilter( {gender: value} )
   }
 
   if (!user) return <Index onLogin={setUser} />;
@@ -94,7 +79,8 @@ useEffect(() => {
         <Route path="/therapist">
           <Therapist
           onFilter={onFilter}
-          onChangeType={onChangeType}
+          setFilterGender={setFilterGender}
+          setFilterLanguage={setFilterLanguage}
           />
         </Route>
         <Route path="/blogs">

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function SignInForm(props) {
+function SignUpForm(props) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -14,7 +14,7 @@ function SignInForm(props) {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        fetch(`http://localhost:3000/users`, {
+        fetch(`http://localhost:3000/users`,{crossDomain: true}, {withCredentials: true}, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -58,4 +58,4 @@ function SignInForm(props) {
     )
 }
 
-export default SignInForm
+export default SignUpForm

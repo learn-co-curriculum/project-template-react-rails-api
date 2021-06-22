@@ -4,12 +4,7 @@ import Header from './Components/Header';
 import SignUpForm from './Components/SignUpForm'
 import LoginForm from './Components/LoginForm'
 import { BrowserRouter, Route, Link } from "react-router-dom";
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link
-// } from "react-router-dom";
+
 
 function App() {
   const [user, setUser] = useState({})
@@ -18,7 +13,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token")
     if(token){
-      fetch(`http://localhost:3000/auto_login`, {
+      fetch(`http://localhost:3000/auto_login`, {crossDomain: true}, {withCredentials: true}, {
         headers: {
           Authorization: `Bearer ${token}`
         }

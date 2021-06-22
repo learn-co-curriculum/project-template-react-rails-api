@@ -26,7 +26,7 @@ const Therapist = (props) => {
 			  <option>Male</option>
 			</Input>
 		  </FormGroup>
-			  <FormGroup>
+			  <FormGroup onChange={props.onChangeType}>
 			<Label for="exampleSelect">Select language:</Label>
 			<Input type="select" name="select" id="exampleSelect">
 			  <option>--Select--</option>

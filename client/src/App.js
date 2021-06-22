@@ -44,11 +44,11 @@ useEffect(() => {
   // };
 
   //fetch psychologist with useEffect
-  useEffect(() => {
-    fetch("/psychologists")
-      .then((r) => r.json())
-      .then(setPsychologists);
-  }, []);
+  // useEffect(() => {
+  //   fetch("/psychologists")
+  //     .then((r) => r.json())
+  //     .then(setPsychologists);
+  // }, []);
 
   //update rating
   function handleUpdateSpecialist(updatedSpecialist) {
@@ -60,28 +60,17 @@ useEffect(() => {
   }
 
 
-  // const onFilterSpecialist = () =>{
-  //   let url = '/specialists';
-  //   if ("http://localhost:4000//wellness" && ) {
-  //     "http://localhost:4000//trainer"
-  //     specialists.filters.specialty = 'Trainer'
-  //   }
-  //   fetch(url)
-  //   .then(res => res.json())
-  //   .then(specialists => setSpecialists({ specialists: specialists}))
-  //   }
-  //  const onChangeType = ({target: {value} }) =>{
-  //     setFilters( {filters: {type: value}})
-  //   }
-
  const onFilter = () =>{
-  let url = 'http://localhost:3000/psychologists';
+  let url = '/psychologists';
   if (filter.gender !== 'all'){
     url += `?gender=${filter.gender}`
   }
-  fetch(url, {crossDomain: true}, {withCredentials: true})
+  fetch(url,
+    {mode: 'cors',
+    credentials: 'include'})
   .then(res => res.json())
-  .then(filteredItem => setPsychologists({filteredItem}))
+  .then(filteredItem => setPsychologists(filteredItem))
+  console.log(url)
   }
  const onChangeType = ({target: {value} }) =>{
     setFilter( {gender: value} )

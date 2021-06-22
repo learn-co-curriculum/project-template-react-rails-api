@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import {Redirect} from 'react-router-dom';
+
 
 function LoginForm(props){
     const [username, setUsername] = useState("")
@@ -14,7 +16,7 @@ function LoginForm(props){
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        fetch(`http://localhost:3000/login`, {
+        fetch(`http://localhost:3000/users`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -38,6 +40,12 @@ function LoginForm(props){
         padding: "20px",
         width: "80%"
     }
+
+	const onSubmit = () => { 
+		if(userFound){
+		return  <Redirect  to="/home/" />
+	}}
+
     return(
         <div>
             <div style={formDivStyle}>
@@ -52,7 +60,7 @@ function LoginForm(props){
                     <input value={password} onChange={handlePasswordChange} type="password" placeholder="password"/>
                 </div>
                 
-                <button class="ui button" type="submit">Login</button>
+                <button class="ui button" type="submit" onClick={this.onSubmit}>Login</button>
             </form>
         </div>
         </div>

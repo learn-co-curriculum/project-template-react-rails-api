@@ -3,6 +3,13 @@ import './App.css';
 import Header from './Components/Header';
 import SignUpForm from './Components/SignUpForm'
 import LoginForm from './Components/LoginForm'
+import { BrowserRouter, Route, Link } from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState({})

@@ -18,7 +18,7 @@ return (
         <CardBody>
           <CardTitle tag="h5">Learn more about our Trainers</CardTitle>
           <CardText>Wholeness- offers it's members one of the top world's best personal trainers. We understand our members come from a wide range of demographical backgrounds so we worked hard to make sure there is a trainer that can communicate with each member's language preference. You can sort trainer's based on rating, gender, and language. </CardText>
-          <FormGroup onChange={e =>props.setFilterGenderTrainer(e.target.value)}>
+          <FormGroup onChange={e =>props.setFilterGender(e.target.value)}>
         <Label for="exampleSelect">Select Gender:</Label>
         <Input type="select" name="select" id="exampleSelect">
           <option>--Select--</option>
@@ -26,7 +26,7 @@ return (
           <option>Male</option>
         </Input>
       </FormGroup>
-          <FormGroup onChange={e =>props.setFilterLanguageTrainer(e.target.value)}>
+          <FormGroup onChange={e =>props.setFilterLanguage(e.target.value)}>
         <Label for="exampleSelect">Select language:</Label>
         <Input type="select" name="select" id="exampleSelect">
           <option>--Select--</option>

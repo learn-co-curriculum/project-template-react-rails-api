@@ -18,10 +18,8 @@ function App() {
   const[user, setUser] = useState(null);
   const [trainers, setTrainers] = useState([]);
   const [psychologists, setPsychologists] = useState([]);
-  const [filterGenderTrainer, setFilterGenderTrainer] = useState('all')
-  const [filterLanguageTrainer, setFilterLanguageTrainer] = useState('all')
-  const [filterGenderPsych, setFilterGenderPsych] = useState('all')
-  const [filterLanguagePsych, setFilterLanguagePsych] = useState('all')
+  const [filterGender, setFilterGender] = useState('all')
+  const [filterLanguage, setFilterLanguage] = useState('all')
 
   useEffect(() => {
     // auto-login
@@ -35,8 +33,8 @@ function App() {
 //fetch trainers
 const onFilterTrainer = () =>{
   let url = '/trainers';
-  if (filterGenderTrainer !== 'all' && filterLanguageTrainer !== 'all'){
-    url += `?gender=${filterGenderTrainer}&language=${filterLanguageTrainer}`
+  if (filterGender !== 'all' && filterLanguage !== 'all'){
+    url += `?gender=${filterGender}&language=${filterLanguage}`
   }
   
   fetch(url,
@@ -59,8 +57,8 @@ const onFilterTrainer = () =>{
 //fetch psychologists with filter
  const onFilter = () =>{
   let url = '/psychologists';
-  if (filterGenderPsych !== 'all' && filterLanguagePsych !== 'all'){
-    url += `?gender=${filterGenderPsych}&language=${filterLanguagePsych}`
+  if (filterGender !== 'all' && filterLanguage !== 'all'){
+    url += `?gender=${filterGender}&language=${filterLanguage}`
   }
   
   fetch(url,
@@ -85,15 +83,15 @@ const onFilterTrainer = () =>{
         <Route path="/wellness">
           <Wellness 
           onFilterTrainer={onFilterTrainer}
-          setFilterGenderTrainer={setFilterGenderTrainer}
-          setFilterLanguageTrainer={setFilterLanguageTrainer}
+          setFilterGender={setFilterGender}
+          setFilterLanguage={setFilterLanguage}
           />
         </Route>
         <Route path="/therapist">
           <Therapist
           onFilter={onFilter}
-          setFilterGenderPsych={setFilterGenderPsych}
-          setFilterLanguagePsych={setFilterLanguagePsych}
+          setFilterGender={setFilterGender}
+          setFilterLanguage={setFilterLanguage}
           />
         </Route>
         <Route path="/blogs">

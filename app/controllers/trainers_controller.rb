@@ -1,8 +1,9 @@
 class TrainersController < ApplicationController
+
 	def index
-		trainers = Trainer.all 
+		trainers = Trainer.where(gender: params[:gender], language: params[:language]) 
 		render json: trainers
-	end 
+	end
 
 	def show
 		trainer = Trainer.find_by(id: params[:id])

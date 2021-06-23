@@ -18,8 +18,10 @@ function App() {
   const[user, setUser] = useState(null);
   const [trainers, setTrainers] = useState([]);
   const [psychologists, setPsychologists] = useState([]);
-  const [filterGender, setFilterGender] = useState('all')
-  const [filterLanguage, setFilterLanguage] = useState('all')
+  const [filterGenderTrainer, setFilterGenderTrainer] = useState('all')
+  const [filterLanguageTrainer, setFilterLanguageTrainer] = useState('all')
+  const [filterGenderPsych, setFilterGenderPsych] = useState('all')
+  const [filterLanguagePsych, setFilterLanguagePsych] = useState('all')
 
   useEffect(() => {
     // auto-login
@@ -31,11 +33,19 @@ function App() {
   }, []);
 
 //fetch trainers
-useEffect(() => {
-  fetch("/trainers")
-    .then((r) => r.json())
-    .then(setTrainers);
-}, []);
+const onFilterTrainer = () =>{
+  let url = '/trainers';
+  if (filterGenderTrainer !== 'all' && filterLanguageTrainer !== 'all'){
+    url += `?gender=${filterGenderTrainer}&language=${filterLanguageTrainer}`
+  }
+  
+  fetch(url,
+    {mode: 'cors',
+    credentials: 'include'})
+  .then(res => res.json())
+  .then(filteredItem => setTrainers(filteredItem))
+  console.log(url)
+  }
 
   //update rating
   function handleUpdateSpecialist(updatedSpecialist) {
@@ -49,8 +59,8 @@ useEffect(() => {
 //fetch psychologists with filter
  const onFilter = () =>{
   let url = '/psychologists';
-  if (filterGender !== 'all' && filterLanguage !== 'all'){
-    url += `?gender=${filterGender}&language=${filterLanguage}`
+  if (filterGenderPsych !== 'all' && filterLanguagePsych !== 'all'){
+    url += `?gender=${filterGenderPsych}&language=${filterLanguagePsych}`
   }
   
   fetch(url,
@@ -74,13 +84,16 @@ useEffect(() => {
         </Route>
         <Route path="/wellness">
           <Wellness 
+          onFilterTrainer={onFilterTrainer}
+          setFilterGenderTrainer={setFilterGenderTrainer}
+          setFilterLanguageTrainer={setFilterLanguageTrainer}
           />
         </Route>
         <Route path="/therapist">
           <Therapist
           onFilter={onFilter}
-          setFilterGender={setFilterGender}
-          setFilterLanguage={setFilterLanguage}
+          setFilterGenderPsych={setFilterGenderPsych}
+          setFilterLanguagePsych={setFilterLanguagePsych}
           />
         </Route>
         <Route path="/blogs">

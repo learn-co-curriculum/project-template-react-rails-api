@@ -2,6 +2,7 @@ import * as React from 'react';
 import { ScheduleComponent, Day, Week, WorkWeek, Month, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
 import { Alert } from 'reactstrap';
 
+const appointmentURL = 
 class Trainerscheduler extends React.Component {
     constructor() {
         super(...arguments);
@@ -14,6 +15,24 @@ class Trainerscheduler extends React.Component {
                 RecurrenceRule: 'FREQ=DAILY;INTERVAL=1;COUNT=5',
             }];
     }
+
+    addAppointment = (newFav) => {
+        //console.log(newFav)
+        let postOption = {
+          method: "POST",
+          headers: {
+            "Content-Type": 'application/json',
+            Accepts: 'application/json'
+          },
+          body: JSON.stringify(newFav)
+        }
+        console.log(postOption)
+      
+       fetch(favoriteURL, postOption, {crossDomain: true}, {withCredentials: true})
+            .then(res => res.json())
+            .then(this.setState({ favorites: [...this.state.favorites, newFav] }))
+        }
+
     render() {
         return (
 		<div>

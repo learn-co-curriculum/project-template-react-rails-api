@@ -1,5 +1,10 @@
 class AppointmentsController < ApplicationController
 
+	def index
+		appointments = Appointment.all
+		render json: appointments
+	end
+
 	def create
 		appointment = @current_user.appointments.create!(appointment_params)
 		render json: appointment, status: :created
@@ -17,7 +22,7 @@ class AppointmentsController < ApplicationController
 	
 	  private
 	def appointment_params
-		params.permit(:user_id, :specialist_id, :date, :time)
+		params.permit(:user_id, :trainer_id, :psychologist_id, :date, :time)
 	end 
 	
 end

@@ -1,0 +1,40 @@
+{
+  "name": "with-router",
+  "version": "1.0.1",
+  "author": "Charles Stover <with-router@charlesstover.com>",
+  "bugs": {
+    "email" : "with-router@charlesstover.com",
+    "url": "https://github.com/CharlesStover/with-router/issues"
+  },
+  "description": "A pub-sub alternative HOC to react-router's withRouter HOC.",
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "index.js",
+    "package.json"
+  ],
+  "homepage": "https://github.com/CharlesStover/with-router#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "github:CharlesStover/with-router",
+  "scripts": {
+    "build": "webpack",
+    "dev": "set NODE_ENV=development&& webpack",
+    "prepublishOnly": "webpack",
+    "test": "echo \"No tests exist.\" && exit 0"
+  },
+  "dependencies": { },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-loader": "^8.0.0-beta.6",
+    "react": "^16.6.0",
+    "react-router": "^4.3.1",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2"
+  }
+}

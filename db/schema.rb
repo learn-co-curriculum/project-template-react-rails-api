@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_21_170401) do
+ActiveRecord::Schema.define(version: 2021_06_23_162642) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "appointments", force: :cascade do |t|
-    t.date "date"
-    t.time "time"
+  create_table "psychologist_appointments", force: :cascade do |t|
+    t.string "subject"
+    t.datetime "startTime"
+    t.datetime "endTime"
     t.integer "user_id"
     t.integer "psychologist_id"
-    t.integer "trainer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 2021_06_21_170401) do
     t.string "language"
     t.float "rating"
     t.string "specialty"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trainer_appointments", force: :cascade do |t|
+    t.string "subject"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "user_id"
+    t.integer "trainer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

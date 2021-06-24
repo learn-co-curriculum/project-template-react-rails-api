@@ -33,6 +33,9 @@ const NavBar = ({ props, user, setUser})=> {
              <NavLink style={{color: "#9D7E68", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/blogs">Blogs</NavLink>
            </NavItem>
            <NavItem>
+             <NavLink style={{color: "#9D7E68", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/profile">My Profile</NavLink>
+           </NavItem>
+           <NavItem>
              <button style={{backgroundColor: "#9D7E68", color: "white", width: "100px", border: "none", padding: "10px", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} onClick={handleLogoutClick}>Log Out</button>
            </NavItem>
          </Nav>

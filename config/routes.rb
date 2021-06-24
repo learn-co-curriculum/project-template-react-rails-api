@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :appointments
+  resources :trainer_appointments
+  resources :psychologist_appointments
   resources :trainers
   resources :psychologists
 

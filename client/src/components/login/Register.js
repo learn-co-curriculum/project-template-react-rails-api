@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../../logo.png';
-import { Alert } from 'reactstrap';
+import { Alert,Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 const Register = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -37,63 +37,63 @@ const Register = ({ onLogin }) => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-		<div className="base-container">
-		<div className="header" style={{fontFamily: "Permanent Marker, cursive", fontWeight: "bold"}}>Register</div>
-		<div className="content">
-			<div className="image">
-				<img src={logo} alt="logo"/>
-			</div>
-			<div className="form">
-				<div className="form-group">
-					<label htmlFor="username" style={{marginRight: "10px"}}>Username: </label>
-					<input type="text" name="username" 
-					placeholder="username" 
-					style={{marginBottom: "5px"}}
-					value={username}
-          			onChange={(e) => setUsername(e.target.value)}
-					/>
-				</div>
-				<div className="form-group">
-					<label htmlFor="password" style={{marginRight: "10px"}}>Password: </label>
-					<input type="password" name="password" placeholder="password" 
-					style={{marginBottom: "5px"}}
-					value={password}
-          			onChange={(e) => setPassword(e.target.value)}
-					autoComplete="current-password"
-					  />
-				</div>
-				<div className="form-group">
-					<label htmlFor="password" style={{marginRight: "10px"}}>Password Confirmation:</label>
-					<input type="password" 
-					name="password" 
-					id="password_confirmation"
-					placeholder="password" 
-					style={{marginBottom: "5px"}}
-					value={passwordConfirmation}
-          			onChange={(e) => setPasswordConfirmation(e.target.value)}
-          			autoComplete="current-password"
-					/>
-				</div>
-				<div className="form-group">
-					<label htmlFor="hobbies" style={{marginRight: "10px"}}>Hobbies: </label>
-					<input type="text" name="password" 
-					placeholder="hobbies"
-					value={hobbies}
-          			onChange={(e) => setHobbies(e.target.value)}
-					/>
-				</div>
-			</div>
-		  </div>	
-		  <div className="footer">
-			<button type="submit" className="btn">
-			{isLoading ? "Loading..." : "Sign Up"}
-			</button>
-			{errors.map((err) => (
-		<Alert color="danger" style={{marginTop: "10px"}} key={err}>{err}</Alert>
+        <div className="base-container">
+        <div className="header" style={{fontFamily: "Permanent Marker, cursive", fontWeight: "bold"}}>Register</div>
+        <div className="content">
+            <div className="image">
+                <img src={logo} alt="logo"/>
+            </div>
+            <Form>
+                <FormGroup>
+                    <Label for="username" style={{marginRight: "10px"}}>Username: </Label>
+                    <Input type="text" name="username"
+                    placeholder="username"
+                    style={{marginBottom: "5px"}}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="password" style={{marginRight: "10px"}}>Password: </Label>
+                    <Input type="password" name="password" placeholder="password"
+                    style={{marginBottom: "5px"}}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    autoComplete="current-password"
+                      />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="password" style={{marginRight: "10px"}}>Password Confirmation:</Label>
+                    <Input type="password"
+                    name="password"
+                    id="password_confirmation"
+                    placeholder="password"
+                    style={{marginBottom: "5px"}}
+                    value={passwordConfirmation}
+                    onChange={(e) => setPasswordConfirmation(e.target.value)}
+                    autoComplete="current-password"
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Label for="hobbies" style={{marginRight: "10px"}}>Hobbies: </Label>
+                    <Input type="text" name="password"
+                    placeholder="hobbies"
+                    value={hobbies}
+                    onChange={(e) => setHobbies(e.target.value)}
+                    />
+                </FormGroup>
+            </Form>
+          </div>
+          <div className="footer">
+            <Button>
+            {isLoading ? "Loading..." : "Sign Up"}
+            </Button>
+            {errors.map((err) => (
+        <Alert color="danger" style={{marginTop: "10px"}} key={err}>{err}</Alert>
         ))}
-		  </div>
-		</div>
-		</form>
+          </div>
+        </div>
+        </form>
 	)
 }
 

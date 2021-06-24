@@ -12,6 +12,8 @@ import Trainerscheduler from './pages/Trainerscheduler';
 import Therapistschedular from './pages/Therapistschedular';
 import Blogs from './pages/blogs';
 import Psychologist from './pages/Psychologist';
+import Profile from './pages/Profile';
+import ProfilePage from './pages/ProfilePage';
 
 
 function App() {
@@ -20,6 +22,9 @@ function App() {
   const [psychologists, setPsychologists] = useState([]);
   const [filterGender, setFilterGender] = useState('all')
   const [filterLanguage, setFilterLanguage] = useState('all')
+  const [psychologistAppointment, setpsychologistAppointment] = useState([])
+  const [profile, setprofile] = useState([])
+  
 
   useEffect(() => {
     // auto-login
@@ -69,6 +74,28 @@ const onFilterTrainer = () =>{
   console.log(url)
   }
 
+  //fetch appointments
+  // useEffect(() => {
+  //   fetch("/psychologist_appointments")
+  //   .then((r) => r.json())
+  //   .then(setpsychologistAppointment);
+  // }, []);
+
+  // function handleAddPsychAppointment(addedPsychAppointment){
+  //   setpsychologistAppointment((psychologistAppointment) => [...psychologistAppointment, addedPsychAppointment]);
+  // }
+  //fetch profile
+
+  useEffect(() => {
+    fetch("/profile")
+      .then((r) => r.json())
+      .then(setprofile);
+  }, []);
+  function handleAddProfile(addedProfile){
+    setprofile((profile) => [...profile, addedProfile]);
+  }
+
+
   if (!user) return <Index onLogin={setUser} />;
 
   return (
@@ -108,10 +135,20 @@ const onFilterTrainer = () =>{
       trainers={trainers} />
       </Route>
     <Route path="/trainerschedular">
-    <Trainerscheduler />
+    <Trainerscheduler  />
     </Route>
     <Route path="/therapistschedular">
-    <Therapistschedular />
+    <Therapistschedular 
+    psychologistAppointment={psychologistAppointment}
+    />
+    </Route>
+    <Route path="/profile">
+    <Profile onAddProfile={handleAddProfile}/>
+    </Route>
+    <Route path="/myprofile">
+    <ProfilePage 
+    key={profile.id}
+    profile={profile}/>
     </Route>
       </Switch>
     </main>

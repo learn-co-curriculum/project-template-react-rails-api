@@ -3,7 +3,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
-const NavBar = ({ props, user, setUser})=> {
+const NavBar = ({ profiles, user, setUser})=> {
   function handleLogoutClick() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -33,7 +33,7 @@ const NavBar = ({ props, user, setUser})=> {
              <NavLink style={{color: "#9D7E68", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/blogs">Blogs</NavLink>
            </NavItem>
            <NavItem>
-             <NavLink style={{color: "#9D7E68", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/profile">My Profile</NavLink>
+             {profiles.length >0 ? <NavLink style={{color: "#9D7E68", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/myprofile"> My Profile</NavLink> : <NavLink style={{color: "#9D7E68", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} href="/profile">Create Profile</NavLink>}
            </NavItem>
            <NavItem>
              <button style={{backgroundColor: "#9D7E68", color: "white", width: "100px", border: "none", padding: "10px", fontSize: "18px", fontWeight: "bold", fontFamily: "Permanent Marker, cursive"}} onClick={handleLogoutClick}>Log Out</button>

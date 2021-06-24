@@ -5,5 +5,6 @@ class UserSerializer < ActiveModel::Serializer
   has_many :trainer_appointments
   has_many :trainers
   has_many :psychologists
+  has_one :profile
   
 end

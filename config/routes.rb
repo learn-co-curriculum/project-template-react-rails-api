@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :psychologist_appointments
   resources :trainers
   resources :psychologists
-
+  resources :profiles
+  
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
 

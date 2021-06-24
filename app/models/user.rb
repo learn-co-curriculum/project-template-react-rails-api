@@ -3,6 +3,7 @@ class User < ApplicationRecord
 	has_many :psychologist_appointments
 	has_many :trainers, through: :trainer_appointments
 	has_many :psychologists, through: :psychologist_appointments
+	has_one :profile
 
 	has_secure_password
 

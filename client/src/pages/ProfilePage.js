@@ -1,23 +1,18 @@
 import React from 'react'
+import ProfileCard from './ProfileCard'
 
 
-const ProfilePage = ({ profile }) => {
-	const {weight, desired_weight, bmi, exercise, therapy} = profile
+const ProfilePage = ({ profiles, onDeleteProfile }) => {
 	return (
-		<div className="card-container">
-		  <div className="card-content">
-		  <div className="card-body">
-			<p>Weight: {weight}</p>
-			</div>
-			<div className="card-body">
-			<p>Desired Weight: {desired_weight}</p>
-			<p>Current BMI: {bmi}</p>
-			<p>Exercise Per Week: {exercise}</p>
-			<p>Therapy Per Month: {therapy}</p>
-			<button style={{backgroundColor: "#9D7E68"}}>Update Profile</button>
-		  </div>
-		  </div>
-	  </div>
+		<div className="specialist-collection">
+   {profiles.map((profile) => {
+				return <ProfileCard 
+				onDeleteProfile={onDeleteProfile}
+				profile={profile} 
+				key={profile.id}	
+				/>
+				})}
+    </div>
 	)
 }
 

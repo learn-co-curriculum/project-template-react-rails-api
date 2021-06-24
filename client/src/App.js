@@ -31,7 +31,6 @@ function App() {
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => {setUser(user)
-          getProfile()
         });
       }
     });
@@ -87,12 +86,13 @@ const onFilterTrainer = () =>{
     setpsychologistAppointment((psychologistAppointment) => [...psychologistAppointment, addedPsychAppointment]);
   }
   //fetch profile
+
   
-  const getProfile = () => {
+  useEffect(() => {
     fetch("/profiles")
-    .then((r) => r.json())
-    .then(allprofiles => setprofiles(allprofiles.filter(profile => (profile.user.id === user.id))));
-  };
+      .then((r) => r.json())
+      .then(setprofiles);
+  }, []);
 
   function handleAddProfile(addedProfiles){
     setprofiles((profiles) => [...profiles, addedProfiles]);

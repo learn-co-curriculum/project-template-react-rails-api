@@ -40,35 +40,43 @@ const Profile = ({ onAddProfile, history, user }) => {
 		  history.push('/myprofile')
 	  }
 	return (
-		<div className="card">
-		<h2>Create Your Profile</h2>
+		<div>
+		<center>
+		<h1 className="profile-header">Create Your Profile</h1>
+		<div className="profile-card">
 		<form onSubmit={handleSubmit}>
 		   <label htmlFor="weight">Enter Your Weight:</label>
+		   <br/>
 		   <input 
 		   type="number"
 			id="weight"
 			value={formData.weight}
 			onChange={handleChange}
 		   />
-		   <p>make sure this is in lbs</p>
+		   <br />
+		   <FormText style={{fontSize: "11px"}}>make sure this is in lbs</FormText>
 		 <div style={{marginTop: "10px"}}>
 		   <label htmlFor="desired_weight">Enter Your Desired Weight Goal:</label>
+		   <br />
 		   <input 
 		   type="number"
 		   id="desired_weight"
 		   value={formData.desired_weight}
 		   onChange={handleChange}
 		    />
-		   <p>sweet, you can definitely do it</p>
+			<br />
+		   <FormText style={{fontSize: "11px"}}>sweet, you can definitely do it</FormText>
 		 </div>
 		 <div style={{marginTop: "10px"}}>
 		   <label htmlFor="bmi">Enter your BMI (body mass index):</label>
+		   <br />
 		   <input 
 		   type="number"
 		   id="bmi"
 		   value={formData.bmi}
 		   onChange={handleChange} 
 		   />
+		   <br />
 		   <a style={{textDecoration: "none", fontSize: "12px", color: "#9D7E68"}} href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm" target="blank">Calculate BMI here if you don't know it</a>
 		 </div>
         <Label htmlFor="range" style={{marginTop: "5px", marginBottom: "5px" }}>How close are you to achieving your health goal?</Label>
@@ -77,28 +85,34 @@ const Profile = ({ onAddProfile, history, user }) => {
 		<span style={{fontSize: "10px", marginRight: "5px"}}> pretty satisfied😁</span> 
 		 <div className="position-relative" style={{marginTop: "10px"}}>
 		   <label htmlFor="exercise">How often do you exercise?</label>
+		   <br />
 		   <input 
 		   input ="number"
 		   id="exercise"
 		   value={formData.exercise}
 		   onChange={handleChange}
 		    />
-		   <FormText>write the number of days you work-out per week</FormText>
+			<br />
+		   <FormText style={{fontSize: "11px"}}>write the number of days you work-out per week</FormText>
 		 </div>
 		 <div className="position-relative" style={{marginTop: "10px"}}>
 		   <label htmlFor="therapy">How often do you see a therapist?</label>
+		   <br />
 		   <input 
 		   input ="number"
 		   id="therapy"
 		   value={formData.therapy} 
 		   onChange={handleChange}
 		   />
-		   <FormText>write the number of sessions per month</FormText>
+		   <br />
+		   <FormText style={{fontSize: "11px"}}>write the number of sessions per month</FormText>
 		 </div>
-	   <Button style={{backgroundColor: "#9D7E68"}}>
+	   <Button style={{backgroundColor: "#9D7E68", marginBottom: "8px", width: '100px'}}>
          Submit
 	   </Button>
 	   </form>
+	   </div>
+	   </center>
 	   </div>
 	)
 }

@@ -126,7 +126,16 @@ video {
   width: 100vw; 
   height: 100vh;
 }
-
+.profile-header {
+  font-family: Permanent Marker, cursive;
+  color: #9D7E68;
+  margin-bottom: 20px;
+}
+.profile-card{
+  border: 1px solid #9D7E68;
+  width: 50%;
+  border-radius: 6px;
+}
 /* @media only screen and (min-width: 1200px) {
 	.card-container {
 	  width: 84%;

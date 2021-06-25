@@ -136,6 +136,14 @@ video {
   width: 50%;
   border-radius: 6px;
 }
+.profile-container{
+  background-image: url("https://st2.depositphotos.com/9527076/i/600/depositphotos_123358672-stock-photo-fitness-workout-background-dumbbells-on.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw; 
+  height: 100vh;
+}
+
 /* @media only screen and (min-width: 1200px) {
 	.card-container {
 	  width: 84%;

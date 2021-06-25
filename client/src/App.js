@@ -104,6 +104,13 @@ const onFilterTrainer = () =>{
     );
   }
 
+  const updateProfile = (profileId, newValue) =>{
+    if (!newValue.text || /^\s*$/.test(newValue.text)) {
+      return;
+    }
+      setprofiles(prev => prev.map(item => (item.id ===profileId ? newValue : item)))
+  }
+
   if (!user) return <Index onLogin={setUser} />;
 
   return (
@@ -157,8 +164,11 @@ const onFilterTrainer = () =>{
     </Route>
     <Route path="/myprofile">
     <ProfilePage
+    user={user}
+    updateProfile={updateProfile}
     onDeleteProfile={handleDeleteProfile}
-    profiles={profiles}/>
+    profiles={profiles}
+    />
     </Route>
       </Switch>
     </main>

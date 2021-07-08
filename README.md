@@ -7,7 +7,7 @@ backend together, and easily deploy them to Heroku.
 
 ## Requirements
 
-- Ruby 2.7.3
+- Ruby 2.7.4
 - NodeJS (v14 or higher), and npm
 - Heroku CLI
 - Postgresql
@@ -93,17 +93,16 @@ heroku open
 
 Ensure you are running the
 [latest Ruby release supported by Heroku][heroku ruby]. At the time of writing,
-that's `2.7.3`. You can verify with:
+that's `2.7.4`. You can verify with:
 
 ```sh
 ruby -v
 ```
 
-If you don't see `2.7.3`, you can install it and set it as the default version:
+If you don't see `2.7.4`, you can install it and set it as the default version:
 
 ```sh
-rvm install 2.7.3
-rvm --default use 2.7.3
+rvm install 2.7.4 --default
 ```
 
 You should also install the latest versions of `bundler` and `rails`:

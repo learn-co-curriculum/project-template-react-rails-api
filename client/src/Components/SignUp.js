@@ -14,14 +14,14 @@ let SignUp = (setCurrentUser) => {
         e.preventDefault(e)
         console.log('hello the button is working')
         const user = {
-            username, 
-            address, 
-            email,
-            password, 
-            passwordConfirmation
+            username: username, 
+            address: address, 
+            email_address: email,
+            password: password, 
+            password_confirmation: passwordConfirmation
         }
 
-        const res = await fetch(`http://localhost:3000/users`, {
+        const res = await fetch('http://localhost:3000/users', {
             method: 'POST', 
             headers: {'Content-Type' : 'application/json'}, 
             body: JSON.stringify({user})
@@ -35,7 +35,6 @@ let SignUp = (setCurrentUser) => {
         } else {
             setErrors(userData.message)
         }
-    
     }
 
     return (
@@ -58,6 +57,7 @@ let SignUp = (setCurrentUser) => {
                 <input className="login-input" type="password" value={passwordConfirmation} onChange={(e)=> setPasswordConfirmation(e.target.value)}/>
 
                 <button className="submit" type="submit">Sign Up</button>
+                {errors}
                 {/* <>errors ? errors.map error =>  return(<div>{error}<div>} : null</> */}
             </form>
         </div>

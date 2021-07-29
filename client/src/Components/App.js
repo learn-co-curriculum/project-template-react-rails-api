@@ -8,45 +8,52 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 
 let App = () => {
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState(true)
 
-   currentUser === null ? (
-      <div className="App">
-        <NavBar/>
-        <Switch>
-          <Route exact path='/login'>
-            <Login setCurrentUser={setCurrentUser}/>
-          </Route>
-          <Route exact path='/signup'>
-            <SignUp
-              setCurrentUser={setCurrentUser}
-            />
-          </Route>
-        </Switch>
-  
-      </div>
-    ) : (
+  if (currentUser === null) {
+    return (
+      <>
+        <NavBar
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+          />
+        <div className="App">
+          <Switch>
+            <Route exact path='/login'>
+              <Login setCurrentUser={setCurrentUser}/>
+            </Route>
+            <Route exact path='/signup'>
+              <SignUp
+                setCurrentUser={setCurrentUser}
+              />
+            </Route>
+          </Switch>
+        </div>
+      </>
+    )
+  } else {
+    return (
       <>
         <NavBar 
           currentUser={currentUser}
           setCurrentUser={setCurrentUser}
         />
-      <div className="App">
-        <Switch>
-          <Route exact path='/login'>
-            <Login setCurrentUser={setCurrentUser}/>
-          </Route>
-          <Route exact path='/signup'>
-            <SignUp setCurrentUser={setCurrentUser}/>
-          </Route>
-          <Route exact path='/'>
-            <Home/>
-          </Route>
-        </Switch>
-  
-      </div>
+        <div className="App">
+          <Switch>
+            <Route exact path='/login'>
+              <Login setCurrentUser={setCurrentUser}/>
+            </Route>
+            <Route exact path='/signup'>
+              <SignUp setCurrentUser={setCurrentUser}/>
+            </Route>
+            <Route exact path='/'>
+              <Home/>
+            </Route>
+          </Switch>
+        </div>
       </>
-    );
+    )
+  }
 }
 
 export default App;

@@ -16,22 +16,21 @@ let App = () => {
         <Navbar
           // currentUser={currentUser}
           // setCurrentUser={setCurrentUser}
+
           />
-        <div className="App">
+        <div>
           <BrowserRouter>
             <Switch>
               <Route exact path='/login'>
                 <Login setCurrentUser={setCurrentUser}/>
               </Route>
               <Route exact path='/signup'>
-                <SignUp
-                  setCurrentUser={setCurrentUser}
-                />
+                <SignUp setCurrentUser={setCurrentUser}/>
               </Route>
             </Switch>
           </BrowserRouter>
         </div>
-      </>
+      </div>
     )
   } else {
     return (
@@ -40,7 +39,7 @@ let App = () => {
           // currentUser={currentUser}
           // setCurrentUser={setCurrentUser}
         />
-        <div className="App">
+        <div>
           <BrowserRouter>
             <Switch>
               <Route exact path='/login'>
@@ -55,7 +54,7 @@ let App = () => {
             </Switch>
           </BrowserRouter>
         </div>
-      </>
+      </div>
     )
   }
 }

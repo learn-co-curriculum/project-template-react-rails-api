@@ -1,13 +1,145 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.App {
+  background-image: url('https://images.dwell.com/photos-6133553759298379776/6313447534553235456-large/custom-made-by-studio-adjective-the-23-foot-coffee-bar-is-topped-with-a-white-corian-counter-and-white-metal-stripes-design.jpg');
+  background-size: cover;
+  border: 1px solid black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+/* CSS for the login/signup components */
+.login-container {
+  border: 1px solid black;
+  border: 16px;
+  display: flex;
+  align-items: space-around;
+  justify-content: space-evenly;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-input {
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.submit {
+  border-radius: 16px;
+  margin: 5px;
+  background-color: lightskyblue;
+}
+
+
+/* CSS for home component */
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: ;
+  width: 97vw;
+  border-radius: 16px;
+}
+
+.menu-container {
+  height: 100%;
+  margin: 10px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cart-container {
+  background-color: lightsteelblue;
+  margin: 10px;
+  height: 50vh;
+  width: 90vw;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brew-method-story-container {
+  margin: 10px;
+  height: 20vh;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.beans-menu-card {
+  background-image: url('https://cdn.luxe.digital/media/2020/05/07203610/best-coffee-beans-luxe-digital.jpg');
+  background-size: cover;
+  opacity: 0.9;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45vh;
+  width: 45vw;
+  margin: 10px;
+}
+
+.beans-menu-card:hover {
+  background-image: url('https://cdn.luxe.digital/media/2020/05/07203610/best-coffee-beans-luxe-digital.jpg');
+  background-size: cover;
+  opacity: 0.5;
+}
+
+.drinks-menu-card {
+  background-image: url('https://i.pinimg.com/originals/7f/14/f7/7f14f78321616bfc6ce427b8bf29352d.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45vh;
+  width: 45vw;
+  margin: 10px;
+}
+
+.drinks-menu-card:hover {
+  background-image: url('https://i.pinimg.com/originals/7f/14/f7/7f14f78321616bfc6ce427b8bf29352d.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+}
+
+.brew-method-card {
+  background-color: lightyellow;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 18vh;
+  width: 45vw;
+  margin: 10px;
+}
+
+.coffee-story-card {
+  background-color: lightpink;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 18vh;
+  width: 45vw;
+  margin: 10px;
+}
+
+.home-navigation-button {
+  border-radius: 16px;
+  background-color: lightskyblue;
 }

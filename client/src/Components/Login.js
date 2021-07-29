@@ -13,11 +13,15 @@ let Login = (setCurrentUser) => {
     }
 
     return <div className="login-container">
-        <form className="sign-up-form" onSubmit={handleSubmit}>
-            <input type="text" value={username}/>
-            <input type="password" value={password}/>
-            <input type="password"value={passwordConfirmation}/>
-            <button type="submit">Submit</button>
+        <form className="login-form" onSubmit={handleSubmit}>
+            <h1>Login</h1>
+            <label htmlFor="username">Username</label>
+            <input className="login-input" type="text" value={username} onChange={(e)=> setUsername(e.target.value)}/>
+            <label htmlFor="password">Password</label>
+            <input className="login-input" type="password" value={password} onChange={(e)=> setPassword(e.target.value)}/>
+            <label htmlFor="password">Password Confirmation</label>
+            <input className="login-input" type="password"value={passwordConfirmation} onChange={(e)=> setPasswordConfirmation(e.target.value)}/>
+            <button className="submit" type="submit">Submit</button>
         </form>
     </div>
 

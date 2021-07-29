@@ -1,0 +1,2 @@
+class IntakesController < ApplicationController
+end

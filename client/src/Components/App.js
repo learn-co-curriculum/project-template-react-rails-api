@@ -12,35 +12,33 @@ let App = () => {
 
   if (currentUser === null) {
     return (
-      <>
+      <div className="App">
         <NavBar
           currentUser={currentUser}
           setCurrentUser={setCurrentUser}
           />
-        <div className="App">
+        <div>
           <BrowserRouter>
             <Switch>
               <Route exact path='/login'>
                 <Login setCurrentUser={setCurrentUser}/>
               </Route>
               <Route exact path='/signup'>
-                <SignUp
-                  setCurrentUser={setCurrentUser}
-                />
+                <SignUp setCurrentUser={setCurrentUser}/>
               </Route>
             </Switch>
           </BrowserRouter>
         </div>
-      </>
+      </div>
     )
   } else {
     return (
-      <>
+      <div className="App">
         <NavBar 
           currentUser={currentUser}
           setCurrentUser={setCurrentUser}
         />
-        <div className="App">
+        <div>
           <BrowserRouter>
             <Switch>
               <Route exact path='/login'>
@@ -55,7 +53,7 @@ let App = () => {
             </Switch>
           </BrowserRouter>
         </div>
-      </>
+      </div>
     )
   }
 }

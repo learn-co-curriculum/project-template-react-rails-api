@@ -1,8 +1,6 @@
 .App {
   background-image: url('https://images.dwell.com/photos-6133553759298379776/6313447534553235456-large/custom-made-by-studio-adjective-the-23-foot-coffee-bar-is-topped-with-a-white-corian-counter-and-white-metal-stripes-design.jpg');
   background-size: cover;
-  border: 1px solid black;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,6 +12,7 @@
 .login-container {
   border: 1px solid black;
   border: 16px;
+  height: 550px;
   display: flex;
   align-items: space-around;
   justify-content: space-evenly;
@@ -22,6 +21,7 @@
 .login-form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .login-input {
@@ -41,36 +41,47 @@
 .home-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
-  height: ;
+  height: 1500px;
   width: 97vw;
   border-radius: 16px;
+  overflow-y: auto
 }
 
 .menu-container {
-  height: 100%;
-  margin: 10px;
+  height: 100vh;
   border-radius: 16px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
 }
 
 .cart-container {
   background-color: lightsteelblue;
+  background-size: cover;
+  background-position: center;
   margin: 10px;
-  height: 50vh;
-  width: 90vw;
+  height: 100vh;
+  width: 70vw;
   border-radius: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px;
+
+}
+
+.cart-container:hover {
+  background-image: url('https://thumbor.thedailymeal.com/rbTne3GcH3r5Vg60BXS0kxP15sE=//https://www.thedailymeal.com/sites/default/files/2019/01/24/Hero_Coffee_edit_0.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
 }
 
 .brew-method-story-container {
   margin: 10px;
-  height: 20vh;
+  height: 100vh;
   border-radius: 16px;
   display: flex;
   justify-content: space-evenly;
@@ -78,26 +89,7 @@
 }
 
 .beans-menu-card {
-  background-image: url('https://cdn.luxe.digital/media/2020/05/07203610/best-coffee-beans-luxe-digital.jpg');
-  background-size: cover;
-  opacity: 0.9;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 45vh;
-  width: 45vw;
-  margin: 10px;
-}
-
-.beans-menu-card:hover {
-  background-image: url('https://cdn.luxe.digital/media/2020/05/07203610/best-coffee-beans-luxe-digital.jpg');
-  background-size: cover;
-  opacity: 0.5;
-}
-
-.drinks-menu-card {
-  background-image: url('https://i.pinimg.com/originals/7f/14/f7/7f14f78321616bfc6ce427b8bf29352d.jpg');
+  background-image: url('https://cdn.shopify.com/s/files/1/1803/1149/products/coffee-bag.jpg?v=1591291294');
   background-size: cover;
   background-position: center;
   opacity: 0.9;
@@ -105,8 +97,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 45vh;
-  width: 45vw;
+  height: 90vh;
+  width: 30vw;
+  margin: 15px;
+}
+
+.beans-menu-card:hover {
+  background-image: url('https://media.timeout.com/images/103000598/image.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+}
+
+.drinks-menu-card {
+  background-image: url('https://cdn.luxe.digital/media/2020/05/07203610/best-coffee-beans-luxe-digital.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 60vw;
   margin: 10px;
 }
 
@@ -118,14 +131,23 @@
 }
 
 .brew-method-card {
-  background-color: lightyellow;
+  background-image: url('https://i.pinimg.com/736x/77/29/69/77296979319e0001b02e16ee9cc7cce0.jpg');
+  background-size: cover;
+  background-position: center;
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 18vh;
-  width: 45vw;
+  height: 90vh;
+  width: 25vw;
   margin: 10px;
+}
+
+.brew-method-card:hover {
+  background-image: url('https://images.megapixl.com/5946/59464327.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
 }
 
 .coffee-story-card {
@@ -134,12 +156,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 18vh;
-  width: 45vw;
+  height: 90vh;
+  width: 55vw;
   margin: 10px;
+}
+
+.coffee-story-card:hover {
+  background-image: url('https://www.incimages.com/uploaded_files/image/1920x1080/getty_938993594_391384.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
 }
 
 .home-navigation-button {
   border-radius: 16px;
-  background-color: lightskyblue;
+  background-color: lightgrey;
 }

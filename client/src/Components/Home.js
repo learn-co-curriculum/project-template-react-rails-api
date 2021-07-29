@@ -31,11 +31,11 @@ let Home = () => {
     return (
         <div className="home-container">
             <div className="menu-container">
-                <div className="beans-menu-card" >
-                    <button className="home-navigation-button" onClick={handleBeansClick}>Order beans</button>
-                </div>
                 <div className="drinks-menu-card">
                     <button className="home-navigation-button" onClick={handleDrinksClick}>Order drinks</button>
+                </div>
+                <div className="beans-menu-card" >
+                    <button className="home-navigation-button" onClick={handleBeansClick}>Order beans</button>
                 </div>
             </div>
             <div className="cart-container">

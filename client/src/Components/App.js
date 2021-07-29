@@ -4,7 +4,7 @@ import { Switch, Route, useHistory, BrowserRouter } from 'react-router-dom'
 // import react components
 import SignUp from "./SignUp";
 import Login from "./Login";
-import NavBar from "./NavBar";
+import Navbar from "./Navbar/Navbar";
 import Home from "./Home";
 
 let App = () => {
@@ -13,9 +13,9 @@ let App = () => {
   if (currentUser === null) {
     return (
       <>
-        <NavBar
-          currentUser={currentUser}
-          setCurrentUser={setCurrentUser}
+        <Navbar
+          // currentUser={currentUser}
+          // setCurrentUser={setCurrentUser}
           />
         <div className="App">
           <BrowserRouter>
@@ -36,9 +36,9 @@ let App = () => {
   } else {
     return (
       <>
-        <NavBar 
-          currentUser={currentUser}
-          setCurrentUser={setCurrentUser}
+        <Navbar 
+          // currentUser={currentUser}
+          // setCurrentUser={setCurrentUser}
         />
         <div className="App">
           <BrowserRouter>

@@ -1,0 +1,2 @@
+class CartItem < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class NailCaresController < ApplicationController
+end

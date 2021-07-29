@@ -12,13 +12,12 @@ let App = () => {
 
   if (currentUser === null) {
     return (
-      <>
+      <div>
         <Navbar
           // currentUser={currentUser}
           // setCurrentUser={setCurrentUser}
-
           />
-        <div>
+        <div className="App">
           <BrowserRouter>
             <Switch>
               <Route exact path='/login'>
@@ -34,12 +33,12 @@ let App = () => {
     )
   } else {
     return (
-      <>
+      <div>
         <Navbar 
           // currentUser={currentUser}
           // setCurrentUser={setCurrentUser}
         />
-        <div>
+        <div className="App">
           <BrowserRouter>
             <Switch>
               <Route exact path='/login'>

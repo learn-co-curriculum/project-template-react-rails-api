@@ -2,10 +2,10 @@ import {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 
 let SignUp = (setCurrentUser) => {
+    const history = useHistory()
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
-    const history = useHistory
 
     let handleSubmit = (e) => {
         e.preventDefault()

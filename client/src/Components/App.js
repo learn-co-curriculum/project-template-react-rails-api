@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Switch, Route, useHistory } from 'react-router-dom'
+import { Switch, Route, useHistory, BrowserRouter } from 'react-router-dom'
 
 // import react components
 import SignUp from "./SignUp";
@@ -18,16 +18,18 @@ let App = () => {
           setCurrentUser={setCurrentUser}
           />
         <div className="App">
-          <Switch>
-            <Route exact path='/login'>
-              <Login setCurrentUser={setCurrentUser}/>
-            </Route>
-            <Route exact path='/signup'>
-              <SignUp
-                setCurrentUser={setCurrentUser}
-              />
-            </Route>
-          </Switch>
+          <BrowserRouter>
+            <Switch>
+              <Route exact path='/login'>
+                <Login setCurrentUser={setCurrentUser}/>
+              </Route>
+              <Route exact path='/signup'>
+                <SignUp
+                  setCurrentUser={setCurrentUser}
+                />
+              </Route>
+            </Switch>
+          </BrowserRouter>
         </div>
       </>
     )
@@ -39,17 +41,19 @@ let App = () => {
           setCurrentUser={setCurrentUser}
         />
         <div className="App">
-          <Switch>
-            <Route exact path='/login'>
-              <Login setCurrentUser={setCurrentUser}/>
-            </Route>
-            <Route exact path='/signup'>
-              <SignUp setCurrentUser={setCurrentUser}/>
-            </Route>
-            <Route exact path='/'>
-              <Home/>
-            </Route>
-          </Switch>
+          <BrowserRouter>
+            <Switch>
+              <Route exact path='/login'>
+                <Login setCurrentUser={setCurrentUser}/>
+              </Route>
+              <Route exact path='/signup'>
+                <SignUp setCurrentUser={setCurrentUser}/>
+              </Route>
+              <Route exact path='/'>
+                <Home/>
+              </Route>
+            </Switch>
+          </BrowserRouter>
         </div>
       </>
     )

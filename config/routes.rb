@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   # resources :users, only: [:index]
 
   post '/signup', to: 'users#create'
-
-  # post '/users', to: 'users#create'
   get '/user', to: 'users#show'
 
   post '/login', to: 'sessions#create'

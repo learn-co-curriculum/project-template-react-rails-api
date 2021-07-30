@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 
-let SignUp = (setCurrentUser) => {
+let SignUp = ({setCurrentUser}) => {
     const history = useHistory()
     const [username, setUsername] = useState("")
     const [address, setAddress] = useState("")
@@ -20,9 +20,6 @@ let SignUp = (setCurrentUser) => {
             password: password, 
             password_confirmation: passwordConfirmation
         }
-
-        console.log(user)
-
         const res = await fetch('http://localhost:3000/signup', {
             method: 'POST', 
             headers: {'Content-Type' : 'application/json'}, 
@@ -33,9 +30,10 @@ let SignUp = (setCurrentUser) => {
         console.log(userData)
 
         if (userData.id) {
+            alert(`Welcome ${user.username}! Please login using your new credentials!!`)
             history.push('/login')
         } else {
-            setErrors(userData.message)
+            setErrors(userData.errors)
         }
     }
 
@@ -59,8 +57,7 @@ let SignUp = (setCurrentUser) => {
                 <input className="login-input" type="password" value={passwordConfirmation} onChange={(e)=> setPasswordConfirmation(e.target.value)}/>
 
                 <button className="submit" type="submit">Sign Up</button>
-                {errors}
-                {/* <>errors ? errors.map error =>  return(<div>{error}<div>} : null</> */}
+                {errors ? errors.map(error => <div>{error}</div>) : null}
             </form>
         </div>
     )

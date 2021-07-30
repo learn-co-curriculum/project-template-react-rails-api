@@ -1,7 +1,9 @@
 import {useHistory} from 'react-router-dom'
 
 
-let Home = () => {
+let Home = ({currentUser}) => {
+    console.log(currentUser)
+
     const history = useHistory()
     let handleBeansClick = () => {
         console.log('i am working')
@@ -32,10 +34,18 @@ let Home = () => {
         <div className="home-container">
             <div className="menu-container">
                 <div className="drinks-menu-card">
-                    <button className="home-navigation-button" onClick={handleDrinksClick}>Order drinks</button>
+                    <div className="drinks-menu-description">Customize your drinks</div>
+                    <div className="drinks-button-container">
+                        <button className="home-navigation-button" onClick={handleDrinksClick}>Order drinks</button>
+                    </div>
                 </div>
                 <div className="beans-menu-card" >
-                    <button className="home-navigation-button" onClick={handleBeansClick}>Order beans</button>
+                    <div className="beans-menu-description">
+
+                    </div>
+                    <div className="beans-button-container">
+                        <button className="home-navigation-button" onClick={handleBeansClick}>Order beans</button>
+                    </div>
                 </div>
             </div>
             <div className="cart-container">

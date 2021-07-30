@@ -1,15 +1,38 @@
 import {useState} from 'react'
 import { useHistory } from 'react-router-dom'
 
-let Login = (setCurrentUser) => {
+let Login = ({setCurrentUser}) => {
     const history = useHistory()
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
+    const [errors, setErrors] = useState(null)
+    
 
-    let handleSubmit = (e) => {
+    let handleSubmit = async (e) => {
         e.preventDefault()
         console.log('hello the button is working')
+
+        const user = {
+            username, 
+            password, 
+            password_confirmation: passwordConfirmation
+        }
+
+        const res = await fetch('/login', {
+            method: 'POST', 
+            headers: {'Content-type':'Application/json'}, 
+            body: JSON.stringify(user)
+        })
+        const userData = await res.json()
+
+        if (userData.id) {
+            alert(`Welcome ${username}`) 
+            history.push('/')
+        } else {
+            console.log(userData.errors)
+            setErrors(userData.errors)
+        }
     }
 
     return <div className="login-container">
@@ -22,6 +45,7 @@ let Login = (setCurrentUser) => {
             <label htmlFor="password">Password Confirmation</label>
             <input className="login-input" type="password"value={passwordConfirmation} onChange={(e)=> setPasswordConfirmation(e.target.value)}/>
             <button className="submit" type="submit">Submit</button>
+            {errors ? <div>{errors}</div>: null}
         </form>
     </div>
 

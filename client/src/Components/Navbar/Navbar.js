@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { useHistory } from 'react-router-dom';
 import {MenuItems} from "./MenuItems"
 import './Navbar.css'
 
@@ -22,8 +23,7 @@ class Navbar extends Component {
                 <a className={item.cName} href={item.url}>
                 {item.title}
                 </a>
-            </li>
-            )
+            </li>)
           })}
         </ul>
       </nav>

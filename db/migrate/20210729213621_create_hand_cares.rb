@@ -1,7 +1,8 @@
-class CreateNailCares < ActiveRecord::Migration[6.1]
+class CreateHandCares < ActiveRecord::Migration[6.1]
   def change
-    create_table :nail_cares do |t|
+    create_table :hand_cares do |t|
       t.string :name
+      t.text :image
       t.text :description
       t.float :price
       t.integer :quantity

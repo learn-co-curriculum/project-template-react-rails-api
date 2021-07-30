@@ -1,2 +1,0 @@
-class NailCare < ApplicationRecord
-end

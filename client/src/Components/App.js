@@ -12,7 +12,7 @@ let App = () => {
 
   if (currentUser === null) {
     return (
-      <>
+      <div>
         <Navbar
           // currentUser={currentUser}
           // setCurrentUser={setCurrentUser}
@@ -34,7 +34,7 @@ let App = () => {
     )
   } else {
     return (
-      <>
+      <div>
         <Navbar 
           // currentUser={currentUser}
           // setCurrentUser={setCurrentUser}

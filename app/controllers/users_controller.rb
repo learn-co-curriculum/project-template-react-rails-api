@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
     def index
         user = User.all
-        render json: user
+        render json: user, include: [:cart, :orders]
     end 
 
     def show 

@@ -16,9 +16,8 @@ let App = () => {
         <Navbar
           // currentUser={currentUser}
           // setCurrentUser={setCurrentUser}
-
           />
-        <div>
+        <div className="App">
           <BrowserRouter>
             <Switch>
               <Route exact path='/login'>
@@ -39,7 +38,7 @@ let App = () => {
           // currentUser={currentUser}
           // setCurrentUser={setCurrentUser}
         />
-        <div>
+        <div className="App">
           <BrowserRouter>
             <Switch>
               <Route exact path='/login'>

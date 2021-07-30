@@ -8,3 +8,4 @@ User.create(username: 'seanbalayan', password: '123456', password_confirmation: 
 
     User.create(username: Faker::Name.name, password: password , password_confirmation: password, email_address: Faker::Internet.email, address: Faker::Address.full_address)
 end
+

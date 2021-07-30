@@ -1,3 +1,4 @@
+#seed
 puts "Destroying existing seed data and resetting id counts..."
 
 User.destroy_all

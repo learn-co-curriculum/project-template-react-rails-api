@@ -10,6 +10,16 @@ class Navbar extends Component {
   handleClick = () => {
     this.setState({ clicked: !this.setState.clicked})
   }
+  
+  // let handleLogout = () => {
+  //   async function logout() {
+  //     const res = await fetch('/logout', {method: 'DELETE'})
+  //     if(res.ok){
+  //       setCurrentUser(null)
+  //     }
+  //   }
+  //   logout();
+  // }
 
   render() {
     return(

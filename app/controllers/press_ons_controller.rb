@@ -1,0 +1,2 @@
+class PressOnsController < ApplicationController
+end

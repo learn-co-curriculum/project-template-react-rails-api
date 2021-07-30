@@ -1,0 +1,2 @@
+class GluesController < ApplicationController
+end

@@ -16,11 +16,12 @@ ActiveRecord::Schema.define(version: 2021_07_29_221434) do
   enable_extension "plpgsql"
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer "shoping_cart_id"
+    t.integer "shopping_cart_id"
     t.integer "item_id"
     t.string "item_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id", "item_type"], name: "index_cart_items_on_item_id_and_item_type"
   end
 
   create_table "glues", force: :cascade do |t|

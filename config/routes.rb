@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :payments
   resources :shopping_carts
   resources :cart_items
-  resources :nail_cares
+  resources :hand_cares
   resources :glues
   resources :press_ons
   # Routing logic: fallback requests for React Router.

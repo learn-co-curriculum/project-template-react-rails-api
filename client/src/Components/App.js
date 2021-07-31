@@ -7,9 +7,12 @@ import Login from "./Login";
 import Logout from './Logout'
 import Navbar from "./Navbar/Navbar";
 import Home from "./Home";
+import Drinks from './Drinks'
+import CustomizeDrink from './CustomizeDrink.js'
 
 let App = () => {
-  const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState(false)
+  const [drinks, setDrinks] = useState()
   const history = useHistory()
 
   useEffect(() => {
@@ -23,6 +26,20 @@ let App = () => {
       }
     })
   },[])
+
+  useEffect(() => {
+    fetch('/drinks').then(res => {
+      if(res.ok){
+        res.json().then(data => setDrinks(data))
+      } else {
+        setDrinks([])
+      }
+    })
+  },[])
+
+  // use the code below for Error: Objects are not valid as a React child (found: object with keys {id, username, address, email_address}). If you meant to render a collection of children, use an array instead.
+  // Object.values(user).map(user => setCurrentUser(user)
+
 
   if (currentUser === null) {
     history.push('/login')
@@ -46,7 +63,6 @@ let App = () => {
       </div>
     )
   } else {
-    console.log(currentUser)
     return (
       <div>
         <Navbar 
@@ -61,14 +77,24 @@ let App = () => {
               <Route exact path='/signup'>
                 <SignUp setCurrentUser={setCurrentUser}/>
               </Route>
-              <Route exact path="logout">
+              <Route exact path="/logout">
                 <Logout setCurrentUser={setCurrentUser}/>
+              </Route>
+              <Route exact path="/drinks">
+                <Drinks 
+                  currentUser={currentUser}
+                  drinks={drinks}
+                />
+              </Route>
+              <Route exact path="/customize_drink">
+                <CustomizeDrink
+                  currentUser={currentUser}
+                />
               </Route>
               <Route exact path='/'>
                 <Home currentUser={currentUser}/>
               </Route>
             </Switch>
-
         </div>
       </div>
     )

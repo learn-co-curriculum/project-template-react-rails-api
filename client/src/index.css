@@ -202,3 +202,65 @@
   border-radius: 4px;
   background-color: lightgrey;
 }
+
+/* CSS for drinks component */
+
+.drinks-div-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+.drink-menu-header {
+  background-color: lightgoldenrodyellow;
+  width: 73vw;
+  text-align: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.drinks-menu-container {
+  /* height: 90vh; */
+  width: 98vw;
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  grid-row-gap: 30px;
+  justify-content: space-evenly;
+  justify-items: center;
+  align-content: space-evenly;
+  align-items: center;
+  /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  margin: 10px;
+}
+
+.drink-container {
+  border: 1px solid black;
+  background-color: lightsteelblue;
+  display: flex;
+  height: 40vh;
+  width: 35vw;
+  opacity: 0.9;
+}
+
+.drink-container:hover{
+  border: 2px solid yellow;
+}
+
+.drink-info {
+  margin: 10px;
+}
+
+.drinks-image {
+  height: 36vh;
+  width: 20vw;
+  border-radius: 16px;
+  margin: 10px
+}
+
+.drink-button {
+  margin: 5px;
+  border-radius: 5px;
+  background-color: lightskyblue;
+}

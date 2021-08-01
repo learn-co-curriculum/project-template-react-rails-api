@@ -1,11 +1,11 @@
 class BeansController < ApplicationController
     def index
         beans = Bean.all
-        render json: beans, include: [:users, :orders]
+        render json: beans
     end 
 
     def show
         bean = Bean.find(params[:id])
-        render json: bean, include: [:users, :orders]
+        render json: bean
     end 
 end

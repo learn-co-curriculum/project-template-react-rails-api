@@ -9,6 +9,7 @@ import Navbar from "./Navbar/Navbar";
 import Home from "./Home";
 import Drinks from './Drinks'
 import CustomizeDrink from './CustomizeDrink.js'
+import Cart from './Cart'
 
 let App = () => {
   const [currentUser, setCurrentUser] = useState(false)
@@ -90,6 +91,9 @@ let App = () => {
                 <CustomizeDrink
                   currentUser={currentUser}
                 />
+              </Route>
+              <Route exact path="/my_cart">
+                <Cart currentUser={currentUser}/>
               </Route>
               <Route exact path='/'>
                 <Home currentUser={currentUser}/>

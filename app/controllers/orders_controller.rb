@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
     def index
         orders = Order.all
-        render json: orders, include: [:user, :bean, :drink]
+        render json: orders
     end 
 
     def show
@@ -14,19 +14,55 @@ class OrdersController < ApplicationController
 
     def create 
         order = Order.create!(order_params)
-        render json: order, include: [:user, :bean, :drink]
+        render json: order
     end 
 
-    def update
+    # def create_beans_order
+    #     order = Order.create!(bean_order_params)
+    #     render json: order, include: [:user, :bean]
+    # end 
+
+    # def create_drinks_order
+    #     order = Order.create!(drink_order_params)
+    #     render json: order, include: [:user, :drink]
+    # end 
+
+    # def update
+    #     order = Order.find(params[:id])
+    #     order.update!(order_params)
+    #     render json: order, include: [:user, :bean, :drink]
+    # end 
+
+     def update_beans_order
         order = Order.find(params[:id])
-        order.update!(order_params)
-        render json: order, include: [:user, :bean, :drink]
+        order.update!(bean_order_params)
+        render json: order
+    end 
+
+    def update_drinks_order
+        order = Order.find(params[:id])
+        order.update!(drinks_order_params)
+        render json: order
+    end 
+
+    def destroy
+        order = Order.find(params[:id])
+        order.destroy
+        head :no_content
     end 
 
     private
 
-    def order_params 
-        params.require[:order].permit(:user_id, :cart_id, :drink_id, :bean_id, :current_order)
+    def order_params
+        params.permit(:user_id, :cart_id, :drink_id, :bean_id, :current_order)
+    end 
+
+    def bean_order_params 
+        params.permit(:user_id, :cart_id, :bean_id, :current_order)
+    end 
+
+    def drink_order_params 
+        params.permit(:user_id, :cart_id, :drink_id, :current_order)
     end 
 
     def render_invalid(invalid)

@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   get "users/:id/upcoming_appointments", to: "users#upcoming_appointments"
   get "users/:id/past_appointments", to: "users#past_appointments"
 
+  get "users/:id/doctors", to: "users#my_doctors"
+  get "users/:id/patients", to: "users#my_patients"
+
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

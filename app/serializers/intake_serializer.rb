@@ -1,3 +1,5 @@
 class IntakeSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :onset, :location, :duration, :characteristics, :aggravating_factors, :relieving_factors, :timing_and_severity, :blood_pressure, :bmi, :weight, :height, :temperature, :pulse, :oxygen_saturation, :bsa, :doctor_notes
+
+  belongs_to :appointment
 end

@@ -38,6 +38,20 @@ class UsersController < ApplicationController
         render json: past_appointments
     end
 
+    def my_patients
+        user = User.find(params[:id])
+        render json: user.role.patients.uniq
+    rescue ActiveRecord::RecordInvalid => invalid
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    end
+
+    def my_doctors
+        user = User.find(params[:id])
+        render json: user.role.doctors.uniq
+    rescue ActiveRecord::RecordInvalid => invalid
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    end
+
     private
 
     def user_params

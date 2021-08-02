@@ -7,7 +7,6 @@ Drink.delete_all
 Order.delete_all
 
 
-
 # create users
 User.create(username: 'seanbalayan', password: '123456', password_confirmation: '123456', email_address: 'balayans2014@yahoo.com', address: '620 35th ave' )
 
@@ -57,7 +56,7 @@ end
     bean_price = (Bean.find(bean_id).price * Bean.find(bean_id).quantity)
 
 
-    Order.create(user_id: User.ids.sample, cart_id: Cart.ids.sample, drink_id: drink_id, bean_id: bean_id, total_price: (drink_price + bean_price))
+    Order.create(user_id: User.ids.sample, cart_id: Cart.ids.sample, drink_id: drink_id, bean_id: bean_id, total_price: drink_price + bean_price)
 end 
 
 # puts `Done seeding`

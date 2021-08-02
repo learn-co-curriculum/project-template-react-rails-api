@@ -5,8 +5,8 @@ class CreateBeans < ActiveRecord::Migration[6.1]
       t.string :type
       t.string :region
       t.string :roast
-      t.integer :price
-      
+      t.string :price
+      t.integer :quantity
       t.timestamps
     end
   end

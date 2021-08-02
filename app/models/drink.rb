@@ -1,4 +1,4 @@
-class Bean < ApplicationRecord
+class Drink < ApplicationRecord
     belongs_to :order
     has_many :orders
     has_many :users, through: :orders

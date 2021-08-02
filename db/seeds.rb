@@ -222,6 +222,27 @@ Appointment.create!([
         time: "09/26/2021 18:00",
         patient_intake_complete: true,
         appointment_complete: false
+    },
+    {
+        patient_id: p1.id,
+        doctor_id: d1.id,
+        time: "10/20/2021 14:00",
+        patient_intake_complete: true,
+        appointment_complete: true
+    },
+    {
+        patient_id: p1.id,
+        doctor_id: d2.id,
+        time: "11/30/2021 11:00",
+        patient_intake_complete: true,
+        appointment_complete: true
+    },
+    {
+        patient_id: p1.id,
+        doctor_id: d3.id,
+        time: "09/03/2021 19:00",
+        patient_intake_complete: true,
+        appointment_complete: true
     }
 ])
 
@@ -235,6 +256,9 @@ a7 = Appointment.all[6]
 a8 = Appointment.all[7]
 a9 = Appointment.all[8]
 a10 = Appointment.all[9]
+a11 = Appointment.all[10]
+a12 = Appointment.all[11]
+a13 = Appointment.all[12]
 
 puts "Seeding Intakes..."
 

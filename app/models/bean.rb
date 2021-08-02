@@ -1,0 +1,3 @@
+class Bean < ApplicationRecord
+    
+end

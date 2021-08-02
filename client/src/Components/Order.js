@@ -1,18 +1,10 @@
-import {useState} from 'react'
-
 let Order = ({order}) => {
-    const [currentOrderCart, setCurrentOrderCart]=useState([])
-
-    // order.map(order => {
-    //     fetch(`/drink/${order.drink_id}`)
-    //     .then(res => res.json())
-    //     .then(data => console.log(data))
-    // })
-
+    console.log(order)
     return (
         <div className="order-details-container">
             <div className="order-details-card">
-                <p><small>item</small></p>
+                <img className="coffee-order-thumbnail" src={order.img_url} alt='picture of coffee'/>
+                <p><small>{order.name}</small></p>
                 <select className="order-selector-button">
                     <option>1x</option>
                     <option>2x</option>
@@ -22,8 +14,8 @@ let Order = ({order}) => {
                 </select>
             </div>
             <div className="order-details-card">
-                <p><small>description</small></p>
-                <p><small>price</small></p>
+                <p><small>{order.description}</small></p>
+                <p><em>${order.price}</em></p>
             </div>
         </div>
     )

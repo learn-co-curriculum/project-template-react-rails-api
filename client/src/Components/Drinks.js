@@ -1,11 +1,10 @@
-import {React, useEffect, useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import {React} from 'react'
 
 // import components
 import Drink from './Drink'
 
 let Drinks = ({currentUser, drinks}) => {
-    const history = useHistory()
+  console.log(currentUser)
     // console.log(Object.values(drinks).map(drink => drink.name))
 
     // useEffect(() => {

@@ -5,6 +5,7 @@ Cart.delete_all
 Bean.delete_all
 Drink.delete_all
 Order.delete_all
+OrderItem.delete_all
 
 
 # create users
@@ -51,16 +52,18 @@ end
 
 # create orders
 20.times do
-    drink_id = Drink.ids.sample
     bean_id = Bean.ids.sample
+    drink_id = Drink.ids.sample
     user = User.ids.sample
     found_user = User.find(user)
     
-    drink_price = (Drink.find(drink_id).price * Drink.find(drink_id).quantity)
-    bean_price = (Bean.find(bean_id).price * Bean.find(bean_id).quantity)
+    order = Order.create(user_id: user, cart_id: found_user.cart.id, current_order: false)
 
-    Order.create(user_id: user, cart_id: found_user.cart.id, total_price: drink_price + bean_price, current_order: false, drink_id: drink_id, bean_id: bean_id)
+    OrderItem.create(order_id: order.id, item_id:bean_id, item_type: "Bean")
+
+    OrderItem.create(order_id: order.id, item_id:drink_id, item_type: "Drink")
 end 
+
 
 # puts `Done seeding`
 

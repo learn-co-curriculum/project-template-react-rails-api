@@ -1,114 +1,76 @@
-import {React, useState} from 'react'
+import {React, useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 let Drink = ({drink, currentUser}) => {
+    let findCurrentOrder = currentUser.orders.find(order => order.current_order===true)
     const history = useHistory()
-    const [order, setOrder] = useState({
-        user_id: "",
-        cart_id: "", 
-        drink_id: "",
-        current_order: false
+    const [currentOrder, setCurrentOrder] = useState({
+        id: "",
+        user_id: "", 
+        cart_id: "",
+        current_order: true
     })
 
-    const [selectDrink, setSelectDrink] = useState({
-        name: "",
-        img_url: "", 
-        milk: "",
-        sugar: false, 
-        iced: false, 
-        size: "", 
-        price: "", 
-        quantity: ""
+    const [orderItem, setOrderItem] = useState({
+        order_id: "",
+        item_id: "",
+        item_type: "Drink"
     })
 
-    let findCurrentOrder = () => {
-        console.log(currentUser.orders)
-        console.log(currentUser.orders.find(order => order.current_order===true))
-        if (currentUser.orders.find(order => order.current_order===true) === undefined) {
-            return false
-        } else {
-            let currentOrder = currentUser.orders.find(order => order.current_order===true)
-            return currentOrder
-        }
-    }
-
-    let handleOrder = ([selectDrink,drinkID]) => {
-        setOrder({
+    useEffect(()=> {
+        setCurrentOrder({
+            id: findCurrentOrder.id,
             user_id: currentUser.id,
-            cart_id: currentUser.cart.id, 
-            drink_id: drinkID,
-            current_order: true
+            cart_id: currentUser.cart.id
         })
-    }
+    },[findCurrentOrder.id, currentUser.id, findCurrentOrder.id])
 
-    let createCart = async () => {
-        const res = await fetch('/user/cart', {
-            method: 'POST',
-            headers: {'Content-type' : 'application/json'}, 
-            body: JSON.stringify({user_id: currentUser.id})
+    let handleOrderItem = (drinkID) => {
+        console.log(findCurrentOrder.id)
+        console.log(drinkID)
+
+        setOrderItem({
+            order_id: currentOrder.id,
+            item_id: drinkID,
+            item_type: "Drink", 
         })
-
-        const cartData = await res.json()
-        console.log(cartData)
     }
 
     let createOrder = async () => {
         const res = await fetch('/orders', {
             method: 'POST', 
             headers: {'Content-type' : 'application/json'}, 
-            body: JSON.stringify(order)
+            body: JSON.stringify(currentOrder)
         })
         const orderData = await res.json()
         console.log(orderData)
     }
 
-    // let updateOrder = async () => {
-    //     console.log(order)
-    //     const res = await fetch(`/order/${findCurrentOrder().id}/drink`, {
-    //         method: 'PATCH',
-    //         headers: {'Content-type':'application/json'}, 
-    //         body: JSON.stringify(order)
-    //     })
-
-    //     const orderData = await res.json()
-    //     console.log(orderData)
-    // }
-
-    let addDrinkToState = async (drinkID) => {
-        const res = await fetch (`/drink/${drinkID}`)
-
-        const drinkData = await res.json()
-        if (drinkData !== null) {
-            setSelectDrink({
-                name: drinkData.name,
-                img_url: drinkData.img_url, 
-                milk: drinkData.milk,
-                sugar: false, 
-                iced: false, 
-                size: drinkData.size, 
-                price: drinkData.price, 
-                quantity: drinkData.quantity
-            })
-
-        } else {
-            console.log('error in response')
-        }
+    let createOrderItem = async () => {
+        const res = await fetch('/order_items', {
+            method: 'POST', 
+            headers: {'Content-type' : 'application/json'}, 
+            body: JSON.stringify(orderItem)
+        })
+        const orderItemData = await res.json()
+        console.log(orderItemData)
     }
+
 
     let handleAddToCart = (e) => {
         let drinkID=parseInt(e.target.parentElement.id)
-        addDrinkToState(drinkID)
+        console.log(drinkID)
 
-        if (findCurrentOrder() !== false) {
-            console.log('Creating order')
-            handleOrder([selectDrink,drinkID])
+        if (findCurrentOrder===undefined) {
+            console.log('no current order. creating an order')
+            handleOrderItem(drinkID)
             createOrder()
-            console.log('success!! new order created')
+            createOrderItem()
+            console.log('success! added item to new order')
         } else {
-            console.log('Creating a cart')
-            createCart()
-            handleOrder([selectDrink,drinkID]);
-            createOrder(order)
-            console.log('success!!')
+            console.log('current order found')
+            handleOrderItem(drinkID)
+            createOrderItem()
+            console.log('success! added item to order')
         }
     }
 

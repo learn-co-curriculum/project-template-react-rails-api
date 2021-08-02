@@ -5,6 +5,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.integer :cart_id
       t.integer :drink_id
       t.integer :bean_id
+
       t.timestamps
     end
   end

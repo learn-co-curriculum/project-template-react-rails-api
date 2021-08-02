@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Switch, Route, useHistory, BrowserRouter } from 'react-router-dom'
+import { Switch, Route, useHistory } from 'react-router-dom'
 
 // import react components
 import SignUp from "./SignUp";
@@ -11,8 +11,6 @@ import Home from "./Home";
 let App = () => {
   const [currentUser, setCurrentUser] = useState(null)
   const history = useHistory()
-
-  console.log(currentUser)
 
   useEffect(() => {
     console.log('hello world')
@@ -27,6 +25,7 @@ let App = () => {
   },[])
 
   if (currentUser === null) {
+    history.push('/login')
     return (
       <div>
         <Navbar
@@ -34,7 +33,6 @@ let App = () => {
           // setCurrentUser={setCurrentUser}
           />
         <div className="App">
-          <BrowserRouter>
             <Switch>
               <Route exact path='/login'>
                 <Login setCurrentUser={setCurrentUser}/>
@@ -43,7 +41,7 @@ let App = () => {
                 <SignUp setCurrentUser={setCurrentUser}/>
               </Route>
             </Switch>
-          </BrowserRouter>
+
         </div>
       </div>
     )
@@ -56,7 +54,6 @@ let App = () => {
           // setCurrentUser={setCurrentUser}
         />
         <div className="App">
-          <BrowserRouter>
             <Switch>
               <Route exact path='/login'>
                 <Login setCurrentUser={setCurrentUser}/>
@@ -71,7 +68,7 @@ let App = () => {
                 <Home currentUser={currentUser}/>
               </Route>
             </Switch>
-          </BrowserRouter>
+
         </div>
       </div>
     )

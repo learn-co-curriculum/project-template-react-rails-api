@@ -67,8 +67,6 @@ appliance= Service.create(worker_id: worker1.id, service: "appliance", price: 60
 
 
 
-
-
 #Appointment
 Appointment.create(customer_id: customer1.id, worker_id: worker1.id, time: "2021-08-09 9 PM", total_cost: 150, services:["yardwork", "plumber"], status: "requested")
 Appointment.create(customer_id: customer2.id, worker_id: worker2.id, time: "2021-08-09 8 PM", total_cost: 500, services:["appliance", "carpenter"], status: "confirmed")

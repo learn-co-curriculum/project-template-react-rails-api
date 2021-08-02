@@ -36,19 +36,19 @@ timeslots.each do |timeslot|
 end
 
 #User 
-user = User.create(user_id: worker1.id, user_type: "worker", username: "joyce", password_digest: 123)
-user1 = User.create(user_id: worker2.id, user_type: "worker", username: "hadi", password_digest: 123)
-user2 = User.create(user_id: worker3.id, user_type: "worker", username: "kevin", password_digest: 123)
-user3 = User.create(user_id: worker4.id, user_type: "worker", username: "username1", password_digest: 123)
-user4 = User.create(user_id: worker5.id, user_type: "worker", username: "username2", password_digest: 123)
-user5 = User.create(user_id: customer1.id, user_type: "customer", username: "username3", password_digest: 123)
-user6 = User.create(user_id: customer2.id, user_type: "customer", username: "username4", password_digest: 123)
-user7 = User.create(user_id: customer3.id, user_type: "customer", username: "username5", password_digest: 123)
-user8 = User.create(user_id: customer4.id, user_type: "customer", username: "username6", password_digest: 123)
-user9 = User.create(user_id: customer5.id, user_type: "customer", username: "username7", password_digest: 123)
-user10 = User.create(user_id: customer6.id, user_type: "customer", username: "username8", password_digest: 123)
-user11 = User.create(user_id: customer7.id, user_type: "customer", username: "username9", password_digest: 123)
-user12 = User.create(user_id: customer8.id, user_type: "customer", username: "username10", password_digest: 123)
+user0 = User.create(profile_id: worker1.id, profile_type: "Worker", username: "joyce", password_digest: "123")
+user1 = User.create(profile_id: worker2.id, profile_type: "Worker", username: "hadi", password_digest: "123")
+user2 = User.create(profile_id: worker3.id, profile_type: "Worker", username: "kevin", password_digest: "123")
+user3 = User.create(profile_id: worker4.id, profile_type: "Worker", username: "username1", password_digest: "123")
+user4 = User.create(profile_id: worker5.id, profile_type: "Worker", username: "username2", password_digest: "123")
+user5 = User.create(profile_id: customer1.id, profile_type: "Customer", username: "username3", password_digest: "123")
+user6 = User.create(profile_id: customer2.id, profile_type: "Customer", username: "username4", password_digest: "123")
+user7 = User.create(profile_id: customer3.id, profile_type: "Customer", username: "username5", password_digest: "123")
+user8 = User.create(profile_id: customer4.id, profile_type: "Customer", username: "username6", password_digest: "123")
+user9 = User.create(profile_id: customer5.id, profile_type: "Customer", username: "username7", password_digest: "123")
+user10 = User.create(profile_id: customer6.id, profile_type: "Customer", username: "username8", password_digest: "123")
+user11 = User.create(profile_id: customer7.id, profile_type: "Customer", username: "username9", password_digest: "123")
+user12 = User.create(profile_id: customer8.id, profile_type: "Customer", username: "username10", password_digest: "123")
 
 
 

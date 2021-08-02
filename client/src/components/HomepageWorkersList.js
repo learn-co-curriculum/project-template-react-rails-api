@@ -1,6 +1,8 @@
 function HomepageWorkersList() {
     return (
-        <div>HomepageWorkersList Component</div>
+        <div>
+            HomepageWorkersList Component
+        </div>
     )
 }
 

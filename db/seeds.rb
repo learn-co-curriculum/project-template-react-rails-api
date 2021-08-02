@@ -35,7 +35,7 @@ drink_price = [4, 5, 6, 7]
 
 50.times do
     quantity = rand(1..10)
-    Drink.create(name: name.sample, milk: milk.sample, sugar: sugar.sample, iced: iced.sample , size: size.sample , price: drink_price.sample, quantity: quantity, order_id: Order.find(drink_id= id))
+    Drink.create(name: name.sample, milk: milk.sample, sugar: sugar.sample, iced: iced.sample , size: size.sample , price: drink_price.sample, quantity: quantity)
 end
 
 # create beans

@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 
 
-function SignUp( {classes, userStatus, setUserStatus} ) {
+function SignUp( {classes, userType, setUserType} ) {
 
     const handleSignUp = (data) => {
         console.log(data)
@@ -20,7 +20,7 @@ function SignUp( {classes, userStatus, setUserStatus} ) {
                     variant="contained"
                     color="primary"
                     className={classes.submit}
-                    onClick={(e)=>setUserStatus('helper')}
+                    onClick={(e)=>setUserType('helper')}
                 >
                     Helper
                 </Button>
@@ -28,7 +28,7 @@ function SignUp( {classes, userStatus, setUserStatus} ) {
                     variant="contained"
                     color="primary"
                     className={classes.submit}
-                    onClick={(e)=>setUserStatus('customer')}
+                    onClick={(e)=>setUserType('customer')}
                 >
                     Customer
                 </Button>

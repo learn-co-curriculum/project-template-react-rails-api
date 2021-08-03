@@ -7,5 +7,5 @@ export default function BrewHeader(){
                 <h1 className= "brew-header"> Brew Methods </h1>
             </div>
         </header>
-    );
+    )
 }

@@ -23,10 +23,9 @@ function AccountPageCustomer({classes, view, setView}) {
                     <p>Password:</p>
                     <Button 
                         type="submit"
-                        fullWidth
                         variant="contained"
                         color="primary"
-                        className={classes.form}
+                        className={classes.submit}
                         onClick={handleAccountEdit}
                     >
                         Edit
@@ -53,7 +52,7 @@ function AccountPageCustomer({classes, view, setView}) {
                                 // required
                                 fullWidth
                                 id="location"
-                                label="Location"
+                                label="Location (Postal Code)"
                                 autoFocus
                                 // onChange={(e)=>{setEnterLoginUsername(e.target.value)}}
                                 // value={enterLoginUsername}

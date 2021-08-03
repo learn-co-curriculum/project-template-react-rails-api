@@ -14,7 +14,7 @@ function AccountPage({classes, userType}) {
                 <Grid item xs={3}/>
                     <Grid item xs={6}>
                     <Paper className={classes.account}>
-                        {userType === "helper" 
+                        {userType === "customer" 
                             ? <AccountPageCustomer classes={classes} view={view} setView={setView}/>
                             : <AccountPageWorker classes={classes} view={view} setView={setView}/>
                         }

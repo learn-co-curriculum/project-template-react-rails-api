@@ -15,7 +15,7 @@ function SignUp( {classes, userType, setUserType} ) {
         <div>
             <div className="sign-up-type">
                 <h2 className="sign-up-header">Sign up for an account below</h2>
-                <h5>Select account type:</h5>
+                <h4>Select account type:</h4>
                 <Button 
                     variant="contained"
                     color="primary"

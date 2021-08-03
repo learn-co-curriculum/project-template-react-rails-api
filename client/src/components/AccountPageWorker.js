@@ -31,10 +31,9 @@ function AccountPageWorker({classes, view, setView}) {
                     <p>Plumbing:</p>
                     <Button 
                         type="submit"
-                        fullWidth
                         variant="contained"
                         color="primary"
-                        className={classes.form}
+                        className={classes.submit}
                         onClick={handleAccountEdit}
                     >
                         Edit

@@ -1,6 +1,7 @@
 import '../assets/App.css';
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import { 
   BrowserRouter as Router,
   Switch, 
@@ -24,6 +25,13 @@ const theme = createTheme({
 });
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    '& > * + *': {
+      marginTop: theme.spacing(1),
+    },
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -35,10 +43,14 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(2, 0, 2),
+  },
+  timeslot: {
+    flexWrap: 'wrap',
+    width: '20%',
   },
   homepage_top: {
-    height: '500px',
+    height: '400px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -52,11 +64,28 @@ const useStyles = makeStyles((theme) => ({
     // flexDirection: 'column',
     // alignItems: 'center',
   },
+  homepage_bottom: {
+    width: '80%',
+    height: '400px',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    background: '#E7E5D9',
+  },
   account: {
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+  },
+  form_width: {
+    width: '30%',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  review_width:{
+    width: '80%',
   }
 }));
 

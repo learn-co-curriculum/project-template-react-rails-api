@@ -44,25 +44,60 @@ User.ids.map {|id| Cart.create(user_id: id)}
 # create beans
 roast = ['Light', 'Medium', 'Dark']
 bean_price = [15,18,19,20,25]
+img_url = ['https://zippypixels.com/wp-content/uploads/2018/03/White-coffee-bag-mockup.jpg','https://upload.wikimedia.org/wikipedia/commons/f/f8/Union_Coffee_Bag.jpg', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw_w7Ugr3QmrW0aftAa49Fr2rUKc5Egyrc4w&usqp=CAU', 'https://image.made-in-china.com/202f0j00pfsUMWqRvGcL/Coffee-Bean-Packing-Bag-Side-Gusset-Coffee-Bag-Plastic-Coffee-Bag.jpg', 'https://pullandpourcoffee.com/wp-content/uploads/2018/09/whats-on-a-bag.jpg', 'https://thebeankc.com/wp-content/uploads/2018/07/bean-coffee-co-112-series-blend.png'  ]
 
 6.times do
     quantity = rand(1..10)
-    Bean.create(name: Faker::Coffee.blend_name , variety: Faker::Coffee.variety , region: Faker::Coffee.origin, roast: roast.sample, price: bean_price.sample, quantity: quantity, notes: Faker::Coffee.notes )
+    Bean.create(name: Faker::Coffee.blend_name , variety: Faker::Coffee.variety , region: Faker::Coffee.origin, roast: roast.sample, price: bean_price.sample, quantity: quantity, notes: Faker::Coffee.notes, img_url: img_url.sample )
 end 
 
 # create orders
-20.times do
+# 1.times do
+#     bean_id = Bean.ids.sample
+#     drink_id = Drink.ids.sample
+#     user = User.ids.sample
+#     found_user = User.find(user)
+
+#     order = Order.create(user_id: user, cart_id: found_user.cart.id, current_order: true)
+
+#     OrderItem.create(order_id: order.id, item_id:bean_id, item_type: "Bean")
+
+#     OrderItem.create(order_id: order.id, item_id:drink_id, item_type: "Drink")
+# end 
+
+# 4.times do
+#     bean_id = Bean.ids.sample
+#     drink_id = Drink.ids.sample
+#     user = User.ids.sample
+#     found_user = User.find(user)
+    
+#     order = Order.create(user_id: user, cart_id: found_user.cart.id, current_order: false)
+
+#     OrderItem.create(order_id: order.id, item_id:bean_id, item_type: "Bean")
+
+#     OrderItem.create(order_id: order.id, item_id:bean_id, item_type: "Bean")
+# end 
+
+User.all.map {|user| 
     bean_id = Bean.ids.sample
     drink_id = Drink.ids.sample
-    user = User.ids.sample
-    found_user = User.find(user)
-    
-    order = Order.create(user_id: user, cart_id: found_user.cart.id, current_order: false)
+
+    order = Order.create(user_id: user.id, cart_id: user.cart.id, current_order: false)
 
     OrderItem.create(order_id: order.id, item_id:bean_id, item_type: "Bean")
-
     OrderItem.create(order_id: order.id, item_id:drink_id, item_type: "Drink")
-end 
+}
+
+User.all.map {|user| 
+    bean_id = Bean.ids.sample
+    drink_id = Drink.ids.sample
+
+    order = Order.create(user_id: user.id, cart_id: user.cart.id, current_order: true)
+
+    OrderItem.create(order_id: order.id, item_id:bean_id, item_type: "Bean")
+    OrderItem.create(order_id: order.id, item_id:drink_id, item_type: "Drink")
+}
+
 
 
 # puts `Done seeding`

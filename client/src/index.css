@@ -60,6 +60,10 @@ a {
 }
 
 .guide-container {
+  height: 100vh;
+}
+
+.guide-card {
   background-color: whitesmoke;
   border-radius: 25px;
   padding: 1rem;

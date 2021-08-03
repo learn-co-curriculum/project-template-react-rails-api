@@ -8,8 +8,10 @@ import Logout from './Logout'
 import Navbar from "./Navbar/Navbar";
 import Home from "./Home";
 import Drinks from './Drinks'
+import Beans from './Beans'
 import CustomizeDrink from './CustomizeDrink.js'
 import Cart from './Cart'
+
 import MainPage from './BrewMethods/MainPage';
 import BrewHeader from './BrewMethods/BrewHeader';
 import data from './BrewMethods/data';
@@ -27,6 +29,7 @@ let App = () => {
   })
 
   const [drinks, setDrinks] = useState()
+  const [beans, setBeans] = useState()
   const history = useHistory()
   const [order, setOrder] = useState({
     drinks: []
@@ -69,6 +72,16 @@ let App = () => {
       }
     })
   },[])
+  
+  useEffect(() => {
+    fetch('/beans').then(res => {
+      if(res.ok){
+        res.json().then(data => setBeans(data))
+      } else {
+        setDrinks([])
+      }
+    })
+  },[])
 
   let createCart = async (user) => {
     const res = await fetch('/carts', {
@@ -100,6 +113,7 @@ let App = () => {
 
 const {list} = data;
 const {guides} = GuideData;
+
 
   if (currentUser === null) {
     history.push('/login')
@@ -148,6 +162,12 @@ const {guides} = GuideData;
               <Route exact path="/customize_drink">
                 <CustomizeDrink currentUser={currentUser}/>
               </Route>
+              <Route exact path="/beans">
+                <Beans
+                  currentUser={currentUser}
+                  beans={beans}
+                />
+              </Route>
               <Route exact path="/my_cart">
                 <Cart 
                   currentUser={currentUser}
@@ -155,7 +175,16 @@ const {guides} = GuideData;
                 />
               </Route>
               <Route exact path='/'>
-                <Home currentUser={currentUser}/>
+                <Home 
+                currentUser={currentUser}
+                order={order}
+                drinks={drinks}
+                beans={beans}
+                setCurrentUser={setCurrentUser}
+                setOrder={setOrder}
+                setDrinks={setDrinks}
+                setBeans={setBeans}
+                />
               </Route>
               <Route exact path='/brew_methods'>
                 <BrewHeader />

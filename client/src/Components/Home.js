@@ -1,9 +1,8 @@
+import {useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 
 
 let Home = ({currentUser}) => {
-    console.log(currentUser)
-    
     const history = useHistory()
     let handleBeansClick = () => {
         console.log('i am working')

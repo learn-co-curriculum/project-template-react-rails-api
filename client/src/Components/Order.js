@@ -1,5 +1,4 @@
 let Order = ({order}) => {
-    console.log(order)
     return (
         <div className="order-details-container">
             <div className="order-details-card">

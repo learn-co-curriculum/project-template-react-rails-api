@@ -5,9 +5,20 @@ class PatientsController < ApplicationController
         render json: patient
     end
 
-    def upcoming_appointments
-        upcoming_appointments = self.appointments.select { |appt| appt.appointment_complete == false }
-        return upcoming_appointments
+    def create
+        patient = Patient.create(patient_params)
+        if patient.valid?
+            session[:role_id] = patient.id
+            render json: user, status: :created
+        else
+            render json: { errors: patient.errors.full_messages }, status: :unprocessable_entity
+        end
+    end
+
+    private
+
+    def patient_params
+        params.permit(:first_name, :last_name)
     end
 
 end

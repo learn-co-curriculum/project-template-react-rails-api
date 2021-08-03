@@ -39,6 +39,7 @@ class UsersController < ApplicationController
     end
 
     def my_patients
+        # user = User.find_by(id: session[:user_id])
         user = User.find(params[:id])
         render json: user.role.patients.uniq
     rescue ActiveRecord::RecordInvalid => invalid
@@ -46,6 +47,7 @@ class UsersController < ApplicationController
     end
 
     def my_doctors
+        # user = User.find_by(id: session[:user_id])
         user = User.find(params[:id])
         render json: user.role.doctors.uniq
     rescue ActiveRecord::RecordInvalid => invalid

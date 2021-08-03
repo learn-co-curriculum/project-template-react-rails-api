@@ -1,8 +1,10 @@
 import {useHistory} from 'react-router-dom'
+import {useEffect} from 'react-router-dom'
 
 
 let Home = ({currentUser}) => {
     console.log(currentUser)
+    
 
     const history = useHistory()
     let handleBeansClick = () => {
@@ -12,7 +14,7 @@ let Home = ({currentUser}) => {
 
     let handleDrinksClick = () => {
         console.log('i am working')
-        history.push('/drinks_menu')
+        history.push('/drinks')
     }
 
     let handleCartClick = () => {
@@ -34,7 +36,7 @@ let Home = ({currentUser}) => {
         <div className="home-container">
             <div className="menu-container">
                 <div className="drinks-menu-card">
-                    <div className="drinks-menu-description">Customize your drinks</div>
+                    <div className="drinks-menu-description"></div>
                     <div className="drinks-button-container">
                         <button className="home-navigation-button" onClick={handleDrinksClick}>Order drinks</button>
                     </div>

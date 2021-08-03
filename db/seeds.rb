@@ -17,23 +17,58 @@ puts "Seeding Doctors..."
 Doctor.create!([
     {
         first_name: "Stephen", 
-        last_name: "Strange"
+        last_name: "Strange",
+        img_url: "",
+        phone_number: "3045550492",
+        bio: "Doctor Stephen Vincent Strange M.D., Ph.D is the sorcerer and a Master of the Mystic Arts. Originally a brilliant, although arrogant, neurosurgeon, Strange got into a car accident which resulted with his hands becoming crippled. When all Western medicine failed him, Strange embarked on a journey that led him into Kamar-Taj where Strange had made the discovery of magic and alternate dimensions, being trained by the Ancient One.",
+        city: "New York",
+        specialty: "Neurosurgery",
+        rating: 2,
+        years_of_experience: 15
     },
     {
         first_name: "Ivo",
-        last_name: "Robotnik"
+        last_name: "Robotnik",
+        phone_number: "1295550439",
+        img_url: "",
+        bio: "Dr. Ivo Robotnik, better known by the alias Dr. Eggman, is the main antagonist of the Sonic the Hedgehog series. He is a human scientist and the arch-nemesis of Sonic the Hedgehog. This large scientist with an IQ of 300[2] dreams of dominating the world, but his constant plots to create his Eggman Empire are always thwarted by Sonic and his friends.",
+        city: "Green Hills",
+        specialty: "Automata",
+        rating: 1,
+        years_of_experience: 30
     },
     {
         first_name: "Andre",
-        last_name: "Dre"
+        last_name: "Dre",
+        phone_number: "4295559403",
+        img_url: "",
+        bio: "Andre Romelle Young, known professionally as Dr. Dre, is an American rapper, audio engineer, record producer, and entrepreneur. He is the founder and CEO of Aftermath Entertainment and Beats Electronics, and previously co-founded, co-owned, and was the president of Death Row Records.",
+        city: "Los Angeles",
+        specialty: "Rap",
+        rating: 4,
+        years_of_experience: 25
     },
     {
         first_name: "Doogie",
-        last_name: "Howser"
+        last_name: "Howser",
+        phone_number: "6295558473",
+        img_url: "",
+        bio: "Possessing a genius intellect and an eidetic memory, Howser participates in a longitudinal study of child prodigies until his 18th birthday. He earned a perfect score on the SAT at the age of six, completed high school in nine weeks, graduated from Princeton University in 1983 at age 10, and finished medical school four years later. At age 14, Howser was the youngest licensed doctor in the country.",
+        city: "Los Angeles",
+        specialty: "Pediatrics",
+        rating: 5,
+        years_of_experience: 2
     },
     {
         first_name: "Gregory",
-        last_name: "House"
+        last_name: "House",
+        phone_number: "8045559493",
+        img_url: "",
+        bio: "Dr. Gregory House, M.D. leads a team of diagnosticians as the Head of Diagnostic Medicine at the Princeton-Plainsboro Teaching Hospital in Princeton, New Jersey.",
+        city: "New Jersey",
+        specialty: "Diagnostics",
+        rating: 2,
+        years_of_experience: 40
     }
 ])
 
@@ -48,23 +83,38 @@ puts "Seeding Patients..."
 Patient.create!([
     {
         first_name: "Jane",
-        last_name: "Villanueva"
+        last_name: "Villanueva",
+        img_url: "",
+        phone_number: "3395558473",
+        date_of_birth: "08121992"
     },
     {
         first_name: "Rebecca",
-        last_name: "Bunch"
+        last_name: "Bunch",
+        img_url: "",
+        phone_number: "3955554849",
+        date_of_birth: "02091987"
     },
     {
         first_name: "Moira",
-        last_name: "Rose"
+        last_name: "Rose",
+        img_url: "",
+        phone_number: "2045553945",
+        date_of_birth: "04281960"
     },
     {
         first_name: "Alfred",
-        last_name: "Miles"
+        last_name: "Miles",
+        img_url: "",
+        phone_number: "9385559494",
+        date_of_birth: "06201982"
     },
     {
         first_name: "Bob",
-        last_name: "Belcher"
+        last_name: "Belcher",
+        img_url: "",
+        phone_number: "7392228384",
+        date_of_birth: "11101975"
     }
 ])
 
@@ -280,7 +330,8 @@ Intake.create!([
         pulse: nil,
         oxygen_saturation: nil,
         bsa: nil,
-        doctor_notes: nil
+        doctor_notes: nil,
+        reason_for_visit: "Chest pains"
     },
     {
         appointment_id: a2.id,
@@ -299,7 +350,8 @@ Intake.create!([
         pulse: nil,
         oxygen_saturation: nil,
         bsa: nil,
-        doctor_notes: nil
+        doctor_notes: nil,
+        reason_for_visit: "Allergies & Sinus Congestion"
     },
     {
         appointment_id: a3.id,
@@ -318,7 +370,8 @@ Intake.create!([
         pulse: nil,
         oxygen_saturation: nil,
         bsa: nil,
-        doctor_notes: nil
+        doctor_notes: nil,
+        reason_for_visit: "Unexpected fatigue and lethargy"
     },
     {
         appointment_id: a4.id,
@@ -337,7 +390,8 @@ Intake.create!([
         pulse: nil,
         oxygen_saturation: nil,
         bsa: nil,
-        doctor_notes: nil
+        doctor_notes: nil,
+        reason_for_visit: "Acute back pain"
     },
     {
         appointment_id: a5.id,
@@ -356,7 +410,8 @@ Intake.create!([
         pulse: nil,
         oxygen_saturation: nil,
         bsa: nil,
-        doctor_notes: nil
+        doctor_notes: nil,
+        reason_for_visit: "Uncontrollable headache"
     },
     {
         appointment_id: a6.id,
@@ -375,7 +430,8 @@ Intake.create!([
         pulse: nil,
         oxygen_saturation: nil,
         bsa: nil,
-        doctor_notes: nil
+        doctor_notes: nil,
+        reason_for_visit: "Suspected cold or flu based on symptoms"
     },
     {
         appointment_id: a7.id,
@@ -394,7 +450,8 @@ Intake.create!([
         pulse: nil,
         oxygen_saturation: nil,
         bsa: nil,
-        doctor_notes: nil
+        doctor_notes: nil,
+        reason_for_visit: "Stress and anxiety, difficult to control"
     },
     {
         appointment_id: a8.id,
@@ -413,7 +470,8 @@ Intake.create!([
         pulse: nil,
         oxygen_saturation: nil,
         bsa: nil,
-        doctor_notes: nil
+        doctor_notes: nil,
+        reason_for_visit: "Arthiritic hand pain"
     },
     {
         appointment_id: a9.id,
@@ -432,7 +490,8 @@ Intake.create!([
         pulse: nil,
         oxygen_saturation: nil,
         bsa: nil,
-        doctor_notes: nil
+        doctor_notes: nil,
+        reason_for_visit: "Stomach / Digestive issues"
     },
     {
         appointment_id: a10.id,
@@ -451,7 +510,68 @@ Intake.create!([
         pulse: nil,
         oxygen_saturation: nil,
         bsa: nil,
-        doctor_notes: nil
+        doctor_notes: nil,
+        reason_for_visit: "General inquiry on recent health concerns"
+    },
+    {
+        appointment_id: a11.id,
+        onset: "A month ago",
+        location: "My back",
+        duration: "30 days",
+        characteristics: "Sharp pain when bending over and lifting, at random points",
+        aggravating_factors: "Manual labor, sitting in front of my computer all day",
+        relieving_factors: "Lying down flat",
+        timing_and_severity: "Randomly throughout the day, severe",
+        blood_pressure: nil,
+        bmi: nil,
+        weight: nil,
+        height: nil,
+        temperature: nil,
+        pulse: nil,
+        oxygen_saturation: nil,
+        bsa: nil,
+        doctor_notes: nil,
+        reason_for_visit: "Acute back pain"
+    },
+    {
+        appointment_id: a12.id,
+        onset: "Yesterday",
+        location: "All over",
+        duration: "1 day",
+        characteristics: "Aches and soreness, fatigue, headaches",
+        aggravating_factors: "Loud noises",
+        relieving_factors: "Peace and quiet",
+        timing_and_severity: "Middle of the day, moderate",
+        blood_pressure: nil,
+        bmi: nil,
+        weight: nil,
+        height: nil,
+        temperature: nil,
+        pulse: nil,
+        oxygen_saturation: nil,
+        bsa: nil,
+        doctor_notes: nil,
+        reason_for_visit: "Aches and pains"
+    },
+    {
+        appointment_id: a13.id,
+        onset: "Earlier this week",
+        location: "My sinuses",
+        duration: "4 days",
+        characteristics: "Hard to breathe, congested, nose constantly running",
+        aggravating_factors: "Being outdoors, waking up in the morning",
+        relieving_factors: "Nasal decongestant, putting pressure on my face",
+        timing_and_severity: "Mornings, mild",
+        blood_pressure: nil,
+        bmi: nil,
+        weight: nil,
+        height: nil,
+        temperature: nil,
+        pulse: nil,
+        oxygen_saturation: nil,
+        bsa: nil,
+        doctor_notes: nil,
+        reason_for_visit: "Suspected sinus infection"
     }
 ])
 

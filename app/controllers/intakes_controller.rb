@@ -21,6 +21,8 @@ class IntakesController < ApplicationController
     private
 
     def intake_params
+        # Use commented out line below for Postman testing
+        # params.permit(:onset, :location, :duration, :characteristics, :aggravating_factors, :relieving_factors, :timing_and_severity, :blood_pressure, :bmi, :weight, :height, :temperature, :pulse, :oxygen_saturation, :bsa, :doctor_notes)
         if session[:user_role] == "Patient"
         params.permit(:onset, :location, :duration, :characteristics, :aggravating_factors, :relieving_factors, :timing_and_severity, :blood_pressure)
         elsif session[:user_role] == "Doctor"
@@ -29,5 +31,3 @@ class IntakesController < ApplicationController
     end
 
 end
-
-session[:user_role] = user.role_type

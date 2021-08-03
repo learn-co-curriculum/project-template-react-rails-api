@@ -93,7 +93,7 @@ let Drink = ({drink, currentUser}) => {
                 <p>{drink.description}</p>
                 <button className="drink-button" onClick={handleAddToCart}>Add to cart</button>
                 <button className="drink-button" onClick={handleCustomize}>Customize</button>
-                <button className="drink-button" style={{backgroundColor:'red'}}>Remove from cart</button>
+                {/* <button className="drink-button" style={{backgroundColor:'red'}}>Remove from cart</button> */}
             </div>
         </div>
     )

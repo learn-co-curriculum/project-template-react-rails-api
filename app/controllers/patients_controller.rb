@@ -8,8 +8,8 @@ class PatientsController < ApplicationController
     def create
         patient = Patient.create(patient_params)
         if patient.valid?
-            session[:role_id] = patient.id
-            render json: user, status: :created
+            # session[:role_id] = doctor.id
+            render json: patient, status: :created
         else
             render json: { errors: patient.errors.full_messages }, status: :unprocessable_entity
         end
@@ -18,7 +18,7 @@ class PatientsController < ApplicationController
     private
 
     def patient_params
-        params.permit(:first_name, :last_name)
+        params.permit(:first_name, :last_name, :date_of_birth, :img_url, :phone_number)
     end
 
 end

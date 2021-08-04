@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   #Sign up / User authorization routing
   post "/signup", to: "users#create"
   get "/me", to: "users#show" 
+  post "/doctor-create", to: "doctors#create"
+  post "/patient-create", to: "patients#create"
 
   #Log in / Log out routing and session control
   post "/login", to: "sessions#create"

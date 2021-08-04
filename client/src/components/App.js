@@ -33,7 +33,7 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <Home user={user} />
           </Route>
           <Route path="/profile">

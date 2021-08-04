@@ -4,6 +4,7 @@ import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route } from "react-router-dom";
+import '@fontsource/roboto';
 
 ReactDOM.render(
   <BrowserRouter>

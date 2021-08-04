@@ -3,13 +3,13 @@ class CartsController < ApplicationController
 
     def index
         carts = Cart.all
-        render json: carts, include: :user
+        render json: carts
     end 
 
     def show
         cart = Cart.find(params[:id])
-        render json: cart, include: [:user, :orders]
-    end 
+        render json: cart
+    end
 
     def create
         cart = Cart.create(user_params)

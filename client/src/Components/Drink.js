@@ -5,8 +5,7 @@ let Drink = ({drink, currentUser}) => {
     const [order, setOrder] = useState({
         user_id: "",
         cart_id: "", 
-        drink_id: "", 
-        bean_id: "", 
+        drink_id: "",
         current_order: false
     })
 
@@ -22,27 +21,23 @@ let Drink = ({drink, currentUser}) => {
     })
 
     let findCurrentOrder = () => {
+        console.log(currentUser.orders)
+        console.log(currentUser.orders.find(order => order.current_order===true))
         if (currentUser.orders.find(order => order.current_order===true) === undefined) {
             return false
         } else {
             let currentOrder = currentUser.orders.find(order => order.current_order===true)
-            console.log(currentOrder)
             return currentOrder
         }
     }
 
-
     let handleOrder = ([selectDrink,drinkID]) => {
-        console.log(selectDrink)
         setOrder({
             user_id: currentUser.id,
             cart_id: currentUser.cart.id, 
-            drink_id: drinkID, 
-            bean_id: 0,
+            drink_id: drinkID,
             current_order: true
         })
-
-        console.log(order)
     }
 
     let createCart = async () => {
@@ -66,18 +61,17 @@ let Drink = ({drink, currentUser}) => {
         console.log(orderData)
     }
 
-    let updateOrder = async () => {
-        console.log(currentUser.orders)
+    // let updateOrder = async () => {
+    //     console.log(order)
+    //     const res = await fetch(`/order/${findCurrentOrder().id}/drink`, {
+    //         method: 'PATCH',
+    //         headers: {'Content-type':'application/json'}, 
+    //         body: JSON.stringify(order)
+    //     })
 
-        const res = await fetch(`/order/${currentUser.order.id}`, {
-            method: 'PATCH',
-            headers: {'Content-type':'application/json'}, 
-            body: JSON.stringify(order)
-        })
-
-        const orderData = await res.json()
-        console.log(orderData)
-    }
+    //     const orderData = await res.json()
+    //     console.log(orderData)
+    // }
 
     let addDrinkToState = async (drinkID) => {
         const res = await fetch (`/drink/${drinkID}`)
@@ -102,27 +96,18 @@ let Drink = ({drink, currentUser}) => {
 
     let handleAddToCart = (e) => {
         let drinkID=parseInt(e.target.parentElement.id)
-        console.log(drinkID)
         addDrinkToState(drinkID)
 
-        if (currentUser.cart === null) {
+        if (findCurrentOrder() !== false) {
+            console.log('Creating order')
+            handleOrder([selectDrink,drinkID])
+            createOrder()
+            console.log('success!! new order created')
+        } else {
             console.log('Creating a cart')
             createCart()
             handleOrder([selectDrink,drinkID]);
             createOrder(order)
-            console.log('success!!')
-     
-        } else if (findCurrentOrder() === false) {
-            console.log('Creating order')
-            handleOrder([selectDrink,drinkID])
-            console.log(selectDrink)
-            console.log(order)
-            createOrder()
-            console.log('success!!')
-        } else {
-            console.log('Adding to current order')
-            handleOrder([selectDrink,drinkID])
-            updateOrder()
             console.log('success!!')
         }
     }

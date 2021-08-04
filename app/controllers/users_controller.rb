@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
     def index
         user = User.all
-        render json: user, include: [:cart, :orders]
+        render json: user, include: :cart
     end 
 
     def show 
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     def find_user
         user = User.find(params[:id])
-        render json: user, include: :orders
+        render json: user
     end 
 
     def create 

@@ -264,3 +264,132 @@
   border-radius: 5px;
   background-color: lightskyblue;
 }
+
+/* CSS for cart component */
+.my-cart-container {
+  border: 1px solid black;
+  width: 97vw;
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  justify-content: space-evenly;
+  justify-items: center;
+  align-content: space-evenly;
+
+}
+
+.order-information-container {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  border: 1px solid black;
+  background-color: lightgray;
+  margin: 20px;
+}
+
+.cart-edit-card {
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid black;
+  margin: 10px
+}
+
+.cart-item-card {
+  margin: 10px;
+}
+
+.tip-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tip-selector-card {
+  display: flex;
+  align-items: center;
+}
+
+.order-selector-button {
+  height: 10%;
+  margin: 5px;
+}
+
+.cart-total-card {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid black;
+}
+
+.edit-cart-button {
+  margin: 10px;
+  font-size: 10px;
+}
+
+.place-order-button {
+  margin: 10px;
+}
+
+.my-cart-order-form {
+  border: 1px solid black;
+  background-color: lightgray;
+  width: 30vw;
+  height: 31vh;
+  margin-top: 10px;
+}
+
+.add-credit-card-selector-form-container {
+  margin: 5px;
+}
+
+.credit-card-selector {
+  border-radius: 5px;
+}
+
+.card-number-container {
+  border-radius: 16px;
+  margin: 5px;
+}
+
+.card-number-card {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.card-information-container {
+  display: flex;
+}
+
+.card-information-card {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  width: 30%
+}
+
+.contact-info-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  background-color: lightgray;
+  width: 30vw;
+  margin-top: 20px;
+}
+
+.contact-info-user-details-card {
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+}
+
+.order-details-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid black;
+}
+
+.order-details-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

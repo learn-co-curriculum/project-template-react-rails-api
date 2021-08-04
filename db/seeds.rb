@@ -20,12 +20,12 @@ end
 User.ids.map {|id| Cart.create(user_id: id)}
 
 # create drinks
+
     Drink.create(name: 'Black Coffee', img_url: 'https://www.perfectbrew.com/wp-content/uploads/2021/06/how-to-make-black-coffee-taste-good-XS-1200x675.jpg', milk: 'Whole', sugar: false, iced: false , size: 'M', price: 5, quantity: 1, description:'Pour-over coffee served black (6-8oz)')
 
     Drink.create(name: 'Americano', img_url: 'https://images.squarespace-cdn.com/content/v1/5a7cbe247131a5f17b3cc8fc/1519447742018-MOHBW2G0VOQ7QSCPJE14/Americano-Coffee-Lounge-Ingredients.jpg',milk: 'Whole', sugar: false, iced: false , size: 'M', price: 5, quantity: 1, description:'Espresso and water (6oz)')
 
     Drink.create(name: 'Mocha', img_url: 'https://athome.starbucks.com/sites/default/files/2020-07/CaffeMocha_Header_Desktop_1176x712.jpg', milk: 'Whole', sugar: false, iced: false , size: 'M', price: 6, quantity: 1, description:'Latte with chocolate (6-8oz)')
-
 
     Drink.create(name: 'Latte', img_url: 'https://www.escoffieronline.com/wp-content/uploads/2013/12/a-guide-to-latte-art-_1107_524867_1_14094340_500.jpg', milk: 'Whole', sugar: false, iced: false , size: 'M', price: 5, quantity: 1, description:'Espresso with heavily-frothed milk (6-8oz)')
 
@@ -35,12 +35,9 @@ User.ids.map {|id| Cart.create(user_id: id)}
 
     Drink.create(name: 'Gibraltar', img_url: 'https://i.pinimg.com/236x/42/bb/ea/42bbea8ec8f8442ee5240464425f2233--espresso-coffee-best-coffee.jpg', milk: 'Whole', sugar: false, iced: false , size: 'S', price: 3, quantity: 1, description:'Espresso with lightly-frothed milk (4oz)')
 
-
     Drink.create(name: 'Machiatto', img_url: 'https://www.roastycoffee.com/wp-content/uploads/jeremy-yap-199222-unsplash.jpg',milk: 'Whole', sugar: false, iced: false , size: 'S', price: 3, quantity: 1, description:'Espresso with a dollop of warm milk (2oz)')
 
-
     Drink.create(name: 'Espresso', img_url: 'https://miro.medium.com/max/1200/1*4FzJWow3qJOV_O-3iKgBOw.jpeg', milk: 'Whole', sugar: false, iced: false , size: 'S', price: 2, quantity: 1, description:'1oz single or double shot')
-
 
 
 # create beans
@@ -62,7 +59,7 @@ end
     drink_price = (Drink.find(drink_id).price * Drink.find(drink_id).quantity)
     bean_price = (Bean.find(bean_id).price * Bean.find(bean_id).quantity)
 
-    Order.create(user_id: user, cart_id: found_user.cart.id, drink_id: drink_id, bean_id: bean_id, total_price: drink_price + bean_price, current_order: false)
+    Order.create(user_id: user, cart_id: found_user.cart.id, total_price: drink_price + bean_price, current_order: false, drink_id: drink_id, bean_id: bean_id)
 end 
 
 # puts `Done seeding`

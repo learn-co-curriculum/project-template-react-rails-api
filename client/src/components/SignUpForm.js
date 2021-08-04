@@ -111,130 +111,297 @@ function SignUpForm({ onLogin }) {
     signUp();
   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <FormField>
-        <Label htmlFor="username">Username</Label>
-        <Input
-          type="text"
-          id="username"
-          autoComplete="off"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="password">Password</Label>
-        <Input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete="current-password"
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="roleName">Role</Label>
-        <Input
-          type="roleName"
-          id="roleName"
-          value={roleName}
-          onChange={(e) => setRoleName(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="first-name">First Name</Label>
-        <Input
-          type="first-name"
-          id="first-name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="last-name">Last Name</Label>
-        <Input
-          type="last-name"
-          id="last-name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="date-of-birth">Date of Birth</Label>
-        <Input
-          type="date-of-birth"
-          id="date-of-birth"
-          value={dateOfBirth}
-          onChange={(e) => setDateOfBirth(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="image">Image URL:</Label>
-        <Input
-        //   type="image"
-          id="image"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="phone">Phone Number</Label>
-        <Input
-          type="phone"
-          id="phone"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-        />
-      </FormField>
-     
-      <FormField>
-        <Label htmlFor="bio">Bio</Label>
-        <Textarea
-          rows="3"
-          id="bio"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="city">City</Label>
-        <Input
-          type="city"
-          id="city"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="specialty">Specialty</Label>
-        <Input
-          type="specialty"
-          id="specialty"
-          value={specialty}
-          onChange={(e) => setSpecialty(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="experience">Years of Experience</Label>
-        <Input
-          type="experience"
-          id="experience"
-          value={experience}
-          onChange={(e) => setExperience(e.target.value)}
-        />
-      </FormField>
+  if (roleName === "") {
+    return (
+        <FormField>
+        <Label htmlFor="roleName">Select Your Role
+            <select value={roleName} onChange={(e) => setRoleName(e.target.value)}>
+            <option value ="Select">Select...</option>
+                <option value ="Doctor">Doctor</option>
+                <option value ="Patient">Patient</option>
+            </select> 
+        </Label>
+        </FormField>
+        
+        // <FormField>
+        // <Label htmlFor="roleName">Role</Label>
+        // <Input
+        //   type="roleName"
+        //   id="roleName"
+        //   value={roleName}
+        //   onChange={(e) => setRoleName(e.target.value)}
+        // />
+        // </FormField>
+    )} else if (roleName === "Doctor") {
+    return (
+        <form onSubmit={handleSubmit}>
+                <FormField>
+        <Label htmlFor="roleName">Select Your Role
+            <select value={roleName} onChange={(e) => setRoleName(e.target.value)}>
+            <option value ="Select">Select...</option>
+                <option value ="Doctor">Doctor</option>
+                <option value ="Patient">Patient</option>
+            </select> 
+        </Label>
+        </FormField>
+        
+        {/* <FormField>
+            <Label htmlFor="roleName">Role</Label>
+            <Input
+            type="roleName"
+            id="roleName"
+            value={roleName}
+            onChange={(e) => setRoleName(e.target.value)}
+            />
+        </FormField> */}
+        <FormField>
+            <Label htmlFor="username">Username</Label>
+            <Input
+            type="text"
+            id="username"
+            autoComplete="off"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="password">Password</Label>
+            <Input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
+            />
+        </FormField>
 
-      <FormField>
-        <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
-      </FormField>
-      <FormField>
-        {errors.map((err) => (
-          <Error key={err}>{err}</Error>
-        ))}
-      </FormField>
-    </form>
-  );
+        <FormField>
+            <Label htmlFor="first-name">First Name</Label>
+            <Input
+            type="first-name"
+            id="first-name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="last-name">Last Name</Label>
+            <Input
+            type="last-name"
+            id="last-name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            />
+        </FormField>
+        {/* <FormField>
+            <Label htmlFor="date-of-birth">Date of Birth</Label>
+            <Input
+            type="date-of-birth"
+            id="date-of-birth"
+            value={dateOfBirth}
+            onChange={(e) => setDateOfBirth(e.target.value)}
+            />
+        </FormField> */}
+        <FormField>
+            <Label htmlFor="image">Image URL:</Label>
+            <Input
+            //   type="image"
+            id="image"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="phone">Phone Number</Label>
+            <Input
+            type="phone"
+            id="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            />
+        </FormField>
+        
+        <FormField>
+            <Label htmlFor="bio">Bio</Label>
+            <Textarea
+            rows="3"
+            id="bio"
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="city">City</Label>
+            <Input
+            type="city"
+            id="city"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="specialty">Specialty</Label>
+            <Input
+            type="specialty"
+            id="specialty"
+            value={specialty}
+            onChange={(e) => setSpecialty(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="experience">Years of Experience</Label>
+            <Input
+            type="experience"
+            id="experience"
+            value={experience}
+            onChange={(e) => setExperience(e.target.value)}
+            />
+        </FormField>
+
+        <FormField>
+            <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
+        </FormField>
+        <FormField>
+            {errors.map((err) => (
+            <Error key={err}>{err}</Error>
+            ))}
+        </FormField>
+        </form>
+    )} else if (roleName === "Patient") {
+    return (
+        <form onSubmit={handleSubmit}>
+                <FormField>
+        <Label htmlFor="roleName">Select Your Role
+            <select value={roleName} onChange={(e) => setRoleName(e.target.value)}>
+            <option value ="Select">Select...</option>
+                <option value ="Doctor">Doctor</option>
+                <option value ="Patient">Patient</option>
+            </select> 
+        </Label>
+        </FormField>
+        
+        {/* <FormField>
+            <Label htmlFor="roleName">Role</Label>
+            <Input
+            type="roleName"
+            id="roleName"
+            value={roleName}
+            onChange={(e) => setRoleName(e.target.value)}
+            />
+        </FormField>     */}
+        <FormField>
+            <Label htmlFor="username">Username</Label>
+            <Input
+            type="text"
+            id="username"
+            autoComplete="off"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="password">Password</Label>
+            <Input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="first-name">First Name</Label>
+            <Input
+            type="first-name"
+            id="first-name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="last-name">Last Name</Label>
+            <Input
+            type="last-name"
+            id="last-name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="date-of-birth">Date of Birth</Label>
+            <Input
+            type="date-of-birth"
+            id="date-of-birth"
+            value={dateOfBirth}
+            onChange={(e) => setDateOfBirth(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="image">Image URL:</Label>
+            <Input
+            //   type="image"
+            id="image"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="phone">Phone Number</Label>
+            <Input
+            type="phone"
+            id="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            />
+        </FormField>
+            
+        {/* <FormField>
+            <Label htmlFor="bio">Bio</Label>
+            <Textarea
+            rows="3"
+            id="bio"
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="city">City</Label>
+            <Input
+            type="city"
+            id="city"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="specialty">Specialty</Label>
+            <Input
+            type="specialty"
+            id="specialty"
+            value={specialty}
+            onChange={(e) => setSpecialty(e.target.value)}
+            />
+        </FormField>
+        <FormField>
+            <Label htmlFor="experience">Years of Experience</Label>
+            <Input
+            type="experience"
+            id="experience"
+            value={experience}
+            onChange={(e) => setExperience(e.target.value)} */}
+            {/* />
+        </FormField> */}
+    
+        <FormField>
+            <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
+        </FormField>
+        <FormField>
+            {errors.map((err) => (
+            <Error key={err}>{err}</Error>
+            ))}
+        </FormField>
+        </form>
+    )}
 }
 
 export default SignUpForm;

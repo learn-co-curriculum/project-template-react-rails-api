@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
+//WIP
 // async function getPatients(){
 //     const res = await fetch(`/users/${user.id}/patients`, {
 //         method: "GET",

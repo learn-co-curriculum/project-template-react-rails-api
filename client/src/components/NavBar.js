@@ -16,12 +16,22 @@ function NavBar({ user, setUser }) {
             <Link to="/">Home</Link>
           </div>
           <div>
-            {user ? (
+            {user.role_type === "Doctor" ? (
+              <>
+              <Link to="/profile">My Profile</Link>
+              <Link to="/my-patients">My Patients</Link>
+              <Link to="/upcoming-appointments">Upcoming Appointments</Link>
+              <Link to="/past-appointments">Appointment History</Link>
               <button onClick={handleLogoutClick}>Logout</button>
+              </>
             ) : (
               <>
-                <Link to="/signup">Signup</Link>
-                <Link to="/login">Login</Link>
+              <Link to="/profile">My Profile</Link>
+              <Link to="/my-doctors">My Doctors</Link>
+              <Link to="/schedule">Schedule</Link>
+              <Link to="/upcoming-appointments">Upcoming Appointments</Link>
+              <Link to="/past-appointments">Appointment History</Link>
+              <button onClick={handleLogoutClick}>Logout</button>
               </>
             )}
           </div>

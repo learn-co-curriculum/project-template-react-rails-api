@@ -7,6 +7,13 @@ import '../App.css';
 import Login from "./Login";
 import NavBar from "./NavBar";
 import Home from "./Home";
+import Profile from "./Profile";
+import ScheduleForm from "./ScheduleForm";
+import DoctorList from "./DoctorList";
+import PatientList from "./PatientList";
+import UpcomingAppointmentList from "./UpcomingAppointmentList";
+import PastAppointmentList from "./PastAppointmentList";
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -28,6 +35,24 @@ function App() {
         <Switch>
           <Route path="/">
             <Home user={user} />
+          </Route>
+          <Route path="/profile">
+            <Profile user={user} />
+          </Route>
+          <Route path="/schedule">
+            <ScheduleForm user={user} />
+          </Route>
+          <Route path="/my-doctors">
+            <DoctorList user={user} />
+          </Route>
+          <Route path="/my-patients">
+            <PatientList user={user} />
+          </Route>
+          <Route path="/upcoming-appointments">
+            <UpcomingAppointmentList user={user} />
+          </Route>
+          <Route path="/past-appointments">
+            <PastAppointmentList user={user} />
           </Route>
         </Switch>
       </main>

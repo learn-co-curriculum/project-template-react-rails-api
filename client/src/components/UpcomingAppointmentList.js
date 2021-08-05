@@ -38,6 +38,7 @@ function UpcomingAppointmentList({ user }) {
                         time={appointment.time}
                         patient={appointment.patient}
                         doctor={appointment.doctor}
+                        link = {`upcoming-appointments/${appointment.id}/`}
                     />)}
 
                 </Grid>

@@ -243,7 +243,7 @@ function SignUpForm({ onLogin }) {
     )} else if (roleName === "Patient") {
     return (
         <form onSubmit={handleSubmit}>
-                <FormField>
+        <FormField>
         <Label htmlFor="roleName">Select Your Role
             <select value={roleName} onChange={(e) => setRoleName(e.target.value)}>
             <option value ="Select">Select...</option>

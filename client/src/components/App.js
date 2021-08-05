@@ -13,6 +13,7 @@ import DoctorList from "./DoctorList";
 import PatientList from "./PatientList";
 import UpcomingAppointmentList from "./UpcomingAppointmentList";
 import PastAppointmentList from "./PastAppointmentList";
+import IntakeForm from "./IntakeForm";
 
 
 function App() {
@@ -48,8 +49,11 @@ function App() {
           <Route path="/my-patients">
             <PatientList user={user} />
           </Route>
-          <Route path="/upcoming-appointments">
+          <Route exact path="/upcoming-appointments">
             <UpcomingAppointmentList user={user} />
+          </Route>
+          <Route path="/upcoming-appointments/:id">
+            <IntakeForm user={user} />
           </Route>
           <Route path="/past-appointments">
             <PastAppointmentList user={user} />

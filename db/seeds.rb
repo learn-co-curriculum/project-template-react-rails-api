@@ -19,7 +19,7 @@ Doctor.create!([
         first_name: "Stephen", 
         last_name: "Strange",
         img_url: "",
-        phone_number: "3045550492",
+        phone_number: "(304) 555-0492",
         bio: "Doctor Stephen Vincent Strange M.D., Ph.D is the sorcerer and a Master of the Mystic Arts. Originally a brilliant, although arrogant, neurosurgeon, Strange got into a car accident which resulted with his hands becoming crippled. When all Western medicine failed him, Strange embarked on a journey that led him into Kamar-Taj where Strange had made the discovery of magic and alternate dimensions, being trained by the Ancient One.",
         city: "New York",
         specialty: "Neurosurgery",
@@ -29,7 +29,7 @@ Doctor.create!([
     {
         first_name: "Ivo",
         last_name: "Robotnik",
-        phone_number: "1295550439",
+        phone_number: "(129) 555-0439",
         img_url: "",
         bio: "Dr. Ivo Robotnik, better known by the alias Dr. Eggman, is the main antagonist of the Sonic the Hedgehog series. He is a human scientist and the arch-nemesis of Sonic the Hedgehog. This large scientist with an IQ of 300[2] dreams of dominating the world, but his constant plots to create his Eggman Empire are always thwarted by Sonic and his friends.",
         city: "Green Hills",
@@ -40,7 +40,7 @@ Doctor.create!([
     {
         first_name: "Andre",
         last_name: "Dre",
-        phone_number: "4295559403",
+        phone_number: "(429)555-9403",
         img_url: "",
         bio: "Andre Romelle Young, known professionally as Dr. Dre, is an American rapper, audio engineer, record producer, and entrepreneur. He is the founder and CEO of Aftermath Entertainment and Beats Electronics, and previously co-founded, co-owned, and was the president of Death Row Records.",
         city: "Los Angeles",
@@ -51,7 +51,7 @@ Doctor.create!([
     {
         first_name: "Doogie",
         last_name: "Howser",
-        phone_number: "6295558473",
+        phone_number: "(629) 555-8473",
         img_url: "",
         bio: "Possessing a genius intellect and an eidetic memory, Howser participates in a longitudinal study of child prodigies until his 18th birthday. He earned a perfect score on the SAT at the age of six, completed high school in nine weeks, graduated from Princeton University in 1983 at age 10, and finished medical school four years later. At age 14, Howser was the youngest licensed doctor in the country.",
         city: "Los Angeles",
@@ -62,7 +62,7 @@ Doctor.create!([
     {
         first_name: "Gregory",
         last_name: "House",
-        phone_number: "8045559493",
+        phone_number: "(804)555-9493",
         img_url: "",
         bio: "Dr. Gregory House, M.D. leads a team of diagnosticians as the Head of Diagnostic Medicine at the Princeton-Plainsboro Teaching Hospital in Princeton, New Jersey.",
         city: "New Jersey",
@@ -85,36 +85,36 @@ Patient.create!([
         first_name: "Jane",
         last_name: "Villanueva",
         img_url: "",
-        phone_number: "3395558473",
-        date_of_birth: "08121992"
+        phone_number: "(339) 555-8473",
+        date_of_birth: "08/12/1992"
     },
     {
         first_name: "Rebecca",
         last_name: "Bunch",
         img_url: "",
-        phone_number: "3955554849",
-        date_of_birth: "02091987"
+        phone_number: "(395) 555-4849",
+        date_of_birth: "02/09/1987"
     },
     {
         first_name: "Moira",
         last_name: "Rose",
         img_url: "",
-        phone_number: "2045553945",
-        date_of_birth: "04281960"
+        phone_number: "(204) 555-3945",
+        date_of_birth: "04/28/1960"
     },
     {
         first_name: "Alfred",
         last_name: "Miles",
         img_url: "",
-        phone_number: "9385559494",
-        date_of_birth: "06201982"
+        phone_number: "(938) 555-9494",
+        date_of_birth: "06/20/1982"
     },
     {
         first_name: "Bob",
         last_name: "Belcher",
         img_url: "",
-        phone_number: "7392228384",
-        date_of_birth: "11101975"
+        phone_number: "(739) 222-8384",
+        date_of_birth: "11/10/1975"
     }
 ])
 

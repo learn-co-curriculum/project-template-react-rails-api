@@ -122,16 +122,7 @@ function SignUpForm({ onLogin }) {
             </select> 
         </Label>
         </FormField>
-        
-        // <FormField>
-        // <Label htmlFor="roleName">Role</Label>
-        // <Input
-        //   type="roleName"
-        //   id="roleName"
-        //   value={roleName}
-        //   onChange={(e) => setRoleName(e.target.value)}
-        // />
-        // </FormField>
+
     )} else if (roleName === "Doctor") {
     return (
         <form onSubmit={handleSubmit}>
@@ -144,16 +135,7 @@ function SignUpForm({ onLogin }) {
             </select> 
         </Label>
         </FormField>
-        
-        {/* <FormField>
-            <Label htmlFor="roleName">Role</Label>
-            <Input
-            type="roleName"
-            id="roleName"
-            value={roleName}
-            onChange={(e) => setRoleName(e.target.value)}
-            />
-        </FormField> */}
+    
         <FormField>
             <Label htmlFor="username">Username</Label>
             <Input
@@ -193,15 +175,6 @@ function SignUpForm({ onLogin }) {
             onChange={(e) => setLastName(e.target.value)}
             />
         </FormField>
-        {/* <FormField>
-            <Label htmlFor="date-of-birth">Date of Birth</Label>
-            <Input
-            type="date-of-birth"
-            id="date-of-birth"
-            value={dateOfBirth}
-            onChange={(e) => setDateOfBirth(e.target.value)}
-            />
-        </FormField> */}
         <FormField>
             <Label htmlFor="image">Image URL:</Label>
             <Input
@@ -280,15 +253,6 @@ function SignUpForm({ onLogin }) {
         </Label>
         </FormField>
         
-        {/* <FormField>
-            <Label htmlFor="roleName">Role</Label>
-            <Input
-            type="roleName"
-            id="roleName"
-            value={roleName}
-            onChange={(e) => setRoleName(e.target.value)}
-            />
-        </FormField>     */}
         <FormField>
             <Label htmlFor="username">Username</Label>
             <Input
@@ -354,44 +318,7 @@ function SignUpForm({ onLogin }) {
             onChange={(e) => setPhone(e.target.value)}
             />
         </FormField>
-            
-        {/* <FormField>
-            <Label htmlFor="bio">Bio</Label>
-            <Textarea
-            rows="3"
-            id="bio"
-            value={bio}
-            onChange={(e) => setBio(e.target.value)}
-            />
-        </FormField>
-        <FormField>
-            <Label htmlFor="city">City</Label>
-            <Input
-            type="city"
-            id="city"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            />
-        </FormField>
-        <FormField>
-            <Label htmlFor="specialty">Specialty</Label>
-            <Input
-            type="specialty"
-            id="specialty"
-            value={specialty}
-            onChange={(e) => setSpecialty(e.target.value)}
-            />
-        </FormField>
-        <FormField>
-            <Label htmlFor="experience">Years of Experience</Label>
-            <Input
-            type="experience"
-            id="experience"
-            value={experience}
-            onChange={(e) => setExperience(e.target.value)} */}
-            {/* />
-        </FormField> */}
-    
+   
         <FormField>
             <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
         </FormField>

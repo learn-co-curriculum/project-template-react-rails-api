@@ -15,16 +15,40 @@ import BrewHeader from './BrewMethods/BrewHeader';
 import data from './BrewMethods/data';
 
 let App = () => {
-  const [currentUser, setCurrentUser] = useState(false)
+  const [currentUser, setCurrentUser] = useState({
+    id: 0,
+    username: "", 
+    address: "", 
+    cart: {},
+    email_address: "",
+    orders: []
+  })
+
   const [drinks, setDrinks] = useState()
   const history = useHistory()
+  const [order, setOrder] = useState({
+    drinks: []
+  })
 
   useEffect(() => {
-    console.log('hello world')
     fetch('/user').then(res => {
       if(res.ok){
-        console.log('hello')
-        res.json().then(user => setCurrentUser(user))
+        res.json().then(user => {
+          setCurrentUser(user)
+
+          fetch('/orders').then(res => {
+            if(res.ok){
+              res.json().then(orders => {
+                let currentUserOrders = orders.filter(order => order.user_id === user.id)
+                let currentOrder = currentUserOrders.filter(order => order.current_order === true)
+                console.log(currentUserOrders)
+                console.log(user)
+                console.log(currentOrder)
+                setOrder(currentOrder)
+              })
+            }
+          })
+        })
       } else {
         setCurrentUser(null)
       }
@@ -41,8 +65,25 @@ let App = () => {
     })
   },[])
 
+  // useEffect(() => {
+  //   fetch('/orders').then(res => {
+  //     if(res.ok){
+  //       res.json().then(orders => {
+  //         let currentUserOrders = orders.filter(order => order.user_id === currentUser.id)
+  //         let currentOrder = currentUserOrders.filter(order => order.current_order === true)
+  //         console.log(orders)
+  //         console.log(currentUser)
+  //         setOrder(currentOrder)
+  //       })
+  //     }
+  //   })
+  // },[])
+
+  
+
   // use the code below for Error: Objects are not valid as a React child (found: object with keys {id, username, address, email_address}). If you meant to render a collection of children, use an array instead.
   // Object.values(user).map(user => setCurrentUser(user)
+
 const {list} = data;
 
   if (currentUser === null) {
@@ -62,7 +103,6 @@ const {list} = data;
                 <SignUp setCurrentUser={setCurrentUser}/>
               </Route>
             </Switch>
-
         </div>
       </div>
     )
@@ -91,12 +131,13 @@ const {list} = data;
                 />
               </Route>
               <Route exact path="/customize_drink">
-                <CustomizeDrink
-                  currentUser={currentUser}
-                />
+                <CustomizeDrink currentUser={currentUser}/>
               </Route>
               <Route exact path="/my_cart">
-                <Cart currentUser={currentUser}/>
+                <Cart 
+                  currentUser={currentUser}
+                  order={order}
+                />
               </Route>
               <Route exact path='/'>
                 <Home currentUser={currentUser}/>

@@ -1,5 +1,4 @@
 class Drink < ApplicationRecord
-    # has_many :orders
-    # has_many :users, through: :orders
-    # has_many :carts, through: :orders
+    has_many :order_items, as: :item
+    has_many :orders, through: :order_items, as: :item
 end

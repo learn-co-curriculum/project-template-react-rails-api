@@ -1,27 +1,12 @@
-import {useEffect, useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import { useState } from 'react'
 
 // import components
 import Order from './Order'
 
-let Cart = ({currentUser}) => {
-    // const [currentUser, setCurrentUser] = useState(false)
-
-    // useEffect(() => {
-    //     console.log('hello world')
-    //     fetch('/user').then(res => {
-    //       if(res.ok){
-    //         console.log('hello')
-    //         res.json().then(user => setCurrentUser(user))
-    //       } else {
-    //         setCurrentUser(null)
-    //       }
-    //     })
-    //   },[])
-
-    // console.log(currentUser)
-    // let currentOrders = currentUser.orders.filter(order => order.current_order === true)
-    // console.log(currentUser.orders.filter(order => order.current_order === true))
+let Cart = ({currentUser, order}) => {
+    const [orderItem, setOrderItem] = useState([])
+    // console.log(order[0].drinks)
+    // setOrderItem(order.map(order => order.drinks))
 
     return (
         <div className="my-cart-container">
@@ -81,8 +66,10 @@ let Cart = ({currentUser}) => {
                     <button className="edit-cart-button">Edit Cart</button>
                 </div>
                 <div className="cart-item-card">
-                    {/* {currentOrders.map(order => <Order order={order}/>)} */}
-                    <Order />
+                    {order[0].drinks.map(order => {
+                        return (<Order order={order}/>)
+                    })}
+                    {/* <Order drinks={order[0].drinks} order={order}/> */}
                     <p><small>Subtotal</small></p>
                     <p><small>Delivery Fee</small></p>
                     <p><small>Service Fee</small></p>

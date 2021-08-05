@@ -6,7 +6,7 @@ let Logout = ({setCurrentUser}) => {
         .then(() => 
             setCurrentUser(null)
         )
-    },[])
+    },[setCurrentUser])
 
     return (
         <div>

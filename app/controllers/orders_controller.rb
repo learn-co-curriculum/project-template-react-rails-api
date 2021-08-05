@@ -4,44 +4,16 @@ class OrdersController < ApplicationController
 
     def index
         orders = Order.all
-        render json: orders
+        render json: orders, include: [:order_items, :beans, :drinks]
     end 
 
     def show
         order = Order.find(params[:id])
-        render json: order
+        render json: order, include: [:order_items, :beans, :drinks]
     end 
 
     def create 
         order = Order.create!(order_params)
-        render json: order
-    end 
-
-    # def create_beans_order
-    #     order = Order.create!(bean_order_params)
-    #     render json: order, include: [:user, :bean]
-    # end 
-
-    # def create_drinks_order
-    #     order = Order.create!(drink_order_params)
-    #     render json: order, include: [:user, :drink]
-    # end 
-
-    # def update
-    #     order = Order.find(params[:id])
-    #     order.update!(order_params)
-    #     render json: order, include: [:user, :bean, :drink]
-    # end 
-
-     def update_beans_order
-        order = Order.find(params[:id])
-        order.update!(bean_order_params)
-        render json: order
-    end 
-
-    def update_drinks_order
-        order = Order.find(params[:id])
-        order.update!(drinks_order_params)
         render json: order
     end 
 
@@ -54,15 +26,7 @@ class OrdersController < ApplicationController
     private
 
     def order_params
-        params.permit(:user_id, :cart_id, :drink_id, :bean_id, :current_order)
-    end 
-
-    def bean_order_params 
-        params.permit(:user_id, :cart_id, :bean_id, :current_order)
-    end 
-
-    def drink_order_params 
-        params.permit(:user_id, :cart_id, :drink_id, :current_order)
+        params.permit(:user_id, :cart_id, :current_order)
     end 
 
     def render_invalid(invalid)

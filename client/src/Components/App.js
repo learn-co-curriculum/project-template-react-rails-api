@@ -10,6 +10,9 @@ import Home from "./Home";
 import Drinks from './Drinks'
 import CustomizeDrink from './CustomizeDrink.js'
 import Cart from './Cart'
+import MainPage from './BrewMethods/MainPage';
+import BrewHeader from './BrewMethods/BrewHeader';
+import data from './BrewMethods/data';
 
 let App = () => {
   const [currentUser, setCurrentUser] = useState({
@@ -81,6 +84,8 @@ let App = () => {
   // use the code below for Error: Objects are not valid as a React child (found: object with keys {id, username, address, email_address}). If you meant to render a collection of children, use an array instead.
   // Object.values(user).map(user => setCurrentUser(user)
 
+const {list} = data;
+
   if (currentUser === null) {
     history.push('/login')
     return (
@@ -136,6 +141,10 @@ let App = () => {
               </Route>
               <Route exact path='/'>
                 <Home currentUser={currentUser}/>
+              </Route>
+              <Route exact path='/brew_methods'>
+                <BrewHeader />
+                <MainPage list = {list} />
               </Route>
             </Switch>
         </div>

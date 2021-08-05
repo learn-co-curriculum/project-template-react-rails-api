@@ -1,6 +1,8 @@
 import React from 'react'
 import './Button.css'
 
+// nav bar sign up button
+
 const STYLES = [
     'btn--primary',
     'btn--outline'

@@ -30,13 +30,37 @@
     margin-right: 2rem;
 }
 
-.nav-links {
+.Home {
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
 }
 
-.nav-links:hover {
+.Brew.Methods {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.Our.Story {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.View.Cart{
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.Logout {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.Home:hover, .Brew.Methods:hover, .Logout:hover, .Our.Story:hover, .View.Cart:hover  {
     background-color: salmon;
     border-radius: 4px;
     transition: all 0.2s ease-out;

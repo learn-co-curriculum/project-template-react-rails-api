@@ -7,7 +7,16 @@ import ProfileCard from './ProfileCard';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-    }
+    },
+    papergrid: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > *': {
+          margin: theme.spacing(1),
+          width: theme.spacing(40),
+          height: theme.spacing(24),
+        },
+      },
   }));
 
 function PatientList({ user }) {
@@ -31,7 +40,7 @@ function PatientList({ user }) {
         <h1 style={{color: "#0D87E3"}}>This is your patient list, {user.role.first_name}!</h1>
         <div className="flex-container">
             <div className={classes.root}>
-                <Grid container spacing={3}>
+                <div className={classes.papergrid} >
 
                     {patients.map(patient => <ProfileCard
                         user={user}
@@ -42,7 +51,7 @@ function PatientList({ user }) {
                         dateOfBirth={patient.date_of_birth}
                     />)}
 
-                </Grid>
+                </div>
             </div>    
         </div>
         </>

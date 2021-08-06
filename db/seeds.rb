@@ -225,7 +225,7 @@ Appointment.create!([
         appointment_complete: false
     },
     {
-        patient_id: p2.id,
+        patient_id: p1.id,
         doctor_id: d4.id,
         time: "12/05/2021 14:00",
         patient_intake_complete: true,
@@ -233,13 +233,13 @@ Appointment.create!([
     },
     {
         patient_id: p3.id,
-        doctor_id: d2.id,
+        doctor_id: d1.id,
         time: "09/23/2021 15:00",
         patient_intake_complete: true,
         appointment_complete: false
     },
     {
-        patient_id: p4.id,
+        patient_id: p1.id,
         doctor_id: d3.id,
         time: "12/30/2021 11:00",
         patient_intake_complete: true,
@@ -247,20 +247,20 @@ Appointment.create!([
     },
     {
         patient_id: p4.id,
-        doctor_id: d3.id,
+        doctor_id: d1.id,
         time: "11/19/2021 15:30",
         patient_intake_complete: true,
         appointment_complete: false
     },
     {
         patient_id: p4.id,
-        doctor_id: d5.id,
+        doctor_id: d1.id,
         time: "08/08/2021 09:30",
         patient_intake_complete: true,
         appointment_complete: false
     },
     {
-        patient_id: p5.id,
+        patient_id: p1.id,
         doctor_id: d3.id,
         time: "10/01/2021 11:30",
         patient_intake_complete: true,
@@ -268,7 +268,7 @@ Appointment.create!([
     },
     {
         patient_id: p5.id,
-        doctor_id: d5.id,
+        doctor_id: d1.id,
         time: "09/26/2021 18:00",
         patient_intake_complete: true,
         appointment_complete: false

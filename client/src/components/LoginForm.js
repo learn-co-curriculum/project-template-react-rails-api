@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom"
 import Button from "../styles/Button";
 import Error from "../styles/Error";
 import Input from "../styles/Input";
@@ -10,6 +11,8 @@ function LoginForm({ onLogin }) {
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+
+    const history = useHistory();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -26,9 +29,12 @@ function LoginForm({ onLogin }) {
             setIsLoading(false);
             const user = await res.json()
             onLogin(user)
+            history.push("/")
           } else {
             const err = await res.json()
             setErrors(err.errors)
+            setIsLoading(false);
+            window.alert("Invalid username and/or password. Please try again.")
           }
         };
         login()
@@ -61,11 +67,11 @@ function LoginForm({ onLogin }) {
               {isLoading ? "Loading..." : "Login"}
             </Button>
           </FormField>
-          <FormField>
+          {/* <FormField>
             {errors.map((err) => (
               <Error key={err}>{err}</Error>
             ))}
-          </FormField>
+          </FormField> */}
         </form>
     );
 

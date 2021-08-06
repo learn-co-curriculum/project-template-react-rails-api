@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom"
 import styled from "styled-components";
 
 function NavBar({ user, setUser }) {
     
+    const history = useHistory();
+
     const NavUnlisted = styled.ul`
         text-decoration: none;
     `;
@@ -18,6 +21,7 @@ function NavBar({ user, setUser }) {
         fetch("/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
                 setUser(null)
+                history.push("/")
             }
         });
     }

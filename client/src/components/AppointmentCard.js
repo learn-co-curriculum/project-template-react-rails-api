@@ -16,8 +16,13 @@ function AppointmentCard({ user, time, patient, doctor, appointment, link, setUp
                 method: 'DELETE'
             })
             if (res.ok) {
-                console.log("Successfully deleted!")
-                setUpcomingAppointments(upcomingAppointments)
+                // console.log("Successfully deleted!")
+                // setUpcomingAppointments(upcomingAppointments)
+                fetch(`/users/${user.id}/upcoming_appointments`).then((r) => {
+                    if (r.ok) {
+                        r.json().then((appointments) => setUpcomingAppointments(appointments))
+                    }
+                })
             }
         }
 

@@ -14,7 +14,7 @@ function Profile({ user }) {
     </>
     )} else if (user.role_type === "Patient") { return (
     <>
-    <h1>This is your profile page, {user.role.first_name}!</h1>
+    <h1 style={{color: "#0D87E3"}}>This is your profile page, {user.role.first_name}!</h1>
     <h2>Username: {user.username}</h2>
     <h3>Name: {user.role.first_name} {user.role.last_name}</h3>
     <h3>Phone Number: {user.role.phone_number}</h3>

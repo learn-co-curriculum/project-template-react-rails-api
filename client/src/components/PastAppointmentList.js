@@ -7,7 +7,16 @@ import AppointmentCard from './AppointmentCard';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-    }
+    },
+    papergrid: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > *': {
+          margin: theme.spacing(1),
+          width: theme.spacing(48),
+          height: theme.spacing(22),
+        },
+      },
   }));
 
 function PastAppointmentList({ user }) {
@@ -29,7 +38,7 @@ function PastAppointmentList({ user }) {
     <h1 style={{color: "#0D87E3"}}>These are your past appointments, {user.role.first_name}!</h1>
     <div className="flex-container">
             <div className={classes.root}>
-                <Grid container spacing={3}>
+                <div className={classes.papergrid} >
 
                     {pastAppointments.map(appointment => <AppointmentCard
                         user={user}
@@ -41,7 +50,7 @@ function PastAppointmentList({ user }) {
                         // link = {`upcoming-appointments/${appointment.id}/`}
                     />)}
 
-                </Grid>
+                </div>
             </div>    
         </div>
     </>

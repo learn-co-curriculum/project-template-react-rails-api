@@ -61,6 +61,7 @@ function IntakeForm({ user }) {
                 const intake = await res.json()
                 console.log("Intake updated successfully!")
                 console.log (intake)
+                history.push("/intakes")
             }
         }
 

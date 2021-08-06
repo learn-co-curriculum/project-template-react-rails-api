@@ -7,7 +7,16 @@ import AppointmentCard from './AppointmentCard';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-    }
+    },
+    papergrid: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > *': {
+          margin: theme.spacing(1),
+          width: theme.spacing(48),
+          height: theme.spacing(28),
+        },
+      },
   }));
 
 function UpcomingAppointmentList({ user }) {
@@ -28,7 +37,7 @@ function UpcomingAppointmentList({ user }) {
     <h1 style={{color: "#0D87E3"}}>These are your upcoming appointments, {user.role.first_name}!</h1>
     <div className="flex-container">
             <div className={classes.root}>
-                <Grid container spacing={3}>
+                <div className={classes.papergrid} >
 
                     {upcomingAppointments.map(appointment => <AppointmentCard
                         upcomingAppointments={upcomingAppointments}
@@ -42,7 +51,7 @@ function UpcomingAppointmentList({ user }) {
                         link = {`intakes/${appointment.intake.id}/`}
                     />)}
 
-                </Grid>
+                </div>
             </div>    
         </div>
     </>

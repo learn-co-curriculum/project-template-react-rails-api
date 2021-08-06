@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom"
 import Button from "../styles/Button";
 import Error from "../styles/Error";
 import Input from "../styles/Input";
@@ -29,6 +30,8 @@ function ScheduleForm({ user }) {
     const [doctorArray, setDoctorArray] = useState([])
     const [time, setTime] = useState("")
     const [isLoading, setIsLoading] = useState(false);
+
+    const history = useHistory();
     
     useEffect(() => {
         fetch("/doctors").then((r) => {
@@ -61,6 +64,7 @@ function ScheduleForm({ user }) {
                 const appointment = await res.json()
                 console.log(appointment)
                 console.log("Appointment created successfully!")
+                history.push("/intakes")
             }
         }
         appointmentCreate()

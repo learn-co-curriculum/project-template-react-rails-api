@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom"
 import Button from "../styles/Button";
 import Error from "../styles/Error";
 import Input from "../styles/Input";
@@ -41,6 +42,8 @@ function SignUpForm({ onLogin }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const [roleModel, setRoleModel] = useState("")
+
+  const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -119,6 +122,7 @@ function SignUpForm({ onLogin }) {
        const user = await res.json()
        console.log(user)
        onLogin(user)
+       history.push("/")
       } else {
         const err = await res.json()
         setErrors(err.errors)

@@ -265,11 +265,18 @@ img.small {
 }
 
 .home-navigation-button {
-  height: 7vh;
-  width: 10vw;
-  margin: 10px;
+  padding: 8px 20px;
   border-radius: 4px;
-  background-color: lightgrey;
+  outline: none;
+  border: none;
+  cursor: pointer
+}
+.home-navigation-button:hover {
+  padding: 8px 20px;
+  transition: all 0.3s ease-out;
+  background: #fff;
+  color: #6568f4;
+  transition: 250ms;;
 }
 
 /* CSS for drinks component */

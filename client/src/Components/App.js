@@ -13,6 +13,8 @@ import Cart from './Cart'
 import MainPage from './BrewMethods/MainPage';
 import BrewHeader from './BrewMethods/BrewHeader';
 import data from './BrewMethods/data';
+import GuideData from './BrewMethods/GuideData';
+import Guides from './BrewMethods/Guides'
 
 let App = () => {
   const [currentUser, setCurrentUser] = useState({
@@ -97,6 +99,7 @@ let App = () => {
   // Object.values(user).map(user => setCurrentUser(user)
 
 const {list} = data;
+const {guides} = GuideData;
 
   if (currentUser === null) {
     history.push('/login')
@@ -156,7 +159,8 @@ const {list} = data;
               </Route>
               <Route exact path='/brew_methods'>
                 <BrewHeader />
-                <MainPage list = {list} />
+                <MainPage list= {list}
+                   />
               </Route>
             </Switch>
         </div>

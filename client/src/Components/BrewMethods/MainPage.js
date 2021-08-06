@@ -9,7 +9,6 @@ export default function MainPage(props){
     {list.map((list) => (
         <List key={list.id} list={list}> </List>
     ))}
-
         </div>
     </main>
 }

@@ -49,10 +49,10 @@ function App() {
           <Route path="/my-patients">
             <PatientList user={user} />
           </Route>
-          <Route exact path="/upcoming-appointments">
+          <Route exact path="/intakes">
             <UpcomingAppointmentList user={user} />
           </Route>
-          <Route path="/upcoming-appointments/:id">
+          <Route path="/intakes/:id">
             <IntakeForm user={user} />
           </Route>
           <Route path="/past-appointments">

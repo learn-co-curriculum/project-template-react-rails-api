@@ -21,7 +21,7 @@ function NavBar({ user, setUser }) {
               <Link to="/profile">My Profile</Link>
               <Link to="/my-patients">My Patients</Link>
               {/* <Link to="/schedule">Schedule</Link> */}
-              <Link to="/upcoming-appointments">Upcoming Appointments</Link>
+              <Link to="/intakes">Upcoming Appointments</Link>
               <Link to="/past-appointments">Appointment History</Link>
               <button onClick={handleLogoutClick}>Logout</button>
               </>
@@ -30,7 +30,7 @@ function NavBar({ user, setUser }) {
               <Link to="/profile">My Profile</Link>
               <Link to="/my-doctors">My Doctors</Link>
               <Link to="/schedule">Schedule</Link>
-              <Link to="/upcoming-appointments">Upcoming Appointments</Link>
+              <Link to="/intakes">Upcoming Appointments</Link>
               <Link to="/past-appointments">Appointment History</Link>
               <button onClick={handleLogoutClick}>Logout</button>
               </>

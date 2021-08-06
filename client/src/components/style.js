@@ -129,9 +129,9 @@ export const Wrapper = styled.header`
 
 
 export const Logo = styled.h1`
-  font-family: "Courier New";
+  font-family: "Baskerville";
   font-size: 3rem;
-  color: #21EE66;
+  color: #0D87E3 ;
   margin: 0;
   line-height: 1;
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 //import css from material ui
@@ -7,9 +7,22 @@ import Paper from '@material-ui/core/Paper';
 
 import Button from '@material-ui/core/Button';
 
-function AppointmentCard({ user, time, patient, doctor, appointment, link }) {
-    
-    link = `upcoming-appointments/${appointment.id}/`
+function AppointmentCard({ user, time, patient, doctor, appointment, link, setUpcomingAppointments, upcomingAppointments }) {
+
+    function handleDestroy() {
+        
+        async function deleteIntake() {
+            const res = await fetch(`/appointments/${appointment.id}`, {
+                method: 'DELETE'
+            })
+            if (res.ok) {
+                console.log("Successfully deleted!")
+                setUpcomingAppointments(upcomingAppointments)
+            }
+        }
+
+        deleteIntake();
+    }
 
     return (
         <Paper>
@@ -32,7 +45,7 @@ function AppointmentCard({ user, time, patient, doctor, appointment, link }) {
             <>
             {/* <Button variant="contained" color="primary" onclick="/upcoming-appointments/intake/edit">Complete intake form</Button> */}
             <Link to={link}>Complete intake form</Link>
-            <Button variant="contained" color="secondary">Cancel Appointment</Button>
+            <Button onClick={handleDestroy} variant="contained" color="secondary">Cancel Appointment</Button>
             </>
             )}
         </Paper>

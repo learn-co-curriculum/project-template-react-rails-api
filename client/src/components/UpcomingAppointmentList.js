@@ -11,15 +11,14 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 function UpcomingAppointmentList({ user }) {
-    const [pastAppointments, setPastAppointments] = useState([])
+    const [upcomingAppointments, setUpcomingAppointments] = useState([])
 
     const classes = useStyles();
 
     useEffect(() => {
         fetch(`/users/${user.id}/upcoming_appointments`).then((r) => {
             if (r.ok) {
-                // r.json().then((appointments) => console.log(appointments))
-                r.json().then((appointments) => setPastAppointments(appointments))
+                r.json().then((appointments) => setUpcomingAppointments(appointments))
             }
         })
     }, [])
@@ -31,14 +30,16 @@ function UpcomingAppointmentList({ user }) {
             <div className={classes.root}>
                 <Grid container spacing={3}>
 
-                    {pastAppointments.map(appointment => <AppointmentCard
+                    {upcomingAppointments.map(appointment => <AppointmentCard
+                        upcomingAppointments={upcomingAppointments}
+                        setUpcomingAppointments={setUpcomingAppointments}
                         user={user}
                         appointment={appointment}
                         key={appointment.id}
                         time={appointment.time}
                         patient={appointment.patient}
                         doctor={appointment.doctor}
-                        link = {`upcoming-appointments/${appointment.id}/`}
+                        link = {`intakes/${appointment.intake.id}/`}
                     />)}
 
                 </Grid>

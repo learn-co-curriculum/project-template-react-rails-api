@@ -40,8 +40,31 @@ function IntakeForm({ user }) {
         setIsLoading(true);
 
         async function intakeSave() {
+            const res = await fetch(`/intakes/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    reason_for_visit: reasonForVisit,
+                    onset: onset,
+                    location: location,
+                    duration: duration,
+                    characteristics: characteristics,
+                    aggravating_factors: aggravatingFactors,
+                    relieving_factors: relievingFactors,
+                    timing_and_severity: timingAndSeverity
+                })
+            })
 
+            if(res.ok){
+                const intake = await res.json()
+                console.log("Intake updated successfully!")
+                console.log (intake)
+            }
         }
+
+        intakeSave();
     }
 
     useEffect(() => {

@@ -38,7 +38,7 @@ function PastAppointmentList({ user }) {
                         time={appointment.time}
                         patient={appointment.patient}
                         doctor={appointment.doctor}
-                        link = {`upcoming-appointments/${appointment.id}/`}
+                        // link = {`upcoming-appointments/${appointment.id}/`}
                     />)}
 
                 </Grid>

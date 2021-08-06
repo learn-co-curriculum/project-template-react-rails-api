@@ -10,15 +10,15 @@ export default function List(props) {
     const {list} = props;
 
 return (
-    <div className= "items">
+    <div className= "brew-items">
     <img className= "small" src ={list.image} alt = {list.name}></img>
     <h3> {list.name} </h3>
-    <div>
-    <p>
-        
-    </p>
-    <button className="guides-button" onClick={routeChange}>View Guide</button>
+    <div className="descriptions">
+        {list.items}
     </div>
+    <p className="brew-text">
+        {list.instructions}
+    </p>
     </div>
 )
 }

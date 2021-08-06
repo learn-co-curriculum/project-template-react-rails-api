@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2021_08_03_052314) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "hstore"
   enable_extension "plpgsql"
 
   create_table "beans", force: :cascade do |t|
@@ -24,8 +23,8 @@ ActiveRecord::Schema.define(version: 2021_08_03_052314) do
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "notes"
     t.float "price"
+    t.string "notes"
     t.string "img_url"
   end
 

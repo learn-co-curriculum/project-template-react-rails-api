@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-repeat: repeat-y;
 }
 
 /* CSS for brew methods page */
@@ -42,6 +43,21 @@ h1 {
   color: #6568f4;
   transition: 250ms;;
 }
+.brew-items {
+  background-color: whitesmoke;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 60vw;
+  margin: 10px;
+  border: 1px solid black
+}
 
 h3 {
   font-size: 1rem;
@@ -51,7 +67,7 @@ a {
   text-decoration: none;
 }
 .row {
-  display: flex;
+  /* display: flex; */
   justify-content: space-between; 
 }
 

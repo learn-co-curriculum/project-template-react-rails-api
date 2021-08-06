@@ -12,7 +12,7 @@ function Login({ onLogin }) {
 
     return (
         <Wrapper>
-          <Logo>Doctor Intake</Logo>
+          <Logo>Have Some Patients.io</Logo>
           {showLogin ? (
             <>
               <LoginForm onLogin={onLogin} />

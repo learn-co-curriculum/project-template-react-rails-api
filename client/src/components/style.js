@@ -130,7 +130,7 @@ export const Wrapper = styled.header`
 
 export const Logo = styled.h1`
   font-family: "Baskerville";
-  font-size: 3rem;
+  font-size: 2.9rem;
   color: #0D87E3 ;
   margin: 0;
   line-height: 1;

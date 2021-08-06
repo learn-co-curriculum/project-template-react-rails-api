@@ -1,7 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 function NavBar({ user, setUser }) {
+    
+    const NavUnlisted = styled.ul`
+        text-decoration: none;
+    `;
+
+    const linkStyle = {
+        margin: "1rem",
+        textDecoration: "none",
+        color: 'blue'
+      };
+    
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
@@ -13,12 +25,12 @@ function NavBar({ user, setUser }) {
     return (
         <header>
           <div>
-            <Link to="/">Home</Link>
+            <Link to="/" >Home</Link>
           </div>
           <div>
             {user.role_type === "Doctor" ? (
               <>
-              <Link to="/profile">My Profile</Link>
+              <Link to="/profile" >My Profile</Link>
               <Link to="/my-patients">My Patients</Link>
               {/* <Link to="/schedule">Schedule</Link> */}
               <Link to="/intakes">Upcoming Appointments</Link>

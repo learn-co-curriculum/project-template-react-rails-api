@@ -77,7 +77,7 @@ function IntakeForm({ user }) {
     
     return (
         <>
-        <h1>This is an intake form, {user.role.first_name}!</h1>
+        <h1 style={{color: "#0D87E3"}}>This is an intake form, {user.role.first_name}!</h1>
         {/* <h1>{appointment.intake.reason_for_visit}</h1> */}
         <form onSubmit={handleSubmit}>
             <FormField>
@@ -161,7 +161,7 @@ function IntakeForm({ user }) {
                 />
             </FormField>
             <FormField>
-                <Button type="submit">{isLoading ? "Loading..." : "Save"}</Button>
+                <Button color="secondary" type="submit">{isLoading ? "Loading..." : "Save"}</Button>
             </FormField>
         </form>
         </>

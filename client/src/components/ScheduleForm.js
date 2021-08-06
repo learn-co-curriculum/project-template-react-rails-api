@@ -6,7 +6,25 @@ import FormField from "../styles/FormField";
 import Label from "../styles/Label";
 import Textarea from "../styles/Textarea";
 
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
+const useStyles = makeStyles((theme) => ({
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120,
+    },
+    selectEmpty: {
+      marginTop: theme.spacing(2),
+    },
+  }));
+
 function ScheduleForm({ user }) {
+    const classes = useStyles();
     const [doctorId, setDoctorId] = useState("")
     const [doctorArray, setDoctorArray] = useState([])
     const [time, setTime] = useState("")
@@ -48,26 +66,24 @@ function ScheduleForm({ user }) {
         appointmentCreate()
     }
 
-    function handleDoctorName(e) {
-        setDoctorId(e.target.value)
-        console.log(e.target.value)
-        // setDoctorObj
-    }
-
     return (
         <>
-        <h1>Schedule an appointment, {user.role.first_name}!</h1>
+        <h1 style={{color: "#0D87E3"}}>Schedule an appointment, {user.role.first_name}!</h1>
         <form onSubmit={handleSubmit}>
-        <FormField>
-        <Label htmlFor="roleName">Select Your Doctor 
-            <select value={doctorId} onChange={(e) => setDoctorId(e.target.value)}> 
-            <option>Select...</option>
+
+        
+        <FormControl className={classes.formControl}>
+            <InputLabel>Select...</InputLabel>
+            <Select value={doctorId} onChange={(e) => setDoctorId(e.target.value)}>
             {doctorArray.map(doctor => 
-                <option value = {doctor.id}>Dr. {doctor.last_name}</option>
+                <MenuItem value={doctor.id}>Dr {doctor.last_name}</MenuItem>
                 )}
-            </select> 
-        </Label>
-        </FormField>
+            </Select>
+        </FormControl>
+
+        
+
+
 
         <FormField>
             <Label htmlFor="time">Enter a time</Label>
@@ -80,7 +96,7 @@ function ScheduleForm({ user }) {
             />
         </FormField>
         <FormField>
-            <Button type="submit">{isLoading ? "Loading..." : "Book Appointment"}</Button>
+            <Button color="secondary" type="submit">{isLoading ? "Loading..." : "Book Appointment"}</Button>
         </FormField>
         </form>
 

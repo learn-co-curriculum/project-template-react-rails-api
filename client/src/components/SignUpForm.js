@@ -6,7 +6,25 @@ import FormField from "../styles/FormField";
 import Label from "../styles/Label";
 import Textarea from "../styles/Textarea";
 
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
+const useStyles = makeStyles((theme) => ({
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120,
+    },
+    selectEmpty: {
+      marginTop: theme.spacing(2),
+    },
+  }));
+
 function SignUpForm({ onLogin }) {
+  const classes = useStyles();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [roleName, setRoleName] = useState("")
@@ -113,28 +131,26 @@ function SignUpForm({ onLogin }) {
 
   if (roleName === "") {
     return (
-        <FormField>
-        <Label htmlFor="roleName">Select Your Role
-            <select value={roleName} onChange={(e) => setRoleName(e.target.value)}>
-            <option value ="Select">Select...</option>
-                <option value ="Doctor">Doctor</option>
-                <option value ="Patient">Patient</option>
-            </select> 
-        </Label>
-        </FormField>
+        <>
+        <FormControl className={classes.formControl}>
+            <InputLabel>Select Role</InputLabel>
+            <Select value={roleName} onChange={(e) => setRoleName(e.target.value)}>
+                <MenuItem value="Doctor">Doctor</MenuItem>
+                <MenuItem value="Patient">Patient</MenuItem>
+            </Select>
+        </FormControl>
 
+        </>
     )} else if (roleName === "Doctor") {
     return (
         <form onSubmit={handleSubmit}>
-                <FormField>
-        <Label htmlFor="roleName">Select Your Role
-            <select value={roleName} onChange={(e) => setRoleName(e.target.value)}>
-            <option value ="Select">Select...</option>
-                <option value ="Doctor">Doctor</option>
-                <option value ="Patient">Patient</option>
-            </select> 
-        </Label>
-        </FormField>
+        <FormControl className={classes.formControl}>
+            <InputLabel>Select Role</InputLabel>
+            <Select value={roleName} onChange={(e) => setRoleName(e.target.value)}>
+                <MenuItem value="Doctor">Doctor</MenuItem>
+                <MenuItem value="Patient">Patient</MenuItem>
+            </Select>
+        </FormControl>
     
         <FormField>
             <Label htmlFor="username">Username</Label>
@@ -232,7 +248,7 @@ function SignUpForm({ onLogin }) {
         </FormField>
 
         <FormField>
-            <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
+            <Button color="secondary" type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
         </FormField>
         <FormField>
             {errors.map((err) => (
@@ -243,15 +259,13 @@ function SignUpForm({ onLogin }) {
     )} else if (roleName === "Patient") {
     return (
         <form onSubmit={handleSubmit}>
-        <FormField>
-        <Label htmlFor="roleName">Select Your Role
-            <select value={roleName} onChange={(e) => setRoleName(e.target.value)}>
-            <option value ="Select">Select...</option>
-                <option value ="Doctor">Doctor</option>
-                <option value ="Patient">Patient</option>
-            </select> 
-        </Label>
-        </FormField>
+        <FormControl className={classes.formControl}>
+            <InputLabel>Select Role</InputLabel>
+            <Select value={roleName} onChange={(e) => setRoleName(e.target.value)}>
+                <MenuItem value="Doctor">Doctor</MenuItem>
+                <MenuItem value="Patient">Patient</MenuItem>
+            </Select>
+        </FormControl>
         
         <FormField>
             <Label htmlFor="username">Username</Label>
@@ -320,7 +334,7 @@ function SignUpForm({ onLogin }) {
         </FormField>
    
         <FormField>
-            <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
+            <Button color="secondary" type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
         </FormField>
         <FormField>
             {errors.map((err) => (

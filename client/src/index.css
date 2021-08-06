@@ -22,13 +22,15 @@ header {
 header a,
 header button {
   font-size: 1rem;
+  font-style: bold;
   display: inline-block;
-  background-color: #fff8e7;
-  border: 1px solid salmon;
+  background-color: #0D87E3;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
   margin: 1rem;
   padding: 1rem;
   text-decoration: none;
-  color: salmon;
+  color: #FFFFFF;
   cursor: pointer;
 }
 

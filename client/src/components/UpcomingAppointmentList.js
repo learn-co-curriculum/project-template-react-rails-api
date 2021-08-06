@@ -25,7 +25,7 @@ function UpcomingAppointmentList({ user }) {
     
     return (
     <>
-    <h1>These are your upcoming appointments, {user.role.first_name}!</h1>
+    <h1 style={{color: "#0D87E3"}}>These are your upcoming appointments, {user.role.first_name}!</h1>
     <div className="flex-container">
             <div className={classes.root}>
                 <Grid container spacing={3}>

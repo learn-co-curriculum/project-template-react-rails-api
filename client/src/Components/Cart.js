@@ -8,6 +8,7 @@ let Cart = ({currentUser, order}) => {
     const history = useHistory()
     const [orderItem, setOrderItem] = useState([])
     const [tip, setTip] = useState(0)
+
     // console.log(order[0].drinks.map(order => order.price))
     // // setOrderItem(order.map(order => order.drinks))
 
@@ -23,6 +24,10 @@ let Cart = ({currentUser, order}) => {
 
     let handleClick = () => {
         history.push('/drinks')
+    }
+
+    let handleOrder = () => {
+        alert("Thank you for placing an order! Unfortunately DevBrother's is closed until further notice. Expect to receive a credit card refund within 3-5 days.")
     }
 
     return (
@@ -125,7 +130,7 @@ let Cart = ({currentUser, order}) => {
                 <div className="cart-total-card">
                     <h4>Total: ${subtotal + deliveryFees + serviceFees + otherFees + tax + tip} </h4>
                     <small>By continuing, you agree to DevBrothersCoffee's Terms of Service and to Yelp's Terms of Service and Privacy Policy. We'll send this Summary to DevBrothersCoffee.</small>
-                    <button className="place-order-button">Place Order</button>
+                    <button className="place-order-button" onClick={handleOrder}>Place Order</button>
                 </div>
             </div>
         </div>

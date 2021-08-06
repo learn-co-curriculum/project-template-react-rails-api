@@ -41,14 +41,17 @@ let App = () => {
               res.json().then(orders => {
                 let currentUserOrders = orders.filter(order => order.user_id === user.id)
                 let currentOrder = currentUserOrders.filter(order => order.current_order === true)
-                console.log(currentUserOrders)
-                console.log(user)
-                console.log(currentOrder)
                 setOrder(currentOrder)
               })
             }
           })
-        })
+
+          if (user.cart === null) {
+            console.log('created cart')
+            createCart(user)
+          }
+
+      })
       } else {
         setCurrentUser(null)
       }
@@ -65,21 +68,30 @@ let App = () => {
     })
   },[])
 
-  // useEffect(() => {
-  //   fetch('/orders').then(res => {
-  //     if(res.ok){
-  //       res.json().then(orders => {
-  //         let currentUserOrders = orders.filter(order => order.user_id === currentUser.id)
-  //         let currentOrder = currentUserOrders.filter(order => order.current_order === true)
-  //         console.log(orders)
-  //         console.log(currentUser)
-  //         setOrder(currentOrder)
-  //       })
-  //     }
-  //   })
-  // },[])
+  let createCart = async (user) => {
+    const res = await fetch('/carts', {
+        method: 'POST', 
+        headers: {'Content-type' : 'application/json'}, 
+        body: JSON.stringify({user_id: user.id})
+    })
+    const orderData = await res.json()
+    console.log(orderData)
+  }
 
-  
+  // let createOrder = async (user) => {
+  //   const res = await fetch('/orders', {
+  //       method: 'POST', 
+  //       headers: {'Content-type' : 'application/json'}, 
+  //       body: JSON.stringify({
+  //         user_id: user.id,
+  //         cart_id: user.cart.id,
+  //         current_order: true
+  //       })
+  //   })
+  //   const orderData = await res.json()
+  //   console.log(orderData)
+  // }
+
 
   // use the code below for Error: Objects are not valid as a React child (found: object with keys {id, username, address, email_address}). If you meant to render a collection of children, use an array instead.
   // Object.values(user).map(user => setCurrentUser(user)

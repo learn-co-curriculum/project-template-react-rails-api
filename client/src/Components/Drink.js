@@ -22,7 +22,7 @@ let Drink = ({drink, currentUser}) => {
             user_id: currentUser.id,
             cart_id: currentUser.cart.id
         })
-    },[findCurrentOrder.id, currentUser.id, findCurrentOrder.id])
+    },[])
 
     let handleOrderItem = (drinkID) => {
         console.log(findCurrentOrder.id)

@@ -1,12 +1,29 @@
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 // import components
 import Order from './Order'
 
 let Cart = ({currentUser, order}) => {
+    const history = useHistory()
     const [orderItem, setOrderItem] = useState([])
-    // console.log(order[0].drinks)
-    // setOrderItem(order.map(order => order.drinks))
+    const [tip, setTip] = useState(0)
+    // console.log(order[0].drinks.map(order => order.price))
+    // // setOrderItem(order.map(order => order.drinks))
+
+    let subtotal = order[0].drinks.map(order => order.price).reduce((a,b) => a+b)
+    let deliveryFees = 5
+    let serviceFees = 10
+    let otherFees = 3
+    let tax =  order[0].drinks.map(order => order.price).reduce((a,b) => a+b)*0.2
+
+    let handleChange = (e) => {
+        setTip(e.target.value*subtotal)
+    }
+
+    let handleClick = () => {
+        history.push('/drinks')
+    }
 
     return (
         <div className="my-cart-container">
@@ -63,36 +80,50 @@ let Cart = ({currentUser, order}) => {
             <div className="order-information-container">
                 <div className="cart-edit-card">
                     <h5>Your Order From DevBrother's Coffee</h5>
-                    <button className="edit-cart-button">Edit Cart</button>
+                    <button className="edit-cart-button" onClick={handleClick}>Edit Cart</button>
                 </div>
                 <div className="cart-item-card">
                     {order[0].drinks.map(order => {
                         return (<Order order={order}/>)
                     })}
-                    {/* <Order drinks={order[0].drinks} order={order}/> */}
-                    <p><small>Subtotal</small></p>
-                    <p><small>Delivery Fee</small></p>
-                    <p><small>Service Fee</small></p>
-                    <p><small>Other Fees</small></p>
-                    <p><small>Tax</small></p>
+                    <div className="cart-fees-card">
+                        <p><small>Subtotal</small></p>
+                        <p>${subtotal}</p>
+                    </div>
+                    <div className="cart-fees-card">
+                        <p><small>Delivery Fee</small></p>
+                        <p>${deliveryFees}</p>
+                    </div>
+                    <div className="cart-fees-card">
+                        <p><small>Service Fee</small></p>
+                        <p>${serviceFees}</p>
+                    </div>
+                    <div className="cart-fees-card">
+                        <p><small>Other Fees</small></p>
+                        <p>${otherFees}</p>
+                    </div>
+                    <div className="cart-fees-card">
+                        <p><small>Tax @ 20%</small></p>
+                        <p>${tax}</p>
+                    </div>
                     <div className="tip-container">
                         <div className="tip-selector-card">
                             <p><small>Tip</small></p>
-                            <select className="order-selector-button">
-                                <option>Cash</option>
-                                <option>15%</option>
-                                <option>20%</option>
-                                <option>35%</option>
-                                <option>50%</option>
+                            <select className="order-selector-button" onChange={handleChange}>
+                                <option value='0'>Cash</option>
+                                <option value='0.15'>15%</option>
+                                <option value='0.2'>20%</option>
+                                <option value='0.35'>35%</option>
+                                <option value='0.5'>50%</option>
                             </select>
                         </div>
                         <div>
-                            <p>$1</p>
+                            <p>${tip}</p>
                         </div>
                     </div>
                 </div>
                 <div className="cart-total-card">
-                    <h4>Total: </h4>
+                    <h4>Total: ${subtotal + deliveryFees + serviceFees + otherFees + tax + tip} </h4>
                     <small>By continuing, you agree to DevBrothersCoffee's Terms of Service and to Yelp's Terms of Service and Privacy Policy. We'll send this Summary to DevBrothersCoffee.</small>
                     <button className="place-order-button">Place Order</button>
                 </div>

@@ -467,3 +467,8 @@ img.small {
   height: 6vh;
   width: 3vw;
 }
+
+.cart-fees-card {
+  display: flex;
+  justify-content: space-between;
+}

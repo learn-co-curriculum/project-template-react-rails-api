@@ -1,15 +1,15 @@
-import React from 'react'
-import { useHistory } from "react-router-dom";
+import React from 'react';
 
-export default function Guides(props) {    
-    const {guides} = props;
-    return (
-        <div className= "guides">                
-            <img className= "small" src ={guides.image} alt = {guides.name}></img>
-                <h3> {guides.name} </h3>
-                <div>
-                <p> {guides.description} </p>
-            </div>
-        </div>
-    )
+export default function Guides(props) {
+const {list} = props;
+
+return (
+    <div className= "items">
+    <img className= "small" src ={list.image} alt = {list.name}></img>
+    <h3> {list.name} </h3>
+    <p>
+        {list.instructions}
+    </p>
+    </div>
+)
 }

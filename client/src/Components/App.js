@@ -15,9 +15,9 @@ import Cart from './Cart'
 import MainPage from './BrewMethods/MainPage';
 import BrewHeader from './BrewMethods/BrewHeader';
 import data from './BrewMethods/data';
-import GuideData from './BrewMethods/GuideData';
-import Guides from './BrewMethods/Guides'
-
+import OurStoryMainPage from './Our Story/OurStoryMainPage'
+import OurStoryData from './Our Story/OurStorydata'
+import GuidesMainPage from './BrewMethods/GuidesMainPage'
 let App = () => {
   const [currentUser, setCurrentUser] = useState({
     id: 0,
@@ -113,8 +113,7 @@ let App = () => {
 
 const {list} = data;
 const {guides} = GuideData;
-
-
+const {us} = OurStoryData;
   if (currentUser === null) {
     history.push('/login')
     return (
@@ -190,6 +189,12 @@ const {guides} = GuideData;
                 <BrewHeader />
                 <MainPage list= {list}
                    />
+                   </Route>
+                   <Route exact path='/guides'>
+                <GuidesMainPage list={list}/>
+              </Route>
+              <Route exact path='/our_story'>
+                <OurStoryMainPage us= {us} />
               </Route>
             </Switch>
         </div>

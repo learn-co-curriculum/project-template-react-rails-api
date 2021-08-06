@@ -108,6 +108,31 @@ img.small {
   background-color: lightskyblue;
 }
 
+/* CSS for story page */
+.story-items {
+  margin: 5px;
+  width: 50%;
+  background-color: whitesmoke;
+  border: 1px solid black
+}
+
+.story-container{
+  background-color: whitesmoke;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 60vw;
+  margin: 10px;
+  border: 1px solid black
+}
+
+
 
 /* CSS for home component */
 

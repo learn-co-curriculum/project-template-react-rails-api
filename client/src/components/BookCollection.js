@@ -8,7 +8,7 @@ function BookCollection() {
     // fetch request to recieve book data from backend and set it to our state
     useEffect(() => {
         async function fetchBooks() {
-            const res = await fetch('http://my-shelf-5.herokuapp.com/books')
+            const res = await fetch('https://my-shelf-5.herokuapp.com/books')
             if(res.ok) {
                 const bookData = await res.json()
                 setBooks(bookData)

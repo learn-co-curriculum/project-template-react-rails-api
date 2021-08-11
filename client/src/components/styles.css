@@ -1,0 +1,5 @@
+/*forces book images to be the same size*/
+.photo {
+    height: 300px;
+    width: 200px;
+}

@@ -15,7 +15,7 @@ function LoginForm({ setCurrentUser }) {
       name,
       password
     };
-    const res = await fetch("/users", {
+    const res = await fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

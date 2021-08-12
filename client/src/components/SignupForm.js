@@ -69,7 +69,7 @@ function SignupForm({ setCurrentUser }) {
           name="bio"
           onChange={(e) => setBio(e.target.value)}
         ></input>
-        <input submit type="submit" value="Submit"></input>
+        <input type="submit" value="Submit"></input>
         {errors ? errors.map((error) => <div>{error}</div>) : null}
       </form>
     </div>

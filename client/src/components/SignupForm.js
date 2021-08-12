@@ -8,7 +8,7 @@ function SignupForm({ setCurrentUser }) {
   const [bio, setBio] = useState("");
   const [errors, setErrors] = useState(null);
 
-//   const history = useHistory();
+  const history = useHistory();
 
 //handles input from user and posts to backend
   async function handleSubmit(e) {
@@ -30,7 +30,7 @@ function SignupForm({ setCurrentUser }) {
     if (res.ok) {
       console.log(userData);
       setCurrentUser(userData);
-    //   history.push("/books");
+      history.push("/books");
     } else {
       setErrors(userData.message);
     }

@@ -6,7 +6,7 @@ function LoginForm({ setCurrentUser }) {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState(null);
 
-//   const history = useHistory();
+  const history = useHistory();
 
 //handles input from user and posts to backend
   async function handleSubmit(e) {
@@ -26,7 +26,7 @@ function LoginForm({ setCurrentUser }) {
     if (userData.id) {
       console.log(userData);
       setCurrentUser(userData);
-    //   history.push("/books");
+      history.push("/books");
     } else {
       setErrors(userData.message);
     }

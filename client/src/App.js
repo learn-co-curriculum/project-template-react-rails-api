@@ -3,9 +3,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import BookCollection from "./components/BookCollection";
 import SignupForm from "./components/SignupForm";
 import LoginForm from "./components/LoginForm";
+import LoginSignupPage from "./components/LoginSignupPage";
+import BookDetails from "./components/BookDetails";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+
+  // if (!currentUser) return <LoginSignupPage onLogin={setCurrentUser}/>
 
   return (
     <Router>
@@ -24,13 +28,16 @@ function App() {
           </ul>
         </nav>
         <Switch>
-          <Route exact path="/books">
-            <BookCollection />
+          <Route  path="/books/:id" exact>
+            <BookDetails />
           </Route>
-          <Route exact path="/signup">
+          <Route path="/books" exact>
+            <BookCollection currentUser={currentUser} />
+          </Route>
+          <Route path="/signup" exact>
             <SignupForm setCurrentUser={setCurrentUser} />
           </Route>
-          <Route> 
+          <Route>
             <LoginForm setCurrentUser={setCurrentUser} />
           </Route>
         </Switch>

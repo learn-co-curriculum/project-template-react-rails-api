@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+    skip_before_action :authorize, only: :create
+
     #just to verify data
     def index
         render json: User.all
@@ -6,12 +9,14 @@ class UsersController < ApplicationController
 
     #create a user via signing in
     def create
-        user = User.create(user_params)
-        if user.valid?
-            render json: {id: user.id, name: user.name, fav_genre: user.fav_genre, bio: user.bio}
-        else 
-            render json: {message: user.errors.full_messages}
-        end
+        user = User.create!(user_params)
+        session[:user_id] = user.id
+        render json: user, status: :created
+    end
+
+    #return signed in user
+    def show 
+        render json: @current_user
     end
 
     private

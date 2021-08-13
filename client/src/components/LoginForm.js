@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function LoginForm({ setCurrentUser }) {
+function LoginForm({ onLogin }) {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState(null);
@@ -9,27 +9,30 @@ function LoginForm({ setCurrentUser }) {
   const history = useHistory();
 
 //handles input from user and posts to backend
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     const user = {
       name,
       password
     };
-    const res = await fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ user }),
-    });
-    const userData = await res.json();
-    if (userData.id) {
-      console.log(userData);
-      setCurrentUser(userData);
-      history.push("/books");
-    } else {
-      setErrors(userData.message);
+    async function login(){
+      const res = await fetch("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user }),
+      });
+      if (res.ok) {
+        const userData = await res.json()
+        onLogin(userData);
+        history.push("/books");
+      } else {
+        const err = await res.json()
+        setErrors(err.errors);
+      }
     }
+    login()
   }
 
   //form for users to fill out to create an account

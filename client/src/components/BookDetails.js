@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import "./styles.css";
 
 function BookDetails() {
   const [book, setBook] = useState([]);
-  const id = useParams().id
+  const [errors, setErrors] = useState(null);
+  const id = useParams();
+  let history = useHistory();
 
   //fetch a single book
   useEffect(() => {
@@ -15,8 +17,28 @@ function BookDetails() {
       });
   }, [id]);
 
-  const {title, author, genre, length, pub_date, image} = book;
-  
+  //add book to user's Shelf
+  async function addBook() {
+    const bookData = {
+      book_id: book.id,
+    };
+    const res = await fetch("/shelves", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bookData),
+    });
+    if (res.ok) {
+      const shelf = await res.json();
+      history.push("/myshelf");
+    } else {
+      const error = await res.json();
+      setErrors(error.message);
+    }
+  }
+
+  const { title, author, genre, length, pub_date, image } = book;
 
   return (
     <div>
@@ -31,6 +53,7 @@ function BookDetails() {
           <li>Published {pub_date}</li>
         </li>
       </ul>
+      <button onClick={addBook}>Add to my shelf</button>
     </div>
   );
 }

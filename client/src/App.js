@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import BookCollection from "./components/BookCollection";
-import SignupForm from "./components/SignupForm";
-import LoginForm from "./components/LoginForm";
 import LoginSignupPage from "./components/LoginSignupPage";
 import BookDetails from "./components/BookDetails";
+import MyShelf from "./components/MyShelf";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
 
-  // if (!currentUser) return <LoginSignupPage onLogin={setCurrentUser}/>
+  if (!currentUser) return <LoginSignupPage onLogin={setCurrentUser}/>
 
   return (
     <Router>
@@ -20,10 +19,7 @@ function App() {
               <Link to="/books">Home</Link>
             </li>
             <li>
-              <Link to="/signup">Sign Up</Link>
-            </li>
-            <li>
-              <Link to="/login">Log In</Link>
+              <Link to="/myshelf">My Shelf</Link>
             </li>
           </ul>
         </nav>
@@ -34,11 +30,8 @@ function App() {
           <Route path="/books" exact>
             <BookCollection currentUser={currentUser} />
           </Route>
-          <Route path="/signup" exact>
-            <SignupForm setCurrentUser={setCurrentUser} />
-          </Route>
-          <Route>
-            <LoginForm setCurrentUser={setCurrentUser} />
+          <Route path = "/myshelf">
+            <MyShelf currentUser={currentUser} />
           </Route>
         </Switch>
       </div>

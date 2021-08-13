@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function SignupForm({ setCurrentUser }) {
+function SignupForm({ onLogin }) {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [fav_genre, setFav_Genre] = useState("");
@@ -29,7 +29,7 @@ function SignupForm({ setCurrentUser }) {
     const userData = await res.json();
     if (res.ok) {
       console.log(userData);
-      setCurrentUser(userData);
+      onLogin(userData);
       history.push("/books");
     } else {
       setErrors(userData.message);

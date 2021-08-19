@@ -1,0 +1,2 @@
+class ChildChoresController < ApplicationController
+end

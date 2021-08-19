@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import SignUp from './SignUp'
 
 function Login(){
     const [signUpHide, setSignUpHide] = useState(false)
@@ -39,6 +40,7 @@ function Login(){
                 <input name={password} value={loginData} onChange={handleLogin}></input>
                 <button onClick>Login</button>
             </form>
+            <SignUp />
             
         </div>
     )

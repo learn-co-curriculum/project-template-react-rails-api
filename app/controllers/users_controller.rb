@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     wrap_parameters format: []
     skip_before_action :authorize, only: :create
 
-    before_action :create_household, only: [:create]
+    before_action :create_or_find_household, only: [:create]
 
     def create
         user = User.create!(user_params)

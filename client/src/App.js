@@ -4,12 +4,16 @@ import Login from './Components/Login'
 import SignUp from './Components/SignUp';
 
 function App() {
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState(false)
 
   return (
     <div className="App">
-      <Login /> 
-      <SignUp />
+      <Login 
+        setUser = {setUser}
+      /> 
+      <SignUp
+        setUser = {setUser}
+      />
     </div>
   );
 }

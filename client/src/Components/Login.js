@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 
-function Login(){
-    const [signUpHide, setSignUpHide] = useState(false)
+function Login({ setUser }){
     const [loginData, setLoginData] = useState({
         username: "",
         password: ""
@@ -26,9 +25,7 @@ function Login(){
             body: JSON.stringify(newLogin)
         })
         .then(response => response.json)
-        .then(data => {
-            console.log(data)
-        })
+        .then(data => {setUser(data)})
     }
     
     return (

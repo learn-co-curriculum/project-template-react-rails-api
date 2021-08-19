@@ -17,6 +17,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.permit(:first_name, :username, :email, :is_parent, :password).merge(household_id: @household.id)
+        params.permit(:first_name, :username, :email, :is_parent, :password).merge({household_id: @household.id})
     end
 end

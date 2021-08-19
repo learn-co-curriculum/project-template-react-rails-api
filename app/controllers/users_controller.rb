@@ -12,11 +12,11 @@ class UsersController < ApplicationController
 
     private
 
-    def create_household
-        @new_household = Household.find_or_create_by(last_name: params[:last_name])
+    def create_or_find_household
+        @household = Household.find_or_create_by(last_name: params[:last_name])
     end
 
     def user_params
-        params.permit(:first_name, :username, :email, :is_parent, :password).merge(household_id: @new_household.id)
+        params.permit(:first_name, :username, :email, :is_parent, :password).merge(household_id: @household.id)
     end
 end

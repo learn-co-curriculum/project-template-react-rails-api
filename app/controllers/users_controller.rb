@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     private
 
     def create_household
-        @new_household = Household.create(last_name: params[:last_name])
+        @new_household = Household.find_or_create_by(last_name: params[:last_name])
     end
 
     def user_params

@@ -19,8 +19,8 @@ function Login(){
             username: loginData.username,
             password: loginData.password
         }
-        fetch(  {
-            method: "",
+        fetch("/login",  {
+            method: "POST",
             headers: {
                 "Content-Type" : "application/json"
             },
@@ -28,7 +28,7 @@ function Login(){
         })
         .then(response => response.json)
         .then(data => {
-
+            console.log(data)
         })
     }
     
@@ -36,8 +36,8 @@ function Login(){
         <div>
             <form onSubmit={loginSubmit}>
                 <h2>Login</h2>
-                <input name={username} value={loginData} onChange={handleLogin}></input>
-                <input name={password} value={loginData} onChange={handleLogin}></input>
+                <input name='username' value={loginData.username} onChange={handleLogin}></input>
+                <input name='password' value={loginData.password} onChange={handleLogin}></input>
                 <button onClick>Login</button>
             </form>
             <SignUp />

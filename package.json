@@ -11,6 +11,8 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "react-icons": "^4.2.0",
+    "react-router-dom": "^5.2.0",
     "styled-components": "^5.3.0"
   }
 }

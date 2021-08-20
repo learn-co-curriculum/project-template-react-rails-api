@@ -1,11 +1,11 @@
-import './App.css';
 import React, {useState, useEffect} from 'react'
 import LoginPage from './Components/LoginPage';
 import Home from './Components/Home' 
+import Navbar from './Components/Navbar/Navbar';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 function App() {
   const [user, setUser] = useState(null)
-  const [isLoading, setIsLoading] = useState(false)
   
   useEffect(() => {
     fetch("/me").then((resp) => {
@@ -15,19 +15,31 @@ function App() {
     });
   }, []);
 
-  if (!user) {
-    return <LoginPage setUser = {setUser} setIsLoading = {setIsLoading}/>
+  function handleLogOut() {
+    fetch("/logout", { method: "DELETE"}).then((resp) => {
+      if (resp.ok) {
+        setUser(null);
+      }
+    })
   }
 
   return (
-    <div className="App">
-      { isLoading 
-      ?
-      <h1>Page is Loading...</h1>
+    <Router>
+      <Navbar user={user} handleLogOut={handleLogOut} />
+      { !user 
+      ? 
+      <LoginPage setUser = {setUser}/>
       :
-      <Home user={user}/>
+      <>
+      <Switch>
+        <Route path="/" exact component={() => <Home user={user}/>} /> 
+      </Switch>
+      <Switch>
+        <Route path="/signup" exact component={() => <LoginPage setUser = {setUser}/>} /> 
+      </Switch>
+      </>
       }
-    </div>
+    </Router>
   );
 }
 

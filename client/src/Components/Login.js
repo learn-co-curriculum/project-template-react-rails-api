@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Login = ({ setErrors, setUser, handleShowLoginClearErrors, setIsLoading, Title, Wrapper, Label, Input, LoginButton, Button }) => {
+const Login = ({ setErrors, setUser, handleShowLoginClearErrors, Title, Wrapper, Label, Input, LoginButton, Button }) => {
     const [loginData, setLoginData] = useState({
         username: "",
         password: ""

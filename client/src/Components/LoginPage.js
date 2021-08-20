@@ -7,6 +7,7 @@ import styled from 'styled-components'
 const Title = styled.h1`
     font-size: 2em;
     text-align: center;
+    margin: 20px;
 `;
 
 const Wrapper = styled.div`
@@ -44,7 +45,7 @@ const Button = styled.button`
     font-size: 1em;
 `;
 
-function LoginPage({ setUser, setIsLoading }){
+function LoginPage({ setUser }){
     const [showLogin, setShowLogin] = useState(true)
     const [errors, setErrors] = useState([])
 
@@ -61,7 +62,6 @@ function LoginPage({ setUser, setIsLoading }){
                 setErrors = {setErrors}
                 setUser = {setUser}
                 handleShowLoginClearErrors = {handleShowLoginClearErrors}
-                setIsLoading = {setIsLoading}
                 Title = {Title}
                 Wrapper = {Wrapper}
                 Input = {Input}

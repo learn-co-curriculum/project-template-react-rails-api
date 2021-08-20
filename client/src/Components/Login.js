@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Login = ({ setErrors, setUser, handleShowLoginClearErrors, setIsLoading }) => {
+const Login = ({ setErrors, setUser, handleShowLoginClearErrors, setIsLoading, Title, Wrapper, Label, Input, LoginButton, Button }) => {
     const [loginData, setLoginData] = useState({
         username: "",
         password: ""
@@ -34,17 +34,21 @@ const Login = ({ setErrors, setUser, handleShowLoginClearErrors, setIsLoading })
             }
         });
     }
+
+    
     
     return (
-        <div>
+        <Wrapper>
             <form onSubmit={loginSubmit}>
-                <h2>Login</h2>
-                <input name='username' value={loginData.username} placeholder="Username" onChange={handleLogin}></input>
-                <input name='password' value={loginData.password} placeholder="Password" type="password" onChange={handleLogin}></input>
-                <button>Login</button>
-                <button onClick={handleShowLoginClearErrors}>Create New Account</button>
+                <Title>Login</Title>
+                <Label for='username'>Username:</Label>
+                <Input name='username' value={loginData.username} placeholder="Username" onChange={handleLogin}></Input>
+                <Label for='password'>Password:</Label>
+                <Input name='password' value={loginData.password} placeholder="Password" type="password" onChange={handleLogin}></Input>
+                <LoginButton>Login</LoginButton>
+                <Button onClick={handleShowLoginClearErrors}>Create New Account</Button>
             </form>
-        </div>
+        </Wrapper>
     )
 }
 

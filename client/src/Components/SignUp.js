@@ -7,6 +7,10 @@ const Wrapper2 = styled.div`
     align-items: center;
 `;
 
+const Subtitle = styled.h4`
+    margin: 20px;
+`;
+
 function SignUp({ setUser, handleShowLoginClearErrors, setErrors, Title, Wrapper, Label, Input, Button, LoginButton }){
     const [userData, setUserData] = useState({
         username: "",
@@ -59,7 +63,7 @@ function SignUp({ setUser, handleShowLoginClearErrors, setErrors, Title, Wrapper
                 <Label for='password'>Password:</Label>
                 <Input name='password' placeholder='Password' type='password' value={userData.password} onChange={handleCreateUser}></Input>
                 <Wrapper2>
-                    <h4>Parent or Child Account?</h4>
+                    <Subtitle>Is this Account for a Parent or Child?</Subtitle>
                     <Label for='is_parent'>Parent</Label>
                     <Input type='radio' name='is_parent' value='true' onChange={handleRadioButton}></Input>
                     <Label for='is_child'>Child</Label>

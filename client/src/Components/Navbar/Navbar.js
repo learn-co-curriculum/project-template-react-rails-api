@@ -1,11 +1,12 @@
 import React from 'react'
+import { Nav, NavLink, NavBtn, NavBtnCont, NavMenu, Bars } from './NavbarElements'
 
-const Navbar = () => {
+const Navbar = ({ user, handleLogOut }) => {
     return (
         <>
             <Nav>
                 <NavLink to="/">
-                    <h1>Logo</h1>
+                    <h1>Only Chores</h1>
                 </NavLink>
                 <Bars />
                 <NavMenu>
@@ -19,9 +20,9 @@ const Navbar = () => {
                         Contact Us
                     </NavLink>
                 </NavMenu>
-                <NavBtn>
-                    <NavBtmLink to="/login">Sign In</NavBtmLink>
-                </NavBtn>
+                <NavBtnCont>
+                    <NavBtn style={{ visibility: user ? 'visible' : "hidden"}}onClick={handleLogOut}>Log Out</NavBtn>       
+                </NavBtnCont>
             </Nav>
         </>
     )

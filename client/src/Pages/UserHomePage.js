@@ -1,7 +1,7 @@
 const UserHomePage = () => {
     return (
         <div>
-               <h1>Hey your loggedfdasfa  in</h1>
+            <h1>Home Page</h1>
         </div>
     )
 }

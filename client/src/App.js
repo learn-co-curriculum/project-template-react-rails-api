@@ -1,8 +1,13 @@
 import "./App.css";
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
+
+
+// Imported Pages
 import LoginPage from "./Pages/LoginPage";
 import UserHomePage from "./Pages/UserHomePage";
 import Navbar from "./Components/NavBar";
+import EventsPage from "./Pages/EventsPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -19,10 +24,23 @@ function App() {
   if (!user) return <LoginPage onLogin={setUser} />;
 
   return (
-    <div className="App">
+    <>
+    <Router>
       <Navbar user={user} setUser={setUser} />
-      <UserHomePage />
-    </div>
+      <main>
+      <Switch>
+      <Route path='/' exact>
+        <UserHomePage />
+        </Route>
+        <Route path='/EventsPage' exact>
+          <EventsPage />
+        </Route>
+      </Switch>
+      </main>
+    </Router>
+
+
+    </>
   );
 }
 

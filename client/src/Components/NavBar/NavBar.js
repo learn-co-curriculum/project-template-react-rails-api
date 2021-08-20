@@ -1,5 +1,7 @@
 import React from "react";
 import "./NavBar.css";
+import { NavLink } from "react-router-dom";
+
 
 const Navbar = ({ user, setUser }) => {
   function handleLogoutClick() {
@@ -14,26 +16,25 @@ const Navbar = ({ user, setUser }) => {
 
   return (
     <nav className="navBar">
-      <h3>Welcome Back {user.name}</h3>
       <ul className="nav-links">
       <li className="nav-li">
-          <a className="nav-link one" href="/">
+          <NavLink className="nav-link one" to="/">
             Home
-          </a>
+          </NavLink>
         </li>
         <li className="nav-li">
-          <a className="nav-link two" href="/eventspage">
+          <NavLink className="nav-link two" to="/eventspage">
             Events
-          </a>
+          </NavLink>
         </li>
         <li className="nav-li">
-          <a
+          <NavLink
             className="nav-link one"
-            href="/login"
+            to="/login"
             onClick={handleLogoutClick}
           >
             Logout
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>

@@ -5,7 +5,7 @@ import { Switch, Route } from "react-router-dom";
 // Imported Pages
 import LoginPage from "./Pages/LoginPage";
 import UserHomePage from "./Pages/UserHomePage";
-import Navbar from "./Components/NavBar";
+import Navbar from "./Components/NavBar/NavBar";
 import EventsPage from "./Pages/EventsPage";
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
       <main>
         <Switch>
           <Route path="/" exact>
-            <UserHomePage />
+            <UserHomePage user={user}/>
           </Route>
           <Route path="/EventsPage" exact>
             <EventsPage />

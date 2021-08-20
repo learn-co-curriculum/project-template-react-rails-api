@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import UserHomePage from "../../Pages/UserHomePage";
 
 // prettier-ignore
 const SignupForm = ({ onLogin }) => {
@@ -20,7 +21,7 @@ const SignupForm = ({ onLogin }) => {
         body: JSON.stringify({
           name,
           username,
-          userPhoto: userPhoto,
+          user_photo: userPhoto,
           password,
           password_confirmation: passwordConfirmation
         }),

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import "./LoginForm.css";
 import { FaUnlock, FaUserAlt, FaChevronRight } from "react-icons/fa";
 
@@ -6,6 +8,12 @@ const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const history = useHistory()
+
+  function handleLoginResponse(user){
+    onLogin(user)
+    history.push("/")
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -17,7 +25,7 @@ const LoginForm = ({ onLogin }) => {
       body: JSON.stringify({ username, password }),
     }).then((resp) => {
       if (resp.ok) {
-        resp.json().then((user) => onLogin(user));
+        resp.json().then((user) => handleLoginResponse(user));
       } else {
         resp.json().then((err) => setErrors(err.errors));
       }

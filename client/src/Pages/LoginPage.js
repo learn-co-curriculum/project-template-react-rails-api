@@ -9,7 +9,7 @@ const LoginPage = ({ onLogin }) => {
             <h1 className='account-login-header'>Account Login</h1>
             <LoginForm onLogin={ onLogin }/>
             <Linebreak />
-            <SignupButton />
+            <SignupButton onLogin={onLogin}/>
         </>
     )
 }

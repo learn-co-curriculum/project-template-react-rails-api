@@ -11,7 +11,6 @@ const LoginPage = ({ onLogin }) => {
       <LoginForm onLogin={onLogin} />
       <Linebreak />
       <SignupButton onLogin={onLogin} />
-      <SignupForm onLogin={onLogin} />
     </>
   );
 };

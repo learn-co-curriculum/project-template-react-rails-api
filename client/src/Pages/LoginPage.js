@@ -9,38 +9,38 @@ import { useState } from "react";
 const LoginPage = ( { onLogin } ) => {
     
   const[showLogin, setShowLogin] = useState(true)
-
-// working!!!
-    // return (
-    //   <>
-    //     <h1 className="account-login-header">Account Login</h1>
-    //       {showLogin ? (null) : (null)}
-    //     <LoginForm onLogin={onLogin} />
-    //     <Linebreak />
-    //     <SignupButton onLogin={onLogin} />
-    //   </>
-    // );
   
   return (
-  <>
-    {/* <h1 className="account-login-header">Account Login</h1>
-    {!showLogin ? null : <> <LoginForm onLogin={onLogin} />
-    <Linebreak />
-      <SignupButton onLogin={onLogin} showLogin={showLogin} setShowLogin={setShowLogin} /> </>}
-    */}
-      {showLogin ? ( <> <LoginForm /> <SignupButton /> </> )
+    <>
+      {showLogin ? ( <div> <LoginForm /> <p>Don't have an account?</p> <button onClick={() => setShowLogin(!showLogin)}>Sign Up</button> </div> )
         : (
-          <>
+          <div className='sign-form-div'>
             <SignupForm />
-          </>
+          </div>
       )
-      }
-    
+    }
   </>
 );
 
-  };
+};
 
 export default LoginPage;
 
 // if signup button is clicked loginForm display to none
+
+
+// working!!!
+// return (
+  //   <>
+  //     <h1 className="account-login-header">Account Login</h1>
+  //       {showLogin ? (null) : (null)}
+  //     <LoginForm onLogin={onLogin} />
+  //     <Linebreak />
+  //     <SignupButton onLogin={onLogin} />
+  //   </>
+  // );
+  // {/* <h1 className="account-login-header">Account Login</h1>
+  // {!showLogin ? null : <> <LoginForm onLogin={onLogin} />
+  // <Linebreak />
+  // <SignupButton onLogin={onLogin} showLogin={showLogin} setShowLogin={setShowLogin} /> </>}
+  // */}

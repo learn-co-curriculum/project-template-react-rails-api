@@ -1,0 +1,40 @@
+.signup-form{
+    margin: auto;
+    width: 35%;
+    padding: 10px;
+}
+
+.name-signup-input{
+    width: 100%;
+    margin-bottom:20px;
+    border:none;
+    border-bottom: 1px solid grey;
+}
+
+.username-signup-input{
+    width: 100%;
+    margin-bottom:20px;
+    border:none;
+    border-bottom: 1px solid grey;
+}
+
+.avatar-input{
+    width: 100%;
+    margin-bottom:20px;
+    border:none;
+    border-bottom: 1px solid grey;
+}
+
+.password-signup-input{
+    width: 100%;
+    margin-bottom:20px;
+    border:none;
+    border-bottom: 1px solid grey;
+}
+
+.password-confirmation-input{
+    width: 100%;
+    margin-bottom:20px;
+    border:none;
+    border-bottom: 1px solid grey;
+}

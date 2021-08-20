@@ -1,36 +1,38 @@
 import React, { useState } from "react";
-import './LoginForm.css'
-import { FaUnlock, FaUserAlt, FaChevronRight  } from "react-icons/fa"
+import "./LoginForm.css";
+import { FaUnlock, FaUserAlt, FaChevronRight } from "react-icons/fa";
 
 const LoginForm = ({ onLogin }) => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState([]);
-  
-    function handleSubmit(e) {
-      e.preventDefault();
-      fetch("/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      }).then((r) => {
-        if (r.ok) {
-          r.json().then((user) => onLogin(user));
-        } else {
-          r.json().then((err) => setErrors(err.errors));
-        }
-      });
-    }
-  
-    return (
-      <div className='login-form'>
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    }).then((resp) => {
+      if (resp.ok) {
+        resp.json().then((user) => onLogin(user));
+      } else {
+        resp.json().then((err) => setErrors(err.errors));
+      }
+    });
+  }
+
+  return (
+    <div className="login-form">
       <form onSubmit={handleSubmit}>
         <div>
-        <label className='username-label'><FaUserAlt className='user-icon'/>  Username</label>
+          <label className="username-label">
+            <FaUserAlt className="user-icon" /> Username
+          </label>
           <input
-            className='username-input'
+            className="username-input"
             type="text"
             id="username"
             autoComplete="off"
@@ -39,7 +41,9 @@ const LoginForm = ({ onLogin }) => {
           />
         </div>
         <div>
-          <label className='password-label'><FaUnlock className='lock-icon'/>  Password</label>
+          <label className="password-label">
+            <FaUnlock className="lock-icon" /> Password
+          </label>
           <input
             className="password-input"
             type="password"
@@ -50,21 +54,26 @@ const LoginForm = ({ onLogin }) => {
           />
         </div>
         <div>
-          <button type="submit" className='login-btn'>
+          <button type="submit" className="login-btn">
             Log in
           </button>
         </div>
         <div>
           {errors.map((err) => (
-            <div className='login-errors' key={err}>{err}</div>
+            <div className="login-errors" key={err}>
+              {err}
+            </div>
           ))}
         </div>
         <div>
-          <p className='forgot-password'>Forgot your password or username? <FaChevronRight className='arrow-right-icon'/></p>
+          <p className="forgot-password">
+            Forgot your password or username?{" "}
+            <FaChevronRight className="arrow-right-icon" />
+          </p>
         </div>
       </form>
-      </div>
-    );
-}
+    </div>
+  );
+};
 
-export default LoginForm
+export default LoginForm;

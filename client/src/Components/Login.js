@@ -19,7 +19,7 @@ const Login = ({ setErrors, setUser, handleShowLoginClearErrors, Title, Wrapper,
             headers: {
                 "Content-Type" : "application/json"
             },
-            body: JSON.stringify(loginData)
+            body: JSON.stringify(loginData),
         }).then((response) => {
             if (response.ok) {
                 response.json().then((user) => setUser(user));

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-function SignUp({ userSubmit, setUser, handleShowLoginClearErrors, setErrors }){
+function SignUp({ setUser, handleShowLoginClearErrors, setErrors }){
     const [userData, setUserData] = useState({
         username: "",
         password: "",

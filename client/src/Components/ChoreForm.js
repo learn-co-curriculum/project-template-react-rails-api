@@ -7,13 +7,20 @@ function ChoreForm(){
         description:"",
         min_age: 6
     })
+
+    function handleChoreCreate (event){
+        setChoreData({...choreData, 
+            [event.target.name] : event.target.value
+        })
+    }
+    
     return (
         <div>
             <form>
-                <input name="chore_name" value={choreData.chore_name}></input>
-                <input name="description" value={choreData.description}></input>
-                <select name="min_age">
-                    <option selected>Select Age</option>
+                <input name="chore_name" value={choreData.chore_name} onChange={handleChoreCreate}></input>
+                <input name="description" value={choreData.description} onChange={handleChoreCreate}></input>
+                <select name="min_age" onChange={handleChoreCreate}>
+                    <option defaultValue>Select Age</option>
                     <option value={6}>6</option>
                     <option value={7}>7</option>
                     <option value={8}>8</option>

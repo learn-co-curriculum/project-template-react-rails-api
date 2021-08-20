@@ -8,13 +8,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
   
   useEffect(() => {
-    setIsLoading(true)
     fetch("/me").then((resp) => {
       if (resp.ok) {
         resp.json().then((user) => setUser(user));
       }
     });
-    setIsLoading(false)
   }, []);
 
   if (!user) {

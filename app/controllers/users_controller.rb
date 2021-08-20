@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         if user
             render json: user, status: :created
         else
-            render json: { error: "Not authorized" }, status: :unauthorized
+            render json: { error: "Not auth" }, status: :unauthorized
         end
     end
 

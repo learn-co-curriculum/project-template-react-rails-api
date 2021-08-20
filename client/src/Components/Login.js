@@ -14,19 +14,13 @@ const Login = ({ setErrors, setUser, handleShowLoginClearErrors, setIsLoading, T
 
     function loginSubmit(e){
         e.preventDefault()
-        setIsLoading(true)
-        const newLogin = {
-            username: loginData.username,
-            password: loginData.password
-        }
         fetch("/login",  {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json"
             },
-            body: JSON.stringify(newLogin)
+            body: JSON.stringify(loginData),
         }).then((response) => {
-            setIsLoading(false)
             if (response.ok) {
                 response.json().then((user) => setUser(user));
             } else {
@@ -35,8 +29,6 @@ const Login = ({ setErrors, setUser, handleShowLoginClearErrors, setIsLoading, T
         });
     }
 
-    
-    
     return (
         <Wrapper>
             <form onSubmit={loginSubmit}>

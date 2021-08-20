@@ -9,7 +9,7 @@ function ParentView({user}){
         <div>
             {user.household.users.map(user => {
                 return (
-                    <Member user={user}/>
+                    <Member key={user.id} user={user}/>
                     )
                 })}
             <h2>New Chore</h2>

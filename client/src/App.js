@@ -1,7 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
-
+import { Switch, Route } from "react-router-dom";
 
 // Imported Pages
 import LoginPage from "./Pages/LoginPage";
@@ -25,21 +24,17 @@ function App() {
 
   return (
     <>
-    <Router>
-      <Navbar user={user} setUser={setUser} />
+      <Navbar user={user} setUser={setUser} />;
       <main>
-      <Switch>
-      <Route path='/' exact>
-        <UserHomePage />
-        </Route>
-        <Route path='/EventsPage' exact>
-          <EventsPage />
-        </Route>
-      </Switch>
+        <Switch>
+          <Route path="/" exact>
+            <UserHomePage />
+          </Route>
+          <Route path="/EventsPage" exact>
+            <EventsPage />
+          </Route>
+        </Switch>
       </main>
-    </Router>
-
-
     </>
   );
 }

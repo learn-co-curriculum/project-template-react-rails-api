@@ -2,6 +2,7 @@ import './App.css';
 import React, {useState, useEffect} from 'react'
 import LoginPage from './Components/LoginPage';
 import Home from './Components/Home' 
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   const [user, setUser] = useState(null)
@@ -22,14 +23,15 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <>
+      <Navbar />
       { isLoading 
       ?
       <h1>Page is Loading...</h1>
       :
       <Home user={user}/>
       }
-    </div>
+    </>
   );
 }
 

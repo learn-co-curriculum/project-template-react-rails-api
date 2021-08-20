@@ -1,6 +1,7 @@
 import './App.css';
 import React, {useState, useEffect} from 'react'
 import LoginPage from './Components/LoginPage';
+import Home from './Components/Home'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -26,7 +27,7 @@ function App() {
       ?
       <h1>Page is Loading...</h1>
       :
-      <h1>Home Page</h1>
+      <Home user={user}/>
       }
     </div>
   );

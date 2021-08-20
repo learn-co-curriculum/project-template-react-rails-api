@@ -32,8 +32,8 @@ function Login({ setUser }){
         <div>
             <form onSubmit={loginSubmit}>
                 <h2>Login</h2>
-                <input name='username' value={loginData.username} onChange={handleLogin}></input>
-                <input name='password' value={loginData.password} onChange={handleLogin}></input>
+                <input name='username' value={loginData.username} placeholder="Username" onChange={handleLogin}></input>
+                <input name='password' value={loginData.password} placeholder="Password" type="password" onChange={handleLogin}></input>
                 <button>Login</button>
             </form>
         </div>

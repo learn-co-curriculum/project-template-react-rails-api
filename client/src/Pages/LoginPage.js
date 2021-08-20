@@ -12,7 +12,7 @@ const LoginPage = ( { onLogin } ) => {
   
   return (
     <>
-      {showLogin ? ( <div> <LoginForm /> <p>Don't have an account?</p> <button onClick={() => setShowLogin(!showLogin)}>Sign Up</button> </div> )
+      {showLogin ? ( <div> <LoginForm onLogin={onLogin}/> <p>Don't have an account?</p> <button onClick={() => setShowLogin(!showLogin)}>Sign Up</button> </div> )
         : (
           <div className='sign-form-div'>
             <SignupForm />

@@ -16,19 +16,19 @@ const Navbar = ({ user, setUser }) => {
     <nav className="navBar">
       <h3>Welcome Back {user.name}</h3>
       <ul className="nav-links">
-        <li className="nav-li">
-          <a className="nav-link one" href="/about">
-            About
+      <li className="nav-li">
+          <a className="nav-link one" href="/">
+            Home
           </a>
         </li>
         <li className="nav-li">
-          <a className="nav-link two" href="/projects">
-            Projects
+          <a className="nav-link two" href="/eventspage">
+            Events
           </a>
         </li>
         <li className="nav-li">
           <a
-            className="nav-link three"
+            className="nav-link one"
             href="/login"
             onClick={handleLogoutClick}
           >

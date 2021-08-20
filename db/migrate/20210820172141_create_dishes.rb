@@ -5,7 +5,7 @@ class CreateDishes < ActiveRecord::Migration[6.1]
       t.string :cuisine
       t.integer :price
       t.string :image_url
-      t.string :street_name
+      t.string :restaurant_name
       t.string :city_name
 
       t.timestamps

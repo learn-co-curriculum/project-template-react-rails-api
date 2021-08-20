@@ -7,7 +7,7 @@
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
-# test
+#
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2021_08_20_172342) do
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_172342) do
     t.string "cuisine"
     t.integer "price"
     t.string "image_url"
-    t.string "street_name"
+    t.string "restaurant_name"
     t.string "city_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

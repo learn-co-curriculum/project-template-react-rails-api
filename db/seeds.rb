@@ -10,8 +10,8 @@ User.destroy_all
 
 
 
-john = User.create(name: 'john', username: 'johnnn', user_photo: 'q22342342', password_digest: 'poop')
-jacob = User.create(name: 'jacob', username: 'jacobbbb', user_photo: 'q22342342422342', password_digest: 'poopy')
+john = User.create(name: 'john', username: 'john1', user_photo: 'q22342342', password: 'poop')
+jacob = User.create(name: 'jacob', username: 'jacob1', user_photo: 'q22342342422342', password: 'poopy')
 
 friendship = Friendship.create(:friend_a_id => john.id, :friend_b_id => jacob.id)
 puts "done seeding"

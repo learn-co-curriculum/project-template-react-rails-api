@@ -1,10 +1,15 @@
 import React from 'react'
-import LoginForm from '../Components/LoginForm'
+import Linebreak from '../Components/Linebreak'
+import LoginForm from '../Components/LoginForm/LoginForm'
+import SignupButton from '../Components/SignupButton'
 
-const LoginPage = () => {
+const LoginPage = ({ onLogin }) => {
     return (
         <>
-            <LoginForm />
+            <h1 className='account-login-header'>Account Login</h1>
+            <LoginForm onLogin={ onLogin }/>
+            <Linebreak />
+            <SignupButton />
         </>
     )
 }

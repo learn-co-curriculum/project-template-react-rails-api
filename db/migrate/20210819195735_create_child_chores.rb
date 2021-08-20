@@ -6,7 +6,6 @@ class CreateChildChores < ActiveRecord::Migration[6.1]
       t.boolean :is_completed
       t.belongs_to :user, null: false, foreign_key: true
       t.belongs_to :chore, null: false, foreign_key: true
-
       t.timestamps
     end
   end

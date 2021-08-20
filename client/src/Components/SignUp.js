@@ -7,7 +7,7 @@ const Wrapper2 = styled.div`
     align-items: center;
 `;
 
-function SignUp({ setUser, handleShowLoginClearErrors, setErrors, Title, Wrapper, Label, Input, Button, LoginButton,  }){
+function SignUp({ setUser, handleShowLoginClearErrors, setErrors, Title, Wrapper, Label, Input, Button, LoginButton }){
     const [userData, setUserData] = useState({
         username: "",
         password: "",

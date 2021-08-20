@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    
     wrap_parameters format: []
     skip_before_action :authorize, only: :create
 
@@ -27,5 +29,9 @@ class UsersController < ApplicationController
 
     def user_params
         params.permit(:first_name, :username, :email, :is_parent, :password).merge({household_id: @household.id})
+    end
+
+    def render_unprocessable_entity_response(invalid)
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
     end
 end

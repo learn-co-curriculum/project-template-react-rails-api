@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-function SignUp({ userSubmit, setUser }){
+function SignUp({ userSubmit, setUser, handleShowLoginClearErrors, setErrors }){
     const [userData, setUserData] = useState({
         username: "",
         password: "",
@@ -23,10 +23,15 @@ function SignUp({ userSubmit, setUser }){
         "Content-Type": "Application/json"
         },
         body: JSON.stringify(userData)
+    }).then((resp) => {
+        if (resp.ok) {
+            resp.json().then((user) => setUser(user));
+        } else {
+            resp.json().then((err) => setErrors(err.errors));
+        }
     })
-    .then(resp => resp.json())
-    .then(data => setUser(data))
-    }
+}
+ 
       
     return (
         <div>
@@ -39,6 +44,7 @@ function SignUp({ userSubmit, setUser }){
                 <input name='is_parent' placeholder='isParent' value={userData.is_parent} onChange={handleCreateUser}></input>
                 <input name='email' placeholder='Email' value={userData.email} onChange={handleCreateUser}></input>
                 <button>Sign Up</button>
+                <button onClick={handleShowLoginClearErrors}>Already Have an Account?</button>
             </form>
         </div>
     )

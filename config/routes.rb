@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :events, only: [:index, :create]
   resources :friendships
   resources :users
   # Routing logic: fallback requests for React Router.

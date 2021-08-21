@@ -64,3 +64,21 @@
     position: absolute;
     transform: translate(-50%, -60%);
   }
+
+  .Modal {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(126, 126, 126);
+  }

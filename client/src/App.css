@@ -18,7 +18,6 @@
   }
 
   .signup-btn{
-    margin-left: 10px;
     background: none;
     color: inherit;
     border: none;
@@ -26,6 +25,7 @@
     font: inherit;
     cursor: pointer;
     outline: inherit;
+    margin-left: 10px;
   }
 
   .signup-btn:hover{
@@ -34,10 +34,33 @@
 
   .account-login-header{
     text-align: center;
-    font-size: 3rem;
+    font-size:4rem;
   }
-
 
   .sign-form-div{
     text-align: center;
+  }
+
+
+  .homepage-banner{
+    justify-content: center;
+    display:flex;
+    margin-right:100px;
+  }
+
+  .welcomeback-header{
+    font-size: 2.5rem;
+    padding-left: 20px;
+    margin-top: 70px;
+  }
+
+  .line-homepage{
+    justify-content: center;
+    height: 2px;
+    border-bottom: 1px solid rgb(196, 196, 196);
+    width: 60%;
+    left: 50%;
+    margin-top: 100px;
+    position: absolute;
+    transform: translate(-50%, -60%);
   }

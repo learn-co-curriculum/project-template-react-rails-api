@@ -2,7 +2,6 @@ import React from "react";
 import Linebreak from "../Components/Linebreak";
 import LoginForm from "../Components/LoginForm/LoginForm";
 import SignupForm from "../Components/SignupForm/SignupForm";
-import SignupButton from "../Components/SignupButton";
 import { useState } from "react";
 
 //prettier-ignore
@@ -12,10 +11,10 @@ const LoginPage = ( { onLogin } ) => {
   
   return (
     <>
-      {showLogin ? ( <div> <LoginForm onLogin={onLogin}/> <p>Don't have an account?</p> <button onClick={() => setShowLogin(!showLogin)}>Sign Up</button> </div> )
+      {showLogin ? ( <> <LoginForm onLogin={onLogin}/> <Linebreak /> <div className='signup-div'><p>Don't have an account?</p> <button className='signup-btn' onClick={() => setShowLogin(!showLogin)}>Sign Up</button></div> </> )
         : (
           <div className='sign-form-div'>
-            <SignupForm />
+            <SignupForm onLogin={onLogin} showLogin={showLogin} setShowLogin={setShowLogin}/>
           </div>
       )
     }

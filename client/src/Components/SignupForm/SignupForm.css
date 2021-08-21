@@ -1,5 +1,6 @@
 .signup-form{
     margin: auto;
+    margin-top:120px;
     width: 35%;
     padding: 10px;
 }
@@ -37,4 +38,22 @@
     margin-bottom:20px;
     border:none;
     border-bottom: 1px solid grey;
+}
+
+
+.exit-signup-btn{
+    float: right;
+}
+
+#signup-label{
+    display:block;
+    float: left;
+}
+
+.lock-icon-signup{
+    height: 12px;
+}
+
+#signupform-icon{
+    height: 12px;
 }

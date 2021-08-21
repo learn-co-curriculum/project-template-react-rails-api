@@ -38,7 +38,7 @@ const Navbar = ({ user, setUser }) => {
         </li>
       </ul>
     </nav>
-  );
+  )
 };
 
 export default Navbar;

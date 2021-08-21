@@ -1,0 +1,18 @@
+#add-event-input{
+    width: 100%;
+    margin-bottom:20px;
+    border:none;
+    border-bottom: 1px solid grey;
+}
+
+.add-event-form{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: auto;
+    margin-top:-120px;
+    width: 35%;
+    height: 300px;
+    padding: 10px;
+    margin-left: 30%;
+    position: absolute;
+}

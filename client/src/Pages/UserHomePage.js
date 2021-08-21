@@ -1,14 +1,33 @@
+import Avatar from 'react-avatar'
+import { FaCameraRetro } from "react-icons/fa";
+import EditPhotoForm from '../Components/EditPhotoForm';
+import { useState } from 'react'
+import Linebreakhomepage from '../Components/Linebreakhomepage'
+
+
 const UserHomePage = ({ user }) => {
 
-    const image = user.user_photo
+    const [showEditPhotoForm, SetShowEditPhotoForm] = useState(false)
 
-    console.log(image)
+    function handleEditPhotoForm(){
+        SetShowEditPhotoForm(!showEditPhotoForm)
+    }
 
     return (
         <div>
-            <h1>Home</h1>
-            <h3>Welcome Back {user.name}</h3>
-            <img src={user.user_photo} alt='user photo'></img>
+            <div className='homepage-banner'>
+                {showEditPhotoForm ? (<><EditPhotoForm /><FaCameraRetro onClick={handleEditPhotoForm} /> </>) : (<FaCameraRetro onClick={handleEditPhotoForm} /> )}
+
+                <Avatar 
+                    round={true}
+                    size={130}
+                    className='avatar-photo'
+                    src={user.user_photo}
+                    />
+                <h3 className='welcomeback-header'>Welcome, {user.name}</h3>
+            </div>
+            <Linebreakhomepage />
+            
         </div>
     )
 }

@@ -1,14 +1,21 @@
 import React, { useState } from "react";
+import { FaTimes, FaUnlock, FaUserAstronaut, FaUserAlt } from "react-icons/fa";
+
+import "./SignupForm.css"
 // import UserHomePage from "../../Pages/UserHomePage";
 
 // prettier-ignore
-const SignupForm = ({ onLogin }) => {
+const SignupForm = ({ onLogin, setShowLogin, showLogin }) => {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [userPhoto, setUserPhoto] = useState("");
   const [password, setPassword ] = useState( "" );
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
+
+  function handleExitSignUpForm(){
+    setShowLogin(!showLogin)
+  }
 
     function handleSubmit(e) {
       e.preventDefault();
@@ -33,16 +40,18 @@ const SignupForm = ({ onLogin }) => {
         }
       });
     }
-
-  // prettier-ignore
+    
+    // prettier-ignore
     return (
-      <div className="signup-form">
+      <div className='signup-form'>
+      <FaTimes className='exit-signup-btn' onClick={handleExitSignUpForm}></FaTimes>
+      <div>
         <form onSubmit={handleSubmit}>
           
     <div>
-      <label className="name-label">Name</label>
+      <label id="signup-label"><FaUserAlt id="signupform-icon" /> Name</label>
       <input
-        className="name-input"
+        className="name-signup-input"
         type="text"
         id="name"
         autoComplete="off"
@@ -51,7 +60,7 @@ const SignupForm = ({ onLogin }) => {
     </div>
 
     <div>
-      <label className="username-label">Username</label>
+      <label id="signup-label"><FaUserAlt id="signupform-icon" /> Username</label>
       <input
         className="username-signup-input"
         type="text"
@@ -62,7 +71,7 @@ const SignupForm = ({ onLogin }) => {
     </div>
           
     <div>
-      <label className="avatar-label">Avatar</label>
+      <label id="signup-label"><FaUserAstronaut id="signupform-icon" /> Avatar(image URL)</label>
         <input
           className="avatar-input"
           type="text"
@@ -74,8 +83,7 @@ const SignupForm = ({ onLogin }) => {
 
           
     <div>
-      <label className="password-label">Password</label>
-      <input
+      <label id="signup-label"><FaUnlock id="signupform-icon"/> Password</label><input
         className="password-signup-input"
         type="password"
         id="password"
@@ -85,7 +93,7 @@ const SignupForm = ({ onLogin }) => {
     </div>
           
     <div>
-      <label className="password-label">Password Confirmation</label>
+      <label id="signup-label"><FaUnlock id="signupform-icon"/> Password Confirmation</label>
         <input
           className="password-confirmation-input"
           type="password"
@@ -106,10 +114,8 @@ const SignupForm = ({ onLogin }) => {
         </div>
       ))}
     </div>
-    <div>
-    
-    </div>
   </form>
+</div>
 </div>
 
     )

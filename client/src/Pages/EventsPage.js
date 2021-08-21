@@ -1,20 +1,36 @@
 import React from 'react'
 import { useState } from 'react'
+import Modal from 'react-modal';
 import AddEventForm from '../Components/AddEvent/AddEventForm'
+import EventList from '../Components/EventList';
 
 const EventsPage = () => {
 
-    const [showAddEventForm, setShowAddEventForm] = useState(false)
+    const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [events, setEvents] = useState([])
 
-    function handleAddEventForm(){
-        setShowAddEventForm(!showAddEventForm)
+
+    function openModal(){
+        setModalIsOpen(true)
+    }
+
+    function closeModal(){
+        setModalIsOpen(false)
     }
 
     return (
         <div>
             <h1>EVENTS</h1>
-            <button onClick={handleAddEventForm}>Add event</button>
-            { showAddEventForm ? (<AddEventForm />) : (null)}
+            <button onClick={openModal}>Add Event</button>
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                className="Modal"
+                overlayClassName="Overlay"
+            >
+                <AddEventForm setModalIsOpen={setModalIsOpen} events={events} setEvents={setEvents}/>
+            </Modal>
+            <EventList events={events} setEvents={setEvents}/>
         </div>
     )
 }

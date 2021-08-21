@@ -2,19 +2,52 @@ import "./AddEvent.css"
 import { useState } from 'react'
 
 
-
-const AddEventForm = () => {
+const AddEventForm = ({setModalIsOpen, events, setEvents}) => {
     const [eventTitle, setEventTitle] = useState('')
+    const [eventDescription, setEventDescription] = useState('')
     const [category, setCategory] = useState('')
     const [date, setDate] = useState('')
+    const [startTime, setStartTime] = useState('')
+    const [endTime, setEndTime] = useState('')
+    const [errors, setErrors] = useState([]);
+    
+    const newEvent = {
+        title: eventTitle,
+        description: eventDescription,
+        category,
+        date,
+        start_time: startTime,
+        end_time: endTime
+      }
+
+
+    function handleAddEvent(e) {
+        e.preventDefault();
+        setErrors([]);
+        fetch("/events", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newEvent),
+        }).then((resp) => {
+          if (resp.ok) {
+            setEvents([...events, newEvent])
+            setModalIsOpen(false)
+          } else {
+            resp.json().then((err) => setErrors(err.errors))
+          }
+        });
+      }
+
+
 
     return (
-
-    <div className='event-form-container'>
+    <>
     <div className="add-event-form">
     
         <h4>Add Event</h4>
-        <form>
+        <form onSubmit={handleAddEvent}>
 
         <div>
             <label className="name-label">Event Title</label>
@@ -23,6 +56,16 @@ const AddEventForm = () => {
                 type="text"
                 autoComplete="off"
                 onChange={(e) => setEventTitle(e.target.value)}
+            />
+        </div>
+
+        <div>
+            <label className="name-label">Event Description</label>
+            <input
+                id="add-event-input"
+                type="text"
+                autoComplete="off"
+                onChange={(e) => setEventDescription(e.target.value)}
             />
         </div>
 
@@ -58,28 +101,32 @@ const AddEventForm = () => {
 
         <div>
             <label >Start Time</label>
+            <input type="text" id="add-event-input" onChange={(e) => setStartTime(e.target.value)} />
+
         </div>
 
         <div>
             <label >End Time</label>
+            <input type="text" id="add-event-input" onChange={(e) => setEndTime(e.target.value)} />
+
         </div>
         
         <div>
-        <button type="submit" className="signup-btn">Add Event</button>
-        <button type="submit" className="signup-btn">Cancel</button>
+        <button type="submit" className="signup-btn" >Add Event</button>
+        <button className="cancel-btn" onClick={() => setModalIsOpen(false)}>Cancel</button>
         </div>
           
-        {/* <div>
+        <div>
         {errors.map((err) => (
             <div className="login-errors" key={err}>
             {err}
             </div>
         ))}
-        </div> */}
+        </div>
+
         </form>
     </div>
-
-    </div>
+    </>
     )
 }
 

@@ -16,11 +16,10 @@
     border: 1px solid black;
     border-radius: 10px;
     margin: auto;
-    margin-top:-120px;
+    margin-top:50px;
     width: 35%;
-    height: 300px;
-    padding: 10px;
+    height: auto;
+    padding: 25px;
     margin-left: 30%;
-    z-index:9998;
-    background: rgba(0,0,0, 0.2)
 }
+

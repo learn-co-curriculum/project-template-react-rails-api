@@ -7,6 +7,12 @@ class DishesController < ApplicationController
         render json: dishes
     end
 
+    def destroy
+        dish = Dish.find(params[:id])
+        dish.destroy
+        render json: {message: "Dish has been deleted"}
+    end
+
     def show
         dishes = Dish.find(params[:id])
         render json: dishes

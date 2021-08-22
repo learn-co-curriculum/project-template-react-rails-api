@@ -33,7 +33,8 @@ ActiveRecord::Schema.define(version: 2021_08_20_172342) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
+    t.string "password_digest"
     t.bigint "review_id", null: false
     t.bigint "dish_id", null: false
     t.datetime "created_at", precision: 6, null: false

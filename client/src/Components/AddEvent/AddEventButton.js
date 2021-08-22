@@ -3,7 +3,7 @@ import React from 'react'
 const AddEventButton = () => {
     return (
         <div>
-            <button>Add an event</button>
+            <button className='add-event-btn'>Add sdfsdfasd  event</button>
         </div>
     )
 }

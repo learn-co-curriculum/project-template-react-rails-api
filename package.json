@@ -11,10 +11,12 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "moment": "^2.29.1",
     "react-avatar": "^3.10.0",
     "react-calendar": "^3.4.0",
     "react-icons": "^4.2.0",
     "react-modal": "^3.14.3",
+    "react-moment": "^1.1.1",
     "react-router-dom": "^5.2.0"
   }
 }

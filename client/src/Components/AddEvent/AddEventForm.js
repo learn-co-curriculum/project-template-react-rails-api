@@ -112,7 +112,7 @@ const AddEventForm = ({setModalIsOpen, events, setEvents}) => {
         </div>
         
         <div>
-        <button type="submit" className="signup-btn" >Add Event</button>
+        <button type="submit" className="add-new-btn" >Add Event</button>
         <button className="cancel-btn" onClick={() => setModalIsOpen(false)}>Cancel</button>
         </div>
           

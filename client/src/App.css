@@ -82,3 +82,10 @@
     bottom: 0;
     background-color: rgb(126, 126, 126);
   }
+
+
+  .events-page-header{
+    margin-left: 100px;
+    font-size: 3rem;
+    text-shadow: -2px 0 #9b9b9b, 0 1px #c4c4c4, 1px 0 #b3b3b3, 0 -1px #838282;
+  }

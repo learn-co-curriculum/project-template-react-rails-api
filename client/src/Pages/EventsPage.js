@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import Modal from 'react-modal';
 import AddEventForm from '../Components/AddEvent/AddEventForm'
-import EventList from '../Components/EventList';
+import EventList from '../Components/Event_and_style/EventList';
 
 const EventsPage = () => {
 
@@ -20,8 +20,8 @@ const EventsPage = () => {
 
     return (
         <div>
-            <h1>EVENTS</h1>
-            <button onClick={openModal}>Add Event</button>
+            <h1 className='events-page-header'>EVENTS</h1>
+            <button className='add-event-btn' onClick={openModal}>Add Event</button>
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}

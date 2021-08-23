@@ -9,7 +9,7 @@ wrap_parameters format: []
 
     def destroy
         dish = Dish.find(params[:id])
-        dish.destroy
+            dish.destroy
         render json: {message: "Dish has been deleted"}
     end
 

@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import AddEventForm from '../Components/AddEvent/AddEventForm'
 import EventList from '../Components/Event_and_style/EventList';
 
-const EventsPage = () => {
+const EventsPage = ({user}) => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [events, setEvents] = useState([])
@@ -31,7 +31,7 @@ const EventsPage = () => {
             >
                 <AddEventForm setModalIsOpen={setModalIsOpen} events={events} setEvents={setEvents}/>
             </Modal>
-            <EventList events={events} setEvents={setEvents}/>
+            <EventList user={user} events={events} setEvents={setEvents}/>
         </div>
     )
 }

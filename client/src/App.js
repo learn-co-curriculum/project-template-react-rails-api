@@ -32,7 +32,7 @@ function App() {
             <UserHomePage user={user}/>
           </Route>
           <Route path="/EventsPage" exact>
-            <EventsPage />
+            <EventsPage user={user}/>
           </Route>
           <Route path="/friendspage" exact>
             <FriendsPage />

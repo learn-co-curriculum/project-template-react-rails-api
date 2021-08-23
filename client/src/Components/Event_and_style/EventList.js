@@ -3,7 +3,7 @@ import Event from "./Event"
 
 import "./Event.css"
 
-const EventList = ({events, setEvents}) => {
+const EventList = ({events, setEvents, user}) => {
 
 
     useEffect(() => {
@@ -17,7 +17,7 @@ const EventList = ({events, setEvents}) => {
             {events.length > 0 ? 
             (events.map(event => {
                 return (
-                    <Event event={event}/>
+                    <Event user={user}event={event}/>
                 )
 
             })) : (<h2>No Events</h2>)}

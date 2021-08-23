@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :comments
   resources :events, only: [:index, :create]
   resources :friendships, only: [:index]
   resources :users

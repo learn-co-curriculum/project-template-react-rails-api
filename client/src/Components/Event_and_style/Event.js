@@ -4,7 +4,7 @@ import EventCardLarge from "./EventCardLarge";
 import { useState } from 'react'
 
 
-const Event = ({ event }) => {
+const Event = ({ event, user }) => {
 
     const [isViewCardShowing, setIsViewCardShowing] = useState(false)
  
@@ -25,7 +25,7 @@ const Event = ({ event }) => {
 
                     <p className='view-container' onClick={handleViewEvent}>View<FaChevronRight className='view-event-icon'/></p>
                 </div>
-                {isViewCardShowing ? (<EventCardLarge event={event} />) : (null)}
+                {isViewCardShowing ? (<EventCardLarge user={user} event={event} />) : (null)}
    
         </>
     )

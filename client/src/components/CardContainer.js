@@ -4,6 +4,7 @@ import DishesList from "./DishesList"
 
 function CardContainer({dishes, setDishes, search, setSearch}) {
     const [ reviews, setReviews ] = useState([])
+    
 
     function handleNewReview (newReview) {
         setReviews([...reviews, newReview])

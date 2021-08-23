@@ -1,17 +1,30 @@
 import React from 'react';
+import DishCard from "./DishCard"
+import { useState, useEffect } from "react"
 
 function DishesList({ dishes, setDishes, reviews, setReviews, search, handleNewReview}) {
+    const [ users, setUsers ] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:3000/users")
+          .then((resp) => resp.json())
+          .then((data) => setUsers(data));
+      }, []);
+      
+
     const filterDishes = () => {
         return dishes.filter((dish) =>
         dish.name.toLowerCase().includes(search.toLowerCase())
         || dish.cuisine.toLowerCase().includes(search.toLowerCase()))
     }
-    const displayDishes = filterDishes().map((dishes, index) => {
+    const displayDishes = filterDishes().map((dish, index) => {
         return (
-            <Dish
-            key={index}
+            <DishCard
+            users={users}
+            setUsers={setUsers}
             dish={dish}
-            reivews={reviews.filter( review => dish.id === review.dish_id )}
+            key={index}
+            reviews={reviews.filter( review => dish.id === review.dish_id )}
             handleNewReview={handleNewReview}
             />
         )

@@ -4,6 +4,7 @@ import EventCardLarge from "./EventCardLarge";
 import { useState } from "react";
 import Modal from "react-modal";
 
+
 const Event = ({ event }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -34,6 +35,19 @@ const Event = ({ event }) => {
 
       {modalIsOpen ? (
         <>
+
+                <div className='event-card'>
+                    <h2>{event.title}</h2>
+                
+                    <Moment titleFormat="MMM, D YYYY">
+                        {event.date}
+                    </Moment>
+
+
+                    <p className='view-container' onClick={handleViewEvent}>View<FaChevronRight className='view-event-icon'/></p>
+                </div>
+                {isViewCardShowing ? (<EventCardLarge user={user} event={event} />) : (null)}
+  
           <Modal
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
@@ -43,6 +57,7 @@ const Event = ({ event }) => {
           >
             <EventCardLarge event={event} />
           </Modal>
+
         </>
       ) : null}
     </>

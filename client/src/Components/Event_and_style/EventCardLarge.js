@@ -1,8 +1,39 @@
+
+import { useState } from 'react'
 import "./EventCardLarge.css";
 
-const EventCardLarge = ({ event }) => {
-  return (
-    <div className="event-card-large">
+
+const EventCardLarge = ({ event, user }) => {
+
+    const [comment, setComment] = useState("")
+    const [errors, setErrors] = useState([]);
+
+
+    function handleAddComment(e){
+        e.preventDefault()
+        setErrors([])
+        fetch("/comments", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                user_id: user.id,
+                comment,
+                event_id: event.id
+            }),
+          }).then((resp) => {
+            if (resp.ok) {
+              resp.json().then((data) => setComment(data));
+            } 
+            else {
+              resp.json().then((err) => setErrors(err.errors))
+            }
+          });
+    }
+
+    return (
+       <div className="event-card-large">
       <h1 className="event-card-large-title">{event.title}</h1>
       <h1 className="event-card-large-description">
         Description: {event.description}
@@ -12,14 +43,15 @@ const EventCardLarge = ({ event }) => {
         Time: {event.start_time}-{event.end_time}
       </h1>
 
-      <form>
+        <form onSubmit={handleAddComment}>
         <div>
+          <label className="password-label">
+           Write a comment 
+          </label>
           <input
             placeholder="Write A Comment..."
-            className="event-card-large-comment-input"
-            type="password"
-            id="password"
-            autoComplete="current-password"
+            type="text"
+            onChange={(e) => setComment(e.target.value)}
           />
           <button type="submit">Add</button>
         </div>

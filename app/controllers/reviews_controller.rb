@@ -7,27 +7,30 @@ wrap_parameters format: []
         render json: review
     end
 
-    def show
+    def destroy
         review = Review.find(params[:id])
-        render json: review
+        review.destroy
+        render json: {message: "Review deleted"}
+    end
+
+    def show
+        reviews = Review.find(params[:id])
+        render json: reviews
     end
 
     def create
         review = Review.create(review_params)
         if review.valid?
-        render json: review, status: :created
+            render json: review, status: :created
         else
-        render json: {errors: review.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: review.errors.full_messages}, status: :unprocessable_entity
         end
     end
 
     private
+
     def review_params
         params.permit(:comment)
     end
-
-    def render_not_found_response
-        render json: {error: "Review Not Found"}, status: :not_found
-    end
-
+       
 end

@@ -7,6 +7,12 @@ wrap_parameters format: []
         render json: dishes
     end
 
+    def destroy
+        dish = Dish.find(params[:id])
+        dish.destroy
+        render json: {message: "Dish has been deleted"}
+    end
+
     def show
         dish = Dish.find(params[:id])
         render json: dishes
@@ -17,7 +23,7 @@ wrap_parameters format: []
         if dish.valid?
         render json: dish, status: :created
         else
-        render json: {errors: dish.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: dish.errors.full_messages}, status: :unprocessable_entity
         end
     end
 

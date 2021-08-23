@@ -1,33 +1,30 @@
 class UsersController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 wrap_parameters format: []
-
-    def index
-        user = User.all
-        render json: user
-    end
+    skip_before_action :authorize, only: [:create]
 
     def show
-        user = user.find(params[:id])
+        user = User.find(session[:user_id])
         render json: user
     end
 
     def create
-        user = user.create(user_params)
-        if user.valid?
-        render json: user, status: :created
+        user = User.create(user_params)
+        render json: user
+    end
+
+    def login 
+        user = User.find_by(username:user_params[:username])
+        if (user && user.authenticate(user_params[:password]))
+            render json: user
         else
-        render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
+            render json: {error: ['incorrect loging/password info']}
         end
     end
-
-    private
-    def user_params
-        params.permit(:name)
-    end
-
-    def render_not_found_response
-        render json: {error: "User Not Found"}, status: :not_found
-    end
     
+    private 
+    def user_params 
+        params.permit(:username, :password)
+    end
+
 end

@@ -12,7 +12,11 @@ Review.destroy_all
 puts "seeding started"
 
 24.times do 
+<<<<<<< HEAD
 User.create(name: Faker::Name.name)
+=======
+    User.create(username: Faker::Name.name, password: Faker::Name.name)
+>>>>>>> 80fddbf2801f3dbc38a536304dd02189ba167df2
 end 
 
 puts "users made"
@@ -41,7 +45,7 @@ puts "done seeding dishs"
 puts "seeding reviews"
 
 70.times do 
-    Review.create(comment: Faker::Restaurant.review)
+    Review.create(comment: Faker::Restaurant.review, user_id: User.all.sample.id, dish_id: Dish.all.sample.id)
 end
 
 puts "done seeding"

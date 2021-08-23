@@ -7,7 +7,7 @@ function Search({ search, setSearch }) {
         className="search-bar"
         id="search-bar"
         type="text"
-        placeholder="Search Dishess..."
+        placeholder="Search Dishes..."
         name="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}

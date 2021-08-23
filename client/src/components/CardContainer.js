@@ -6,7 +6,7 @@ function CardContainer({dishes, setDishes, search, setSearch}) {
     const [ reviews, setReviews ] = useState([])
 
     function handleNewReview (newReview) {
-        setReviews([...reviews, newReviews])
+        setReviews([...reviews, newReview])
     }
 
     useEffect(() => {

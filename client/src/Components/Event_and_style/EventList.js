@@ -17,7 +17,11 @@ const EventList = ({events, setEvents, user}) => {
             {events.length > 0 ? 
             (events.map(event => {
                 return (
-                    <Event user={user}event={event}/>
+                    <Event 
+                        key={event.id}
+                        user={user}
+                        event={event}
+                    />
                 )
 
             })) : (null)}

@@ -7,3 +7,22 @@ const Friend = ({ friend }) => {
 };
 
 export default Friend;
+
+
+
+
+        //   <Avatar
+        //     round={true}
+        //     size={40}
+        //     className="avatar-photo"
+        //     src={friend.user_photo}
+        //   />
+  
+        //   <Avatar
+        //     round={true}
+        //     size={40}
+        //     className="avatar-photo"
+        //     name={friend.name}
+        //     color="lightGrey"
+        //   />
+        

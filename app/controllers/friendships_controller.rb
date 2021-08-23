@@ -2,8 +2,9 @@ class FriendshipsController < ApplicationController
     
 
     def index
-        friends = @current_user.requested_friendship.concat(@current_user.initiated_friends)
-        render json: friends 
+        requested = @current_user.requested_friendship
+        initiated = @current_user.initiated_friends
+        render json: initiated + requested 
     end
 
 

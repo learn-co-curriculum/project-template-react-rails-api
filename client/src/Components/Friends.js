@@ -12,31 +12,19 @@ const Friends = () => {
       .then((data) => setFriends(data));
   }, []);
 
+
   const displayFriends = friends.map((friend) => {
     return (
       <>
-        <Friend friend={friend} />
-        {friend.user_photo.includes("https://") ? (
-          <Avatar
-            round={true}
-            size={40}
-            className="avatar-photo"
-            src={friend.user_photo}
-          />
-        ) : (
-          <Avatar
-            round={true}
-            size={40}
-            className="avatar-photo"
-            name={friend.name}
-            color="lightGrey"
-          />
-        )}
+        <Friend 
+        key={friend.id}
+        friend={friend} />
       </>
     );
   });
-  return <h1>{displayFriends}</h1>;
-};
+  
+  return <>{displayFriends}</>;
+}
 
 export default Friends;
 

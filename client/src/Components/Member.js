@@ -20,9 +20,9 @@ const Member = ({user}) => {
                 <>
                     <h5 >{user.username}</h5>
                     <h5>{user.email}</h5>
-                    {user.child_chores.map(child_chore => {
+                    {user.chores && user.chores.map(chore => {
                         return(
-                        <Chore key={child_chore.id} child_chore={child_chore}/>
+                        <Chore key={chore.id} chore={chore}/>
                         )
                     })}
                 </>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :chores
+  resources :chores, only: [:create]
   resources :child_chores
   resources :households
   resources :users

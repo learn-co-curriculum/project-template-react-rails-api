@@ -10,7 +10,7 @@ const EventList = ({events, setEvents}) => {
         fetch("/events")
         .then(resp => resp.json())
         .then(data => setEvents(data))
-    }, [setEvents(events)])
+    }, [])
 
     return (
         <div className='event-card-container'>

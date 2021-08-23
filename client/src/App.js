@@ -7,6 +7,7 @@ import LoginPage from "./Pages/LoginPage";
 import UserHomePage from "./Pages/UserHomePage";
 import Navbar from "./Components/NavBar/NavBar";
 import EventsPage from "./Pages/EventsPage";
+import FriendsPage from "./Pages/FriendsPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/EventsPage" exact>
             <EventsPage />
+          </Route>
+          <Route path="/friendspage" exact>
+            <FriendsPage />
           </Route>
         </Switch>
       </main>

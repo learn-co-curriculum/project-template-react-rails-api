@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-    has_many :users, dependent: :destroy
-    has_many :dishes, through: :users
+    belongs_to :user
+    belongs_to :dish
     validates :comment, presence: true
 end

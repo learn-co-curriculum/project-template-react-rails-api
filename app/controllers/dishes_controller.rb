@@ -24,8 +24,8 @@ class DishesController < ApplicationController
             render json: dish, status: :created
         else
             render json: {errors: dish.errors.full_messages}, status: :unprocessable_entity
+        end
     end
-end
 
     private
 

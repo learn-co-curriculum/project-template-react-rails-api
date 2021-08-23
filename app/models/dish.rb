@@ -1,7 +1,7 @@
 class Dish < ApplicationRecord
     # :id, :name, :cuisine, :price, :image_url, :restaurant_name, :city_name
-    has_many :users, dependent: :destroy
-    has_many :reviews, through: :users
+    has_many :reviews, dependent: :destroy
+    has_many :users, through: :reviews
     validates :name, presence: true
     validates :cuisine, presence: true
     validates :price, numericality: true

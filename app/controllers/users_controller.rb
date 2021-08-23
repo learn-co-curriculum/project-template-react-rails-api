@@ -16,8 +16,11 @@ wrap_parameters format: []
             render json: {error: ['incorrect loging/password info']}
         end
     end
+    
     private 
 
     def user_params 
         params.permit(:username, :password)
+    end
+
 end

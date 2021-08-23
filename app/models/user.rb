@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  belongs_to :review
-  belongs_to :dish
+  has_many :reviews, dependent: :destroy
+  has_many :dishes, through: :reviews
   validates :username, presence: true, uniqueness:true
   has_secure_password
 end

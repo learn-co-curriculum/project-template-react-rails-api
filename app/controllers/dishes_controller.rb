@@ -21,7 +21,7 @@ wrap_parameters format: []
     def create
         dish = Dish.create(dish_params)
         if dish.valid?
-        render json: dish, status: :created
+            render json: dish, status: :created
         else
             render json: {errors: dish.errors.full_messages}, status: :unprocessable_entity
         end

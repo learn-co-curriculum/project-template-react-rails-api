@@ -17,13 +17,19 @@ const UserHomePage = ({ user }) => {
         <div>
             <div className='homepage-banner'>
                 {showEditPhotoForm ? (<><EditPhotoForm /><FaCameraRetro onClick={handleEditPhotoForm} /> </>) : (<FaCameraRetro onClick={handleEditPhotoForm} /> )}
-
-                <Avatar 
+                { user.user_photo.includes("https://") ? (<Avatar 
                     round={true}
                     size={130}
                     className='avatar-photo'
                     src={user.user_photo}
-                    />
+                    />) : (<Avatar 
+                        round={true}
+                        size={130}
+                        className='avatar-photo'
+                        name={user.name}
+                        color="lightGrey"
+                        />)}
+
                 <h3 className='welcomeback-header'>Welcome, {user.name}</h3>
             </div>
             <Linebreakhomepage />

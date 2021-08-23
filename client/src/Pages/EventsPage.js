@@ -27,6 +27,7 @@ const EventsPage = () => {
                 onRequestClose={closeModal}
                 className="Modal"
                 overlayClassName="Overlay"
+                ariaHideApp={false}
             >
                 <AddEventForm setModalIsOpen={setModalIsOpen} events={events} setEvents={setEvents}/>
             </Modal>

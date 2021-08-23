@@ -28,6 +28,11 @@ const Navbar = ({ user, setUser }) => {
           </NavLink>
         </li>
         <li className="nav-li">
+          <NavLink className="nav-link two" to="/friendspage">
+            Friends
+          </NavLink>
+        </li>
+        <li className="nav-li">
           <NavLink
             className="nav-link one"
             to="/login"

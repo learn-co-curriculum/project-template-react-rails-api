@@ -12,11 +12,7 @@ Review.destroy_all
 puts "seeding started"
 
 24.times do 
-<<<<<<< HEAD
-User.create(name: Faker::Name.name)
-=======
     User.create(username: Faker::Name.name, password: Faker::Name.name)
->>>>>>> 80fddbf2801f3dbc38a536304dd02189ba167df2
 end 
 
 puts "users made"

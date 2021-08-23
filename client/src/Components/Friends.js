@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Avatar from 'react-avatar'
+import Friend from './Friend'
 
 
 const Friends = () => {
@@ -21,14 +22,15 @@ const Friends = () => {
 const allFriends = friendsList.map(friend => {
     return (
         <>
+        <Friend friend={friend}/>
         {friend.friend_b.user_photo.includes("https://") ? (<Avatar 
                     round={true}
-                    size={130}
+                    size={40}
                     className='avatar-photo'
                     src={friend.friend_b.user_photo}
                     />) : ((<Avatar 
                         round={true}
-                        size={100}
+                        size={40}
                         className='avatar-photo'
                         name={friend.friend_b.name}
                         color="lightGrey"

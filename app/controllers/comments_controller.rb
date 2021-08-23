@@ -8,14 +8,14 @@ class CommentsController < ApplicationController
     end
 
     def create
-        comment = @current_user.comments.create!(comment_params)
+        comment = Comment.create!(comment_params)
         render json: comment, status: :created
     end
 
 private
 
     def comment_params
-        params.permit(:comment)
+        params.permit(:comment, :user_id, :event_id)
     end
 
 

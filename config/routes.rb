@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
 
   resources :comments
-  resources :events, only: [:index, ,:show, :create]
+  resources :events, only: [:index, :show, :create]
 
   resources :friendships, only: [:index]
   resources :users

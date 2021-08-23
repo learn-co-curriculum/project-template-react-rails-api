@@ -5,7 +5,7 @@ import { useState } from "react";
 import Modal from "react-modal";
 
 
-const Event = ({ event }) => {
+const Event = ({ event, user }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function handleViewEvent() {
@@ -35,7 +35,6 @@ const Event = ({ event }) => {
 
       {modalIsOpen ? (
         <>
-
                 <div className='event-card'>
                     <h2>{event.title}</h2>
                 
@@ -46,8 +45,7 @@ const Event = ({ event }) => {
 
                     <p className='view-container' onClick={handleViewEvent}>View<FaChevronRight className='view-event-icon'/></p>
                 </div>
-                {isViewCardShowing ? (<EventCardLarge user={user} event={event} />) : (null)}
-  
+                {modalIsOpen ? (
           <Modal
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
@@ -55,9 +53,9 @@ const Event = ({ event }) => {
             overlayClassName="Overlay"
             ariaHideApp={false}
           >
-            <EventCardLarge event={event} />
-          </Modal>
-
+            <EventCardLarge event={event} user={user} />
+          </Modal>) : (null)}
+  
         </>
       ) : null}
     </>

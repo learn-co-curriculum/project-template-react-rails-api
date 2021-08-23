@@ -13,6 +13,7 @@ const UserHomePage = ({ user }) => {
         SetShowEditPhotoForm(!showEditPhotoForm)
     }
 
+
     return (
         <div>
             <div className='homepage-banner'>

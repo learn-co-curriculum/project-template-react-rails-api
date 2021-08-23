@@ -6,7 +6,9 @@ import "./EventCardLarge.css";
 const EventCardLarge = ({ event, user }) => {
 
     const [comment, setComment] = useState("")
-    const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState([])
+
+    console.log()
 
 
     function handleAddComment(e){
@@ -43,11 +45,13 @@ const EventCardLarge = ({ event, user }) => {
         Time: {event.start_time}-{event.end_time}
       </h1>
 
+      <h1>Attendee List</h1>
+      <h1>Budget</h1>
+      <h1>To-Do's</h1>
+      <h1>Comments</h1>
+
         <form onSubmit={handleAddComment}>
         <div>
-          <label className="password-label">
-           Write a comment 
-          </label>
           <input
             placeholder="Write A Comment..."
             type="text"

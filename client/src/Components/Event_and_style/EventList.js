@@ -20,7 +20,7 @@ const EventList = ({events, setEvents, user}) => {
                     <Event user={user}event={event}/>
                 )
 
-            })) : (<h2>No Events</h2>)}
+            })) : (null)}
         </div>
     )
 }

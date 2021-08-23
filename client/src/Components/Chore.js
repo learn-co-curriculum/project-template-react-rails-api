@@ -7,7 +7,7 @@ const Chore = ({child_chore}) => {
             <h3>{child_chore.chore.description}</h3>
             <h4>{child_chore.time_to_complete}</h4>
             <h5>{child_chore.reward}</h5>
-            <h5>{child_chore.is_completed ? '✅' : '✔️'}</h5>
+            <h5>{child_chore.is_completed ? 'Completed ✅' : 'Completed ✖️'}</h5>
         </div>
     )
 }

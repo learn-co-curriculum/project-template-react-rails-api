@@ -6,7 +6,7 @@ function ChoreForm({user, setChores, chores, setChoreErrors}){
         chore_name:"",
         description:"",
         min_age: 6,
-        household_id: user.household_id
+        household_id: user.household.id
     })
 
     function handleChoreCreate (event){

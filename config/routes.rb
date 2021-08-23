@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-  
-
   resources :comments
   resources :events, only: [:index, :show, :create]
 
-  resources :friendships, only: [:index]
+  # resources :friendships, only: [:index]
   resources :users
-  # Routing logic: fallback requests for React Router.
-  # Leave this here to help deploy your app later!
+
+  get "/friendships", to: "friendships#index"
 
   post "/signup", to: "users#create"
   get "/me", to: "users#show"

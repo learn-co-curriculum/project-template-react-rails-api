@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
-    belongs_to :user, dependent: :destroy
-    belongs_to :event, dependent: :destroy
+    belongs_to :user
+    belongs_to :event 
 
     validates :comment, presence: true
 end

@@ -27,12 +27,6 @@ wrap_parameters format: []
         end
     end
 
-    def destroy
-        dish = Dish.find(params[:id])
-        dish.destroy
-        head :no_content
-    end
-
     private
     def dish_params
         params.permit(:name, :cuisine, :price, :image_url, :restaurant_name, :city_name)

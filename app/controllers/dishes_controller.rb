@@ -21,12 +21,15 @@ wrap_parameters format: []
         end
     end
 
+controllers
     def destroy
         dish = Dish.find(params[:id])
         dish.destroy
         render json: {message: "Dish has been deleted"}
     end
 
+
+ main
     private
     def dish_params
         params.permit(:name, :cuisine, :price, :image_url, :restaurant_name, :city_name)

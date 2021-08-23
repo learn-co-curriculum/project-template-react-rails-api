@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 
 
-function ChoreForm(){
+function ChoreForm({user, setChores, chores, setChoreErrors}){
     const [choreData, setChoreData] = useState({
         chore_name:"",
         description:"",
-        min_age: 6
+        min_age: 6,
+        household_id: user.household_id
     })
 
     function handleChoreCreate (event){
@@ -13,12 +14,30 @@ function ChoreForm(){
             [event.target.name] : event.target.value
         })
     }
+
+    function handleChoreSubmit(event){
+        event.preventDefault()
+        fetch(`/chores`, {
+            method: "POST",
+            headers: {
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify(choreData)
+        })
+        .then(response => {
+            if (response.ok) {
+                response.json().then((chore) => setChores(...chores, chore));
+            } else {
+                response.json().then((err) => setChoreErrors(err.errors));
+            }
+        })
+    }
     
     return (
         <div>
-            <form>
-                <input name="chore_name" value={choreData.chore_name} onChange={handleChoreCreate}></input>
-                <input name="description" value={choreData.description} onChange={handleChoreCreate}></input>
+            <form onSubmit={handleChoreSubmit}>
+                <input name="chore_name" value={choreData.chore_name} placeholder='chore' onChange={handleChoreCreate}></input>
+                <input name="description" value={choreData.description} placeholder='description' onChange={handleChoreCreate}></input>
                 <select name="min_age" onChange={handleChoreCreate}>
                     <option defaultValue>Select Age</option>
                     <option value={6}>6</option>
@@ -35,6 +54,7 @@ function ChoreForm(){
                     <option value={17}>17</option>
                     <option value={18}>18</option>
                 </select>
+                <button>Create New Chore</button>
             </form>
         </div>
     )

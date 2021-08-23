@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ChoreForm from './ChoreForm'
 import Member from './Member'
+import ChoreError from './ChoreError'
 
 function ParentView({user}){
-    console.log(user)
+    const [choreErrors, setChoreErrors] = useState([])
+    const [chores, setChores] = useState([])
+    
 
     return (
         <div>
@@ -13,7 +16,10 @@ function ParentView({user}){
                     )
                 })}
             <h2>New Chore</h2>
-            <ChoreForm />
+            <ChoreForm user={user} chores={chores} setChores={setChores} setChoreErrors={setChoreErrors}/>
+            {choreErrors.map((err) => (
+                <ChoreError key={err}>{err}</ChoreError>
+            ))}
         </div>
     )
 }

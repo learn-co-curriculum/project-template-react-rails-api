@@ -3,14 +3,8 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 wrap_parameters format: []
 
     def index
-        dishes = Dish.all
-        render json: dishes
-    end
-
-    def destroy
-        dish = Dish.find(params[:id])
-            dish.destroy
-        render json: {message: "Dish has been deleted"}
+        dish = Dish.all
+        render json: dish
     end
 
     def show
@@ -30,7 +24,7 @@ wrap_parameters format: []
     def destroy
         dish = Dish.find(params[:id])
         dish.destroy
-        head :no_content
+        render json: {message: "Dish has been deleted"}
     end
 
     private

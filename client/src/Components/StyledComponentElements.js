@@ -49,8 +49,25 @@ export const HomeSubtitle = styled.h2`
     text-align: center;
 `
 
-export const MemberWrapper = styled.div`
+export const ChildInfoWrapper = styled.div`
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
+`
+
+export const ParentTitle = styled.h3`
+    text-align: center;
+`
+
+export const ChildDiv = styled.div` 
+
+`
+export const ParentDiv = styled.div`
+
+`
+
+export const ParentChildDiv = styled.div`
+    display: grid;
+    grid-template-columns: repeat(2, auto); 
+    grid-gap: 20; 
 `

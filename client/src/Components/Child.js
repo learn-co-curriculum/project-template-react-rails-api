@@ -1,9 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import Chore from './Chore'
 import ChildChoreError from './ChildChoreError'
-import { MemberWrapper } from './StyledComponentElements'
+import { ChildInfoWrapper } from './StyledComponentElements'
+import styled from 'styled-components'
 
-const Member = ({user, chores}) => {
+const ShowInfoButton = styled.button`
+    border-radius: 20px;
+    font-size: 1em;
+    margin-right: 1em;
+`
+
+const Child = ({user, chores}) => {
     console.log(user.id)
     const [showChildInfo, setShowChildInfo] = useState(false)
     const [allChildChores, setAllChildChores] = useState([])
@@ -55,19 +62,11 @@ const Member = ({user, chores}) => {
     }
 
     return (
-        <MemberWrapper>
-            { user.is_parent 
-            ? 
-            <h3>Parent: {user.first_name}</h3>
-            : 
-            <>
-            <button onClick={handleMember}>{showChildInfo ? "-" : "+"}</button>
-            <h3>{user.first_name}</h3>
-            </>
-            }
+        <ChildInfoWrapper>
+            <h3><span><ShowInfoButton onClick={handleMember}>{showChildInfo ? "-" : "+"}</ShowInfoButton></span>{user.first_name}</h3>
             {showChildInfo && 
                 <>
-                    <h5 >{user.username}</h5>
+                    <h5>{user.username}</h5>
                     <h5>{user.email}</h5>
                     {allChildChores && allChildChores.map(child_chore => {
                         return(
@@ -108,8 +107,8 @@ const Member = ({user, chores}) => {
                     ))}
                 </>
             }
-        </MemberWrapper>
+        </ChildInfoWrapper>
     )
 }
 
-export default Member
+export default Child

@@ -1,20 +1,21 @@
 import React from 'react'
 import ParentView from './ParentView'
 import ChildView from './ChildView'
+import { Title, HomeSubtitle, Wrapper, Input, Label, LoginButton, Button } from './StyledComponentElements'
 
 function Home({user}){
     console.log(user.chores)
     return (
-        <div>
-            <h3>Hi {user.first_name}</h3>
-            <h2>Your are a {user.is_parent ? "Parent" : "Child"} in the {user.household.last_name} household!</h2>
+        <Wrapper>
+            <Title>Hi {user.first_name}</Title>
+            <HomeSubtitle>Your are a {user.is_parent ? "Parent" : "Child"} in the {user.household.last_name} household!</HomeSubtitle>
             
             {user.is_parent ? 
             <ParentView user={user} householdChores={user.chores}/>
             :
             <ChildView />
             }
-        </div>
+        </Wrapper>
     )
 }
 

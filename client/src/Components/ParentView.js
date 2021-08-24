@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import ChoreForm from './ChoreForm'
 import Member from './Member'
 import ChoreError from './ChoreError'
+import { Title, Wrapper, Input, Label, LoginButton, Button } from './StyledComponentElements'
 
 function ParentView({user, householdChores}){
     const [choreErrors, setChoreErrors] = useState([])

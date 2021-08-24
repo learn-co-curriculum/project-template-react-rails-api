@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import styled from 'styled-components'
+import { Title, Subtitle, Wrapper, Input, Label, LoginButton, Button } from './StyledComponentElements'
 
 const Wrapper2 = styled.div`
     display: flex;
@@ -7,11 +8,7 @@ const Wrapper2 = styled.div`
     align-items: center;
 `;
 
-const Subtitle = styled.h4`
-    margin: 20px;
-`;
-
-function SignUp({ setUser, handleShowLoginClearErrors, setErrors, Title, Wrapper, Label, Input, Button, LoginButton }){
+function SignUp({ setUser, handleShowLoginClearErrors, setErrors }){
     const [userData, setUserData] = useState({
         username: "",
         password: "",

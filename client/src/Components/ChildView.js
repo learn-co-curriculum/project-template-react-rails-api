@@ -54,11 +54,10 @@ function ChildView({user}){
                     ? 
                     <p>Completed</p> 
                     : 
-                    <>
                     <h2>NOT DONE!</h2>
-                    </>
                     }
                     <button id={child_chore.id} value={!child_chore.is_completed} onClick={handleFinished}>{child_chore.is_completed ? 'Not Done Yet' : 'Click to Finish'}</button>
+                    </>
                 )
             })}
         </div>

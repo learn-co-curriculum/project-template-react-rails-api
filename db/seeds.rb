@@ -8,8 +8,10 @@ puts "Done deleting old data!"
 puts "Seeding new Data..."
 john = User.create(name: 'john', username: 'john123', user_photo: 'q22342342', password: 'poop')
 jacob = User.create(name: 'jacob', username: 'jacob1', user_photo: 'q22342342422342', password: 'poopy')
-jack = User.create(name: 'jack', username: 'jack1', user_photo: 'q22342342422342', password: 'poopy')
+jingle = User.create(name: 'jingle', username: 'jingle', user_photo: 'q22342342422342', password: 'jingle')
 himer = User.create(name: "himer", username: "himer", user_photo: "himer", password: "himer")
+schmitt = User.create(name: 'schmitt', username: 'schmitt', user_photo: 'q22342342422342', password: 'schmitt')
+jack = User.create(name: 'jack', username: 'jack1', user_photo: 'q22342342422342', password: 'poop1')
 
 event1 = Event.create(title: "Johns bday", description: "LETS GET FUCKED UP", date: DateTime.now(), category:"Dinner", start_time:"1:00", end_time:"never", user_id: john.id)
 comment1 = Comment.create(comment: "this place sucks", user_id: john.id, event_id: event1.id)

@@ -105,17 +105,36 @@
       justify-content: center;
       padding:10px;
       align-items: center;
+      
     }
 
     .add-friend-btn{
-      background-color: black;
+      background: black;
       color: white;
       border: none;
-      padding: 20px;
+      padding: 5px;
+      width: 10%;
       font: inherit;
       cursor: pointer;
       outline: inherit;
-      height:20px;
-      margin-left: 10px;
+      margin-left: 20px;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
 
+    .add-friend-btn:hover{
+      background-color: rgb(63, 63, 63);
+    }
+
+    .search-avatar-photo{
+      margin-right:20px;
+    }
+
+    .chevron-down-search{
+      height:20px;
+    }
+
+    .events-nav-bar{
+      display:flex;
+      justify-content: center;
     }

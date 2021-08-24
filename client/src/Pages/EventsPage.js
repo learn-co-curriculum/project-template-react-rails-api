@@ -41,4 +41,6 @@ const EventsPage = ({ user }) => {
   );
 };
 
+
 export default EventsPage;
+

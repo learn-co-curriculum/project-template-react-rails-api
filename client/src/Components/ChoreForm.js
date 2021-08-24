@@ -27,7 +27,7 @@ function ChoreForm({user, setChores, chores, setChoreErrors}){
         })
         .then(response => {
             if (response.ok) {
-                response.json().then((chore) => setChores(...chores, chore));
+                response.json().then((chore) => setChores([...chores, chore]));
             } else {
                 response.json().then((err) => setChoreErrors(err.errors));
             }

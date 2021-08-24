@@ -13,6 +13,12 @@ class ChildChoresController < ApplicationController
         render json: child_chore, status: :created
     end
 
+    def update
+        child_chore = ChildChore.find(params[:id])
+        child_chore.update(is_completed: params[:is_completed])
+        render json: child_chore, status: :accepted
+    end
+
     private
 
     def child_chore_params

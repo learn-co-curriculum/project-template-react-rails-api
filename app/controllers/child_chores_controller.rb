@@ -19,6 +19,12 @@ class ChildChoresController < ApplicationController
         render json: child_chore, status: :accepted
     end
 
+    def destroy
+        child_chore = ChildChore.find(params[:id])
+        child_chore.destroy
+        head :no_content
+    end
+
     private
 
     def child_chore_params

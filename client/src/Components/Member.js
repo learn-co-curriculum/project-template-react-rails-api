@@ -1,16 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import ChildChore from './ChildChore'
+import Chore from './ChildChore'
 import ChildChoreError from './ChildChoreError'
-import { ChildInfoWrapper } from './StyledComponentElements'
-import styled from 'styled-components'
+import { MemberWrapper } from './StyledComponentElements'
 
-const ShowInfoButton = styled.button`
-    border-radius: 20px;
-    font-size: 1em;
-    margin-right: 1em;
-`
-
-const Child = ({user, chores}) => {
+const Member = ({user, chores}) => {
+    console.log(user.id)
     const [showChildInfo, setShowChildInfo] = useState(false)
     const [allChildChores, setAllChildChores] = useState([])
     const [childChoreErrors, setChildChoreErrors] = useState([])
@@ -22,12 +16,11 @@ const Child = ({user, chores}) => {
         chore_id: ""
     })
 
-    console.log(allChildChores)
-
     useEffect(() => {
         fetch(`/child_chores/${user.id}`)
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             setAllChildChores(data)
         })
     }, [])
@@ -49,16 +42,7 @@ const Child = ({user, chores}) => {
         })
         .then((response) => {
             if (response.ok) {
-                response.json().then((data) => {
-                    setAllChildChores([...allChildChores, data])
-                    setChildChore({
-                        reward: "",
-                        time_to_complete: "",
-                        is_completed: Boolean(false),
-                        user_id: user.id,
-                        chore_id: ""
-                    })
-                });
+                response.json().then((data) => setAllChildChores([...allChildChores, data]));
             } else {
                 response.json().then((err) => setChildChoreErrors(err.errors));
             }
@@ -71,15 +55,23 @@ const Child = ({user, chores}) => {
     }
 
     return (
-        <ChildInfoWrapper>
-            <h3><span><ShowInfoButton onClick={handleMember}>{showChildInfo ? "-" : "+"}</ShowInfoButton></span>{user.first_name}</h3>
+        <MemberWrapper>
+            { user.is_parent 
+            ? 
+            <h3>Parent: {user.first_name}</h3>
+            : 
+            <>
+            <button onClick={handleMember}>{showChildInfo ? "-" : "+"}</button>
+            <h3>{user.first_name}</h3>
+            </>
+            }
             {showChildInfo && 
                 <>
-                    <h5>{user.username}</h5>
+                    <h5 >{user.username}</h5>
                     <h5>{user.email}</h5>
                     {allChildChores && allChildChores.map(child_chore => {
                         return(
-                            <ChildChore key={child_chore.id} child_chore={child_chore} allChildChores={allChildChores} setAllChildChores={setAllChildChores}/>
+                            <Chore key={child_chore.id} child_chore={child_chore}/>
                             )
                     })}
                     <h5>Assign Chore</h5>
@@ -116,8 +108,8 @@ const Child = ({user, chores}) => {
                     ))}
                 </>
             }
-        </ChildInfoWrapper>
+        </MemberWrapper>
     )
 }
 
-export default Child
+export default Member

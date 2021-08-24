@@ -5,8 +5,11 @@ import { Wrapper, HomeSubtitle, Input, Button } from './StyledComponentElements'
 import styled from 'styled-components'
 
 const HouseholdChoresDiv = styled.div`
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    justify-items: center;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fill, 15rem) 20%; 
+    grid-gap: 20px; 
 `
 
 function ChoreForm({user, setChores, chores}){
@@ -17,8 +20,6 @@ function ChoreForm({user, setChores, chores}){
         min_age: 6,
         household_id: user.household.id
     })
-    console.log(user.household.chores)
-    console.log(chores)
 
     function handleChoreCreate (event){
         setChoreData({...choreData, 
@@ -42,6 +43,15 @@ function ChoreForm({user, setChores, chores}){
                 response.json().then((err) => setChoreErrors(err.errors));
             }
         })
+    }
+
+    function handleDelete(e) {
+        const deletedChoreId = parseInt(e.target.id)
+        const choresWithoutDeletedChore = [...chores].filter((chore) => chore.id !== deletedChoreId)
+        fetch(`/chores/${deletedChoreId}`, {
+            method: "DELETE",
+        })
+        setChores(choresWithoutDeletedChore)
     }
     
     return (
@@ -79,7 +89,9 @@ function ChoreForm({user, setChores, chores}){
                     return (
                         <HouseholdChore 
                             key = {household_chore.id}
+                            id = {household_chore.id}
                             chore = {household_chore}
+                            handleDelete = {handleDelete}
                         />
                     )
                 })}

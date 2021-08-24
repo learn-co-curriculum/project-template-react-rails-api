@@ -49,7 +49,16 @@ const Child = ({user, chores}) => {
         })
         .then((response) => {
             if (response.ok) {
-                response.json().then((data) => setAllChildChores([...allChildChores, data]));
+                response.json().then((data) => {
+                    setAllChildChores([...allChildChores, data])
+                    setChildChore({
+                        reward: "",
+                        time_to_complete: "",
+                        is_completed: Boolean(false),
+                        user_id: user.id,
+                        chore_id: ""
+                    })
+                });
             } else {
                 response.json().then((err) => setChildChoreErrors(err.errors));
             }
@@ -70,7 +79,7 @@ const Child = ({user, chores}) => {
                     <h5>{user.email}</h5>
                     {allChildChores && allChildChores.map(child_chore => {
                         return(
-                            <Chore key={child_chore.id} child_chore={child_chore}/>
+                            <Chore key={child_chore.id} child_chore={child_chore} allChildChores={allChildChores} setAllChildChores={setAllChildChores}/>
                             )
                     })}
                     <h5>Assign Chore</h5>

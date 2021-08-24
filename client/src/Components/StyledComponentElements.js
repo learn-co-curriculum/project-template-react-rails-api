@@ -48,3 +48,9 @@ export const Button = styled.button`
 export const HomeSubtitle = styled.h2`
     text-align: center;
 `
+
+export const MemberWrapper = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+`

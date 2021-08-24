@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import Chore from './Chore'
 import ChildChoreError from './ChildChoreError'
+import { MemberWrapper } from './StyledComponentElements'
+
 const Member = ({user, chores}) => {
     const [showChildInfo, setShowChildInfo] = useState(false)
     const [allChildChores, setAllChildChores] = useState([])
@@ -49,10 +51,10 @@ const Member = ({user, chores}) => {
     }
 
     return (
-        <div>
-            {user.is_parent 
+        <MemberWrapper>
+            { user.is_parent 
             ? 
-            <h3>{user.first_name}</h3>
+            <h3>Parent: {user.first_name}</h3>
             : 
             <>
             <button onClick={handleMember}>{showChildInfo ? "-" : "+"}</button>
@@ -102,7 +104,7 @@ const Member = ({user, chores}) => {
                     ))}
                 </>
             }
-        </div>
+        </MemberWrapper>
     )
 }
 

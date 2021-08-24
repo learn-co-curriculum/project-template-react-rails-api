@@ -1,7 +1,7 @@
 import React from 'react'
 import ParentView from './ParentView'
 import ChildView from './ChildView'
-import { Title, HomeSubtitle, Wrapper, Input, Label, LoginButton, Button } from './StyledComponentElements'
+import { Title, HomeSubtitle, Wrapper } from './StyledComponentElements'
 
 function Home({user}){
     console.log(user.chores)

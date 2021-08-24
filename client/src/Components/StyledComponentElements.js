@@ -72,3 +72,23 @@ export const ParentChildDiv = styled.div`
     grid-template-columns: repeat(2, auto); 
     grid-gap: 20; 
 `
+
+export const ChoreName = styled.h3`
+    text-transform: capitalize;
+    text-decoration: underline;
+    text-align: center;
+`
+
+export const ChoreDesc = styled.p`
+    text-align: center;
+    padding: .5em;
+`
+
+export const ChoreDiv = styled.div`
+    padding: .5em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+`

@@ -10,6 +10,8 @@ function App() {
   const [errors, setErrors] = useState([])
   const [user, setUser] = useState(null)
   const [chores, setChores] = useState([])
+  console.log(user)
+  console.log(chores)
     
   useEffect(() => {
       fetch(`/chores`)
@@ -44,7 +46,7 @@ function App() {
       :
       <>
       <Switch>
-        <Route path="/" exact component={() => <Home user={user}/>} /> 
+        <Route path="/" exact component={() => <Home user={user} chores={chores}/>} /> 
       </Switch>
       <Switch>
         <Route path="/new-chore" exact component={() => <ChoreForm user={user} chores={chores} setChores={setChores}/>} />

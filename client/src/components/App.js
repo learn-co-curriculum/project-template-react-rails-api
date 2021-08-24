@@ -18,9 +18,22 @@ function App() {
     const [stirFry, setStirFry] = useState([])
     const [dimsum, setDimsum] = useState([])
     const [noodles, setNoodles] = useState([])
+    const [search, setSearch] = useState("")
+    const [reviews, setReviews] = useState([])
+
     // const history = useHistory();
     // console.log(login)
     // if(!login)history.push("/signup")
+
+    function handleNewReviews(newReview) {
+        setReviews([...reviews, newReview])
+    }
+
+    useEffect(() => {
+        fetch("http://localhost:3000/reviews")
+          .then((resp) => resp.json())
+          .then((data) => setReviews(data));
+      }, []);
     
     useEffect(() => {
         fetch("http://localhost:3000/dishes")
@@ -64,6 +77,11 @@ function App() {
                         setNoodles={setNoodles}
                         login={login}
                         setLogin={setLogin}
+                        setSearch={setSearch}
+                        search={search}
+                        setReviews={setReviews}
+                        reviews={reviews}
+                        handleNewReviews={handleNewReviews}
                         />
                     </Route>
                     <Route exact path="/stircard">
@@ -72,6 +90,11 @@ function App() {
                         setStirFry={setStirFry}
                         login={login}
                         setLogin={setLogin}
+                        setSearch={setSearch}
+                        setReviews={setReviews}
+                        search={search}
+                        reviews={reviews}
+                        handleNewReviews={handleNewReviews}
                         />
                     </Route>
                     <Route exact path="/dimcard">
@@ -80,6 +103,11 @@ function App() {
                         setDimsum={setDimsum}
                         login={login}
                         setLogin={setLogin}
+                        setSearch={setSearch}
+                        search={search}
+                        setReviews={setReviews}
+                        reviews={reviews}
+                        handleNewReviews={handleNewReviews}
                         />
                     </Route>
                 </Switch>

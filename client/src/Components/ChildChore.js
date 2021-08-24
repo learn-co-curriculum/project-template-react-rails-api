@@ -1,7 +1,7 @@
 import React from 'react'
 import {Wrapper} from './StyledComponentElements'
 
-const Chore = ({child_chore, allChildChores, setAllChildChores}) => {
+const ChildChore = ({child_chore, allChildChores, setAllChildChores}) => {
 
     function handleComplete(){
         fetch(`child_chores/${child_chore.id}`,{
@@ -36,4 +36,4 @@ const Chore = ({child_chore, allChildChores, setAllChildChores}) => {
     )
 }
 
-export default Chore
+export default ChildChore

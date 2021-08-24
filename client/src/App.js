@@ -3,9 +3,11 @@ import LoginPage from './Components/LoginPage';
 import Home from './Components/Home' 
 import Navbar from './Components/Navbar/Navbar';
 import ChoreForm from './Components/ChoreForm';
+import SignUp from './Components/SignUp';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 function App() {
+  const [errors, setErrors] = useState([])
   const [user, setUser] = useState(null)
   const [chores, setChores] = useState([])
     
@@ -13,7 +15,6 @@ function App() {
       fetch(`/chores`)
       .then(response => response.json())
       .then(data => {
-          console.log(data)
           setChores(data)
       })
   },[])
@@ -39,7 +40,7 @@ function App() {
       <Navbar user={user} handleLogOut={handleLogOut} />
       { !user 
       ? 
-      <LoginPage setUser = {setUser}/>
+      <LoginPage setUser = {setUser} setErrors={setErrors} errors = {errors}/>
       :
       <>
       <Switch>
@@ -47,6 +48,9 @@ function App() {
       </Switch>
       <Switch>
         <Route path="/new-chore" exact component={() => <ChoreForm user={user} chores={chores} setChores={setChores}/>} />
+      </Switch>
+      <Switch>
+        <Route path="/signup" exact component={() => <SignUp setUser = {setUser} setErrors = {setErrors}/>} />
       </Switch>
       </>
       }

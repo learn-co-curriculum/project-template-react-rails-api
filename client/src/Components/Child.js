@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import Chore from './Chore'
+import ChildChore from './ChildChore'
 import ChildChoreError from './ChildChoreError'
 import { ChildInfoWrapper } from './StyledComponentElements'
 import styled from 'styled-components'
@@ -11,7 +11,6 @@ const ShowInfoButton = styled.button`
 `
 
 const Child = ({user, chores}) => {
-    console.log(user.id)
     const [showChildInfo, setShowChildInfo] = useState(false)
     const [allChildChores, setAllChildChores] = useState([])
     const [childChoreErrors, setChildChoreErrors] = useState([])
@@ -27,7 +26,6 @@ const Child = ({user, chores}) => {
         fetch(`/child_chores/${user.id}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             setAllChildChores(data)
         })
     }, [])
@@ -79,7 +77,7 @@ const Child = ({user, chores}) => {
                     <h5>{user.email}</h5>
                     {allChildChores && allChildChores.map(child_chore => {
                         return(
-                            <Chore key={child_chore.id} child_chore={child_chore} allChildChores={allChildChores} setAllChildChores={setAllChildChores}/>
+                            <ChildChore key={child_chore.id} child_chore={child_chore} allChildChores={allChildChores} setAllChildChores={setAllChildChores}/>
                             )
                     })}
                     <h5>Assign Chore</h5>

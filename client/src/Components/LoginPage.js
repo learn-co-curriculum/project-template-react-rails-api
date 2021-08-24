@@ -3,9 +3,9 @@ import Error from './Error'
 import SignUp from './SignUp'
 import Login from './Login'
 
-function LoginPage({ setUser }){
+function LoginPage({ setUser, setErrors, errors }){
     const [showLogin, setShowLogin] = useState(true)
-    const [errors, setErrors] = useState([])
+    
 
     function handleShowLoginClearErrors() {
         setShowLogin(!showLogin)

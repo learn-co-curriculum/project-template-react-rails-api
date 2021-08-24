@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
+import ChoreError from './ChoreError'
 import { Wrapper, HomeSubtitle, Input, Button } from './StyledComponentElements'
 
 
-function ChoreForm({user, setChores, chores, setChoreErrors}){
+function ChoreForm({user, setChores, chores}){
+    const [choreErrors, setChoreErrors] = useState([])
     const [choreData, setChoreData] = useState({
         chore_name:"",
         description:"",
@@ -58,6 +60,9 @@ function ChoreForm({user, setChores, chores, setChoreErrors}){
                 </select>
                 <Button>Create New Chore</Button>
             </form>
+            {choreErrors.map((err) => (
+                <ChoreError key={err}>{err}</ChoreError>
+            ))}
         </Wrapper>
     )
 }

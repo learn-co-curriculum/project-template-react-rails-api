@@ -2,10 +2,21 @@ import React, {useState, useEffect} from 'react'
 import LoginPage from './Components/LoginPage';
 import Home from './Components/Home' 
 import Navbar from './Components/Navbar/Navbar';
+import ChoreForm from './Components/ChoreForm';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 function App() {
   const [user, setUser] = useState(null)
+  const [chores, setChores] = useState([])
+    
+  useEffect(() => {
+      fetch(`/chores`)
+      .then(response => response.json())
+      .then(data => {
+          console.log(data)
+          setChores(data)
+      })
+  },[])
   
   useEffect(() => {
     fetch("/me").then((resp) => {
@@ -35,7 +46,7 @@ function App() {
         <Route path="/" exact component={() => <Home user={user}/>} /> 
       </Switch>
       <Switch>
-        <Route path="/signup" exact component={() => <LoginPage setUser = {setUser}/>} /> 
+        <Route path="/new-chore" exact component={() => <ChoreForm user={user} chores={chores} setChores={setChores}/>} />
       </Switch>
       </>
       }

@@ -6,15 +6,15 @@ const Navbar = ({ user, handleLogOut }) => {
         <>
             <Nav>
                 <NavLink to="/">
-                    <h1>Chores</h1>
+                    <h1>ChoresApp</h1>
                 </NavLink>
                 <Bars />
                 <NavMenu>
                     <NavLink to="/" activeStyle>
-                        About
+                        Home
                     </NavLink>
-                    <NavLink to="/" activeStyle>
-                        Chores
+                    <NavLink to="/new-chore" activeStyle>
+                        Add New Chore
                     </NavLink>
                     <NavLink to="/" activeStyle>
                         Contact Us

@@ -3,7 +3,7 @@ import ParentView from './ParentView'
 import ChildView from './ChildView'
 import { Title, HomeSubtitle, Wrapper } from './StyledComponentElements'
 
-function Home({user}){
+function Home({user, chore}){
     
     return (
         <Wrapper>
@@ -11,7 +11,7 @@ function Home({user}){
             <HomeSubtitle>Your are a {user.is_parent ? "Parent" : "Child"} in the {user.household.last_name} household!</HomeSubtitle>
             
             {user.is_parent ? 
-            <ParentView user={user} />
+            <ParentView user={user} chore={chore} />
             :
             <ChildView />
             }

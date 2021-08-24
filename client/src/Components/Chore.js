@@ -1,4 +1,5 @@
 import React from 'react'
+import {Wrapper} from './StyledComponentElements'
 
 const Chore = ({child_chore, allChildChores, setAllChildChores}) => {
 

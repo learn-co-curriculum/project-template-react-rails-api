@@ -1,23 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import ChoreForm from './ChoreForm'
 import Parent from './Parent'
 import Child from './Child'
-import ChoreError from './ChoreError'
 import { HomeSubtitle, Wrapper, ParentChildDiv, ParentDiv, ChildDiv } from './StyledComponentElements'
 
-function ParentView({user}){
-    const [choreErrors, setChoreErrors] = useState([])
-    const [chores, setChores] = useState([])
-    
-    useEffect(() => {
-        fetch(`/chores`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            setChores(data)
-        })
-    },[])
-    
+function ParentView({user, chores}){    
     return (
         <Wrapper>
             <ParentChildDiv>
@@ -47,10 +33,6 @@ function ParentView({user}){
                         }})}
                 </ChildDiv>
             </ParentChildDiv>
-            <ChoreForm user={user} chores={chores} setChores={setChores} setChoreErrors={setChoreErrors}/>
-            {choreErrors.map((err) => (
-                <ChoreError key={err}>{err}</ChoreError>
-            ))}
         </Wrapper>
     )
 }

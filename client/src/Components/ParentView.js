@@ -16,7 +16,6 @@ function ParentView({user, householdChores}){
                     <Member key={user.id} user={user} chores={chores}/>
                     )
                 })}
-            <h2>New Chore</h2>
             <ChoreForm user={user} chores={chores} setChores={setChores} setChoreErrors={setChoreErrors}/>
             {choreErrors.map((err) => (
                 <ChoreError key={err}>{err}</ChoreError>

@@ -6,7 +6,7 @@ const Navbar = ({ user, handleLogOut }) => {
         <>
             <Nav>
                 <NavLink to="/">
-                    <h1>Only Chores</h1>
+                    <h1>Chores</h1>
                 </NavLink>
                 <Bars />
                 <NavMenu>

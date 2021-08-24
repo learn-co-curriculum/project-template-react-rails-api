@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { Title, Wrapper, Input, Label, LoginButton, Button } from './StyledComponentElements'
 
-const Login = ({ setErrors, setUser, handleShowLoginClearErrors, Title, Wrapper, Label, Input, LoginButton, Button }) => {
+const Login = ({ setErrors, setUser, handleShowLoginClearErrors }) => {
     const [loginData, setLoginData] = useState({
         username: "",
         password: ""

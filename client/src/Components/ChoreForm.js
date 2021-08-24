@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Wrapper, HomeSubtitle, Input, Button } from './StyledComponentElements'
 
 
 function ChoreForm({user, setChores, chores, setChoreErrors}){
@@ -34,10 +35,11 @@ function ChoreForm({user, setChores, chores, setChoreErrors}){
     }
     
     return (
-        <div>
+        <Wrapper>
+            <HomeSubtitle>New Chore</HomeSubtitle>
             <form onSubmit={handleChoreSubmit}>
-                <input name="chore_name" value={choreData.chore_name} placeholder='chore' onChange={handleChoreCreate}></input>
-                <input name="description" value={choreData.description} placeholder='description' onChange={handleChoreCreate}></input>
+                <Input name="chore_name" value={choreData.chore_name} placeholder='chore' onChange={handleChoreCreate}></Input>
+                <Input name="description" value={choreData.description} placeholder='description' onChange={handleChoreCreate}></Input>
                 <select name="min_age" onChange={handleChoreCreate}>
                     <option defaultValue>Select Age</option>
                     <option value={6}>6</option>
@@ -54,9 +56,9 @@ function ChoreForm({user, setChores, chores, setChoreErrors}){
                     <option value={17}>17</option>
                     <option value={18}>18</option>
                 </select>
-                <button>Create New Chore</button>
+                <Button>Create New Chore</Button>
             </form>
-        </div>
+        </Wrapper>
     )
 }
 

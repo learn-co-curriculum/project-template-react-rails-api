@@ -3,10 +3,10 @@ class ChildChoresController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     wrap_parameters format: []
 
-    # def show
-    #     user = User.find(params[:user_id])
-    #     render json: user, include: {only: :child_chores, include: :chore}, status: :ok
-    # end
+    def show
+        child_chores = ChildChore.where(user_id: params[:id])
+        render json: child_chores, include: :chore, status: :ok
+    end
 
     def create
         child_chore = ChildChore.create!(child_chore_params)

@@ -2,6 +2,11 @@ class ChoresController < ApplicationController
 rescue_from ActiveRecord::RecordInvalid, with: :invalid_errors
     wrap_parameters format: []
 
+    def index
+        chores = Chore.all 
+        render json: chores, status: :ok
+    end
+
     def create
         chore = Chore.create!(chore_params)
         render json: chore, status: :created

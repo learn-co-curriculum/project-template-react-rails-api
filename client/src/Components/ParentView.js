@@ -1,12 +1,20 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import ChoreForm from './ChoreForm'
 import Member from './Member'
 import ChoreError from './ChoreError'
 
-function ParentView({user, householdChores}){
+function ParentView({user}){
     const [choreErrors, setChoreErrors] = useState([])
-    const [chores, setChores] = useState(householdChores)
-    console.log(chores)
+    const [chores, setChores] = useState([])
+    
+    useEffect(() => {
+        fetch(`/chores`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            setChores(data)
+        })
+    },[])
     
 
     return (

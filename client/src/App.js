@@ -10,6 +10,7 @@ function App() {
   const [errors, setErrors] = useState([])
   const [user, setUser] = useState(null)
   const [chores, setChores] = useState([])
+  const [isParent, setIsParent] = useState(true)
   console.log(user)
   console.log(chores)
     
@@ -24,7 +25,10 @@ function App() {
   useEffect(() => {
     fetch("/me").then((resp) => {
       if (resp.ok) {
-        resp.json().then((user) => setUser(user));
+        resp.json().then((user) => {
+          setUser(user)
+          setIsParent(user.is_parent)
+        });
       }
     });
   }, []);
@@ -39,7 +43,7 @@ function App() {
 
   return (
     <Router>
-      <Navbar user={user} handleLogOut={handleLogOut} />
+      <Navbar user={user} isParent={isParent} handleLogOut={handleLogOut} />
       { !user 
       ? 
       <LoginPage setUser = {setUser} setErrors={setErrors} errors = {errors}/>
@@ -48,12 +52,16 @@ function App() {
       <Switch>
         <Route path="/" exact component={() => <Home user={user} chores={chores}/>} /> 
       </Switch>
+      {isParent &&
+      <>
       <Switch>
         <Route path="/new-chore" exact component={() => <ChoreForm user={user} chores={chores} setChores={setChores}/>} />
       </Switch>
       <Switch>
         <Route path="/signup" exact component={() => <SignUp setUser = {setUser} setErrors = {setErrors}/>} />
       </Switch>
+      </>
+      }
       </>
       }
     </Router>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :chores, only: [:index, :create]
-  resources :child_chores, only: [:show, :create, :update]
+  resources :child_chores, only: [:show, :create, :update, :destroy]
   resources :households
   resources :users
   post "/login", to: "sessions#create"

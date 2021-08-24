@@ -85,9 +85,9 @@ const Child = ({user, chores}) => {
                         <select name="chore_id" value={childChore.chore_id}onChange={handleChoreChange}>
                             <option value='' defaultValue>Pick Chore</option>
                             {chores ? 
-                            chores.map(chore => {
+                            chores.map((chore, index) => {
                                 return(
-                                <option value={chore.id}>{chore.chore_name}</option>
+                                <option key={index} value={chore.id}>{chore.chore_name}</option>
                             )})
                             :
                             <option>Make a chore</option>}

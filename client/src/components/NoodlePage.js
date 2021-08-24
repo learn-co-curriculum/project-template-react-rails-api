@@ -7,7 +7,7 @@ function NoodlePage ({noodles, setNoodles, login, setLogin, search, setSearch, s
     if (!login) {
         return <Redirect to = "/login"/>
     }
-
+console.log(noodles)
     const filterNoodles = () => {
     return noodles.filter((noodle)=>
     noodle.name.toLowerCase().includes(search.toLowerCase()))

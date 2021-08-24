@@ -21,14 +21,10 @@ function App() {
     const [search, setSearch] = useState("")
     const [reviews, setReviews] = useState([])
 
-    // const history = useHistory();
-    // console.log(login)
-    // if(!login)history.push("/signup")
-
     function handleNewReviews(newReview) {
         setReviews([...reviews, newReview])
     }
-
+console.log(noodles)
     useEffect(() => {
         fetch("http://localhost:3000/reviews")
           .then((resp) => resp.json())
@@ -40,7 +36,6 @@ function App() {
           .then((resp) => resp.json())
           .then((data) => {
               for (let dish of data) {
-                  console.log(dish.cuisine)
                 if (dish.cuisine == "stir-fry") {
                     setStirFry  ([...stirFry, dish])
                 } if (dish.cuisine == "dim-sum") {

@@ -18,15 +18,88 @@
   font-size: 2.5rem;
 }
 
-
-.event-card-large-description{
-  font-size: 1rem
+.event-card-large-description {
+  font-size: 1rem;
 }
 
-.event-card-large-date{
-  font-size: 1rem
+.event-card-large-date {
+  font-size: 1rem;
 }
 
-.event-card-large-time{
-  font-size: 1rem
+.event-card-large-time {
+  font-size: 1rem;
+}
+
+.attendee-name {
+  text-transform: uppercase;
+  margin-left: 70px;
+  display: flex;
+}
+
+.invite-friend-btn {
+  border: none;
+  height: 35px;
+  width: 5%;
+  cursor: pointer;
+  margin-left: 150px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  box-shadow: 0 6px 10px -2px rgba(112, 112, 112, 0.9);
+}
+
+.show-attendee-btn {
+  border: none;
+  height: 35px;
+  width: 7%;
+  cursor: pointer;
+  margin-left: 300px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  box-shadow: 0 6px 10px -2px rgba(112, 112, 112, 0.9);
+}
+
+.invite-friend-btn:active {
+  transform: scale(0.98);
+}
+
+.show-attendee-btn:active {
+  transform: scale(0.98);
+}
+
+.comment-input {
+  width: 20%;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 1px solid grey;
+}
+
+.comment-div {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+}
+
+.add-comment-btn {
+  border: none;
+  height: 35px;
+  width: 5%;
+  cursor: pointer;
+  margin-left: 150px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+  box-shadow: 0 6px 10px -2px rgba(112, 112, 112, 0.9);
+}
+
+.add-comment-btn:active {
+  transform: scale(0.98);
 }

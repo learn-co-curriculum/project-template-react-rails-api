@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Avatar from "react-avatar";
+// import Avatar from "react-avatar";
 import Friend from "./Friend";
 
 const Friends = () => {
@@ -12,22 +12,15 @@ const Friends = () => {
       .then((data) => setFriends(data));
   }, []);
 
-
   const displayFriends = friends.map((friend) => {
     return (
       <>
-        <Friend 
-        key={friend.id}
-        friend={friend} />
+        <Friend key={friend.id} friend={friend} />
       </>
     );
   });
-  
+
   return <>{displayFriends}</>;
-}
+};
 
 export default Friends;
-
-// has_many :initiated_friends
-
-// has_many :requested_friendship

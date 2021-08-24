@@ -22,6 +22,11 @@ const EventsPage = ({user}) => {
         <div>
             <h1 className='events-page-header'>EVENTS</h1>
             <button className='add-event-btn' onClick={openModal}>Add Event</button>
+            <div className='events-nav-bar'>
+                <h1>Upcoming Events</h1>
+                <h1>Active</h1>
+                <h1>Archived</h1>
+            </div>
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}

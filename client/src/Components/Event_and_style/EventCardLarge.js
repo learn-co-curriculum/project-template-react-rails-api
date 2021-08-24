@@ -49,6 +49,7 @@ const EventCardLarge = ({ event, user }) => {
       <h1>Budget</h1>
       <h1>To-Do's</h1>
       <h1>Comments</h1>
+      
 
         <form onSubmit={handleAddComment}>
         <div>

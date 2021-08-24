@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users
 
   get "/friendships", to: "friendships#index"
+  post "/friendships", to: "friendships#create"
   
 
   post "/signup", to: "users#create"

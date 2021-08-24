@@ -35,7 +35,7 @@ function App() {
             <EventsPage user={user}/>
           </Route>
           <Route path="/friendspage" exact>
-            <FriendsPage />
+            <FriendsPage user={user}/>
           </Route>
         </Switch>
       </main>

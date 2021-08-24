@@ -10,7 +10,7 @@ const ShowInfoButton = styled.button`
     margin-right: 1em;
 `
 
-const Child = ({user, chores}) => {
+const Child = ({user, chores, household}) => {
     const [showChildInfo, setShowChildInfo] = useState(false)
     const [allChildChores, setAllChildChores] = useState([])
     const [childChoreErrors, setChildChoreErrors] = useState([])
@@ -68,6 +68,8 @@ const Child = ({user, chores}) => {
         setShowChildInfo(!showChildInfo)
     }
 
+    console.log(user)
+
     return (
         <ChildInfoWrapper>
             <h3><span><ShowInfoButton onClick={handleMember}>{showChildInfo ? "-" : "+"}</ShowInfoButton></span>{user.first_name}</h3>
@@ -84,8 +86,8 @@ const Child = ({user, chores}) => {
                     <form onSubmit={onChoreAssign}>
                         <select name="chore_id" value={childChore.chore_id}onChange={handleChoreChange}>
                             <option value='' defaultValue>Pick Chore</option>
-                            {chores ? 
-                            chores.map((chore, index) => {
+                            {household.chores ? 
+                            household.chores.map((chore, index) => {
                                 return(
                                 <option key={index} value={chore.id}>{chore.chore_name}</option>
                             )})

@@ -3,7 +3,7 @@ import Error from './Error'
 import SignUp from './SignUp'
 import Login from './Login'
 
-function LoginPage({ setUser, setErrors, errors }){
+function LoginPage({ setUser, setErrors, errors, setIsParent }){
     const [showLogin, setShowLogin] = useState(true)
     
 
@@ -20,6 +20,7 @@ function LoginPage({ setUser, setErrors, errors }){
                 setErrors = {setErrors}
                 setUser = {setUser}
                 handleShowLoginClearErrors = {handleShowLoginClearErrors}
+                setIsParent={setIsParent}
             />
             :
             <SignUp

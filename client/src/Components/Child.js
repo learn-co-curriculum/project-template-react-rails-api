@@ -11,6 +11,7 @@ const ShowInfoButton = styled.button`
 `
 
 const Child = ({user, chores, household}) => {
+
     const [showChildInfo, setShowChildInfo] = useState(false)
     const [allChildChores, setAllChildChores] = useState([])
     const [childChoreErrors, setChildChoreErrors] = useState([])

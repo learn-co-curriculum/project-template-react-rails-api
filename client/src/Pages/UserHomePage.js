@@ -34,6 +34,8 @@ const UserHomePage = ({ user }) => {
                 <h3 className='welcomeback-header'>Welcome, {user.name}</h3>
             </div>
             <Linebreakhomepage />
+            <h1>Events</h1>
+            <h1>Friends Event's</h1>
             
         </div>
     )

@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react"
 import { BrowserRouter as Redirect } from "react-router-dom";
-function HomePage({login, setLogin}){
+
+function DimPage ({login, setLogin}) {
 
     if (!login) {
         return <Redirect to = "/login"/>
     }
-
+    
     return (
         <div>
 
@@ -13,4 +14,4 @@ function HomePage({login, setLogin}){
     )
 }
 
-export default HomePage;
+export default DimPage;

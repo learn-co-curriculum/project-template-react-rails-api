@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react"
 import { BrowserRouter as Redirect } from "react-router-dom";
-function HomePage({login, setLogin}){
+
+function StirPage ({login, setLogin}) {
 
     if (!login) {
         return <Redirect to = "/login"/>
@@ -13,4 +14,4 @@ function HomePage({login, setLogin}){
     )
 }
 
-export default HomePage;
+export default StirPage;

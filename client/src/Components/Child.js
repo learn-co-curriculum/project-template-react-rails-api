@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import Chore from './ChildChore'
+import ChildChore from './ChildChore'
 import ChildChoreError from './ChildChoreError'
 import { ChildInfoWrapper } from './StyledComponentElements'
 import styled from 'styled-components'
@@ -77,7 +77,7 @@ const Child = ({user, chores}) => {
                     <h5>{user.email}</h5>
                     {allChildChores && allChildChores.map(child_chore => {
                         return(
-                            <Chore key={child_chore.id} child_chore={child_chore} allChildChores={allChildChores} setAllChildChores={setAllChildChores}/>
+                            <ChildChore key={child_chore.id} child_chore={child_chore} allChildChores={allChildChores} setAllChildChores={setAllChildChores}/>
                             )
                     })}
                     <h5>Assign Chore</h5>

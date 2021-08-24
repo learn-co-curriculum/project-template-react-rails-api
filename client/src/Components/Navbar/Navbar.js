@@ -8,7 +8,7 @@ const Navbar = ({ user, handleLogOut }) => {
                 <NavLink to="/">
                     <h1>ChoresApp</h1>
                 </NavLink>
-                <Bars />
+                {/* <Bars /> */}
                 <NavMenu>
                     <NavLink to="/" activeStyle>
                         Home

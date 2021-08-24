@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import AddEventForm from "../Components/AddEvent/AddEventForm";
 import EventList from "../Components/Event_and_style/EventList";
@@ -16,13 +16,18 @@ const EventsPage = ({ user }) => {
     setModalIsOpen(false);
   }
 
+  useEffect(() => {
+    fetch("/events")
+    .then(resp => resp.json())
+    .then(data => setEvents(data))
+}, [])
+
   return (
     <div>
       <h1 className="events-page-header">EVENTS</h1>
       <button className="add-event-btn" onClick={openModal}>
         Add Event
       </button>
-
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

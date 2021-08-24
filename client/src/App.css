@@ -88,3 +88,34 @@
     margin-left: 100px;
     font-size: 3rem;
     }
+
+    .search-div{
+      text-align: center;
+    }
+
+    .search-input{
+      width: 20%;
+      margin-bottom:20px;
+      border:none;
+      border-bottom: 1px solid grey;
+    }
+
+    .searched-friend-div{
+      display:flex;
+      justify-content: center;
+      padding:10px;
+      align-items: center;
+    }
+
+    .add-friend-btn{
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 20px;
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
+      height:20px;
+      margin-left: 10px;
+
+    }

@@ -11,12 +11,12 @@ function DishesList({ dishes, setDishes, reviews, setReviews, search, handleNewR
           .then((data) => setUsers(data));
       }, []);
       
-
-    const filterDishes = () => {
+      const filterDishes = () => {
         return dishes.filter((dish) =>
         dish.name.toLowerCase().includes(search.toLowerCase())
         || dish.cuisine.toLowerCase().includes(search.toLowerCase()))
     }
+
     const displayDishes = filterDishes().map((dish, index) => {
         return (
             <DishCard

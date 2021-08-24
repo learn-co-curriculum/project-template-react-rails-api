@@ -2,22 +2,25 @@ import React, {useState, useEffect} from 'react'
 
 function ChildView({user}){
     const [myChores, setMyChores] = useState([])
+    const [completed, setCompleted] = useState(false)
 
     useEffect(() => {
         fetch(`/child_chores/${user.id}`)
         .then(response => response.json())
         .then(data => setMyChores(data))
-    }, [])
+    }, [completed])
 
     function handleFinished(event){
         event.preventDefault()
+        console.log(event.target.value)
+        setCompleted(!completed)
         fetch(`child_chores/${event.target.id}`,{
             method: "PATCH",
             headers: {
                 "Content-Type" : "application/json"
             },
             body: JSON.stringify({
-                is_completed : true
+                is_completed : event.target.value
             })
         })
         .then(response => response.json())
@@ -50,8 +53,8 @@ function ChildView({user}){
                     : 
                     <>
                     <h2>NOT DONE!</h2> 
-                    <button id={child_chore.id} onClick={handleFinished}>Chore Finished</button>
                     </>}
+                    <button id={child_chore.id} value={!child_chore.is_completed} onClick={handleFinished}>{child_chore.is_completed ? 'Not Done Yet' : 'Click to Finish'}</button>
                     </>
                 )
             })}

@@ -1,7 +1,8 @@
 import React from 'react'
 import {Wrapper} from './StyledComponentElements'
 
-const Chore = ({child_chore, allChildChores, setAllChildChores}) => {
+
+const ChildChore = ({child_chore, allChildChores, setAllChildChores}) => {
 
     function handleComplete(event){
         event.preventDefault()
@@ -34,7 +35,7 @@ const Chore = ({child_chore, allChildChores, setAllChildChores}) => {
         const updatedChildChores = allChildChores.filter((childChore) => childChore.id !== child_chore.id);
         setAllChildChores(updatedChildChores)
     }
-    
+
     return (
         <div>
             <h3>{child_chore.chore.chore_name}</h3>
@@ -47,4 +48,5 @@ const Chore = ({child_chore, allChildChores, setAllChildChores}) => {
     )
 }
 
-export default Chore
+export default ChildChore
+

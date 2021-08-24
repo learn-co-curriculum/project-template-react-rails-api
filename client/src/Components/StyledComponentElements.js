@@ -11,9 +11,8 @@ export const Subtitle = styled.h4`
 `;
 
 export const Wrapper = styled.div`
-    border-radius: 5px;
     background-color: #f2f2f2;
-    padding: 20px;
+    padding: 1em;
 `;
 
 export const Input = styled.input`
@@ -47,6 +46,8 @@ export const Button = styled.button`
 
 export const HomeSubtitle = styled.h2`
     text-align: center;
+    margin: 1em;
+    padding: 20px;
 `
 
 export const ChildInfoWrapper = styled.div`

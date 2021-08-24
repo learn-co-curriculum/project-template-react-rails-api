@@ -6,9 +6,12 @@ function CardContainer({dishes, setDishes}) {
     const [ reviews, setReviews ] = useState([])
     const [search, setSearch] = useState("")
     
+    
     function handleNewReview (newReview) {
         setReviews([...reviews, newReview])
     }
+
+    
 
     useEffect(() => {
         fetch("http://localhost:3000/reviews")

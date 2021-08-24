@@ -8,9 +8,11 @@ import HomePage from "./HomePage"
 function App() {
     const [login, setLogin] = useState(null);
     const [dishes, setDishes] = useState([])
+   
     // const history = useHistory();
     // console.log(login)
     // if(!login)history.push("/signup")
+    
     useEffect(() => {
         fetch("http://localhost:3000/dishes")
           .then((resp) => resp.json())
@@ -19,8 +21,11 @@ function App() {
 
       return (
           <div className="App">
-              <Header />
-              <CardContainer 
+              <Header 
+              dishes ={dishes}
+              setDishes={setDishes}
+              />
+              <CardContainer
               dishes={dishes}
               setDishes={setDishes}
               />

@@ -34,30 +34,30 @@ function ChildView({user}){
 
 
 
-    function handleFinished(event){
-        event.preventDefault()
-        console.log(event.target.value)
-        setCompleted(!completed)
-        fetch(`child_chores/${event.target.id}`,{
-            method: "PATCH",
-            headers: {
-                "Content-Type" : "application/json"
-            },
-            body: JSON.stringify({
-                is_completed : event.target.value
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            const updatedMyChores = myChores.map((childChore) => {
-                if (childChore.id === data.id) {
-                  return { ...childChore, is_completed: data.is_completed };
-                } else {
-                  return childChore;
-                }})
-                setMyChores(updatedMyChores)
-            })
-    }
+    // function handleFinished(event){
+    //     event.preventDefault()
+    //     console.log(event.target.value)
+    //     setCompleted(!completed)
+    //     fetch(`child_chores/${event.target.id}`,{
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type" : "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             is_completed : event.target.value
+    //         })
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         const updatedMyChores = myChores.map((childChore) => {
+    //             if (childChore.id === data.id) {
+    //               return { ...childChore, is_completed: data.is_completed };
+    //             } else {
+    //               return childChore;
+    //             }})
+    //             setMyChores(updatedMyChores)
+    //         })
+    // }
     
     return (
         <Wrapper>
@@ -68,6 +68,8 @@ function ChildView({user}){
                 return(
                     <ChildChore
                         child_chore = {child_chore}
+                        myChores = {myChores}
+                        setMyChores = {setMyChores}
                     />
                 )
             })}

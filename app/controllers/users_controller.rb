@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 wrap_parameters format: []
-# skip_before_action :authorize, only: [:create]
+skip_before_action :authorize, only: [:create]
 
     def show
         user = User.find(params[:id])

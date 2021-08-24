@@ -1,27 +1,26 @@
+import { useEffect, useState, useHistory } from "react";
 import "../App.css";
 import Header from "./Header";
 import CardContainer from "./CardContainer"
-import { useEffect, useState } from "react";
-
+import LoginPage from "./LoginPage"
+import HomePage from "./HomePage"
 
 function App() {
-    const [dishes, setDishes] = useState([])
-    const [search, setSearch] = useState("")
+    const [login, setLogin] = useState(null)
+    const history = useHistory()
 
-    useEffect(() => {
-        fetch("http://localhost:3000/dishes")
-          .then((resp) => resp.json())
-          .then((data) => setDishes(data));
-      }, []);
-      
+    console.log(login)
+    if(!login)history.push("/signup")
+
       return (
           <div className="App">
               <Header />
-              <CardContainer 
-              dishes={dishes}
-              setDishes={setDishes}
-              search={search}
-              setSearch={setSearch}
+              <LoginPage 
+              setLogin={setLogin}
+              />
+              <HomePage
+              login={login}
+              setLogin={setLogin}
               />
           </div>
       )

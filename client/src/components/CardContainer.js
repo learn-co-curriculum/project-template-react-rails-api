@@ -2,13 +2,20 @@ import { useState, useEffect } from "react";
 import Search from "./Search";
 import DishesList from "./DishesList"
 
-function CardContainer({dishes, setDishes, search, setSearch}) {
+function CardContainer({}) {
     const [ reviews, setReviews ] = useState([])
+    const [dishes, setDishes] = useState([])
+    const [search, setSearch] = useState("")
     
-
     function handleNewReview (newReview) {
         setReviews([...reviews, newReview])
     }
+
+    useEffect(() => {
+        fetch("http://localhost:3000/dishes")
+          .then((resp) => resp.json())
+          .then((data) => setDishes(data));
+      }, []);
 
     useEffect(() => {
         fetch("http://localhost:3000/reviews")

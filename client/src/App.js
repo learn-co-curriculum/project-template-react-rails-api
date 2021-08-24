@@ -15,6 +15,8 @@ function App() {
   
   const [household, setHousehold] = useState([])
 
+  console.log(user)
+
     
   useEffect(() => {
       fetch(`/chores`)
@@ -37,7 +39,7 @@ function App() {
         });
       }
     });
-  }, []);
+  }, [chores]);
 
   function handleLogOut() {
     fetch("/logout", { method: "DELETE"}).then((resp) => {

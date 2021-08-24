@@ -17,6 +17,8 @@ function ChoreForm({user, setChores, chores}){
         min_age: 6,
         household_id: user.household.id
     })
+    console.log(user.household.chores)
+    console.log(chores)
 
     function handleChoreCreate (event){
         setChoreData({...choreData, 

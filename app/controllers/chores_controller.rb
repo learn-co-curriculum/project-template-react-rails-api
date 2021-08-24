@@ -10,7 +10,12 @@ rescue_from ActiveRecord::RecordInvalid, with: :invalid_errors
     def create
         chore = Chore.create!(chore_params)
         render json: chore, status: :created
-        
+    end
+
+    def destroy
+        chore = Chore.find(params[:id])
+        chore.destroy
+        head :no_content
     end
 
     private

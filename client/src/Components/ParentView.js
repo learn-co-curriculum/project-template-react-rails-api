@@ -3,7 +3,7 @@ import Parent from './Parent'
 import Child from './Child'
 import { HomeSubtitle, Wrapper, ParentChildDiv, ParentDiv, ChildDiv } from './StyledComponentElements'
 
-function ParentView({user, chores}){    
+function ParentView({user, chores, household}){    
     return (
         <Wrapper>
             <ParentChildDiv>
@@ -15,6 +15,7 @@ function ParentView({user, chores}){
                                 <Parent 
                                     key = {user.id}
                                     user = {user}
+                                    household = {household}
                                 />
                             )
                         }})}
@@ -28,6 +29,7 @@ function ParentView({user, chores}){
                                     key={user.id} 
                                     user={user} 
                                     chores={chores}
+                                    household = {household}
                                 />
                             )
                         }})}

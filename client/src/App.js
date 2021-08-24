@@ -10,8 +10,7 @@ function App() {
   const [errors, setErrors] = useState([])
   const [user, setUser] = useState(null)
   const [chores, setChores] = useState([])
-  console.log(user)
-  console.log(chores)
+  const [household, setHousehold] = useState([])
     
   useEffect(() => {
       fetch(`/chores`)
@@ -24,7 +23,10 @@ function App() {
   useEffect(() => {
     fetch("/me").then((resp) => {
       if (resp.ok) {
-        resp.json().then((user) => setUser(user));
+        resp.json().then((user) => {
+          setUser(user)
+          setHousehold(user.household)
+        });
       }
     });
   }, []);
@@ -46,7 +48,7 @@ function App() {
       :
       <>
       <Switch>
-        <Route path="/" exact component={() => <Home user={user} chores={chores}/>} /> 
+        <Route path="/" exact component={() => <Home user={user} chores={chores} household={household}/>} /> 
       </Switch>
       <Switch>
         <Route path="/new-chore" exact component={() => <ChoreForm user={user} chores={chores} setChores={setChores}/>} />

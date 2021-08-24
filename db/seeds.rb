@@ -26,4 +26,5 @@ friendship4 = Friendship.create(:friend_a_id => jacob.id, :friend_b_id => jack.i
 
 
 
+
 puts "Done seeding!!!"

@@ -1,61 +1,58 @@
-#add-event-input{
-    width: 100%;
-    margin-bottom:20px;
-    border:none;
-    border-bottom: 1px solid grey;
+#add-event-input {
+  width: 100%;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 1px solid grey;
 }
 
-.event-form-container{
-    background-color: black;
-    width:100%; 
-    position: absolute; 
-    z-index: -1; 
+.event-form-container {
+  background-color: black;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
 }
 
-.add-event-form{
-    border: 1px solid black;
-    border-radius: 10px;
-    margin: auto;
-    margin-top:50px;
-    width: 35%;
-    height: auto;
-    padding: 25px;
-    margin-left: 30%;
+.add-event-form {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 50px;
+  width: 35%;
+  height: auto;
+  padding: 25px;
+  margin-left: 30%;
 }
-
 
 .add-event-btn:active {
-    transform: scale(0.98);
-    background-color: rgb(80, 80, 80);
-  }
-
-.add-event-btn{
-    border: none;
-    height: 35px;
-    width: 9%;
-    cursor: pointer;
-    margin-left: 100px;
-    border-radius: 10px;
-    font-size: 1rem;
-    background-color: black;
-    color: white;
+  transform: scale(0.98);
+  background-color: rgb(80, 80, 80);
 }
 
-
-.add-new-btn{
-    border: none;
-    padding:15px;
-    margin-right:30px;
-    background-color: black;
-    color: white;
-    border-radius: 10px;
+.add-event-btn {
+  border: none;
+  height: 35px;
+  width: 9%;
+  cursor: pointer;
+  margin-left: 100px;
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: black;
+  color: white;
 }
 
-.cancel-btn{
-    border: none;
-    padding:15px;
-    background-color: black;
-    color: white;
-    border-radius: 10px;
+.add-new-btn {
+  border: none;
+  padding: 15px;
+  margin-right: 30px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
 }
 
+.cancel-btn {
+  border: none;
+  padding: 15px;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+}

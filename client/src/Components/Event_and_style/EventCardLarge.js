@@ -1,41 +1,51 @@
-
-import { useState } from 'react'
+import { useState, useEffect } from "react";
 import "./EventCardLarge.css";
 
-
 const EventCardLarge = ({ event, user }) => {
+  const [comment, setComment] = useState("");
+  const [errors, setErrors] = useState([]);
+  const [attendee, setAttendee] = useState([]);
+  const [showAttendees, setShowAttendees] = useState(false);
 
-    const [comment, setComment] = useState("")
-    const [errors, setErrors] = useState([])
+  function handleAddComment(e) {
+    e.preventDefault();
+    setErrors([]);
+    fetch("/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user_id: user.id,
+        comment,
+        event_id: event.id,
+      }),
+    }).then((resp) => {
+      if (resp.ok) {
+        resp.json().then((data) => setComment(data));
+      } else {
+        resp.json().then((err) => setErrors(err.errors));
+      }
+    });
+  }
 
-    console.log()
+  useEffect(() => {
+    fetch("/friendships")
+      .then((resp) => resp.json())
+      .then((data) => setAttendee(data));
+  }, []);
 
-
-    function handleAddComment(e){
-        e.preventDefault()
-        setErrors([])
-        fetch("/comments", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                user_id: user.id,
-                comment,
-                event_id: event.id
-            }),
-          }).then((resp) => {
-            if (resp.ok) {
-              resp.json().then((data) => setComment(data));
-            } 
-            else {
-              resp.json().then((err) => setErrors(err.errors))
-            }
-          });
-    }
-
+  const displayAttendees = attendee.map((att) => {
     return (
-       <div className="event-card-large">
+      <>
+        <h3 className="attendee-name">{att.name}</h3>
+        <button className="invite-friend-btn">+</button>
+      </>
+    );
+  });
+
+  return (
+    <div className="event-card-large">
       <h1 className="event-card-large-title">{event.title}</h1>
       <h1 className="event-card-large-description">
         Description: {event.description}
@@ -44,21 +54,30 @@ const EventCardLarge = ({ event, user }) => {
       <h1 className="event-card-large-time">
         Time: {event.start_time}-{event.end_time}
       </h1>
-
       <h1>Attendee List</h1>
+      <button
+        className="show-attendee-btn"
+        onClick={() => setShowAttendees(!showAttendees)}
+      >
+        Show Attendees
+      </button>
+      {showAttendees ? displayAttendees : null}
       <h1>Budget</h1>
       <h1>To-Do's</h1>
       <h1>Comments</h1>
-      
 
-        <form onSubmit={handleAddComment}>
-        <div>
+      <form onSubmit={handleAddComment}>
+        <div className="comment-div">
+
           <input
+            className="comment-input"
             placeholder="Write A Comment..."
             type="text"
             onChange={(e) => setComment(e.target.value)}
           />
-          <button type="submit">Add</button>
+          <button className="add-comment-btn" type="submit">
+            Add
+          </button>
         </div>
 
         <div>

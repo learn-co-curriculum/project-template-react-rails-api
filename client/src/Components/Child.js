@@ -11,7 +11,6 @@ const ShowInfoButton = styled.button`
 `
 
 const Child = ({user, chores}) => {
-    console.log(user.id)
     const [showChildInfo, setShowChildInfo] = useState(false)
     const [allChildChores, setAllChildChores] = useState([])
     const [childChoreErrors, setChildChoreErrors] = useState([])
@@ -23,13 +22,10 @@ const Child = ({user, chores}) => {
         chore_id: ""
     })
 
-    console.log(allChildChores)
-
     useEffect(() => {
         fetch(`/child_chores/${user.id}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             setAllChildChores(data)
         })
     }, [])
@@ -86,8 +82,8 @@ const Child = ({user, chores}) => {
                     })}
                     <h5>Assign Chore</h5>
                     <form onSubmit={onChoreAssign}>
-                        <select name="chore_id" onChange={handleChoreChange}>
-                            <option defaultValue>Pick Chore</option>
+                        <select name="chore_id" value={childChore.chore_id}onChange={handleChoreChange}>
+                            <option value='' defaultValue>Pick Chore</option>
                             {chores ? 
                             chores.map(chore => {
                                 return(
@@ -96,15 +92,15 @@ const Child = ({user, chores}) => {
                             :
                             <option>Make a chore</option>}
                         </select>
-                        <select name="time_to_complete" onChange={handleChoreChange}>
-                            <option defaultValue>How Long?</option>
+                        <select name="time_to_complete" value={childChore.time_to_complete} onChange={handleChoreChange}>
+                            <option value='' defaultValue>How Long?</option>
                             <option value='15'>15 minutes</option>
                             <option value='30'>30 minutes</option>
                             <option value='45'>45 minutes</option>
                             <option value='60'>60 minutes</option>
                         </select>
-                        <select name="reward" onChange={handleChoreChange}>
-                            <option defaultValue>Reward</option>
+                        <select name="reward" value={childChore.reward}onChange={handleChoreChange}>
+                            <option value='' defaultValue>Reward</option>
                             <option value='1'>$1</option>
                             <option value='5'>$5</option>
                             <option value='10'>$10</option>

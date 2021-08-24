@@ -4,7 +4,6 @@ import ChildChoreError from './ChildChoreError'
 import { MemberWrapper } from './StyledComponentElements'
 
 const Member = ({user, chores}) => {
-    console.log(user.id)
     const [showChildInfo, setShowChildInfo] = useState(false)
     const [allChildChores, setAllChildChores] = useState([])
     const [childChoreErrors, setChildChoreErrors] = useState([])

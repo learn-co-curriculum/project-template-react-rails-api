@@ -8,12 +8,13 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 function App() {
   const [user, setUser] = useState(null)
   const [chores, setChores] = useState([])
+  console.log(user)
+  console.log(chores)
     
   useEffect(() => {
       fetch(`/chores`)
       .then(response => response.json())
       .then(data => {
-          console.log(data)
           setChores(data)
       })
   },[])
@@ -43,7 +44,7 @@ function App() {
       :
       <>
       <Switch>
-        <Route path="/" exact component={() => <Home user={user}/>} /> 
+        <Route path="/" exact component={() => <Home user={user} chores={chores}/>} /> 
       </Switch>
       <Switch>
         <Route path="/new-chore" exact component={() => <ChoreForm user={user} chores={chores} setChores={setChores}/>} />

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Chore from './Chore'
 import ChildChoreError from './ChildChoreError'
 const Member = ({user, chores}) => {
+    console.log(user.id)
     const [showChildInfo, setShowChildInfo] = useState(false)
     const [allChildChores, setAllChildChores] = useState([])
     const [childChoreErrors, setChildChoreErrors] = useState([])
@@ -13,11 +14,14 @@ const Member = ({user, chores}) => {
         chore_id: ""
     })
 
-    // useEffect(() => {
-    //     fetch(`/child_chores/${user.id}`)
-    //     .then(response => response.json())
-    //     .then(data => console.log(data))
-    // }, [])
+    useEffect(() => {
+        fetch(`/child_chores/${user.id}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            setAllChildChores(data)
+        })
+    }, [])
 
     function handleChoreChange(event){
         setChildChore({...childChore,

@@ -93,7 +93,7 @@ const SignupForm = ({ onLogin, setShowLogin, showLogin }) => {
     </div>
           
     <div>
-      <label id="signup-label"><FaUnlock id="signupform-icon"/> Password Confirmation</label>
+      <label id="signup-label"><FaUnlock id="signupform-icon"/>Password Confirmation</label>
         <input
           className="password-confirmation-input"
           type="password"

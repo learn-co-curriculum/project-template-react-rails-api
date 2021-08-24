@@ -6,11 +6,17 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       render json: user, status: :created
     end
+
+    def index
+        user = User.where("username like?", "#{params[:username]}")
+        render json: user
+    end
+    
   
     def show
       render json: @current_user
     end
-  
+
     private
   
     def user_params

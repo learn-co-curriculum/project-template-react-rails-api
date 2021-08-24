@@ -60,18 +60,24 @@ function App() {
                     </Route>
                     <Route exact path="/noodlecard">
                         <NoodlePage
+                        noodles={noodles}
+                        setNoodles={setNoodles}
                         login={login}
                         setLogin={setLogin}
                         />
                     </Route>
                     <Route exact path="/stircard">
                         <StirPage
+                        stirFry={stirFry}
+                        setStirFry={setStirFry}
                         login={login}
                         setLogin={setLogin}
                         />
                     </Route>
                     <Route exact path="/dimcard">
                         <DimPage
+                        dimsum={dimsum}
+                        setDimsum={setDimsum}
                         login={login}
                         setLogin={setLogin}
                         />

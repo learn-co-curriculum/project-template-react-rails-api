@@ -1,24 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-
-const ChoreDiv = styled.div`
-    padding: .5em;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: stretch;
-`
-
-const ChoreName = styled.h3`
-    text-transform: capitalize;
-    text-decoration: underline;
-    text-align: center;
-`
-
-const ChoreDesc = styled.p`
-    text-align: center;
-`
+import {ChoreName, ChoreDesc, ChoreDiv} from './StyledComponentElements'
 
 const ChoreDelButton = styled.button`
     text-align: center;

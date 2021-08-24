@@ -1,4 +1,25 @@
 import React, {useState, useEffect} from 'react'
+import ChildChore from './ChildChore'
+import {Wrapper, HomeSubtitle} from './StyledComponentElements'
+import styled from 'styled-components'
+
+const ChildChoresDiv = styled.div`
+    display: grid;
+    justify-items: center;
+    justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fill, 15rem) 20%; 
+    grid-gap: 20px; 
+`
+
+const MoneyEarned = styled.h2`
+    text-align: center;
+`
+
+const SingleChoreDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+`
 
 function ChildView({user}){
     const [myChores, setMyChores] = useState([])
@@ -13,54 +34,47 @@ function ChildView({user}){
 
 
 
-    function handleFinished(event){
-        event.preventDefault()
-        console.log(event.target.value)
-        setCompleted(!completed)
-        fetch(`child_chores/${event.target.id}`,{
-            method: "PATCH",
-            headers: {
-                "Content-Type" : "application/json"
-            },
-            body: JSON.stringify({
-                is_completed : event.target.value
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            const updatedMyChores = myChores.map((childChore) => {
-                if (childChore.id === data.id) {
-                  return { ...childChore, is_completed: data.is_completed };
-                } else {
-                  return childChore;
-                }})
-                setMyChores(updatedMyChores)
-            })
-    }
+    // function handleFinished(event){
+    //     event.preventDefault()
+    //     console.log(event.target.value)
+    //     setCompleted(!completed)
+    //     fetch(`child_chores/${event.target.id}`,{
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type" : "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             is_completed : event.target.value
+    //         })
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         const updatedMyChores = myChores.map((childChore) => {
+    //             if (childChore.id === data.id) {
+    //               return { ...childChore, is_completed: data.is_completed };
+    //             } else {
+    //               return childChore;
+    //             }})
+    //             setMyChores(updatedMyChores)
+    //         })
+    // }
     
     return (
-        <div>
-            <h2>{user.first_name}</h2>
-            <h3>Money Earned: ${user.total_earnings}</h3>
-            <h4>Chores</h4>
+        <Wrapper>
+            <MoneyEarned>Money Earned: ${user.total_earnings}</MoneyEarned>
+            <HomeSubtitle>Assigned Chores</HomeSubtitle>
+            <ChildChoresDiv>
             {myChores && myChores.map(child_chore => {
                 return(
-                    <>
-                    <h5>{child_chore.chore.chore_name}</h5>
-                    <h6>{child_chore.chore.description}</h6>
-                    <h6>{child_chore.time_to_complete} minutes</h6>
-                    <h4>${child_chore.reward}</h4>
-                    {child_chore.is_completed 
-                    ? 
-                    <p>Completed</p> 
-                    : 
-                    <h2>NOT DONE!</h2>
-                    }
-                    <button id={child_chore.id} value={!child_chore.is_completed} onClick={handleFinished}>{child_chore.is_completed ? 'Not Done Yet' : 'Click to Finish'}</button>
-                    </>
+                    <ChildChore
+                        child_chore = {child_chore}
+                        myChores = {myChores}
+                        setMyChores = {setMyChores}
+                    />
                 )
             })}
-        </div>
+            </ChildChoresDiv>
+        </Wrapper>
     )
 }
 

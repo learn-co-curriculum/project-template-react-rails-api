@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Title, Wrapper, Input, Label, LoginButton, Button } from './StyledComponentElements'
 
-const Login = ({ setErrors, setUser, handleShowLoginClearErrors }) => {
+const Login = ({ setErrors, setUser, handleShowLoginClearErrors, setIsParent }) => {
     const [loginData, setLoginData] = useState({
         username: "",
         password: ""
@@ -23,7 +23,10 @@ const Login = ({ setErrors, setUser, handleShowLoginClearErrors }) => {
             body: JSON.stringify(loginData),
         }).then((response) => {
             if (response.ok) {
-                response.json().then((user) => setUser(user));
+                response.json().then((user) => {
+                    setUser(user)
+                    setIsParent(user.is_parent)
+                });
             } else {
                 response.json().then((err) => setErrors(err.errors));
             }

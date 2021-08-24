@@ -4,13 +4,9 @@ import Event from "./Event"
 import "./Event.css"
 
 const EventList = ({events, setEvents, user}) => {
+    
 
 
-    useEffect(() => {
-        fetch("/events")
-        .then(resp => resp.json())
-        .then(data => setEvents(data))
-    }, [])
 
     return (
         <div className='event-card-container'>

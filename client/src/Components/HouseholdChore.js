@@ -1,26 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import {ChoreName, ChoreDesc, ChoreDiv} from './StyledComponentElements'
 
-const ChoreDiv = styled.div`
-    padding: .5em;
-`
-
-const ChoreName = styled.h3`
-    text-transform: capitalize;
-    text-decoration: underline;
-    text-align: center;
-    flex-wrap: wrap;
-`
-
-const ChoreDesc = styled.p`
+const ChoreDelButton = styled.button`
     text-align: center;
 `
 
-const HouseholdChore = ({chore}) => {    
+const HouseholdChore = ({chore, handleDelete, id}) => {    
     return (
         <ChoreDiv>
             <ChoreName>{chore.chore_name}</ChoreName>
             <ChoreDesc>description: {chore.description}</ChoreDesc>
+            <ChoreDelButton id={id} onClick={handleDelete}>Delete Chore</ChoreDelButton>
         </ChoreDiv>
     )
 }

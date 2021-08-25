@@ -9,11 +9,9 @@ function Home({user, chores, household}){
         <Wrapper>
             <Title>Hi {user.first_name}</Title>
             <HomeSubtitle>Your are a {user.is_parent ? "Parent" : "Child"} in the {user.household.last_name} household!</HomeSubtitle>
-            
-            {user.is_parent ? 
-            <ParentView user={user} chores={chores} household={household}/>
-            :
-            <ChildView user={user}/>
+            {user.is_parent 
+            ? <ParentView user={user} chores={chores} household={household}/>
+            : <ChildView user={user} />
             }
         </Wrapper>
     )

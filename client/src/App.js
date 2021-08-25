@@ -10,13 +10,9 @@ function App() {
   const [errors, setErrors] = useState([])
   const [user, setUser] = useState(null)
   const [chores, setChores] = useState([])
-  const [completed, setCompleted] = useState('')
   const [isParent, setIsParent] = useState('')
-  
   const [household, setHousehold] = useState([])
 
-  console.log(user)
-  console.log(household)
     
   useEffect(() => {
       fetch(`/chores`)

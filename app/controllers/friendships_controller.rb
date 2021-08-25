@@ -5,12 +5,18 @@ class FriendshipsController < ApplicationController
     def index
         requested = @current_user.requested_friendship
         initiated = @current_user.initiated_friends
-        render json: initiated + requested 
+        render json: initiated.concat(requested)
     end
 
     def create
         friendship = Friendship.create!(friendship_params)
         render json: friendship, status: :created
+    end
+
+    def destroy 
+        friendship = Friendship.find_by(friend_a_id: @current_user.id, friend_b_id: friendship_params[:friend_b_id])
+        friendship.destroy
+        head :no_content 
     end
 
 private

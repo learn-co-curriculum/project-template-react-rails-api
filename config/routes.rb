@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get "/friendships", to: "friendships#index"
   post "/friendships", to: "friendships#create"
+  delete "/friendships/:friend_b_id", to: "friendships#destroy"
   
 
   post "/signup", to: "users#create"

@@ -1,31 +1,24 @@
 import React from 'react'
-
-import { useEffect, useState } from 'react' 
 import Comment from './Comment'
 
-const CommentsList = ({user}) => {
-    const [commentResults, setCommentResults] = useState([])
+const CommentsList = ({ commentResults }) => {
 
     
-    useEffect(() => {
-        fetch('/comments')
-        .then(resp => resp.json())
-        .then(data => setCommentResults(data))
-    }, [])
-    
     return (
-        <>
+        <div>
             <h1>Comments</h1>
         {commentResults.map(comment => {
             return (
-                <>
+                
                 <Comment 
-                    id={comment.id}
-                    comment={comment.comment}/>
-                </>
+                    key={comment.id}
+                    comment={comment.comment}
+                    commentResults={commentResults}
+                    />
+                
             )
         })}
-        </>
+        </div>
     )
 }
 

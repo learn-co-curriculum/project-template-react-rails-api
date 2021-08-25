@@ -1,8 +1,9 @@
 import { useState } from 'react'
 
-const AddCommentForm = ({ user, event }) => {
-    const [comments, setComments] = useState("");
+const AddCommentForm = ({ user, event, setCommentResults, commentResults }) => {
+    const [newComment, setNewComment] = useState("");
     const [errors, setErrors] = useState([]);
+    
 
     function handleAddComment(e) {
         e.preventDefault();
@@ -14,12 +15,12 @@ const AddCommentForm = ({ user, event }) => {
           },
           body: JSON.stringify({
             user_id: user.id,
-            comment: comments,
+            comment: newComment,
             event_id: event.id,
           }),
         }).then((resp) => {
           if (resp.ok) {
-            resp.json().then((data) => setComments([...comments, data]));
+            resp.json().then(setCommentResults([...commentResults, newComment]))
           } else {
             resp.json().then((err) => setErrors(err.errors));
           }
@@ -35,7 +36,7 @@ const AddCommentForm = ({ user, event }) => {
             placeholder="Write A Comment..."
             type="text"
 
-            onChange={(e) => setComments(e.target.value)}
+            onChange={(e) => setNewComment(e.target.value)}
           />
 
 
@@ -43,6 +44,15 @@ const AddCommentForm = ({ user, event }) => {
             Add
           </button>
         </form>
+
+        {/* <div>
+          {errors.map((err) => (
+            <div className="login-errors" key={err}>
+              {err}
+            </div>
+          ))}
+        </div> */}
+
         </div>
     )
 }

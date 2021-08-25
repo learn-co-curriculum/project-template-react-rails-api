@@ -138,3 +138,14 @@
       display:flex;
       justify-content: center;
     }
+
+    .standard-line-break{
+      justify-content: center;
+      height: 2px;
+      border-bottom: 1px solid rgb(196, 196, 196);
+      width: 40%;
+      left: 50%;
+      margin-top: -20px;
+      position: absolute;
+      transform: translate(-50%, -60%);
+    }

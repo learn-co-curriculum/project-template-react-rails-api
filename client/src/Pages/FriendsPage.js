@@ -42,6 +42,7 @@ const FriendsPage = ({user}) => {
           });
     }
 
+    console.log(errors)
 
     return (
         <div>
@@ -57,7 +58,7 @@ const FriendsPage = ({user}) => {
             {friendResults ? (friendResults.map(friend => {
                 return (
                 
-                <div className='searched-friend-div'>
+                <div key={friend.id} className='searched-friend-div'>
                     <Avatar
                         round={true}
                         size={50}
@@ -71,6 +72,14 @@ const FriendsPage = ({user}) => {
                 })) : (null)}
                 </div>
 
+              {/* <div>
+              {errors.map((err) => (
+                <div className="login-errors" key={err}>
+                  {err}
+                </div>
+              ))}
+            </div> */}
+
         
             <h1>Friends List</h1>
             <Friends friends={friends}/>
@@ -80,6 +89,8 @@ const FriendsPage = ({user}) => {
 }
 
 export default FriendsPage
+
+
 
 
       

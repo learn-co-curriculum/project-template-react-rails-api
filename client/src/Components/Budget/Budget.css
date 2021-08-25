@@ -1,0 +1,39 @@
+.budget-icons-container{
+ 
+}
+
+.budget-icons{
+    display: block;
+    text-align: center;
+}
+
+
+.calculator-icon{
+    color: rgb(0, 0, 0);
+    display: table-cell;
+    vertical-align: middle; 
+    text-align: center;
+    text-decoration: none;
+}
+
+.coin-icon{
+    color: rgb(0, 0, 0);
+    display: table-cell;
+    vertical-align: middle; 
+    text-align: center;
+    text-decoration: none;
+}
+
+.hold-hands-icon{
+    color: rgb(0, 0, 0);
+    display: table-cell;
+    vertical-align: middle; 
+    text-align: center;
+    text-decoration: none;
+}
+
+
+
+
+
+

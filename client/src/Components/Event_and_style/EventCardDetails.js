@@ -1,10 +1,22 @@
-import AttendeeList from "../AttendeeList";
 import Budget from "../Budget/Budget";
 import AddCommentForm from "../Comments/AddCommentForm";
 import CommentsList from "../Comments/CommentsList";
 import ToDos from "../To-do's/ToDos";
+import InviteFriends from "../Invite Friends/InviteFriends";
+import { useEffect, useState } from "react";
+
 
 const EventCardDetails = ({ event, user }) => {
+
+  const [commentResults, setCommentResults] = useState([])
+
+    
+  useEffect(() => {
+      fetch('/comments')
+      .then(resp => resp.json())
+      .then(data => setCommentResults(data))
+  }, [])
+
 
   return (
     <div className="event-card-details">
@@ -17,11 +29,11 @@ const EventCardDetails = ({ event, user }) => {
           Time: {event.start_time}-{event.end_time}
         </h1>
 
-        <AttendeeList /> 
+        <InviteFriends /> 
         <Budget />
         <ToDos />
-        <CommentsList user={user}/>
-        <AddCommentForm user={user} event={event}/>
+        <CommentsList commentResults={commentResults} />
+        <AddCommentForm commentResults={commentResults} setCommentResults={setCommentResults} user={user} event={event}/>
     </div>
   );
 };

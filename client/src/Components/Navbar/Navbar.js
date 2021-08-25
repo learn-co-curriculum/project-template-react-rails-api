@@ -10,11 +10,11 @@ const Navbar = ({ user, isParent, handleLogOut }) => {
                 </NavLink>
                 {/* <Bars /> */}
                 <NavMenu>
-                    {isParent && 
-                        <>
                     <NavLink to="/" activeStyle>
                         Home
                     </NavLink>
+                    {isParent && 
+                        <>
                         <NavLink to="/new-chore" activeStyle>
                             Add New Chore
                         </NavLink>

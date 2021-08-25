@@ -2,17 +2,21 @@ import React, {useState, useEffect} from 'react'
 
 function ChildView({user}){
     const [myChores, setMyChores] = useState([])
+    const [earnedMoney, setEarnedMoney] = useState('')
     const [completed, setCompleted] = useState(false)
+    const [showMoney, setShowMoney] = useState(false)
 
     useEffect(() => {
         fetch(`/child_chores/${user.id}`)
         .then(response => response.json())
         .then(data => setMyChores(data))
+
     }, [completed])
 
     function handleFinished(event){
         event.preventDefault()
         console.log(event.target.value)
+        setShowMoney(false)
         setCompleted(!completed)
         fetch(`child_chores/${event.target.id}`,{
             method: "PATCH",
@@ -27,18 +31,28 @@ function ChildView({user}){
         .then(data => {
             const updatedMyChores = myChores.map((childChore) => {
                 if (childChore.id === data.id) {
-                  return { ...childChore, is_completed: data.is_completed };
+                    return { ...childChore, is_completed: data.is_completed };
                 } else {
-                  return childChore;
+                    return childChore;
                 }})
                 setMyChores(updatedMyChores)
             })
-    }
+        }
+
+        function getMyMoney(){
+            setShowMoney(!showMoney)
+        fetch(`/me`)
+          .then(response => response.json())
+          .then(data => setEarnedMoney(data.total_earnings))
+        }
     
     return (
         <div>
             <h2>{user.first_name}</h2>
-            <h3>Money Earned: ${user.total_earnings}</h3>
+            <button onClick={getMyMoney}>Money Earned</button>
+            {showMoney && 
+            <h3>${earnedMoney}</h3>
+            }
             <h4>Chores</h4>
             {myChores && myChores.map(child_chore => {
                 return(

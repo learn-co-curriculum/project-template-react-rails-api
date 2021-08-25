@@ -13,7 +13,7 @@ function Home({user, chores, household}){
             {user.is_parent ? 
             <ParentView user={user} chores={chores} household={household}/>
             :
-            <ChildView user={user} />
+            <ChildView user={user}/>
             }
         </Wrapper>
     )

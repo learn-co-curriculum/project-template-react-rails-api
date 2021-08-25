@@ -36,7 +36,7 @@ class ChildChoresController < ApplicationController
     end
 
     def record_not_found
-        render json: {error: "Chores not found"}, status: :not_found
+        render json: {errors: ["Chores not found"]}, status: :not_found
     end
 
 end

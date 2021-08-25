@@ -5,7 +5,7 @@ class UserSerializer < ActiveModel::Serializer
   has_many :chores, through: :child_chores
 
 
-  def total_earnings
+  def total_earnings 
     self.object.child_chores.where(is_completed: true).sum(:reward)
   end
 end

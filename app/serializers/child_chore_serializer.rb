@@ -3,4 +3,5 @@ class ChildChoreSerializer < ActiveModel::Serializer
   has_one :user
   has_one :chore
 
+  
 end

@@ -1,9 +1,11 @@
 class BudgetsController < ApplicationController
   wrap_parameters format: []
+  skip_before_action :authorize, only: :create
+
 
   def create
-    buget = @current_user.budgets.create!(budget_params)
-    render json: todo, status: :created
+    budget = Budget.create!(budget_params)
+    render json: budget, status: :created
   end
 
   def index

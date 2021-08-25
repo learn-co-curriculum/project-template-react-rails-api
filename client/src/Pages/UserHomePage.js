@@ -1,11 +1,22 @@
 import Avatar from 'react-avatar'
 import { FaCameraRetro } from "react-icons/fa";
 import EditPhotoForm from '../Components/EditPhotoForm';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Linebreakhomepage from '../Components/Linebreakhomepage'
+import FriendEventList from '../Components/FriendsEvents/FriendEventList';
+
+
+
 
 
 const UserHomePage = ({ user }) => {
+    const [friendsEvents, setFriendsEvents] = useState([])
+
+    useEffect(() => {
+        fetch('/friendships')
+        .then(resp => resp.json())
+        .then(data => setFriendsEvents(data))
+    },[])
 
     const [showEditPhotoForm, SetShowEditPhotoForm] = useState(false)
 
@@ -36,8 +47,8 @@ const UserHomePage = ({ user }) => {
             <Linebreakhomepage />
             <h1>Events</h1>
             <h1>Friends Event's</h1>
-            
-            
+            <button>View Friends Event's</button>
+            <FriendEventList friendsEvents={friendsEvents}/>       
         </div>
     )
 }

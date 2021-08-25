@@ -42,7 +42,6 @@ const FriendsPage = ({user}) => {
           });
     }
 
-    console.log(errors)
 
     return (
         <div>

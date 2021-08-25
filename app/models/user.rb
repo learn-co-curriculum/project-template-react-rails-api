@@ -17,5 +17,4 @@ class User < ApplicationRecord
     has_many :requested_friendship, through: :friend_bs, source: 'friend_a', dependent: :destroy 
 
 
-
 end

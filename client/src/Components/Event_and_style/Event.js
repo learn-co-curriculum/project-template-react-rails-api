@@ -1,7 +1,7 @@
-import { FaChevronRight } from "react-icons/fa";
-import Moment from "react-moment";
+
 import EventCardDetails from "./EventCardDetails.js";
 import { useState } from "react";
+import EventCard from "./EventCard.js";
 
 const Event = ({ user, event }) => {
   const [showDetails, setShowDetails] = useState(false);
@@ -17,26 +17,14 @@ const Event = ({ user, event }) => {
 
   return (
     <>
-      <div className="event-card">
+      <div>
         {showDetails ? (
           <EventCardDetails
             event={event}
             user={user}
             setShowDetails={setShowDetails}
           />
-        ) : (
-          <>
-            {" "}
-            <h2>{event.title}</h2>
-            <p>{`${fmt.format(eventDate)}`}</p>
-            <div className="view-container">
-              <p onClick={() => setShowDetails(!showDetails)}>
-                View Details
-                <FaChevronRight className="view-event-icon" />
-              </p>
-            </div>
-          </>
-        )}
+        ) : (<EventCard showDetails={showDetails} setShowDetails={setShowDetails} event={event}/>)}
       </div>
     </>
   );

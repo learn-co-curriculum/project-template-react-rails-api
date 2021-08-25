@@ -22,6 +22,7 @@ const EventsPage = ({ user }) => {
     .then(data => setEvents(data))
 }, [])
 
+
   return (
     <div>
       <h1 className="events-page-header">EVENTS</h1>

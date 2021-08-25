@@ -5,6 +5,10 @@ import ToDos from "../To-do's/ToDos";
 import InviteFriends from "../Invite Friends/InviteFriends";
 import { useEffect, useState } from "react";
 import "@formatjs/intl-datetimeformat/locale-data/en";
+import "./EventCardDetails.css"
+
+
+
 
 const EventCardDetails = ({ event, user, setShowDetails }) => {
   const [commentResults, setCommentResults] = useState([]);
@@ -15,7 +19,6 @@ const EventCardDetails = ({ event, user, setShowDetails }) => {
       .then((data) => setCommentResults(data));
   }, []);
 
-  console.log(commentResults);
 
   let eventDate = new Date(event.date);
 
@@ -41,7 +44,9 @@ const EventCardDetails = ({ event, user, setShowDetails }) => {
       <h1 className="event-card-details-time">
         Time: {event.start_time}-{event.end_time}
       </h1>
-      <InviteFriends event={event} user={user}/>
+      <div className='event-navbar-container'>
+        
+      <div className='fasdfa'><InviteFriends event={event} user={user}/></div>
       <Budget event={event} user={user}/>
       <ToDos event={event} user={user} />
       <CommentsList commentResults={commentResults} />
@@ -51,6 +56,7 @@ const EventCardDetails = ({ event, user, setShowDetails }) => {
         user={user}
         event={event}
       />
+      </div>
     </div>
   );
 };

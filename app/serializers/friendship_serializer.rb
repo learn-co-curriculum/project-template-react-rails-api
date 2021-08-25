@@ -1,6 +1,7 @@
 class FriendshipSerializer < ActiveModel::Serializer
   attributes :id
 
+  
   # has_many :initiated_friends
   # has_many :requested_friendship
 

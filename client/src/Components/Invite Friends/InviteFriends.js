@@ -2,26 +2,27 @@
 import StandardLineBreak from "../StandardLineBreak";
 import "./InviteFriend.css"
 import InviteFriendsList from "./InviteFriendList";
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import AttendeeList from "./AttendeeList";
 
-const InviteFriends = () => {
+const InviteFriends = ({ event, user }) => {
     const [showInviteFriendsComponent,setShowInviteFriendsComponent] = useState(false)
     const [attendees,setAttendees] = useState([])
 
-    function handleInviteFriend(friend){
-        setAttendees([...attendees, friend])
-    }
+
+    useEffect(() => {
+        fetch("/attendees")
+        .then((resp) => resp.json())
+        .then((data) => setAttendees(data));
+    },[]);
+ 
 
 
     return (
         <>
-
-
         <h1>Invite Friends</h1>
         <button onClick={() => setShowInviteFriendsComponent(!showInviteFriendsComponent)}>View Friends</button>
-        {showInviteFriendsComponent ? (<InviteFriendsList 
-            handleInviteFriend={handleInviteFriend}
+        {showInviteFriendsComponent ? (<InviteFriendsList event={event} user={user} attendees={attendees} setAttendees={setAttendees}
         />) : (null)}
         <AttendeeList attendees={attendees} setAttendees={setAttendees}/>
 

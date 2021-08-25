@@ -1,4 +1,10 @@
-.event-card-large {
+.event-card-details{
+  color:red;
+}
+
+
+
+/* .event-card-large {
   padding: 10px;
   width: 50%;
   border-radius: 10px;
@@ -102,4 +108,4 @@
 
 .add-comment-btn:active {
   transform: scale(0.98);
-}
+} */

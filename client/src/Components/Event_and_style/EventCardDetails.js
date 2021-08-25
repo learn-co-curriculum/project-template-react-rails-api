@@ -41,8 +41,8 @@ const EventCardDetails = ({ event, user, setShowDetails }) => {
       <h1 className="event-card-details-time">
         Time: {event.start_time}-{event.end_time}
       </h1>
-      <InviteFriends />
-      <Budget />
+      <InviteFriends event={event} user={user}/>
+      <Budget event={event} user={user}/>
       <ToDos event={event} user={user} />
       <CommentsList commentResults={commentResults} />
       <AddCommentForm

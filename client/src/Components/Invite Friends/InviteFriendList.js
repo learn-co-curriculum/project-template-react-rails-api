@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import EventFriend from './EventFriend';
 
-const InviteFriendsList = ({handleInviteFriend}) => {
+const InviteFriendsList = ({handleInviteFriend, attendees, setAttendees, event, user}) => {
     // const [viewAttendeeList, setViewAttendeeList] = useState(false);
     // const [showAttendees, setShowAttendees] = useState(false);
     const [eventFriends, setEventFriends] = useState([]);
@@ -15,7 +15,11 @@ const InviteFriendsList = ({handleInviteFriend}) => {
     
      const eventFriendsList = eventFriends.map((friend) => {
         return (
-            <EventFriend 
+            <EventFriend
+                event={event}
+                user={user}
+                attendees={attendees}
+                setAttendees={setAttendees} 
                 key={friend.username}
                 friend={friend}
                 handleInviteFriend={handleInviteFriend}

@@ -37,6 +37,7 @@ const UserHomePage = ({ user }) => {
             <h1>Events</h1>
             <h1>Friends Event's</h1>
             
+            
         </div>
     )
 }

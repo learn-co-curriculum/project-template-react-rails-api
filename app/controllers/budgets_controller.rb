@@ -22,7 +22,7 @@ class BudgetsController < ApplicationController
   private
 
   def budget_params
-    params.permit(:target_budget, :total_actual, :total_paid)
+    params.permit(:target_budget, :total_actual, :total_paid, :user_id, :event_id)
   end
 
 end

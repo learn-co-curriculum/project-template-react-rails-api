@@ -18,8 +18,8 @@ const ToDoForm = ({inputText,setInputText,todos,setToDos,event,user,} ) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(newTodo),
-        }).then(setToDos([...todos, newTodo])
-    );}
+        }).then(setToDos([...todos, newTodo]))
+    }
 
     return (
         <form onSubmit={(e) => submitTodo(e)}>
@@ -29,7 +29,7 @@ const ToDoForm = ({inputText,setInputText,todos,setToDos,event,user,} ) => {
             onChange={(e) => setInputText(e.target.value)}
         />
         <button class="todo-button" type="submit">
-            Add a To Do
+            +
         </button>
         </form>
     );

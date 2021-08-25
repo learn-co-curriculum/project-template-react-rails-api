@@ -13,19 +13,20 @@ const ThingToDo = ({ todo, event, user }) => {
     };
 
     function handleCompleted() {
-        setClassName("completed");
+        
         fetch(`/todos/${todo.id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(completedTodo),
-        });
+        }).then(setClassName("completed"))
+
     }
 
     return (
         <>
-        <li className={className}>{todo.thing_to_do}</li>
+        {todo.completed ? (<li className='completed'>{todo.thing_to_do}</li>) : (<li className={className}>{todo.thing_to_do}</li>)}
         <button onClick={handleCompleted}>Check</button>
         </>
     );

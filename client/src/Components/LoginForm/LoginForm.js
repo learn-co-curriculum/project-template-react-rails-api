@@ -66,13 +66,14 @@ const LoginForm = ({ onLogin }) => {
             Log in
           </button>
         </div>
-        <div>
+        {errors ? (<div>
           {errors.map((err) => (
             <div className="login-errors" key={err}>
               {err}
             </div>
           ))}
-        </div>
+        </div>) : (null)}
+  
         <div>
           <p className="forgot-password">
             Forgot your password or username?{" "}

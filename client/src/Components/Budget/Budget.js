@@ -1,8 +1,13 @@
 import "./Budget.css"
 import { FaCalculator, FaCoins, FaHandHoldingUsd  } from "react-icons/fa";
-
+import { useState } from 'react'
 
 const Budget = () => {
+
+    const [budget, setBudget] = useState("$0.00")
+    const [paid, setPaid] = useState("$0.00")
+
+
     return (
         <div>
             <h1>Budget</h1>
@@ -14,19 +19,19 @@ const Budget = () => {
                 <div>
                     <FaCalculator className='calculator-icon'/>
                     <p>Target Budget</p>
-                    <p>$0.00</p>
+                    {budget}
                 </div>
 
                 <div id="budget-icons">
                     <FaCoins className='coin-icon'/>
                     <p>Total Actual</p>
-                    <p>$0.00</p>
+                    {paid}
                 </div>
 
                 <div>
                     <span className='hand-circle'><FaHandHoldingUsd className='hold-hands-icon'/></span>
                     <p>Total Paid to Date</p>
-                    <p>$0.00</p>
+                    {paid}
                 </div>
                 
 

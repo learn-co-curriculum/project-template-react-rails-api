@@ -1,8 +1,14 @@
 import { useState } from 'react'
 
 const AddCommentForm = ({ user, event, setCommentResults, commentResults }) => {
-    const [newComment, setNewComment] = useState("");
+    const [comment, setComment] = useState("");
     const [errors, setErrors] = useState([]);
+
+    const newComment = {
+      user_id: user.id,
+      comment: comment,
+      event_id: event.id,
+    }
     
 
     function handleAddComment(e) {
@@ -13,18 +19,8 @@ const AddCommentForm = ({ user, event, setCommentResults, commentResults }) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            user_id: user.id,
-            comment: newComment,
-            event_id: event.id,
-          }),
-        }).then((resp) => {
-          if (resp.ok) {
-            resp.json().then(setCommentResults([...commentResults, newComment]))
-          } else {
-            resp.json().then((err) => setErrors(err.errors));
-          }
-        });
+          body: JSON.stringify(newComment),
+        }).then(setCommentResults([...commentResults, newComment]));
       }
     
     return (
@@ -36,7 +32,7 @@ const AddCommentForm = ({ user, event, setCommentResults, commentResults }) => {
             placeholder="Write A Comment..."
             type="text"
 
-            onChange={(e) => setNewComment(e.target.value)}
+            onChange={(e) => setComment(e.target.value)}
           />
 
 

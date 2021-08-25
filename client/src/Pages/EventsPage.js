@@ -28,6 +28,11 @@ const EventsPage = ({ user }) => {
       <button className="add-event-btn" onClick={openModal}>
         Add Event
       </button>
+
+      <h1>Upcoming Events</h1>
+      <h1></h1>
+      <h1>Archived</h1>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

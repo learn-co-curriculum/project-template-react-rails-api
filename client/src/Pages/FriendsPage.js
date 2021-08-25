@@ -81,8 +81,8 @@ const FriendsPage = ({user}) => {
             </div> */}
 
         
-            <h1>Friends List</h1>
-            <Friends friends={friends}/>
+            <h1 className='friends-list-header'>Friends List</h1>
+            <Friends friends={friends} setFriends={setFriends}/>
 
         </div>
     )

@@ -11,7 +11,7 @@ const CommentsList = ({ commentResults }) => {
             return (
                 
                 <Comment 
-                    key={comment.id}
+                    key={comment.comment}
                     comment={comment.comment}
                     commentResults={commentResults}
                     />

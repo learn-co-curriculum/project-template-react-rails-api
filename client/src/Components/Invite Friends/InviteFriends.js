@@ -3,13 +3,14 @@ import StandardLineBreak from "../StandardLineBreak";
 import "./InviteFriend.css"
 import InviteFriendsList from "./InviteFriendList";
 import { useState } from 'react'
+import AttendeeList from "./AttendeeList";
 
 const InviteFriends = () => {
     const [showInviteFriendsComponent,setShowInviteFriendsComponent] = useState(false)
     const [attendees,setAttendees] = useState([])
 
     function handleInviteFriend(friend){
-
+        setAttendees([...attendees, friend])
     }
 
 
@@ -19,11 +20,14 @@ const InviteFriends = () => {
 
         <h1>Invite Friends</h1>
         <button onClick={() => setShowInviteFriendsComponent(!showInviteFriendsComponent)}>View Friends</button>
-        {showInviteFriendsComponent ? (<InviteFriendsList handleInviteFriend={handleInviteFriend}/>) : (null)}
-        <h2>Attending</h2>
-        
-        <StandardLineBreak />
+        {showInviteFriendsComponent ? (<InviteFriendsList 
+            handleInviteFriend={handleInviteFriend}
+        />) : (null)}
+        <AttendeeList attendees={attendees} setAttendees={setAttendees}/>
 
+
+
+        {/* <StandardLineBreak /> */}
         {/* {viewAttendeeList ? (<h1>Invite friends <FaChevronDown onClick={() => setViewAttendeeList(!viewAttendeeList)}/></h1>
         ) : (<h1>Invite friends <FaChevronRight onClick={() => setViewAttendeeList(!viewAttendeeList)}/></h1>
         )}

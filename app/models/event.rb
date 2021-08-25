@@ -1,6 +1,9 @@
 class Event < ApplicationRecord
     belongs_to :user 
     has_many :comments, dependent: :destroy
+    has_many :todos, dependent: :destroy
+    has_many :budgets, dependent: :destroy
+    has_many :attendees, dependent: :destroy
 
     validates :title, presence: true
     validates :description, presence: true

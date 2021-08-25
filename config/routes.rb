@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :attendees
+  resources :budgets
+  resources :todos
   resources :comments
   resources :events, only: [:index, :show, :create]
 

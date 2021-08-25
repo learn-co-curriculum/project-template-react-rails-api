@@ -43,7 +43,7 @@ const EventCardDetails = ({ event, user, setShowDetails }) => {
       </h1>
       <InviteFriends />
       <Budget />
-      <ToDos />
+      <ToDos event={event} user={user} />
       <CommentsList commentResults={commentResults} />
       <AddCommentForm
         commentResults={commentResults}

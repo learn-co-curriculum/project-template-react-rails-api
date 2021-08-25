@@ -6,7 +6,8 @@ import { useState } from 'react'
 
 const InviteFriends = () => {
     const [showInviteFriendsComponent,setShowInviteFriendsComponent] = useState(false)
- 
+    const [attendees,setAttendees] = useState([])
+
     function handleInviteFriend(friend){
 
     }

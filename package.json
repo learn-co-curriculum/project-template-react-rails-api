@@ -11,6 +11,7 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "@formatjs/intl-datetimeformat": "^4.2.3",
     "moment": "^2.29.1",
     "react-avatar": "^3.10.0",
     "react-calendar": "^3.4.0",

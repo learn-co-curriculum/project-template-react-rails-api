@@ -169,3 +169,7 @@
       margin-left:10px;
       height:30px;
     }
+
+    .completed{
+      text-decoration: line-through;
+    }

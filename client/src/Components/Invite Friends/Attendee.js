@@ -1,7 +1,7 @@
-const Attendee = () => {
+const Attendee = ({attendee}) => {
     return (
         <div>
-            
+            {attendee.name}
         </div>
     )
 }

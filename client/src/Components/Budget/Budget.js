@@ -49,16 +49,16 @@ const Budget = ({event, user}) => {
             <h1>Budget</h1>
             <button>Add Target Budget</button>
             <button>Contribute</button>
-
+            <div className='budget-forms'>
             <form onSubmit={(e) => handleAddBudget(e)}>
                 <input type='text' onChange={(e) => setInputBudget(e.target.value)}></input>
                 <button>Add</button>
             </form>
-
             <form onSubmit={(e) => handleAddPayment(e)}>
                 <input type='text' onChange={(e) => setInputPaid(e.target.value)}></input>
                 <button>Add</button>
             </form>
+            </div>
 
             <div className='budget-icons-div'>
 

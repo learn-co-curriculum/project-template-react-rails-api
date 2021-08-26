@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { FaPlus } from "react-icons/fa";
+
 
 // prettier-ignore
 const ToDoForm = ({inputText,setInputText,todos,setToDos,event,user,} ) => {
@@ -24,12 +25,13 @@ const ToDoForm = ({inputText,setInputText,todos,setToDos,event,user,} ) => {
     return (
         <form onSubmit={(e) => submitTodo(e)}>
         <input
+            placeholder="Enter a todo..."
             type="text"
-            class="to-do-input"
+            className="to-do-input"
             onChange={(e) => setInputText(e.target.value)}
         />
-        <button class="todo-button" type="submit">
-            +
+        <button class="todo-btn" type="submit">
+            <FaPlus />
         </button>
         </form>
     );

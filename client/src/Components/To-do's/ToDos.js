@@ -16,6 +16,7 @@ const ToDos = ({ event, user }) => {
     return (
         <div>
         <h1>To-Do's</h1>
+        <div className='todo-list-container'>
         <ToDoForm
             setInputText={setInputText}
             inputText={inputText}
@@ -25,6 +26,7 @@ const ToDos = ({ event, user }) => {
             user={user}
         />
             <ToDoList todos={todos} event={event} user={ user}/>
+            </div>
         </div>
     );
     };

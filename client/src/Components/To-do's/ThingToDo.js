@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { FaCheck } from "react-icons/fa";
+
 
 // prettier-ignore
 const ThingToDo = ({ todo, event, user }) => {
@@ -25,10 +27,10 @@ const ThingToDo = ({ todo, event, user }) => {
     }
 
     return (
-        <>
+        <div className='thing-to-do'>
         {todo.completed ? (<li className='completed'>{todo.thing_to_do}</li>) : (<li className={className}>{todo.thing_to_do}</li>)}
-        <button onClick={handleCompleted}>Check</button>
-        </>
+        <button className='check-btn'onClick={handleCompleted}><FaCheck /></button>
+        </div>
     );
     };
 

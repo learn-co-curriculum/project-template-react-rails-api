@@ -6,7 +6,7 @@ import InviteFriends from "../Invite Friends/InviteFriends";
 import { useEffect, useState } from "react";
 import "@formatjs/intl-datetimeformat/locale-data/en";
 import "./EventCardDetails.css"
-
+import { FaTimes } from "react-icons/fa";
 
 
 
@@ -31,7 +31,7 @@ const EventCardDetails = ({ event, user, setShowDetails }) => {
 
   return (
     <div className="event-card-details">
-      <button onClick={() => setShowDetails(false)}>X</button>
+      <button className='exit-event-card-details-btn'onClick={() => setShowDetails(false)}><FaTimes className='exit-icon'/></button>
       <h1 className="event-card-details-title">{event.title}</h1>
       <h1 className="event-card-details-description">
         Description: {event.description}
@@ -46,16 +46,17 @@ const EventCardDetails = ({ event, user, setShowDetails }) => {
       </h1>
       <div className='event-navbar-container'>
         
-      <div className='fasdfa'><InviteFriends event={event} user={user}/></div>
-      <Budget event={event} user={user}/>
-      <ToDos event={event} user={user} />
-      <CommentsList commentResults={commentResults} />
-      <AddCommentForm
+      <div id='event-component'><InviteFriends event={event} user={user}/></div>
+      <div id='event-component'><Budget event={event} user={user}/></div>
+      <div id='event-component'><ToDos event={event} user={user} /></div>
+      <div id='event-component'><CommentsList commentResults={commentResults} /></div>
+      <div id='event-component'><AddCommentForm
         commentResults={commentResults}
         setCommentResults={setCommentResults}
         user={user}
         event={event}
       />
+      </div>
       </div>
     </div>
   );

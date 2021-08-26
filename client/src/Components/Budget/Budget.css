@@ -1,6 +1,20 @@
-.budget-icons-container{
- 
+.budget-icons-div{
+    padding: 20px;
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    width: 80%;
 }
+
+/* 
+left: 50%;
+margin-top: 20px;
+position: absolute;
+transform: translate(-50%, -60%); */
 
 .budget-icons{
     display: block;
@@ -14,6 +28,8 @@
     vertical-align: middle; 
     text-align: center;
     text-decoration: none;
+    left: 50%;
+    transform: translate(250%, 50%)
 }
 
 .coin-icon{
@@ -22,6 +38,8 @@
     vertical-align: middle; 
     text-align: center;
     text-decoration: none;
+    left: 50%;
+    transform: translate(210%, 50%)
 }
 
 .hold-hands-icon{
@@ -30,10 +48,14 @@
     vertical-align: middle; 
     text-align: center;
     text-decoration: none;
+    left: 50%;
+    transform: translate(330%, 50%)
 }
 
 
 
-
+.budget-forms{
+    display:flex;
+}
 
 

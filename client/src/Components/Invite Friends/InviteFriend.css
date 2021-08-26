@@ -3,10 +3,12 @@
 }
 
 .invite-friend-btn{
-    background: none;
-    color: gray;
+    background: black;
+    color: rgb(255, 255, 255);
     border: none;
-    padding: 0;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 10px;
     font: inherit;
     cursor: pointer;
     outline: inherit;
@@ -21,4 +23,18 @@
     grid-auto-rows: auto;
     grid-gap: 1rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+
+.view-friend-btn{
+    background: black;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    margin-left: 10px;
 }

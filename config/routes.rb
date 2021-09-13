@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :images
-  resources :users
+  resources :users, only: [:create, :delete, :show]
 
   post "/login", to: "sessions#create" 
   delete "/logout", to: "sessions#destroy"

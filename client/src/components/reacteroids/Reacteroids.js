@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Ship from './Ship';
 import Asteroid from './Asteroid';
 import { randomNumBetweenExcluding } from './helpers'
+import './style.css';
 
 const KEY = {
   LEFT:  37,
@@ -238,7 +239,7 @@ export default class Reacteroids extends Component {
         <div className="endgame">
           <p>Game over, man!</p>
           <p>{message}</p>
-          <button
+          <button className='asteroid-button'
             onClick={ this.startGame.bind(this) }>
             try again?
           </button>

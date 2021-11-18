@@ -1,9 +1,4 @@
-body {
-  padding: 0;
-  margin: 0;
-  font-family: 'PT Mono', serif;
-  color: #ffffff;
-}
+
 canvas {
   display: block;
   background-color: #000000;
@@ -17,9 +12,11 @@ canvas {
 }
 .current-score {
   left: 20px;
+  color: white;
 }
 .top-score {
   right: 20px;
+  color: white;
 }
 .score {
   display: block;
@@ -27,6 +24,7 @@ canvas {
   top: 15px;
   z-index: 1;
   font-size: 20px;
+  color: white;
 }
 .controls {
   display: block;
@@ -38,6 +36,7 @@ canvas {
   font-size: 11px;
   text-align: center;
   line-height: 1.6;
+  color: white;
 }
 .endgame{
   position: absolute;
@@ -47,8 +46,10 @@ canvas {
   padding: 16px;
   z-index: 1;
   text-align: center;
+  color: white;
 }
-button{
+
+.asteroid-button {
   border: 4px solid #ffffff;
   background-color: transparent;
   color: #ffffff;

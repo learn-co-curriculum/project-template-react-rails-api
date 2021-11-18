@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import GameOne from './components/GameOne';
+import Flappybird from './components/Flappybird.js';
 import GameTwo from './components/GameTwo';
 import GameThree from './components/GameThree';
 
@@ -9,7 +9,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/GameOne" element={<GameOne />}>
+          <Route path="/Flappybird" element={<Flappybird />}>
                       
           </Route>
           <Route path="/GameTwo" element={<GameTwo />}>

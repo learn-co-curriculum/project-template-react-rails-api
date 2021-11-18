@@ -1,10 +1,11 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
+import Reacteroids from './reacteroids/Reacteroids';
 
 function GameThree() {
-    <div>
-        hi
-    </div>
+    return(
+        <Reacteroids/>
+    )
 }
 
 export default GameThree;

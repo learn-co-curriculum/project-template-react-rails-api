@@ -121,6 +121,7 @@ export default class Reacteroids extends Component {
       this.setState({
         currentScore: this.state.currentScore + points,
       });
+      console.log(this.state.currentScore)
     }
   }
 
@@ -157,6 +158,7 @@ export default class Reacteroids extends Component {
         topScore: this.state.currentScore,
       });
       localStorage['topscore'] = this.state.currentScore;
+      console.log(this.state.currentScore)
     }
   }
 

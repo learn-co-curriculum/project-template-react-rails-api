@@ -22,8 +22,14 @@ function GameTwo() {
                 Start
             </button>
             <h1>Word count: {wordCount}</h1>
+
+            <NavLink to="/">
+                <button>Home</button>
+            </NavLink>
         </div>
-    )
+
+)
+    
 
 }
 

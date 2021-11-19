@@ -3,8 +3,11 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Flappybird from './components/Flappybird.js';
 import GameTwo from './components/GameTwo';
 import GameThree from './components/GameThree';
+import { NavLink } from 'react-router-dom';
+import Home from './components/Home.js';
 
 function App() {
+  
   return (
     <div>
       <BrowserRouter>
@@ -18,9 +21,15 @@ function App() {
           <Route path="/GameThree" element={<GameThree />}>
                       
           </Route>
+
+          <Route path="/" element={<Home />}>
+
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
+
+
   );
 }
 

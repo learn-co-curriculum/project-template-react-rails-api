@@ -35,6 +35,9 @@ function Header({setLoggedIn, loggedIn}) {
                    <img src="/images/play-icon-white.png" alt=''/>
                    <span>PLAY</span>
                </NavLink>
+               <NavLink className='links' to='/'>
+                 <span>LEADERBOARD</span>
+               </NavLink>
             </NavMenu>
             { !loggedIn ? <Login onClick={() => {navigate('/login')}}>LOGIN</Login> : <Button onClick={() => handleLogout()}>LOGOUT</Button>}
         </Nav>

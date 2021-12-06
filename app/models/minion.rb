@@ -1,0 +1,2 @@
+class Minion < ApplicationRecord
+end

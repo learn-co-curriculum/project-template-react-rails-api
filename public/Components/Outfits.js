@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Outfits extends Component {
-  render() {
-    return <div></div>;
-  }
+function Outfits() {
+  return <div></div>;
 }
 
 export default Outfits;

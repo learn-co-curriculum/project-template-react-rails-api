@@ -1,13 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Equipment extends Component {
-  render() {
-    return (
-      <div>
-        <br></br>
-      </div>
-    );
-  }
+function Equipment() {
+  return (
+    <div>
+      <br></br>
+    </div>
+  );
 }
 
 export default Equipment;

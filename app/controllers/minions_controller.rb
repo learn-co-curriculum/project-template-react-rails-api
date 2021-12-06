@@ -1,0 +1,2 @@
+class MinionsController < ApplicationController
+end

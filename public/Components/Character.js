@@ -1,13 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Character extends Component {
-  render() {
-    return (
-      <div>
-        <br></br>
-      </div>
-    );
-  }
+function Characters() {
+  return (
+    <div>
+      <br></br>
+    </div>
+  );
 }
 
 export default Character;

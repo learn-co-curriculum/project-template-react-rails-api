@@ -29,7 +29,7 @@ function Header({setLoggedIn, loggedIn}) {
                </NavLink>
                <NavLink className='links' to='/'>
                    <img src="/images/search-icon.svg" alt=''/>
-                   <span>SEARCH</span>
+                   <span>PLAYERS</span>
                </NavLink>
                <NavLink className='links' to='/'>
                    <img src="/images/play-icon-white.png" alt=''/>
@@ -46,7 +46,7 @@ const Nav = styled.nav`
     left: 0;
     right: 0;
     height: 60px;
-    background-color: #090b13;
+    background-color: #3c4159;
     display: flex;
     justify-content: space-between;
     align-items:center;

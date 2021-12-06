@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
 import { Button, Error, Input, FormField, Label } from "../styles";
+import {useNavigate} from 'react-router-dom'
+import Signup from './Signup'
 
 function Login({onLogin}) {
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -54,6 +57,10 @@ function Login({onLogin}) {
             <Button variant="fill" color="primary" type="submit">
              {isLoading ? "Loading..." : "Login"}
             </Button>
+         </FormField>
+         <FormField>
+           Don't have an account?
+           <Button onClick={() => {navigate('/signup')}}>Signup</Button>
          </FormField>
        </form>
     )

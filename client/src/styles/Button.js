@@ -25,6 +25,9 @@ const ButtonBase = styled.button`
   border-radius: 6px;
   padding: 8px 16px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const FillButton = styled(ButtonBase)`

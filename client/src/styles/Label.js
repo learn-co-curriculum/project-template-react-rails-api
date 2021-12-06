@@ -5,7 +5,7 @@ const Label = styled.label`
   display: block;
   font-size: 1rem;
   font-weight: 700;
-  margin-top: 70px;
+  
 `;
 
 export default Label;

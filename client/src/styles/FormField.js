@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
 const FormField = styled.div`{
-    margin-bottom: 15px;
+    display:flex;
+    position: relative;
     justify-content:center;
+    margin-top: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+    align-items: center;
   }
 `;
 

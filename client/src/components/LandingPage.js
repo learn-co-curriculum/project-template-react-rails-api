@@ -1,11 +1,19 @@
 import React from 'react'
+import styled from 'styled-components'
 
 function LandingPage() {
     return (
-        <div>
-            This is the landing page
-        </div>
+        <LandingPageContent>
+            <h1>MountAlgo</h1>
+        </LandingPageContent>
     )
 }
-
+const LandingPageContent = styled.div`
+    margin-top: 150px;
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+`
 export default LandingPage

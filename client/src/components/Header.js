@@ -3,9 +3,23 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import '../App.css'
 import {useNavigate} from 'react-router-dom'
+import {Button} from '../styles'
 
-function Header() {
+function Header({setLoggedIn, loggedIn}) {
     let navigate = useNavigate()
+
+    function handleLogout() {
+      fetch("/logout", { method: "DELETE" })
+      .then((response) => {
+        if (response.ok) {
+          navigate('/login')
+          setLoggedIn(null);
+          console.log('hi')
+
+        }
+      });
+    }
+  
     return (
         <Nav>
             <NavMenu>
@@ -22,7 +36,7 @@ function Header() {
                    <span>PLAY</span>
                </NavLink>
             </NavMenu>
-            <Login onClick={() => {navigate('/login')}}>LOGIN</Login>
+            { !loggedIn ? <Login onClick={() => {navigate('/login')}}>LOGIN</Login> : <Button onClick={() => handleLogout()}>LOGOUT</Button>}
         </Nav>
     )
 }

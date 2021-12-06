@@ -11,22 +11,13 @@ import {Button} from "./styles"
 function App() {
   const [user, setUser] = useState(null);
 
-  function handleLogout() {
-    fetch("/logout", { method: "DELETE" })
-    .then((response) => {
-      if (response.ok) {
-        setUser(null);
-      }
-    });
-  }
-
+ 
   return (
     <div className="App">
-      <Header />
+      <Header setLoggedIn={setUser} loggedIn={user}/>
       <Routes>
         <Route exact path='/' element={<LandingPage />}/>
-        <Route exact path='/login' element={user === null ? <Login onLogin={setUser}/> :
-         <Button onClick={() => handleLogout()}/>} />
+        <Route exact path='/login' element={user === null ? <Login onLogin={setUser}/> :null} />
         <Route exact path='/signup' element={user === null ? <Signup onLogin={setUser}/> : null} />
       </Routes>
     </div>

@@ -23,8 +23,6 @@ function Header() {
                </NavLink>
             </NavMenu>
             <Login onClick={() => {navigate('/login')}}>LOGIN</Login>
-            
-
         </Nav>
     )
 }

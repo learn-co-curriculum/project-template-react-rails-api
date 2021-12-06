@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :questions
-  resources :game_instances
+  resources :questions, only [:index]
+  resources :game_instances, only [:index, :show, :create, :delete]
   resources :users
-  resources :avatars
+  resources :avatars, only [:index, :show]
 
   
   # Routing logic: fallback requests for React Router.

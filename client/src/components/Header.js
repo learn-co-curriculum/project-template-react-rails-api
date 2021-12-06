@@ -49,7 +49,7 @@ const Nav = styled.nav`
     left: 0;
     right: 0;
     height: 60px;
-    background-color: #3c4159;
+    background-color: #4f2004;
     display: flex;
     justify-content: space-between;
     align-items:center;

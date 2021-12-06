@@ -15,7 +15,7 @@ const LandingPageContent = styled.div`
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    color: #3c4159;
+    color: #4f2004;
     font-family: "Copperplate", fantasy
 `
 export default LandingPage

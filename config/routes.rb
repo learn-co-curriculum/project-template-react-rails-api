@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   
   resources :questions, only: [:index]
   resources :game_instances, only: [:index, :show, :create, :delete]
+<<<<<<< HEAD
+=======
+  resources :users
+>>>>>>> 2195920eeb387f487bdacee53e0be54d0b8f151b
   resources :avatars, only: [:index, :show]
 
   

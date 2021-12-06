@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import { Button, Error, Input, FormField, Label } from "../styles";
 import {useNavigate} from 'react-router-dom'
-import Signup from './Signup'
 
 function Login({onLogin}) {
     const navigate = useNavigate();

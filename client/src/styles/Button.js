@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const COLORS = {
   primary: {
-    "--main": "darkblue",
+    "--main": "#04334F",
     "--accent": "white",
   }
 };

@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import '../App.css';
 
 function AssignAvatar({setAvatar, avatars}) {
 
@@ -14,12 +15,9 @@ function AssignAvatar({setAvatar, avatars}) {
 
 
     return (
-        <div>
+        <div id="avatar-container">
             {(avatars.map(avatar => {
-                <div>
-                    <input id={avatar.id} type="radio" name="selectavatar" onClick={setAvatar(avatar)}></input>
-                    <img src={avatar.img_url} alt={avatar.name}/>
-                </div>})
+                return <img key={avatar.id} className="avatar-icon" src={avatar.img_url} alt={avatar.name} onClick={() => setAvatar(avatar)}/> })
         )}
         </div>
     )

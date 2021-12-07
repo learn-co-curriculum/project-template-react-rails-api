@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Button, Error, Input, FormField, Label } from "../styles";
+import { Button, Error, Input, FormField, Label, UsernameField } from "../styles";
 import {useNavigate} from 'react-router-dom'
 
 function Login({onLogin}) {
@@ -32,7 +32,7 @@ function Login({onLogin}) {
 
     return (
        <form classname="form" onSubmit={handleSubmit}>
-        <FormField>
+        <UsernameField>
             <Label htmlFor="username">Username</Label>
             <Input
             type="text"
@@ -41,7 +41,7 @@ function Login({onLogin}) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             />
-        </FormField>
+        </UsernameField>
          <FormField>
             <Label htmlFor="password">Password</Label>
             <Input
@@ -54,12 +54,14 @@ function Login({onLogin}) {
         </FormField>
          <FormField>
             <Button variant="fill" color="primary" type="submit">
-             {isLoading ? "Loading..." : "Login"}
+             {isLoading ? "Loading..." : "LOGIN"}
             </Button>
          </FormField>
          <FormField>
-           Don't have an account?
-           <Button onClick={() => {navigate('/signup')}}>Signup</Button>
+           <span>DON'T HAVE AN ACCOUNT?</span>
+          </FormField>
+          <FormField>
+           <Button onClick={() => {navigate('/signup')}}>SIGNUP</Button>
          </FormField>
        </form>
     )

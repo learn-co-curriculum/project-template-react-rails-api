@@ -23,3 +23,23 @@ html{
    display:flex;
    height: 100%
 }
+
+#avatar-container {
+    display: flex;
+    overflow-x: auto;
+    margin: 1rem 1rem;
+    max-width: calc(100vw - 2rem);
+    position: relative;
+    justify-content:center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    align-items: center;
+}
+
+img.avatar-icon {
+   max-width: 100px;
+   height: auto;
+   margin-left: 10px;
+   margin-right: 10px;
+}

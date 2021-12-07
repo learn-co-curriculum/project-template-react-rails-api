@@ -5,5 +5,7 @@ import Input from "./Input";
 import Label from "./Label";
 import Textarea from "./Textarea";
 import Error from "./Error";
+import UsernameField from "./UsernameField";
+import ChoiceDisplay from "./ChoiceDisplay";
 
-export { Box, Button, Error, FormField, Input, Label, Textarea };
+export { Box, Button, Error, FormField, Input, Label, Textarea, UsernameField, ChoiceDisplay };

@@ -24,9 +24,9 @@ function Header({user}) {
                    <img src="/images/home-icon.svg" alt=''/>
                    <span>HOME</span>
                </NavLink>
-               <NavLink className='links' to='/'>
+               <NavLink className='links' to={user? '/profile' : '/login'}>
                    <img src="/images/search-icon.svg" alt=''/>
-                   <span>PLAYERS</span>
+                   <span>PROFILE</span>
                </NavLink>
                <NavLink className='links' to='/play'>
                    <img src="/images/play-icon-white.png" alt=''/>
@@ -36,6 +36,7 @@ function Header({user}) {
                  <span>LEADERBOARD</span>
                </NavLink>
             </NavMenu>
+            <Welcome>{user? `HELLO, ${user.username.toUpperCase()}!` : null }</Welcome>
             <Login onClick={() => {navigate('/login')}}>{user === null ? "LOGIN" : "LOGOUT"}</Login>
         </Nav>
     )
@@ -126,5 +127,15 @@ const Login = styled.a`
     border-color: white;
   }
 `;
+
+const Welcome = styled.span`
+    color: rgb(249, 249, 249);
+    font-size: 13px;
+    letter-spacing: 1.42px;
+    line-height: 1.08;
+    padding: 0px 10px;
+    white-space: nowrap;
+    position: relative;
+`
 
 export default Header

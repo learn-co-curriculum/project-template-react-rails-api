@@ -33,14 +33,16 @@ class UsersController < ApplicationController
         end
     end
 
-    def add_points
+    def update_score
         user = User.find_by(id: params[:id])
+        user.change_score
+        render json: user
     end
 
     private
 
     def user_params
-        params.permit(:username, :password, :avatar_id, :points)
+        params.permit(:username, :password, :avatar_id, :score)
     end
 
 end

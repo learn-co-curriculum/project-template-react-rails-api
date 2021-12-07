@@ -1,19 +1,32 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
  
-function GameBoard() {
+function GameBoard({user, setUser}) {
     const [solution, setSolution] = useState('')
 
     const checkAnswer = (e) => {
         e.preventDefault();
+        console.log(user)
         if(solution === '233168') {
-            // need to add fetch here
-            console.log('correct!')
+            fetch(`/users/${user.id}`, {
+                
+                method: "PATCH",
+                headers: {
+                    "Content-Type" : "application/json",
+                },
+                body: JSON.stringify({
+                    score: user.score
+                })
+            })
+            .then(response => response.json())
+            .then(data => user.score = data.score)
         } else {
             // need to display message of incorrect here
             console.log('Incorrect')
         }
     }
+
+
 
     return (
         <Board>

@@ -15,7 +15,6 @@ class UsersController < ApplicationController
 
     def create
         user = User.create!(user_params)
-        byebug
         if user.valid?
             session[:user_id] = user.id
             render json: user, status: :created
@@ -34,10 +33,14 @@ class UsersController < ApplicationController
         end
     end
 
+    def add_points
+        user = User.find_by(id: params[:id])
+    end
+
     private
 
     def user_params
-        params.permit(:username, :password, :avatar_id)
+        params.permit(:username, :password, :avatar_id, :points)
     end
 
 end

@@ -13,6 +13,7 @@ const LeaderboardContent = styled.div`
     margin-top: 200px;
     position: relative;
     height: 100%;
+    align-items:center;
     box-sizing: border-box;
     display: flex;
     justify-content: center;

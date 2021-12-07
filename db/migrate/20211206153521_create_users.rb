@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :username
       t.string :password_digest
       t.belongs_to :avatar
-
+      t.integer :points, :array => true
       t.timestamps
     end
   end

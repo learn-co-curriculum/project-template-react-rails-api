@@ -13,7 +13,7 @@ function App() {
  
   return (
     <div className="App">
-      <Header user={user}/>
+      <Header setLoggedIn={setUser} loggedIn={user}/>
       <Routes>
         <Route exact path='/' element={<LandingPage />}/>
         <Route exact path='/login' element={user === null ? <Login onLogin={setUser}/> :null} />

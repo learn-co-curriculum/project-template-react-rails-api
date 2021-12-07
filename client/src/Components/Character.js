@@ -1,17 +1,12 @@
 import React from "react";
+import CharacterCard from "./CharacterCard";
 
-function Characters({ character: [name, age, image, bio] }) {
-  return (
-    <div class="Card">
-      <div>{name}</div>
-      <br></br>
-      <div>{age}</div>
-      <br></br>
-      <div>{image}</div>
-      <br></br>
-      <div>{bio}</div>
-    </div>
-  );
+function Characters({ character }) {
+  const renderCharacters = character.map((character) => (
+    <CharacterCard key={character.id} character={character} />
+  ));
+
+  return <div class="Card">{renderCharacters}</div>;
 }
 
 export default Characters;

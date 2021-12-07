@@ -1,11 +1,11 @@
-import React, { NavLink } from "react";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import Character from "./Character";
 import Equipment from "./Equipment";
 import HomePage from "./Homepage";
 import Minions from "./Minions";
 import NewCharacterForm from "./NewCharacterForm";
 import Outfits from "./Outfits";
-import SpAbilities from "./SpAbilities";
 import Spells from "./Spells";
 
 function NavBar() {
@@ -33,10 +33,6 @@ function NavBar() {
       <br></br>
       <NavLink to="/Outfits">
         <Outfits />
-      </NavLink>
-      <br></br>
-      <NavLink to="/SpAbilities">
-        <SpAbilities />
       </NavLink>
       <br></br>
       <NavLink to="/Spells">

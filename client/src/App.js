@@ -14,7 +14,7 @@ function App() {
  
   return (
     <div className="App">
-      <Header setLoggedIn={setUser} loggedIn={user}/>
+      <Header user={user}/>
       <Routes>
         <Route exact path='/' element={<LandingPage />}/>
         <Route exact path='/login' element={user === null ? <Login onLogin={setUser}/> :null} />

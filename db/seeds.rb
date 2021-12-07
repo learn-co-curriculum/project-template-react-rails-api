@@ -21,9 +21,9 @@ sorcerer = Avatar.create(name: "Sorcerer", img_url: "../client/public/images/ava
 wizard = Avatar.create(name: "Hiker", img_url: "../client/public/images/avatars/wizard.png")
 
 puts "Seeding users..."
-user1 = User.create(username: "Alex", password_digest: "123", avatar_id: dragon.id)
-user2 = User.create(username: "Joshua", password_digest: "123", avatar_id: crossbow.id)
-user3 = User.create(username: "Shannon", password_digest: "123", avatar_id: sorcerer.id)
+user1 = User.create(username: "Alex", password: "123", avatar_id: dragon.id)
+user2 = User.create(username: "Joshua", password: "123", avatar_id: crossbow.id)
+user3 = User.create(username: "Shannon", password: "123", avatar_id: sorcerer.id)
 
 puts "Seeding questions..."
 q1 = Question.create(question: "question 1", answer: "answer 1")

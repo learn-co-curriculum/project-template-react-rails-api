@@ -1,12 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import AssignAvatar from "./AssignAvatar";
 import { Button, Input, FormField, Label} from "../styles";
 
 function Signup({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [avatarUrl, setAvatar] = useState("");
+  const [avatar, setAvatar] = useState({});
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [avatars, setAvatars] = useState([])
+
+  useEffect(() => {
+    fetch('/avatars')
+      .then(resp => resp.json())
+      .then(data => {
+          console.log(data)
+          setAvatars(data)
+      });
+    }, []);
 
   function handleSubmit(e) {
       e.preventDefault();
@@ -19,9 +31,9 @@ function Signup({ onLogin }) {
               "Content-Type" : "application/json",
           },
           body: JSON.stringify({
-              username,
-              password,
-              avatar: avatarUrl
+              username: username,
+              password: password,
+              avatar: avatar
           }),
       })
       .then(response => {
@@ -59,13 +71,8 @@ function Signup({ onLogin }) {
         />
       </FormField>
       <FormField>
-        <Label htmlFor="imageUrl">Profile Image</Label>
-        <Input
-          type="text"
-          id="avatar"
-          value={avatarUrl}
-          onChange={(e) => setAvatar(e.target.value)}
-        />
+        <Label htmlFor="imageUrl">Choose Your Avatar</Label>
+        <AssignAvatar setAvatar={setAvatar} avatars ={avatars} />
       </FormField>
       <FormField>
         <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>

@@ -5,7 +5,7 @@ import '../App.css'
 import {useNavigate} from 'react-router-dom'
 import {Button} from '../styles'
 
-function Header({setLoggedIn, loggedIn}) {
+function Header({user}) {
     let navigate = useNavigate()
 
     function handleLogout() {
@@ -13,7 +13,7 @@ function Header({setLoggedIn, loggedIn}) {
       .then((response) => {
         if (response.ok) {
           navigate('/login')
-          setLoggedIn(null);
+          // setLoggedIn(null);
           console.log('hi')
 
         }
@@ -39,7 +39,7 @@ function Header({setLoggedIn, loggedIn}) {
                  <span>LEADERBOARD</span>
                </NavLink>
             </NavMenu>
-            { !loggedIn ? <Login onClick={() => {navigate('/login')}}>LOGIN</Login> : <Button onClick={() => handleLogout()}>LOGOUT</Button>}
+            <Login onClick={() => {navigate('/login')}}>{user === null ? "LOGIN" : "LOGOUT"}</Login>
         </Nav>
     )
 }
@@ -123,6 +123,7 @@ const Login = styled.a`
   border-radius: 4px;
   transition: all 0.2s ease 0s;
   &:hover {
+    cursor: pointer;
     background: gray;
     color: #000;
     border-color: white;

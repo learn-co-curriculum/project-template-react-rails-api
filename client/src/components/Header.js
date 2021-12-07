@@ -14,7 +14,6 @@ function Header({setLoggedIn, loggedIn}) {
         if (response.ok) {
           navigate('/login')
           setLoggedIn(null);
-          console.log('hi')
         }
       });
     }

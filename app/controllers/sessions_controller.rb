@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete :user_id
-        byebug
         head :no_content
     end
 end

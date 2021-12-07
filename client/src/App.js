@@ -9,8 +9,7 @@ import GameBoard from './components/GameBoard';
 
 function App() {
   const [user, setUser] = useState(null);
-
- 
+  
   return (
     <div className="App">
       <Header setLoggedIn={setUser} loggedIn={user}/>
@@ -18,7 +17,7 @@ function App() {
         <Route exact path='/' element={<LandingPage />}/>
         <Route exact path='/login' element={user === null ? <Login onLogin={setUser}/> :null} />
         <Route exact path='/signup' element={user === null ? <Signup onLogin={setUser}/> : null} />
-        <Route exact path='/play' element={<GameBoard/>} />
+        <Route exact path='/play' element={<GameBoard user={user} setUser={setUser}/>} />
       </Routes>
     </div>
   );

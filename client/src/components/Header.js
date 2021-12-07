@@ -13,7 +13,7 @@ function Header({user}) {
       .then((response) => {
         if (response.ok) {
           navigate('/login')
-          setLoggedIn(null);
+          // setLoggedIn(null);
           console.log('hi')
 
         }

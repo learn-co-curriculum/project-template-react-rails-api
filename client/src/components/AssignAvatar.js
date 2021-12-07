@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import {Input} from "../styles";
 
 function AssignAvatar({setAvatar, avatars}) {
 

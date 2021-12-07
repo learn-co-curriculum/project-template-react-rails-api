@@ -5,8 +5,7 @@ import Header from './components/Header';
 import LandingPage from './components/LandingPage';
 import {Routes, Route} from 'react-router-dom'
 import {useState} from 'react'
-import styled from 'styled-components';
-import {Button} from "./styles"
+import GameBoard from './components/GameBoard';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -19,6 +18,7 @@ function App() {
         <Route exact path='/' element={<LandingPage />}/>
         <Route exact path='/login' element={user === null ? <Login onLogin={setUser}/> :null} />
         <Route exact path='/signup' element={user === null ? <Signup onLogin={setUser}/> : null} />
+        <Route exact path='/play' element={<GameBoard/>} />
       </Routes>
     </div>
   );

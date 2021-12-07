@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import '../App.css'
 import {useNavigate} from 'react-router-dom'
-import {Button} from '../styles'
 
 function Header({user}) {
     let navigate = useNavigate()
@@ -13,9 +12,7 @@ function Header({user}) {
       .then((response) => {
         if (response.ok) {
           navigate('/login')
-          // setLoggedIn(null);
           console.log('hi')
-
         }
       });
     }
@@ -31,7 +28,7 @@ function Header({user}) {
                    <img src="/images/search-icon.svg" alt=''/>
                    <span>PLAYERS</span>
                </NavLink>
-               <NavLink className='links' to='/'>
+               <NavLink className='links' to='/play'>
                    <img src="/images/play-icon-white.png" alt=''/>
                    <span>PLAY</span>
                </NavLink>

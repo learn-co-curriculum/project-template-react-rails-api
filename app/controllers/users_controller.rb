@@ -20,6 +20,7 @@ class UsersController < ApplicationController
             render json: user, status: :created
         else
             render json: user.errors.full_messages, status: :unprocessable_entity
+        end
     end
 
     def destroy 
@@ -32,10 +33,16 @@ class UsersController < ApplicationController
         end
     end
 
+    def update_score
+        user = User.find_by(id: params[:id])
+        user.change_score
+        render json: user
+    end
+
     private
 
     def user_params
-        params.permit(:username, :password, :avatar_id)
+        params.permit(:username, :password, :avatar_id, :score)
     end
 
 end

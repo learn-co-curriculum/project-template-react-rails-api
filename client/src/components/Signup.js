@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AssignAvatar from "./AssignAvatar";
-import { Button, Input, FormField, Label} from "../styles";
+import styled from "styled-components";
+import { Button, Input, FormField, Label, UsernameField, ChoiceDisplay } from "../styles";
 
 function Signup({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -8,7 +9,6 @@ function Signup({ onLogin }) {
   const [avatar, setAvatar] = useState({});
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
   const [avatars, setAvatars] = useState([])
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function Signup({ onLogin }) {
           body: JSON.stringify({
               username: username,
               password: password,
-              avatar: avatar
+              avatar_id: avatar.id
           }),
       })
       .then(response => {
@@ -50,7 +50,7 @@ function Signup({ onLogin }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <FormField>
+      <UsernameField>
         <Label htmlFor="username">Username</Label>
         <Input
           type="text"
@@ -59,7 +59,7 @@ function Signup({ onLogin }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-      </FormField>
+      </UsernameField>
       <FormField>
         <Label htmlFor="password">Password</Label>
         <Input
@@ -72,7 +72,10 @@ function Signup({ onLogin }) {
       </FormField>
       <FormField>
         <Label htmlFor="imageUrl">Choose Your Avatar</Label>
-        <AssignAvatar setAvatar={setAvatar} avatars ={avatars} />
+      </FormField>
+        <AssignAvatar setAvatar={setAvatar} avatars={avatars} />
+      <FormField>
+        <ChoiceDisplay>{avatar.name ? avatar.name : "Click an Image"}</ChoiceDisplay>
       </FormField>
       <FormField>
         <Button type="submit">{isLoading ? "Loading..." : "Sign Up"}</Button>
@@ -81,3 +84,14 @@ function Signup({ onLogin }) {
   );
 }
 export default Signup
+
+
+// const UsernameField = styled.div`
+//     display: flex;
+//     position: relative;
+//     justify-content:center;
+//     margin-top: 100px;
+//     margin-left: 20px;
+//     margin-right: 20px;
+//     align-items: center;
+// `;

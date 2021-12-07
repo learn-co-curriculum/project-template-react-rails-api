@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2021_12_06_153829) do
     t.string "username"
     t.string "password_digest"
     t.bigint "avatar_id"
+    t.integer "score", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["avatar_id"], name: "index_users_on_avatar_id"

@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-const FormField = styled.div`
+const UsernameField = styled.div`
     display: flex;
     position: relative;
     justify-content:center;
-    margin-top: 30px;
+    margin-top: 100px;
     margin-left: 20px;
     margin-right: 20px;
     align-items: center;
 `;
 
-export default FormField;
+export default UsernameField;

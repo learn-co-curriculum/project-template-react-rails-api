@@ -5,7 +5,7 @@ import '../App.css'
 import {useNavigate} from 'react-router-dom'
 import {Button} from '../styles'
 
-function Header({user}) {
+function Header({setLoggedIn, loggedIn}) {
     let navigate = useNavigate()
 
     function handleLogout() {
@@ -13,9 +13,7 @@ function Header({user}) {
       .then((response) => {
         if (response.ok) {
           navigate('/login')
-          // setLoggedIn(null);
-          console.log('hi')
-
+          setLoggedIn(null);
         }
       });
     }
@@ -27,11 +25,11 @@ function Header({user}) {
                    <img src="/images/home-icon.svg" alt=''/>
                    <span>HOME</span>
                </NavLink>
-               <NavLink className='links' to='/'>
+               <NavLink className='links' to={user? '/profile' : '/login'}>
                    <img src="/images/search-icon.svg" alt=''/>
-                   <span>PLAYERS</span>
+                   <span>PROFILE</span>
                </NavLink>
-               <NavLink className='links' to='/'>
+               <NavLink className='links' to='/play'>
                    <img src="/images/play-icon-white.png" alt=''/>
                    <span>PLAY</span>
                </NavLink>
@@ -39,7 +37,8 @@ function Header({user}) {
                  <span>LEADERBOARD</span>
                </NavLink>
             </NavMenu>
-            <Login onClick={() => {navigate('/login')}}>{user === null ? "LOGIN" : "LOGOUT"}</Login>
+            <Welcome>{user? `HELLO, ${user.username.toUpperCase()}!` : null }</Welcome>
+            { !loggedIn ? <Login onClick={() => {navigate('/login')}}>LOGIN</Login> : <Button onClick={() => handleLogout()}>LOGOUT</Button>}
         </Nav>
     )
 }
@@ -129,5 +128,15 @@ const Login = styled.a`
     border-color: white;
   }
 `;
+
+const Welcome = styled.span`
+    color: rgb(249, 249, 249);
+    font-size: 13px;
+    letter-spacing: 1.42px;
+    line-height: 1.08;
+    padding: 0px 10px;
+    white-space: nowrap;
+    position: relative;
+`
 
 export default Header

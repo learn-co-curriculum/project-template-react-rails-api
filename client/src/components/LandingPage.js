@@ -5,6 +5,7 @@ function LandingPage() {
     return (
         <LandingPageContent>
             <h1>Mount Algo</h1>
+            <div class="subheading-fade">Algorithm Adventures Await!</div>
         </LandingPageContent>
     )
 }
@@ -14,7 +15,7 @@ const LandingPageContent = styled.div`
     height: 100%;
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     color: #4f2004;
     font-family: "Copperplate", fantasy
 `

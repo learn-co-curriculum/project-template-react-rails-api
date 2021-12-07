@@ -124,7 +124,7 @@ const Login = styled.a`
   transition: all 0.2s ease 0s;
   &:hover {
     cursor: pointer;
-    background: gray;
+    background: #febd97;
     color: #000;
     border-color: white;
   }

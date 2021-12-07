@@ -4,17 +4,20 @@ import styled from 'styled-components'
 function LandingPage() {
     return (
         <LandingPageContent>
-            <h1>MountAlgo</h1>
+            <h1>Mount Algo</h1>
+            <h3 class="subheading-fade">Algorithm Adventures Await!</h3>
         </LandingPageContent>
     )
 }
+
 const LandingPageContent = styled.div`
     margin-top: 150px;
     position: relative;
     height: 100%;
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
+    justify-content: left;
+    color: #4f2004;
+    font-family: "Copperplate", fantasy
 `
 export default LandingPage
 

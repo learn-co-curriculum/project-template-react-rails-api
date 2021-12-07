@@ -23,13 +23,14 @@ function App() {
 
   return (
     <div className="App">
-      <Header user={user}/>
+      <Header setLoggedIn={setUser} loggedIn={user}/>
       <Routes>
         <Route exact path='/' element={<LandingPage/>}/>
         <Route exact path='/login' element={user === null ? <Login onLogin={setUser}/> : null} />
         <Route exact path='/signup' element={user === null ? <Signup onLogin={setUser}/> : null} />
-        <Route exact path='/play' element={<GameBoard/>} />
+        <Route exact path='/play' element={<GameBoard user={user} setUser={setUser}/>} />
         <Route exact path= '/profile' element={user? <Profile user={user} questions={questions} /> : null} />
+
       </Routes>
     </div>
   );

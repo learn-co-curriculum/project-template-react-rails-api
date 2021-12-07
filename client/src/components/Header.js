@@ -3,8 +3,9 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import '../App.css'
 import {useNavigate} from 'react-router-dom'
+import {Button} from '../styles'
 
-function Header({user}) {
+function Header({setLoggedIn, loggedIn}) {
     let navigate = useNavigate()
 
     function handleLogout() {
@@ -12,7 +13,7 @@ function Header({user}) {
       .then((response) => {
         if (response.ok) {
           navigate('/login')
-          console.log('hi')
+          setLoggedIn(null);
         }
       });
     }
@@ -37,7 +38,7 @@ function Header({user}) {
                </NavLink>
             </NavMenu>
             <Welcome>{user? `HELLO, ${user.username.toUpperCase()}!` : null }</Welcome>
-            <Login onClick={() => {navigate('/login')}}>{user === null ? "LOGIN" : "LOGOUT"}</Login>
+            { !loggedIn ? <Login onClick={() => {navigate('/login')}}>LOGIN</Login> : <Button onClick={() => handleLogout()}>LOGOUT</Button>}
         </Nav>
     )
 }

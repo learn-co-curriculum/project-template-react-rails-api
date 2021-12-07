@@ -4,7 +4,7 @@ import styled from 'styled-components'
 function LandingPage() {
     return (
         <LandingPageContent>
-            <h1>MountAlgo</h1>
+            <h1>Mount Algo</h1>
         </LandingPageContent>
     )
 }
@@ -15,6 +15,8 @@ const LandingPageContent = styled.div`
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    color: #4f2004;
+    font-family: "Copperplate", fantasy
 `
 export default LandingPage
 

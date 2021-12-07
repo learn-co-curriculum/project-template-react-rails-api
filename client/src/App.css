@@ -1,7 +1,12 @@
 html{
     scroll-behavior: smooth;
     width: 100%;
-    height: 100%
+    height: 100%;
+    background: url("/root/Flatiron-Projects/Mount_Algo/client/src/assets/MtAlgo.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 * {
@@ -11,6 +16,7 @@ html{
 
 .links {
     text-decoration: none;
+    font-family: Garamond, serif
 }
 
 .form {
@@ -19,3 +25,40 @@ html{
    display:flex;
    height: 100%
 }
+
+h1 {
+  font-size: 2.5em;
+  margin-left: 20%;  
+}
+
+.subheading-fade {
+    display: inline-block;
+    font-family: Garamond, serif;
+    font-size: 1.75em;
+    color:  #4f2004;
+    animation: fadeIn linear 7s;
+    -webkit-animation: fadeIn linear 7s;
+    -moz-animation: fadeIn linear 7s;
+    -o-animation: fadeIn linear 7s;
+    -ms-animation: fadeIn linear 7s;
+  }
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }

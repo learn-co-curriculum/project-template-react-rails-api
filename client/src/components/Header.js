@@ -5,7 +5,7 @@ import '../App.css'
 import {useNavigate} from 'react-router-dom'
 import {Button} from '../styles'
 
-function Header({setLoggedIn, loggedIn}) {
+function Header({user}) {
     let navigate = useNavigate()
 
     function handleLogout() {
@@ -13,7 +13,7 @@ function Header({setLoggedIn, loggedIn}) {
       .then((response) => {
         if (response.ok) {
           navigate('/login')
-          setLoggedIn(null);
+          // setLoggedIn(null);
           console.log('hi')
 
         }
@@ -29,14 +29,17 @@ function Header({setLoggedIn, loggedIn}) {
                </NavLink>
                <NavLink className='links' to='/'>
                    <img src="/images/search-icon.svg" alt=''/>
-                   <span>SEARCH</span>
+                   <span>PLAYERS</span>
                </NavLink>
                <NavLink className='links' to='/'>
                    <img src="/images/play-icon-white.png" alt=''/>
                    <span>PLAY</span>
                </NavLink>
+               <NavLink className='links' to='/'>
+                 <span>LEADERBOARD</span>
+               </NavLink>
             </NavMenu>
-            { !loggedIn ? <Login onClick={() => {navigate('/login')}}>LOGIN</Login> : <Button onClick={() => handleLogout()}>LOGOUT</Button>}
+            <Login onClick={() => {navigate('/login')}}>{user === null ? "LOGIN" : "LOGOUT"}</Login>
         </Nav>
     )
 }
@@ -46,7 +49,7 @@ const Nav = styled.nav`
     left: 0;
     right: 0;
     height: 60px;
-    background-color: #090b13;
+    background-color: #4f2004;
     display: flex;
     justify-content: space-between;
     align-items:center;
@@ -120,7 +123,8 @@ const Login = styled.a`
   border-radius: 4px;
   transition: all 0.2s ease 0s;
   &:hover {
-    background: gray;
+    cursor: pointer;
+    background: #febd97;
     color: #000;
     border-color: white;
   }

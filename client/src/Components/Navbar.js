@@ -1,4 +1,12 @@
-import React from "react";
+import React, { NavLink } from "react";
+import Character from "./Character";
+import Equipment from "./Equipment";
+import HomePage from "./Homepage";
+import Minions from "./Minions";
+import NewCharacterForm from "./NewCharacterForm";
+import Outfits from "./Outfits";
+import SpAbilities from "./SpAbilities";
+import Spells from "./Spells";
 
 function NavBar() {
   return (
@@ -27,8 +35,8 @@ function NavBar() {
         <Outfits />
       </NavLink>
       <br></br>
-      <NavLink to="/SpAbilites">
-        <SpAbilites />
+      <NavLink to="/SpAbilities">
+        <SpAbilities />
       </NavLink>
       <br></br>
       <NavLink to="/Spells">
@@ -39,4 +47,4 @@ function NavBar() {
   );
 }
 
-export default NavBar; 
+export default NavBar;

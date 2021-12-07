@@ -12,12 +12,12 @@ import SpAbilities from "./SpAbilities";
 import Spells from "./Spells";
 
 function App() {
-  let MY_URL = "http://localhost:3000";
+  let MY_URL = "http://localhost:4000";
 
   useEffect(() => {
     fetch(MY_URL)
       .then((resp) => resp.json())
-      .then(resp => console.log(resp));
+      .then((resp) => console.log(resp));
 
     return (
       <div className="App">
@@ -54,4 +54,4 @@ function App() {
   });
 }
 
-export default App; 
+export default App;

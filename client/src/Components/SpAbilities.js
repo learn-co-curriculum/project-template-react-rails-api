@@ -8,4 +8,4 @@ function SpAbilities() {
   );
 }
 
-export default Spabilities;
+export default SpAbilities;

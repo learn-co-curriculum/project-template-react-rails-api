@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 function NewCharacterForm({ setNewCharacter }) {
   const initialvalue = {
     name: "",
@@ -29,14 +28,14 @@ function NewCharacterForm({ setNewCharacter }) {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        setVintage((currentNewCharacter) => [...currentNewCharacter, data]);
-        setNewVintage(initialvalue);
+        setNewCharacter((currentNewCharacter) => [
+          ...currentNewCharacter,
+          data,
+        ]);
+        setNewCharacter(initialvalue);
       });
   }
 
-  function submitDropdown(e) {
-    e.preventDefault();
-  }
   return (
     <main className="NewCharacterForm">
       <h2>New Character</h2>

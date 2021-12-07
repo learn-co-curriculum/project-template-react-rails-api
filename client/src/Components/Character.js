@@ -8,4 +8,4 @@ function Characters() {
   );
 }
 
-export default Character;
+export default Characters;

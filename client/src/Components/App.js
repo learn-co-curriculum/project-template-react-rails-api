@@ -5,7 +5,7 @@ import Character from "./Character";
 import Equipment from "./Equipment";
 import Homepage from "./Homepage";
 import Minions from "./Minions";
-import NavBar from "./NavBar";
+import NavBar from "./Navbar";
 import NewCharacterForm from "./NewCharacterForm";
 import Outfits from "./Outfits";
 import SpAbilities from "./SpAbilities";
@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     fetch(MY_URL)
       .then((resp) => resp.json())
-      .then(console.log(data));
+      .then(resp => console.log(resp));
 
     return (
       <div className="App">
@@ -53,3 +53,5 @@ function App() {
     );
   });
 }
+
+export default App; 

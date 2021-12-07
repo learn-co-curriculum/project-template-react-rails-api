@@ -1,11 +1,12 @@
 import React from "react";
+import EquipmentCard from "./EquipmentCard";
 
-function Equipment() {
-  return (
-    <div>
-      <br></br>
-    </div>
-  );
+function Equipments({ equipments }) {
+  const renderEquipments = equipments.map((equipment) => (
+    <EquipmentCard key={equipment.id} equipment={equipment} />
+  ));
+
+  return <div class="Card">{renderEquipments}</div>;
 }
 
-export default Equipment;
+export default Equipments;

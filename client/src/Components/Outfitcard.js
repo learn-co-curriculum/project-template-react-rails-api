@@ -1,4 +1,4 @@
-import './index.css';
+// import './index.css';
 
 function OutfitCard({outfit: {name, effect, range, image, type, id}}){
     return (
@@ -15,4 +15,4 @@ function OutfitCard({outfit: {name, effect, range, image, type, id}}){
         </div>
     )
 }
-export default SpellsCard
+export default OutfitCard

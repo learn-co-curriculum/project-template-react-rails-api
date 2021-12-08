@@ -2,7 +2,7 @@ import React from "react";
 import MinionCard from "./MinionCard";
 
 function Minions({ minions }) {
-  const renderMinions = minion.map((minion) => (
+  const renderMinions = minions.map((minion) => (
     <MinionCard key={minion.id} minion={minion} />
   ));
 

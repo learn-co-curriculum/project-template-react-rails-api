@@ -1,6 +1,6 @@
-import './index.css';
+// import './index.css';
 
-function SpellCard({spell: {name, effect, range, image, type, id}}){
+function SpellsCard({spell: {name, effect, range, image, type, id}}){
     return (
         <div class= "card">
             <div >{name}</div> 

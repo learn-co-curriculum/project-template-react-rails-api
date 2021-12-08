@@ -7,7 +7,7 @@ function CharacterCard({ characterCard: { name, age, image, bio, id } }) {
       <br></br>
       <div>{bio}</div>
       <br></br>
-      <img src={image} />
+      <img src={image}/>
     </div>
   );
 }

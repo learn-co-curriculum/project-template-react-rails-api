@@ -1,8 +1,8 @@
 import React from "react";
 import EquipmentCard from "./EquipmentCard";
 
-function Equipments({ equipments }) {
-  const renderEquipments = equipments.map((equipment) => (
+function Equipments({ equipment }) {
+  const renderEquipments = equipment.map((equipment) => (
     <EquipmentCard key={equipment.id} equipment={equipment} />
   ));
 

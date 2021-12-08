@@ -1,18 +1,16 @@
-import './index.css';
-
-function OutfitCard({outfit: {name, effect, range, image, type, id}}){
-    return (
-        <div class= "card">
-            <div >{name}</div> 
-            <br></br>
-            <div>{type}</div>
-            <br></br>
-            <div >{effect}</div>
-            <br></br>
-            <div>{range}</div>
-            <br></br>
-            <img src={image}/>
-        </div>
-    )
+function OutfitCard({ outfit: { name, effect, range, image, type, id } }) {
+  return (
+    <div class="card">
+      <div>{name}</div>
+      <br></br>
+      <div>{type}</div>
+      <br></br>
+      <div>{effect}</div>
+      <br></br>
+      <div>{range}</div>
+      <br></br>
+      <img src={image} />
+    </div>
+  );
 }
-export default SpellsCard
+export default OutfitCard;

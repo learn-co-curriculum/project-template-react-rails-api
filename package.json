@@ -11,6 +11,7 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "react-confetti": "^6.0.1",
     "react-router-dom": "^6.0.2",
     "styled-components": "^5.3.3"
   }

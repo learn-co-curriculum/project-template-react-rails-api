@@ -15,7 +15,6 @@ function Signup({ onLogin }) {
     fetch('/avatars')
       .then(resp => resp.json())
       .then(data => {
-          console.log(data)
           setAvatars(data)
       });
     }, []);

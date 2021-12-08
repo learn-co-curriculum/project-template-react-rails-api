@@ -26,7 +26,11 @@ user2 = User.create(username: "Joshua", password: "123", avatar_id: crossbow.id)
 user3 = User.create(username: "Shannon", password: "123", avatar_id: sorcerer.id)
 
 puts "Seeding questions..."
-q1 = Question.create(question: "question 1", answer: "answer 1")
+q1 = Question.create(question: "
+    If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000.
+    ", answer: "answer 1")
+
+
 q2 = Question.create(question: "question 2", answer: "answer 2")
 q3 = Question.create(question: "question 3", answer: "answer 3")
 q4 = Question.create(question: "question 4", answer: "answer 4")

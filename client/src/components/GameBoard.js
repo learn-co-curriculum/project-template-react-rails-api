@@ -1,13 +1,20 @@
 import React, {useState} from 'react'
+import { Navigate } from 'react-router'
 import styled from 'styled-components'
- 
-function GameBoard({user, setUser}) {
+import {prompts} from './prompts n solution/prompt.js'
+import {solutions} from './prompts n solution/solution.js'
+import {useNavigate} from 'react-router-dom'
+function GameBoard({user}) {
+    let navigate = useNavigate()
+    if(user === null) {
+        alert("Please login or create an account to play.")
+        navigate('./login')
+    }
     const [solution, setSolution] = useState('')
-
     const checkAnswer = (e) => {
         e.preventDefault();
         console.log(user)
-        if(solution === '233168') {
+        if(solution === `${solutions[user.score]}`) {
             fetch(`/users/${user.id}`, {
                 
                 method: "PATCH",
@@ -22,20 +29,22 @@ function GameBoard({user, setUser}) {
             .then(data => user.score = data.score)
         } else {
             // need to display message of incorrect here
-            console.log('Incorrect')
+            console.log('Incorrect Solution: ' + solution )
         }
     }
 
-
-
     return (
         <Board>
-            <h3>{`Welcome user_name, the avatar_name.`}</h3>
-            <Instructions>
+            <h3>
+                {user !== null ?`Welcome ${user.username}, the ${user.avatar.name}.` : null}
+            </h3>
+
+        
+            {/* <Instructions>
                 To complete these challenges you will need to open your favorite IDE. We reccomend writing your code in the IDE and then running it in the browser console to test output. Copy the output and paste it into the solution field below. 
-            </Instructions>
+            </Instructions> */}
             <Prompt>
-            If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000.
+                {user !== null ? user.score <= 5 ? prompts[user.score] : alert("You've completed all the quest-tions!"): null}
             </Prompt>
             <form className="form" onSubmit={checkAnswer}>
             <SolutionInput type="text"

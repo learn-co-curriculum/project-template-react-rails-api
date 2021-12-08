@@ -29,7 +29,7 @@ function Header({setLoggedIn, loggedIn}) {
                    <img src="/images/search-icon.svg" alt=''/>
                    <span>PROFILE</span>
                </NavLink>
-               <NavLink className='links' to='/play'>
+               <NavLink className='links' to={loggedIn? '/play' : '/login'}>
                    <img src="/images/play-icon-white.png" alt=''/>
                    <span>PLAY</span>
                </NavLink>
@@ -37,7 +37,7 @@ function Header({setLoggedIn, loggedIn}) {
                  <span>LEADERBOARD</span>
                </NavLink>
             </NavMenu>
-            <Welcome>{loggedIn? `HELLO, ${loggedIn.username.toUpperCase()}!` : null }</Welcome>
+            <Welcome>{loggedIn ? `HELLO, ${loggedIn.username.toUpperCase()}!` : null }</Welcome>
             { !loggedIn ? <Login onClick={() => {navigate('/login')}}>LOGIN</Login> : <Button onClick={() => handleLogout()}>LOGOUT</Button>}
         </Nav>
     )
@@ -123,7 +123,7 @@ const Login = styled.a`
   transition: all 0.2s ease 0s;
   &:hover {
     cursor: pointer;
-    background: gray;
+    background: #febd97;
     color: #000;
     border-color: white;
   }

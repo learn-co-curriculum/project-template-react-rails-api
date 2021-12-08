@@ -15,14 +15,53 @@ html{
 
 .links {
     text-decoration: none;
+    font-family: Garamond, serif
 }
-
+/* 
 .form {
    margin-top: 100px;
    width: 60%;
    display:flex;
    height: 100%
+} */
+
+<<<<<<< HEAD
+h1 {
+  font-size: 2.5em;
+  margin-left: 20%;  
 }
+
+.subheading-fade {
+    display: inline-block;
+    font-family: Garamond, serif;
+    font-size: 1.75em;
+    color:  #4f2004;
+    animation: fadeIn linear 7s;
+    -webkit-animation: fadeIn linear 7s;
+    -moz-animation: fadeIn linear 7s;
+    -o-animation: fadeIn linear 7s;
+    -ms-animation: fadeIn linear 7s;
+  }
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
 
 #avatar-container {
     display: flex;

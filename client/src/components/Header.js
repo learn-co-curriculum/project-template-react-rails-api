@@ -25,7 +25,7 @@ function Header({setLoggedIn, loggedIn}) {
                    <img src="/images/home-icon.svg" alt=''/>
                    <span>HOME</span>
                </NavLink>
-               <NavLink className='links' to={user? '/profile' : '/login'}>
+               <NavLink className='links' to={loggedIn? '/profile' : '/login'}>
                    <img src="/images/search-icon.svg" alt=''/>
                    <span>PROFILE</span>
                </NavLink>
@@ -37,7 +37,7 @@ function Header({setLoggedIn, loggedIn}) {
                  <span>LEADERBOARD</span>
                </NavLink>
             </NavMenu>
-            <Welcome>{user? `HELLO, ${user.username.toUpperCase()}!` : null }</Welcome>
+            <Welcome>{loggedIn? `HELLO, ${loggedIn.username.toUpperCase()}!` : null }</Welcome>
             { !loggedIn ? <Login onClick={() => {navigate('/login')}}>LOGIN</Login> : <Button onClick={() => handleLogout()}>LOGOUT</Button>}
         </Nav>
     )

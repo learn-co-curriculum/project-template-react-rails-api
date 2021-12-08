@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
-import { Navigate } from 'react-router'
+import { Navigate, useNavigate } from 'react-router'
 import styled from 'styled-components'
 import {prompts} from './prompts n solution/prompt.js'
 import {solutions} from './prompts n solution/solution.js'
 
 function GameBoard({user}) {
-    
+    let navigate = useNavigate()
     const [solution, setSolution] = useState('')
     const checkAnswer = (e) => {
         e.preventDefault();
@@ -22,7 +22,10 @@ function GameBoard({user}) {
                 })
             })
             .then(response => response.json())
-            .then(data => user.score = data.score)
+            .then(data => {
+                user.score = data.score
+                navigate('/play')
+            })
         } else {
             // need to display message of incorrect here
             console.log('Incorrect Solution: ' + solution )
@@ -38,9 +41,10 @@ function GameBoard({user}) {
             {/* <Instructions>
                 To complete these challenges you will need to open your favorite IDE. We reccomend writing your code in the IDE and then running it in the browser console to test output. Copy the output and paste it into the solution field below. 
             </Instructions> */}
-            
+
             <Prompt>
-                {user.score <= 5 ? prompts[user.score] : alert("You've completed all the quest-tions!")}
+                {}
+                {user.score <= 5 ? `Quest ${user.score}: ${prompts[user.score]}` : alert("You've completed all the quest-tions!")}
             </Prompt>
             <form className="form" onSubmit={checkAnswer}>
             <SolutionInput type="text"

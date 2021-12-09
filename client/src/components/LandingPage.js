@@ -21,9 +21,12 @@ function LandingPage() {
 const MtAlgoHeader = styled.div`
     margin-top: 150px;
     position: relative;
+    display: flex-column;
     height: 100%;
     box-sizing: border-box;
-    justify-content: left;
+    margin-left: auto;
+    margin-right: auto;
+    align-items:center;
     color: #4f2004;
     font-family: "Copperplate", fantasy;
     h1.font-size: 200%

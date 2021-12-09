@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import '../App.css'
@@ -8,6 +8,7 @@ import {Button} from '../styles'
 function Header({setLoggedIn, loggedIn}) {
     let navigate = useNavigate()
 
+    
     function handleLogout() {
       fetch("/logout", { method: "DELETE" })
       .then((response) => {

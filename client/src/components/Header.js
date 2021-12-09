@@ -34,7 +34,8 @@ function Header({setLoggedIn, loggedIn}) {
                    <span>PLAY</span>
                </NavLink>
                <NavLink className='links' to='/leaderboard'>
-                 <span>LEADERBOARD</span>
+                 <img src="/images/trophy-3-256.png" alt=''/>   
+                 <span>   LEADERBOARD</span>
                </NavLink>
             </NavMenu>
             <Welcome>{loggedIn ? `HELLO, ${loggedIn.username.toUpperCase()}!` : null }</Welcome>

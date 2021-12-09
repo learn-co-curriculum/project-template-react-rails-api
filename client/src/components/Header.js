@@ -33,7 +33,7 @@ function Header({setLoggedIn, loggedIn}) {
                    <img src="/images/play-icon-white.png" alt=''/>
                    <span>PLAY</span>
                </NavLink>
-               <NavLink className='links' to='/'>
+               <NavLink className='links' to='/leaderboard'>
                  <span>LEADERBOARD</span>
                </NavLink>
             </NavMenu>

@@ -7,6 +7,7 @@ import Profile from './components/Profile';
 import {Routes, Route} from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import GameBoard from './components/GameBoard';
+import Leaderboard from './components/Leaderboard'
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,7 +30,7 @@ function App() {
         <Route exact path='/signup' element={user === null ? <Signup onLogin={setUser}/> : null} />
         <Route exact path='/play' element={<GameBoard user={user} setUser={setUser}/>} />
         <Route exact path= '/profile' element={user? <Profile user={user} questions={questions} /> : null} />
-
+        <Route exact path='/leaderboard' element={<Leaderboard />} />
       </Routes>
     </div>
   );

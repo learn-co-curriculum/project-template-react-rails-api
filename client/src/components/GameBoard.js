@@ -1,18 +1,20 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import {prompts} from './prompts n solution/prompt.js'
 import {solutions} from './prompts n solution/solution.js'
 import VictoryPage from './VictoryPage.js'
+import {useNavigate} from 'react-router-dom'
 
 function GameBoard({user}) {
-    
+    let navigate = useNavigate()
     const [solution, setSolution] = useState('')
-    const checkAnswer = (e) => {
-        e.preventDefault();
-        console.log(user)
+    const [hideInstructions, setHideInstructions] = useState(true)
+    
+    const checkAnswer = (e) => {    
+        e.preventDefault()
         if(solution === `${solutions[user.score]}`) {
+            navigate('/play')
             fetch(`/users/${user.id}`, {
-                
                 method: "PATCH",
                 headers: {
                     "Content-Type" : "application/json",
@@ -29,18 +31,23 @@ function GameBoard({user}) {
         }
     }
 
+    const toggleInstructions = () => {
+        setHideInstructions(!hideInstructions)
+    }
     return (
         <Board>
             <h3>
                 {`Welcome ${user.username}, the ${user.avatar.name}.`}
             </h3>
 
-            {/* <Instructions>
-                To complete these challenges you will need to open your favorite IDE. We reccomend writing your code in the IDE and then running it in the browser console to test output. Copy the output and paste it into the solution field below. 
-            </Instructions> */}
+            <Instructions>
+                <button onClick={() => toggleInstructions()}>
+                    INSTRUCTIONS
+                </button>
+                {hideInstructions ? "To complete these challenges you will need to open your favorite IDE. We reccomend writing your code in the IDE and then running it in the browser console to test output. Copy the output and paste it into the solution field below." : null}
+            </Instructions>
             
             <Prompt>
-                
                 {user.score < 5 ? `Quest ${user.score + 1}: ${prompts[user.score]}` : <VictoryPage />}
             </Prompt>
             <form className="form" onSubmit={checkAnswer}>

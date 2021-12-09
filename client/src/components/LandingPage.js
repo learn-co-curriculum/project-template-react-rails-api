@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {useNavigate} from 'react-router-dom'
 import {Button} from "../styles"
 
-function LandingPage() {
+function LandingPage({isLoggedIn}) {
     const navigate = useNavigate();
     return (
         <div>
@@ -12,7 +12,7 @@ function LandingPage() {
             <h3 class="subheading-fade">Algorithm Adventures Await!</h3>
         </MtAlgoHeader>
                     <PlayNowBtn>
-            <Button onClick={() => {navigate('/login')}}>PLAY NOW!</Button>
+            <Button onClick={() => {isLoggedIn ? navigate('/play') : navigate('/login')}}>PLAY NOW!</Button>
             </PlayNowBtn>
         </div>
     )

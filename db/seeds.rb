@@ -18,7 +18,7 @@ dragon = Avatar.create(name: "Dragon", img_url: "/images/avatars/dragon.png")
 druid = Avatar.create(name: "Druid", img_url: "/images/avatars/druid.png")
 knight = Avatar.create(name: "Knight", img_url: "/images/avatars/knight.png")
 sorcerer = Avatar.create(name: "Sorcerer", img_url: "/images/avatars/magician.png") 
-wizard = Avatar.create(name: "Hiker", img_url: "/images/avatars/wizard.png")
+wizard = Avatar.create(name: "Wizard", img_url: "/images/avatars/wizard.png")
 
 puts "Seeding users..."
 user1 = User.create(username: "Alex", password: "123", avatar_id: dragon.id)

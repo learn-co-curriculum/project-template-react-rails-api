@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import AssignAvatar from "./AssignAvatar";
 import styled from "styled-components";
 import { Button, Input, FormField, Label, UsernameField, ChoiceDisplay } from "../styles";
+import {useNavigate} from 'react-router-dom'
 
 function Signup({ onLogin }) {
+  const navigate = useNavigate()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState({});
@@ -40,6 +42,7 @@ function Signup({ onLogin }) {
           if(response.ok) {
               response.json()
               .then(user => onLogin(user));
+              navigate('/')
           } else {
               response.json()
               .then(error => setErrors(error.errors))

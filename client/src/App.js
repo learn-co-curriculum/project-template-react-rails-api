@@ -29,7 +29,7 @@ function App() {
         <Route exact path='/login' element={user === null ? <Login onLogin={setUser}/> : null} />
         <Route exact path='/signup' element={user === null ? <Signup onLogin={setUser}/> : null} />
         <Route exact path='/play' element={<GameBoard user={user} setUser={setUser}/>} />
-        <Route exact path= '/profile' element={user? <Profile user={user} questions={questions} /> : null} />
+        <Route exact path= '/profile' element={user? <Profile user={user} resetUser={setUser} questions={questions} /> : null} />
         <Route exact path='/leaderboard' element={<Leaderboard />} />
       </Routes>
     </div>

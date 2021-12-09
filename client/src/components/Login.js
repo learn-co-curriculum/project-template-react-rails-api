@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Button, Error, Input, FormField, Label, UsernameField } from "../styles";
 import {useNavigate} from 'react-router-dom'
+import swal from 'sweetalert'
 
 function Login({onLogin}) {
     const navigate = useNavigate();
@@ -23,9 +24,14 @@ function Login({onLogin}) {
           if (resp.ok) {
             resp.json()
             .then((user) => onLogin(user));
+            navigate('/')
           } else {
               resp.json()
-             .then((error) => setErrors(error.errors))
+             .then((error) => {
+               setErrors(error.errors)
+               swal(`Invalid username or password`)
+             })
+             
           }
         });
       }

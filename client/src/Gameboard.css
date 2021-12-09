@@ -1,0 +1,115 @@
+#gameboard {
+    background-color: #F8CCA790;
+    margin: 90px;
+    margin-top: 130px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-gap: 10px;
+    border: 2.5px solid #363636;
+    border-radius: 15px;
+}
+
+.greeting {
+    grid-column: 1 / span 5;
+    margin-left: 10px;
+}
+
+.question-text {
+    grid-column: 1 / span 5;
+    grid-row: 2 / span 3;
+}
+
+.input-field {
+    grid-column: 1 / span 4;
+    grid-row: 5 / span 1;
+}
+
+.end {
+    grid-column: 2 / span 2;
+    grid-row: 5 / span 1;
+}
+
+.q1-avatar {
+    grid-column: 8;
+    grid-row: 6;
+}
+
+.q2-avatar {
+    grid-column: 7;
+    grid-row: 5;
+}
+
+.q3-avatar {
+    grid-column: 6;
+    grid-row: 4;
+}
+
+.q4-avatar {
+    grid-column: 7;
+    grid-row: 3;
+}
+
+.q5-avatar {
+    grid-column: 8;
+    grid-row: 2;
+}
+
+.winner-avatar {
+    grid-column: 7;
+    grid-row: 1;
+}
+
+.gatekeeper {
+    grid-column: 7;
+    grid-row: 6;
+    margin: 15px;
+    text-align: center;
+}
+
+.elf {
+    grid-column: 6;
+    grid-row: 5;
+    margin: 15px;
+    text-align: center;
+}
+
+.inn {
+    grid-column: 7;
+    grid-row: 4;
+    margin: 15px;
+    text-align: center;
+}
+
+.hermit {
+    grid-column: 8;
+    grid-row: 3;
+    margin: 15px;
+    text-align: center;
+}
+
+.cylean {
+    grid-column: 7;
+    grid-row: 2;
+    margin: 15px;
+    text-align: center;
+}
+
+.summit {
+    grid-column: 6;
+    grid-row: 1;
+    margin: 15px;
+    text-align: center;
+}
+
+img {
+    height: 75px;
+    background-color: #EEEEEE90;
+    border: 2px solid #363636;
+    border-radius: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}

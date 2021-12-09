@@ -40,7 +40,8 @@ function GameBoard({user}) {
             </Instructions> */}
             
             <Prompt>
-                {user.score <= 5 ? prompts[user.score] : alert("You've completed all the quest-tions!")}
+                {}
+                {user.score < 5 ? `Quest ${user.score + 1}: ${prompts[user.score]}` : alert("You've completed all the quest-tions!")}
             </Prompt>
             <form className="form" onSubmit={checkAnswer}>
             <SolutionInput type="text"

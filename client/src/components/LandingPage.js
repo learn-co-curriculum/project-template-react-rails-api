@@ -1,16 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
+import {useNavigate} from 'react-router-dom'
+import {Button} from "../styles"
 
 function LandingPage() {
+    const navigate = useNavigate();
     return (
-        <LandingPageContent>
+        <div>
+        <MtAlgoHeader>
             <h1>Mount Algo</h1>
             <h3 class="subheading-fade">Algorithm Adventures Await!</h3>
-        </LandingPageContent>
+        </MtAlgoHeader>
+                    <PlayNowBtn>
+            <Button onClick={() => {navigate('/login')}}>PLAY NOW!</Button>
+            </PlayNowBtn>
+        </div>
     )
 }
 
-const LandingPageContent = styled.div`
+const MtAlgoHeader = styled.div`
     margin-top: 150px;
     position: relative;
     height: 100%;
@@ -18,6 +26,11 @@ const LandingPageContent = styled.div`
     justify-content: left;
     color: #4f2004;
     font-family: "Copperplate", fantasy
+`
+const PlayNowBtn = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 export default LandingPage
 

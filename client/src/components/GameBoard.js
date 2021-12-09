@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import { Navigate } from 'react-router'
 import styled from 'styled-components'
 import {prompts} from './prompts n solution/prompt.js'
 import {solutions} from './prompts n solution/solution.js'
+import VictoryPage from './VictoryPage.js'
 
 function GameBoard({user}) {
     
@@ -40,8 +40,8 @@ function GameBoard({user}) {
             </Instructions> */}
             
             <Prompt>
-                {}
-                {user.score < 5 ? `Quest ${user.score + 1}: ${prompts[user.score]}` : alert("You've completed all the quest-tions!")}
+                
+                {user.score < 5 ? `Quest ${user.score + 1}: ${prompts[user.score]}` : <VictoryPage />}
             </Prompt>
             <form className="form" onSubmit={checkAnswer}>
             <SolutionInput type="text"

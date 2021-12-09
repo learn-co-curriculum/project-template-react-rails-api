@@ -30,7 +30,7 @@ function Header({setLoggedIn, loggedIn}) {
                    <img src="/images/search-icon.svg" alt=''/>
                    <span>PROFILE</span>
                </NavLink>
-               <NavLink className='links' to={loggedIn? '/play' : '/login'}>
+               <NavLink className='links' to={loggedIn? `/play` : '/login'}>
                    <img src="/images/play-icon-white.png" alt=''/>
                    <span>PLAY</span>
                </NavLink>

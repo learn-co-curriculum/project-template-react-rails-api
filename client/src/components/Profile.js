@@ -2,11 +2,39 @@ import React from 'react';
 import '../Profile.css'
 import { Label, Button } from "../styles"
 import {prompts} from './prompts n solution/prompt.js'
+import {useNavigate} from 'react-router-dom'
+import swal from 'sweetalert'
 
-function Profile({user}) {
+function Profile({user, resetUser}) {
+    const navigate = useNavigate()
+
+    function handleDelete(user) {
+        swal({
+            title: "WARNING",
+            text: "Once deleted, you will not be able to recover this profile.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                fetch(`/users/${user.id}`, {
+                    method: "DELETE"
+                })
+                    .then(data => console.log(data))
+                swal("You have successfully deleted your profile.", {
+                    icon: "success",
+                });
+                resetUser(null)
+                navigate('/')
+            } else {
+              swal("You live to fight another day!");
+            }
+          });
+    }
 
     function conquered(prompts) {
-        return prompts.map(prompt => {
+        return prompts.filter(prompt => {
             if (user.score <= prompt.id) {
                 return (<div>
                     <Label>Q{prompt.id}</Label>
@@ -27,7 +55,7 @@ function Profile({user}) {
             <div className="grid-3">
                 <h2>Username: {user.username}</h2>
                 <h3>Avatar: {user.avatar.name}</h3>
-                <Button>Delete Profile</Button>
+                <Button onClick={() => handleDelete(user)}>Delete Profile</Button>
             </div>
             <div className="grid-4">
                 <h2>Conquered Quest-ions</h2>

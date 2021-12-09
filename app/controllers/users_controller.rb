@@ -24,17 +24,17 @@ class UsersController < ApplicationController
     end
 
     def destroy 
-        user = User.find_by(id: params[:id])
+        user = User.find_by!(id: params[:id])
         if user 
             user.destroy
-            head :no_content 
+            head :no_content
         else  
             render json: "User does not exist", status: :not_found 
         end
     end
 
     def update_score
-        user = User.find_by(id: params[:id])
+        user = User.find_by!(id: params[:id])
         user.change_score
         render json: user
     end

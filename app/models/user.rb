@@ -9,4 +9,5 @@ class User < ApplicationRecord
         i += 1
         self.update(score: i)
     end
+    
 end

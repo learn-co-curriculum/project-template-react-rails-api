@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :questions, only: [:index]
   # resources :game_instances, only: [:index, :show, :create, :delete]
-  resources :users, only: [:index, :show, :delete]
+  resources :users, only: [:index, :show, :destroy]
   resources :avatars, only: [:index, :show]
 
   

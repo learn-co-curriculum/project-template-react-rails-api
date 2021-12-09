@@ -10,7 +10,6 @@ import '../Gameboard.css'
 function GameBoard({user, setUser, questions}) {
     const navigate = useNavigate()
     const [solution, setSolution] = useState('')
-    const [hideInstructions, setHideInstructions] = useState(true)
 
     function checkAnswer(e) {
         e.preventDefault();
@@ -33,19 +32,9 @@ function GameBoard({user, setUser, questions}) {
         }
     }
 
-    const toggleInstructions = () => {
-        setHideInstructions(!hideInstructions)
-    }
+
     return (
         <>
-        <Instructions>
-            <button onClick={() => toggleInstructions()}>
-                INSTRUCTIONS
-            </button>
-            <InstructionPargph> 
-                {hideInstructions ? "To complete these challenges you will need to open your favorite IDE. We reccomend writing your code in the IDE and then running it in the browser console to test output. Copy the output and paste it into the solution field below." : null}
-            </InstructionPargph>               
-        </Instructions>
         <div id="gameboard">
             <div className="greeting">
                 <h2>{`Welcome ${user.username}, the ${user.avatar.name}`}</h2>
@@ -96,29 +85,6 @@ const Board = styled.div`
     margin-top: 100px;
     margin-left: 50px;
     height: 50%
-`
-
-const Instructions = styled.p`
-   position: absolute;
-   display:flex;
-   margin-top: 400px;
-    button {
-        background: papayawhip;
-        margin-left: 50px;
-        border-radius: 3px;
-        cursor: pointer
-    }
-`
-
-const InstructionPargph = styled.p`
-    position: absolute;
-    margin: 10px;
-    margin-left: 50px;
-    display:flex;
-    width: 200px;
-    margin-top: 30px;
-    margin-right: 100px;
-    font: bold;
 `
 
 const Prompt = styled.div`

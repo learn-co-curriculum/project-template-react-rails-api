@@ -9,6 +9,7 @@ function Card({data, idx}) {
             </div>
             <div className='grid-3'>
                 <h2>Rank: {idx + 1}</h2>
+                <h2>Score: {data.score}</h2>
                 <h2>{idx === 0 ? `👑 ${data.username}` : data.username}</h2>
                 <h3>{data.avatar.name}</h3>
             </div>

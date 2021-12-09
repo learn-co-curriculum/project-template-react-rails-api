@@ -30,6 +30,11 @@ h1 {
   margin-left: 150px;  
 }
 
+.MtAlgoTitle {
+  font-size: 48px;
+  margin-left: 300px
+}
+
 .subheading-fade {
     margin-left: 50px;
     display: inline-block;

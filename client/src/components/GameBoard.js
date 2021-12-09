@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 // import {prompts} from './prompts n solution/prompt.js'
 // import {solutions} from './prompts n solution/solution.js'
@@ -10,6 +10,7 @@ import '../Gameboard.css'
 function GameBoard({user, setUser, questions}) {
     const navigate = useNavigate()
     const [solution, setSolution] = useState('')
+    const [hideInstructions, setHideInstructions] = useState(true)
 
     function checkAnswer(e) {
         e.preventDefault();
@@ -25,19 +26,26 @@ function GameBoard({user, setUser, questions}) {
                 })
             })
             .then(response => response.json())
-            .then(data => {
-                user.score = data.score
-                setUser(data)
-                console.log([user.score, data.score])
-                
-            })
+            .then(data => setUser(data))
         } else {
             // need to display message of incorrect here
             console.log('Incorrect Solution: ' + solution )
         }
     }
 
+    const toggleInstructions = () => {
+        setHideInstructions(!hideInstructions)
+    }
     return (
+        <>
+        <Instructions>
+            <button onClick={() => toggleInstructions()}>
+                INSTRUCTIONS
+            </button>
+            <InstructionPargph> 
+                {hideInstructions ? "To complete these challenges you will need to open your favorite IDE. We reccomend writing your code in the IDE and then running it in the browser console to test output. Copy the output and paste it into the solution field below." : null}
+            </InstructionPargph>               
+        </Instructions>
         <div id="gameboard">
             <div className="greeting">
                 <h2>{`Welcome ${user.username}, the ${user.avatar.name}`}</h2>
@@ -77,34 +85,10 @@ function GameBoard({user, setUser, questions}) {
             <Label className="cylean">Cubic Point</Label>
             <Label className="summit">The Summit</Label>
         </div>
-
-
-
-
-        // <Board>
-        //     <h3>
-        //         {`Welcome ${user.username}, the ${user.avatar.name}.`}
-        //     </h3>
-            
-        //     <Prompt>
-        //         <h2>{user.score < 5 ? `Quest ${user.score + 1}` : null }</h2>
-        //         <p>{user.score < 5 ? `${questions[user.score].prompt}` : null }</p>
-        //         {user.score < 5 ? `${questions[user.score].question}` : <VictoryPage />}
-        //     </Prompt>
-
-        //     <form className="form" onSubmit={checkAnswer}>
-        //     <SolutionInput type="text"
-        //     id="solution"
-        //     value={solution}
-        //     onChange={(e) => setSolution(e.target.value)}
-        //     />
-        //     <InputButton type="submit">
-        //      SUBMIT
-        //     </InputButton>
-        //     </form>
-        // </Board>
+        </>
     )
 }
+
 const Board = styled.div`
     /* display: flex; */
     align-items: center;
@@ -115,10 +99,26 @@ const Board = styled.div`
 `
 
 const Instructions = styled.p`
-    margin: 0px;
+   position: absolute;
+   display:flex;
+   margin-top: 400px;
+    button {
+        background: papayawhip;
+        margin-left: 50px;
+        border-radius: 3px;
+        cursor: pointer
+    }
+`
+
+const InstructionPargph = styled.p`
     position: absolute;
-    margin-top: 110px;
-    width: 450px
+    margin: 10px;
+    margin-left: 50px;
+    display:flex;
+    width: 200px;
+    margin-top: 30px;
+    margin-right: 100px;
+    font: bold;
 `
 
 const Prompt = styled.div`

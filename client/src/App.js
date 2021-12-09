@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       <Header setLoggedIn={setUser} loggedIn={user}/>
       <Routes>
-        <Route exact path='/' element={<LandingPage user={user}/>}/>
+        <Route exact path='/' element={<LandingPage isLoggedIn={user}/>}/>
         <Route exact path='/login' element={user === null ? <Login onLogin={setUser}/> : null} />
         <Route exact path='/signup' element={user === null ? <Signup onLogin={setUser}/> : null} />
         <Route exact path='/play' element={<GameBoard user={user} setUser={setUser} questions={questions}/>} />

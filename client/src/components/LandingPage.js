@@ -3,16 +3,16 @@ import styled from 'styled-components'
 import {useNavigate} from 'react-router-dom'
 import {Button} from "../styles"
 
-function LandingPage() {
+function LandingPage({user}) {
     const navigate = useNavigate();
     return (
         <div>
         <MtAlgoHeader>
             <h1>Mount Algo</h1>
-            <h3 class="subheading-fade">Algorithm Adventures Await!</h3>
+            <h3 className="subheading-fade">Algorithm Adventures Await!</h3>
         </MtAlgoHeader>
-                    <PlayNowBtn>
-            <Button onClick={() => {navigate('/login')}}>PLAY NOW!</Button>
+            <PlayNowBtn>
+            {user ? <Button onClick={() => navigate('/play')}>PLAY NOW!</Button> : <Button onClick={() => navigate('/login')}>PLAY NOW!</Button> }
             </PlayNowBtn>
         </div>
     )

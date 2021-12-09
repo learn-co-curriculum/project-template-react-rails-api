@@ -8,7 +8,8 @@ export default function VictoryPage() {
         <div>
             <h1>Congratulations!</h1>
             <h2>You made it to the top of Mount Algo!</h2>
-            <h4>Look at that view, isn't it wild?</h4>
+            <h4>More adventures coming soon!</h4>
+        
         </div>
     )
 }

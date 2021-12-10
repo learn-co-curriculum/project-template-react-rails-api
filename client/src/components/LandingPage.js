@@ -14,18 +14,13 @@ function LandingPage({user}) {
         <div>
         <MtAlgoHeader>
             <h1>Mount Algo</h1>
-            <h3 className="subheading-fade">Algorithm Adventures Await!</h3>
+            <h3 class="subheading-fade">Algorithm Adventures Await!</h3>
         </MtAlgoHeader>
             <PlayNowBtn>
-            {user ? <Button onClick={() => navigate('/play')}>PLAY NOW!</Button> : <Button onClick={() => navigate('/login')}>PLAY NOW!</Button> }
-            <Instructions>
-                <button onClick={() => toggleInstructions()}>
-                    INSTRUCTIONS
-                </button>
-                <InstructionPargph> 
-                    {hideInstructions ? "To complete these challenges you will need to open your favorite IDE. We reccomend writing your code in the IDE and then running it in the browser console to test output. Copy the output and paste it into the solution field below." : null}
-                </InstructionPargph>               
-            </Instructions>
+            <InstructionPargph> 
+                   <text class="subheading-fade">To complete these challenges you will need to open your favorite IDE. We reccomend writing your code in the IDE and then running it in the browser console to test output. Copy the output and paste it into the solution field below. </text>
+            </InstructionPargph>    
+            {user ? <Button onClick={() => navigate('/play')}>PLAY NOW!</Button> : <Button onClick={() => navigate('/login')}>PLAY NOW!</Button> }           
             </PlayNowBtn>
         </div>
     )
@@ -51,25 +46,16 @@ export default LandingPage
 {/* <div>Avatar icons made by <a href="https://www.flaticon.com/authors/maxicons" title="max.icons">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */}
 
 
-const Instructions = styled.p`
-   /* position: absolute; */
-   /* display:flex;
-   margin-top: 400px; */
-    button {
-        background: papayawhip;
-        margin-left: 50px;
-        border-radius: 3px;
-        cursor: pointer
-    }
-`
-
 const InstructionPargph = styled.p`
-    /* position: absolute; */
-    margin: 10px;
-    margin-left: 50px;
-    display:flex;
-    width: 200px;
-    margin-top: 30px;
-    margin-right: 100px;
-    font: bold;
+    position: absolute; 
+    margin-top: 50%;
+    margin-left: 50%;
+    margin-right: 50%;
+    margin-bottom: 25%;
+    display: flex;
+    width: 1000px;
+    font-weight: bold;
+    font-color: #eab676;
+    font-size: 0.75em;
+    text-align: center
 `

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # namespace api: do
   
   resources :reviews, only: [:index, :show, :create, :destroy]
-  # resources :users 
+  # resources :users, only: [:index] 
   resources :locations, only: [:index, :show, :create, :destroy, :update]
 
   post "/signup", to: "users#create"

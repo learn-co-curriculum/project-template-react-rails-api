@@ -19,7 +19,10 @@ function NavBar({ user, setUser }) {
         <Link to="/">Safe Stalls</Link>
       </Logo>
       <Nav>
-        <Button as={Link} to="/">
+      <Button as={Link} to="/">
+          Home
+        </Button>
+        <Button as={Link} to="/new">
           Add New Bathroom
         </Button>
         <Button variant="outline" onClick={handleLogoutClick}>

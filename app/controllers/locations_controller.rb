@@ -21,10 +21,22 @@ class LocationsController < ApplicationController
         head :no_content
     end
 
+    def update 
+        location = Location.find_by(id: params[:id])
+        location.update!(create_params)
+        render json: location 
+    end
+
+    # def increment_likes 
+    #     location = Location 
+    # end
+
+        
+
 private 
 
     def create_params 
-        params.permit(:city, :name, :address)
+        params.permit(:city, :name, :address, :likes)
     end
 
 

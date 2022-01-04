@@ -9,7 +9,7 @@ function Login({ onLogin }) {
 
   return (
     <Wrapper>
-      <Logo>Gender Neutral Bathroom Locator</Logo>
+      <Logo>Safe Stalls</Logo>
       {showLogin ? (
         <>
           <LoginForm onLogin={onLogin} />

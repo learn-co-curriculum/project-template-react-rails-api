@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Button, Error, FormField, Input, Label, Textarea } from "../styles";
 
-function NewBathroom({ onAddBathroom, user }) {
+function NewBathroom({ onAddBathrooms, user }) {
   const [city, setCity] = useState("");
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -29,27 +29,27 @@ function NewBathroom({ onAddBathroom, user }) {
       }),
     }).then((r) => {
       setIsLoading(false);
-  //     if (r.ok) {
-  //       r.json().then((newLocation) => {
-  //         setCity("");
-  //         setName("");
-  //         setAddress("");
-  //         setDetails("");
-  //         setErrors([]);
-  //         onAddBathroom(newLocation);
-  //       });
-  //     } else {
-  //       r.json().then((err) => setErrors(err.errors));
-  //     }
-  //   });
-  // }
       if (r.ok) {
-        navigate.push("/");
+        r.json().then((newLocation) => {
+          setCity("");
+          setName("");
+          setAddress("");
+          setDetails("");
+          setErrors([]);
+          onAddBathrooms(newLocation);
+        });
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
     });
   }
+  //     if (r.ok) {
+  //       navigate.push("/");
+  //     } else {
+  //       r.json().then((err) => setErrors(err.errors));
+  //     }
+  //   });
+  // }
 
   return (
     <Wrapper>

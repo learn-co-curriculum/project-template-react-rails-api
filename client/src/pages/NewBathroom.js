@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Button, Error, FormField, Input, Label, Textarea } from "../styles";
 
-function NewBathroom({ user }) {
-  const [city, setCity] = useState("Chicago");
-  const [name, setName] = useState("Corner Store");
-  const [address, setAddress] = useState("123 Main St");
-  const [details, setDetails] = useState("Located in the back of the store. Ask cashier for door code. ");
+function NewBathroom({ onAddBathroom, user }) {
+  const [city, setCity] = useState("");
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [details, setDetails] = useState("");
 
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -29,6 +29,20 @@ function NewBathroom({ user }) {
       }),
     }).then((r) => {
       setIsLoading(false);
+  //     if (r.ok) {
+  //       r.json().then((newLocation) => {
+  //         setCity("");
+  //         setName("");
+  //         setAddress("");
+  //         setDetails("");
+  //         setErrors([]);
+  //         onAddBathroom(newLocation);
+  //       });
+  //     } else {
+  //       r.json().then((err) => setErrors(err.errors));
+  //     }
+  //   });
+  // }
       if (r.ok) {
         navigate.push("/");
       } else {
@@ -40,8 +54,8 @@ function NewBathroom({ user }) {
   return (
     <Wrapper>
       <WrapperChild>
-        <h2>Create Location</h2>
         <form onSubmit={handleSubmit}>
+        <h2>Create Location</h2>
           <FormField>
             <Label htmlFor="city">City</Label>
             <Input
@@ -90,16 +104,16 @@ function NewBathroom({ user }) {
           </FormField>
         </form>
       </WrapperChild>
-      <WrapperChild>
+      {/* <WrapperChild>
         <h1>{city}</h1>
         <p>
           <em>{name} </em>
           <em>{address} </em>
           <em>{details} </em>
           &nbsp;·&nbsp;
-          <cite>Submitted By {user.username}</cite>
-        </p>
-      </WrapperChild>
+          {/* <cite>Submitted By {user.username}</cite> */}
+        {/* </p> */}
+      {/* // </WrapperChild> */} 
     </Wrapper>
   );
 }

@@ -9,6 +9,7 @@ function LocationList() {
   const [locations, setLocations] = useState([]);
   const [reviews, setReviews] = useState([]);
 
+
   useEffect(() => {
     fetch("/locations")
       .then((r) => r.json())
@@ -25,6 +26,18 @@ function LocationList() {
     setLocations((locations) => [...locations, newLocation]);
   }
 
+   function handleDeleteLocation(id) {
+    fetch(`/locations/${id}`, {
+      method: "DELETE",
+    }).then((r) => {
+      if (r.ok) {
+        setLocations((locations) =>
+          locations.filter((location) => location.id !== id)
+        );
+      }
+    });
+  }
+
   return (
     <Wrapper>
       {locations.length > 0 ? (
@@ -38,9 +51,8 @@ function LocationList() {
             
               {/* <p> <cite>Submitted By: </cite> </p> */}
               <h4>Reviews:</h4>
-  
               <p>
-                {reviews && reviews.map(review => {
+                {/* {reviews.map(review => {
                 return (
                 <Location key={review.id}> 
                 {review.comments} 
@@ -49,22 +61,21 @@ function LocationList() {
                 &nbsp;·&nbsp;
                 Submitted By: {review.user.username}
                 </Location>);
-        })}
+        })} */}
               </p>
+
+              <Button onClick={() => handleDeleteLocation(location.id)}>
+              Delete
+            </Button>
+
             </Box>
           </Location>
         ))
       ) : (
         <>
           <h2>No Bathrooms Found</h2>
-        {/* <Routes> */}
-        {/* <Route exact path="/new"> */}
-          {/* {/* <NewBathroom onAddBathroom={handleAddBathroom}/> */}
        
           <NewBathroom onAddBathroom={handleAddBathroom}/>
-          {/* <Button as={Link} to="/new" onAddBathroom={handleAddBathroom}>
-            Add a New Bathroom
-          </Button> */}
           
         </>
       )}

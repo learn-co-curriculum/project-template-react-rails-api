@@ -7,7 +7,7 @@ import NewBathroom from "../pages/NewBathroom";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [locations, setLocations]= useState();
+  const [bathrooms, setBathrooms]= useState([]);
 
   useEffect(() => {
     // auto-login
@@ -29,7 +29,7 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Routes>
-          <Route path="/" element = {<LocationList />}>
+          <Route path="/locations" element = {<LocationList />}>
           </Route>
           <Route path="/new" element = {<NewBathroom onAddBathrooms={handleAddBathrooms} user={user}/>}>
           </Route>

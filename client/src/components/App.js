@@ -7,7 +7,6 @@ import NewBathroom from "../pages/NewBathroom";
 
 function App() {
   const [user, setUser] = useState(null);
-
   const [bathrooms, setBathrooms]= useState([]);
 
   useEffect(() => {

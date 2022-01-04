@@ -48,6 +48,7 @@ function LocationList() {
               <h3>{location.name}</h3>
               <em>{location.address}</em>
               <em>{location.details}</em>
+       
             
               {/* <p> <cite>Submitted By: </cite> </p> */}
               <h4>Reviews:</h4>

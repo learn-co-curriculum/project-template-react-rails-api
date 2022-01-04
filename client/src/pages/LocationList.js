@@ -35,13 +35,14 @@ function LocationList() {
               <h3>{location.name}</h3>
               <em>{location.address}</em>
               <em>{location.details}</em>
+       
             
               {/* <p> <cite>Submitted By: </cite> </p> */}
               <h4>Reviews:</h4>
   
               <p>
-                {reviews && reviews.map(review => {
-                return (
+                {reviews &&  reviews.map(review => {
+                return ( 
                 <Location key={review.id}> 
                 {review.comments} 
                 &nbsp;·&nbsp;
@@ -49,7 +50,8 @@ function LocationList() {
                 &nbsp;·&nbsp;
                 Submitted By: {review.user.username}
                 </Location>);
-        })}
+                })}
+     
               </p>
             </Box>
           </Location>

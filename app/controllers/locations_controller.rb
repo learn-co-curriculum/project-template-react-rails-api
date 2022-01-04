@@ -15,6 +15,12 @@ class LocationsController < ApplicationController
         render json: location, status: :created 
     end
 
+    def destroy
+        location = find_params
+        location.destroy
+        head :no_content
+    end
+
 private 
 
     def create_params 

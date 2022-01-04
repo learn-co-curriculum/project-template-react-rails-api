@@ -7,7 +7,7 @@ import NewBathroom from "../pages/NewBathroom";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [locations, setLocations]= useState();
+  const [bathrooms, setBathrooms]= useState();
 
   useEffect(() => {
     // auto-login

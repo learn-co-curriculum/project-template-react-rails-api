@@ -5,7 +5,7 @@ function LoginForm({ onLogin }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
@@ -56,10 +56,15 @@ function LoginForm({ onLogin }) {
           {isLoading ? "Loading..." : "Login"}
         </Button>
       </FormField>
+
       <FormField>
-        {errors.map((err) => (
+
+      {errors && errors.map(error => {
+          return <Error key={error}>{error}</Error>;
+        })}
+        {/* {errors.map((err) => (
           <Error key={err}>{err}</Error>
-        ))}
+        ))} */}
       </FormField>
     </form>
   );

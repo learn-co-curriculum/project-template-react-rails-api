@@ -21,6 +21,11 @@ class ReviewsController < ApplicationController
         review.destroy 
         head :no_content 
     end 
+    def update 
+        review = Review.find_by(id: params[:id])
+        review.update(create_params)
+        render json: review 
+    end
 
     private 
 

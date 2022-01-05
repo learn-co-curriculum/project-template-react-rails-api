@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # namespace api: do
   
-  resources :reviews, only: [:index, :show, :create, :destroy]
+  resources :reviews, only: [:index, :show, :create, :destroy, :update]
   # resources :users, only: [:index] 
   resources :locations, only: [:index, :show, :create, :destroy, :update]
   patch "/locations/:id/like", to: "locations#increment_likes"

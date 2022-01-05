@@ -3,6 +3,7 @@ import { Link , Route, Routes} from "react-router-dom";
 import styled from "styled-components";
 import { Box, Button } from "../styles";
 import NewBathroom from "../pages/NewBathroom";
+import ReviewForm from "../pages/ReviewForm";
 
 
 function LocationList() {
@@ -38,6 +39,13 @@ function LocationList() {
     });
   }
 
+  function handleEditReview(updatedReview) {
+    const updatedReviews = reviews.map((review) =>
+      review.id === updatedReview.id ? updatedReview : review
+    );
+    setReviews(updatedReviews);
+  }
+
   return (
     <Wrapper>
       {locations.length > 0 ? (
@@ -52,29 +60,40 @@ function LocationList() {
             
               {/* <p> <cite>Submitted By: </cite> </p> */}
               <h4>Reviews:</h4>
-              <p>
-                {/* {reviews.map(review => {
-                return (
-                <Location key={review.id}> 
-                {review.comments} 
-                &nbsp;·&nbsp;
-                Rating: {review.rating} 
-                &nbsp;·&nbsp;
-                Submitted By: {review.user.username}
-                </Location>);
-        })} */}
-              </p>
 
-              <Button onClick={() => handleDeleteLocation(location.id)}>
-              Delete
+    
+
+              <ul>
+                  {location.reviews.map((review) => (
+                  <li key={review.id}>
+                    {review.comments} &nbsp;·&nbsp; Rating: {review.rating}/10
+                </li>
+                  ))}
+              </ul>
+            <p>
+              <ReviewForm
+              // review={selectedPizza}
+              // onChangeForm={handleChangeForm}
+              // onEditReview={handleEditReview}
+            />
+            </p>
+
+            <Button onClick={() => handleDeleteLocation(location.id)}>
+              Delete Bathroom 
             </Button>
+           
+      
 
             </Box>
           </Location>
+
+            
         ))
       ) : (
         <>
           <h2>No Bathrooms Found</h2>
+
+         
        
           <NewBathroom onAddBathroom={handleAddBathroom}/>
           

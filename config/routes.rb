@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:index, :show, :create, :destroy]
   # resources :users, only: [:index] 
   resources :locations, only: [:index, :show, :create, :destroy, :update]
-
+  patch "/locations/:id/like", to: "locations#increment_likes"
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"

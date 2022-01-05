@@ -23,15 +23,15 @@ class LocationsController < ApplicationController
 
     def update 
         location = Location.find_by(id: params[:id])
-        location.update!(create_params)
+        location.update(create_params)
         render json: location 
     end
 
-    # def increment_likes 
-    #     location = Location 
-    # end
-
-        
+    def increment_likes 
+        location = Location.find_by(id: params[:id])
+        location.update(likes: bird.likes + 1)
+        render json: location
+    end
 
 private 
 

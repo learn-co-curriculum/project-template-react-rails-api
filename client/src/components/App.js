@@ -10,7 +10,6 @@ import ReviewForm from "../pages/ReviewForm"
 function App() {
   const [user, setUser] = useState(null);
   const [bathrooms, setBathrooms]= useState([]);
-
   const [reviews, setReviews]= useState([]);
 
   useEffect(() => {
@@ -41,8 +40,7 @@ function App() {
           </Route>
           <Route path="/api/new" element = {<NewBathroom onAddBathrooms={handleAddBathrooms} user={user}/>}>
           </Route>
-
-          <Route path="/api/reviews" element = {<ReviewForm onAddReviews={handleAddReviews}/>}>
+          <Route path="/api/locations" element = {<ReviewForm onAddReviews={handleAddReviews}/>}>
           </Route>
         </Routes>
       </main>

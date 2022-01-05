@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { Button, Error, FormField, Input, Label, Textarea } from "../styles";  
 
 function ReviewForm({ review, onChangeForm, onEditReview, onAddReviews }) {
     const [comment, setComment] = useState("");
@@ -24,8 +23,8 @@ function ReviewForm({ review, onChangeForm, onEditReview, onAddReviews }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        comment,
-        rating,
+        comment: comment,
+        rating: rating,
       }),
     }).then((r) => {
       setIsLoading(false);
@@ -65,29 +64,24 @@ function ReviewForm({ review, onChangeForm, onEditReview, onAddReviews }) {
     <form onSubmit={handleSubmit}>
       <div className="form-row">
         <div className="col-5">
-       
           <input
             type="text"
             className="form-control"
-            placeholder="comment"
+            placeholder="Comment"
             name="comment"
             value={comment}
-            onChange={handleInputChange}
+            onChange={(e) => setComment(e.target.value)}
           />
-       
-        </div>
-        <p></p>
-        <div className="col">
-        <input
+           &nbsp;&nbsp;
+       <input
             type="number"
             className="form-control"
-            placeholder="rating"
+            placeholder="Rating"
             name="rating"
             value={rating}
-            onChange={handleInputChange}
+            onChange={(e) => setRating(e.target.value)}
           />
         </div>
-        
         </div>
         <div className="col">
             <p></p>

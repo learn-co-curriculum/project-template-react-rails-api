@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # namespace api: do
+  namespace :api do
   
   resources :reviews, only: [:index, :show, :create, :destroy, :update]
   # resources :users, only: [:index] 
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
    constraints: ->(req) { !req.xhr? && 
    req.format.html? }
 
+  end
 end
 
 

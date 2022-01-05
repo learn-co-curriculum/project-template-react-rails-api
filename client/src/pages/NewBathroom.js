@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Button, Error, FormField, Input, Label, Textarea } from "../styles";
 
@@ -11,7 +10,6 @@ function NewBathroom({ onAddBathrooms, user }) {
 
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -43,13 +41,10 @@ function NewBathroom({ onAddBathrooms, user }) {
       }
     });
   }
-  //     if (r.ok) {
-  //       navigate.push("/");
-  //     } else {
-  //       r.json().then((err) => setErrors(err.errors));
-  //     }
-  //   });
-  // }
+
+
+
+
 
   return (
     <Wrapper>

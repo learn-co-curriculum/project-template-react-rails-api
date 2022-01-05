@@ -6,7 +6,7 @@ import { Button } from "../styles";
 function NavBar({ user, setUser }) {
   
   function handleLogoutClick() {
-    fetch("/api/logout", { method: "DELETE" }).then((r) => {
+    fetch("api/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser(null);
       }
@@ -16,7 +16,9 @@ function NavBar({ user, setUser }) {
   return (
     <Wrapper>
       <Logo>
+
         <div>Safe Stalls</div>
+
       </Logo>
       <Nav>
       <Button as={Link} to="/locations">

@@ -14,7 +14,7 @@ function LocationList() {
 
 
   useEffect(() => {
-    fetch("/api/locations")
+    fetch("api/locations")
       .then((r) => r.json())
       .then(setLocations);
   }, []);
@@ -23,7 +23,7 @@ function LocationList() {
 
 
   useEffect(() => {
-    fetch("/api/reviews")
+    fetch("api/reviews")
       .then((r) => r.json())
       .then(setReviews);
   }, []);
@@ -37,7 +37,7 @@ function LocationList() {
   }
 
    function handleDeleteLocation(id) {
-    fetch(`/api/locations/${id}`, {
+    fetch(`api/locations/${id}`, {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {

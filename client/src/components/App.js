@@ -38,12 +38,12 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Routes>
-          <Route path="/api/locations" element = {<LocationList />}>
+          <Route path="/locations" element = {<LocationList />}>
           </Route>
-          <Route path="/api/new" element = {<NewBathroom onAddBathrooms={handleAddBathrooms} user={user}/>}>
+          <Route path="/new" element = {<NewBathroom onAddBathrooms={handleAddBathrooms} user={user}/>}>
           </Route>
 
-          <Route path="/api/reviews" element = {<ReviewForm onAddReviews={handleAddReviews}/>}>
+          <Route path="/reviews" element = {<ReviewForm onAddReviews={handleAddReviews}/>}>
           </Route>
         </Routes>
       </main>

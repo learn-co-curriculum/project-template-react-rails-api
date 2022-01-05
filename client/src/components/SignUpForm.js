@@ -18,7 +18,7 @@ function SignUpForm({ onLogin }) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    fetch("/api/signup", {
+    fetch("api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

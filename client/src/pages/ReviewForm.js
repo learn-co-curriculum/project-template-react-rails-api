@@ -18,7 +18,7 @@ function ReviewForm({ review, onChangeForm, onEditReview, onAddReviews }) {
   function handleSubmit(e, id) {
     e.preventDefault();
     setIsLoading(true);
-    fetch(`/api/locations/${id}`, {
+    fetch(`api/locations/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

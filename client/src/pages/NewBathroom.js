@@ -16,7 +16,7 @@ function NewBathroom({ onAddBathrooms, user }) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("/api/locations", {
+    fetch("api/locations", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

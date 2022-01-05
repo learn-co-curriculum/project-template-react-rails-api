@@ -16,13 +16,13 @@ function NavBar({ user, setUser }) {
   return (
     <Wrapper>
       <Logo>
-        <Link to="/api/">Safe Stalls</Link>
+        <Link to="/">Safe Stalls</Link>
       </Logo>
       <Nav>
-      <Button as={Link} to="/api/locations">
+      <Button as={Link} to="/locations">
           Home
         </Button>
-        <Button as={Link} to="/api/new">
+        <Button as={Link} to="/new">
           Add New Bathroom
         </Button>
         <Button variant="outline" onClick={handleLogoutClick}>

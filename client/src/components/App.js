@@ -10,7 +10,6 @@ import ReviewForm from "../pages/ReviewForm"
 function App() {
   const [user, setUser] = useState(null);
   const [bathrooms, setBathrooms]= useState([]);
- 
 
   const [reviews, setReviews]= useState([]);
 
@@ -43,7 +42,9 @@ function App() {
           <Route path="/new" element = {<NewBathroom onAddBathrooms={handleAddBathrooms} user={user}/>}>
           </Route>
 
+
           <Route path="/reviews" element = {<ReviewForm onAddReviews={handleAddReviews}/>}>
+
           </Route>
         </Routes>
       </main>

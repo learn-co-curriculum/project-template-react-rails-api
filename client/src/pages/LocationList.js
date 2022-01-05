@@ -32,6 +32,10 @@ function LocationList() {
     setLocations((locations) => [...locations, newLocation]);
   }
 
+  function handleAddReviews(newReviews) {
+    setReviews((reviews) => [...reviews, newReviews]);
+  }
+
    function handleDeleteLocation(id) {
     fetch(`/api/locations/${id}`, {
       method: "DELETE",
@@ -88,7 +92,8 @@ function LocationList() {
               <ReviewForm
               // review={selectedPizza}
               // onChangeForm={handleChangeForm}
-              // onEditReview={handleEditReview}
+              onAddReviews={handleAddReviews}
+              onEditReviews={handleEditReview}
             />
             </p>
 

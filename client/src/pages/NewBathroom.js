@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { Button, Error, FormField, Input, Label, Textarea } from "../styles";
+import { Link } from "react-router-dom";
 
 function NewBathroom({ onAddBathrooms, user }) {
   const [city, setCity] = useState("");

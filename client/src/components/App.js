@@ -41,8 +41,6 @@ function App() {
           </Route>
           <Route path="/new" element = {<NewBathroom onAddBathrooms={handleAddBathrooms} user={user}/>}>
           </Route>
-
-
           <Route path="/reviews" element = {<ReviewForm onAddReviews={handleAddReviews}/>}>
 
           </Route>

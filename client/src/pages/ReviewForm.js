@@ -23,8 +23,8 @@ function ReviewForm({ review, onChangeForm, onEditReview, onAddReviews }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        comment: comment,
-        rating: rating,
+        comment,
+        rating,
       }),
     }).then((r) => {
       setIsLoading(false);

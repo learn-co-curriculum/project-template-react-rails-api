@@ -4,11 +4,13 @@ import styled from "styled-components";
 import { Box, Button } from "../styles";
 import NewBathroom from "../pages/NewBathroom";
 import ReviewForm from "../pages/ReviewForm";
+import Search from "../pages/Search";
 
 
 function LocationList() {
   const [locations, setLocations] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
 
   useEffect(() => {
@@ -16,6 +18,9 @@ function LocationList() {
       .then((r) => r.json())
       .then(setLocations);
   }, []);
+
+  
+
 
   useEffect(() => {
     fetch("/api/reviews")
@@ -50,16 +55,25 @@ function LocationList() {
     setReviews(updatedReviews);
   }
 
+  const displayedLocations = locations.filter((location) => {
+    return location.city.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
   return (
+
     <Wrapper>
+  <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
       {locations.length > 0 ? (
         locations.map((location) => (
-          <Location key={location.id}>
+          <Location 
+         
+         key={location.id}>
             <Box>
               <h2>{location.city}</h2>
               <h3>{location.name}</h3>
               <em>{location.address}</em>
               <em>{location.details}</em>
+            
        
             
               {/* <p> <cite>Submitted By: </cite> </p> */}
@@ -89,7 +103,7 @@ function LocationList() {
            
       
 
-            </Box>
+             </Box>
           </Location>
 
             

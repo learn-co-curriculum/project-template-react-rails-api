@@ -8,16 +8,16 @@ function ReviewForm({ review, onChangeForm, onEditReview, onAddReviews }) {
     const [isLoading, setIsLoading] = useState(false);
 
 
-  function handleInputChange(event) {
-    onChangeForm(event.target.name, event.target.value);
-  }
+//   function handleInputChange(event) {
+//     onChangeForm(event.target.name, event.target.value);
+//   }
 
 
 
-  function handleSubmit(e, id) {
+  function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch(`api/locations/${id}`, {
+    fetch(`api/locations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -27,11 +27,12 @@ function ReviewForm({ review, onChangeForm, onEditReview, onAddReviews }) {
         rating,
       }),
     }).then((r) => {
+
       setIsLoading(false);
       if (r.ok) {
         r.json().then((newReview) => {
           setComment("");
-          setRating("");
+          setRating();
           setErrors([]);
           onAddReviews(newReview);
         });
@@ -45,7 +46,7 @@ function ReviewForm({ review, onChangeForm, onEditReview, onAddReviews }) {
 
 //   function handleReviewChange(event, id) {
 //     event.preventDefault();
-//     fetch(`./locations/${id}`, {
+//     fetch(`./reviews/${id}`, {
 //       method: "PATCH",
 //       headers: {
 //         "Content-Type": "application/json",

@@ -10,12 +10,6 @@ class Api::ReviewsController < ApplicationController
         render json: review 
     end
 
-
-    def create 
-        review = @current_user.reviews.create!(create_params)
-        render json: review, status: :created
-    end
-
     def destroy
         review = find_params
         review.destroy 
@@ -27,10 +21,16 @@ class Api::ReviewsController < ApplicationController
         render json: review 
     end
 
+    def create 
+        review = Review.create!(create_params)
+        render json: review.location, status: :created
+    end
+
     private 
 
     def create_params
-        params.permit(:rating, :comments)
+        params.permit(:rating, :comments, :location_id, :user_id)
+
     end
 
     def find_params 

@@ -1,120 +1,25 @@
-import { useEffect, useState } from "react";
-import { Link , Route, Routes} from "react-router-dom";
 import styled from "styled-components";
-import { Box, Button } from "../styles";
-import ReviewForm from "../pages/ReviewForm";
-import Search from "../pages/Search";
+import Location from "../pages/Location";
 
 
-function LocationList() {
-  const [locations, setLocations] = useState([]);
-  const [reviews, setReviews] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-
-
-  useEffect(() => {
-    fetch("api/locations")
-      .then((r) => r.json())
-      .then(setLocations);
-  }, []);
-
-
-  useEffect(() => {
-    fetch("api/reviews")
-      .then((r) => r.json())
-      .then(setReviews);
-  }, []);
-
-
-  function handleAddReviews(newReviews) {
-    setReviews((reviews) => [...reviews, newReviews]);
-  }
-
-   function handleDeleteLocation(id) {
-    fetch(`api/locations/${id}`, {
-      method: "DELETE",
-    }).then((r) => {
-      if (r.ok) {
-        setLocations((locations) =>
-          locations.filter((location) => location.id !== id)
-        );
-      }
-    });
-  }
-
-  // function handleEditReview(updatedReview) {
-  //   const updatedReviews = reviews.map((review) =>
-  //     review.id === updatedReview.id ? updatedReview : review
-  //   );
-  //   setReviews(updatedReviews);
-  // }
-
-  // const displayedLocations = locations.filter((location) => {
-  //   return location.city.toLowerCase().includes(searchTerm.toLowerCase());
-  // });
+function LocationList({bathrooms}) {
+  const bathroomLocationList = bathrooms.map((bathroom) => (
+    <Location key={bathroom.id} bathroom={bathroom} />
+  ));
 
   return (
-
     <Wrapper>
-  <Search searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-      {locations.length > 0 ? (
-        locations.map((location) => (
-          <Location 
-         
-         key={location.id}>
-            <Box>
-              <h2>{location.city}</h2>
-              <h3>{location.name}</h3>
-              <em>{location.address}</em>
-              <em>{location.details}</em>
+ 
+    <div>{bathroomLocationList}</div>
 
-              {/* <p> <cite>Submitted By: </cite> </p> */}
-              <h4>Reviews:</h4>
-
-              <ul>
-                  {location.reviews.map((review) => (
-                  <li key={review.id}>
-                    {review.comments} &nbsp;·&nbsp; Rating: {review.rating}/10
-                </li>
-                  ))}
-              </ul>
-            <p>
-              <ReviewForm
-              // review={selectedPizza}
-              // onChangeForm={handleChangeForm}
-              onAddReviews={handleAddReviews}
-              // onEditReviews={handleEditReview}
-            />
-            </p>
-
-            <Button onClick={() => handleDeleteLocation(location.id)}>
-              Delete Bathroom 
-            </Button>
+    </Wrapper> 
            
-      
-
-             </Box>
-          </Location>
-
-            
-        ))
-      ) : (
-        <>
-          <h2>No Bathrooms Found</h2>
-          
-        </>
-      )}
-    </Wrapper>
   );
 }
 
 const Wrapper = styled.section`
   max-width: 800px;
   margin: 40px auto;
-`;
-
-const Location= styled.article`
-  margin-bottom: 24px;
 `;
 
 export default LocationList;

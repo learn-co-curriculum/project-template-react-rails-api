@@ -19,7 +19,14 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    fetch("api/locations")
+      .then((r) => r.json())
+      .then(setBathrooms);
+  }, []);
+
   if (!user) return <Login onLogin={setUser} />;
+
 
   function handleAddBathrooms(newBathrooms) {
     setBathrooms((bathrooms) => [...bathrooms, newBathrooms]);
@@ -31,7 +38,7 @@ function App() {
       <NavBar user={user} setUser={setUser} />
       <main>
         <Routes>
-          <Route path="/locations" element = {<LocationList />}>
+          <Route path="/locations" element = {<LocationList bathrooms={bathrooms}/>}>
           </Route>
           <Route path="/new" element = {<NewBathroom onAddBathrooms={handleAddBathrooms} user={user}/>}>
           </Route>

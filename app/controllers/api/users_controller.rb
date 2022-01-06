@@ -38,7 +38,7 @@ end
 private 
 
     def create_params 
-        params.permit(:first_name, :last_name, :username, :password, :password_confirmation, :image_url, :bio)
+        params.permit(:first_name, :last_name, :username, :password, :password_confirmation)
     end
 
     def find_user 

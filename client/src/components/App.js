@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route} from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
+import '../styles/App.css';
 import LocationList from "../pages/LocationList";
 import NewBathroom from "../pages/NewBathroom";
 

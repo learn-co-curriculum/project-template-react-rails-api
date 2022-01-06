@@ -4,14 +4,11 @@ import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import LocationList from "../pages/LocationList";
 import NewBathroom from "../pages/NewBathroom";
-import ReviewForm from "../pages/ReviewForm"
 
 
 function App() {
   const [user, setUser] = useState(null);
   const [bathrooms, setBathrooms]= useState([]);
-
-  const [reviews, setReviews]= useState([]);
 
   useEffect(() => {
     // auto-login
@@ -28,10 +25,7 @@ function App() {
     setBathrooms((bathrooms) => [...bathrooms, newBathrooms]);
   }
 
-  function handleAddReviews(newReviews) {
-    setReviews((reviews) => [...reviews, newReviews]);
-  }
-
+  
   return (
     <>
       <NavBar user={user} setUser={setUser} />
@@ -41,13 +35,8 @@ function App() {
           </Route>
           <Route path="/new" element = {<NewBathroom onAddBathrooms={handleAddBathrooms} user={user}/>}>
           </Route>
-          <Route path="/reviews" element = {<ReviewForm onAddReviews={handleAddReviews}/>}>
-
-          </Route>
         </Routes>
       </main>
-
-     
     </>
   );
 }

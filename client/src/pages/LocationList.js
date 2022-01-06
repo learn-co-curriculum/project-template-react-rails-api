@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link , Route, Routes} from "react-router-dom";
 import styled from "styled-components";
 import { Box, Button } from "../styles";
-import NewBathroom from "../pages/NewBathroom";
 import ReviewForm from "../pages/ReviewForm";
 import Search from "../pages/Search";
 
@@ -19,8 +18,6 @@ function LocationList() {
       .then(setLocations);
   }, []);
 
-  
-
 
   useEffect(() => {
     fetch("api/reviews")
@@ -28,9 +25,6 @@ function LocationList() {
       .then(setReviews);
   }, []);
 
-  function handleAddBathroom(newLocation) {
-    setLocations((locations) => [...locations, newLocation]);
-  }
 
   function handleAddReviews(newReviews) {
     setReviews((reviews) => [...reviews, newReviews]);
@@ -48,16 +42,16 @@ function LocationList() {
     });
   }
 
-  function handleEditReview(updatedReview) {
-    const updatedReviews = reviews.map((review) =>
-      review.id === updatedReview.id ? updatedReview : review
-    );
-    setReviews(updatedReviews);
-  }
+  // function handleEditReview(updatedReview) {
+  //   const updatedReviews = reviews.map((review) =>
+  //     review.id === updatedReview.id ? updatedReview : review
+  //   );
+  //   setReviews(updatedReviews);
+  // }
 
-  const displayedLocations = locations.filter((location) => {
-    return location.city.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+  // const displayedLocations = locations.filter((location) => {
+  //   return location.city.toLowerCase().includes(searchTerm.toLowerCase());
+  // });
 
   return (
 
@@ -73,13 +67,9 @@ function LocationList() {
               <h3>{location.name}</h3>
               <em>{location.address}</em>
               <em>{location.details}</em>
-            
-       
-            
+
               {/* <p> <cite>Submitted By: </cite> </p> */}
               <h4>Reviews:</h4>
-
-    
 
               <ul>
                   {location.reviews.map((review) => (
@@ -93,7 +83,7 @@ function LocationList() {
               // review={selectedPizza}
               // onChangeForm={handleChangeForm}
               onAddReviews={handleAddReviews}
-              onEditReviews={handleEditReview}
+              // onEditReviews={handleEditReview}
             />
             </p>
 
@@ -111,10 +101,6 @@ function LocationList() {
       ) : (
         <>
           <h2>No Bathrooms Found</h2>
-
-         
-       
-          <NewBathroom onAddBathroom={handleAddBathroom}/>
           
         </>
       )}

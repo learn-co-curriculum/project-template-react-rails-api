@@ -1,4 +1,4 @@
-class Api::ReviewsController < ApplicationController
+ class Api::ReviewsController < ApplicationController
 
     def index 
         reviews = Review.all
@@ -12,8 +12,8 @@ class Api::ReviewsController < ApplicationController
 
 
     def create 
-        review = @current_user.reviews.create!(create_params)
-        render json: review, status: :created
+        review = Review.create!(create_params)
+        render json: review.location, status: :created
     end
 
     def destroy
@@ -30,12 +30,11 @@ class Api::ReviewsController < ApplicationController
     private 
 
     def create_params
-        params.permit(:rating, :comments)
+        params.permit(:rating, :comments, :location_id, :user_id)
     end
 
     def find_params 
         Review.find(params[:id])
     end
-
 
 end

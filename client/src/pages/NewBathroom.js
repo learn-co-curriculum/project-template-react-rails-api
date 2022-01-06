@@ -44,9 +44,6 @@ function NewBathroom({ onAddBathrooms, user }) {
   }
 
 
-
-
-
   return (
     <Wrapper>
       <WrapperChild>

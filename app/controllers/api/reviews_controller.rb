@@ -1,4 +1,4 @@
-class Api::ReviewsController < ApplicationController
+ class Api::ReviewsController < ApplicationController
 
     def index 
         reviews = Review.all
@@ -8,6 +8,11 @@ class Api::ReviewsController < ApplicationController
     def show 
         review = Review.find(params[:id])
         render json: review 
+    end
+
+    def create 
+        review = Review.create!(create_params)
+        render json: review.location, status: :created
     end
 
     def destroy
@@ -36,6 +41,5 @@ class Api::ReviewsController < ApplicationController
     def find_params 
         Review.find(params[:id])
     end
-
 
 end

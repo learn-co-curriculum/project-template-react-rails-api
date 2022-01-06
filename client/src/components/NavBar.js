@@ -16,8 +16,9 @@ function NavBar({ user, setUser }) {
   return (
     <Wrapper>
       <Logo>
-       <div> Safe Stalls </div>
-       
+
+        <div>Safe Stalls</div>
+
       </Logo>
       <Nav>
       <Button as={Link} to="/locations">

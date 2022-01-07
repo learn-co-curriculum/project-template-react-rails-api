@@ -4,10 +4,10 @@ import Location from "../pages/Location";
 
 
 
-function LocationList({bathrooms, onDeleteBathrooms, onUpdateBathroom}) {
+function LocationList({bathrooms, onDeleteBathroom, onUpdateBathroom}) {
   
   const bathroomLocationList = bathrooms?.map((bathroom) => (
-    <Location key={bathroom.id} bathroom={bathroom} onDeleteBathrooms={onDeleteBathrooms} onUpdateBathroom={onUpdateBathroom}/>
+    <Location key={bathroom.id} bathroom={bathroom} onDeleteBathroom={onDeleteBathroom} />
   ));
   
  

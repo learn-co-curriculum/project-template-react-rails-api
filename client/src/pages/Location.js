@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button } from "../styles";
 import styled from "styled-components";
 
-function Location({ bathroom, onDeleteBathrooms, onUpdateBathroom}) {
+function Location({ bathroom, onDeleteBathroom, onUpdateBathroom}) {
   const { city, address, name, details, likes } = bathroom;
   // const [updateBathroom, setUpdateBathroom] = useState([]),
 
@@ -13,8 +13,8 @@ function Location({ bathroom, onDeleteBathrooms, onUpdateBathroom}) {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {
-        onDeleteBathrooms(id)
-        window.location.reload(false)
+        onDeleteBathroom(id)
+        // window.location.reload(false)
       }
     })
   }

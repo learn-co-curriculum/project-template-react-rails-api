@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from "react";
 import { Box, Button } from "../styles";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 // import Review from "../pages/Review"
 
 function Location({ bathroom}) {
   const [bathrooms, setBathrooms]= useState([]);
-  const navigate = useNavigate();
 //   const [reviews, setReviews]= useState([]);
 
   function handleDeleteLocation(id) {
@@ -17,7 +15,7 @@ function Location({ bathroom}) {
         setBathrooms((bathrooms) =>
           bathrooms.filter((bathroom) => bathroom.id !== id)
         );
-        navigate('/locations')
+        window.location.reload(false)
       }
     });
   }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function ReviewForm({ review, onChangeForm, onEditReview, onAddReviews }) {
+function ReviewForm({ onEditReview, onAddReviews }) {
     const [comment, setComment] = useState("");
     const [rating, setRating] = useState("");
     const [errors, setErrors] = useState([]);

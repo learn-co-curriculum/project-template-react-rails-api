@@ -1,10 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Box, Button } from "../styles";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+// import Review from "../pages/Review"
 
-function Location({ bathroom }) {
-  const { city, address, name, details} = bathroom;
+function Location({ bathroom}) {
   const [bathrooms, setBathrooms]= useState([]);
+  const navigate = useNavigate();
+//   const [reviews, setReviews]= useState([]);
 
   function handleDeleteLocation(id) {
     fetch(`api/locations/${id}`, {
@@ -14,18 +17,28 @@ function Location({ bathroom }) {
         setBathrooms((bathrooms) =>
           bathrooms.filter((bathroom) => bathroom.id !== id)
         );
+        navigate('/locations')
       }
     });
   }
+
+
+
+//   useEffect(() => {
+//     fetch("api/reviews")
+//       .then((r) => r.json())
+//       .then(setReviews);
+//   }, []);
+
 
   return (
       <Wrapper>
     <Locations>
         <Box>
-             <h2>{city}</h2>
-            <h3>{name}</h3>
-            <em>{address}</em>
-            <em>{details}</em>
+             <h2>{bathroom.city}</h2>
+            <h3>{bathroom.name}</h3>
+            <em>{bathroom.address}</em>
+            <em>{bathroom.details}</em>
         <p>
         <Button onClick={() => handleDeleteLocation(bathroom.id)}>
               Delete Bathroom 

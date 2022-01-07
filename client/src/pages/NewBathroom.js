@@ -1,13 +1,16 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { Button, Error, FormField, Input, Label, Textarea } from "../styles";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function NewBathroom({ onAddBathrooms, user }) {
+function NewBathroom({ onAddBathrooms}) {
   const [city, setCity] = useState("");
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [details, setDetails] = useState("");
+
+  const navigate = useNavigate();
 
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -37,6 +40,7 @@ function NewBathroom({ onAddBathrooms, user }) {
           setErrors([]);
           onAddBathrooms(newLocation);
         });
+        navigate('/locations')
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

@@ -36,7 +36,7 @@ class Api::LocationsController < ApplicationController
 private 
 
     def create_params 
-        params.permit(:city, :name, :address, :likes)
+        params.permit(:city, :name, :address, :details, :likes)
     end
 
 

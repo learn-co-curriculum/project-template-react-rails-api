@@ -9,9 +9,7 @@ function NewBathroom({ onAddBathrooms}) {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [details, setDetails] = useState("");
-
   const navigate = useNavigate();
-
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 

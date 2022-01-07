@@ -36,7 +36,8 @@ function Location({ bathroom}) {
              <h2>{bathroom.city}</h2>
             <h3>{bathroom.name}</h3>
             <em>{bathroom.address}</em>
-            <em>{bathroom.details}</em>
+            <p></p>
+            <em>Details: {bathroom.details}</em>
         <p>
         <Button onClick={() => handleDeleteLocation(bathroom.id)}>
               Delete Bathroom 

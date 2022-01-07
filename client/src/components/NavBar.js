@@ -27,7 +27,7 @@ function NavBar({ user, setUser }) {
         <Button as={Link} to="/new">
           Add New Bathroom
         </Button>
-        <Button as={Link} to="/locations" variant="outline" onClick={handleLogoutClick}>
+        <Button as={Link} to="/locations" color="secondary"  onClick={handleLogoutClick}>
           Logout
         </Button>
       </Nav>
@@ -41,12 +41,12 @@ const Wrapper = styled.header`
   align-items: center;
   padding: 8px;
 `;
-
 const Logo = styled.h1`
-  font-family: "Permanent Marker", cursive;
-  font-size: 3rem;
-  color: deeppink;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 4rem;
+  color: #DDA0DD;
   margin: 0;
+
   line-height: 1;
   a {
     color: inherit;

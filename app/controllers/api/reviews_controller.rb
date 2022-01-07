@@ -10,7 +10,6 @@
         render json: review 
     end
 
-
     def create 
         review = Review.create!(create_params)
         render json: review.location, status: :created
@@ -27,10 +26,16 @@
         render json: review 
     end
 
+    def create 
+        review = Review.create!(create_params)
+        render json: review.location, status: :created
+    end
+
     private 
 
     def create_params
         params.permit(:rating, :comments, :location_id, :user_id)
+
     end
 
     def find_params 

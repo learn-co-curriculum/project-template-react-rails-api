@@ -41,8 +41,6 @@ ActiveRecord::Schema.define(version: 2022_01_04_205736) do
     t.string "last_name"
     t.string "username"
     t.string "password_digest"
-    t.string "image_url"
-    t.string "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

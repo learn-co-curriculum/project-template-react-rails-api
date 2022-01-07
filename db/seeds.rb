@@ -16,25 +16,34 @@ user1 = User.create(first_name: 'McKinsey', last_name: 'Leckenby', username:"mck
 user2 = User.create(first_name: 'Brandi', last_name: 'Ude', username:"bude123", password_digest: BCrypt::Password.create('brandi01'))
 
 puts "Seeding locations..."
-location1 = Location.create(city: 'Chicago', name: "Trader Joe's", address: "44 East Ontario Street")
-location2 = Location.create(city: 'Chicago', name: "Hot Doug's", address: "3324 North Califronia St.")
-location3 = Location.create(city: 'Chicago', name: "Apple Store", address: "679 N Michigan Ave")
-location4 = Location.create(city: 'Chicago', name: "Grahamwich", address: "615 N. State St")
-location5 = Location.create(city: 'Chicago', name: "Starbucks North & Wells", address: "200-230 W. North Ave")
-location6 = Location.create(city: 'Chicago', name: "Barnes & Noble Clybourn", address: "1441 W. Webster Ave")
-location7 = Location.create(city: 'Chicago', name: "Broadway Youth Center", address: "3179 N Broadway St.")
-location8 = Location.create(city: 'Chicago', name: "Sakura Teppanyaki & Sushi", address: "730 West Diversey Parkway")
-location9 = Location.create(city: 'Chicago', name: "DePaul University", address: "2315 N Kenmore Ave")
-location10 = Location.create(city: 'Chicago', name: "Filter Coffee Shop", address: "1373-75 N Milwaukee Ave")
+location1 = Location.create(city: 'Chicago', name: "Trader Joe's", address: "44 East Ontario Street", details: "Keep walking straight after you enter and head to back of store. Two bathrooms available behind the produce")
+locaiton2 = Location.create(city: 'Chicago', name: "Argo Tea Cafe", address: "3135 North Broadway Street", details: "To the left of counter then head straight back")
+location3 = Location.create(city: 'Chicago', name: "All Women", address: "2000 W Armitage Ave", details: "2nd floor location above the dentist office at the NW corner of Damen and Armitage")
+location4 = Location.create(city: 'Chicago', name: "Cafe de Luca", address: "1721 N Damen Ave", details: "Midway through the restaurant on the right side are two unisex locking bathrooms")
+location5 = Location.create(city: 'Chicago', name: "Treat", address: "1616 N Kedzie", details: "Through the dining room, on your right")
+location7 = Location.create(city: 'Chicago', name: "Chicago Diner", address: "3411 N Halsted Ave.", details: "back of restaurant")
+location8 = Location.create(city: 'Chicago', name: "Starbucks North & Wells", address: "200-230 W. North Ave", details: "There are two stalls. No gender on door.")
+location9 = Location.create(city: 'Chicago', name: "DePaul University", address: "2315 N Kenmore Ave", details: "All floors have a single stall gender neutral bathroom in the back hallway to the left and right.")
+location10 = Location.create(city: 'Chicago', name: "Filter Coffee Shop", address: "1373-75 N Milwaukee Ave", details: "Straight ahead after you enter just before the swinging doors to the kitchen are two individually locking bathrooms with no signage at all.")
+location11 = Location.create(city: 'Chicago', name: "Loyola University Chicago", address: "26 E. Pearson St.", details: "1st floor of the Terry Student Center, right next to the elevators")
+location12 = Location.create(city: 'Chicago', name: "Barnes & Noble Clybourn", address: "1441 W. Webster Ave", details: "No Directions Yet" )
+location13 = Location.create(city: 'Chicago', name: "Broadway Youth Center", address: "3179 N Broadway St.", details: "No Directions Yet")
+location14 = Location.create(city: 'Chicago', name: "Sakura Teppanyaki & Sushi", address: "730 West Diversey Parkway")
+location15 = Location.create(city: 'Chicago', name: "Caribou Coffee", address: "3500 N Halsted", details: "No Directions Yet")
+location16 = Location.create(city: 'Chicago', name: "Einstein Bagels", address: "2556 N. Clark", details: "No Directions")
+location6 = Location.create(city: 'Chicago', name: "FreeGeek Chicago", address: "3411 West Diversey Avenue", details: "In the basement of the Foot Locker building. Entrance is around back near the convenience store entrance")
+location17 = Location.create(city: 'Chicago', name: "Hot Doug's", address: "3324 North Califronia St.", details: "No Directions Yet")
+location18 = Location.create(city: 'Chicago', name: "Apple Store", address: "679 N Michigan Ave", details: "No Directions Yet")
+location19 = Location.create(city: 'Chicago', name: "Grahamwich", address: "615 N. State St", details: "No Directions Yet")
 
 
 puts "Seeding reviews..."
 
-review1 = Review.create(user_id: user1.id, location_id: location3.id, rating: 5, comments: "Not accessible to public, need to purchase something for code")
+review1 = Review.create(user_id: user1.id, location_id: location1.id, rating: 5, comments: "Not accessible to public, need to purchase something for code")
 review2 = Review.create(user_id: user1.id, location_id: location4.id, rating: 8, comments: "Very clean and open for public use!")
 review3 = Review.create(user_id: user1.id, location_id: location5.id, rating: 10, comments: "Glad they offer this without purchase")
-
-
-
-
+review4 = Review.create(user_id: user1.id, location_id: location3.id, rating: 10, comments: "Signed a pledge to keep their restrooms a safe space for everyone- a purchase is not necessary")
+review5 = Review.create(user_id: user1.id, location_id: location11.id, rating: 8, comments: "May sometimes require student ID but seems to be open regularly")
+review6 = Review.create(user_id: user1.id, location_id: location15.id, rating: 10, comments: "My favorite nonjudgmental/high-quality healthcare clinic in Chicago")
+review7 = Review.create(user_id: user1.id, location_id: location19.id, rating: 10, comments: "bathrooms are gender labeled but both single stall and staff will always inform you that you can use either one while waiting. New signs are coming to replace gendered signs!")
 puts "done seeding"

@@ -9,7 +9,7 @@ function Login({ onLogin }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <Wrapper>
+    <Wrapper >
       <Logo>Safe Stalls</Logo>
       {showLogin ? (
         <>
@@ -39,9 +39,9 @@ function Login({ onLogin }) {
 }
 
 const Logo = styled.h1`
-  font-family: "Permanent Marker", cursive;
-  font-size: 3rem;
-  color: deeppink;
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 4rem;
+  color: #DDA0DD;
   margin: 8px 0 16px;
 `;
 
@@ -50,6 +50,7 @@ const Wrapper = styled.section`
   margin: 40px auto;
   padding: 16px;
 `;
+
 
 const Divider = styled.hr`
   border: none;

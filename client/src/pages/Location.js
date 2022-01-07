@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from "react";
 import { Box, Button } from "../styles";
 import styled from "styled-components";
-// import Review from "../pages/Review"
+import Review from "../pages/Review";
+import ReviewForm from "../pages/ReviewForm";
 
-function Location({ bathroom}) {
+function Location({ bathroom, reviews}) {
+  const { city, address, name, details, likes } = bathroom;
   const [bathrooms, setBathrooms]= useState([]);
-//   const [reviews, setReviews]= useState([]);
+  const [addReviews, setAddReviews] = useState([])
+  
 
   function handleDeleteLocation(id) {
     fetch(`api/locations/${id}`, {
@@ -19,30 +22,37 @@ function Location({ bathroom}) {
       }
     });
   }
-
-
-
-//   useEffect(() => {
-//     fetch("api/reviews")
-//       .then((r) => r.json())
-//       .then(setReviews);
-//   }, []);
-
+  function handleAddReviews(newReviews) {
+    setAddReviews((reviews) => [...reviews, newReviews]);
+  }
 
   return (
       <Wrapper>
     <Locations>
         <Box>
-             <h2>{bathroom.city}</h2>
-            <h3>{bathroom.name}</h3>
-            <em>{bathroom.address}</em>
-            <p></p>
-            <em>Details: {bathroom.details}</em>
+             <h2>{city}</h2>
+            <h3>{name}</h3>
+            <em>{address}</em>
+            <ul>
+            <li> {details} </li>
+            </ul>
+            <p>{likes} Visits </p>
+
+        <h4>Reviews: </h4>
+        <ul className="reviews">
+        {bathroom.reviews.map((review) => (
+        <Review key={review.id} review={review} />
+        ))}
+       </ul>
+
+       <ReviewForm onAddReviews={handleAddReviews}/> 
         <p>
         <Button onClick={() => handleDeleteLocation(bathroom.id)}>
               Delete Bathroom 
          </Button>
          </p>
+  
+         
 
          </Box>
     </Locations>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Button, Error, FormField, Input, Label, Textarea } from "../styles";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+
 
 function NewBathroom({ onAddBathrooms}) {
   const [city, setCity] = useState("");
@@ -99,16 +99,7 @@ function NewBathroom({ onAddBathrooms}) {
           </FormField>
         </form>
       </WrapperChild>
-      {/* <WrapperChild>
-        <h1>{city}</h1>
-        <p>
-          <em>{name} </em>
-          <em>{address} </em>
-          <em>{details} </em>
-          &nbsp;·&nbsp;
-          {/* <cite>Submitted By {user.username}</cite> */}
-        {/* </p> */}
-      {/* // </WrapperChild> */} 
+
     </Wrapper>
   );
 }

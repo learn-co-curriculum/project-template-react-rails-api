@@ -1,39 +1,27 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
-function ReviewForm({ onEditReview, onAddReviews }) {
+function ReviewForm({ onAddReviews}) {
     const [comment, setComment] = useState("");
     const [rating, setRating] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-
-//   function handleInputChange(event) {
-//     onChangeForm(event.target.name, event.target.value);
-//   }
-
-
-
   function handleSubmit(e) {
     e.preventDefault();
-    setIsLoading(true);
-    fetch(`api/reviews`, {
+    const formData = {
+      comments: comment, 
+      rating: rating,
+    }
+    fetch("api/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        comment,
-        rating,
-      }),
+      body: JSON.stringify(formData), 
     }).then((r) => {
-
       setIsLoading(false);
       if (r.ok) {
         r.json().then((newReview) => {
-          setComment("");
-          setRating();
-          setErrors([]);
           onAddReviews(newReview);
         });
       } else {
@@ -43,31 +31,14 @@ function ReviewForm({ onEditReview, onAddReviews }) {
   }
 
 
-
-//   function handleReviewChange(event, id) {
-//     event.preventDefault();
-//     fetch(`./reviews/${id}`, {
-//       method: "PATCH",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(review),
-//     })
-//       .then((r) => r.json())
-//       .then(onEditReview);
-//   }
-
-//   if (!review) return null;
-
-//   const { comment, rating } = review;
-
   return (
     <form onSubmit={handleSubmit}>
+      <h4>Add New Review</h4>
       <div className="form-row">
         <div className="col-5">
           <input
             type="text"
-            className="form-control"
+            id="comment"
             placeholder="Comment"
             name="comment"
             value={comment}
@@ -76,7 +47,7 @@ function ReviewForm({ onEditReview, onAddReviews }) {
            &nbsp;&nbsp;
        <input
             type="number"
-            className="form-control"
+            id="rating"
             placeholder="Rating"
             name="rating"
             value={rating}

@@ -7,9 +7,8 @@ import ReviewForm from "../pages/ReviewForm";
 function Location({ bathroom, reviews}) {
   const { city, address, name, details, likes } = bathroom;
   const [bathrooms, setBathrooms]= useState([]);
-  const [addReviews, setAddReviews] = useState([])
+  const [addReviews, setAddReviews] = useState([]);
   
-
   function handleDeleteLocation(id) {
     fetch(`api/locations/${id}`, {
       method: "DELETE",
@@ -22,9 +21,12 @@ function Location({ bathroom, reviews}) {
       }
     });
   }
+
+
   function handleAddReviews(newReviews) {
     setAddReviews((reviews) => [...reviews, newReviews]);
   }
+
 
   return (
       <Wrapper>
@@ -34,17 +36,18 @@ function Location({ bathroom, reviews}) {
             <h3>{name}</h3>
             <em>{address}</em>
             <ul>
-            <li> {details} </li>
+            <em> {details} </em>
             </ul>
-            <p>{likes} Visits </p>
+            {/* <button>{likes} Likes </button> */}
+
+ 
 
         <h4>Reviews: </h4>
-        <ul className="reviews">
+        <em className="reviews">
         {bathroom.reviews.map((review) => (
         <Review key={review.id} review={review} />
         ))}
-       </ul>
-
+       </em>
        <ReviewForm onAddReviews={handleAddReviews}/> 
         <p>
         <Button onClick={() => handleDeleteLocation(bathroom.id)}>

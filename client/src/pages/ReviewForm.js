@@ -1,28 +1,31 @@
 import React, { useState } from "react";
 
 function ReviewForm({ onAddReviews}) {
-    const [comment, setComment] = useState("");
+    const [comments, setComments] = useState("");
     const [rating, setRating] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-  function handleSubmit(e) {
+  function handleSubmit(e,id) {
     e.preventDefault();
-    const formData = {
-      comments: comment, 
-      rating: rating,
-    }
-    fetch("api/reviews", {
+    setIsLoading(true);
+    fetch(`api/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData), 
+      body: JSON.stringify({
+          rating,
+          comments,
+      }), 
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((newReview) => {
-          onAddReviews(newReview);
+            setComments("");
+            setRating("");
+            setErrors([]);
+            onAddReviews(newReview);
         });
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -40,9 +43,9 @@ function ReviewForm({ onAddReviews}) {
             type="text"
             id="comment"
             placeholder="Comment"
-            name="comment"
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
+            name="comments"
+            value={comments}
+            onChange={(e) => setComments(e.target.value)}
           />
            &nbsp;&nbsp;
        <input

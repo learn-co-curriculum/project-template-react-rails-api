@@ -23,18 +23,13 @@
     def update 
         review = Review.find_by(id: params[:id])
         review.update(create_params)
-        render json: review 
-    end
-
-    def create 
-        review = Review.create!(create_params)
-        render json: review.location, status: :created
+        render json: review
     end
 
     private 
 
     def create_params
-        params.permit(:rating, :comments, :location_id, :user_id)
+        params.require(:review).permit(:rating, :comments, :location_id, :user_id)
 
     end
 

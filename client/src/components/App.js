@@ -5,7 +5,7 @@ import Login from "../pages/Login";
 import '../styles/App.css';
 import LocationList from "../pages/LocationList";
 import NewBathroom from "../pages/NewBathroom";
-import ReviewList from "../pages/ReviewList";
+
 
 
 function App() {
@@ -41,8 +41,6 @@ function App() {
   function handleAddBathrooms(newBathrooms) {
     setBathrooms((bathrooms) => [...bathrooms, newBathrooms]);
   }
-
-
   
   return (
     <>

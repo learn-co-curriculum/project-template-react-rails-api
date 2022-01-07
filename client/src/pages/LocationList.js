@@ -4,9 +4,10 @@ import Location from "../pages/Location";
 
 
 
-function LocationList({bathrooms}) {
+function LocationList({bathrooms, onDeleteBathrooms}) {
+  
   const bathroomLocationList = bathrooms.map((bathroom) => (
-    <Location key={bathroom.id} bathroom={bathroom} />
+    <Location key={bathroom.id} bathroom={bathroom} onDeleteBathrooms={onDeleteBathrooms}/>
   ));
   
  
@@ -18,6 +19,7 @@ function LocationList({bathrooms}) {
     <Wrapper>
  
     <div>{bathroomLocationList}</div>
+
     
 
     </Wrapper> 

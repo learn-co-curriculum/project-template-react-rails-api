@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Login from "../pages/Login";
 import '../styles/App.css';
@@ -10,7 +10,7 @@ import ReviewList from "../pages/ReviewList";
 
 function App() {
   const [user, setUser] = useState(null);
-  const [bathrooms, setBathrooms]= useState([]);
+  const [bathrooms, setBathrooms] = useState([]);
   const [reviews, setReviews] = useState([])
 
   useEffect(() => {
@@ -42,18 +42,21 @@ function App() {
     setBathrooms((bathrooms) => [...bathrooms, newBathrooms]);
   }
 
+  function handleDeleteBathrooms(id) {
+    setBathrooms((bathrooms) =>
+      bathrooms.filter((bathroom) => bathroom.id !== id));
+  }
 
 
-  
   return (
     <>
       <NavBar user={user} setUser={setUser} />
       <main>
         <Routes>
-          <Route path="/locations" element = {<LocationList bathrooms={bathrooms} />}>
+          <Route path="/locations" element={<LocationList bathrooms={bathrooms} onDeleteBathrooms={handleDeleteBathrooms}/>}>
           </Route>
-      
-          <Route path="/new" element = {<NewBathroom onAddBathrooms={handleAddBathrooms} user={user}/>}>
+
+          <Route path="/new" element={<NewBathroom onAddBathrooms={handleAddBathrooms} user={user} />}>
           </Route>
         </Routes>
       </main>

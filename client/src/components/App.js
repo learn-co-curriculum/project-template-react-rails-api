@@ -20,12 +20,17 @@ function App() {
         r.json().then((user) => setUser(user));
       }
     });
+    
   }, []);
 
   useEffect(() => {
     fetch("api/locations")
       .then((r) => r.json())
-      .then(setBathrooms);
+
+      .then(data => {
+        console.log(data)
+        setBathrooms(data)});
+      
   }, []);
 
   useEffect(() => {
@@ -47,13 +52,19 @@ function App() {
       bathrooms.filter((bathroom) => bathroom.id !== id));
   }
 
+  // function handleUpdateBathroom(id) {
+  //     setBathrooms((bathrooms) =>
+  //     bathrooms.
+      
+  //     likes: bathroom.likes + 1,
+  //     };
 
   return (
     <>
       <NavBar user={user} setUser={setUser} />
       <main>
         <Routes>
-          <Route path="/locations" element={<LocationList bathrooms={bathrooms} onDeleteBathrooms={handleDeleteBathrooms}/>}>
+          <Route path="/locations" element={<LocationList bathrooms={bathrooms} onDeleteBathrooms={handleDeleteBathrooms} user={user}  />}>
           </Route>
 
           <Route path="/new" element={<NewBathroom onAddBathrooms={handleAddBathrooms} user={user} />}>

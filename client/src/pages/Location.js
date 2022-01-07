@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Button } from "../styles";
 import styled from "styled-components";
 
-function Location({ bathroom, onDeleteBathrooms }) {
+function Location({ bathroom, onDeleteBathrooms, onUpdateBathroom}) {
   const { city, address, name, details, likes } = bathroom;
   // const [updateBathroom, setUpdateBathroom] = useState([]),
 
@@ -19,25 +19,20 @@ function Location({ bathroom, onDeleteBathrooms }) {
     })
   }
 
-
-
-  // fetch(`api/locations/${id}`, {
-  //   method: "PATCH",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(updateObj),
-  // })
-  //   .then((r) => {
-  //     if (r.ok) {
-  //       setUpdateBathroom((updateBathroom) =>
-  //         bathrooms.map((bathroom) =>
-  //           bathroom.id === updateBathroom.id ? updateBathroom : bathroom
-  //         ));
-  //       setBathrooms(updateBathroom);
-  //     }
-  //   });
+  // function handleUpdateClick(id) {
+  
+  //   fetch(`api/locations/${id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(updateObj),
+  //   })
+  //     .then((r) => r.json())
+  //     .then((updatedBathroom) => onUpdateBathroom(updatedBathroom));
   // }
+
+  
 
 
   return (
@@ -57,6 +52,12 @@ function Location({ bathroom, onDeleteBathrooms }) {
               Delete Bathroom
             </Button>
           </p>
+
+          {/* <p>
+            <Button onClick={() => handleUpdateClick(bathroom.likes)}>
+              Visited Bathroom
+            </Button>
+          </p> */}
 
 
 

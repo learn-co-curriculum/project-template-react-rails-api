@@ -1,11 +1,13 @@
+// import React, { useState} from "react";
 
- // const [reviews, setReviews] = useState([]);
+// function Review() {
+//  const [reviews, setReviews] = useState([]);
 
 // useEffect(() => {
-  //   fetch("api/reviews")
-  //     .then((r) => r.json())
-  //     .then(setReviews);
-  // }, []);
+//     fetch("api/reviews")
+//       .then((r) => r.json())
+//       .then(setReviews);
+//   }, []);
 
 
   // function handleAddReviews(newReviews) {
@@ -18,3 +20,7 @@
   //   );
   //   setReviews(updatedReviews);
   // }
+
+ 
+  // export default Review;
+

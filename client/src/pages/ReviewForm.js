@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
 
-function ReviewForm({ review, onChangeForm, onEditReview, onAddReviews }) {
+function ReviewForm({ review, onChangeForm, onEditReview, onAddReviews, setLocations }) {
     const [comment, setComment] = useState("");
     const [rating, setRating] = useState("");
+    const [locationId, setLocationId] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -12,20 +13,30 @@ function ReviewForm({ review, onChangeForm, onEditReview, onAddReviews }) {
 //     onChangeForm(event.target.name, event.target.value);
 //   }
 
+useEffect(() => {
+  fetch("api/locations")
+    .then((r) => r.json())
+    .then(setLocations);
+}, []);
+
 
 
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
+    const formData = {
+      location_id: locationId,
+      comments: comment, 
+      rating: rating,
+      
+    }
+
     fetch(`api/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        comment,
-        rating,
-      }),
+      body: JSON.stringify(formData), 
     }).then((r) => {
 
       setIsLoading(false);
@@ -63,6 +74,7 @@ function ReviewForm({ review, onChangeForm, onEditReview, onAddReviews }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2>Add New Review</h2>
       <div className="form-row">
         <div className="col-5">
           <input

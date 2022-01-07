@@ -29,14 +29,14 @@ class Api::LocationsController < ApplicationController
 
     def increment_likes 
         location = Location.find_by(id: params[:id])
-        location.update(likes: bird.likes + 1)
+        location.update(likes: location.likes + 1)
         render json: location
     end
 
 private 
 
     def create_params 
-        params.permit(:city, :name, :address, :likes)
+        params.permit(:city, :name, :address, :details, :likes)
     end
 
 

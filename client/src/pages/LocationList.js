@@ -1,15 +1,25 @@
 import styled from "styled-components";
 import Location from "../pages/Location";
 
-function LocationList({bathrooms, reviews}) {
 
-  const bathroomLocationList = bathrooms.map((bathroom) => (
-    <Location key={bathroom.id} bathroom={bathroom} reviews={reviews}/>
+
+function LocationList({bathrooms, onDeleteBathroom, reviews}) {
+  
+  const bathroomLocationList = bathrooms?.map((bathroom) => (
+    <Location key={bathroom.id} bathroom={bathroom} reviews={reviews} onDeleteBathroom={onDeleteBathroom} />
+
   ));
 
   return (
     <Wrapper>
+
      <div>{bathroomLocationList}</div>    
+
+
+    
+
+    
+
     </Wrapper> 
            
   );

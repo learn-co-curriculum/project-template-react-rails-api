@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Box, Button } from "../styles";
 import styled from "styled-components";
 
-function Location({ bathroom, setBathrooms, onDeleteBathrooms }) {
+function Location({ bathroom, onDeleteBathrooms }) {
   const { city, address, name, details, likes } = bathroom;
-  // const [bathrooms, setBathrooms] = useState([]);
   // const [updateBathroom, setUpdateBathroom] = useState([]),
 
 

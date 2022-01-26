@@ -10,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Route path={"/"} element = {<div>DOOO IT</div>}></Route>
         <Route path="/sale" element = {CreateSale}>
         </Route>
       </Router>

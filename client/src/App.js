@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <div>HELP ME</div>
         <Router>
-          <Route path={"/"} element = {<div>DOasdasdasOO IT</div>}></Route>
+          <Route path={"/"} element = {<div>DOasdasasdasddasOO IT</div>}></Route>
           <Route path="/sale" element = {CreateSale}>
           </Route>
         </Router>

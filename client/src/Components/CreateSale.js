@@ -12,7 +12,27 @@ function CreateSale(){
     function handlePost(e){
         e.preventDefault();
         if(toCreateOrNotTo){
-            
+            fetch("http://little-esale.herokuapp.com/item",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    httpimage: image,
+                    name: name
+                })
+            })
+            .then((r)=>{
+                fetch("http://little-esale.herokuapp.com/sales",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+
+                })
+            })
+            })
         }
         else{
 
@@ -24,13 +44,13 @@ function CreateSale(){
         </div >
         <form>
             {toCreateOrNotTo? <div>
-                <textarea placeholder="Input Http Image Link" value={image} onChange={setImage(e.target.value)}></textarea>
-                <textarea placeholder="EnterName" value={name} onChange={setName(e.target.value)}></textarea>
-            </div>: <textarea value={itemId} onChange={setItemId(e.target.value)} placeholder="Choose Item Id"></textarea>}
-            <textarea value={e.target.value}>
-            </textarea>
-            <input type={"datetime-local"} value={date} onChange={setDate(e.target.value)}></input>
-            <button onClick={handlePost(e)}></button>
+                <textarea placeholder="Input Http Image Link" value={image} onChange={(e)=>setImage(e.target.value)}></textarea>
+                <textarea placeholder="EnterName" value={name} onChange={(e)=>setName(e.target.value)}></textarea>
+            </div>: <textarea value={itemId} onChange={setItemId((e)=>e.target.value)} placeholder="Choose Item Id"></textarea>}
+            {/* <textarea onChange={(e)=>e.target.value}>
+            </textarea> */}
+            <input type={"datetime-local"} value={date} onChange={(e)=>setDate(e.target.value)}></input>
+            <button onClick={(e)=>handlePost(e)}></button>
         </form>
     </div>
 }

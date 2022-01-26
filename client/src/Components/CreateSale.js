@@ -39,14 +39,14 @@ function CreateSale(){
         }
     }
     return <div>
-        <div onClick={change()}>
+        <div onClick={()=>change()}>
             {toCreateOrNotTo ? "Choose Item" : "Create Item"}
         </div >
         <form>
             {toCreateOrNotTo? <div>
                 <textarea placeholder="Input Http Image Link" value={image} onChange={(e)=>setImage(e.target.value)}></textarea>
                 <textarea placeholder="EnterName" value={name} onChange={(e)=>setName(e.target.value)}></textarea>
-            </div>: <textarea value={itemId} onChange={setItemId((e)=>e.target.value)} placeholder="Choose Item Id"></textarea>}
+            </div>: <textarea value={itemId} onChange={(e)=>setItemId(e.target.value)} placeholder="Choose Item Id"></textarea>}
             {/* <textarea onChange={(e)=>e.target.value}>
             </textarea> */}
             <input type={"datetime-local"} value={date} onChange={(e)=>setDate(e.target.value)}></input>

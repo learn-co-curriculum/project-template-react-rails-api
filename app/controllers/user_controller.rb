@@ -46,6 +46,16 @@ rescue_from ActiveRecord::RecordNotFound, with: :do_the_other_saving
             render json: {error: "Not real"}, status: :unauthorized
         end
     end
+    def sales
+        user = User.find(params[:id])
+        render json: user, include: :seller
+    end
+    def buys
+
+    end
+    def salesnbuys
+
+    end
     private
     def user_params
         params.permit(:username, :password, :password_confirmation)

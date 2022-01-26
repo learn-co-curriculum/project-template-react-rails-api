@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   resources :user
   get "/login", to: "user#login"
   get "/relog", to: "user#relog"
-  get "/userswsale/:id" to: "user#sales"
-  get "/userswbuy/:id" to: "user#buys"
-  get "/userswbuynsale/:id" to: "user#salesnbuys"
+  get "/userswsale/:id", to: "user#sales"
+  get "/userswbuy/:id", to: "user#buys"
+  get "/userswbuynsale/:id", to: "user#salesnbuys"
   resources :item, only: [:create, :index, :show]
   resources :buyer, only: [:create, :update, :show, :destroy,]
   patch "/youwin/:id", to: "buyer#youwin"

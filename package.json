@@ -9,8 +9,6 @@
     
   "node": "16.x"
   
-    
-  
   },
   
   "scripts": {
@@ -32,7 +30,10 @@
   "dependencies": {
   
     
-  "react-router-dom": "^6.2.1"
+  "react-router-dom": "^6.2.1",
+  
+    
+  "react-scripts": "^5.0.0"
   
   }
 }

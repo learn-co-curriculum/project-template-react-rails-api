@@ -1,7 +1,7 @@
 class SalesController < ApplicationController
     def create
-        sale = Sale.create!(sales_params)
-        render json: sale, status: 201
+        saled = Sale.create!(sales_params)
+        render json: saled, status: 201
     end
     def index
         sales = Sale.all

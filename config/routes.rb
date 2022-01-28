@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   patch "/youwin/:id", to: "buyer#youwin"
   resources :sales
   resources :seller, only: [:show, :index]
+  get "/sellermatchuser/:slid/:usid", to: "seller#sellermatchuser"
   # resources :user, only:  [:index] 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

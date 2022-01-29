@@ -4,15 +4,17 @@ class SellerController < ApplicationController
         render json: sellers, status: 201
     end
     def show
-        seller = Seller.find_by!(user_id: params[:user_id])
+        seller = Seller.find(params[:id])
         render json: seller, status: 201
     end
     def sellermatchuser
         seller = Seller.find_by(id: params[:slid])
-        b = false
-        if(seller.user_id === params[:usid])
+        if(seller[:user_id] === (params[:usid]).to_i)
             b = true
+            render json: {yesis: b},  status: 200
+        else
+            b = false
+            render json: {yesis: b}, status: 200
         end
-        render json: {yesis: b}, status: 200
     end
 end

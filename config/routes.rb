@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :item, only: [:create, :index, :show]
   resources :buyer, only: [:create, :update, :show, :destroy,]
   patch "/youwin/:id", to: "buyer#youwin"
-  resources :sales
+  resources :sale
+  patch "/bidtime/:id", to: "sale#updateBiding"
+  get "/saleshighestBid/:id", to: "sale#findHighestBid"
   resources :seller, only: [:show, :index]
   get "/sellermatchuser/:slid/:usid", to: "seller#sellermatchuser"
   # resources :user, only:  [:index] 

@@ -30,7 +30,7 @@ function CreateSale(){
             })
             .then((r)=>r.json())
             .then((r)=>{
-                fetch("http://localhost:3000/sales",{
+                fetch("http://localhost:3000/sale",{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

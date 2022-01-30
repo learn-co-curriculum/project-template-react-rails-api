@@ -35,7 +35,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :do_the_other_saving
             session[:user_id] = user.id
             render json: user, status: :created
         else
-            render json: { error: "user invalid"}, status: :unauthorized
+            render json: { error: "User Invalid"}, status: :unauthorized
         end
     end
     def relog
@@ -55,6 +55,11 @@ rescue_from ActiveRecord::RecordNotFound, with: :do_the_other_saving
     end
     def salesnbuys
 
+    end
+    def userbysale
+        ids = Seller.find(params[:id]).user_id
+        user = User.find(ids)
+        render json: user, status: 200
     end
     private
     def user_params

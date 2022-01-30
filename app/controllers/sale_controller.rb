@@ -41,6 +41,16 @@ class SaleController < ApplicationController
         Sale.find(params[:id]).update(bid: params[:bidet])
         render json: {buyer: buyer, sale: sale, slae: Sale.find(params[:id])}, status: 202
     end
+    def saleUser
+        if(session[:user_id])
+            b = Seller.find_by!(user_id: session[:user_id])
+            sales = Sale.where.not(seller_id: b).limit(30)
+            render json: sales, status: 201
+        else
+            sales = Sale.all.limit(30)
+            render json: sales, status: 201
+        end
+    end
     private
     def sales_params
         params.permit(:seller_id, :item_id, :bid, :starting_bid, :bid_time)

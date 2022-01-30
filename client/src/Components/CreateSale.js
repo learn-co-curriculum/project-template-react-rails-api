@@ -1,5 +1,6 @@
 import { useParams, Link, Navigate } from "react-router-dom"
 import { useEffect, useReducer, useState } from "react";
+import Header from "./Header";
 function CreateSale(){
     const [toCreateOrNotTo, setToCreateOrNotTo] = useState(true); 
     const [date, setDate] = useState("");
@@ -70,6 +71,7 @@ function CreateSale(){
     console.log(linker)
     return linker === "/sale"? 
     <div>
+        <Header/>
         <div onClick={()=>change()}>
             {toCreateOrNotTo ? "Choose Item" : "Create Item"}
         </div >

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Header from "./Header";
 
 function DisplaySale(){
     const [seller, setSeller] = useState(0);
@@ -89,6 +90,7 @@ function DisplaySale(){
     }
     console.log(bid)
     return <div>
+        <Header/>
         <div>{isSeller ? "Your Sale" : sellerName}</div>
         <div>Started At{bidTime}</div>
         <img src={itemImage} alt={itemName}/>

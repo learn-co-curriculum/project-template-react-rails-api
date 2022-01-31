@@ -24,7 +24,7 @@ As a Rescue Admin, I should be able to:
  ### bonus
   - add scheduled meetups with fosters or applicants and see all meetups (CREATE/READ)
 
-*Bonus Deliverable*
+## Bonus Deliverables
 - dark mode
 - mobile compatibility
 - document management

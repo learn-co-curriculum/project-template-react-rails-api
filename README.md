@@ -31,7 +31,7 @@ As a Rescue Admin, I should be able to:
 - volunteer management
 
 # Backend - ERD
-<img width="826" alt="PawsClawsERD" src="https://user-images.githubusercontent.com/46327683/151856888-f8d616e8-c895-4305-9ae2-518bc7328a14.png">
+<img width="824" alt="PawsClawsERD" src="https://user-images.githubusercontent.com/46327683/151859468-6030a28a-6ae3-4378-a73e-ab92d7b57853.png">
 
 
 # Frontend - Wireframe
@@ -43,7 +43,7 @@ As a Rescue Admin, I should be able to:
 <img width="870" alt="NonRegUser_Adopables" src="https://user-images.githubusercontent.com/46327683/151857295-f6784432-7977-46ab-9803-b84a6c92ad12.png">
 
 - User registration page
-- <img width="875" alt="NonRegUser_Register" src="https://user-images.githubusercontent.com/46327683/151857433-8512126a-889e-4009-9860-6ddf3e2140d1.png">
+<img width="875" alt="NonRegUser_Register" src="https://user-images.githubusercontent.com/46327683/151857433-8512126a-889e-4009-9860-6ddf3e2140d1.png">
 
 
 ## Applicant
@@ -57,14 +57,19 @@ As a Rescue Admin, I should be able to:
 <img width="778" alt="Applicant_meetups" src="https://user-images.githubusercontent.com/46327683/151857814-f102c8b3-236d-4188-a1e0-c65e281f4b77.png">
 
 ## Foster
-- Foster dashboard
+- Foster dashboard page
 <img width="586" alt="Foster_Dashboard" src="https://user-images.githubusercontent.com/46327683/151858405-f9244ea3-1b2b-40fc-8896-ac083732f3eb.png">
 
-- Foster pet profile edit
-<img width="594" alt="Foster_EditPet" src="https://user-images.githubusercontent.com/46327683/151858100-6768bd1e-752f-4bf3-9ba3-1a8b813b095b.png">
+- Foster pet profile edit page
+<img width="493" alt="Foster_EditPet" src="https://user-images.githubusercontent.com/46327683/151859187-94a84613-1982-4c3c-8476-2bc23aeee4c0.png">
+
+- Foster meetup form page
+<img width="955" alt="Foster_MeetupForm" src="https://user-images.githubusercontent.com/46327683/151859718-702b1c2c-2f02-49b5-886d-e92d43dcf21a.png">
 
 
 ## Rescue Admin
+- Admin dashboard page
+<img width="555" alt="Admin_Dashboard" src="https://user-images.githubusercontent.com/46327683/151867414-6269fba6-6e2c-4ea1-a254-15e0a807c7aa.png">
 
 
 # Phase 5 Project Guidelines

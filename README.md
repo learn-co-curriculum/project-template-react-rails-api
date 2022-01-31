@@ -27,6 +27,8 @@ As a Rescue Admin, I should be able to:
 *Bonus Deliverable*
 - dark mode
 - mobile compatibility
+- document management
+- volunteer management
 
 # Backend - ERD
 <img width="793" alt="PawsClaws ERD" src="https://user-images.githubusercontent.com/46327683/151842471-7ec3283d-af5d-4ef3-b85c-aedaf78a4c29.png">

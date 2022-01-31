@@ -1,7 +1,7 @@
 # PawsClaws - Flatiron Phase 5 Full Stack Project
 
 # User Stories
-As a non-applicant, I should be able to:
+As an unregistered user, I should be able to:
 - see the landing page and all of the adoptable animals
 - apply to adopt a pet after I create a user account
 

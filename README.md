@@ -1,4 +1,4 @@
-# PawsClaws - Flatiron Phase 5 Full Stack Project
+# Paws&Claws Pet Rescue- Flatiron Phase 5 Full Stack Project
 
 # User Stories
 As an unregistered user, I should be able to:

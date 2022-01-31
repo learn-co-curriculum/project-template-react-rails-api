@@ -1,5 +1,31 @@
-# Paws-ClawsCo-frontend
-Final Phase 5 Full Stack Project
+# PawsClaws - Flatiron Phase 5 Full Stack Project
+
+# User Stories
+As an Applicant, I should be able to:
+- apply to adopt a pet (CREATE)
+- see the status of my pet adoption application (READ)
+- apply to adopt more than 1 pet (CREATE)
+  *bonus*
+  - see scheduled meetups with fosters or rescue admins (READ)
+
+As a Foster, I should be able to:
+- edit a pet's profile (UPDATE)
+- foster many pets
+  *bonus*
+  - add/see scheduled meetups with applicants or rescue admins (CREATE/READ)
+
+As a Rescue Admin, I should be able to:
+- add/edit/delete a pet, foster, applicant, and applications (CREATE/READ/UPDATE/DELETE)
+- add a pet to a foster's profile (UPDATE)
+  *bonus*
+  - add/see scheduled meetups with fosters or applicants (CREATE/READ)
+
+
+# Backend - ERD
+
+# Frontend - Wireframe
+
+
 
 # Phase 5 Project Guidelines
 

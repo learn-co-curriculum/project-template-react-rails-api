@@ -37,34 +37,34 @@ As a Rescue Admin, I should be able to:
 # Frontend - Wireframe
 ## Non-registered User
 - Landing page
-<img width="871" alt="NonRegUser_Landing" src="https://user-images.githubusercontent.com/46327683/151857214-0ebf115c-5ec1-4214-9d86-af3aace14f00.png">
+<img width="555" alt="NonRegUser_Landing" src="https://user-images.githubusercontent.com/46327683/151857214-0ebf115c-5ec1-4214-9d86-af3aace14f00.png">
 
 - Adoptable page
-<img width="870" alt="NonRegUser_Adopables" src="https://user-images.githubusercontent.com/46327683/151857295-f6784432-7977-46ab-9803-b84a6c92ad12.png">
+<img width="555" alt="NonRegUser_Adopables" src="https://user-images.githubusercontent.com/46327683/151857295-f6784432-7977-46ab-9803-b84a6c92ad12.png">
 
 - User registration page
-<img width="875" alt="NonRegUser_Register" src="https://user-images.githubusercontent.com/46327683/151857433-8512126a-889e-4009-9860-6ddf3e2140d1.png">
+<img width="555" alt="NonRegUser_Register" src="https://user-images.githubusercontent.com/46327683/151857433-8512126a-889e-4009-9860-6ddf3e2140d1.png">
 
 
 ## Applicant
 - Landing page
-<img width="779" alt="Applicant_Landing" src="https://user-images.githubusercontent.com/46327683/151857662-d4f3fffb-2908-430d-ad90-f8990c0680da.png">
+<img width="555" alt="Applicant_Landing" src="https://user-images.githubusercontent.com/46327683/151857662-d4f3fffb-2908-430d-ad90-f8990c0680da.png">
 
 - Application status page
-<img width="781" alt="Applicant_AppStatus" src="https://user-images.githubusercontent.com/46327683/151857728-244361b1-91d0-4c7b-8ba4-28185ebcbe0a.png">
+<img width="555" alt="Applicant_AppStatus" src="https://user-images.githubusercontent.com/46327683/151857728-244361b1-91d0-4c7b-8ba4-28185ebcbe0a.png">
 
 - Meetup view page
-<img width="778" alt="Applicant_meetups" src="https://user-images.githubusercontent.com/46327683/151857814-f102c8b3-236d-4188-a1e0-c65e281f4b77.png">
+<img width="555" alt="Applicant_meetups" src="https://user-images.githubusercontent.com/46327683/151857814-f102c8b3-236d-4188-a1e0-c65e281f4b77.png">
 
 ## Foster
 - Foster dashboard page
-<img width="586" alt="Foster_Dashboard" src="https://user-images.githubusercontent.com/46327683/151858405-f9244ea3-1b2b-40fc-8896-ac083732f3eb.png">
+<img width="555" alt="Foster_Dashboard" src="https://user-images.githubusercontent.com/46327683/151858405-f9244ea3-1b2b-40fc-8896-ac083732f3eb.png">
 
 - Foster pet profile edit page
 <img width="493" alt="Foster_EditPet" src="https://user-images.githubusercontent.com/46327683/151859187-94a84613-1982-4c3c-8476-2bc23aeee4c0.png">
 
 - Foster meetup form page
-<img width="955" alt="Foster_MeetupForm" src="https://user-images.githubusercontent.com/46327683/151859718-702b1c2c-2f02-49b5-886d-e92d43dcf21a.png">
+<img width="555" alt="Foster_MeetupForm" src="https://user-images.githubusercontent.com/46327683/151859718-702b1c2c-2f02-49b5-886d-e92d43dcf21a.png">
 
 
 ## Rescue Admin

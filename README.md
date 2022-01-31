@@ -18,8 +18,11 @@ As a Rescue Admin, I should be able to:
 - add/edit/delete a pet, foster, applicant, and applications (CREATE/READ/UPDATE/DELETE)
 - add a pet to a foster's profile (UPDATE)
   *bonus*
-  - add/see scheduled meetups with fosters or applicants (CREATE/READ)
+  - add scheduled meetups with fosters or applicants and see all meetups (CREATE/READ)
 
+*Bonus Deliverable*
+- dark mode
+- mobile compatibility
 
 # Backend - ERD
 

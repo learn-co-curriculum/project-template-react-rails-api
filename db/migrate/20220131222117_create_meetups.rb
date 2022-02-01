@@ -7,6 +7,7 @@ class CreateMeetups < ActiveRecord::Migration[6.1]
       t.text :reason
       t.references :pet, null: false, foreign_key: true
       t.references :foster, null: false, foreign_key: true
+      t.references :applicant, null: false, foreign_key: true
 
 
       t.timestamps

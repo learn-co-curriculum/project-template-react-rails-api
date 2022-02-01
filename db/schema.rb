@@ -59,8 +59,10 @@ ActiveRecord::Schema.define(version: 2022_02_01_174846) do
     t.text "reason"
     t.bigint "pet_id", null: false
     t.bigint "foster_id", null: false
+    t.bigint "applicant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["applicant_id"], name: "index_meetups_on_applicant_id"
     t.index ["foster_id"], name: "index_meetups_on_foster_id"
     t.index ["pet_id"], name: "index_meetups_on_pet_id"
   end
@@ -97,6 +99,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_174846) do
     t.boolean "fixed"
     t.string "energy_level"
     t.string "coat_type"
+    t.string "coat_color"
     t.boolean "good_w_kids"
     t.boolean "good_w_cats"
     t.boolean "behavioral_issues"
@@ -119,6 +122,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_174846) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "meetups", "applicants"
   add_foreign_key "meetups", "fosters"
   add_foreign_key "meetups", "pets"
   add_foreign_key "pet_applications", "applicants"

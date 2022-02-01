@@ -1,4 +1,4 @@
-const { faker } = require('@faker-js/faker');
+require 'faker'
 
 puts "Destroying existing data...."
 Foster.destroy_all
@@ -45,8 +45,9 @@ p1 = Pet.create(
   fixed: true, 
   energy_level: "high", 
   coat_type: "double-coated", 
+  coat_color: "black/brown/white",
   good_w_kids: true, 
-  good_w_cats: false 
+  good_w_cats: false,
   behavioral_issues: false, 
   description: "This lovely girl would be a great companion for a work-at-home owner who enjoys taking breaks for walks during the day. She has great house manners and loves her toys. She needs more practice in social skills with other dogs, so is recommended as a single dog at present.", 
   rabies_vaccine: "3YR given on 11/3/2021", 
@@ -66,6 +67,7 @@ p2 = Pet.create(
   fixed: false, 
   energy_level: "low-medium", 
   coat_type: "Short", 
+  coat_color: "black/white",
   good_w_kids: true, 
   good_w_cats: true, 
   behavioral_issues: false, 
@@ -87,6 +89,7 @@ p3 = Pet.create(
   fixed: false, 
   energy_level: "low", 
   coat_type: "short", 
+  coat_color: "grey/white",
   good_w_kids: true, 
   good_w_cats: true, 
   behavioral_issues: false, 
@@ -108,6 +111,7 @@ p4 = Pet.create(
   fixed: false, 
   energy_level: "medium-high", 
   coat_type: "double-coated", 
+  coat_color: "tan/cream",
   good_w_kids: true, 
   good_w_cats: true, 
   behavioral_issues: false, 
@@ -121,27 +125,72 @@ p4 = Pet.create(
 puts "♥ Pets created!"
 
 # pet_fosters
-pf1 = PetFoster.create()
-pf2 = PetFoster.create()
-pf3 = PetFoster.create()
-pf4 = PetFoster.create()
+pf1 = PetFoster.create(
+  pet_id: p1.id,
+  foster_id: f1.id,
+  active: true
+)
+pf2 = PetFoster.create(
+  pet_id: p2.id,
+  foster_id: f1.id,
+  active: true
+)
+pf3 = PetFoster.create(
+  pet_id: p3.id,
+  foster_id: f2.id,
+  active: true
+)
+pf4 = PetFoster.create(
+  pet_id: p4.id,
+  foster_id: f3.id,
+  active: true
+)
 
 puts "♥ Pet_fosters created!"
 
-# meetups
-m1 = Meetup.create()
-
-puts "♥ Meetups created!"
-
 # applicants
-a1 = Applicant.create()
-a2 = Applicant.create()
+a1 = Applicant.create(
+  first_name: "Cassandra", 
+  last_name: "McGinley", 
+  dob: "07/20/1990", 
+  email: "cmcginley@email.com", 
+  phone: Faker::PhoneNumber.cell_phone, 
+  rent_own: "Own", 
+  home_type: "Home", 
+  length_address: "4 years", 
+  yard_description: "about .25 acres and 6 ft cedar fencing", 
+  children: "one 12 years old", 
+  pet_allergy: "no", 
+  lifestyle: "we love to go hiking! my husband goes for a 2 mile run every morning.", 
+  approved: false
+)
 
 puts "♥ Applicants created!"
 
+# meetups
+m1 = Meetup.create(
+  date: "3/1/2022",
+  time: "5:30PM",
+  location: "#{Faker::Address.street_address}, Anchorage, AK 99507",
+  reason: "meet & greet",
+  pet_id: p1.id,
+  foster_id: f1.id, 
+  applicant_id: a1.id
+)
+
+puts "♥ Meetups created!"
+
 # pet_applications
-pa1 = PetApplication.create()
-pa2 = PetApplication.create()
+pa1 = PetApplication.create(
+  pet_id: p1.id,
+  applicant_id: a1.id,
+  status: "Approved",
+)
+pa2 = PetApplication.create(
+  pet_id: p4.id,
+  applicant_id: a1.id,
+  status: "Approved"
+)
 
 puts "♥ Pet_applications created!"
 

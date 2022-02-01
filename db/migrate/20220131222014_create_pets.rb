@@ -12,6 +12,7 @@ class CreatePets < ActiveRecord::Migration[6.1]
       t.boolean :fixed, null: true
       t.string :energy_level, null: true
       t.string :coat_type, null: true
+      t.string :coat_color, null: true
       t.boolean :good_w_kids, null: true
       t.boolean :good_w_cats, null: true
       t.boolean :behavioral_issues, null: true

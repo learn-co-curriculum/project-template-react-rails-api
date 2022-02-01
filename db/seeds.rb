@@ -1,10 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+const { faker } = require('@faker-js/faker');
+
 puts "Destroying existing data...."
 Foster.destroy_all
 Pet.destroy_all
@@ -17,9 +12,24 @@ Admin.destroy_all
 puts "♥♥♥♥♥♥♥ Getting ready to seed ♥♥♥♥♥♥♥"
 
 # fosters
-f1 = Foster.create()
-f2 = Foster.create()
-f3 = Foster.create()
+f1 = Foster.create(
+  first_name: "Katie",
+  last_name: "Foster",
+  email: "kfoster@email.com", 
+  phone: Faker::PhoneNumber.cell_phone
+)
+f2 = Foster.create(
+  first_name: "Henry",
+  last_name: "Cavill",
+  email: "hcavill@email.com", 
+  phone: Faker::PhoneNumber.cell_phone
+)
+f3 = Foster.create(
+  first_name: "Ariana",
+  last_name: "Venti",
+  email: "aventi@email.com", 
+  phone: Faker::PhoneNumber.cell_phone
+)
 
 puts "♥ Fosters created!"
 

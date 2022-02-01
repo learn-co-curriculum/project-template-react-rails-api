@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :admins
   resources :applicants
   resources :fosters
   resources :meetups

@@ -34,7 +34,7 @@ class PetFostersController < ApplicationController
   private
 
   def petfoster_params
-    params.permit(:)
+    params.permit(:pet_id, :foster_id, :active)
   end
 
   def find_petfoster

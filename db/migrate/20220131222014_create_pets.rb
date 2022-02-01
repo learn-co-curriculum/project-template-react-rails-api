@@ -3,6 +3,7 @@ class CreatePets < ActiveRecord::Migration[6.1]
     create_table :pets do |t|
       t.string :name
       t.string :status
+      t.string :image
       t.string :species
       t.string :breed, null: true
       t.string :age, null: true

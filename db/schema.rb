@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 2022_02_01_174846) do
   end
 
   create_table "pet_applications", force: :cascade do |t|
-    t.bigint "pet_id"
-    t.bigint "applicant_id"
+    t.bigint "pet_id", null: false
+    t.bigint "applicant_id", null: false
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_174846) do
   create_table "pets", force: :cascade do |t|
     t.string "name"
     t.string "status"
+    t.string "image"
     t.string "species"
     t.string "breed"
     t.string "age"
@@ -120,6 +121,8 @@ ActiveRecord::Schema.define(version: 2022_02_01_174846) do
 
   add_foreign_key "meetups", "fosters"
   add_foreign_key "meetups", "pets"
+  add_foreign_key "pet_applications", "applicants"
+  add_foreign_key "pet_applications", "pets"
   add_foreign_key "pet_fosters", "fosters"
   add_foreign_key "pet_fosters", "pets"
 end

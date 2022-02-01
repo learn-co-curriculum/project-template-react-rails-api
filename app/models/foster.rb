@@ -1,7 +1,7 @@
 class Foster < ApplicationRecord
-  has_many :pet_foster
+  has_many :pet_foster, dependent: :destroy
   has_many :pet, through: :pet_foster
-  has_many :meetup
+  has_many :meetup, dependent: :destroy
   belongs_to :admin
 
   validates :email, presence: true, uniqueness: true

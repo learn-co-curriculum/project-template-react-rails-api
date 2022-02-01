@@ -1,6 +1,6 @@
 class Applicant < ApplicationRecord
-  has_many :pet_application
-  has_many :meetup
+  has_many :pet_application, dependent: :destroy
+  has_many :meetup, dependent: :destroy
   belongs_to :admin
 
   validates :email, presence: true, uniqueness: true

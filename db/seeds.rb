@@ -37,6 +37,7 @@ puts "♥ Fosters created!"
 p1 = Pet.create!(
   name: "Sis", 
   status: "Available", 
+  image: "./dog_sis.jpg",
   species: "Dog", 
   breed: "Shepherd/Husky Mix", 
   age: "1-2 years old", 
@@ -59,6 +60,7 @@ p1 = Pet.create!(
 p2 = Pet.create!(
   name: "Koda", 
   status: "Available", 
+  image: "./cat_koda.jpg",
   species: "Cat", 
   breed: "Tuxedo Shorthair", 
   age: "1", 
@@ -81,6 +83,7 @@ p2 = Pet.create!(
 p3 = Pet.create!(
   name: "Spice", 
   status: "Available", 
+  image: "./cat_spice.jpg",
   species: "Cat", 
   breed: "Domestic Shorthair", 
   age: "3", 
@@ -103,6 +106,7 @@ p3 = Pet.create!(
 p4 = Pet.create!(
   name: "Lucy", 
   status: "Available", 
+  image: "./dog_lucy.jpg",
   species: "Dog", 
   breed: "Husky mix", 
   age: "2-3 years old", 

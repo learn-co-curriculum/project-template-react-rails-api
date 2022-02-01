@@ -34,7 +34,7 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.permit(:name, :status, :species, :age, :height, :weight, :fixed, :energy_level, :coat_type, :good_w_kids, :good_w_cats, :behavioral_issues, :description, :rabies_vaccine, :FVRCP_vaccine, :distemper_parvo_vaccine, :dewormed)
+    params.permit(:name, :status, :species, :breed, :age, :height, :weight, :fixed, :energy_level, :coat_type, :good_w_kids, :good_w_cats, :behavioral_issues, :description, :rabies_vaccine, :FVRCP_vaccine, :distemper_parvo_vaccine, :dewormed)
   end
 
   def find_pet

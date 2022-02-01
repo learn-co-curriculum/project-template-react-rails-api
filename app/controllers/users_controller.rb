@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: [:create]
+    skip_before_action :authorize, only: [:create]
 
     def index
         render json: User.all
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
         render json: user, status: :created
     end
 
+    # DELETE /logout
     def destroy
         user = find_user
         user.destroy!
@@ -34,12 +35,10 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        # The has_secure_password (Links to an external site.) method also provides two new instance methods on your User model: password and password_confirmation. These methods don't correspond to database columns! Instead, to make these methods work, your users table must have a password_digest column.
-        params.permit(:username, :email, :password, :password_confirmation, :image_url, :bio)
-    end
-
-    def record_invalid(invalid)
-        render json: {error: invalid.record.errors.full_messages}, status: :unprocessable_entity
+        # The has_secure_password method also provides two new instance methods on your User model: password and password_confirmation. These methods don't correspond to database columns! Instead, to make these methods work, your users table must have a password_digest column.
+        # password_confirmation will work and default to nil if not used.
+        params.permit(:username, :email, :password, :type, :phone)
+        # params.permit(:username, :email, :password, :password_confirmation, :type, :phone)
     end
 
     def find_user

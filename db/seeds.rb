@@ -7,24 +7,24 @@ PetFoster.destroy_all
 Meetup.destroy_all
 Applicant.destroy_all
 PetApplication.destroy_all
-Admin.destroy_all
+# Admin.destroy_all
 
 puts "♥♥♥♥♥♥♥ Getting ready to seed ♥♥♥♥♥♥♥"
 
 # fosters
-f1 = Foster.create(
+f1 = Foster.create!(
   first_name: "Katie",
   last_name: "Foster",
   email: "kfoster@email.com", 
   phone: Faker::PhoneNumber.cell_phone
 )
-f2 = Foster.create(
+f2 = Foster.create!(
   first_name: "Henry",
   last_name: "Cavill",
   email: "hcavill@email.com", 
   phone: Faker::PhoneNumber.cell_phone
 )
-f3 = Foster.create(
+f3 = Foster.create!(
   first_name: "Ariana",
   last_name: "Venti",
   email: "aventi@email.com", 
@@ -34,7 +34,7 @@ f3 = Foster.create(
 puts "♥ Fosters created!"
 
 # pets
-p1 = Pet.create(
+p1 = Pet.create!(
   name: "Sis", 
   status: "Available", 
   species: "Dog", 
@@ -56,7 +56,7 @@ p1 = Pet.create(
   dewormed: true
 )
 
-p2 = Pet.create(
+p2 = Pet.create!(
   name: "Koda", 
   status: "Available", 
   species: "Cat", 
@@ -78,7 +78,7 @@ p2 = Pet.create(
   dewormed: true
 )
 
-p3 = Pet.create(
+p3 = Pet.create!(
   name: "Spice", 
   status: "Available", 
   species: "Cat", 
@@ -100,7 +100,7 @@ p3 = Pet.create(
   dewormed: true
 )
 
-p4 = Pet.create(
+p4 = Pet.create!(
   name: "Lucy", 
   status: "Available", 
   species: "Dog", 
@@ -115,7 +115,7 @@ p4 = Pet.create(
   good_w_kids: true, 
   good_w_cats: true, 
   behavioral_issues: false, 
-  description: "Sweet, blue-eyed Lucy has spent most of her life up to this point in subpar conditions. She’s now learning about a new life — going for walks, rides in the car, cuddles on the couch — what companionship can look like instead of isolation!", 
+  description: "Sweet, blue-eyed Lucy has spent most of her life up to this point in subpar conditions. She is now learning about a new life — going for walks, rides in the car, cuddles on the couch — what companionship can look like instead of isolation!", 
   rabies_vaccine: "3YR given on 1/22/2022", 
   FVRCP_vaccine: "", 
   distemper_parvo_vaccine: "3YR given on 1/22/2022", 
@@ -125,22 +125,22 @@ p4 = Pet.create(
 puts "♥ Pets created!"
 
 # pet_fosters
-pf1 = PetFoster.create(
+pf1 = PetFoster.create!(
   pet_id: p1.id,
   foster_id: f1.id,
   active: true
 )
-pf2 = PetFoster.create(
+pf2 = PetFoster.create!(
   pet_id: p2.id,
   foster_id: f1.id,
   active: true
 )
-pf3 = PetFoster.create(
+pf3 = PetFoster.create!(
   pet_id: p3.id,
   foster_id: f2.id,
   active: true
 )
-pf4 = PetFoster.create(
+pf4 = PetFoster.create!(
   pet_id: p4.id,
   foster_id: f3.id,
   active: true
@@ -149,7 +149,7 @@ pf4 = PetFoster.create(
 puts "♥ Pet_fosters created!"
 
 # applicants
-a1 = Applicant.create(
+a1 = Applicant.create!(
   first_name: "Cassandra", 
   last_name: "McGinley", 
   dob: "07/20/1990", 
@@ -168,7 +168,7 @@ a1 = Applicant.create(
 puts "♥ Applicants created!"
 
 # meetups
-m1 = Meetup.create(
+m1 = Meetup.create!(
   date: "3/1/2022",
   time: "5:30PM",
   location: "#{Faker::Address.street_address}, Anchorage, AK 99507",
@@ -181,12 +181,12 @@ m1 = Meetup.create(
 puts "♥ Meetups created!"
 
 # pet_applications
-pa1 = PetApplication.create(
+pa1 = PetApplication.create!(
   pet_id: p1.id,
   applicant_id: a1.id,
   status: "Approved",
 )
-pa2 = PetApplication.create(
+pa2 = PetApplication.create!(
   pet_id: p4.id,
   applicant_id: a1.id,
   status: "Approved"
@@ -195,8 +195,8 @@ pa2 = PetApplication.create(
 puts "♥ Pet_applications created!"
 
 # admins
-Admin.create(first_name: "Seen", last_name: "So", email: "seen@email.com")
+# Admin.create!(first_name: "Seen", last_name: "So", email: "seen@email.com")
 
-puts "♥ Admins created!"
+# puts "♥ Admins created!"
 
 puts "♥♥♥♥♥♥♥ DONE SEEDING! ♥♥♥♥♥♥♥"

@@ -6,10 +6,14 @@ import Container from 'react-bootstrap/Container';
 
 export default function HomeNavBar() {
   return (
-      <Navbar bg="light" expand="lg" className="navbar">
-      <img className="logo" src="./images/logo.png" alt="logo" href="/"/>
-      <h3>Paws & Claws</h3>
+    <Navbar bg="light" expand="lg" className="navbar">
       <Container >
+        <img
+        src="./images/logo.png"
+        className="logo"
+        alt="logo"
+      />
+      <h2>Paws & Claws</h2>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

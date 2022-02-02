@@ -24,12 +24,15 @@ export default function ApplicantSignUp() {
     setPassword(e.target.value);
   }
 
-  console.log(firstName, lastName, email, password)
+  function handleSignUp(e) {
+    e.preventDefault();
+    // fetch("/signup", {})
+  }
 
   return (
     <div id="applicant_signup" className="rescueportal">
 
-      <Form>
+      <Form onSubmit={handleSignUp}>
         <h3>Register to Adopt!</h3>
 
         <div className="form-group">

@@ -7,7 +7,9 @@ import HomeNavBar from "./components/HomeNavBar";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import AdoptablePets from "./components/AdoptablePets";
-import Portal from "./components/Portal"
+import Portal from "./components/Portal";
+import Login from "./components/Login";
+import ApplicantSignUp from "./components/ApplicantSignUp";
 
 function App() {
   const [pets, setPets] = useState([]);
@@ -31,6 +33,12 @@ function App() {
         </Route>
         <Route exact path="/portal">
           <Portal />
+        </Route>
+        <Route exact path="/portal/login">
+          <Login />
+        </Route>
+        <Route exact path="/portal/signup">
+          <ApplicantSignUp />
         </Route>
       </Switch>
 

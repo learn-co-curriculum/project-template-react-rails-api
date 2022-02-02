@@ -2,17 +2,20 @@
   height: 95px;
 }
 
-.button {
-
-}
-
 #home_navbar {
   border-style: solid;
   width: 100%;
 }
 
+.home_adoptablepets {
+  padding: 15px 0px;
+}
+
+.home_infocards {
+  padding: 15px 0px;
+}
+
 #footer {
-  background-color: lightblue;
   position: fixed;
   left: 0;
   bottom: 0;

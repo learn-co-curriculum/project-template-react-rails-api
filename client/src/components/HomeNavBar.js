@@ -8,6 +8,7 @@ export default function HomeNavBar() {
   return (
       <Navbar bg="light" expand="lg" className="navbar">
       <img className="logo" src="./images/logo.png" alt="logo" href="/"/>
+      <h3>Paws & Claws</h3>
       <Container >
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

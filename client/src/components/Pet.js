@@ -22,10 +22,10 @@ export default function Pet({ pet }) {
         </Card.Body>
         <ListGroup className="list-group-flush">
           <ListGroupItem><Badge bg={statusColor}>{pet.status}</Badge></ListGroupItem>
-          <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-          <ListGroupItem>Vestibulum at eros</ListGroupItem>
+          <ListGroupItem>height: {pet.height} inches, weight: {pet.weight}lbs</ListGroupItem>
+          <ListGroupItem>energy level: {pet.energy_level}</ListGroupItem>
         </ListGroup>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary">More Details</Button>
       </Card>
     
     

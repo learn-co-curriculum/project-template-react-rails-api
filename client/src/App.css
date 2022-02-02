@@ -16,6 +16,20 @@
   padding: 15px 0px;
 }
 
+#adoptable_pets {
+  /* border-style: solid; */
+  /* padding: 20px; */
+  height: auto;
+  width: 84%;
+  margin-left: 6%;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+#pets {
+  margin: 10px;
+}
+
 #footer {
   position: fixed;
   left: 0;

@@ -9,8 +9,6 @@ import Footer from "./components/Footer";
 import AdoptablePets from "./components/AdoptablePets";
 import Portal from "./components/Portal"
 
-const api = "http://localhost:3000/"
-
 function App() {
   const [pets, setPets] = useState([]);
 

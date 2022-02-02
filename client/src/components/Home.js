@@ -3,14 +3,15 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Container, Row, Col } from 'react-bootstrap';
 
-export default function Home() {
+export default function Home({ renderAdoptablePets }) {
+  
   return (
     <Container>
       <Row className="home_adoptablepets">
         <Col>
-              <h1>Find your next best friend!</h1>
+              <h1>Find your next best friend at Paws and Claws!</h1>
               <p>With integrity, we aim to protect the abandoned by giving them hope for the future and selecting a home that will fit their needs.</p>
-              <Button type="button" class="btn btn-primary">See Adoptable Pets</Button>
+              <Button type="button" class="btn btn-primary" onClick={renderAdoptablePets}>See Adoptable Pets</Button>
         </Col>
         <Col>
           <div id="home_adoptablepets_img">

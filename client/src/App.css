@@ -2,9 +2,10 @@
   height: 95px;
 }
 
-#home_navbar {
+.navbar {
   border-style: solid;
-  width: 100%;
+  width: 83%;
+  margin-left: 6%;
 }
 
 .home_adoptablepets {

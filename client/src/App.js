@@ -16,10 +16,14 @@ import Footer from "./components/Footer";
 // Petfinder uses OAuth for secure authentication
 
 function App() {
+  function renderAdoptablePets() {
+    console.log("MEEP")
+  }
+
   return (
     <div className="App">
       <HomeNavBar />
-      <Home />
+      <Home renderAdoptablePets={renderAdoptablePets}/>
       <Footer />
     </div>
   );

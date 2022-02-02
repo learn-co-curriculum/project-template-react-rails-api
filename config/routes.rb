@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+
+  # for meetups
+  get "/meetups/applicant/:id", to: "meetups#show_applicant"
+  get "/meetups/foster/:id", to: "meetups#show_foster"
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

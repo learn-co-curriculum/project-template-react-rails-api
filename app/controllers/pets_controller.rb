@@ -38,6 +38,6 @@ class PetsController < ApplicationController
   end
 
   def find_pet
-    pet.find(params[:id])
+    Pet.find(params[:id])
   end
 end

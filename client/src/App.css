@@ -1,4 +1,27 @@
-.App {
+.logo {
+  height: 95px;
+}
+
+.button {
+
+}
+
+#home_navbar {
+  border-style: solid;
+  width: 100%;
+}
+
+#footer {
+  background-color: lightblue;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +58,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

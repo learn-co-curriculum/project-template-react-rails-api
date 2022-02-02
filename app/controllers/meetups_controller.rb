@@ -11,6 +11,19 @@ class MeetupsController < ApplicationController
     render json: meetup
   end
 
+  # GET /meetups/applicant/:applicant_id
+  def show_applicant
+    meetup = Meetup.find_by(applicant_id: params[:id])
+    render json: meetup
+  end
+
+  # GET /meetups/foster/:foster_id
+  def show_foster
+    meetup = Meetup.find_by(foster_id: params[:id])
+    render json: meetup
+  end
+
+
   # PATCH /meetups/:id
   def update
     meetup = find_meetup

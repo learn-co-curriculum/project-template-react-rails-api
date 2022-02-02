@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     # GET /me
     # handles the auto-login and allows user to stay logged in when page refreshes
     def show
-        # byebug
         render json: @current_user
     end
 

@@ -21,6 +21,5 @@ export default function HomeNavBar() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    // </div>
   )
 }

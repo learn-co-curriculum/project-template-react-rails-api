@@ -3,7 +3,7 @@
 }
 
 .navbar {
-  border-style: solid;
+  /* border-style: solid; */
   width: 83%;
   margin-left: 6%;
 }
@@ -14,6 +14,20 @@
 
 .home_infocards {
   padding: 15px 0px;
+}
+
+#adoptable_pets {
+  /* border-style: solid; */
+  /* padding: 20px; */
+  height: auto;
+  width: 84%;
+  margin-left: 6%;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+#pets {
+  margin: 10px;
 }
 
 #footer {

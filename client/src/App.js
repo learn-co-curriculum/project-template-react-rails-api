@@ -1,5 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import HomeNavBar from "./components/HomeNavBar";
@@ -8,17 +9,15 @@ import Footer from "./components/Footer";
 import AdoptablePets from "./components/AdoptablePets";
 import Portal from "./components/Portal"
 
-// Color Palatte
-// Text - Dark Grey #424242
-// Primary Color - E
-// Secondary Color - #
-
-
-// Petfinder API Key: K7wpPYjZCTiRxVfWsCeKixCdj9iqZ2IKVHTuLbmeWA1XmTBB0M
-// Petfinder Secret: t2MHR3Cw0WlithMtbyOfwN7aRv8c2iBWeApgTbWw
-// Petfinder uses OAuth for secure authentication
-
 function App() {
+  const [pets, setPets] = useState([]);
+
+  useEffect(() => {
+    fetch("/pets")
+    .then(r=>r.json())
+    .then(pets => setPets(pets))
+  }, [])
+
   return (
     <div className="App">
       <HomeNavBar />
@@ -28,7 +27,7 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/adoptablepets">
-          <AdoptablePets />
+          <AdoptablePets pets={pets}/>
         </Route>
         <Route exact path="/portal">
           <Portal />

@@ -31,13 +31,13 @@ function App() {
         <Route exact path="/adoptablepets">
           <AdoptablePets pets={pets}/>
         </Route>
-        <Route exact path="/portal">
+        <Route exact path="/homeportal">
           <Portal />
         </Route>
-        <Route exact path="/portal/login">
+        <Route exact path="/homeportal/login">
           <Login />
         </Route>
-        <Route exact path="/portal/signup">
+        <Route exact path="/homeportal/signup">
           <ApplicantSignUp />
         </Route>
       </Switch>

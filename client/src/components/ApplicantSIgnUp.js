@@ -1,10 +1,12 @@
-import React from 'react';
+import React from "react";
+import Form from 'react-bootstrap/Form'
 
 export default function ApplicantSignUp() {
   return (
-    <div id="applicant_signup">
-      <form>
-        <h3>Register</h3>
+    <div id="applicant_signup" className="rescueportal">
+
+      <Form>
+        <h3>Register to Adopt!</h3>
 
         <div className="form-group">
             <label>First name</label>
@@ -26,11 +28,12 @@ export default function ApplicantSignUp() {
             <input type="password" className="form-control" placeholder="Enter password" />
         </div>
 
+        <br />
         <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
         <p className="forgot-password text-right">
-            Already registered <a href="/portal/login">log in?</a>
+            Already registered <a href="/homeportal/login">log in?</a>
         </p>
-    </form>
+      </Form>
     </div>
   )
 }

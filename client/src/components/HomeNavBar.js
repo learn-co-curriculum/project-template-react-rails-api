@@ -18,7 +18,7 @@ export default function HomeNavBar() {
           <Nav>
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="adoptablepets">Adoptable Pets</Nav.Link>
-            <Nav.Link href="portal">Rescue Portal</Nav.Link>
+            <Nav.Link href="homeportal">Rescue Portal</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

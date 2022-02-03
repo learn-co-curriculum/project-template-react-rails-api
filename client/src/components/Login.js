@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Login() {
+export default function Login({ setCurrentUser }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
@@ -16,7 +16,7 @@ export default function Login() {
     //   body: JSON.stringify({ username }),
     // })
     //   .then((r) => r.json())
-    //   .then((user) => onLogin(user));
+    //   .then((user) => setCurrentUser(user));
   }
 
 

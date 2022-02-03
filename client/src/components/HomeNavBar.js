@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 
-export default function HomeNavBar({ currentUser }) {
+export default function HomeNavBar({ currentUser, handleLogOut }) {
   return (
     <Navbar expand="lg" className="navbar">
       <Container >
@@ -23,6 +23,7 @@ export default function HomeNavBar({ currentUser }) {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="adoptablepets">Adoptable Pets</Nav.Link>
             <Nav.Link href="homeportal">Rescue Portal</Nav.Link>
+            <Nav.Link href="/logout" onClick={handleLogOut}>Log Out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

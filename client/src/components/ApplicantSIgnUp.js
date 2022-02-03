@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import Form from 'react-bootstrap/Form'
 
-export default function ApplicantSignUp({ setCurrentUser }) {
+export default function ApplicantSignUp({ setCurrentUser, setPortal }) {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [role, setRole] = useState("Applicant");
+  // const [role, setRole] = useState("Applicant");
   const [phone, setPhone] = useState();
-
-  // const [login, setLogin] = useState();
-  const [errors, setErrors] = useState();
 
   function handleSignUp(e) {
     e.preventDefault();
@@ -23,7 +20,7 @@ export default function ApplicantSignUp({ setCurrentUser }) {
         lastName,
         email,
         password,
-        role,
+        role: "Applicant",
         phone
       })
     })
@@ -33,12 +30,11 @@ export default function ApplicantSignUp({ setCurrentUser }) {
           console.log("USER", user)
           // set currentUser
           setCurrentUser(user)
-          // render applicant component here w current user
+          setPortal("Applicant")
         })
       } else {
         r.json().then((err) => {
           console.log("Something went wrong with the signup", err);
-          // setErrors(Object.entries(err.error).flat())
         })
       }
     })
@@ -78,7 +74,7 @@ export default function ApplicantSignUp({ setCurrentUser }) {
         <br />
         <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
         <p className="forgot-password text-right">
-            Already registered? <a href="/homeportal/login">log in</a>
+            Already registered? <a href="/homeportal/login">Log in</a>
         </p>
       </Form>
     </div>

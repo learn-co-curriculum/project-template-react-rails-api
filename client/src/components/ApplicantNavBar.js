@@ -4,7 +4,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 
-export default function ApplicantNavBar({ currentUser }) {
+export default function ApplicantNavBar({ currentUser, handleLogOut }) {
+  // console.log("IS APPLICANT NAV");
   return (
     <Navbar expand="lg" className="navbar">
       <Container >
@@ -13,15 +14,16 @@ export default function ApplicantNavBar({ currentUser }) {
         className="logo"
         alt="logo"
       />
-      <h2>Hi, {currentUser}!</h2>
+      <h3>Welcome to Paws&Claws, {currentUser.firstName}!</h3>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {/* keep this nav so links render on right side */}
           </Nav>
           <Nav>
-            <Nav.Link href="/applicantportal/applications">Applications</Nav.Link>
+            <Nav.Link href="/applicantportal">Applicant Portal</Nav.Link>
             <Nav.Link href="/applicantportal/adoptablepets">Adoptable Pets</Nav.Link>
+            <Nav.Link href="/logout" onClick={handleLogOut}>Log Out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -15,9 +15,10 @@ import Applications from "./components/Applications"
 import AdoptablePets from "./components/AdoptablePets";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState({}); // obj is a truthy val
   const [pets, setPets] = useState([]);
   const [applications, setApplications] = useState([]);
+  const [portal, setPortal] = useState("Applicant");
 
   //auto-login for existing users
   useEffect(() => {
@@ -27,7 +28,7 @@ function App() {
         res.json().then(user => setCurrentUser(user))
       }
     })
-  }, [])
+  }, [portal])
 
   // set pets
   useEffect(() => {
@@ -42,52 +43,67 @@ function App() {
     .then(apps => setApplications(apps))
   }, [])
 
-  function onLogIn() {
+  function handleLogOut() {
+    //set portal to "Home" & delete session.
+    setPortal("Home");
+    setCurrentUser({});
+    console.log("Logged Out!")
+  }
+
+
+console.log("CURRENT USER IN APP", currentUser)
+
+  if (portal === "Home") {
+    return (
+      <div className="App">
+        <HomeNavBar currentUser={currentUser} handleLogOut={handleLogOut}/>
+
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/adoptablepets">
+            <AdoptablePets pets={pets}/>
+          </Route>
+          <Route exact path="/homeportal">
+            <Portal />
+          </Route>
+          <Route exact path="/homeportal/login">
+            <Login setCurrentUser={setCurrentUser}/>
+          </Route>
+          <Route exact path="/homeportal/signup">
+            <ApplicantSignUp setCurrentUser={setCurrentUser} setPortal={setPortal}/>
+          </Route>
+        </Switch> 
+
+        <Footer />
+      </div>
+    );
+
+  } else if (portal === "Applicant") {
+    return (
+      <div className="App">
+        <ApplicantNavBar currentUser={currentUser} handleLogOut={handleLogOut}/>
+
+        <Switch>
+          <Route exact path="/applicantportal">
+            <ApplicantPortal currentUser={currentUser}/>
+          </Route>
+          <Route exact path="/applicantportal/adoptablepets">
+            <AdoptablePets pets={pets}/>
+          </Route>
+        </Switch> 
+    
+        <Footer />
+      </div>
+    );
+  } else if (portal === "Foster") {
+
+  } else if (portal === "Admin") {
 
   }
 
-  // if there is no current user, direct user to this component
-  // if(!currentUser) return <Home />
 
-  return (
-    <div className="App">
-
-      <Switch>
-        <Route exact path="/">
-          <HomeNavBar currentUser={currentUser}/>
-          <Home />
-        </Route>
-        <Route exact path="/adoptablepets">
-          <HomeNavBar currentUser={currentUser}/>
-          <AdoptablePets pets={pets}/>
-        </Route>
-        <Route exact path="/homeportal">
-          <HomeNavBar currentUser={currentUser}/>
-          <Portal />
-        </Route>
-        <Route exact path="/homeportal/login">
-          <HomeNavBar currentUser={currentUser}/>
-          {/* how check user's role to render correct portal? */}
-          <Login onLogIn={onLogIn}/>
-        </Route>
-        <Route exact path="/homeportal/signup">
-          <HomeNavBar currentUser={currentUser}/>
-          {/* need to only render applicant portal after signup. Fosters/Admins will only render when user is created by admin. */}
-          <ApplicantSignUp setCurrentUser={setCurrentUser}/>
-        </Route>
-        <Route exact path="/applicantportal/applications">
-          <ApplicantNavBar currentUser={currentUser}/>
-          <ApplicantPortal currentUser={currentUser}/>
-        </Route>
-        <Route exact path="/applicantportal/adoptablepets">
-          <ApplicantNavBar currentUser={currentUser}/>
-          <AdoptablePets pets={pets}/>
-        </Route>
-      </Switch>
-      {/* ensures footer always shows at bottom of page */}
-      <Footer />
-    </div>
-  );
 }
 
 export default App;

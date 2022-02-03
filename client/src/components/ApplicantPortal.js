@@ -3,15 +3,17 @@ import { Route, Switch } from "react-router-dom";
 import Applications from "./Applications"
 import AdoptablePets from "./AdoptablePets";
 
-export default function ApplicantPortal() {
+export default function ApplicantPortal({ currentUser }) {
   
   return (
-    <div id="portal">
-      APPLICANT PORTAL
-      <Switch>
-        <Route exact path='/applicantportal/' component={Applications} />
-        <Route path="/applicantportal/adoptablepets" component={AdoptablePets} />
-        {/* <Route path="/applicantportal/meetups" component={ApplicantMeetUps} /> */}
+    <div id="applicant_portal">
+       <Switch>
+        <Route exact path='/applicantportal'>
+          <Applications />
+        </Route>
+        <Route path="/applicantportal/applicantpets">
+          <AdoptablePets />
+        </Route>
       </Switch>
     </div>
   )

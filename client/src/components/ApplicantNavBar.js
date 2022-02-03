@@ -20,9 +20,8 @@ export default function ApplicantNavBar({ currentUser }) {
             {/* keep this nav so links render on right side */}
           </Nav>
           <Nav>
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="adoptablepets">Adoptable Pets</Nav.Link>
-            <Nav.Link href="homeportal">Applications</Nav.Link>
+            <Nav.Link href="/applicantportal/applications">Applications</Nav.Link>
+            <Nav.Link href="/applicantportal/adoptablepets">Adoptable Pets</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

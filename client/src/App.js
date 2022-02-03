@@ -3,14 +3,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
-import HomeNavBar from "./components/HomeNavBar";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
-import AdoptablePets from "./components/AdoptablePets";
+import HomeNavBar from "./components/HomeNavBar";
+import ApplicantNavBar from "./components/ApplicantNavBar"
 import Portal from "./components/Portal";
+import ApplicantPortal from "./components/ApplicantPortal";
 import Login from "./components/Login";
 import ApplicantSignUp from "./components/ApplicantSignUp";
 import Applications from "./components/Applications"
+import AdoptablePets from "./components/AdoptablePets";
 
 function App() {
   const [currentUser, setCurrentUser] = useState();
@@ -69,8 +71,16 @@ function App() {
           {/* need to only render applicant portal after signup. Fosters/Admins will only render when user is created by admin. */}
           <ApplicantSignUp setCurrentUser={setCurrentUser}/>
         </Route>
+        <Route exact path="/applicantportal/applications">
+          <ApplicantNavBar currentUser={currentUser}/>
+          <ApplicantPortal currentUser={currentUser}/>
+        </Route>
+        <Route exact path="/applicantportal/adoptablepets">
+          <ApplicantNavBar currentUser={currentUser}/>
+          <AdoptablePets pets={pets}/>
+        </Route>
       </Switch>
-
+      {/* ensures footer always shows at bottom of page */}
       <Footer />
     </div>
   );

@@ -18,11 +18,12 @@ export default function ApplicantSignUp({ setCurrentUser }) {
       method: "POST", 
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        username: `${firstName}${lastName}`,
-        email: email,
-        password: password,
-        phone: phone,
-        type: "Applicant"
+        firstName,
+        lastName,
+        email,
+        password,
+        role: "applicant",
+        phone
       })
     })
     .then((r) => {
@@ -36,7 +37,7 @@ export default function ApplicantSignUp({ setCurrentUser }) {
       } else {
         r.json().then((err) => {
           console.log("Something went wrong with the signup", err);
-          setErrors(Object.entries(err.error).flat())
+          // setErrors(Object.entries(err.error).flat())
         })
       }
     })
@@ -76,7 +77,7 @@ export default function ApplicantSignUp({ setCurrentUser }) {
         <br />
         <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
         <p className="forgot-password text-right">
-            Already registered <a href="/homeportal/login">log in?</a>
+            Already registered? <a href="/homeportal/login">log in</a>
         </p>
       </Form>
     </div>

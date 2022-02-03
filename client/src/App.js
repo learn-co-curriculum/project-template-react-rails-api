@@ -38,7 +38,7 @@ function App() {
   }, [])
   // set applications
   useEffect(() => {
-    fetch("/applications")
+    fetch("/pet_applications")
     .then(r=>r.json())
     .then(apps => setApplications(apps))
   }, [])
@@ -87,7 +87,7 @@ console.log("CURRENT USER IN APP", currentUser)
 
         <Switch>
           <Route exact path="/applicantportal">
-            <ApplicantPortal currentUser={currentUser}/>
+            <ApplicantPortal currentUser={currentUser} applications={applications}/>
           </Route>
           <Route exact path="/applicantportal/adoptablepets">
             <AdoptablePets pets={pets}/>

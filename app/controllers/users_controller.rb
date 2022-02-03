@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    # wrap_parameters format: []
     skip_before_action :authorize, only: [:create]
 
     def index
@@ -8,7 +9,8 @@ class UsersController < ApplicationController
     # GET /me
     # handles the auto-login and allows user to stay logged in when page refreshes
     def show
-        render json: @current_user
+        current_user = User.find(session[:user_id])
+        render json: current_user
     end
 
     #POST /signup
@@ -36,7 +38,8 @@ class UsersController < ApplicationController
     def user_params
         # The has_secure_password method also provides two new instance methods on your User model: password and password_confirmation. These methods don't correspond to database columns! Instead, to make these methods work, your users table must have a password_digest column.
         # password_confirmation will work and default to nil if not used.
-        params.permit(:username, :firstName, :lastName, :email, :password, :type, :phone)
+        # coming from front end so using password and not password_digest.
+        params.permit(:firstName, :lastName, :email, :password, :type, :phone)
         # params.permit(:username, :email, :password, :password_confirmation, :type, :phone)
     end
 

@@ -10,35 +10,64 @@ import AdoptablePets from "./components/AdoptablePets";
 import Portal from "./components/Portal";
 import Login from "./components/Login";
 import ApplicantSignUp from "./components/ApplicantSignUp";
+import Applications from "./components/Applications"
 
 function App() {
+  const [currentUser, setCurrentUser] = useState();
   const [pets, setPets] = useState([]);
+  const [applications, setApplications] = useState([]);
 
+  //auto-login for existing users
+  useEffect(() => {
+    fetch("/me") // "/auth" in Ix's lecture - https://learning.flatironschool.com/courses/4552/pages/video-authorization-client?module_item_id=346181
+    .then(res => {
+      if(res.ok) {
+        res.json().then(user => setCurrentUser(user))
+      }
+    })
+  }, [])
+
+  // set pets
   useEffect(() => {
     fetch("/pets")
     .then(r=>r.json())
     .then(pets => setPets(pets))
   }, [])
+  // set applications
+  useEffect(() => {
+    fetch("/applications")
+    .then(r=>r.json())
+    .then(apps => setApplications(apps))
+  }, [])
+
+  // if there is no current user, direct user to this component
+  // if(!currentUser) return <Home />
 
   return (
     <div className="App">
-      <HomeNavBar />
 
       <Switch>
         <Route exact path="/">
+          <HomeNavBar currentUser={currentUser}/>
           <Home />
         </Route>
         <Route exact path="/adoptablepets">
+          <HomeNavBar currentUser={currentUser}/>
           <AdoptablePets pets={pets}/>
         </Route>
         <Route exact path="/homeportal">
+          <HomeNavBar currentUser={currentUser}/>
           <Portal />
         </Route>
         <Route exact path="/homeportal/login">
+          <HomeNavBar currentUser={currentUser}/>
+          {/* how check user's type to render correct portal? */}
           <Login />
         </Route>
         <Route exact path="/homeportal/signup">
-          <ApplicantSignUp />
+          <HomeNavBar currentUser={currentUser}/>
+          {/* need to only render applicant portal after signup. Fosters/Admins will only render when user is created by admin. */}
+          <ApplicantSignUp setCurrentUser={setCurrentUser}/>
         </Route>
       </Switch>
 

@@ -42,6 +42,10 @@ function App() {
     .then(apps => setApplications(apps))
   }, [])
 
+  function onLogIn() {
+
+  }
+
   // if there is no current user, direct user to this component
   // if(!currentUser) return <Home />
 
@@ -63,8 +67,8 @@ function App() {
         </Route>
         <Route exact path="/homeportal/login">
           <HomeNavBar currentUser={currentUser}/>
-          {/* how check user's type to render correct portal? */}
-          <Login />
+          {/* how check user's role to render correct portal? */}
+          <Login onLogIn={onLogIn}/>
         </Route>
         <Route exact path="/homeportal/signup">
           <HomeNavBar currentUser={currentUser}/>

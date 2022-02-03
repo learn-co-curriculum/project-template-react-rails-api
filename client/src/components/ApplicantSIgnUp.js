@@ -6,9 +6,10 @@ export default function ApplicantSignUp({ setCurrentUser }) {
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [role, setRole] = useState("Applicant");
   const [phone, setPhone] = useState();
 
-  const [login, setLogin] = useState();
+  // const [login, setLogin] = useState();
   const [errors, setErrors] = useState();
 
   function handleSignUp(e) {
@@ -22,7 +23,7 @@ export default function ApplicantSignUp({ setCurrentUser }) {
         lastName,
         email,
         password,
-        role: "applicant",
+        role,
         phone
       })
     })

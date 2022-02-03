@@ -7,6 +7,7 @@ export default function ApplicantPortal() {
   
   return (
     <div id="portal">
+      APPLICANT PORTAL
       <Switch>
         <Route exact path='/applicantportal/' component={Applications} />
         <Route path="/applicantportal/adoptablepets" component={AdoptablePets} />

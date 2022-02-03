@@ -31,7 +31,7 @@
 }
 
 .rescueportal {
-  border-style: solid;
+  /* border-style: solid; */
   display: flex;
   justify-content: center;
   text-align: left;

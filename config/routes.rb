@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :pet_applications
   resources :pet_fosters
   resources :pets
+  resources :users
 
   # for user authentication
   post "/signup", to: "users#create"

@@ -13,7 +13,7 @@ export default function HomeNavBar() {
         className="logo"
         alt="logo"
       />
-      <h2>Paws & Claws</h2>
+      <h2>Paws & Claws Pet Rescue</h2>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

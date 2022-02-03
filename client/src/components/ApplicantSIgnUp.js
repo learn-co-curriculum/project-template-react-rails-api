@@ -6,6 +6,7 @@ export default function ApplicantSignUp() {
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [phone, setPhone] = useState();
 
   function handleSetFirstName(e) {
     e.preventDefault();
@@ -23,10 +24,38 @@ export default function ApplicantSignUp() {
     e.preventDefault();
     setPassword(e.target.value);
   }
+  function handleSetPhone(e) {
+    e.preventDefault();
+    setPhone(e.target.value);
+  }
 
   function handleSignUp(e) {
     e.preventDefault();
-    // fetch("/signup", {})
+    fetch("/signup", {
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        username: `${firstName}${lastName}`,
+        email,
+        password,
+        phone,
+        type: "Applicant"
+      })
+    })
+    .then((r) => {
+      if (r.ok) {
+        r.json().then((user) => {
+          // render components based off of user's type
+          console.log("USER'S TYPE", user)
+        })
+      } else {
+        r.json().then((res) => {
+          console.log("Something went wrong with the signup", res.errors);
+        })
+      }
+    })
   }
 
   return (
@@ -48,6 +77,11 @@ export default function ApplicantSignUp() {
         <div className="form-group">
             <label>Email</label>
             <input type="email" className="form-control" placeholder="Enter email"  onChange={handleSetEmail}/>
+        </div>
+
+        <div className="form-group">
+            <label>Phone</label>
+            <input type="email" className="form-control" placeholder="Enter email"  onChange={handleSetPhone}/>
         </div>
 
         <div className="form-group">

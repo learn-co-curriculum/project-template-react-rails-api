@@ -166,10 +166,11 @@ a1 = Applicant.create!(
   children: "one 12 years old", 
   pet_allergy: "no", 
   lifestyle: "we love to go hiking! my husband goes for a 2 mile run every morning.", 
-  approved: false
+  approved: false,
+  user_id: 9999
 )
 
-puts "♥ Applicants created!"
+# puts "♥ Applicants created!"
 
 # meetups
 m1 = Meetup.create!(

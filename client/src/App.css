@@ -30,6 +30,16 @@
   margin: 10px;
 }
 
+.rescueportal {
+  /* border-style: solid; */
+  display: flex;
+  justify-content: center;
+  text-align: left;
+}
+
+
+
+
 #footer {
   position: fixed;
   left: 0;
@@ -38,6 +48,8 @@
   text-align: center;
 
 }
+
+
 
 /* .App {
   text-align: center;

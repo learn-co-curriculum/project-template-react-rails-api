@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :pet_applications
   resources :pet_fosters
   resources :pets
+  resources :users
 
   # for user authentication
   post "/signup", to: "users#create"
-  get "/me", to: "users#show"
+  get "/me", to: "users#show" # "/auth" in ix's lecture - https://learning.flatironschool.com/courses/4552/pages/video-authorization-client?module_item_id=346181
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 

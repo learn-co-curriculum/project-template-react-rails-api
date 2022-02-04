@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_01_174846) do
+ActiveRecord::Schema.define(version: 2022_02_03_173008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "applicants", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "firstName"
+    t.string "lastName"
     t.string "dob"
     t.string "email"
     t.string "phone"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_174846) do
     t.string "pet_allergy"
     t.boolean "approved"
     t.text "lifestyle"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -103,11 +104,13 @@ ActiveRecord::Schema.define(version: 2022_02_01_174846) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username", null: false
     t.string "email", null: false
+    t.string "firstName"
+    t.string "lastName"
     t.string "password_digest"
-    t.string "type"
+    t.string "role"
     t.string "phone"
+    t.integer "applicant_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -8,9 +8,9 @@ class UsersController < ApplicationController
     # GET /me
     # handles the auto-login and allows user to stay logged in when page refreshes
     def show
-        current_user = User.find(session[:user_id])
-        if current_user
-            render json: current_user
+        user = User.find_by(id: session[:user_id])
+        if user
+            render json: user
         else
             render json: "No one is logged in", status: :unauthorized
         end

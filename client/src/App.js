@@ -25,7 +25,10 @@ function App() {
     fetch("/me") // "/auth" in Ix's lecture - https://learning.flatironschool.com/courses/4552/pages/video-authorization-client?module_item_id=346181
     .then(res => {
       if(res.ok) {
-        res.json().then(user => setCurrentUser(user))
+        res.json().then((user) => {
+          setCurrentUser(user)
+          setPortal(user.role)
+        })
       }
     })
   }, [])
@@ -82,8 +85,6 @@ console.log("PORTAL IN APP", portal)
           <Route exact path="/homeportal/signup">
             <ApplicantSignUp setCurrentUser={setCurrentUser} setPortal={setPortal}/>
           </Route>
-          {/* if any route doesn't match, redirect user to this route */}
-          <Redirect to="/homeportal" />
         </Switch> 
 
         <Footer />
@@ -103,7 +104,7 @@ console.log("PORTAL IN APP", portal)
             <AdoptablePets pets={pets}/>
           </Route>
           {/* if any route doesn't match, redirect user to this route */}
-          <Redirect to="/applicantportal" />
+          {/* <Redirect to="/applicantportal" /> */}
         </Switch> 
     
         <Footer />

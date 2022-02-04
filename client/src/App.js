@@ -15,7 +15,7 @@ import Applications from "./components/Applications"
 import AdoptablePets from "./components/AdoptablePets";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({}); // obj is a truthy val
+  const [currentUser, setCurrentUser] = useState(null); // obj is a truthy val
   const [pets, setPets] = useState([]);
   const [applications, setApplications] = useState([]);
   const [portal, setPortal] = useState("Home");
@@ -44,11 +44,18 @@ function App() {
   }, [])
 
   function handleLogOut() {
-    //set portal to "Home" & delete session.
+    //reset portal and current User
     setPortal("Home");
     console.log("Set portal to  Home")
     setCurrentUser({});
     console.log("Logged Out!")
+    //delete session w "/logout"
+    fetch('/logout', {method: "DELETE"})
+  .then(res => {
+        if (res.ok) {
+          setCurrentUser(null)
+        }
+      })
   }
 
 

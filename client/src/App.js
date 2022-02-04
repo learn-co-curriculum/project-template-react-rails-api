@@ -15,7 +15,7 @@ import Applications from "./components/Applications"
 import AdoptablePets from "./components/AdoptablePets";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null); // obj is a truthy val
+  const [currentUser, setCurrentUser] = useState(null);
   const [pets, setPets] = useState([]);
   const [applications, setApplications] = useState([]);
   const [portal, setPortal] = useState("Home");
@@ -29,7 +29,6 @@ function App() {
       }
     })
   }, [])
-
   // set pets
   useEffect(() => {
     fetch("/pets")
@@ -42,7 +41,7 @@ function App() {
     .then(r=>r.json())
     .then(apps => setApplications(apps))
   }, [])
-
+  //logout user
   function handleLogOut() {
     //reset portal and current User
     setPortal("Home");
@@ -51,7 +50,7 @@ function App() {
     console.log("Logged Out!")
     //delete session w "/logout"
     fetch('/logout', {method: "DELETE"})
-  .then(res => {
+    .then(res => {
         if (res.ok) {
           setCurrentUser(null)
         }

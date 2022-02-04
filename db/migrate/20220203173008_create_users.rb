@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :password_digest
       t.string :role
       t.string :phone, null: true
+      t.integer :applicant_id, null: true
 
       t.timestamps
     end

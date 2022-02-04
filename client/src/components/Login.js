@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Login({ setCurrentUser }) {
+export default function Login({ setCurrentUser, setPortal }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
@@ -8,19 +8,21 @@ export default function Login({ setCurrentUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // fetch("/login", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ username }),
-    // })
-    //   .then((r) => r.json())
-    //   .then((user) => setCurrentUser(user));
+    fetch("/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then((r) => r.json())
+      .then((user) => {
+        setCurrentUser(user)
+        setPortal(user.role)
+      });
+
+    console.log("USER GONNA LOG IN")
   }
-
-
-
 
   return (
     <div id="login" className="rescueportal">

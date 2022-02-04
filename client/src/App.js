@@ -18,7 +18,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({}); // obj is a truthy val
   const [pets, setPets] = useState([]);
   const [applications, setApplications] = useState([]);
-  const [portal, setPortal] = useState("Applicant");
+  const [portal, setPortal] = useState("Home");
 
   //auto-login for existing users
   useEffect(() => {
@@ -46,6 +46,7 @@ function App() {
   function handleLogOut() {
     //set portal to "Home" & delete session.
     setPortal("Home");
+    console.log("Set portal to  Home")
     setCurrentUser({});
     console.log("Logged Out!")
   }
@@ -69,7 +70,7 @@ console.log("CURRENT USER IN APP", currentUser)
             <Portal />
           </Route>
           <Route exact path="/homeportal/login">
-            <Login setCurrentUser={setCurrentUser}/>
+            <Login setCurrentUser={setCurrentUser} setPortal={setPortal}/>
           </Route>
           <Route exact path="/homeportal/signup">
             <ApplicantSignUp setCurrentUser={setCurrentUser} setPortal={setPortal}/>
@@ -88,6 +89,7 @@ console.log("CURRENT USER IN APP", currentUser)
         <Switch>
           <Route exact path="/applicantportal">
             <ApplicantPortal currentUser={currentUser} applications={applications}/>
+            <Applications applications={applications}/>
           </Route>
           <Route exact path="/applicantportal/adoptablepets">
             <AdoptablePets pets={pets}/>

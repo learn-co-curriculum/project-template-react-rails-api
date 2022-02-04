@@ -23,7 +23,6 @@ export default function HomeNavBar({ currentUser, handleLogOut }) {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="adoptablepets">Adoptable Pets</Nav.Link>
             <Nav.Link href="homeportal">Rescue Portal</Nav.Link>
-            <Nav.Link href="/logout" onClick={handleLogOut}>Log Out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

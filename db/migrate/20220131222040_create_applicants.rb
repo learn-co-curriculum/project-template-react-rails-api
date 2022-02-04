@@ -14,6 +14,7 @@ class CreateApplicants < ActiveRecord::Migration[6.1]
       t.string :pet_allergy
       t.boolean :approved
       t.text :lifestyle
+      t.integer :user_id
 
       t.timestamps
     end

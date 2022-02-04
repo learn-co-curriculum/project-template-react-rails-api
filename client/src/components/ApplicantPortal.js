@@ -3,7 +3,8 @@ import { Route, Switch } from "react-router-dom";
 import Applications from "./Applications"
 import AdoptablePets from "./AdoptablePets";
 
-export default function ApplicantPortal({ currentUser, applications }) {
+export default function ApplicantPortal({ currentUser, applications, pets }) {
+  
   
   return (
     <div id="applicant_portal">
@@ -12,7 +13,7 @@ export default function ApplicantPortal({ currentUser, applications }) {
           <Applications />
         </Route>
         <Route path="/applicantportal/adoptablepets">
-          <AdoptablePets />
+          <AdoptablePets pets={pets}/>
         </Route>
       </Switch>
     </div>

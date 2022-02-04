@@ -83,7 +83,7 @@ console.log("PORTAL IN APP", portal)
             <ApplicantSignUp setCurrentUser={setCurrentUser} setPortal={setPortal}/>
           </Route>
           {/* if any route doesn't match, redirect user to this route */}
-          <Redirect to="/" />
+          <Redirect to="/homeportal" />
         </Switch> 
 
         <Footer />
@@ -97,8 +97,7 @@ console.log("PORTAL IN APP", portal)
 
         <Switch>
           <Route exact path="/applicantportal">
-            <ApplicantPortal currentUser={currentUser} applications={applications}/>
-            <Applications applications={applications}/>
+            <ApplicantPortal currentUser={currentUser} applications={applications} pets={pets}/>
           </Route>
           <Route exact path="/applicantportal/adoptablepets">
             <AdoptablePets pets={pets}/>

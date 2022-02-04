@@ -8,20 +8,26 @@ export default function Login({ setCurrentUser, setPortal }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/users", {
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ email, password }),
     })
-      .then((r) => r.json())
-      .then((user) => {
+    .then((r) => {
+      if (r.ok) {r.json().then(user => {
         setCurrentUser(user)
         setPortal(user.role)
-      });
+        })
+      } else {
+        r.json().then((err)=> {
+          console.log("Something went wrong w Login", err)
+        })
+      }
+    })
+      console.log("USER LOGGED IN?")
 
-    console.log("USER GONNA LOG IN")
   }
 
   return (

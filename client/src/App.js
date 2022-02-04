@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import Home from "./components/Home";
 import Footer from "./components/Footer";
@@ -28,7 +28,7 @@ function App() {
         res.json().then(user => setCurrentUser(user))
       }
     })
-  }, [portal])
+  }, [])
 
   // set pets
   useEffect(() => {
@@ -53,6 +53,7 @@ function App() {
 
 
 console.log("CURRENT USER IN APP", currentUser)
+console.log("PORTAL IN APP", portal)
 
   if (portal === "Home") {
     return (
@@ -75,6 +76,8 @@ console.log("CURRENT USER IN APP", currentUser)
           <Route exact path="/homeportal/signup">
             <ApplicantSignUp setCurrentUser={setCurrentUser} setPortal={setPortal}/>
           </Route>
+          {/* if any route doesn't match, redirect user to this route */}
+          <Redirect to="/" />
         </Switch> 
 
         <Footer />
@@ -94,6 +97,8 @@ console.log("CURRENT USER IN APP", currentUser)
           <Route exact path="/applicantportal/adoptablepets">
             <AdoptablePets pets={pets}/>
           </Route>
+          {/* if any route doesn't match, redirect user to this route */}
+          <Redirect to="/applicantportal" />
         </Switch> 
     
         <Footer />

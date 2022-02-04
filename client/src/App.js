@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Home from "./components/Home";
 import Footer from "./components/Footer";
@@ -11,7 +11,8 @@ import Portal from "./components/Portal";
 import ApplicantPortal from "./components/ApplicantPortal";
 import Login from "./components/Login";
 import ApplicantSignUp from "./components/ApplicantSignUp";
-import Applications from "./components/Applications"
+// import Applications from "./components/Applications";
+import PetApp from "./components/PetApp"
 import AdoptablePets from "./components/AdoptablePets";
 
 function App() {
@@ -98,9 +99,10 @@ console.log("PORTAL IN APP", portal)
 
         <Switch>
           <Route exact path="/applicantportal">
-            <ApplicantPortal currentUser={currentUser} applications={applications} pets={pets}/>
+            <ApplicantPortal currentUser={currentUser} applications={applications} setApplications={setApplications} pets={pets}/>
           </Route>
           <Route exact path="/applicantportal/adoptablepets">
+            <PetApp />
             <AdoptablePets pets={pets}/>
           </Route>
           {/* if any route doesn't match, redirect user to this route */}

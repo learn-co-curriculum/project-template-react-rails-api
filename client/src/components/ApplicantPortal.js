@@ -12,7 +12,6 @@ export default function ApplicantPortal({ currentUser, applications, setApplicat
           <Applications />
         </Route>
         <Route path="/applicantportal/adoptablepets">
-          <PetApp setApplications={setApplications} pets={pets}/>
           <AdoptablePets pets={pets}/>
         </Route>
       </Switch>

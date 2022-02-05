@@ -4,14 +4,14 @@ import Table from 'react-bootstrap/Table'
 export default function Applications() {
   return (
     <div id="applications">
-      THIS IS THE APPLICATIONS COMPONENT. Applications and BONUS meetups will go here.
+      <h3>Pet Application Status</h3>
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>App #</th>
+            <th>App Status</th>
+            <th>Pet</th>
+            <th>Pet Status</th>
           </tr>
         </thead>
         <tbody>

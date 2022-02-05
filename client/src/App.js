@@ -102,8 +102,7 @@ console.log("PORTAL IN APP", portal)
             <ApplicantPortal currentUser={currentUser} applications={applications} setApplications={setApplications} pets={pets}/>
           </Route>
           <Route exact path="/applicantportal/adoptablepets">
-            <PetApp />
-            <AdoptablePets pets={pets}/>
+            <AdoptablePets currentUser={currentUser} pets={pets}/>
           </Route>
           {/* if any route doesn't match, redirect user to this route */}
           {/* <Redirect to="/applicantportal" /> */}

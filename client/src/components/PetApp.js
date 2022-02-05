@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
@@ -24,8 +25,14 @@ export default function PetApp({ setApplications, pets }) {
             <Modal.Title>Adoption Application</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            I will not close if you click outside me. Don't even try to press
-            escape key.
+            <Form.Select aria-label="Default select example">
+              <option>Select Pet</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              {/* {pets.map(p => (
+                <option value={p.id}>{p.name}, {p.breed}</option>
+              ))} */}
+            </Form.Select>
           </Modal.Body>
           <Modal.Footer>
             <Button variant="primary">Submit</Button>

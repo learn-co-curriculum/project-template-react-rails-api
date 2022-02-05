@@ -10,7 +10,6 @@ export default function AdoptablePets({ pets }) {
           <Pet key={p.id} pet={p}/>
         ))
       }
-      
     </div>
   )
 }

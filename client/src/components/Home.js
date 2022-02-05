@@ -10,7 +10,7 @@ export default function Home() {
         <Col>
               <h1>Find your next best friend!</h1>
               <p>With integrity, we aim to protect the abandoned by giving them hope for the future and selecting a home that will fit their needs.</p>
-              <Button type="button" class="btn btn-primary">See Adoptable Pets</Button>
+              <Button type="button" class="btn btn-primary" href="/adoptablepets">See Adoptable Pets</Button>
         </Col>
         <Col>
           <div id="home_adoptablepets_img">

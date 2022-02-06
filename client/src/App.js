@@ -12,7 +12,7 @@ import ApplicantPortal from "./components/ApplicantPortal";
 import Login from "./components/Login";
 import ApplicantSignUp from "./components/ApplicantSignUp";
 // import Applications from "./components/Applications";
-import PetApp from "./components/PetApp"
+// import PetApp from "./components/PetApp"
 import AdoptablePets from "./components/AdoptablePets";
 
 function App() {
@@ -61,9 +61,8 @@ function App() {
       })
   }
 
-
-console.log("CURRENT USER IN APP", currentUser)
-console.log("PORTAL IN APP", portal)
+  console.log("CURRENT USER IN APP", currentUser)
+  console.log("PORTAL IN APP", portal)
 
   if (portal === "Home") {
     return (

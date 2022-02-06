@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import Applications from "./Applications"
 import AdoptablePets from "./AdoptablePets";
-import PetApp from "./PetApp";
 
 export default function ApplicantPortal({ currentUser, applications, setApplications, pets }) {
   return (

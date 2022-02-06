@@ -16,9 +16,25 @@ export default function Pet({ pet, currentUser }) {
 
   function handleAdoptRequest() {
     console.log("HANDLE ADOPT REQUEST IN PET.JS", pet, currentUser)
-    // CHECK IF THERE'S A CURRENT USER, IF NOT THEN TELL USER TO REGISTER
-    // IF THERES A CURRENT USER, THEN SUBMIT APPLICATIN. DISPLAY SUBMITTED CONFIRMATION MESSAGE.
-    // fetch()
+    fetch("/pet_applications", {
+      method: "POST", 
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        pet_id: pet.id,
+        applicant_id: currentUser.id,
+        status: "Submitted"
+      })
+    })
+    .then((r) => {
+      if (r.ok) { r.json().then(pet => {
+          console.log("PET POSTED OK", pet)
+        })
+      } else {
+        r.json().then((err) => {
+          console.log("POST pet_application error", err);
+        })
+      }
+    })
   }
 
   return (

@@ -43,7 +43,7 @@ function handleSignUp(e) {
         })
       } else {
         r.json().then((err) => {
-          console.log("Something went wrong with the signup", err);
+          console.log("POST signup error", err);
         })
       }
     })

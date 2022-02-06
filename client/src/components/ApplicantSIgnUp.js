@@ -19,7 +19,7 @@ export default function ApplicantSignUp({ setCurrentUser, setPortal }) {
   const [children, setChildren] = useState();
   const [petAllergy, setPetAllergy] = useState();
   const [lifestyle, setLifestyle] = useState();
-  let currentUserID;
+  let currentUserID, currentApplicantID;
 
 function handleSignUp(e) {
     e.preventDefault();
@@ -64,6 +64,16 @@ function handleSignUp(e) {
         lifestyle,
         user_id: currentUserID
       })
+    })
+    .then((r) => {
+      if (r.ok) {r.json().then(applicant => {
+        console.log("APPLICANT POSTED OK", applicant)
+        })
+      } else {
+        r.json().then((err) => {
+          console.log("POST applicants error", err);
+        })
+      }
     })
 
   }

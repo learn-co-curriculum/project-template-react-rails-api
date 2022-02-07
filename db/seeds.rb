@@ -153,51 +153,51 @@ pf4 = PetFoster.create!(
 puts "♥ Pet_fosters created!"
 
 # applicants
-a1 = Applicant.create!(
-  first_name: "Cassandra", 
-  last_name: "McGinley", 
-  dob: "07/20/1990", 
-  email: "cmcginley@email.com", 
-  phone: Faker::PhoneNumber.cell_phone, 
-  rent_own: "Own", 
-  home_type: "Home", 
-  length_address: "4 years", 
-  yard_description: "about .25 acres and 6 ft cedar fencing", 
-  children: "one 12 years old", 
-  pet_allergy: "no", 
-  lifestyle: "we love to go hiking! my husband goes for a 2 mile run every morning.", 
-  approved: false,
-  user_id: 9999
-)
+# a1 = Applicant.create!(
+#   firstName: "Cassandra", 
+#   lastName: "McGinley", 
+#   dob: "07/20/1990", 
+#   email: "cmcginley@email.com", 
+#   phone: Faker::PhoneNumber.cell_phone, 
+#   rent_own: "Own", 
+#   home_type: "Home", 
+#   length_address: "4 years", 
+#   yard_description: "about .25 acres and 6 ft cedar fencing", 
+#   children: "one 12 years old", 
+#   pet_allergy: "no", 
+#   lifestyle: "we love to go hiking! my husband goes for a 2 mile run every morning.", 
+#   approved: false,
+#   user_id: 9999
+# )
 
 # puts "♥ Applicants created!"
 
 # meetups
-m1 = Meetup.create!(
-  date: "3/1/2022",
-  time: "5:30PM",
-  location: "#{Faker::Address.street_address}, Anchorage, AK 99507",
-  reason: "meet & greet",
-  pet_id: p1.id,
-  foster_id: f1.id, 
-  applicant_id: a1.id
-)
+# m1 = Meetup.create!(
+#   date: "3/1/2022",
+#   time: "5:30PM",
+#   location: "#{Faker::Address.street_address}, Anchorage, AK 99507",
+#   reason: "meet & greet",
+#   pet_id: p1.id,
+#   foster_id: f1.id, 
+#   applicant_id: a1.id
+# )
 
-puts "♥ Meetups created!"
+# puts "♥ Meetups created!"
 
 # pet_applications
-pa1 = PetApplication.create!(
-  pet_id: p1.id,
-  applicant_id: a1.id,
-  status: "Approved",
-)
-pa2 = PetApplication.create!(
-  pet_id: p4.id,
-  applicant_id: a1.id,
-  status: "Approved"
-)
+# pa1 = PetApplication.create!(
+#   pet_id: p1.id,
+#   applicant_id: a1.id,
+#   status: "Approved",
+# )
+# pa2 = PetApplication.create!(
+#   pet_id: p4.id,
+#   applicant_id: a1.id,
+#   status: "Approved"
+# )
 
-puts "♥ Pet_applications created!"
+# puts "♥ Pet_applications created!"
 
 # admins
 # Admin.create!(first_name: "Seen", last_name: "So", email: "seen@email.com")

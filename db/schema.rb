@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2022_02_03_173008) do
   create_table "pet_applications", force: :cascade do |t|
     t.bigint "pet_id", null: false
     t.bigint "applicant_id", null: false
+    t.string "applicant_email"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Home from "./components/Home";
 import Footer from "./components/Footer";
@@ -11,12 +11,13 @@ import Portal from "./components/Portal";
 import ApplicantPortal from "./components/ApplicantPortal";
 import Login from "./components/Login";
 import ApplicantSignUp from "./components/ApplicantSignUp";
-import Applications from "./components/Applications"
+// import Applications from "./components/Applications";
+// import PetApp from "./components/PetApp"
 import AdoptablePets from "./components/AdoptablePets";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
   const [pets, setPets] = useState([]);
+  const [currentUser, setCurrentUser] = useState("");
   const [applications, setApplications] = useState([]);
   const [portal, setPortal] = useState("Home");
 
@@ -44,6 +45,7 @@ function App() {
     .then(r=>r.json())
     .then(apps => setApplications(apps))
   }, [])
+
   //logout user
   function handleLogOut() {
     //reset portal and current User
@@ -55,14 +57,10 @@ function App() {
     fetch('/logout', {method: "DELETE"})
     .then(res => {
         if (res.ok) {
-          setCurrentUser(null)
+          setCurrentUser("")
         }
       })
   }
-
-
-console.log("CURRENT USER IN APP", currentUser)
-console.log("PORTAL IN APP", portal)
 
   if (portal === "Home") {
     return (
@@ -74,16 +72,20 @@ console.log("PORTAL IN APP", portal)
             <Home />
           </Route>
           <Route exact path="/adoptablepets">
-            <AdoptablePets pets={pets}/>
+            <AdoptablePets currentUser={currentUser} pets={pets}/>
           </Route>
           <Route exact path="/homeportal">
-            <Portal />
+            <Portal 
+              setCurrentUser={setCurrentUser} 
+              setPortal={setPortal} />
           </Route>
           <Route exact path="/homeportal/login">
             <Login setCurrentUser={setCurrentUser} setPortal={setPortal}/>
           </Route>
           <Route exact path="/homeportal/signup">
-            <ApplicantSignUp setCurrentUser={setCurrentUser} setPortal={setPortal}/>
+            <ApplicantSignUp 
+              setCurrentUser={setCurrentUser} 
+              setPortal={setPortal} />
           </Route>
         </Switch> 
 
@@ -98,22 +100,20 @@ console.log("PORTAL IN APP", portal)
 
         <Switch>
           <Route exact path="/applicantportal">
-            <ApplicantPortal currentUser={currentUser} applications={applications} pets={pets}/>
+            <ApplicantPortal currentUser={currentUser} applications={applications} setApplications={setApplications} pets={pets}/>
           </Route>
           <Route exact path="/applicantportal/adoptablepets">
-            <AdoptablePets pets={pets}/>
+            <AdoptablePets currentUser={currentUser} pets={pets} setApplications={setApplications} />
           </Route>
-          {/* if any route doesn't match, redirect user to this route */}
-          {/* <Redirect to="/applicantportal" /> */}
         </Switch> 
     
         <Footer />
       </div>
     );
   } else if (portal === "Foster") {
-
+    // work on later
   } else if (portal === "Admin") {
-
+    // work on later
   }
 
 

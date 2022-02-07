@@ -14,7 +14,7 @@ export default function ApplicantNavBar({ currentUser, handleLogOut }) {
         className="logo"
         alt="logo"
       />
-      <h3>Welcome to Paws&Claws, {currentUser.firstName}!</h3>
+      <h3>Welcome to Paws&Claws, {currentUser.firstName} {currentUser.lastName}!</h3>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -23,7 +23,7 @@ export default function ApplicantNavBar({ currentUser, handleLogOut }) {
           <Nav>
             <Nav.Link href="/applicantportal">Applicant Portal</Nav.Link>
             <Nav.Link href="/applicantportal/adoptablepets">Adoptable Pets</Nav.Link>
-            <Nav.Link href="/logout" onClick={handleLogOut}>Log Out</Nav.Link>
+            <Nav.Link href="/" onClick={handleLogOut}>Log Out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

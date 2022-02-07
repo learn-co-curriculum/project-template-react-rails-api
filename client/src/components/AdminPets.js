@@ -2,7 +2,7 @@ import React from 'react';
 import Table from 'react-bootstrap/Table'
 
 export default function AdminPets({ currentUser, pets, setApplications }) {
-  // console.log("PETS NEEDING HOMES", pets)
+  console.log("PETS NEEDING HOMES", pets)
   return (
     <div id="admin_pets">
       <h3>Rescue Pets</h3>
@@ -36,9 +36,7 @@ export default function AdminPets({ currentUser, pets, setApplications }) {
               <td>{pet.id}</td>
               <td>{pet.status}</td>
               <td>
-                {pet.foster.map(foster => (
-                  <div>{pet.foster.first_name} {pet.foster.last_name}</div>
-                ))}
+                {pet.foster[0].first_name} {pet.foster[0].last_name}
               </td>
               <td>{pet.name}</td>
               <td>{pet.species}</td>
@@ -46,16 +44,16 @@ export default function AdminPets({ currentUser, pets, setApplications }) {
               <td>{pet.age}</td>
               <td>{pet.height}</td>
               <td>{pet.weight}</td>
-              <td>{pet.fixed}</td>
+              <td>{pet.fixed ? "Yes" : "No"}</td>
               <td>{pet.energy_level}</td>
               <td>{pet.coat_type}</td>
-              <td>{pet.good_w_kids}</td>
-              <td>{pet.good_w_cats}</td>
-              <td>{pet.behavioral_issues}</td>
+              <td>{pet.good_w_kids ? "Yes" : "No"}</td>
+              <td>{pet.good_w_cats ? "Yes" : "No"}</td>
+              <td>{pet.behavioral_issues ? "Yes" : "No"}</td>
               <td>{pet.rabies_vaccine}</td>
-              <td>{pet.FVRCP_vaccine}</td>
+              <td>{pet.species === "Cat" ? pet.FVRCP_vaccine : "---"}</td>
               <td>{pet.distemper_parvo_vaccine}</td>
-              <td>{pet.dewormed}</td>
+              <td>{pet.dewormed ? "Yes" : "No"}</td>
             </tr>
           ))}
         </tbody>

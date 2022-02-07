@@ -5,7 +5,11 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export default function ApplicantSignUp({ setCurrentUser, setPortal }) {
+export default function ApplicantSignUp({ 
+    setCurrentUser, 
+    setPortal, 
+    currentUserID, setCurrentUserID, 
+    currentApplicantID, setCurrentApplicantID }) {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
@@ -19,64 +23,91 @@ export default function ApplicantSignUp({ setCurrentUser, setPortal }) {
   const [children, setChildren] = useState();
   const [petAllergy, setPetAllergy] = useState();
   const [lifestyle, setLifestyle] = useState();
-  let currentUserID, currentApplicantID;
 
 function handleSignUp(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    // CREATE USER LOGIN 
-    fetch("/signup", {
-      method: "POST", 
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        firstName, lastName,
-        email, password,
-        phone,
-        role: "Applicant"
+  // CREATE USER LOGIN 
+  fetch("/signup", {
+    method: "POST", 
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      firstName, lastName,
+      email, password,
+      phone,
+      role: "Applicant"
+    })
+  })
+  .then((r) => {
+    if (r.ok) {r.json().then(user => {
+        setCurrentUser(user);
+        console.log("USER POSTED OK", user)
+        setCurrentUserID(user.id);
+        // console.log("CURRENT USER ID SET?", currentUserID)
+        setPortal("Applicant");
       })
-    })
-    .then((r) => {
-      if (r.ok) {r.json().then(user => {
-          currentUserID = user.id
-          setCurrentUser(user)
-          setPortal("Applicant")
-        })
-      } else {
-        r.json().then((err) => {
-          console.log("POST signup error", err);
-        })
-      }
-    })
+    } else {
+      r.json().then((err) => {
+        console.log("POST signup error", err);
+      })
+    }
+  })
 
-    // CREATE APPLICANT PROFILE
-    fetch("/applicants", {
-      method: "POST", 
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        firstName, lastName,
-        dob, email, phone,
-        rent_own: rentOwn,
-        home_type: homeType,
-        length_address: lengthAddress,
-        yard_description: yardDesc,
-        children,
-        pet_allergy: petAllergy,
-        lifestyle,
-        user_id: currentUserID
+  // CREATE APPLICANT PROFILE
+  fetch("/applicants", {
+    method: "POST", 
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      firstName, lastName,
+      dob, email, phone,
+      rent_own: rentOwn,
+      home_type: homeType,
+      length_address: lengthAddress,
+      yard_description: yardDesc,
+      children,
+      pet_allergy: petAllergy,
+      lifestyle,
+      approved: false,
+      user_id: currentUserID
+    })
+  })
+  .then((r) => {
+    if (r.ok) {r.json().then(applicant => {
+      console.log("APPLICANT POSTED OK", applicant)
+      setCurrentApplicantID(applicant.id);
+      // console.log("CURRENT APPLICANT ID SET?", currentApplicantID)
       })
+    } else {
+      r.json().then((err) => {
+        console.log("POST applicants error", err);
+      })
+    }
+  })
+
+  console.log("CURRENT USER ID", currentUserID)
+  console.log("CURRENT APP ID", currentApplicantID)
+
+  // UPDATE APPLICANT_ID IN CURRENT USER
+  fetch(`/users/${currentUserID}`, {
+    method: "PATCH",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      applicant_id: currentApplicantID
     })
-    .then((r) => {
-      if (r.ok) {r.json().then(applicant => {
-        console.log("APPLICANT POSTED OK", applicant)
-        })
-      } else {
-        r.json().then((err) => {
-          console.log("POST applicants error", err);
-        })
-      }
+  })
+  .then((r) => {
+    if (r.ok){r.json().then(user => {
+      console.log("PATCH user's applicant_id success", user)
     })
+    } else {
+      r.json().then((err) => {
+        console.log("PATCH user's applicant_id error", err)
+      })
+    }
+  })
 
   }
+
 
   return (
       <div id="applicant_signup" className="rescueportal">
@@ -85,19 +116,19 @@ function handleSignUp(e) {
           <Form onSubmit={(e)=> handleSignUp(e)}>
             <h3>Register to Adopt!</h3>
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col} controlId="formGridFirstName">
                 <Form.Label>First Name</Form.Label>
                 <Form.Control type="string" placeholder="Enter First Name" onChange={(e)=> setFirstName(e.target.value)}/>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Group as={Col} controlId="formGridLastName">
                 <Form.Label>Last Name</Form.Label>
                 <Form.Control type="string" placeholder="Enter Last Name" onChange={(e)=> setLastName(e.target.value)}/>
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col} controlId="formGridDOB">
                 <Form.Label>DOB</Form.Label>
                 <Form.Control type="string" placeholder="MM/DD/YYYY" onChange={(e)=> setDOB(e.target.value)}/>
               </Form.Group>
@@ -107,14 +138,14 @@ function handleSignUp(e) {
                 <Form.Control type="email" placeholder="Email" onChange={(e)=> setEmail(e.target.value)}/>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Group as={Col} controlId="formGridPhone">
                 <Form.Label>Phone</Form.Label>
                 <Form.Control type="phone" placeholder="Phone" onChange={(e)=> setPhone(e.target.value)}/>
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridState">
+              <Form.Group as={Col} controlId="formGridRentOwn">
                 <Form.Label>Rent or Own?</Form.Label>
                 <Form.Select onChange={(e)=> setRentOwn(e.target.value)}>
                   <option>Choose</option>
@@ -123,7 +154,7 @@ function handleSignUp(e) {
                 </Form.Select>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridState">
+              <Form.Group as={Col} controlId="formGridHomeType">
                 <Form.Label>Home Type</Form.Label>
                 <Form.Select onChange={(e)=> setHomeType(e.target.value)}>
                   <option>Choose</option>
@@ -133,7 +164,7 @@ function handleSignUp(e) {
                 </Form.Select>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridState">
+              <Form.Group as={Col} controlId="formGridPetAllergy">
                 <Form.Label>Any Pet allergies?</Form.Label>
                 <Form.Select onChange={(e)=> setPetAllergy(e.target.value)}>
                   <option>Choose</option>
@@ -144,7 +175,7 @@ function handleSignUp(e) {
             </Row>
 
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col} controlId="formGridAddressHistory">
                 <Form.Label>Address History</Form.Label>
                 <Form.Control type="string" placeholder="Enter how many months you've lived in your current address" onChange={(e)=> setLengthAddress(e.target.value)}/>
               </Form.Group>
@@ -165,7 +196,7 @@ function handleSignUp(e) {
               <Form.Control as="textarea" rows={1} onChange={(e)=> setLifestyle(e.target.value)}/>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control type="string" placeholder="Choose password" onChange={(e)=> setPassword(e.target.value)}/>
             </Form.Group>

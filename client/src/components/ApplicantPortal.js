@@ -8,10 +8,10 @@ export default function ApplicantPortal({ currentUser, applications, setApplicat
     <div id="applicant_portal">
        <Switch>
         <Route exact path='/applicantportal'>
-          <Applications />
+          <Applications currentUser={currentUser} applications={applications}/>
         </Route>
         <Route path="/applicantportal/adoptablepets">
-          <AdoptablePets pets={pets}/>
+          <AdoptablePets currentUser={currentUser} pets={pets} setApplications={setApplications}/>
         </Route>
       </Switch>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table'
 
-export default function Applications() {
+export default function Applications({ currentUser, applications }) {
   return (
     <div id="applications">
       <h3>Pet Application Status</h3>

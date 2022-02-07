@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Login({ setCurrentUser, setPortal }) {
+export default function Login({ setCurrentUser, setPortal, setCurrentUserID, setCurrentApplicantID }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     
@@ -56,7 +56,8 @@ export default function Login({ setCurrentUser, setPortal }) {
         </div> */}
         <br />
 
-        <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
+        <button type="submit" className="btn btn-dark btn-lg btn-block" href="/applicantportal">Sign in</button> 
+        {/* make sure to have the href in the above button able to dynamically render correct portal */}
         <p className="forgot-password text-right">
             <a href="/homeportal/signup">sign up instead?</a>
         </p>

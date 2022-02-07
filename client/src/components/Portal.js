@@ -3,19 +3,19 @@ import { Route, Switch } from "react-router-dom";
 import Login from "./Login";
 import ApplicantSignUp from "./ApplicantSignUp";
 
-export default function Portal({onLogIn}) {
+export default function Portal({setCurrentUser, setPortal, currentUserID, setCurrentUserID, setCurrentApplicantID}) {
   
   return (
     <div id="portal">
       <Switch>
         <Route exact path='/homeportal/'>
-          <ApplicantSignUp />
+          <ApplicantSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} currentUserID={currentUserID} setCurrentUserID={setCurrentUserID} setCurrentApplicantID={setCurrentApplicantID}/>
         </Route>
         <Route path="/homeportal/login">
-          <Login onLogIn={onLogIn}/>
+          <Login setCurrentUser={setCurrentUser} setPortal={setPortal} />
         </Route>
         <Route path="/homeportal/signup">
-          <ApplicantSignUp />
+          <ApplicantSignUp setCurrentUser={setCurrentUser} currentUserID={currentUserID} setCurrentUserID={setCurrentUserID} setCurrentApplicantID={setCurrentApplicantID}/>
         </Route>
       </Switch>
     </div>

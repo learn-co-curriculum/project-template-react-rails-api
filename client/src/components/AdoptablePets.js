@@ -1,7 +1,7 @@
 import React from 'react';
 import Pet from "./Pet";
 
-export default function AdoptablePets({ currentUser, pets }) {
+export default function AdoptablePets({ currentUser, pets, setApplications }) {
   // console.log("PETS NEEDING HOMES", pets)
   return (
     <div id="adoptable_pets">

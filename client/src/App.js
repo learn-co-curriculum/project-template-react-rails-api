@@ -6,20 +6,23 @@ import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import HomeNavBar from "./components/HomeNavBar";
-import ApplicantNavBar from "./components/ApplicantNavBar"
-import Portal from "./components/Portal";
-import ApplicantPortal from "./components/ApplicantPortal";
 import Login from "./components/Login";
-import ApplicantSignUp from "./components/ApplicantSignUp";
-// import Applications from "./components/Applications";
-// import PetApp from "./components/PetApp"
+import Portal from "./components/Portal";
 import AdoptablePets from "./components/AdoptablePets";
+import ApplicantNavBar from "./components/ApplicantNavBar";
+import ApplicantPortal from "./components/ApplicantPortal";
+import ApplicantSignUp from "./components/ApplicantSignUp";
+import AdminNavBar from "./components/AdminNavBar";
+import AdminPortal from "./components/AdminPortal";
+import AdminPets from "./components/AdminPets";
 
 function App() {
   const [pets, setPets] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [fosters, setFosters] = useState([]);
   const [currentUser, setCurrentUser] = useState("");
   const [applications, setApplications] = useState([]);
-  const [portal, setPortal] = useState("Home");
+  const [portal, setPortal] = useState("Admin");
 
   //auto-login for existing users
   useEffect(() => {
@@ -39,13 +42,24 @@ function App() {
     .then(r=>r.json())
     .then(pets => setPets(pets))
   }, [])
-  // set applications
+  // set users
+  useEffect(() => {
+    fetch("/users")
+    .then(r=>r.json())
+    .then(users => setUsers(users))
+  }, [])
+  // set fosters
+  useEffect(() => {
+    fetch("/fosters")
+    .then(r=>r.json())
+    .then(fosters => setFosters(fosters))
+  }, [])
+  // set applications from pet_applications
   useEffect(() => {
     fetch("/pet_applications")
     .then(r=>r.json())
     .then(apps => setApplications(apps))
   }, [])
-
   //logout user
   function handleLogOut() {
     //reset portal and current User
@@ -110,9 +124,28 @@ function App() {
         <Footer />
       </div>
     );
-  } else if (portal === "Foster") {
-    // work on later
   } else if (portal === "Admin") {
+    return (
+      <div className="App">
+        <AdminNavBar currentUser={currentUser} handleLogOut={handleLogOut}/>
+
+        <Switch>
+          <Route exact path="/adminportal">
+            <AdminPortal />
+          </Route>
+          <Route exact path="/adminportal/pets">
+            <AdminPets currentUser={currentUser} pets={pets} setApplications={setApplications}/>
+          </Route>
+          <Route exact path="/adminportal/applicants">
+          </Route>
+          <Route exact path="/adminportal/fosters">
+          </Route>
+        </Switch>
+
+        <Footer />
+      </div>
+    );
+  } else if (portal === "Foster") {
     // work on later
   }
 

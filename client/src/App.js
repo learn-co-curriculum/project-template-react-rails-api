@@ -17,10 +17,8 @@ import AdoptablePets from "./components/AdoptablePets";
 
 function App() {
   const [pets, setPets] = useState([]);
-  const [currentUser, setCurrentUser] = useState(""); // keep blank? It's causing a TypeError andthinks setCurrentUser should be a function
+  const [currentUser, setCurrentUser] = useState("");
   const [applications, setApplications] = useState([]);
-  const [currentUserID, setCurrentUserID] = useState();
-  const [currentApplicantID, setCurrentApplicantID] = useState();
   const [portal, setPortal] = useState("Home");
 
   //auto-login for existing users
@@ -47,15 +45,6 @@ function App() {
     .then(r=>r.json())
     .then(apps => setApplications(apps))
   }, [])
-  // update currentUserID * currentApplicantID when currentUser changes
-  useEffect(() => {
-    fetch("/me")
-    .then(r=>r.json())
-    .then(user => {
-      setCurrentUserID(user.id)
-      setCurrentApplicantID(user.applicant_id)
-    })
-  }, [currentUser])
 
   //logout user
   function handleLogOut() {
@@ -88,9 +77,7 @@ function App() {
           <Route exact path="/homeportal">
             <Portal 
               setCurrentUser={setCurrentUser} 
-              setPortal={setPortal} 
-              currentUserID={currentUserID} setCurrentUserID={setCurrentUserID} 
-              currentApplicantID={currentApplicantID} setCurrentApplicantID={setCurrentApplicantID}/>
+              setPortal={setPortal} />
           </Route>
           <Route exact path="/homeportal/login">
             <Login setCurrentUser={setCurrentUser} setPortal={setPortal}/>
@@ -98,9 +85,7 @@ function App() {
           <Route exact path="/homeportal/signup">
             <ApplicantSignUp 
               setCurrentUser={setCurrentUser} 
-              setPortal={setPortal} 
-              currentUserID={currentUserID} setCurrentUserID={setCurrentUserID} 
-              currentApplicantID={currentApplicantID} setCurrentApplicantID={setCurrentApplicantID}/>
+              setPortal={setPortal} />
           </Route>
         </Switch> 
 

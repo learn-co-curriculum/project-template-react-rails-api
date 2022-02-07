@@ -21,7 +21,9 @@ export default function Pet({ pet, currentUser }) {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
         pet_id: pet.id,
-        applicant_id: currentUser.id,
+        // applicant_id: currentUser.id
+        applicant_id: 18,
+        applicant_email: "hsolo@email.com",
         status: "Submitted"
       })
     })

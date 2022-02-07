@@ -5,11 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export default function ApplicantSignUp({ 
-    setCurrentUser, 
-    setPortal, 
-    currentUserID, setCurrentUserID, 
-    currentApplicantID, setCurrentApplicantID }) {
+export default function ApplicantSignUp({ setCurrentUser, setPortal }) {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
@@ -41,67 +37,74 @@ function handleSignUp(e) {
   .then((r) => {
     if (r.ok) {r.json().then(user => {
         setCurrentUser(user);
-        console.log("USER POSTED OK", user)
-        setCurrentUserID(user.id);
-        // console.log("CURRENT USER ID SET?", currentUserID)
         setPortal("Applicant");
+
+        let userID = user.id
+
+          // CREATE APPLICANT PROFILE
+          fetch("/applicants", {
+            method: "POST", 
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+              firstName, lastName,
+              dob, email, phone,
+              rent_own: rentOwn,
+              home_type: homeType,
+              length_address: lengthAddress,
+              yard_description: yardDesc,
+              children,
+              pet_allergy: petAllergy,
+              lifestyle,
+              approved: false,
+              user_id: userID
+            })
+          })
+          .then((r) => {
+            if (r.ok) {r.json().then(applicant => {
+              console.log("APPLICANT POSTED OK", applicant)
+              let appID = applicant.id
+
+              // UPDATE USER PROFILE W APPLICANT ID
+              fetch(`/users/${userID}`, {
+                method: "PATCH",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                  applicant_id: appID
+                })
+              })
+              .then((r) => {
+                if (r.ok){r.json().then(user => {
+                  console.log("PATCH user's applicant_id success", user)
+                })
+                } else {
+                  r.json().then((err) => {
+                    console.log("PATCH user's applicant_id error", err)
+                  })
+                }
+              })
+
+              // UPDATE APPLICANT'S USER_ID
+
+
+
+
+
+              })
+            } else {
+              r.json().then((err) => {
+                console.log("POST applicants error", err);
+              })
+            }
+          })
+
+
+
+
+
       })
     } else {
       r.json().then((err) => {
         console.log("POST signup error", err);
-      })
-    }
-  })
-
-  // CREATE APPLICANT PROFILE
-  fetch("/applicants", {
-    method: "POST", 
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({
-      firstName, lastName,
-      dob, email, phone,
-      rent_own: rentOwn,
-      home_type: homeType,
-      length_address: lengthAddress,
-      yard_description: yardDesc,
-      children,
-      pet_allergy: petAllergy,
-      lifestyle,
-      approved: false,
-      user_id: currentUserID
-    })
-  })
-  .then((r) => {
-    if (r.ok) {r.json().then(applicant => {
-      console.log("APPLICANT POSTED OK", applicant)
-      setCurrentApplicantID(applicant.id);
-      // console.log("CURRENT APPLICANT ID SET?", currentApplicantID)
-      })
-    } else {
-      r.json().then((err) => {
-        console.log("POST applicants error", err);
-      })
-    }
-  })
-
-  console.log("CURRENT USER ID", currentUserID)
-  console.log("CURRENT APP ID", currentApplicantID)
-
-  // UPDATE APPLICANT_ID IN CURRENT USER
-  fetch(`/users/${currentUserID}`, {
-    method: "PATCH",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({
-      applicant_id: currentApplicantID
-    })
-  })
-  .then((r) => {
-    if (r.ok){r.json().then(user => {
-      console.log("PATCH user's applicant_id success", user)
-    })
-    } else {
-      r.json().then((err) => {
-        console.log("PATCH user's applicant_id error", err)
       })
     }
   })

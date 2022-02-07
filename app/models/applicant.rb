@@ -14,4 +14,5 @@ class Applicant < ApplicationRecord
   validates :children, presence: true
   validates :pet_allergy, presence: true
   validates :lifestyle, presence: true
+  validates :user_id, presence: true
 end

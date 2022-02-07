@@ -84,7 +84,22 @@ function handleSignUp(e) {
               })
 
               // UPDATE APPLICANT'S USER_ID
+              fetch(`/applicants/${appID}`, {
+                method: "PATCH", 
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                  user_id: userID
+                })
+              })
+              .then((r) => {
+                if (r.ok) {r.json().then(applicant => {
+                  console.log("Applicant's user_id updated!")
+                })
 
+                } else {
+                  console.log("Applicant's user_id update failed in SignUp")
+                }
+              })
 
 
 

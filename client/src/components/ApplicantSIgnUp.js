@@ -101,9 +101,6 @@ function handleSignUp(e) {
                 }
               })
 
-
-
-
               })
             } else {
               r.json().then((err) => {
@@ -111,10 +108,6 @@ function handleSignUp(e) {
               })
             }
           })
-
-
-
-
 
       })
     } else {
@@ -125,7 +118,6 @@ function handleSignUp(e) {
   })
 
   }
-
 
   return (
       <div id="applicant_signup" className="rescueportal">

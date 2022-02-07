@@ -21,9 +21,7 @@ export default function Pet({ pet, currentUser }) {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
         pet_id: pet.id,
-        // applicant_id: currentUser.id
-        applicant_id: 18,
-        applicant_email: "hsolo@email.com",
+        applicant_id: currentUser.id,
         status: "Submitted"
       })
     })
@@ -52,14 +50,14 @@ export default function Pet({ pet, currentUser }) {
           <ListGroupItem>Height: {pet.height} inches, Weight: {pet.weight}lbs</ListGroupItem>
           <ListGroupItem>Energy Level: {pet.energy_level}</ListGroupItem>
         </ListGroup>
-        {/* <Button variant="primary" onClick={showPetDetail}>More Details</Button> */}
+
         <>
           <Button variant="primary" onClick={handleShow}>
             More details
           </Button>
 
           <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
+            <Modal.Header>
               <Modal.Title>{pet.name}, {pet.breed}, {pet.age} <Badge bg={statusColor}>{pet.status}</Badge></Modal.Title>
             </Modal.Header>
             <Modal.Body>

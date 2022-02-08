@@ -53,7 +53,7 @@ export default function AdminFosters({ fosters, setFosters }) {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header>
+        <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
             Add Foster
           </Modal.Title>
@@ -85,18 +85,18 @@ export default function AdminFosters({ fosters, setFosters }) {
               </Form.Group>
             </Row>
             
-            {/* <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit">
               Submit
-          </Button>
-          <Button onClick={props.onHide}>Close</Button> */}
+            </Button>
+            {/* <Button onClick={props.onHide}>Close</Button> */}
           </Form>
         </Modal.Body>
-        <Modal.Footer>
+        {/* <Modal.Footer>
          <Button variant="primary" type="submit">
               Submit
           </Button>
           <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer>
+        </Modal.Footer> */}
       </Modal>
     );
   }

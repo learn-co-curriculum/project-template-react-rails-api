@@ -17,6 +17,7 @@ import AdminPortal from "./components/AdminPortal";
 import AdminPets from "./components/AdminPets";
 import AdminApplicants from "./components/AdminApplicants";
 import AdminFosters from "./components/AdminFosters";
+import AdminApplications from "./components/AdminApplications";
 
 function App() {
   const [pets, setPets] = useState([]);
@@ -152,8 +153,8 @@ function App() {
           <Route exact path="/adminportal/pets">
             <AdminPets pets={pets} setApplications={setApplications}/>
           </Route>
-          <Route exact path="/adminportal/pet_applications">
-            <AdminPets pets={pets} setApplications={setApplications}/>
+          <Route exact path="/adminportal/applications">
+            <AdminApplications applications={applications} setApplications={setApplications}/>
           </Route>
           <Route exact path="/adminportal/applicants">
             <AdminApplicants pets={pets} applicants={applicants} setApplicants={setApplicants}/>

@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import AdminPets from "./AdminPets";
 import AdminApplicants from "./AdminApplicants";
 import AdminFosters from "./AdminFosters";
+import AdminApplications from "./AdminApplications";
 
 export default function AdminPortal({ 
   pets, setPets,
@@ -27,8 +28,8 @@ export default function AdminPortal({
           <Route exact path="/adminportal/pets">
             <AdminPets pets={pets} setApplications={setApplications}/>
           </Route>
-          <Route exact path="/adminportal/pet_applications">
-            <AdminPets pets={pets} setApplications={setApplications}/>
+          <Route exact path="/adminportal/applications">
+            <AdminApplications applications={applications} setApplications={setApplications}/>
           </Route>
           <Route exact path="/adminportal/applicants">
             <AdminApplicants pets={pets} applicants={applicants} setApplicants={setApplicants}/>

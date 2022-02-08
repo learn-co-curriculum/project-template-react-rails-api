@@ -34,24 +34,6 @@ export default function AdminPets({ pets, setPets }) {
 
   function addPet(e) {
     // e.preventDefault();
-    console.log("target[0]", e.target[0].value)
-    console.log("target[1]", e.target[1].value)
-    console.log("target[2]", e.target[2].value)
-    console.log("target[3]", e.target[3].value)
-    console.log("target[4]", e.target[4].value)
-    console.log("target[5]", e.target[5].value)
-    console.log("target[6]", e.target[6].value)
-    console.log("target[7]", e.target[7].value)
-    console.log("target[8]-Coat Color?", e.target[8].value)
-    console.log("target[9]-Good Kids", e.target[9].value)
-    console.log("target[10]-Good Cats", e.target[10].value)
-    console.log("target[11]-Beh Issues", e.target[11].value)
-    console.log("target[12]-Dewormed", e.target[12].value)
-    console.log("target[13]-Fixed", e.target[13].value)
-    console.log("target[14]-Rabies", e.target[14].value)
-    console.log("target[15]-Dist/parvo", e.target[15].value)
-    console.log("target[16]-FVRCP", e.target[16].value)
-    console.log("target[17]-Desc", e.target[17].value)
 
     fetch("/pets", {
       method: "POST",

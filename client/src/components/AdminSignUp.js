@@ -23,88 +23,17 @@ function handleAdminSignUp(e) {
       firstName, lastName,
       email, password,
       phone,
-      role: "Applicant"
+      role: "Admin"
     })
   })
   .then((r) => {
     if (r.ok) {r.json().then(user => {
         setCurrentUser(user);
-        setPortal("Applicant");
-
-        let userID = user.id
-
-          // CREATE APPLICANT PROFILE
-          fetch("/applicants", {
-            method: "POST", 
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-              firstName, lastName,
-              dob, email, phone,
-              rent_own: rentOwn,
-              home_type: homeType,
-              length_address: lengthAddress,
-              yard_description: yardDesc,
-              children,
-              pet_allergy: petAllergy,
-              lifestyle,
-              approved: false,
-              user_id: userID
-            })
-          })
-          .then((r) => {
-            if (r.ok) {r.json().then(applicant => {
-              console.log("APPLICANT POSTED OK", applicant)
-              let appID = applicant.id
-
-              // UPDATE USER PROFILE W APPLICANT ID
-              fetch(`/users/${userID}`, {
-                method: "PATCH",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({
-                  applicant_id: appID
-                })
-              })
-              .then((r) => {
-                if (r.ok){r.json().then(user => {
-                  console.log("PATCH user's applicant_id success", user)
-                })
-                } else {
-                  r.json().then((err) => {
-                    console.log("PATCH user's applicant_id error", err)
-                  })
-                }
-              })
-
-              // UPDATE APPLICANT'S USER_ID
-              fetch(`/applicants/${appID}`, {
-                method: "PATCH", 
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({
-                  user_id: userID
-                })
-              })
-              .then((r) => {
-                if (r.ok) {r.json().then(applicant => {
-                  console.log("Applicant's user_id updated!")
-                })
-
-                } else {
-                  console.log("Applicant's user_id update failed in SignUp")
-                }
-              })
-
-              })
-            } else {
-              r.json().then((err) => {
-                console.log("POST applicants error", err);
-              })
-            }
-          })
-
+        setPortal("Admin");
       })
     } else {
       r.json().then((err) => {
-        console.log("POST signup error", err);
+        console.log("POST /adminportal/signup error", err);
       })
     }
   })
@@ -117,7 +46,7 @@ function handleAdminSignUp(e) {
         <br/>
         <Modal.Body>
           <Form onSubmit={(e)=> handleAdminSignUp(e)}>
-            <h3>Register to Adopt!</h3>
+            <h3>Admin Signup!</h3>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridFirstName">
                 <Form.Label>First Name</Form.Label>

@@ -18,6 +18,7 @@ import AdminPets from "./components/AdminPets";
 import AdminApplicants from "./components/AdminApplicants";
 import AdminFosters from "./components/AdminFosters";
 import AdminApplications from "./components/AdminApplications";
+import AdminSignUp from "./components/AdminSignUp";
 
 function App() {
   const [pets, setPets] = useState([]);
@@ -142,14 +143,23 @@ function App() {
         <Switch>
           <Route exact path="/adminportal/">
             {/* <AdminPortal
+              setCurrentUser, setPortal
               pets={pets} setPets={setPets} 
               users={users} setUsers={setUsers}
               fosters={fosters} setFosters={setFosters}
               applicants={applicants} set={setApplicants}
               applications={applications} setApplications={setApplications}
             /> */}
+            <Login setCurrentUser={setCurrentUser} setPortal={setPortal} />
             <AdminPets pets={pets} setApplications={setApplications}/>
           </Route>
+
+
+          <Route exact path="/adminportal/signup">
+            <AdminSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} />
+          </Route>
+          
+
           <Route exact path="/adminportal/pets">
             <AdminPets pets={pets} setApplications={setApplications}/>
           </Route>

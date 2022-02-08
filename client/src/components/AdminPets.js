@@ -10,7 +10,7 @@ export default function AdminPets({ pets, setApplications }) {
   const [modalShow, setModalShow] = React.useState(false);
   // const [name, setName] = useState();
   // const [status, setStatus] = useState("Intake");
-  // const [image, setImage] = useState("n/a");
+  // const [image, setImage] = useState("http://localhost:4000/images/defaultPet.png");
   // const [species, setSpecies] = useState("n/a");
   // const [breed, setBreed] = useState("n/a");
   // const [age, setAge] = useState("n/a");
@@ -40,16 +40,16 @@ export default function AdminPets({ pets, setApplications }) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
+            Add Pet
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Centered Modal</h4>
+          {/* <h4>Centered Modal</h4> */}
           <Form>
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+              <Form.Group as={Col} controlId="formGridName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control type="string" placeholder="Enter name" />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridPassword">

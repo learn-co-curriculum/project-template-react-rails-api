@@ -13,7 +13,7 @@ export default function AdminNavBar({ currentUser, handleLogOut }) {
         className="logo"
         alt="logo"
       />
-      <h3>Welcome to Paws&Claws, {currentUser.firstName} {currentUser.lastName}!</h3>
+      <h3>Hi Admin, {currentUser.firstName} {currentUser.lastName}!</h3>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -22,7 +22,7 @@ export default function AdminNavBar({ currentUser, handleLogOut }) {
           <Nav>
             <Nav.Link href="/adminportal">Admin Portal</Nav.Link>
             <Nav.Link href="/adminportal/pets">Pets</Nav.Link>
-            <Nav.Link href="/adminportal/applicants">Applicants</Nav.Link>
+            <Nav.Link href="/adminportal/applications">Applications</Nav.Link>
             <Nav.Link href="/adminportal/fosters">Fosters</Nav.Link>
             <Nav.Link href="/" onClick={handleLogOut}>Log Out</Nav.Link>
           </Nav>

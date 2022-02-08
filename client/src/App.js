@@ -15,11 +15,14 @@ import ApplicantSignUp from "./components/ApplicantSignUp";
 import AdminNavBar from "./components/AdminNavBar";
 import AdminPortal from "./components/AdminPortal";
 import AdminPets from "./components/AdminPets";
+import AdminApplications from "./components/AdminApplications";
+import AdminFosters from "./components/AdminFosters";
 
 function App() {
   const [pets, setPets] = useState([]);
   const [users, setUsers] = useState([]);
   const [fosters, setFosters] = useState([]);
+  const [applicants, setApplicants] = useState([]);
   const [currentUser, setCurrentUser] = useState("");
   const [applications, setApplications] = useState([]);
   const [portal, setPortal] = useState("Admin");
@@ -53,6 +56,12 @@ function App() {
     fetch("/fosters")
     .then(r=>r.json())
     .then(fosters => setFosters(fosters))
+  }, [])
+  // set applicants
+  useEffect(() => {
+    fetch("/applicants")
+    .then(r=>r.json())
+    .then(applicants => setApplicants(applicants))
   }, [])
   // set applications from pet_applications
   useEffect(() => {
@@ -130,13 +139,21 @@ function App() {
         <AdminNavBar currentUser={currentUser} handleLogOut={handleLogOut}/>
 
         <Switch>
-          <Route exact path="/adminportal">
-            <AdminPortal />
+          <Route exact path="/adminportal/">
+            {/* <AdminPortal
+              pets={pets} setPets={setPets} 
+              users={users} setUsers={setUsers}
+              fosters={fosters} setFosters={setFosters}
+              applicants={applicants} set={setApplicants}
+              applications={applications} setApplications={setApplications}
+            /> */}
+            <AdminPets currentUser={currentUser} pets={pets} setApplications={setApplications}/>
           </Route>
           <Route exact path="/adminportal/pets">
             <AdminPets currentUser={currentUser} pets={pets} setApplications={setApplications}/>
           </Route>
-          <Route exact path="/adminportal/applicants">
+          <Route exact path="/adminportal/applications">
+            <AdminApplications currentUser={currentUser} pets={pets} applicants={applicants} setApplicants={setApplicants}/>
           </Route>
           <Route exact path="/adminportal/fosters">
           </Route>

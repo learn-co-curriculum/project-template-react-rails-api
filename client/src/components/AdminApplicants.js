@@ -10,7 +10,6 @@ export default function AdminApplicants({ pets, applicants, setApplicants }) {
   const [modalShow, setModalShow] = React.useState(false);
 
   //APPLICANT SHOULD BE EDIT ONLY!
-
   function editApplicant(e, a) {
     console.log("editApplicant() has been invoked!");
   }

@@ -22,18 +22,20 @@ export default function AdminFosters({ fosters, setFosters }) {
   //   // setPhone(foster.phone)
   //   // console.log(first_name, last_name, email, phone)
   // }
-  console.log(first_name, last_name, email, phone)
+
+  // console.log(first_name, last_name, email, phone)
 
   function addFoster(e) {
-    e.preventDefault();
-    console.log("addFoster has been invoked!", e)
+    // e.preventDefault();
   
     fetch("/fosters", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
-        first_name, last_name,
-        email, phone
+        first_name: e.target[0].value, 
+        last_name: e.target[1].value,
+        email: e.target[2].value, 
+        phone: e.target[3].value
       })
     })
     .then((r) => {
@@ -59,50 +61,58 @@ export default function AdminFosters({ fosters, setFosters }) {
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Add Foster
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {/* <h3>Add Foster</h3> */}
-          <Form onSubmit={(e) => addFoster(e)}>
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridFirstName">
-                <Form.Label>First Name</Form.Label>
-                <Form.Control type="string" placeholder="Enter first name" onChange={(e)=>setFirstName(e.target.value)}/>
-              </Form.Group>
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Add Foster
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {/* <h3>Add Foster</h3> */}
+        <Form onSubmit={(e) => addFoster(e)}>
+          <Row className="mb-3">
+            <Form.Group as={Col} controlId="formGridFirstName">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control type="string" placeholder="Enter first name" 
+              // onChange={(e)=>setFirstName(e.target.value)}
+              />
+            </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridLastName">
-                <Form.Label>Last Name</Form.Label>
-                <Form.Control type="string" placeholder="Enter last name" onChange={(e)=>setLastName(e.target.value)}/>
-              </Form.Group>
-            </Row>
+            <Form.Group as={Col} controlId="formGridLastName">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control type="string" placeholder="Enter last name" 
+              // onChange={(e)=>setLastName(e.target.value)}
+              />
+            </Form.Group>
+          </Row>
 
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" onChange={(e)=>setEmail(e.target.value)}/>
-              </Form.Group>
+          <Row className="mb-3">
+            <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" 
+              // onChange={(e)=>setEmail(e.target.value)}
+              />
+            </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridPhone">
-                <Form.Label>Phone</Form.Label>
-                <Form.Control type="phone" placeholder="Enter phone" onChange={(e)=>setPhone(e.target.value)}/>
-              </Form.Group>
-            </Row>
-            
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-            {/* <Button onClick={props.onHide}>Close</Button> */}
-          </Form>
-        </Modal.Body>
-        {/* <Modal.Footer>
-         <Button variant="primary" type="submit">
-              Submit
+            <Form.Group as={Col} controlId="formGridPhone">
+              <Form.Label>Phone</Form.Label>
+              <Form.Control type="phone" placeholder="Enter phone" 
+              // onChange={(e)=>setPhone(e.target.value)}
+              />
+            </Form.Group>
+          </Row>
+          
+          <Button variant="primary" type="submit">
+            Submit
           </Button>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer> */}
+          {/* <Button onClick={props.onHide}>Close</Button> */}
+        </Form>
+      </Modal.Body>
+      {/* <Modal.Footer>
+        <Button variant="primary" type="submit">
+            Submit
+        </Button>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer> */}
       </Modal>
     );
   }
@@ -202,6 +212,7 @@ export default function AdminFosters({ fosters, setFosters }) {
           onHide={() => setShowAddFoster(false)}
         />
       </>
+      
       <Table striped bordered hover>
         <thead>
           <tr>

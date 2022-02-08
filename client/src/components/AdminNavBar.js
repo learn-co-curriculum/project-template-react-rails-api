@@ -22,6 +22,7 @@ export default function AdminNavBar({ currentUser, handleLogOut }) {
           <Nav>
             <Nav.Link href="/adminportal">Admin Portal</Nav.Link>
             <Nav.Link href="/adminportal/pets">Pets</Nav.Link>
+            <Nav.Link href="/adminportal/applicants">Applicants</Nav.Link>
             <Nav.Link href="/adminportal/applications">Applications</Nav.Link>
             <Nav.Link href="/adminportal/fosters">Fosters</Nav.Link>
             <Nav.Link href="/" onClick={handleLogOut}>Log Out</Nav.Link>

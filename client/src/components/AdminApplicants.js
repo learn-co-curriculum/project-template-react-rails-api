@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+// import Button from 'react-bootstrap/Button';
+// import Modal from 'react-bootstrap/Modal';
+// import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
 export default function AdminApplicants({ pets, applicants, setApplicants }) {
   const [modalShow, setModalShow] = React.useState(false);
 
   //APPLICANT SHOULD BE EDIT ONLY!
-  
+
   function editApplicant(e, a) {
     console.log("editApplicant() has been invoked!");
   }
@@ -22,7 +22,7 @@ export default function AdminApplicants({ pets, applicants, setApplicants }) {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Click to Edit</th>
+            <th>Edit</th>
             <th>id</th>
             <th>Approved?</th>
             <th>First Name</th>

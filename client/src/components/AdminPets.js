@@ -8,34 +8,33 @@ import Form from 'react-bootstrap/Form';
 
 export default function AdminPets({ pets, setApplications }) {
   const [modalShow, setModalShow] = React.useState(false);
-  const [name, setName] = useState();
-  const [status, setStatus] = useState("Intake Pending");
-  const [image, setImage] = useState("http://localhost:4000/images/defaultPet.png");
-  const [species, setSpecies] = useState("n/a");
-  const [breed, setBreed] = useState("n/a");
-  const [age, setAge] = useState("n/a");
-  const [height, setHeight] = useState("n/a");
-  const [weight, setWeight] = useState("n/a");
-  const [fixed, setFixed] = useState();
-  const [energy_level, setEnergyLevel] = useState("n/a");
-  const [coat_type, setCoatType] = useState("n/a");
-  const [coat_color, setCoatColor] = useState("n/a");
-  const [good_w_kids, setGoodWKids] = useState();
-  const [good_w_cats, setGoodWCats] = useState();
-  const [behavioral_issues, setBehavioralIssues] = useState();
-  const [description, setDescription] = useState("n/a");
-  const [rabies_vaccine, setRabiesVaccine] = useState("n/a");
-  const [FVRCP_vaccine, setFVRCPVaccine] = useState("n/a");
-  const [distemper_parvo_vaccine, setDistemperParvoVaccine] = useState("n/a");
-  const [dewormed, setDewormed] = useState();
+
+  const [showAddPet, setShowAddPet] = useState(false);
+  const [showEditPet, setShowEditPet] = useState(false);
+  // const [name, setName] = useState();
+  // const [status, setStatus] = useState("Intake Pending");
+  // const [image, setImage] = useState("http://localhost:4000/images/defaultPet.png");
+  // const [species, setSpecies] = useState("n/a");
+  // const [breed, setBreed] = useState("n/a");
+  // const [age, setAge] = useState("n/a");
+  // const [height, setHeight] = useState("n/a");
+  // const [weight, setWeight] = useState("n/a");
+  // const [fixed, setFixed] = useState();
+  // const [energy_level, setEnergyLevel] = useState("n/a");
+  // const [coat_type, setCoatType] = useState("n/a");
+  // const [coat_color, setCoatColor] = useState("n/a");
+  // const [good_w_kids, setGoodWKids] = useState();
+  // const [good_w_cats, setGoodWCats] = useState();
+  // const [behavioral_issues, setBehavioralIssues] = useState();
+  // const [description, setDescription] = useState("n/a");
+  // const [rabies_vaccine, setRabiesVaccine] = useState("n/a");
+  // const [FVRCP_vaccine, setFVRCPVaccine] = useState("n/a");
+  // const [distemper_parvo_vaccine, setDistemperParvoVaccine] = useState("n/a");
+  // const [dewormed, setDewormed] = useState();
 
   function addPet(e) {
     e.preventDefault();
     console.log("addPet() has been invoked!");
-  }
-
-  function editPet() {
-    console.log("editPet() has been invoked!");
   }
 
   function AddPetModal(props) {
@@ -169,24 +168,160 @@ export default function AdminPets({ pets, setApplications }) {
     );
   }
 
+  function editPet(e) {
+    console.log("editPet() has been invoked!", e);
+  }
+
+  function EditPetModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        backdrop="static"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Edit Pet
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* <h4>Centered Modal</h4> */}
+          <Form onSubmit={(e)=>{addPet(e)}}>
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control type="string" placeholder="Enter name" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridSpecies">
+                <Form.Label>Species</Form.Label>
+                <Form.Select defaultValue="Choose...">
+                  <option>Choose...</option>
+                  <option>Dog</option>
+                  <option>Cat</option>
+                  <option>Other</option>
+                </Form.Select>
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridBreed">
+                <Form.Label>Breed</Form.Label>
+                <Form.Control type="string" placeholder="Enter breed" />
+              </Form.Group>
+            </Row>
+
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridAge">
+                <Form.Label>Age</Form.Label>
+                <Form.Control type="string" placeholder="Enter age" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridHeight">
+                <Form.Label>Height</Form.Label>
+                <Form.Control type="string" placeholder="in inches" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridWeight">
+                <Form.Label>Weight</Form.Label>
+                <Form.Control type="string" placeholder="in lbs" />
+              </Form.Group>
+            </Row>
+
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridAge">
+                <Form.Label>Energy Level</Form.Label>
+                <Form.Control type="string" placeholder="Enter age" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridHeight">
+                <Form.Label>Coat Type</Form.Label>
+                <Form.Select>
+                  <option>Choose...</option>
+                  <option>Short hair</option>
+                  <option>Medium hair</option>
+                  <option>Long Hair</option>
+                  <option>Double-Coated</option>
+                </Form.Select>
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridWeight">
+                <Form.Label>Coat Color</Form.Label>
+                <Form.Control type="string" placeholder="Enter coat color(s)" />
+              </Form.Group>
+            </Row>
+
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridAge">
+                {/* <Form.Label>Good with Kids?</Form.Label>
+                <Form.Control type="string" placeholder="Enter age" /> */}
+                <Form.Check type="checkbox" label="Good with kids?" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridHeight">
+                {/* <Form.Label>Good with Cats?</Form.Label> */}
+                <Form.Check type="checkbox" label="Good with cats?" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridWeight">
+                {/* <Form.Label>Any Behavior Issues?</Form.Label>
+                <Form.Control type="string" placeholder="Enter coat color(s)" /> */}
+                <Form.Check type="checkbox" label="Any Behavior Issues?" />
+              </Form.Group>
+            </Row>
+
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridAge">
+                <Form.Label>Rabies Vaccine</Form.Label>
+                <Form.Control type="string" placeholder="Enter type & date" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridHeight">
+                <Form.Label>FVRCP Vaccine (cat only)</Form.Label>
+                <Form.Control type="string" placeholder="Enter type & date" />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridWeight">
+                <Form.Check type="checkbox" label="Dewormed?" />
+              </Form.Group>
+            </Row>
+
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+              <Form.Label>Description of Personality/Temperment or Behavioral Issues</Form.Label>
+              <Form.Control as="textarea" rows={1}/>
+            </Form.Group>
+
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </Modal.Body>
+        {/* <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer> */}
+      </Modal>
+    );
+  }
+
   return (
     <div id="admin_pets">
       <h3>Rescue Pets</h3>
 
       <>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
+        <Button variant="primary" onClick={() => setShowAddPet(true)}>
           Add Pet
         </Button>
 
         <AddPetModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
+          show={showAddPet}
+          onHide={() => setShowAddPet(false)}
         />
       </>
 
       <Table striped bordered hover>
         <thead>
           <tr>
+            <th>Edit</th>
             <th>Pet #</th>
             <th>Status</th>
             <th>Foster</th>
@@ -211,6 +346,16 @@ export default function AdminPets({ pets, setApplications }) {
         <tbody>
           {pets.map(pet => (
             <tr>
+              <td>
+                <Button onClick={() => setShowEditPet(true)}>
+                  Edit
+                </Button>
+
+                <EditPetModal
+                  show={showEditPet}
+                  onHide={() => setShowEditPet(false)}
+                />              
+              </td>
               <td>{pet.id}</td>
               <td>{pet.status}</td>
               <td>

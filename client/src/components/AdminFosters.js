@@ -7,11 +7,21 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
 export default function AdminFosters({ fosters, setFosters }) {
-  const [modalShow, setModalShow] = useState(false);
+  const [showAddFoster, setShowAddFoster] = useState(false);
+  const [showEditFoster, setShowEditFoster] = useState(false);
   const [first_name, setFirstName] = useState();
   const [last_name, setLastName] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
+
+  // function defaultValues(foster) {
+  //   console.log("defaultValues() has been invoked!", foster)
+  //   // setFirstName(foster.first_name)
+  //   // setLastName(foster.last_name)
+  //   // setEmail(foster.email)
+  //   // setPhone(foster.phone)
+  //   // console.log(first_name, last_name, email, phone)
+  // }
 
   function addFoster(e) {
     e.preventDefault();
@@ -37,11 +47,6 @@ export default function AdminFosters({ fosters, setFosters }) {
       })
       }
     });
-  }
-
-  function editFoster(e) {
-    e.preventDefault();
-    console.log("editFoster has been invoked!")
   }
 
   function AddFosterModal(props) {
@@ -101,24 +106,107 @@ export default function AdminFosters({ fosters, setFosters }) {
     );
   }
 
+  function editFoster(e) {
+    e.preventDefault();
+    console.log("editFoster has been invoked!")
+    fetch("/fosters", {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        first_name, last_name,
+        email, phone
+      })
+    })
+    .then((r) => {
+      if (r.ok) {
+        r.json().then(foster => {
+          setFosters(...fosters, foster)
+          console.log("PATCH /fosters success!", foster)
+        })
+      } else {
+        r.json().then((err) => {
+        console.log("PATCH fosters error", err);
+      })
+      }
+    });
+  }
+
+  function EditFosterModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        backdrop="static"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Edit Foster
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* <h3>Add Foster</h3> */}
+          <Form onSubmit={(e) => editFoster(e)}>
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridFirstName">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control type="string" placeholder="Enter first name" onChange={(e)=>setFirstName(e.target.value)}/>
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridLastName">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control type="string" placeholder="Enter last name" onChange={(e)=>setLastName(e.target.value)}/>
+              </Form.Group>
+            </Row>
+
+            <Row className="mb-3">
+              <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" onChange={(e)=>setEmail(e.target.value)}/>
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridPhone">
+                <Form.Label>Phone</Form.Label>
+                <Form.Control type="phone" placeholder="Enter phone" onChange={(e)=>setPhone(e.target.value)}/>
+              </Form.Group>
+            </Row>
+            
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+            {/* <Button onClick={props.onHide}>Close</Button> */}
+          </Form>
+        </Modal.Body>
+        {/* <Modal.Footer>
+         <Button variant="primary" type="submit">
+              Submit
+          </Button>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer> */}
+      </Modal>
+    );
+  }
+
   return (
     <div id="admin_fosters">
       <h3>Fosters</h3>
 
        <>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
+        <Button variant="primary" onClick={() => setShowAddFoster(true)}>
           Add Foster
         </Button>
 
         <AddFosterModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
+          show={showAddFoster}
+          onHide={() => setShowAddFoster(false)}
         />
       </>
 
       <Table striped bordered hover>
         <thead>
           <tr>
+            <th>Edit</th>
             <th>id</th>
             <th>First Name</th>
             <th>Last Name</th>
@@ -130,8 +218,21 @@ export default function AdminFosters({ fosters, setFosters }) {
         <tbody>
           {fosters.map(f => (
             <tr>
+
+              <td>
+                <Button onClick={() => setShowEditFoster(true)}>
+                  Edit
+                </Button>
+
+                <EditFosterModal
+                  show={showEditFoster}
+                  // onShow={(f) => defaultValues(f)}
+                  onHide={() => setShowEditFoster(false)}
+                />
+              </td>
+
               <td>{f.id}</td>
-              <td>{f.first_name}</td>
+              <td><div contenteditable="true">{f.first_name}</div></td>
               <td>{f.last_name}</td>
               <td>{f.phone}</td>
               <td>{f.email}</td>

@@ -10,7 +10,7 @@ export default function ApplicantNavBar({ currentUser, handleLogOut }) {
     <Navbar expand="lg" className="navbar">
       <Container >
         <img
-        src="./images/logo.png"
+        src="http://localhost:4000/images/logo.png"
         className="logo"
         alt="logo"
       />

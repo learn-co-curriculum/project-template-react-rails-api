@@ -117,7 +117,7 @@ function handleSignUp(e) {
     }
   })
 
-  }
+}
 
 
   return (

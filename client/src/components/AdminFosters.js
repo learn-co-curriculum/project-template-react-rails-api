@@ -22,6 +22,7 @@ export default function AdminFosters({ fosters, setFosters }) {
   //   // setPhone(foster.phone)
   //   // console.log(first_name, last_name, email, phone)
   // }
+  console.log(first_name, last_name, email, phone)
 
   function addFoster(e) {
     e.preventDefault();
@@ -191,8 +192,7 @@ export default function AdminFosters({ fosters, setFosters }) {
   return (
     <div id="admin_fosters">
       <h3>Fosters</h3>
-
-       <>
+      <>
         <Button variant="primary" onClick={() => setShowAddFoster(true)}>
           Add Foster
         </Button>
@@ -202,7 +202,6 @@ export default function AdminFosters({ fosters, setFosters }) {
           onHide={() => setShowAddFoster(false)}
         />
       </>
-
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -212,13 +211,11 @@ export default function AdminFosters({ fosters, setFosters }) {
             <th>Last Name</th>
             <th>Phone</th>
             <th>Email</th>
-
           </tr>
         </thead>
         <tbody>
           {fosters.map(f => (
             <tr>
-
               <td>
                 <Button onClick={() => setShowEditFoster(true)}>
                   Edit
@@ -230,7 +227,6 @@ export default function AdminFosters({ fosters, setFosters }) {
                   onHide={() => setShowEditFoster(false)}
                 />
               </td>
-
               <td>{f.id}</td>
               <td><div contenteditable="true">{f.first_name}</div></td>
               <td>{f.last_name}</td>

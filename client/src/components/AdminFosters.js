@@ -1,31 +1,33 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table'
 
-export default function AdminFosters({ currentUser, pets, applicants, setApplicants }) {
-  // console.log("WHAT IS APPLICANTS IN ADMINAPPLICATIONS", applicants)
+export default function AdminFosters({ fosters, setFosters }) {
+  console.log("FOSTERS IN AdminFosters", fosters)
+
   return (
-    <div id="admin_applicants">
-      <h3>Pet Applications</h3>
+    <div id="admin_fosters">
+      <h3>Fosters</h3>
       <Table striped bordered hover>
         <thead>
           <tr>
             <th>id</th>
             <th>First Name</th>
             <th>Last Name</th>
-            <th>DOB</th>
+            <th>Phone</th>
             <th>Email</th>
 
           </tr>
         </thead>
         <tbody>
-          {/* {applicants.map(a => (
+          {fosters.map(f => (
             <tr>
-              <td>{a.id}</td>
-              <td>{a.firstName}</td>
-              <td>{a.lastName}</td>
-              <td>{a.id}</td>
+              <td>{f.id}</td>
+              <td>{f.first_name}</td>
+              <td>{f.last_name}</td>
+              <td>{f.phone}</td>
+              <td>{f.email}</td>
             </tr>
-          ))} */}
+          ))}
         </tbody>
       </Table>
 

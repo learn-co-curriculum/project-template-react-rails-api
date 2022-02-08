@@ -1,7 +1,7 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table'
 
-export default function AdminApplications({ currentUser, pets, applicants, setApplicants }) {
+export default function AdminApplicants({ pets, applicants, setApplicants }) {
   return (
     <div id="admin_applicants">
       <h3>Pet Applications</h3>

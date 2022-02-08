@@ -15,7 +15,7 @@ import ApplicantSignUp from "./components/ApplicantSignUp";
 import AdminNavBar from "./components/AdminNavBar";
 import AdminPortal from "./components/AdminPortal";
 import AdminPets from "./components/AdminPets";
-import AdminApplications from "./components/AdminApplications";
+import AdminApplicants from "./components/AdminApplicants";
 import AdminFosters from "./components/AdminFosters";
 
 function App() {
@@ -57,6 +57,7 @@ function App() {
     .then(r=>r.json())
     .then(fosters => setFosters(fosters))
   }, [])
+  console.log("DID FOSTERS GET SET IN APP.JS?", fosters)
   // set applicants
   useEffect(() => {
     fetch("/applicants")
@@ -88,7 +89,7 @@ function App() {
   if (portal === "Home") {
     return (
       <div className="App">
-        <HomeNavBar currentUser={currentUser} handleLogOut={handleLogOut}/>
+        <HomeNavBar handleLogOut={handleLogOut}/>
 
         <Switch>
           <Route exact path="/">
@@ -147,15 +148,19 @@ function App() {
               applicants={applicants} set={setApplicants}
               applications={applications} setApplications={setApplications}
             /> */}
-            <AdminPets currentUser={currentUser} pets={pets} setApplications={setApplications}/>
+            <AdminPets pets={pets} setApplications={setApplications}/>
           </Route>
           <Route exact path="/adminportal/pets">
-            <AdminPets currentUser={currentUser} pets={pets} setApplications={setApplications}/>
+            <AdminPets pets={pets} setApplications={setApplications}/>
           </Route>
-          <Route exact path="/adminportal/applications">
-            <AdminApplications currentUser={currentUser} pets={pets} applicants={applicants} setApplicants={setApplicants}/>
+          <Route exact path="/adminportal/pet_applications">
+            <AdminPets pets={pets} setApplications={setApplications}/>
+          </Route>
+          <Route exact path="/adminportal/applicants">
+            <AdminApplicants pets={pets} applicants={applicants} setApplicants={setApplicants}/>
           </Route>
           <Route exact path="/adminportal/fosters">
+            <AdminFosters fosters={fosters} setFosters={setFosters}/>
           </Route>
         </Switch>
 

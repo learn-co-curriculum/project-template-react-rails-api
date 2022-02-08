@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import AdminPets from "./AdminPets";
-import AdminApplications from "./AdminApplications";
+import AdminApplicants from "./AdminApplicants";
+import AdminFosters from "./AdminFosters";
 
 export default function AdminPortal({ 
   pets, setPets,
@@ -13,25 +14,29 @@ export default function AdminPortal({
   return (
     <div id="admin_portal">
        <Switch>
-        <Route exact path="/adminportal/">
-          <AdminPortal 
+          <Route exact path="/adminportal/">
+            {/* <AdminPortal
               pets={pets} setPets={setPets} 
               users={users} setUsers={setUsers}
               fosters={fosters} setFosters={setFosters}
               applicants={applicants} set={setApplicants}
               applications={applications} setApplications={setApplications}
-            />
-        </Route>
-        <Route path="/adminportal/pets">
-          <AdminPets pets={pets} setApplications={setApplications}/>
-        </Route>
-        <Route exact path="/adminportal/applications">
-            <AdminApplications pets={pets} applicants={applicants} setApplicants={setApplicants}/>
+            /> */}
+            <AdminPets pets={pets} setApplications={setApplications}/>
           </Route>
-        <Route path="/adminportal/fosters">
-          <div></div>
-        </Route>
-      </Switch>
+          <Route exact path="/adminportal/pets">
+            <AdminPets pets={pets} setApplications={setApplications}/>
+          </Route>
+          <Route exact path="/adminportal/pet_applications">
+            <AdminPets pets={pets} setApplications={setApplications}/>
+          </Route>
+          <Route exact path="/adminportal/applicants">
+            <AdminApplicants pets={pets} applicants={applicants} setApplicants={setApplicants}/>
+          </Route>
+          <Route exact path="/adminportal/fosters">
+            <AdminFosters fosters={fosters} setFosters={setFosters}/>
+          </Route>
+        </Switch>
     </div>
   )
 }

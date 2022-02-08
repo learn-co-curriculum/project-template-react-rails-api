@@ -8,6 +8,26 @@ import Form from 'react-bootstrap/Form';
 
 export default function AdminPets({ pets, setApplications }) {
   const [modalShow, setModalShow] = React.useState(false);
+  // const [name, setName] = useState();
+  // const [status, setStatus] = useState("Intake");
+  // const [image, setImage] = useState("n/a");
+  // const [species, setSpecies] = useState("n/a");
+  // const [breed, setBreed] = useState("n/a");
+  // const [age, setAge] = useState("n/a");
+  // const [height, setHeight] = useState("n/a");
+  // const [weight, setWeight] = useState("n/a");
+  // const [fixed, setFixed] = useState();
+  // const [energy_level, setEnergyLevel] = useState("n/a");
+  // const [coat_type, setCoatType] = useState("n/a");
+  // const [coat_color, setCoatColor] = useState("n/a");
+  // const [good_w_kids, setGoodWKids] = useState();
+  // const [good_w_cats, setGoodWCats] = useState();
+  // const [behavioral_issues, setBehavioralIssues] = useState();
+  // const [description, setDescription] = useState("n/a");
+  // const [rabies_vaccine, setRabiesVaccine] = useState("n/a");
+  // const [FVRCP_vaccine, setFVRCPVaccine] = useState("n/a");
+  // const [distemper_parvo_vaccine, setDistemperParvoVaccine] = useState("n/a");
+  // const [dewormed, setDewormed] = useState();
 
   function AddPetModal(props) {
     return (

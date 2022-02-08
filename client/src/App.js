@@ -57,7 +57,6 @@ function App() {
     .then(r=>r.json())
     .then(fosters => setFosters(fosters))
   }, [])
-  console.log("DID FOSTERS GET SET IN APP.JS?", fosters)
   // set applicants
   useEffect(() => {
     fetch("/applicants")

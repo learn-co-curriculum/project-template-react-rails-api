@@ -23,8 +23,6 @@ export default function AdminFosters({ fosters, setFosters }) {
   //   // console.log(first_name, last_name, email, phone)
   // }
 
-  // console.log(first_name, last_name, email, phone)
-
   function addFoster(e) {
     // e.preventDefault();
   
@@ -117,32 +115,36 @@ export default function AdminFosters({ fosters, setFosters }) {
     );
   }
 
-  function editFoster(e) {
+  function editFoster(e, props) {
     e.preventDefault();
-    console.log("editFoster has been invoked!")
-    fetch("/fosters", {
-      method: "PATCH",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        first_name, last_name,
-        email, phone
-      })
-    })
-    .then((r) => {
-      if (r.ok) {
-        r.json().then(foster => {
-          setFosters(...fosters, foster)
-          console.log("PATCH /fosters success!", foster)
-        })
-      } else {
-        r.json().then((err) => {
-        console.log("PATCH fosters error", err);
-      })
-      }
-    });
+    console.log("editFoster has been invoked!", e)
+    console.log("PROPS in editFoster", props)
+    // fetch(`/fosters/${e.target.id}`, {
+    //   method: "PATCH",
+    //   headers: {"Content-Type": "application/json"},
+    //   body: JSON.stringify({
+    //     first_name: e.target[0].value, 
+    //     last_name: e.target[1].value,
+    //     email: e.target[2].value, 
+    //     phone: e.target[3].value
+    //   })
+    // })
+    // .then((r) => {
+    //   if (r.ok) {
+    //     r.json().then(foster => {
+    //       setFosters(...fosters, foster)
+    //       console.log("PATCH /fosters success!", foster)
+    //     })
+    //   } else {
+    //     r.json().then((err) => {
+    //     console.log("PATCH fosters error", err);
+    //   })
+    //   }
+    // });
   }
 
   function EditFosterModal(props) {
+    // console.log("PROPS IN EditFosterModal", props)
     return (
       <Modal
         {...props}
@@ -158,28 +160,28 @@ export default function AdminFosters({ fosters, setFosters }) {
         </Modal.Header>
         <Modal.Body>
           {/* <h3>Add Foster</h3> */}
-          <Form onSubmit={(e) => editFoster(e)}>
+          <Form onSubmit={(e, props) => editFoster(e, props)}>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridFirstName">
                 <Form.Label>First Name</Form.Label>
-                <Form.Control type="string" placeholder="Enter first name" onChange={(e)=>setFirstName(e.target.value)}/>
+                <Form.Control type="string" placeholder="Enter first name" />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridLastName">
                 <Form.Label>Last Name</Form.Label>
-                <Form.Control type="string" placeholder="Enter last name" onChange={(e)=>setLastName(e.target.value)}/>
+                <Form.Control type="string" placeholder="Enter last name" />
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" onChange={(e)=>setEmail(e.target.value)}/>
+                <Form.Control type="email" placeholder="Enter email" />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridPhone">
                 <Form.Label>Phone</Form.Label>
-                <Form.Control type="phone" placeholder="Enter phone" onChange={(e)=>setPhone(e.target.value)}/>
+                <Form.Control type="phone" placeholder="Enter phone" />
               </Form.Group>
             </Row>
             
@@ -234,12 +236,12 @@ export default function AdminFosters({ fosters, setFosters }) {
 
                 <EditFosterModal
                   show={showEditFoster}
-                  // onShow={(f) => defaultValues(f)}
+                  fID={f.id} fFirstName={f.first_name} fLastName={f.last_name} fPhone={f.phone} fEmail={f.email}
                   onHide={() => setShowEditFoster(false)}
                 />
               </td>
               <td>{f.id}</td>
-              <td><div contenteditable="true">{f.first_name}</div></td>
+              <td>{f.first_name}</td>
               <td>{f.last_name}</td>
               <td>{f.phone}</td>
               <td>{f.email}</td>

@@ -11,26 +11,26 @@ export default function AdminPets({ pets, setPets }) {
 
   const [showAddPet, setShowAddPet] = useState(false);
   const [showEditPet, setShowEditPet] = useState(false);
-  const [name, setName] = useState();
   const [status, setStatus] = useState("Intake Pending");
   const [image, setImage] = useState("http://localhost:4000/images/defaultPet.png");
-  const [species, setSpecies] = useState("n/a");
-  const [breed, setBreed] = useState("n/a");
-  const [age, setAge] = useState("n/a");
-  const [height, setHeight] = useState("n/a");
-  const [weight, setWeight] = useState("n/a");
-  const [fixed, setFixed] = useState();
-  const [energy_level, setEnergyLevel] = useState("n/a");
-  const [coat_type, setCoatType] = useState("n/a");
-  const [coat_color, setCoatColor] = useState("n/a");
-  const [good_w_kids, setGoodWKids] = useState();
-  const [good_w_cats, setGoodWCats] = useState();
-  const [behavioral_issues, setBehavioralIssues] = useState();
-  const [description, setDescription] = useState("n/a");
-  const [rabies_vaccine, setRabiesVaccine] = useState("n/a");
-  const [FVRCP_vaccine, setFVRCPVaccine] = useState("n/a");
-  const [distemper_parvo_vaccine, setDistemperParvoVaccine] = useState("n/a");
-  const [dewormed, setDewormed] = useState();
+  const [name, setName] = useState();
+  // const [species, setSpecies] = useState("n/a");
+  // const [breed, setBreed] = useState("n/a");
+  // const [age, setAge] = useState("n/a");
+  // const [height, setHeight] = useState("n/a");
+  // const [weight, setWeight] = useState("n/a");
+  // const [fixed, setFixed] = useState();
+  // const [energy_level, setEnergyLevel] = useState("n/a");
+  // const [coat_type, setCoatType] = useState("n/a");
+  // const [coat_color, setCoatColor] = useState("n/a");
+  // const [good_w_kids, setGoodWKids] = useState();
+  // const [good_w_cats, setGoodWCats] = useState();
+  // const [behavioral_issues, setBehavioralIssues] = useState();
+  // const [description, setDescription] = useState("n/a");
+  // const [rabies_vaccine, setRabiesVaccine] = useState("n/a");
+  // const [FVRCP_vaccine, setFVRCPVaccine] = useState("n/a");
+  // const [distemper_parvo_vaccine, setDistemperParvoVaccine] = useState("n/a");
+  // const [dewormed, setDewormed] = useState();
 
   function addPet(e) {
     // e.preventDefault();
@@ -215,6 +215,8 @@ export default function AdminPets({ pets, setPets }) {
 
   function editPet(e) {
     console.log("editPet() has been invoked!", e);
+    console.log("Is this the right pet id?", e.target.id)
+    // fetch("/")
   }
 
   function EditPetModal(props) {
@@ -233,7 +235,7 @@ export default function AdminPets({ pets, setPets }) {
         </Modal.Header>
         <Modal.Body>
           {/* <h4>Centered Modal</h4> */}
-          <Form onSubmit={(e)=>{addPet(e)}}>
+          <Form onSubmit={(e)=>{editPet(e)}}>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridName">
                 <Form.Label>Name</Form.Label>

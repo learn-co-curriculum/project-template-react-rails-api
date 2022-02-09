@@ -13,15 +13,6 @@ export default function AdminApplications({ applications, setApplications }) {
   const [applicant_email, setApplicantEmail] = useState();
   const [status, setStatus] = useState("Submitted");
 
-  // function defaultValues(foster) {
-  //   console.log("defaultValues() has been invoked!", foster)
-  //   // setFirstName(foster.first_name)
-  //   // setLastName(foster.last_name)
-  //   // setEmail(foster.email)
-  //   // setPhone(foster.phone)
-  //   // console.log(first_name, last_name, email, phone)
-  // }
-
   function EditAppModal(props) {
     return (
       <Modal
@@ -38,29 +29,10 @@ export default function AdminApplications({ applications, setApplications }) {
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={(e) => editApp(e)}>
-          <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridFirstName">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control type="string" placeholder="Enter first name" />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridLastName">
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control type="string" placeholder="Enter last name" />
-            </Form.Group>
-          </Row>
-
-          <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridEmail">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-            </Form.Group>
-
-            <Form.Group as={Col} controlId="formGridPhone">
-              <Form.Label>Phone</Form.Label>
-              <Form.Control type="phone" placeholder="Enter phone" />
-            </Form.Group>
-          </Row>
+          <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Label>Status</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+          </Form.Group>
           
           <Button variant="primary" type="submit">
             Submit

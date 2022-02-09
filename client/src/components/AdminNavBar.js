@@ -13,14 +13,15 @@ export default function AdminNavBar({ currentUser, handleLogOut }) {
         className="logo"
         alt="logo"
       />
-      <h3>Hi Admin, {currentUser.firstName} {currentUser.lastName}!</h3>
+      <h3>
+        {currentUser ? `Hi Admin, ${currentUser.firstName} ${currentUser.lastName}!` : "Paws & Claws Pet Rescue"}
+      </h3>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             {/* keep this nav so links render on right side */}
           </Nav>
           <Nav>
-            <Nav.Link href="/adminportal">Admin Portal</Nav.Link>
             <Nav.Link href="/adminportal/pets">Pets</Nav.Link>
             <Nav.Link href="/adminportal/applicants">Applicants</Nav.Link>
             <Nav.Link href="/adminportal/applications">Applications</Nav.Link>

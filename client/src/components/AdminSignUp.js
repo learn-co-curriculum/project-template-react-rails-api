@@ -23,13 +23,15 @@ function handleAdminSignUp(e) {
       firstName, lastName,
       email, password,
       phone,
-      role: "Admin"
+      role: "Admin",
+      // applicant_id: 0,
     })
   })
   .then((r) => {
     if (r.ok) {r.json().then(user => {
         setCurrentUser(user);
         setPortal("Admin");
+        console.log("Admin POSTED! WOOOO HOOOOO!")
       })
     } else {
       r.json().then((err) => {
@@ -83,7 +85,7 @@ function handleAdminSignUp(e) {
               Submit
             </Button>
             <p className="forgot-password text-right">
-            Already registered? <a href="/adminportal/login">Log in</a>
+            Already registered? <a href="/rescueportal/login">Log in</a>
             </p>
           </Form>
         </Modal.Body>

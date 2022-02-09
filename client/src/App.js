@@ -27,7 +27,7 @@ function App() {
   const [applicants, setApplicants] = useState([]);
   const [currentUser, setCurrentUser] = useState("");
   const [applications, setApplications] = useState([]);
-  const [portal, setPortal] = useState("Admin");
+  const [portal, setPortal] = useState("Home");
 
   //auto-login for existing users
   useEffect(() => {
@@ -75,14 +75,16 @@ function App() {
   function handleLogOut() {
     //reset portal and current User
     setPortal("Home");
-    console.log("Set portal to  Home")
-    setCurrentUser({});
+    console.log("Set portal to Home")
+    setCurrentUser("");
     console.log("Logged Out!")
     //delete session w "/logout"
     fetch('/logout', {method: "DELETE"})
     .then(res => {
         if (res.ok) {
           setCurrentUser("")
+        } else {
+          console.log("COULDN'T LOG OUT IN handleLogOut() in App.js")
         }
       })
   }
@@ -105,7 +107,7 @@ function App() {
               setPortal={setPortal} />
           </Route>
           <Route exact path="/homeportal/login">
-            <Login setCurrentUser={setCurrentUser} setPortal={setPortal}/>
+            <Login setCurrentUser={setCurrentUser} portal={portal} setPortal={setPortal}/>
           </Route>
           <Route exact path="/homeportal/signup">
             <ApplicantSignUp 
@@ -141,24 +143,26 @@ function App() {
         <AdminNavBar currentUser={currentUser} handleLogOut={handleLogOut}/>
 
         <Switch>
-          <Route exact path="/adminportal/">
-            {/* <AdminPortal
-              setCurrentUser, setPortal
-              pets={pets} setPets={setPets} 
-              users={users} setUsers={setUsers}
-              fosters={fosters} setFosters={setFosters}
-              applicants={applicants} set={setApplicants}
-              applications={applications} setApplications={setApplications}
-            /> */}
-            <Login setCurrentUser={setCurrentUser} setPortal={setPortal} />
-            <AdminPets pets={pets} setApplications={setApplications}/>
+         <Route exact path="/adminportal">
+            <AdminPortal 
+              setCurrentUser = {setCurrentUser}  
+              portal = {portal} setPortal = {setPortal} 
+              pets = {pets} setPets = {setPets} 
+              users = {users} setUsers = {setUsers} 
+              fosters = {fosters} setFosters = {setFosters} 
+              applicants = {applicants} setApplicants = {setApplicants} 
+              applications = {applications} setApplications = {setApplications} 
+            />
           </Route>
 
+          <Route exact path="/adminportal/login">
+            <Login setCurrentUser={setCurrentUser} portal={portal} setPortal={setPortal} />
+          </Route>
 
           <Route exact path="/adminportal/signup">
             <AdminSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} />
           </Route>
-          
+
 
           <Route exact path="/adminportal/pets">
             <AdminPets pets={pets} setApplications={setApplications}/>

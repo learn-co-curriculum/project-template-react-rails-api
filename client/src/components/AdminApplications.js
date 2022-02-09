@@ -80,7 +80,7 @@ export default function AdminApplications({ applications, setApplications }) {
   return (
     <div id="admin_fosters">
       <h3>Pet Applications</h3>
-      <Table striped bordered hover>
+      <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>Edit</th>

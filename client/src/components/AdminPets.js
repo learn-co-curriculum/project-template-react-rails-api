@@ -365,7 +365,7 @@ export default function AdminPets({ pets, setPets }) {
         />
       </>
 
-      <Table striped bordered hover>
+      <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>Edit</th>

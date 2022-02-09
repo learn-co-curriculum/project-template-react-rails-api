@@ -74,7 +74,7 @@ export default function AdminApplicants({ pets, applicants, setApplicants }) {
     <div id="admin_applicants">
       <h3>Applicants</h3>
 
-      <Table striped bordered hover>
+      <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>Edit</th>

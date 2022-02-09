@@ -9,19 +9,11 @@ import Form from 'react-bootstrap/Form';
 export default function AdminFosters({ fosters, setFosters }) {
   const [showAddFoster, setShowAddFoster] = useState(false);
   const [showEditFoster, setShowEditFoster] = useState(false);
+  const [fosterID, setFosterID] = useState();
   const [first_name, setFirstName] = useState();
   const [last_name, setLastName] = useState();
   const [email, setEmail] = useState();
   const [phone, setPhone] = useState();
-
-  // function defaultValues(foster) {
-  //   console.log("defaultValues() has been invoked!", foster)
-  //   // setFirstName(foster.first_name)
-  //   // setLastName(foster.last_name)
-  //   // setEmail(foster.email)
-  //   // setPhone(foster.phone)
-  //   // console.log(first_name, last_name, email, phone)
-  // }
 
   function addFoster(e) {
     // e.preventDefault();
@@ -115,10 +107,26 @@ export default function AdminFosters({ fosters, setFosters }) {
     );
   }
 
-  function editFoster(e, props) {
+  function editFoster(e) {
     e.preventDefault();
-    console.log("editFoster has been invoked!", e)
-    console.log("PROPS in editFoster", props)
+  
+    console.log("DO I HAVE ACCESS TO STATE IN editFoster???", fosterID, first_name, last_name, phone, email) //YES! It's holding the current record's data
+
+    let fosterObj = {};
+
+    if (e.target[0].value !== first_name) {
+      fosterObj.first_name = e.target[0].value;
+    }
+    if (e.target[1].value !== first_name) {
+      fosterObj.last_name = e.target[1].value;
+    }
+    if (e.target[2].value !== first_name) {
+      fosterObj.email = e.target[2].value;
+    }
+    if (e.target[3].value !== first_name) {
+      fosterObj.phone = e.target[3].value;
+    }
+
     // fetch(`/fosters/${e.target.id}`, {
     //   method: "PATCH",
     //   headers: {"Content-Type": "application/json"},
@@ -144,7 +152,12 @@ export default function AdminFosters({ fosters, setFosters }) {
   }
 
   function EditFosterModal(props) {
-    // console.log("PROPS IN EditFosterModal", props)
+    // console.log("DO I HAVE ACCESS TO PROPS IN Edit FosterModal?", props) //YES!
+    setFosterID(props.fID)
+    setFirstName(props.fFirstName)
+    setLastName(props.fLastName)
+    setPhone(props.fPhone)
+    setEmail(props.fEmail)
     return (
       <Modal
         {...props}
@@ -160,28 +173,28 @@ export default function AdminFosters({ fosters, setFosters }) {
         </Modal.Header>
         <Modal.Body>
           {/* <h3>Add Foster</h3> */}
-          <Form onSubmit={(e, props) => editFoster(e, props)}>
+          <Form onSubmit={(e) => editFoster(e)}>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridFirstName">
                 <Form.Label>First Name</Form.Label>
-                <Form.Control type="string" placeholder="Enter first name" />
+                <Form.Control type="string" placeholder={props.fFirstName} />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridLastName">
                 <Form.Label>Last Name</Form.Label>
-                <Form.Control type="string" placeholder="Enter last name" />
+                <Form.Control type="string" placeholder={props.fLastName} />
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control type="email" placeholder={props.fEmail} />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridPhone">
                 <Form.Label>Phone</Form.Label>
-                <Form.Control type="phone" placeholder="Enter phone" />
+                <Form.Control type="phone" placeholder={props.fPhone} />
               </Form.Group>
             </Row>
             
@@ -228,7 +241,7 @@ export default function AdminFosters({ fosters, setFosters }) {
         </thead>
         <tbody>
           {fosters.map(f => (
-            <tr>
+            <tr key={f.id}>
               <td>
                 <Button onClick={() => setShowEditFoster(true)}>
                   Edit

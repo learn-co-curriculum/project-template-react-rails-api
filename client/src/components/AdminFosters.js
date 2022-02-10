@@ -110,9 +110,6 @@ export default function AdminFosters({ fosters, setFosters }) {
   }
 
   function editFoster(e) {
-    // e.preventDefault();
-    // console.log("WHAT IS fosterToUpdate IN EDITFOSTER", fosterToUpdate) // don't need to pass fosterToUpdate in as arg in editFoster.
-    // console.log("WHAT ARE form values IN EDITFOSTER", e.target[0].value, e.target[1].value, e.target[2].value, e.target[3].value)
     let fosterObj = {};
 
     if (e.target[0].value === "") {
@@ -139,27 +136,28 @@ export default function AdminFosters({ fosters, setFosters }) {
       fosterObj["phone"] = e.target[3].value;
     }
 
-    console.log("FOSTER OBJ", fosterObj)
+    // console.log("FOSTER OBJ", fosterObj)
+
+    fetch(`/fosters/${fosterToUpdate.id}`, {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(fosterObj)
+    })
+    .then((r) => {
+      if (r.ok) {
+        r.json().then(foster => {
+          console.log("PATCH /fosters success!", foster)
+        })
+      } else {
+        r.json().then((err) => {
+        console.log("PATCH fosters error", err);
+      })
+      }
+    });
 
 
-    
 
-    // fetch(`/fosters/${fosterToUpdate.id}`, {
-    //   method: "PATCH",
-    //   headers: {"Content-Type": "application/json"},
-    //   body: JSON.stringify(fosterObj)
-    // })
-    // .then((r) => {
-    //   if (r.ok) {
-    //     r.json().then(foster => {
-    //       console.log("PATCH /fosters success!", foster)
-    //     })
-    //   } else {
-    //     r.json().then((err) => {
-    //     console.log("PATCH fosters error", err);
-    //   })
-    //   }
-    // });
+
   }
 
   function EditFosterModal(props) {

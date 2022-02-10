@@ -9,11 +9,11 @@ import Form from 'react-bootstrap/Form';
 export default function AdminFosters({ fosters, setFosters }) {
   const [showAddFoster, setShowAddFoster] = useState(false);
   const [showEditFoster, setShowEditFoster] = useState(false);
-  const [fosterID, setFosterID] = useState();
-  const [first_name, setFirstName] = useState();
-  const [last_name, setLastName] = useState();
-  const [email, setEmail] = useState();
-  const [phone, setPhone] = useState();
+  // const [fosterID, setFosterID] = useState();
+  // const [first_name, setFirstName] = useState();
+  // const [last_name, setLastName] = useState();
+  // const [email, setEmail] = useState();
+  // const [phone, setPhone] = useState();
 
   const [fosterToUpdate, setFosterToUpdate] = useState({id: "", first_name: "", last_name: "", phone: "", email: ""});
 
@@ -109,42 +109,42 @@ export default function AdminFosters({ fosters, setFosters }) {
     );
   }
 
-  function editFoster(e, fosterToUpdate) {
+  function editFoster(e) {
     // e.preventDefault();
+    // console.log("WHAT IS fosterToUpdate IN EDITFOSTER", fosterToUpdate) // don't need to pass fosterToUpdate in as arg in editFoster.
+    // console.log("WHAT ARE form values IN EDITFOSTER", e.target[0].value, e.target[1].value, e.target[2].value, e.target[3].value)
+    let fosterObj = {};
 
-    console.log("WHAT IS FOSTER IN EDITFOSTER", fosterToUpdate)
-  
-    // console.log("DO I HAVE ACCESS TO STATE IN editFoster???", fosterID, first_name, last_name, phone, email) 
+    if (e.target[0].value === "") {
+      fosterObj["first_name"] = fosterToUpdate.first_name;
+    } else if(e.target[0].value.toLowerCase() !== fosterToUpdate.first_name.toLowerCase()) {
+      fosterObj["first_name"] = e.target[0].value;
+    } 
 
-    // let fosterObj = {};
+    if (e.target[1].value === "") {
+      fosterObj["last_name"] = fosterToUpdate.last_name;
+    } else if (e.target[1].value.toLowerCase() !== fosterToUpdate.last_name.toLowerCase()) {
+      fosterObj["last_name"] = e.target[1].value;
+    } 
 
-    // if (e.target[0].value !== first_name) {
-    //   fosterObj.first_name = e.target[0].value;
-    // } else if (e.target[0].value === first_name || e.target[0].value === "") {
-    //   fosterObj.first_name = first_name;
-    // }
+    if (e.target[2].value === "") {
+      fosterObj["email"] = fosterToUpdate.email;
+    } else if (e.target[2].value !== fosterToUpdate.email) {
+      fosterObj["email"] = e.target[2].value;
+    }
 
-    // if (e.target[1].value !== first_name) {
-    //   fosterObj.last_name = e.target[1].value;
-    // } else if (e.target[1].value === first_name || e.target[1].value === "") {
-    //   fosterObj.last_name = last_name;
-    // }
+    if (e.target[3].value === "") {
+      fosterObj["phone"] = fosterToUpdate.phone;
+    } else if (e.target[3].value !== fosterToUpdate.phone) {
+      fosterObj["phone"] = e.target[3].value;
+    }
 
-    // if (e.target[2].value !== email) {
-    //   fosterObj.email = e.target[2].value;
-    // } else if (e.target[2].value === email || e.target[2].value === "") {
-    //   fosterObj.email = email;
-    // }
+    console.log("FOSTER OBJ", fosterObj)
 
-    // if (e.target[3].value !== phone) {
-    //   fosterObj.phone = e.target[3].value;
-    // } else if (e.target[3].value === phone || e.target[3].value === "") {
-    //   fosterObj.phone = phone;
-    // }
 
-    // console.log("FOSTER OBJ", fosterObj)
+    
 
-    // fetch(`/fosters/${fosterID}`, {
+    // fetch(`/fosters/${fosterToUpdate.id}`, {
     //   method: "PATCH",
     //   headers: {"Content-Type": "application/json"},
     //   body: JSON.stringify(fosterObj)
@@ -152,7 +152,6 @@ export default function AdminFosters({ fosters, setFosters }) {
     // .then((r) => {
     //   if (r.ok) {
     //     r.json().then(foster => {
-    //       setFosters(...fosters, foster)
     //       console.log("PATCH /fosters success!", foster)
     //     })
     //   } else {
@@ -164,8 +163,7 @@ export default function AdminFosters({ fosters, setFosters }) {
   }
 
   function EditFosterModal(props) {
-    // console.log("PROPS IN EDIT MODAL", props.foster)
-    console.log("fosterToUpdate in Edit Modal", fosterToUpdate) // fosterToUpdate is a state
+    // console.log("fosterToUpdate in Edit Modal", fosterToUpdate) // fosterToUpdate is a state
     return (
       <Modal
         {...props}
@@ -181,7 +179,7 @@ export default function AdminFosters({ fosters, setFosters }) {
         </Modal.Header>
         <Modal.Body>
           {/* <h3>Add Foster</h3> */}
-          <Form onSubmit={(e, fosterToUpdate) => editFoster(e, fosterToUpdate)}>
+          <Form onSubmit={(e) => editFoster(e)}>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridFirstName">
                 <Form.Label>First Name</Form.Label>
@@ -223,12 +221,8 @@ export default function AdminFosters({ fosters, setFosters }) {
   }
 
   function openEditFosterModal(foster) {
-    console.log("IS FOSTER CORRECT THIS TIME?", foster)
-    
     setFosterToUpdate(foster)
     setShowEditFoster(true);
-
-    // editFoster(fosterToUpdate)
   }
 
   return (

@@ -13,7 +13,7 @@ export default function AdminPortal({
   pets, setPets,
   users, setUsers,
   fosters, setFosters,
-  setUpdateFoster,
+  // setUpdateFoster,
   applicants, setApplicants,
   applications, setApplications
  }) {
@@ -36,11 +36,8 @@ export default function AdminPortal({
             <AdminApplicants pets={pets} applicants={applicants} setApplicants={setApplicants}/>
           </Route>
           <Route exact path="/adminportal/fosters">
-            <AdminFosters fosters={fosters} setFosters={setFosters} setUpdateFoster={setUpdateFoster}/>
+            <AdminFosters fosters={fosters} setFosters={setFosters} />
           </Route>
-          {/* <Route exact path="/adminportal/edit_foster">
-            <EditFoster fosters={fosters} setFosters={setFosters}/>
-          </Route> */}
         </Switch>
     </div>
   )

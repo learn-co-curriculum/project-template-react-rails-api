@@ -30,8 +30,6 @@ function App() {
   const [applications, setApplications] = useState([]);
   const [portal, setPortal] = useState("Home");
 
-  const [updateFoster, setUpdateFoster] = useState();
-
   //auto-login for existing users
   useEffect(() => {
     fetch("/me") // "/auth" in Ix's lecture - https://learning.flatironschool.com/courses/4552/pages/video-authorization-client?module_item_id=346181
@@ -153,7 +151,7 @@ function App() {
               pets = {pets} setPets = {setPets} 
               users = {users} setUsers = {setUsers} 
               fosters = {fosters} setFosters = {setFosters} 
-              setUpdateFoster={setUpdateFoster}
+              // setUpdateFoster={setUpdateFoster}
               applicants = {applicants} setApplicants = {setApplicants} 
               applications = {applications} setApplications = {setApplications} 
             />
@@ -178,11 +176,8 @@ function App() {
             <AdminApplicants pets={pets} applicants={applicants} setApplicants={setApplicants}/>
           </Route>
           <Route exact path="/adminportal/fosters">
-            <AdminFosters fosters={fosters} setFosters={setFosters} setUpdateFoster={setUpdateFoster}/>
+            <AdminFosters fosters={fosters} setFosters={setFosters} />
           </Route>
-           {/* <Route exact path="/adminportal/edit_foster">
-            <EditFoster updateFoster={updateFoster} fosters={fosters} setFosters={setFosters}/>
-          </Route> */}
         </Switch>
 
         <Footer />

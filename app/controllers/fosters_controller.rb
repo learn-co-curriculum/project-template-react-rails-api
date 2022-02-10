@@ -2,7 +2,7 @@ class FostersController < ApplicationController
   
     # GET /fosters
     def index
-      render json: Foster.all
+      render json: Foster.all.order(:id)
     end
   
     # GET /fosters/:id

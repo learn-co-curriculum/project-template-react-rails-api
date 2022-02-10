@@ -2,7 +2,7 @@ class MeetupsController < ApplicationController
 
   # GET /meetups
   def index
-    render json: Meetup.all
+    render json: Meetup.all.order(:id)
   end
 
   # GET /meetups/:id

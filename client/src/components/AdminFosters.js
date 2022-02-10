@@ -9,12 +9,6 @@ import Form from 'react-bootstrap/Form';
 export default function AdminFosters({ fosters, setFosters }) {
   const [showAddFoster, setShowAddFoster] = useState(false);
   const [showEditFoster, setShowEditFoster] = useState(false);
-  // const [fosterID, setFosterID] = useState();
-  // const [first_name, setFirstName] = useState();
-  // const [last_name, setLastName] = useState();
-  // const [email, setEmail] = useState();
-  // const [phone, setPhone] = useState();
-
   const [fosterToUpdate, setFosterToUpdate] = useState({id: "", first_name: "", last_name: "", phone: "", email: ""});
 
   function addFoster(e) {
@@ -136,8 +130,6 @@ export default function AdminFosters({ fosters, setFosters }) {
       fosterObj["phone"] = e.target[3].value;
     }
 
-    // console.log("FOSTER OBJ", fosterObj)
-
     fetch(`/fosters/${fosterToUpdate.id}`, {
       method: "PATCH",
       headers: {"Content-Type": "application/json"},
@@ -219,7 +211,7 @@ export default function AdminFosters({ fosters, setFosters }) {
   }
 
   function openEditFosterModal(foster) {
-    setFosterToUpdate(foster)
+    setFosterToUpdate(foster);
     setShowEditFoster(true);
   }
 
@@ -259,8 +251,6 @@ export default function AdminFosters({ fosters, setFosters }) {
                 <EditFosterModal
                   show={showEditFoster}
                   onHide={() => setShowEditFoster(false)}
-                  // onShow={() => setFosterToUpdate(f)}
-                  // foster={f}
                 />
               </td>
               <td>{f.id}</td>

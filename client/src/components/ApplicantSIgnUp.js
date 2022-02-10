@@ -219,7 +219,7 @@ function handleSignUp(e) {
             </Button>
             <p className="forgot-password text-right">
             Already registered? <a href="/homeportal/login">Log in</a>
-        </p>
+            </p>
           </Form>
         </Modal.Body>
       </div>

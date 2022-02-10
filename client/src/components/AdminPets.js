@@ -14,23 +14,8 @@ export default function AdminPets({ pets, setPets }) {
   const [status, setStatus] = useState("Intake Pending");
   const [image, setImage] = useState("http://localhost:4000/images/defaultPet.png");
   const [name, setName] = useState();
-  // const [species, setSpecies] = useState("n/a");
-  // const [breed, setBreed] = useState("n/a");
-  // const [age, setAge] = useState("n/a");
-  // const [height, setHeight] = useState("n/a");
-  // const [weight, setWeight] = useState("n/a");
-  // const [fixed, setFixed] = useState();
-  // const [energy_level, setEnergyLevel] = useState("n/a");
-  // const [coat_type, setCoatType] = useState("n/a");
-  // const [coat_color, setCoatColor] = useState("n/a");
-  // const [good_w_kids, setGoodWKids] = useState();
-  // const [good_w_cats, setGoodWCats] = useState();
-  // const [behavioral_issues, setBehavioralIssues] = useState();
-  // const [description, setDescription] = useState("n/a");
-  // const [rabies_vaccine, setRabiesVaccine] = useState("n/a");
-  // const [FVRCP_vaccine, setFVRCPVaccine] = useState("n/a");
-  // const [distemper_parvo_vaccine, setDistemperParvoVaccine] = useState("n/a");
-  // const [dewormed, setDewormed] = useState();
+  
+  const [petToUpdate, setPetToUpdate] = useState({id: "", name: "", status: "", image: "", species: "", breed: "", age: "", height: "", weight: "", fixed: "", energy_level: "", coat_type: "", good_w_kids: "", good_w_cats: "", behavioral_issues: "", description: "", rabies_vaccine: "",FVRCP_vaccine: "", distemper_parvo_vaccine: "", dewormed: "", pet_foster: [], foster: []});
 
   function addPet(e) {
     // e.preventDefault();
@@ -349,6 +334,11 @@ export default function AdminPets({ pets, setPets }) {
       </Modal>
     );
   }
+  
+  function openEditPetModal(pet) {
+    setPetToUpdate(pet);
+    setShowEditPet(true);
+  }
 
   return (
     <div id="admin_pets">
@@ -394,7 +384,7 @@ export default function AdminPets({ pets, setPets }) {
           {pets.map(pet => (
             <tr>
               <td>
-                <Button onClick={() => setShowEditPet(true)}>
+                <Button onClick={(pet) => openEditPetModal(pet)}>
                   Edit
                 </Button>
 

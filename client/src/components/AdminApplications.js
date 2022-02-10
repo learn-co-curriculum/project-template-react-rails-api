@@ -8,10 +8,7 @@ import Form from 'react-bootstrap/Form';
 
 export default function AdminApplications({ applications, setApplications }) {
   const [showEditApp, setShowEditApp] = useState(false);
-  const [pet_id, setPetID] = useState();
-  const [applicant_id, setApplicantID] = useState();
-  const [applicant_email, setApplicantEmail] = useState();
-  const [status, setStatus] = useState("Submitted");
+  const [appToUpdate, setAppToUpdate] = useState({})
 
   function EditAppModal(props) {
     return (
@@ -53,28 +50,34 @@ export default function AdminApplications({ applications, setApplications }) {
   function editApp(e) {
     e.preventDefault();
     
-    fetch("/pet_applications", {
-      method: "PATCH",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        pet_id,
-        applicant_id,
-        applicant_email,
-        status
-      })
-    })
-    .then((r) => {
-      if (r.ok) {
-        r.json().then(app => {
+    // need to get record by applicant_id and not id! *see controller*
+    // fetch("/pet_applications", {
+    //   method: "PATCH",
+    //   headers: {"Content-Type": "application/json"},
+    //   body: JSON.stringify({
+    //     pet_id,
+    //     applicant_id,
+    //     applicant_email,
+    //     status
+    //   })
+    // })
+    // .then((r) => {
+    //   if (r.ok) {
+    //     r.json().then(app => {
           
-          console.log("PATCH /fosters pet_applications!", app)
-        })
-      } else {
-        r.json().then((err) => {
-        console.log("PATCH pet_applications error", err);
-      })
-      }
-    });
+    //       console.log("PATCH /fosters pet_applications!", app)
+    //     })
+    //   } else {
+    //     r.json().then((err) => {
+    //     console.log("PATCH pet_applications error", err);
+    //   })
+    //   }
+    // });
+  }
+
+  function openEditAppModal(app) {
+    setAppToUpdate(app);
+    setShowEditApp(true);
   }
 
   return (
@@ -95,7 +98,7 @@ export default function AdminApplications({ applications, setApplications }) {
           {applications.map(a => (
             <tr>
               <td>
-                <Button onClick={() => setShowEditApp(true)}>
+                <Button onClick={() => openEditAppModal(a)}>
                   Edit
                 </Button>
 

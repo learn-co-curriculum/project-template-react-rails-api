@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import Login from "./Login";
 import AdminSignUp from "./AdminSignUp";
 import AdminPets from "./AdminPets";
 import AdminApplicants from "./AdminApplicants";
 import AdminFosters from "./AdminFosters";
+// import EditFoster from "./EditFoster";
 import AdminApplications from "./AdminApplications";
 
 export default function AdminPortal({ 
@@ -13,6 +13,7 @@ export default function AdminPortal({
   pets, setPets,
   users, setUsers,
   fosters, setFosters,
+  setUpdateFoster,
   applicants, setApplicants,
   applications, setApplications
  }) {
@@ -35,8 +36,11 @@ export default function AdminPortal({
             <AdminApplicants pets={pets} applicants={applicants} setApplicants={setApplicants}/>
           </Route>
           <Route exact path="/adminportal/fosters">
-            <AdminFosters fosters={fosters} setFosters={setFosters}/>
+            <AdminFosters fosters={fosters} setFosters={setFosters} setUpdateFoster={setUpdateFoster}/>
           </Route>
+          {/* <Route exact path="/adminportal/edit_foster">
+            <EditFoster fosters={fosters} setFosters={setFosters}/>
+          </Route> */}
         </Switch>
     </div>
   )

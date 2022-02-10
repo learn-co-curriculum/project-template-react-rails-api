@@ -17,6 +17,7 @@ import AdminPortal from "./components/AdminPortal";
 import AdminPets from "./components/AdminPets";
 import AdminApplicants from "./components/AdminApplicants";
 import AdminFosters from "./components/AdminFosters";
+// import EditFoster from "./components/EditFoster";
 import AdminApplications from "./components/AdminApplications";
 import AdminSignUp from "./components/AdminSignUp";
 
@@ -28,6 +29,8 @@ function App() {
   const [currentUser, setCurrentUser] = useState("");
   const [applications, setApplications] = useState([]);
   const [portal, setPortal] = useState("Home");
+
+  const [updateFoster, setUpdateFoster] = useState();
 
   //auto-login for existing users
   useEffect(() => {
@@ -150,6 +153,7 @@ function App() {
               pets = {pets} setPets = {setPets} 
               users = {users} setUsers = {setUsers} 
               fosters = {fosters} setFosters = {setFosters} 
+              setUpdateFoster={setUpdateFoster}
               applicants = {applicants} setApplicants = {setApplicants} 
               applications = {applications} setApplications = {setApplications} 
             />
@@ -174,8 +178,11 @@ function App() {
             <AdminApplicants pets={pets} applicants={applicants} setApplicants={setApplicants}/>
           </Route>
           <Route exact path="/adminportal/fosters">
-            <AdminFosters fosters={fosters} setFosters={setFosters}/>
+            <AdminFosters fosters={fosters} setFosters={setFosters} setUpdateFoster={setUpdateFoster}/>
           </Route>
+           {/* <Route exact path="/adminportal/edit_foster">
+            <EditFoster updateFoster={updateFoster} fosters={fosters} setFosters={setFosters}/>
+          </Route> */}
         </Switch>
 
         <Footer />

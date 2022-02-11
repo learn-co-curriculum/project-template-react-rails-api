@@ -199,9 +199,41 @@ export default function AdminPets({ pets, setPets }) {
   }
 
   function editPet(e) {
-    console.log("editPet() has been invoked!", e);
-    console.log("Is this the right pet id?", e.target.id)
-    // fetch("/")
+    let petObj = {}
+    // console.log("editPet() has been invoked!", e.target);
+    // console.log("e.target[0].value", e.target[0].value) //Name
+    // console.log("e.target[1].value", e.target[1].value) //Specis
+    // console.log("e.target[2].value", e.target[2].value) //Breed
+    // console.log("e.target[3].value", e.target[3].value) //AGe
+    // console.log("e.target[4].value", e.target[4].value) //Height
+    // console.log("e.target[5].value", e.target[5].value) //Weigiht
+    // console.log("e.target[6].value", e.target[6].value) //Energy
+    // console.log("e.target[7].value", e.target[7].value) //Coat type
+    // console.log("e.target[8].value", e.target[8].value) //Coat Color
+    console.log("e.target[9].value", e.target[9].value) //
+    console.log("e.target[10].value", e.target[10].value) //
+    console.log("e.target[11].value", e.target[11].value) //
+    // console.log("e.target[12].value", e.target[12].value) //Rabies vaccine
+    // console.log("e.target[13].value", e.target[13].value) //FVRCP vaccine
+    console.log("e.target[14].value", e.target[14].value) //
+    // console.log("e.target[15].value", e.target[15].value) //Description
+
+    // fetch(`/pets/${petToUpdate}`, {
+    //   method: "PATCH", 
+    //   headers: {"Content-Type": "application/json"},
+    //   body: JSON.stringify(petObj)
+    // })
+    // .then((r) => {
+    //   if (r.ok) {
+    //     r.json().then(applicant => {
+    //       console.log("PATCH /pets success!", applicant)
+    //     })
+    //   } else {
+    //     r.json().then((err) => {
+    //     console.log("PATCH pets error", err);
+    //   })
+    //   }
+    // })
   }
 
   function EditPetModal(props) {
@@ -287,12 +319,18 @@ export default function AdminPets({ pets, setPets }) {
               <Form.Group as={Col} controlId="formGridAge">
                 {/* <Form.Label>Good with Kids?</Form.Label>
                 <Form.Control type="string" placeholder="Enter age" /> */}
-                <Form.Check type="checkbox" label="Good with kids?" />
+                {petToUpdate.good_w_kids ? 
+                  <Form.Check type="checkbox" label="Good with kids?" defaultChecked />
+                  : <Form.Check type="checkbox" label="Good with kids?" />
+                }
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridHeight">
                 {/* <Form.Label>Good with Cats?</Form.Label> */}
+                {petToUpdate.good_w_cats ? <Form.Check type="checkbox" label="Good with cats?" defaultChecked/> 
+                :
                 <Form.Check type="checkbox" label="Good with cats?" />
+                }
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridWeight">
@@ -305,12 +343,12 @@ export default function AdminPets({ pets, setPets }) {
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridAge">
                 <Form.Label>Rabies Vaccine</Form.Label>
-                <Form.Control type="string" placeholder="Enter type & date" />
+                <Form.Control type="string" placeholder={petToUpdate.rabies_vaccine}/>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridHeight">
                 <Form.Label>FVRCP Vaccine (cat only)</Form.Label>
-                <Form.Control type="string" placeholder="Enter type & date" />
+                <Form.Control type="string" placeholder={petToUpdate.FVRCP_vaccine} />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridWeight">

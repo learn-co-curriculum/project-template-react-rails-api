@@ -142,7 +142,7 @@ export default function AdminFosters({ fosters, setFosters }) {
         })
       } else {
         r.json().then((err) => {
-        console.log("PATCH fosters error", err);
+          console.log("PATCH fosters error", err);
       })
       }
     });

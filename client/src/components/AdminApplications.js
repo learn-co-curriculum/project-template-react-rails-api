@@ -10,17 +10,16 @@ export default function AdminApplications({ applications, setApplications }) {
   const [showEditApp, setShowEditApp] = useState(false);
   const [appToUpdate, setAppToUpdate] = useState({id: "", applicant_id: "", pet_id: "", status: "", applicant: {}, pet: {}})
 
-   function editApp(e) {
-    // e.preventDefault();
+  function editApp(e) {
     let petAppObj = {};
 
-    if(e.target[0].value === appToUpdate.status) {
+    if(e.target[0].value === "") {
       petAppObj["status"] = appToUpdate.status;
-    } else {
+    } else if (e.target[0].value !== appToUpdate.status) {
       petAppObj["status"] = e.target[0].value;
     }
 
-    console.log("petAppObj", typeof petAppObj.status, petAppObj)
+    console.log("petAppObj status", typeof petAppObj.status, petAppObj.status)
 
     // PATCH-ing an empty obj doesn't affect the original record
     fetch(`/pet_applications/${appToUpdate.id}`, {
@@ -30,13 +29,12 @@ export default function AdminApplications({ applications, setApplications }) {
     })
     .then((r) => {
       if (r.ok) {
-        r.json().then(app => {
-          
+        r.json().then(app => {   
           console.log("PATCH /pet_applications success!", app)
         })
       } else {
         r.json().then((err) => {
-        console.log("PATCH pet_applications error", err);
+          console.log("PATCH pet_applications error", err);
       })
       }
     });
@@ -97,7 +95,7 @@ export default function AdminApplications({ applications, setApplications }) {
         </thead>
         <tbody>
           {applications.map(a => (
-            <tr>
+            <tr key={a.id}>
               <td>
                 <Button onClick={() => openEditAppModal(a)}>
                   Edit
@@ -105,12 +103,11 @@ export default function AdminApplications({ applications, setApplications }) {
 
                 <EditAppModal
                   show={showEditApp}
-                  // onShow={(f) => defaultValues(f)}
                   onHide={() => setShowEditApp(false)}
                 />
               </td>
               <td>{a.id}</td>
-              <td><div contenteditable="true">{a.status}</div></td>
+              <td>{a.status}</td>
               <td>{a.pet.name}</td>
               <td>{a.applicant.firstName} {a.applicant.lastName}</td>
               <td>{a.applicant.approved ? "Yes" : "No"}</td>

@@ -14,11 +14,13 @@ export default function AdminApplications({ applications, setApplications }) {
     // e.preventDefault();
     let petAppObj = {};
 
-    if(e.target[0].value !== appToUpdate.status) {
+    if(e.target[0].value === appToUpdate.status) {
+      petAppObj["status"] = appToUpdate.status;
+    } else {
       petAppObj["status"] = e.target[0].value;
     }
 
-    // console.log("petAppObj", petAppObj)
+    console.log("petAppObj", typeof petAppObj.status, petAppObj)
 
     // PATCH-ing an empty obj doesn't affect the original record
     fetch(`/pet_applications/${appToUpdate.id}`, {

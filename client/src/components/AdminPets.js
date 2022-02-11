@@ -238,13 +238,13 @@ export default function AdminPets({ pets, setPets }) {
 
     if (e.target[4].value === "") {
       petObj["height"] = petToUpdate.height;
-    } else if(e.target[4].value.toLowerCase() !== petToUpdate.height.toLowerCase()) {
+    } else if(e.target[4].value !== petToUpdate.height) {
       petObj["height"] = e.target[4].value;
     } 
 
     if (e.target[5].value === "") {
       petObj["weight"] = petToUpdate.weight;
-    } else if(e.target[5].value.toLowerCase() !== petToUpdate.weight.toLowerCase()) {
+    } else if(e.target[5].value !== petToUpdate.weight) {
       petObj["weight"] = e.target[5].value;
     } 
 
@@ -265,6 +265,9 @@ export default function AdminPets({ pets, setPets }) {
     } else if(e.target[8].value.toLowerCase() !== petToUpdate.coat_color.toLowerCase()) {
       petObj["coat_color"] = e.target[8].value;
     } 
+
+    // Fixed
+    let isFixed;
 
     // Good w kids
     let isGoodWKids;
@@ -320,13 +323,13 @@ export default function AdminPets({ pets, setPets }) {
       petObj["rabies_vaccine"] = e.target[13].value;
     } 
 
-     if (e.target[14].value === "") {
+    if (e.target[14].value === "") {
       petObj["fvrcp_vaccine"] = petToUpdate.fvrcp_vaccine;
     } else if(e.target[14].value.toLowerCase() !== petToUpdate.fvrcp_vaccine.toLowerCase()) {
       petObj["fvrcp_vaccine"] = e.target[14].value;
     } 
 
-     if (e.target[15].value === "") {
+    if (e.target[15].value === "") {
       petObj["description"] = petToUpdate.description;
     } else if(e.target[15].value.toLowerCase() !== petToUpdate.description.toLowerCase()) {
       petObj["description"] = e.target[15].value;
@@ -409,7 +412,16 @@ export default function AdminPets({ pets, setPets }) {
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridAge">
                 <Form.Label>Energy Level</Form.Label>
-                <Form.Control type="string" placeholder={petToUpdate.energy_level} />
+                {/* <Form.Control type="string" placeholder={petToUpdate.energy_level} /> */}
+                <Form.Select>
+                  <option>{petToUpdate.energy_level}</option>
+                  <option>Couch potato</option>
+                  <option>Low</option>
+                  <option>Low-Medium</option>
+                  <option>Medium</option>
+                  <option>Medium-High</option>
+                  <option>High</option>
+                </Form.Select>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridHeight">

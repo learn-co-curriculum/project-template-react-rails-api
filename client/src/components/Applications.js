@@ -20,7 +20,7 @@ export default function Applications({ currentUser, applications }) {
             <tr>
               <td>{app.id}</td>
               <td>{app.status}</td>
-              <td>{app.pet.name}</td>
+              <td>{app.pet.name}, {app.pet.age}, {app.pet.breed}</td>
               <td>{app.pet.status}</td>
             </tr>
           ))}

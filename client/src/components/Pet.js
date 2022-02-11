@@ -15,7 +15,7 @@ export default function Pet({ pet, currentUser }) {
   let statusColor = pet.status === "Available" ? "success" : "warning"
 
   function handleAdoptRequest() {
-    console.log("HANDLE ADOPT REQUEST IN PET.JS", pet, currentUser)
+    // console.log("HANDLE ADOPT REQUEST IN PET.JS", pet, currentUser)
     fetch("/pet_applications", {
       method: "POST", 
       headers: {"Content-Type": "application/json"},

@@ -2,12 +2,19 @@ class PetApplicationsController < ApplicationController
 
   # GET /pet_applications
   def index
-    render json: PetApplication.all
+    render json: PetApplication.all.order(:id)
   end
 
-  # GET /pet_applications/:applicant_id
+  # GET /pet_applications/:id
   def show
-    render json: PetApplication.find_by(applicant_id: params[:id])
+    render json: PetApplication.find(params[:id])
+  end
+
+  # PATCH /pet_applications/:id
+  def update
+    app = PetApplication.find(params[:id])
+    app.update!(petapplicant_params)
+    render json: app, status: :ok
   end
 
   # POST /pet_applications

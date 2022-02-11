@@ -2,7 +2,7 @@ class ApplicantsController < ApplicationController
 
   # GET /applicants
   def index
-    render json: Applicant.all 
+    render json: Applicant.all.order(:id)
   end
 
   # GET /applicants/:id

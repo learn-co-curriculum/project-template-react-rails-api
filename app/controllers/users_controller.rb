@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     
     # GET /users
     def index
-        render json: User.all
+        render json: User.all.order(:id)
     end
 
     # GET /me

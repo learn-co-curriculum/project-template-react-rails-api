@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -101,9 +101,6 @@ function handleSignUp(e) {
                 }
               })
 
-
-
-
               })
             } else {
               r.json().then((err) => {
@@ -111,10 +108,6 @@ function handleSignUp(e) {
               })
             }
           })
-
-
-
-
 
       })
     } else {
@@ -124,7 +117,7 @@ function handleSignUp(e) {
     }
   })
 
-  }
+}
 
 
   return (
@@ -226,7 +219,7 @@ function handleSignUp(e) {
             </Button>
             <p className="forgot-password text-right">
             Already registered? <a href="/homeportal/login">Log in</a>
-        </p>
+            </p>
           </Form>
         </Modal.Body>
       </div>

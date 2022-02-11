@@ -2,7 +2,7 @@ class PetFostersController < ApplicationController
 
   # GET /petfosters
   def index
-    render json: PetFoster.all
+    render json: PetFoster.all.order(:id)
   end
 
   # GET /petfosters/:id

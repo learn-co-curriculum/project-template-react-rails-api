@@ -29,3 +29,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Seen added on 2/8/2022
+/package.json
+/package-lock.json

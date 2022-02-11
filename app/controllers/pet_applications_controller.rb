@@ -10,6 +10,13 @@ class PetApplicationsController < ApplicationController
     render json: PetApplication.find(params[:id])
   end
 
+  # PATCH /pet_applications/:id
+  def update
+    app = PetApplication.find(params[:id])
+    app.update!(petapplicant_params)
+    render json: app, status: :ok
+  end
+
   # POST /pet_applications
   def create
     petapp = PetApplication.create!(petapplicant_params)

@@ -526,7 +526,7 @@ export default function AdminPets({ pets, setPets }) {
             <th>Pet #</th>
             <th>Status</th>
             <th>Name</th>
-            <th>Foster</th>
+            {/* <th>Foster</th> */}
             <th>Species</th>
             <th>Breed</th>
             <th>Age</th>
@@ -560,9 +560,9 @@ export default function AdminPets({ pets, setPets }) {
               <td>{pet.id}</td>
               <td>{pet.status}</td>
               <td>{pet.name}</td>
-              <td>
+              {/* <td>
                 {pet.foster[0].first_name} {pet.foster[0].last_name}
-              </td>
+              </td> */}
               <td>{pet.species}</td>
               <td>{pet.breed}</td>
               <td>{pet.age}</td>

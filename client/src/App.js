@@ -84,6 +84,7 @@ function App() {
     .then(res => {
         if (res.ok) {
           setCurrentUser("")
+          setPortal("Home")
         } else {
           console.log("COULDN'T LOG OUT IN handleLogOut() in App.js")
         }

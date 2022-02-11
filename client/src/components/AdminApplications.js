@@ -8,7 +8,37 @@ import Form from 'react-bootstrap/Form';
 
 export default function AdminApplications({ applications, setApplications }) {
   const [showEditApp, setShowEditApp] = useState(false);
-  const [appToUpdate, setAppToUpdate] = useState({})
+  const [appToUpdate, setAppToUpdate] = useState({id: "", applicant_id: "", pet_id: "", status: "", applicant: {}, pet: {}})
+
+   function editApp(e) {
+    // e.preventDefault();
+    let petAppObj = {};
+
+    if(e.target[0].value !== appToUpdate.status) {
+      petAppObj["status"] = e.target[0].value;
+    }
+
+    // console.log("petAppObj", petAppObj)
+
+    // PATCH-ing an empty obj doesn't affect the original record
+    fetch(`/pet_applications/${appToUpdate.id}`, {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(petAppObj)
+    })
+    .then((r) => {
+      if (r.ok) {
+        r.json().then(app => {
+          
+          console.log("PATCH /pet_applications success!", app)
+        })
+      } else {
+        r.json().then((err) => {
+        console.log("PATCH pet_applications error", err);
+      })
+      }
+    });
+  }
 
   function EditAppModal(props) {
     return (
@@ -21,58 +51,27 @@ export default function AdminApplications({ applications, setApplications }) {
       >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Edit Application
+          Edit {appToUpdate.applicant.firstName} {appToUpdate.applicant.lastName}'s' Application Status
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={(e) => editApp(e)}>
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>Status</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Select >
+                    <option>{appToUpdate.status}</option>
+                    <option>Approved</option>
+                    <option>Rejected</option>
+                  </Form.Select>
           </Form.Group>
           
           <Button variant="primary" type="submit">
-            Submit
+            Update
           </Button>
-          {/* <Button onClick={props.onHide}>Close</Button> */}
         </Form>
       </Modal.Body>
-      {/* <Modal.Footer>
-        <Button variant="primary" type="submit">
-            Submit
-        </Button>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer> */}
       </Modal>
     );
-  }
-
-  function editApp(e) {
-    e.preventDefault();
-    
-    // need to get record by applicant_id and not id! *see controller*
-    // fetch("/pet_applications", {
-    //   method: "PATCH",
-    //   headers: {"Content-Type": "application/json"},
-    //   body: JSON.stringify({
-    //     pet_id,
-    //     applicant_id,
-    //     applicant_email,
-    //     status
-    //   })
-    // })
-    // .then((r) => {
-    //   if (r.ok) {
-    //     r.json().then(app => {
-          
-    //       console.log("PATCH /fosters pet_applications!", app)
-    //     })
-    //   } else {
-    //     r.json().then((err) => {
-    //     console.log("PATCH pet_applications error", err);
-    //   })
-    //   }
-    // });
   }
 
   function openEditAppModal(app) {

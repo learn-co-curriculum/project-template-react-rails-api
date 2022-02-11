@@ -224,13 +224,13 @@ export default function AdminPets({ pets, setPets }) {
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridName">
                 <Form.Label>Name</Form.Label>
-                <Form.Control type="string" placeholder="Enter name" />
+                <Form.Control type="string" placeholder={petToUpdate.name} />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridSpecies">
                 <Form.Label>Species</Form.Label>
-                <Form.Select defaultValue="Choose...">
-                  <option>Choose...</option>
+                <Form.Select>
+                  <option>{petToUpdate.species}</option>
                   <option>Dog</option>
                   <option>Cat</option>
                   <option>Other</option>
@@ -239,37 +239,37 @@ export default function AdminPets({ pets, setPets }) {
 
               <Form.Group as={Col} controlId="formGridBreed">
                 <Form.Label>Breed</Form.Label>
-                <Form.Control type="string" placeholder="Enter breed" />
+                <Form.Control type="string" placeholder={petToUpdate.breed} />
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridAge">
                 <Form.Label>Age</Form.Label>
-                <Form.Control type="string" placeholder="Enter age" />
+                <Form.Control type="string" placeholder={petToUpdate.age} />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridHeight">
                 <Form.Label>Height</Form.Label>
-                <Form.Control type="string" placeholder="in inches" />
+                <Form.Control type="string" placeholder={petToUpdate.height} />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridWeight">
                 <Form.Label>Weight</Form.Label>
-                <Form.Control type="string" placeholder="in lbs" />
+                <Form.Control type="string" placeholder={petToUpdate.weight} />
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridAge">
                 <Form.Label>Energy Level</Form.Label>
-                <Form.Control type="string" placeholder="Enter age" />
+                <Form.Control type="string" placeholder={petToUpdate.age} />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridHeight">
                 <Form.Label>Coat Type</Form.Label>
                 <Form.Select>
-                  <option>Choose...</option>
+                  <option>{petToUpdate.coat_type}</option>
                   <option>Short hair</option>
                   <option>Medium hair</option>
                   <option>Long Hair</option>
@@ -279,7 +279,7 @@ export default function AdminPets({ pets, setPets }) {
 
               <Form.Group as={Col} controlId="formGridWeight">
                 <Form.Label>Coat Color</Form.Label>
-                <Form.Control type="string" placeholder="Enter coat color(s)" />
+                <Form.Control type="string" placeholder={petToUpdate.coat_color} />
               </Form.Group>
             </Row>
 
@@ -384,7 +384,7 @@ export default function AdminPets({ pets, setPets }) {
           {pets.map(pet => (
             <tr>
               <td>
-                <Button onClick={(pet) => openEditPetModal(pet)}>
+                <Button onClick={() => openEditPetModal(pet)}>
                   Edit
                 </Button>
 

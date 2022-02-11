@@ -5,9 +5,9 @@ class PetApplicationsController < ApplicationController
     render json: PetApplication.all.order(:id)
   end
 
-  # GET /pet_applications/:applicant_id
+  # GET /pet_applications/:id
   def show
-    render json: PetApplication.find_by(applicant_id: params[:id])
+    render json: PetApplication.find(params[:id])
   end
 
   # POST /pet_applications

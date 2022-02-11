@@ -265,7 +265,7 @@ export default function AdminApplicants({ pets, applicants, setApplicants }) {
         </thead>
         <tbody>
           {applicants.map(a => (
-            <tr>
+            <tr key={a.id}>
               <td>
                 <Button onClick={() => openEditApplicantModal(a)}>
                   Edit

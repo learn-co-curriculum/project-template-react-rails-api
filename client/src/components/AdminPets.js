@@ -7,15 +7,9 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
 export default function AdminPets({ pets, setPets }) {
-  const [modalShow, setModalShow] = React.useState(false);
-
   const [showAddPet, setShowAddPet] = useState(false);
   const [showEditPet, setShowEditPet] = useState(false);
-  const [status, setStatus] = useState("Intake Pending");
-  const [image, setImage] = useState("http://localhost:4000/images/defaultPet.png");
-  const [name, setName] = useState();
-  
-  const [petToUpdate, setPetToUpdate] = useState({id: "", name: "", status: "", image: "", species: "", breed: "", age: "", height: "", weight: "", fixed: "", energy_level: "", coat_type: "", good_w_kids: "", good_w_cats: "", behavioral_issues: "", description: "", rabies_vaccine: "",FVRCP_vaccine: "", distemper_parvo_vaccine: "", dewormed: "", pet_foster: [], foster: []});
+  const [petToUpdate, setPetToUpdate] = useState({id: "", name: "", status: "", image: "", species: "", breed: "", age: "", height: "", weight: "", fixed: "", energy_level: "", coat_type: "", coat_color: "", good_w_kids: "", good_w_cats: "", behavioral_issues: "", description: "", rabies_vaccine: "",FVRCP_vaccine: "", distemper_parvo_vaccine: "", dewormed: "", pet_foster: [], foster: []});
 
   function addPet(e) {
     // e.preventDefault();
@@ -25,7 +19,8 @@ export default function AdminPets({ pets, setPets }) {
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
         name: e.target[0].value,
-        status, image,
+        status: "Intake Pending", 
+        image: "http://localhost:4000/images/defaultPet.png",
         species: e.target[1].value, 
         breed: e.target[2].value,
         age: e.target[3].value,
@@ -200,40 +195,159 @@ export default function AdminPets({ pets, setPets }) {
 
   function editPet(e) {
     let petObj = {}
-    // console.log("editPet() has been invoked!", e.target);
-    // console.log("e.target[0].value", e.target[0].value) //Name
-    // console.log("e.target[1].value", e.target[1].value) //Specis
-    // console.log("e.target[2].value", e.target[2].value) //Breed
-    // console.log("e.target[3].value", e.target[3].value) //AGe
-    // console.log("e.target[4].value", e.target[4].value) //Height
-    // console.log("e.target[5].value", e.target[5].value) //Weigiht
-    // console.log("e.target[6].value", e.target[6].value) //Energy
-    // console.log("e.target[7].value", e.target[7].value) //Coat type
-    // console.log("e.target[8].value", e.target[8].value) //Coat Color
-    console.log("e.target[9].value", e.target[9].value) //
-    console.log("e.target[10].value", e.target[10].value) //
-    console.log("e.target[11].value", e.target[11].value) //
-    // console.log("e.target[12].value", e.target[12].value) //Rabies vaccine
-    // console.log("e.target[13].value", e.target[13].value) //FVRCP vaccine
-    console.log("e.target[14].value", e.target[14].value) //
-    // console.log("e.target[15].value", e.target[15].value) //Description
+    // e.target[0].value //Name
+      // e.target[1].value //Species
+      // e.target[2].value //Breed
+      // e.target[3].value //Age
+      // e.target[4].value //Height
+      // e.target[5].value //Weigiht
+      // e.target[6].value //Energy
+      // e.target[7].value //Coat type
+      // e.target[8].value //Coat Color
+    // e.target[9].value //Good w kids BOOLEAN
+    // e.target[10].value //Good w cats BOOLEAN
+    // e.target[11].value //Behavioral Issues BOOLEAN
+    // e.target[12].value //Dewormed BOOLEAN
+    // e.target[13].value //Rabies vaccine
+      // e.target[14].value //FVRCP vaccine
+      // e.target[15].value //Description
 
-    // fetch(`/pets/${petToUpdate}`, {
-    //   method: "PATCH", 
-    //   headers: {"Content-Type": "application/json"},
-    //   body: JSON.stringify(petObj)
-    // })
-    // .then((r) => {
-    //   if (r.ok) {
-    //     r.json().then(applicant => {
-    //       console.log("PATCH /pets success!", applicant)
-    //     })
-    //   } else {
-    //     r.json().then((err) => {
-    //     console.log("PATCH pets error", err);
-    //   })
-    //   }
-    // })
+    if (e.target[0].value === "") {
+      petObj["name"] = petToUpdate.name;
+    } else if(e.target[0].value.toLowerCase() !== petToUpdate.name.toLowerCase()) {
+      petObj["name"] = e.target[0].value;
+    } 
+
+    if (e.target[1].value === "") {
+      petObj["species"] = petToUpdate.species;
+    } else if(e.target[1].value.toLowerCase() !== petToUpdate.species.toLowerCase()) {
+      petObj["species"] = e.target[1].value;
+    } 
+
+    if (e.target[2].value === "") {
+      petObj["breed"] = petToUpdate.breed;
+    } else if(e.target[2].value.toLowerCase() !== petToUpdate.breed.toLowerCase()) {
+      petObj["breed"] = e.target[2].value;
+    } 
+
+    if (e.target[3].value === "") {
+      petObj["age"] = petToUpdate.age;
+    } else if(e.target[3].value.toLowerCase() !== petToUpdate.age.toLowerCase()) {
+      petObj["age"] = e.target[3].value;
+    } 
+
+    if (e.target[4].value === "") {
+      petObj["height"] = petToUpdate.height;
+    } else if(e.target[4].value.toLowerCase() !== petToUpdate.height.toLowerCase()) {
+      petObj["height"] = e.target[4].value;
+    } 
+
+    if (e.target[5].value === "") {
+      petObj["weight"] = petToUpdate.weight;
+    } else if(e.target[5].value.toLowerCase() !== petToUpdate.weight.toLowerCase()) {
+      petObj["weight"] = e.target[5].value;
+    } 
+
+    if (e.target[6].value === "") {
+      petObj["energy_level"] = petToUpdate.energy_level;
+    } else if(e.target[6].value.toLowerCase() !== petToUpdate.energy_level.toLowerCase()) {
+      petObj["energy_level"] = e.target[6].value;
+    } 
+
+    if (e.target[7].value === "") {
+      petObj["coat_type"] = petToUpdate.coat_type;
+    } else if(e.target[7].value.toLowerCase() !== petToUpdate.coat_type.toLowerCase()) {
+      petObj["coat_type"] = e.target[7].value;
+    } 
+
+    if (e.target[8].value === "") {
+      petObj["coat_color"] = petToUpdate.coat_color;
+    } else if(e.target[8].value.toLowerCase() !== petToUpdate.coat_color.toLowerCase()) {
+      petObj["coat_color"] = e.target[8].value;
+    } 
+
+    // Good w kids
+    let isGoodWKids;
+    if (e.target[9].value === "Yes") {
+      isGoodWKids = true;
+    } else if (e.target[9].value === "No") {
+      isGoodWKids = false
+    }
+
+    if(isGoodWKids !== petToUpdate.good_w_kids) {
+      petObj["good_w_kids"] = isGoodWKids;
+    }
+
+    // Good w cats
+    let isGoodWCat;
+    if (e.target[10].value === "Yes") {
+      isGoodWCat = true;
+    } else if (e.target[10].value === "No") {
+      isGoodWCat = false
+    }
+
+    if(isGoodWCat !== petToUpdate.good_w_cats) {
+      petObj["good_w_cats"] = isGoodWCat;
+    } 
+
+    // Behavioral issues
+    let hasBehavioralIssues;
+    if (e.target[11].value === "Yes") {
+      hasBehavioralIssues = true;
+    } else if (e.target[11].value === "No") {
+      hasBehavioralIssues = false
+    }
+
+    if(hasBehavioralIssues !== petToUpdate.behavioral_issues) {
+      petObj["behavioral_issues"] = hasBehavioralIssues;
+    } 
+
+    // Dewormed
+    let isDewormed;
+    if (e.target[12].value === "Yes") {
+      isDewormed = true;
+    } else if (e.target[12].value === "No") {
+      isDewormed = false
+    }
+
+    if(isDewormed !== petToUpdate.dewormed) {
+      petObj["dewormed"] = isDewormed;
+    } 
+
+    if (e.target[13].value === "") {
+      petObj["rabies_vaccine"] = petToUpdate.rabies_vaccine;
+    } else if(e.target[13].value.toLowerCase() !== petToUpdate.rabies_vaccine.toLowerCase()) {
+      petObj["rabies_vaccine"] = e.target[13].value;
+    } 
+
+     if (e.target[14].value === "") {
+      petObj["fvrcp_vaccine"] = petToUpdate.fvrcp_vaccine;
+    } else if(e.target[14].value.toLowerCase() !== petToUpdate.fvrcp_vaccine.toLowerCase()) {
+      petObj["fvrcp_vaccine"] = e.target[14].value;
+    } 
+
+     if (e.target[15].value === "") {
+      petObj["description"] = petToUpdate.description;
+    } else if(e.target[15].value.toLowerCase() !== petToUpdate.description.toLowerCase()) {
+      petObj["description"] = e.target[15].value;
+    } 
+
+    fetch(`/pets/${petToUpdate.id}`, {
+      method: "PATCH", 
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(petObj)
+    })
+    .then((r) => {
+      if (r.ok) {
+        r.json().then(pet => {
+          console.log("PATCH /pets success!", pet)
+        })
+      } else {
+        r.json().then((err) => {
+        console.log("PATCH pets error", err);
+      })
+      }
+    })
   }
 
   function EditPetModal(props) {
@@ -295,7 +409,7 @@ export default function AdminPets({ pets, setPets }) {
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridAge">
                 <Form.Label>Energy Level</Form.Label>
-                <Form.Control type="string" placeholder={petToUpdate.age} />
+                <Form.Control type="string" placeholder={petToUpdate.energy_level} />
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridHeight">
@@ -316,49 +430,61 @@ export default function AdminPets({ pets, setPets }) {
             </Row>
 
             <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridAge">
-                {/* <Form.Label>Good with Kids?</Form.Label>
-                <Form.Control type="string" placeholder="Enter age" /> */}
-                {petToUpdate.good_w_kids ? 
-                  <Form.Check type="checkbox" label="Good with kids?" defaultChecked />
-                  : <Form.Check type="checkbox" label="Good with kids?" />
-                }
+              <Form.Group as={Col} controlId="formGridSpecies">
+                <Form.Label>Good with Kids?</Form.Label>
+                <Form.Select>
+                  <option>{petToUpdate.good_w_kids ? "Yes" : "No"}</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </Form.Select>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridHeight">
-                {/* <Form.Label>Good with Cats?</Form.Label> */}
-                {petToUpdate.good_w_cats ? <Form.Check type="checkbox" label="Good with cats?" defaultChecked/> 
-                :
-                <Form.Check type="checkbox" label="Good with cats?" />
-                }
+              <Form.Group as={Col} controlId="formGridSpecies">
+                <Form.Label>Good with Cats?</Form.Label>
+                <Form.Select>
+                  <option>{petToUpdate.good_w_cats ? "Yes" : "No"}</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </Form.Select>
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridWeight">
-                {/* <Form.Label>Any Behavior Issues?</Form.Label>
-                <Form.Control type="string" placeholder="Enter coat color(s)" /> */}
-                <Form.Check type="checkbox" label="Any Behavior Issues?" />
+              <Form.Group as={Col} controlId="formGridSpecies">
+                <Form.Label>Any behavioral issues?</Form.Label>
+                <Form.Select>
+                  <option>{petToUpdate.behavioral_issues ? "Yes" : "No"}</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </Form.Select>
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridSpecies">
+                <Form.Label>Dewormed?</Form.Label>
+                <Form.Select>
+                  <option>{petToUpdate.dewormed ? "Yes" : "No"}</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </Form.Select>
               </Form.Group>
             </Row>
 
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridAge">
-                <Form.Label>Rabies Vaccine</Form.Label>
+                <Form.Label>Rabies Vaccine*</Form.Label>
                 <Form.Control type="string" placeholder={petToUpdate.rabies_vaccine}/>
               </Form.Group>
 
               <Form.Group as={Col} controlId="formGridHeight">
-                <Form.Label>FVRCP Vaccine (cat only)</Form.Label>
+                <Form.Label>FVRCP Vaccine (cat only)*</Form.Label>
                 <Form.Control type="string" placeholder={petToUpdate.FVRCP_vaccine} />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridWeight">
-                <Form.Check type="checkbox" label="Dewormed?" />
               </Form.Group>
             </Row>
 
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Description of Personality/Temperment or Behavioral Issues</Form.Label>
-              <Form.Control as="textarea" rows={1}/>
+              <Form.Label>Description of Personality/Temperment or Behavioral Issues*</Form.Label>
+              <p><i>*will overwrite current text</i></p>
+              <Form.Control as="textarea" rows={2} 
+                placeholder={petToUpdate.description}
+              />
             </Form.Group>
 
             <Button variant="primary" type="submit">
@@ -399,8 +525,8 @@ export default function AdminPets({ pets, setPets }) {
             <th>Edit</th>
             <th>Pet #</th>
             <th>Status</th>
-            <th>Foster</th>
             <th>Name</th>
+            <th>Foster</th>
             <th>Species</th>
             <th>Breed</th>
             <th>Age</th>
@@ -420,7 +546,7 @@ export default function AdminPets({ pets, setPets }) {
         </thead>
         <tbody>
           {pets.map(pet => (
-            <tr>
+            <tr key={pet.id}>
               <td>
                 <Button onClick={() => openEditPetModal(pet)}>
                   Edit
@@ -433,10 +559,10 @@ export default function AdminPets({ pets, setPets }) {
               </td>
               <td>{pet.id}</td>
               <td>{pet.status}</td>
+              <td>{pet.name}</td>
               <td>
                 {pet.foster[0].first_name} {pet.foster[0].last_name}
               </td>
-              <td>{pet.name}</td>
               <td>{pet.species}</td>
               <td>{pet.breed}</td>
               <td>{pet.age}</td>

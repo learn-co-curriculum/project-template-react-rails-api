@@ -8,11 +8,10 @@ import Form from 'react-bootstrap/Form';
 
 export default function AdminApplicants({ pets, applicants, setApplicants }) {
   const [showEditApplicant, setShowEditApplicant] = useState(false);
-  const [applicantToUpdate, setApplicantToUpdate] = useState({id: "", firstName: "", lastName: "", dob: "", email: "", phone: "", rent_own: "", home_type: "", length_address: "", yard_description: "", children: "", pet_allergy: "", approved: false, lifestyle: "", user_id: "", pet_application: [], meetup: []})
+  const [applicantToUpdate, setApplicantToUpdate] = useState({id: "", firstName: "", lastName: "", dob: "", email: "", phone: "", rent_own: "", home_type: "", length_address: "", yard_description: "", children: "", pet_allergy: "", approved: false, lifestyle: ""})
 
   //APPLICANT SHOULD BE EDIT ONLY!
   function editApplicant(e) {
-    console.log("editApplicant() has been invoked!");
     let appObj = {};
 
     if (e.target[0].value === "") {
@@ -57,65 +56,66 @@ export default function AdminApplicants({ pets, applicants, setApplicants }) {
       appObj["home_type"] = e.target[6].value;
     } 
 
-    if (e.target[6].value === "") {
-      appObj["pet_allergy"] = applicantToUpdate.pet_allergy;
-    } else if(e.target[6].value.toLowerCase() !== applicantToUpdate.pet_allergy.toLowerCase()) {
-      appObj["pet_allergy"] = e.target[6].value;
-    } 
-
     if (e.target[7].value === "") {
-      appObj["length_address"] = applicantToUpdate.length_address;
-    } else if(e.target[7].value.toLowerCase() !== applicantToUpdate.length_address.toLowerCase()) {
-      appObj["length_address"] = e.target[7].value;
+      appObj["pet_allergy"] = applicantToUpdate.pet_allergy;
+    } else if(e.target[7].value.toLowerCase() !== applicantToUpdate.pet_allergy.toLowerCase()) {
+      appObj["pet_allergy"] = e.target[7].value;
     } 
 
     if (e.target[8].value === "") {
-      appObj["children"] = applicantToUpdate.children;
-    } else if(e.target[8].value.toLowerCase() !== applicantToUpdate.children.toLowerCase()) {
-      appObj["children"] = e.target[8].value;
+      appObj["length_address"] = applicantToUpdate.length_address;
+    } else if(e.target[8].value.toLowerCase() !== applicantToUpdate.length_address.toLowerCase()) {
+      appObj["length_address"] = e.target[8].value;
     } 
 
     if (e.target[9].value === "") {
-      appObj["yard_description"] = applicantToUpdate.yard_description;
-    } else if(e.target[9].value.toLowerCase() !== applicantToUpdate.yard_description.toLowerCase()) {
-      appObj["yard_description"] = e.target[9].value;
+      appObj["children"] = applicantToUpdate.children;
+    } else if(e.target[9].value.toLowerCase() !== applicantToUpdate.children.toLowerCase()) {
+      appObj["children"] = e.target[9].value;
     } 
 
     if (e.target[10].value === "") {
-      appObj["lifestyle"] = applicantToUpdate.lifestyle;
-    } else if(e.target[10].value.toLowerCase() !== applicantToUpdate.lifestyle.toLowerCase()) {
-      appObj["lifestyle"] = e.target[10].value;
+      appObj["yard_description"] = applicantToUpdate.yard_description;
+    } else if(e.target[10].value.toLowerCase() !== applicantToUpdate.yard_description.toLowerCase()) {
+      appObj["yard_description"] = e.target[10].value;
     } 
 
+    if (e.target[11].value === "") {
+      appObj["lifestyle"] = applicantToUpdate.lifestyle;
+    } else if(e.target[11].value.toLowerCase() !== applicantToUpdate.lifestyle.toLowerCase()) {
+      appObj["lifestyle"] = e.target[11].value;
+    } 
 
+    // APPROVED? need to translate "Yes" and "No" into true and false
+    let approved;
+    if (e.target[12].value === "Yes") {
+      approved = true;
+    } else if (e.target[12].value === "No") {
+      approved = false
+    }
 
+    if (approved === "") {
+      appObj["approved"] = applicantToUpdate.approved;
+    } else if(approved !== applicantToUpdate.approved) {
+      appObj["approved"] = approved;
+    } 
 
-
-
-
-
-
-
-
-
-    console.log("appObj", appObj)
-
-    // fetch(`/applicants/${applicantToUpdate.id}`, {
-    //   method: "PATCH", 
-    //   headers: {"Content-Type": "application/json"},
-    //   body: JSON.stringify(appObj)
-    // })
-    // .then((r) => {
-    //   if (r.ok) {
-    //     r.json().then(applicant => {
-    //       console.log("PATCH /applicants success!", applicant)
-    //     })
-    //   } else {
-    //     r.json().then((err) => {
-    //     console.log("PATCH applicants error", err);
-    //   })
-    //   }
-    // })
+    fetch(`/applicants/${applicantToUpdate.id}`, {
+      method: "PATCH", 
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(appObj)
+    })
+    .then((r) => {
+      if (r.ok) {
+        r.json().then(applicant => {
+          console.log("PATCH /applicants success!", applicant)
+        })
+      } else {
+        r.json().then((err) => {
+        console.log("PATCH applicants error", err);
+      })
+      }
+    })
   }
 
   function EditApplicantModal(props) {
@@ -186,7 +186,7 @@ export default function AdminApplicants({ pets, applicants, setApplicants }) {
                 <Form.Group as={Col} controlId="formGridPetAllergy">
                   <Form.Label>Any Pet allergies?</Form.Label>
                   <Form.Select >
-                    <option>{applicantToUpdate.pet_allergy}</option>
+                    <option>{applicantToUpdate.pet_allergy ? "Yes" : "No"}</option>
                     <option>Yes</option>
                     <option>No</option>
                   </Form.Select>
@@ -195,7 +195,7 @@ export default function AdminApplicants({ pets, applicants, setApplicants }) {
 
               <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridAddressHistory">
-                  <Form.Label>Length at Address?</Form.Label>
+                  <Form.Label># Months at Address?</Form.Label>
                   <Form.Control type="string" placeholder={applicantToUpdate.length_address} />
                 </Form.Group>
               </Row>
@@ -214,6 +214,15 @@ export default function AdminApplicants({ pets, applicants, setApplicants }) {
                 <Form.Label>What's your lifestyle?</Form.Label>
                 <Form.Control as="textarea" rows={1} placeholder={applicantToUpdate.lifestyle}/>
               </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridRentOwn">
+                  <Form.Label>Approved?</Form.Label>
+                  <Form.Select >
+                    <option>{applicantToUpdate.approved ? "Yes" : "No"}</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </Form.Select>
+                </Form.Group>
 
               <br/>
 

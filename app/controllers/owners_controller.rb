@@ -1,4 +1,6 @@
 class OwnersController < ApplicationController
+    before_action :authorize
+    skip_before_action :authorize, only: [:create]
 
     def create
         new_owner = Owner.create!(owner_params)
@@ -8,6 +10,11 @@ class OwnersController < ApplicationController
     def destroy
         owner = Owner.find(params[:id])
         owner.destroy
+    end
+
+    def show
+        owner = Owner.find(params[:id])
+        render json: owner, status: ok
     end
 
     private

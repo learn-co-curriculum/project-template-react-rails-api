@@ -1,6 +1,6 @@
 class ProvidersController < ApplicationController
-    before_action :authorize
     skip_before_action :authorize, only: [:create]
+
     def create
         new_provider = Provider.create!(provider_params)
         render json: new_provider, status: 201

@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    skip_before_action :authorize, only: :create
 
     def create
        if (Owner.find_by(email: params[:email]))

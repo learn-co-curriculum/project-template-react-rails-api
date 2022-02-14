@@ -1,4 +1,6 @@
 class OwnersController < ApplicationController
+    before_action :authorize
+    skip_before_action :authorize, only: [:create]
 
     def create
         new_owner = Owner.create!(owner_params)
@@ -9,7 +11,7 @@ class OwnersController < ApplicationController
         owner = Owner.find(params[:id])
         owner.destroy
     end
-
+    
     private
 
     def owner_params

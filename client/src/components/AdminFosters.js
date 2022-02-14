@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-export default function AdminFosters({ fosters, setFosters }) {
+export default function AdminFosters({ fosters, setFosters, petFosters, setPetFosters }) {
   const [showAddFoster, setShowAddFoster] = useState(false);
   const [showEditFoster, setShowEditFoster] = useState(false);
   const [fosterToUpdate, setFosterToUpdate] = useState({id: "", first_name: "", last_name: "", phone: "", email: ""});

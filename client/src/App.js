@@ -20,6 +20,10 @@ import AdminFosters from "./components/AdminFosters";
 // import EditFoster from "./components/EditFoster";
 import AdminApplications from "./components/AdminApplications";
 import AdminSignUp from "./components/AdminSignUp";
+import FosterNavBar from "./components/FosterNavBar";
+import FosterPortal from "./components/FosterPortal";
+import FosterSignUp from "./components/FosterSignUp";
+import FosterPets from "./components/FosterPets";
 
 function App() {
   const [pets, setPets] = useState([]);
@@ -28,11 +32,12 @@ function App() {
   const [applicants, setApplicants] = useState([]);
   const [currentUser, setCurrentUser] = useState("");
   const [applications, setApplications] = useState([]);
+  const [petFosters, setPetFosters] = useState([]);
   const [portal, setPortal] = useState("Home");
 
   //auto-login for existing users
   useEffect(() => {
-    fetch("/me") // "/auth" in Ix's lecture - https://learning.flatironschool.com/courses/4552/pages/video-authorization-client?module_item_id=346181
+    fetch("/me")
     .then(res => {
       if(res.ok) {
         res.json().then((user) => {
@@ -72,6 +77,12 @@ function App() {
     .then(r=>r.json())
     .then(apps => setApplications(apps))
   }, [])
+  // set applications from pet_fosters
+  useEffect(() => {
+    fetch("/pet_fosters")
+    .then(r=>r.json())
+    .then(petFosters => setPetFosters(petFosters))
+  }, [])
   //logout user
   function handleLogOut() {
     //reset portal and current User
@@ -84,6 +95,7 @@ function App() {
     .then(res => {
         if (res.ok) {
           setCurrentUser("")
+          setPortal("Home")
         } else {
           console.log("COULDN'T LOG OUT IN handleLogOut() in App.js")
         }
@@ -114,6 +126,12 @@ function App() {
             <ApplicantSignUp 
               setCurrentUser={setCurrentUser} 
               setPortal={setPortal} />
+          </Route>
+          <Route exact path="/adminportal/signup">
+            <AdminSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} />
+          </Route>
+          <Route exact path="/fosterportal/signup">
+            <FosterSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} />
           </Route>
         </Switch> 
 
@@ -156,16 +174,6 @@ function App() {
               applications = {applications} setApplications = {setApplications} 
             />
           </Route>
-
-          <Route exact path="/adminportal/login">
-            <Login setCurrentUser={setCurrentUser} portal={portal} setPortal={setPortal} />
-          </Route>
-
-          <Route exact path="/adminportal/signup">
-            <AdminSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} />
-          </Route>
-
-
           <Route exact path="/adminportal/pets">
             <AdminPets pets={pets} setApplications={setApplications}/>
           </Route>
@@ -184,7 +192,27 @@ function App() {
       </div>
     );
   } else if (portal === "Foster") {
-    // work on later
+    return (
+      <div className="App">
+        <FosterNavBar currentUser={currentUser} handleLogOut={handleLogOut}/>
+
+        <Switch>
+          <Route exact path="/fosterportal">
+            <FosterPortal 
+              currentUser={currentUser} setCurrentUser={setCurrentUser} 
+              users={users} setUsers={setUsers}
+              portal={portal} setPortal={setPortal} 
+              pets={pets} setPets={setPets}
+            />
+          </Route>
+          <Route exact path="/fosterportal/pets">
+            <FosterPets currentUser={currentUser} petFosters={petFosters} setPets={setPets}/>
+          </Route>
+        </Switch> 
+    
+        <Footer />
+      </div>
+    );
   }
 
 

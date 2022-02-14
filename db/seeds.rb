@@ -1,13 +1,13 @@
 require 'faker'
 
 puts "Destroying existing data...."
-Foster.destroy_all
-Pet.destroy_all
-PetFoster.destroy_all
-Meetup.destroy_all
-Applicant.destroy_all
+# Foster.destroy_all
+# Pet.destroy_all
+# PetFoster.destroy_all
+# Meetup.destroy_all
+# Applicant.destroy_all
 PetApplication.destroy_all
-Admin.destroy_all
+# Admin.destroy_all
 
 puts "♥♥♥♥♥♥♥ Getting ready to seed ♥♥♥♥♥♥♥"
 

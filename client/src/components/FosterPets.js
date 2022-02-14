@@ -6,192 +6,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-export default function AdminPets({ pets, setPets }) {
-  const [showAddPet, setShowAddPet] = useState(false);
+export default function FosterPets({ 
+  setCurrentUser, 
+  portal, setPortal, 
+  pets, setPets
+}) {
   const [showEditPet, setShowEditPet] = useState(false);
   const [petToUpdate, setPetToUpdate] = useState({id: "", name: "", status: "", image: "", species: "", breed: "", age: "", height: "", weight: "", fixed: "", energy_level: "", coat_type: "", coat_color: "", good_w_kids: "", good_w_cats: "", behavioral_issues: "", description: "", rabies_vaccine: "",FVRCP_vaccine: "", distemper_parvo_vaccine: "", dewormed: "", pet_foster: [], foster: []});
-
-  function addPet(e) {
-    // e.preventDefault();
-
-    fetch("/pets", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({
-        name: e.target[0].value,
-        status: "Intake Pending", 
-        image: "http://localhost:4000/images/defaultPet.png",
-        species: e.target[1].value, 
-        breed: e.target[2].value,
-        age: e.target[3].value,
-        height: e.target[4].value, 
-        weight: e.target[5].value,
-        energy_level: e.target[6].value,
-        coat_type: e.target[7].value, 
-        coat_color: e.target[8].value,
-        good_w_kids: e.target[9].value, 
-        good_w_cats: e.target[10].value, 
-        behavioral_issues: e.target[11].value,
-        dewormed: e.target[12].value,
-        fixed: e.target[13].value, 
-        rabies_vaccine: e.target[14].value, 
-        distemper_parvo_vaccine: e.target[15].value,
-        FVRCP_vaccine: e.target[16].value, 
-        description: e.target[17].value,
-      })
-    })
-    .then((r)=> {})
-  }
-
-  function AddPetModal(props) {
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        backdrop="static"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Add Pet
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {/* <h4>Centered Modal</h4> */}
-          <Form onSubmit={(e)=>{addPet(e)}}>
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridName">
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="string" placeholder="Enter name" />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridSpecies">
-                <Form.Label>Species</Form.Label>
-                <Form.Select defaultValue="Choose...">
-                  <option>Choose...</option>
-                  <option>Dog</option>
-                  <option>Cat</option>
-                  <option>Other</option>
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridBreed">
-                <Form.Label>Breed</Form.Label>
-                <Form.Control type="string" placeholder="Enter breed" />
-              </Form.Group>
-            </Row>
-
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridAge">
-                <Form.Label>Age</Form.Label>
-                <Form.Control type="string" placeholder="Enter age" />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridHeight">
-                <Form.Label>Height</Form.Label>
-                <Form.Control type="string" placeholder="in inches" />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridWeight">
-                <Form.Label>Weight</Form.Label>
-                <Form.Control type="string" placeholder="in lbs" />
-              </Form.Group>
-            </Row>
-
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridAge">
-                <Form.Label>Energy Level</Form.Label>
-                <Form.Select>
-                  <option>Choose...</option>
-                  <option>Couch potato</option>
-                  <option>Low</option>
-                  <option>Low-Medium</option>
-                  <option>Medium</option>
-                  <option>Medium-High</option>
-                  <option>High</option>
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridHeight">
-                <Form.Label>Coat Type</Form.Label>
-                <Form.Select>
-                  <option>Choose...</option>
-                  <option>Short hair</option>
-                  <option>Medium hair</option>
-                  <option>Long Hair</option>
-                  <option>Double-Coated</option>
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridWeight">
-                <Form.Label>Coat Color</Form.Label>
-                <Form.Control type="string" placeholder="Enter coat color(s)" />
-              </Form.Group>
-            </Row>
-
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridAge">
-                {/* <Form.Label>Good with Kids?</Form.Label>
-                <Form.Control type="string" placeholder="Enter age" /> */}
-                <Form.Check type="checkbox" label="Good with kids?" />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridHeight">
-                {/* <Form.Label>Good with Cats?</Form.Label> */}
-                <Form.Check type="checkbox" label="Good with cats?" />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridWeight">
-                {/* <Form.Label>Any Behavior Issues?</Form.Label>
-                <Form.Control type="string" placeholder="Enter coat color(s)" /> */}
-                <Form.Check type="checkbox" label="Any Behavior Issues?" />
-              </Form.Group>
-            {/* </Row>
-
-            <Row className="mb-3"> */}
-              <Form.Group as={Col} controlId="formGridDewormed">
-                <Form.Check type="checkbox" label="Dewormed?" />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridFixed">
-                <Form.Check type="checkbox" label="Fixed?" />
-              </Form.Group>
-            </Row>
-
-            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridRabies">
-                <Form.Label>Rabies Vaccine</Form.Label>
-                <Form.Control type="string" placeholder="Enter type & date" />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridRabies">
-                <Form.Label>Distemper/Parvo Vaccine</Form.Label>
-                <Form.Control type="string" placeholder="Enter type & date" />
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridFVRCP">
-                <Form.Label>FVRCP Vaccine (cat only)</Form.Label>
-                <Form.Control type="string" placeholder="Enter type & date" />
-              </Form.Group>
-            </Row>
-
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-              <Form.Label>Description of Personality/Temperment or Behavioral Issues</Form.Label>
-              <Form.Control as="textarea" rows={2}/>
-            </Form.Group>
-
-            <Button variant="primary" type="submit">
-              Submit
-            </Button>
-          </Form>
-        </Modal.Body>
-        {/* <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer> */}
-      </Modal>
-    );
-  }
 
   function editPet(e) {
     let petObj = {}
@@ -332,26 +153,25 @@ export default function AdminPets({ pets, setPets }) {
       petObj["description"] = e.target[15].value;
     } 
 
-    if (e.target[16].value === "") {
-      petObj["status"] = petToUpdate.status;
-    } else if(e.target[16].value !== petToUpdate.status) {
-      petObj["status"] = e.target[16].value;
-    } 
+    // console.log("e.target[16].value", e.target[16].value)
 
     // Fixed
     let isFixed;
-    if (e.target[17].value === "Yes") {
+    if (e.target[16].value === "Yes") {
       isFixed = true;
-    } else if (e.target[17].value === "No") {
+    } else if (e.target[16].value === "No") {
       isFixed = false
     }
 
     if(isFixed !== petToUpdate.fixed) {
       petObj["fixed"] = isFixed;
     } 
-    
-    console.log("petObj.status", petObj.status)
-    console.log("petObj.fixed", petObj.fixed)
+
+    if (e.target[17].value === "") {
+      petObj["status"] = petToUpdate.status;
+    } else if(e.target[17].value.toLowerCase() !== petToUpdate.status.toLowerCase()) {
+      petObj["status"] = e.target[17].value;
+    } 
 
     fetch(`/pets/${petToUpdate.id}`, {
       method: "PATCH", 
@@ -517,15 +337,6 @@ export default function AdminPets({ pets, setPets }) {
               />
             </Form.Group>
 
-          <Form.Group as={Col} controlId="formGridSpecies">
-            <Form.Label>Status</Form.Label>
-            <Form.Select>
-              <option>{petToUpdate.status}</option>
-              <option>Available</option>
-              <option>Adopted!</option>
-            </Form.Select>
-          </Form.Group>
-
           {petToUpdate.fixed ? <div></div> : 
             <>
               <Form.Group as={Col} controlId="formGridSpecies">
@@ -537,6 +348,15 @@ export default function AdminPets({ pets, setPets }) {
               </Form.Group>
             </>
           }
+
+          <Form.Group as={Col} controlId="formGridSpecies">
+            <Form.Label>Status</Form.Label>
+            <Form.Select>
+              <option>{petToUpdate.status}</option>
+              <option>Available</option>
+              <option>Adopted!</option>
+            </Form.Select>
+          </Form.Group>
 
               <br />
 
@@ -558,19 +378,8 @@ export default function AdminPets({ pets, setPets }) {
   }
 
   return (
-    <div id="admin_pets">
-      <h3>Rescue Pets</h3>
-
-      <>
-        <Button variant="primary" onClick={() => setShowAddPet(true)}>
-          Add Pet
-        </Button>
-
-        <AddPetModal
-          show={showAddPet}
-          onHide={() => setShowAddPet(false)}
-        />
-      </>
+    <div id="foster_portal">
+      <h3>My Fosters</h3>
 
       <Table striped bordered hover responsive>
         <thead>
@@ -639,7 +448,6 @@ export default function AdminPets({ pets, setPets }) {
           ))}
         </tbody>
       </Table>
-
     </div>
-  )
+  );
 }

@@ -20,6 +20,10 @@ import AdminFosters from "./components/AdminFosters";
 // import EditFoster from "./components/EditFoster";
 import AdminApplications from "./components/AdminApplications";
 import AdminSignUp from "./components/AdminSignUp";
+import FosterNavBar from "./components/FosterNavBar";
+import FosterPortal from "./components/FosterPortal";
+import FosterSignUp from "./components/FosterSignUp";
+import FosterPets from "./components/FosterPets";
 
 function App() {
   const [pets, setPets] = useState([]);
@@ -32,7 +36,7 @@ function App() {
 
   //auto-login for existing users
   useEffect(() => {
-    fetch("/me") // "/auth" in Ix's lecture - https://learning.flatironschool.com/courses/4552/pages/video-authorization-client?module_item_id=346181
+    fetch("/me")
     .then(res => {
       if(res.ok) {
         res.json().then((user) => {
@@ -185,7 +189,25 @@ function App() {
       </div>
     );
   } else if (portal === "Foster") {
-    // work on later
+    return (
+      <div className="App">
+        <FosterNavBar currentUser={currentUser} handleLogOut={handleLogOut}/>
+
+        <Switch>
+          <Route exact path="/fosterportal">
+            <FosterPortal />
+          </Route>
+          <Route exact path="/fosterportal/pets">
+            <FosterPortal />
+          </Route>
+          <Route exact path="/fosterportal/signup">
+            <FosterSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} />
+          </Route>
+        </Switch> 
+    
+        <Footer />
+      </div>
+    );
   }
 
 

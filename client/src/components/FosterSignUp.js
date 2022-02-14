@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export default function AdminSignUp({ setCurrentUser, setPortal }) {
+export default function FosterSignUp({ setCurrentUser, setPortal }) {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
@@ -23,18 +23,18 @@ function handleAdminSignUp(e) {
       firstName, lastName,
       email, password,
       phone,
-      role: "Admin"
+      role: "Foster"
     })
   })
   .then((r) => {
     if (r.ok) {r.json().then(user => {
         setCurrentUser(user);
-        setPortal("Admin");
-        console.log("Admin POSTED! WOOOO HOOOOO!")
+        setPortal("Foster");
+        console.log("Foster POSTED! WOOOO HOOOOO!")
       })
     } else {
       r.json().then((err) => {
-        console.log("POST /adminportal/signup error", err);
+        console.log("POST /fosterportal/signup error", err);
       })
     }
   })
@@ -43,11 +43,11 @@ function handleAdminSignUp(e) {
 
 
   return (
-      <div id="applicant_signup" className="rescueportal">
+      <div id="foster_signup" className="rescueportal">
         <br/>
         <Modal.Body>
           <Form onSubmit={(e)=> handleAdminSignUp(e)}>
-            <h3>Admin Signup!</h3>
+            <h3>Foster Signup!</h3>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridFirstName">
                 <Form.Label>First Name</Form.Label>

@@ -12,12 +12,6 @@ class OwnersController < ApplicationController
         owner.destroy
     end
     
-    # stay logged in 
-    def show
-        owner = Owner.find(session[:owner_id])
-        render json: owner
-    end
-    
     private
 
     def owner_params

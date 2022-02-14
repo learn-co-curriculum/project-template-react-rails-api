@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+    before_action :authorize
 
     def create
         task = @current_user.tasks.create!(task_params)

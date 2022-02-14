@@ -1,5 +1,7 @@
 class PropertiesController < ApplicationController
 
+    rescue_from ActiveRecord::RecordInvalid, with: :render_422
+
     def show 
         selected_property = Property.find_by(id: params[:id])
         if selected_property

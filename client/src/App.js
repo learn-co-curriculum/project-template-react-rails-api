@@ -32,6 +32,7 @@ function App() {
   const [applicants, setApplicants] = useState([]);
   const [currentUser, setCurrentUser] = useState("");
   const [applications, setApplications] = useState([]);
+  const [petFosters, setPetFosters] = useState([]);
   const [portal, setPortal] = useState("Home");
 
   //auto-login for existing users
@@ -75,6 +76,12 @@ function App() {
     fetch("/pet_applications")
     .then(r=>r.json())
     .then(apps => setApplications(apps))
+  }, [])
+  // set applications from pet_fosters
+  useEffect(() => {
+    fetch("/pet_fosters")
+    .then(r=>r.json())
+    .then(petFosters => setPetFosters(petFosters))
   }, [])
   //logout user
   function handleLogOut() {
@@ -120,6 +127,12 @@ function App() {
               setCurrentUser={setCurrentUser} 
               setPortal={setPortal} />
           </Route>
+          <Route exact path="/adminportal/signup">
+            <AdminSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} />
+          </Route>
+          <Route exact path="/fosterportal/signup">
+            <FosterSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} />
+          </Route>
         </Switch> 
 
         <Footer />
@@ -161,16 +174,6 @@ function App() {
               applications = {applications} setApplications = {setApplications} 
             />
           </Route>
-
-          <Route exact path="/adminportal/login">
-            <Login setCurrentUser={setCurrentUser} portal={portal} setPortal={setPortal} />
-          </Route>
-
-          <Route exact path="/adminportal/signup">
-            <AdminSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} />
-          </Route>
-
-
           <Route exact path="/adminportal/pets">
             <AdminPets pets={pets} setApplications={setApplications}/>
           </Route>
@@ -195,13 +198,15 @@ function App() {
 
         <Switch>
           <Route exact path="/fosterportal">
-            <FosterPortal />
+            <FosterPortal 
+              currentUser={currentUser} setCurrentUser={setCurrentUser} 
+              users={users} setUsers={setUsers}
+              portal={portal} setPortal={setPortal} 
+              pets={pets} setPets={setPets}
+            />
           </Route>
           <Route exact path="/fosterportal/pets">
-            <FosterPortal />
-          </Route>
-          <Route exact path="/fosterportal/signup">
-            <FosterSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} />
+            <FosterPets currentUser={currentUser} petFosters={petFosters} setPets={setPets}/>
           </Route>
         </Switch> 
     

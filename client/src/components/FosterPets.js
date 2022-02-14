@@ -6,13 +6,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-export default function FosterPets({ 
-  setCurrentUser, 
-  portal, setPortal, 
-  pets, setPets
-}) {
+export default function FosterPets({ currentUser, petFosters, setPets }) {
   const [showEditPet, setShowEditPet] = useState(false);
   const [petToUpdate, setPetToUpdate] = useState({id: "", name: "", status: "", image: "", species: "", breed: "", age: "", height: "", weight: "", fixed: "", energy_level: "", coat_type: "", coat_color: "", good_w_kids: "", good_w_cats: "", behavioral_issues: "", description: "", rabies_vaccine: "",FVRCP_vaccine: "", distemper_parvo_vaccine: "", dewormed: "", pet_foster: [], foster: []});
+
+  let filteredFosterPets = petFosters.filter(petFoster => currentUser.email === petFoster.foster.email);
+  // console.log("filteredFosterPets", filteredFosterPets)
+
 
   function editPet(e) {
     let petObj = {}
@@ -25,11 +25,11 @@ export default function FosterPets({
       // e.target[6].value //Energy
       // e.target[7].value //Coat type
       // e.target[8].value //Coat Color
-    // e.target[9].value //Good w kids BOOLEAN
-    // e.target[10].value //Good w cats BOOLEAN
-    // e.target[11].value //Behavioral Issues BOOLEAN
-    // e.target[12].value //Dewormed BOOLEAN
-    // e.target[13].value //Rabies vaccine
+      // e.target[9].value //Good w kids BOOLEAN
+      // e.target[10].value //Good w cats BOOLEAN
+      // e.target[11].value //Behavioral Issues BOOLEAN
+      // e.target[12].value //Dewormed BOOLEAN
+      // e.target[13].value //Rabies vaccine
       // e.target[14].value //FVRCP vaccine
       // e.target[15].value //Description
 
@@ -380,17 +380,17 @@ export default function FosterPets({
   return (
     <div id="foster_portal">
       <h3>My Fosters</h3>
-
+      
       <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>Edit</th>
-            <th>Pet #</th>
+            {/* <th>Pet #</th> */}
             <th>Status</th>
             <th>Name</th>
-            {/* <th>Foster</th> */}
             <th>Picture</th>
-            <th>Species</th>
+            {/* <th>Foster</th> */}
+            {/* <th>Species</th> */}
             <th>Breed</th>
             <th>Age</th>
             <th>Height</th>
@@ -405,13 +405,14 @@ export default function FosterPets({
             <th>FVRCP Vaccine (cat only)</th>
             <th>Distemper/Parvo Vaccine</th>
             <th>Dewormed?</th>
+            {/* <th>Description</th> */}
           </tr>
         </thead>
         <tbody>
-          {pets.map(pet => (
-            <tr key={pet.id}>
+          {filteredFosterPets.map(petObj => (
+            <tr key={petObj.pet.id}>
               <td>
-                <Button onClick={() => openEditPetModal(pet)}>
+                <Button onClick={() => openEditPetModal(petObj.pet)}>
                   Edit
                 </Button>
 
@@ -420,34 +421,34 @@ export default function FosterPets({
                   onHide={() => setShowEditPet(false)}
                 />              
               </td>
-              <td>{pet.id}</td>
-              <td>{pet.status}</td>
-              <td>{pet.name}</td>
-              {/* <td>
-                {pet.foster[0].first_name} {pet.foster[0].last_name}
-              </td> */}
+              {/* <td>{petObj.pet.id}</td> */}
+              <td>{petObj.pet.status}</td>
+              <td>{petObj.pet.name}</td>
               <td>
-                <img alt={pet.id} src={pet.image} height="50px"/>
+                <img alt={petObj.pet.id} src={petObj.pet.image} height="50px"/>
               </td>
-              <td>{pet.species}</td>
-              <td>{pet.breed}</td>
-              <td>{pet.age}</td>
-              <td>{pet.height}</td>
-              <td>{pet.weight}</td>
-              <td>{pet.fixed ? "Yes" : "No"}</td>
-              <td>{pet.energy_level}</td>
-              <td>{pet.coat_type}</td>
-              <td>{pet.good_w_kids ? "Yes" : "No"}</td>
-              <td>{pet.good_w_cats ? "Yes" : "No"}</td>
-              <td>{pet.behavioral_issues ? "Yes" : "No"}</td>
-              <td>{pet.rabies_vaccine}</td>
-              <td>{pet.species === "Cat" ? pet.FVRCP_vaccine : "---"}</td>
-              <td>{pet.distemper_parvo_vaccine}</td>
-              <td>{pet.dewormed ? "Yes" : "No"}</td>
+              {/* <td>{petObj.foster.first_name} {petObj.foster.last_name}</td> */}
+              {/* <td>{petObj.pet.species}</td> */}
+              <td>{petObj.pet.breed}</td>
+              <td>{petObj.pet.age}</td>
+              <td>{petObj.pet.height}</td>
+              <td>{petObj.pet.weight}</td>
+              <td>{petObj.pet.fixed ? "Yes" : "No"}</td>
+              <td>{petObj.pet.energy_level}</td>
+              <td>{petObj.pet.coat_type}</td>
+              <td>{petObj.pet.good_w_kids ? "Yes" : "No"}</td>
+              <td>{petObj.pet.good_w_cats ? "Yes" : "No"}</td>
+              <td>{petObj.pet.behavioral_issues ? "Yes" : "No"}</td>
+              <td>{petObj.pet.rabies_vaccine}</td>
+              <td>{petObj.pet.species === "Cat" ? petObj.pet.FVRCP_vaccine : "---"}</td>
+              <td>{petObj.pet.distemper_parvo_vaccine}</td>
+              <td>{petObj.pet.dewormed ? "Yes" : "No"}</td>
+              {/* <td>{petObj.pet.description}</td> */}
             </tr>
           ))}
         </tbody>
       </Table>
+      
     </div>
   );
 }

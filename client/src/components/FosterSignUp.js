@@ -12,41 +12,39 @@ export default function FosterSignUp({ setCurrentUser, setPortal }) {
   const [password, setPassword] = useState();
   const [phone, setPhone] = useState();
 
-function handleAdminSignUp(e) {
-  e.preventDefault();
+  function handleFosterSignUp(e) {
+    e.preventDefault();
 
-  // CREATE USER LOGIN 
-  fetch("/signup", {
-    method: "POST", 
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({
-      firstName, lastName,
-      email, password,
-      phone,
-      role: "Foster"
+    // CREATE USER LOGIN 
+    fetch("/signup", {
+      method: "POST", 
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        firstName, lastName,
+        email, password,
+        phone,
+        role: "Foster"
+      })
     })
-  })
-  .then((r) => {
-    if (r.ok) {r.json().then(user => {
-        setCurrentUser(user);
-        setPortal("Foster");
-        console.log("Foster POSTED! WOOOO HOOOOO!")
-      })
-    } else {
-      r.json().then((err) => {
-        console.log("POST /fosterportal/signup error", err);
-      })
-    }
-  })
+    .then((r) => {
+      if (r.ok) {r.json().then(user => {
+          setCurrentUser(user);
+          setPortal("Foster");
+          console.log("Foster POSTED! WOOOO HOOOOO!")
+        })
+      } else {
+        r.json().then((err) => {
+          console.log("POST /fosterportal/signup error", err);
+        })
+      }
+    })
 
-}
-
+  }
 
   return (
       <div id="foster_signup" className="rescueportal">
-        <br/>
         <Modal.Body>
-          <Form onSubmit={(e)=> handleAdminSignUp(e)}>
+          <Form onSubmit={(e)=> handleFosterSignUp(e)}>
             <h3>Foster Signup!</h3>
             <Row className="mb-3">
               <Form.Group as={Col} controlId="formGridFirstName">

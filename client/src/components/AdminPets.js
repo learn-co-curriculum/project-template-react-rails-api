@@ -579,7 +579,7 @@ export default function AdminPets({ pets, setPets }) {
             <th>Pet #</th>
             <th>Status</th>
             <th>Name</th>
-            {/* <th>Foster</th> */}
+            <th>Foster</th>
             <th>Picture</th>
             <th>Species</th>
             <th>Breed</th>
@@ -614,9 +614,7 @@ export default function AdminPets({ pets, setPets }) {
               <td>{pet.id}</td>
               <td>{pet.status}</td>
               <td>{pet.name}</td>
-              {/* <td>
-                {pet.foster[0].first_name} {pet.foster[0].last_name}
-              </td> */}
+              <td>{pet.foster.length === 0 ? "-" : `${pet.foster[0].first_name} ${pet.foster[0].last_name}`}</td>
               <td>
                 <img alt={pet.id} src={pet.image} height="50px"/>
               </td>

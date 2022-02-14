@@ -2,7 +2,7 @@ import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function HomeNavBar({ currentUser, handleLogOut }) {
   return (
@@ -22,7 +22,13 @@ export default function HomeNavBar({ currentUser, handleLogOut }) {
           <Nav>
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/adoptablepets">Adoptable Pets</Nav.Link>
-            <Nav.Link href="/homeportal">Rescue Portal</Nav.Link>
+            {/* <Nav.Link href="/homeportal">Rescue Portal</Nav.Link> */}
+            <NavDropdown title="Rescue Portal" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/homeportal">Register</NavDropdown.Item>
+              <NavDropdown.Item href="/homeportal/login">Login</NavDropdown.Item>
+              {/* <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -238,6 +238,7 @@ export default function AdminFosters({ fosters, setFosters }) {
             <th>Last Name</th>
             <th>Phone</th>
             <th>Email</th>
+            <th>Foster Pets</th>
           </tr>
         </thead>
         <tbody>
@@ -258,6 +259,13 @@ export default function AdminFosters({ fosters, setFosters }) {
               <td>{f.last_name}</td>
               <td>{f.phone}</td>
               <td>{f.email}</td>
+              <td>
+                <ul>
+                  {f.pet.map((p)=> (
+                    <li>{p.name}</li>
+                  ))}
+                </ul>
+              </td>
             </tr>
           ))}
         </tbody>

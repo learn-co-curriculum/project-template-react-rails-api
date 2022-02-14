@@ -4,7 +4,6 @@ import AdminSignUp from "./AdminSignUp";
 import AdminPets from "./AdminPets";
 import AdminApplicants from "./AdminApplicants";
 import AdminFosters from "./AdminFosters";
-// import EditFoster from "./EditFoster";
 import AdminApplications from "./AdminApplications";
 
 export default function AdminPortal({ 
@@ -13,16 +12,12 @@ export default function AdminPortal({
   pets, setPets,
   users, setUsers,
   fosters, setFosters,
-  // setUpdateFoster,
   applicants, setApplicants,
   applications, setApplications
  }) {
   return (
     <div id="admin_portal">
        <Switch>
-          {/* <Route exact path="/adminportal/login">
-            <Login setCurrentUser={setCurrentUser} portal={portal} setPortal={setPortal} />
-          </Route> */}
           <Route exact path="/adminportal/signup">
             <AdminSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} />
           </Route>

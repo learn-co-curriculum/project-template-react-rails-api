@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   
   resources :services
-  resources :tasks, only: [:create, :update, :destroy]
-  resources :bookings
   resources :provider_services
-  resources :owners
-  resources :providers
-  resources :properties
-  resources :users
+  
+  resources :tasks, only: [:create, :update, :destroy]
+  resources :bookings, only: [:create]
+  resources :owners, only: [:create, :show, :destroy]
+  resources :providers, only: [:create, :show, :destroy]
+  resources :properties, only: [:create, :show]
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

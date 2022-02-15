@@ -5,6 +5,8 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import OwnerSignup from './OwnerSingup';
+import ProviderSignup from './ProviderSignup';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -50,7 +52,7 @@ function SignupTabs() {
   function handleClick(e){
    let tab = e.target.value
     console.log(tab)
-    // { tab = 'owner' ? <OwnerForm /> : <ProviderForm /> }
+    { tab = 'owner' ? <OwnerSignup /> : <ProviderSignup /> }
   }
 
   return (
@@ -74,7 +76,7 @@ function SignupTabs() {
           </Button>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <div>Get connected with property owners in you’re area.</div>
+          <div>Get connected with property owners in your area.</div>
           <br />
           <Button
             variant="contained" 

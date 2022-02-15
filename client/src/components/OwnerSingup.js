@@ -1,14 +1,15 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { FormControl, InputLabel, Input, FormHelperText } from '@mui/material';
+import { FormControl, InputLabel, Input, FormHelperText, TextField } from '@mui/material';
+import Box from '@mui/material/Box';
 
-function OwnerLogin() {
+function OwnerSignup() {
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-console.log(email)
-console.log(password)
-console.log(passwordConfirmation)
+
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/signup", {
@@ -17,6 +18,8 @@ console.log(passwordConfirmation)
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        firstName,
+        lastName,
         email,
         password,
         password_confirmation: passwordConfirmation,
@@ -65,14 +68,56 @@ console.log(passwordConfirmation)
   
   <button type="submit" class="btn btn-primary">Submit</button>
 </form> */}
+ <Box
+       component="form"
+       sx={{
+         '& .MuiTextField-root': { m: 1, width: '25ch' },
+       }}
+    >
 <FormControl>
-  <InputLabel htmlFor="my-input">Email address</InputLabel>
+<TextField
+          required
+          id="first-name"
+          label="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+<TextField
+          required
+          id="last-name"
+          label="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+<TextField
+          required
+          id="owner-email"
+          label="E-mail"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+<TextField
+          required
+          id="owner-password"
+          label="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+<TextField
+          required
+          id="owner-confirm"
+          label="Confirm Password"
+          value={passwordConfirmation}
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
+        />
+  {/* <InputLabel htmlFor="my-input">Email address</InputLabel>
   <Input id="my-input" aria-describedby="my-helper-text"       onChange={(e) => setEmail(e.target.value)}
 />
-  <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+  <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText> */}
 </FormControl>
+</Box>
     </div>
   )
 }
 
-export default OwnerLogin
+export default OwnerSignup

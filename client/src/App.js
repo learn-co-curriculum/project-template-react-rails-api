@@ -9,6 +9,7 @@ import HomeNavBar from "./components/HomeNavBar";
 import Login from "./components/Login";
 import Portal from "./components/Portal";
 import AdoptablePets from "./components/AdoptablePets";
+import Applications from "./components/Applications";
 import ApplicantNavBar from "./components/ApplicantNavBar";
 import ApplicantPortal from "./components/ApplicantPortal";
 import ApplicantSignUp from "./components/ApplicantSignUp";
@@ -131,7 +132,7 @@ function App() {
             <AdminSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} />
           </Route>
           <Route exact path="/fosterportal/signup">
-            <FosterSignUp setCurrentUser={setCurrentUser} setPortal={setPortal} />
+            <FosterSignUp fosters={fosters} setFosters={setFosters} setCurrentUser={setCurrentUser} setPortal={setPortal} />
           </Route>
         </Switch> 
 
@@ -146,7 +147,7 @@ function App() {
 
         <Switch>
           <Route exact path="/applicantportal">
-            <ApplicantPortal currentUser={currentUser} applications={applications} setApplications={setApplications} pets={pets}/>
+            <Applications currentUser={currentUser} applications={applications}/>
           </Route>
           <Route exact path="/applicantportal/adoptablepets">
             <AdoptablePets currentUser={currentUser} pets={pets} setApplications={setApplications} />

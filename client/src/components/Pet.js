@@ -12,7 +12,14 @@ export default function Pet({ pet, currentUser }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  let statusColor = pet.status === "Available" ? "success" : "warning"
+  let statusColor;
+  if (pet.status === "Available") {
+    statusColor = "success"
+  } else if (pet.status === "Intake Pending") {
+    statusColor = "warning"
+  } else if (pet.status == "Adopted!") {
+    statusColor = "secondary"
+  }
 
   function handleAdoptRequest() {
     // console.log("HANDLE ADOPT REQUEST IN PET.JS", pet, currentUser)
@@ -46,7 +53,7 @@ export default function Pet({ pet, currentUser }) {
           <Card.Title>{pet.name}, {pet.breed}, {pet.age}</Card.Title>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroupItem><Badge bg={statusColor} className="petStatus">{pet.status}</Badge></ListGroupItem>
+          <Badge bg={statusColor} className="petStatus">{pet.status}</Badge>
           <ListGroupItem>Height: {pet.height} inches</ListGroupItem>
           <ListGroupItem>Weight: {pet.weight}lbs</ListGroupItem>
           <ListGroupItem>Energy Level: {pet.energy_level}</ListGroupItem>

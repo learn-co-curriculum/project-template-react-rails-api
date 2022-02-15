@@ -2,28 +2,20 @@
   height: 95px;
 }
 
-.navbar, .petTable {
-  /* border-style: solid; */
+.navbar {
   width: 83%;
   margin-left: 6%;
 }
 
 .pet {
-  border-style: solid;
-  padding: 10px;
+  padding: 5px;
 }
 
-.home_adoptablepets {
-  padding: 15px 0px;
-}
-
-.home_infocards {
+.home_adoptablepets, .home_infocards {
   padding: 15px 0px;
 }
 
 #adoptable_pets {
-  /* border-style: solid; */
-  /* padding: 20px; */
   height: auto;
   width: 84%;
   margin-left: 6%;
@@ -41,9 +33,6 @@
   justify-content: center;
   text-align: left;
 }
-
-
-
 
 #footer {
   position: fixed;

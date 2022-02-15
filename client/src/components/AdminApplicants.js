@@ -241,7 +241,7 @@ export default function AdminApplicants({ pets, applicants, setApplicants }) {
   }
 
   return (
-    <div id="admin_applicants">
+    <div id="admin_applicants" className="table">
       <h3>Applicants</h3>
 
       <Table striped bordered hover responsive>

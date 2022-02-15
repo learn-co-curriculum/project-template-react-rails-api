@@ -584,7 +584,7 @@ export default function AdminPets({ pets, setPets, fosters, setFosters, petFoste
   }
 
   return (
-    <div id="admin_pets" className="petTable">
+    <div id="admin_pets" className="table">
       <h3>Rescue Pets</h3>
 
       <>

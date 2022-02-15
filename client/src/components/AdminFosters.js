@@ -148,9 +148,6 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
       }
     });
 
-
-
-
   }
 
   function EditFosterModal(props) {
@@ -216,6 +213,10 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
     setShowEditFoster(true);
   }
 
+  function updatePetFoster(e) {
+    console.log("e", e)
+  }
+
   function AssignFosterModal(props) {
     return (
       <Modal
@@ -233,8 +234,18 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
         <Modal.Body>
           {/* <h4>Centered Modal</h4> */}
           <Form onSubmit={(e)=>{addFoster(e)}}>
-          <h4>Add Foster</h4>
+          {/* <h4>Add Foster</h4> */}
             <Row className="mb-3">
+            <Form.Group as={Col} controlId="formGridSpecies">
+                <Form.Label>Foster</Form.Label>
+                <Form.Select defaultValue="Choose...">
+                  <option>Choose...</option>
+                  <option>Dog</option>
+                  <option>Cat</option>
+                  <option>Other</option>
+                </Form.Select>
+              </Form.Group>
+
             <Form.Group as={Col} controlId="formGridSpecies">
                 <Form.Label>Pet</Form.Label>
                 <Form.Select defaultValue="Choose...">
@@ -242,16 +253,6 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
                   {pets.map((pet) => (
                     <option>{pet.name}</option>
                   ))}
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group as={Col} controlId="formGridSpecies">
-                <Form.Label>Foster</Form.Label>
-                <Form.Select defaultValue="Choose...">
-                  <option>Choose...</option>
-                  <option>Dog</option>
-                  <option>Cat</option>
-                  <option>Other</option>
                 </Form.Select>
               </Form.Group>
 
@@ -270,9 +271,9 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
   }
 
   return (
-    <div id="admin_fosters">
+    <div id="admin_fosters" class="table">
       <h3>Fosters</h3>
-      <>
+      {/* <>
         <Button variant="primary" onClick={() => setShowAddFoster(true)}>
           Add Foster
         </Button>
@@ -281,9 +282,9 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
           show={showAddFoster}
           onHide={() => setShowAddFoster(false)}
         />
-      </>
+      </> */}
 
-      <>
+      {/* <>
         <Button variant="primary" onClick={() => setShowAssignFoster(true)}>
           Manage Foster(s)
         </Button>
@@ -292,18 +293,17 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
           show={showAssignFoster}
           onHide={() => setShowAssignFoster(false)}
         />
-      </>
+      </> */}
       
       <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>Edit</th>
             <th>id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
             <th>Phone</th>
             <th>Email</th>
-            <th>Foster Pets</th>
+            {/* <th>Foster Pets</th> */}
           </tr>
         </thead>
         <tbody>
@@ -320,17 +320,16 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
                 />
               </td>
               <td>{f.id}</td>
-              <td>{f.first_name}</td>
-              <td>{f.last_name}</td>
+              <td>{f.first_name} {f.last_name}</td>
               <td>{f.phone}</td>
               <td>{f.email}</td>
-              <td>
+              {/* <td>
                 <ul>
                   {f.pet.map((p)=> (
                     <li>{p.name}</li>
                   ))}
                 </ul>
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>

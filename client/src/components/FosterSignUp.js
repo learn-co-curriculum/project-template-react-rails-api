@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export default function FosterSignUp({ setCurrentUser, setPortal }) {
+export default function FosterSignUp({ fosters, setFosters, setCurrentUser, setPortal }) {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();
@@ -38,6 +38,30 @@ export default function FosterSignUp({ setCurrentUser, setPortal }) {
         })
       }
     })
+
+    // CREATE FOSTER RECORD
+    fetch("/fosters", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        first_name: firstName, 
+        last_name: lastName,
+        email, 
+        phone
+      })
+    })
+    .then((r) => {
+      if (r.ok) {
+        r.json().then(foster => {
+          setFosters(...fosters, foster)
+          console.log("POST /fosters success!", foster)
+        })
+      } else {
+        r.json().then((err) => {
+        console.log("POST fosters error", err);
+      })
+      }
+    });
 
   }
 

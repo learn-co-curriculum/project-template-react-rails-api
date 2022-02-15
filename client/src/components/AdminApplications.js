@@ -51,7 +51,7 @@ export default function AdminApplications({ applications, setApplications }) {
       >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Edit {appToUpdate.applicant.firstName} {appToUpdate.applicant.lastName}'s' Application Status
+          Edit {appToUpdate.applicant.firstName} {appToUpdate.applicant.lastName}'s' Application Status for {appToUpdate.pet.name}, {appToUpdate.pet.breed}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -80,7 +80,7 @@ export default function AdminApplications({ applications, setApplications }) {
   }
 
   return (
-    <div id="admin_fosters">
+    <div id="admin_applications" className="table">
       <h3>Pet Applications</h3>
       <Table striped bordered hover responsive>
         <thead>

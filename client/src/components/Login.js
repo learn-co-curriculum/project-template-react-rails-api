@@ -4,7 +4,7 @@ export default function Login({ setCurrentUser, portal, setPortal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  let portalToRender; // this var is set in the .then() of handleSubmit()
+  let endpointToRender; // this var is set in the .then() of handleSubmit()
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -19,12 +19,12 @@ export default function Login({ setCurrentUser, portal, setPortal }) {
       if (r.ok) {r.json().then(user => {
         setCurrentUser(user)
         if (user.role === "Applicant") {
-          portalToRender = "/applicantportal"
+          endpointToRender = "/applicantportal"
         } else if (user.role === "Admin") {
-          portalToRender = "/adminportal/pets"
+          endpointToRender = "/adminportal/pets"
         } else if (user.role === "Foster") {
-          portalToRender = ""
-        }
+          endpointToRender = "/fosterportal/pets"
+        } 
         setPortal(user.role)
       })} else {
         r.json().then((err)=> {
@@ -59,7 +59,7 @@ export default function Login({ setCurrentUser, portal, setPortal }) {
         </div> */}
         <br />
 
-        <button type="submit" className="btn btn-dark btn-lg btn-block" href={portalToRender}>Sign in</button> 
+        <button type="submit" className="btn btn-dark btn-lg btn-block" href={endpointToRender}>Sign in</button> 
         {/* make sure to have the href in the above button able to dynamically render correct portal */}
         <p className="forgot-password text-right">
             <a href="/homeportal/signup">sign up instead?</a>

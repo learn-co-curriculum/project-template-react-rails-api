@@ -17,7 +17,7 @@ export default function Pet({ pet, currentUser }) {
     statusColor = "success"
   } else if (pet.status === "Intake Pending") {
     statusColor = "warning"
-  } else if (pet.status == "Adopted!") {
+  } else if (pet.status === "Adopted!") {
     statusColor = "secondary"
   }
 

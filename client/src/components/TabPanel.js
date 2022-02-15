@@ -46,29 +46,46 @@ function SignupTabs() {
     setValue(newValue);
   };
 
+  // * if we want forms to be hidden until buttons clicked
+  function handleClick(e){
+   let tab = e.target.value
+    console.log(tab)
+    // { tab = 'owner' ? <OwnerForm /> : <ProviderForm /> }
+  }
+
   return (
-    <Box sx={{ width: '50%', marginLeft: '25%', marginTop: '10%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="tabs">
-          <Tab label="Start Tracking" {...a11yProps(0)} />
-          <Tab label="Find Customers" {...a11yProps(1)} />
-        </Tabs>
+    <div id='signup'>
+      <Box sx={{ width: '100%' }}>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Tabs value={value} onChange={handleChange} aria-label="tabs">
+            <Tab label="Start Tracking" {...a11yProps(0)} />
+            <Tab label="Find Customers" {...a11yProps(1)} />
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0}>
+          <div>Track your property’s maintenance needs and hire the right professionals that you can trust.</div>
+          <br />
+          <Button 
+            variant="contained"
+            value='owner'
+            onClick={handleClick}
+          >
+            Get Started
+          </Button>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <div>Get connected with property owners in you’re area.</div>
+          <br />
+          <Button
+            variant="contained" 
+            value='pro'
+            onClick={handleClick}
+          >
+            Get Started
+          </Button>
+        </TabPanel>
       </Box>
-      <TabPanel value={value} index={0}>
-        <p>Track your property’s maintenance needs and hire the right professionals that you can trust.</p>
-        <br />
-        <Button variant="contained" sx={{ backgroundColor: '#757de8'}}>
-          Get Started
-        </Button>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <p>Get connected with property owners in you’re area.</p>
-        <br />
-        <Button variant="contained" sx={{ backgroundColor: '#757de8'}}>
-          Get Started
-        </Button>
-      </TabPanel>
-    </Box>
+    </div>
   );
 }
 

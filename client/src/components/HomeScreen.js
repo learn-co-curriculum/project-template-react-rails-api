@@ -1,10 +1,13 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
+import TabPanel from './TabPanel'
 
 
 function HomeScreen() {
   return (
-    <div>Welcome to Our App</div>
+    <div>
+      <TabPanel />
+    </div>
   )
 }
 

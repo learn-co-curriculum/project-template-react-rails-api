@@ -5,6 +5,8 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import OwnerSignup from './OwnerSingup';
+import ProviderSignup from './ProviderSignup';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -41,16 +43,17 @@ function a11yProps(index) {
 
 function SignupTabs() {
   const [value, setValue] = React.useState(0);
+  const [ownerToggle, setOwnerToggled] = React.useState(false)
+  const [providerToggle, setProviderToggled] = React.useState(false)
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  // * if we want forms to be hidden until buttons clicked
   function handleClick(e){
    let tab = e.target.value
-    console.log(tab)
-    // { tab = 'owner' ? <OwnerForm /> : <ProviderForm /> }
+    { tab == 'owner' ? setOwnerToggled(true) : setOwnerToggled(false) }
+    { tab == 'pro' ? setProviderToggled(true) : setProviderToggled(false) }
   }
 
   return (
@@ -65,24 +68,28 @@ function SignupTabs() {
         <TabPanel value={value} index={0}>
           <div>Track your property’s maintenance needs and hire the right professionals that you can trust.</div>
           <br />
-          <Button 
-            variant="contained"
-            value='owner'
-            onClick={handleClick}
-          >
+          { ownerToggle ? <OwnerSignup /> : null }
+          { !ownerToggle ?
+            <Button 
+              variant="contained"
+              value='owner'
+              onClick={handleClick}
+            >
             Get Started
-          </Button>
+          </Button> : null }
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <div>Get connected with property owners in you’re area.</div>
+          <div>Get connected with property owners in your area.</div>
           <br />
+          { providerToggle ? <ProviderSignup /> : null }
+          { !providerToggle ?
           <Button
             variant="contained" 
             value='pro'
             onClick={handleClick}
           >
             Get Started
-          </Button>
+          </Button> : null }
         </TabPanel>
       </Box>
     </div>

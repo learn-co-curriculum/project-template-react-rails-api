@@ -2,10 +2,15 @@
   height: 95px;
 }
 
-.navbar {
+.navbar, .petTable {
   /* border-style: solid; */
   width: 83%;
   margin-left: 6%;
+}
+
+.pet {
+  border-style: solid;
+  padding: 10px;
 }
 
 .home_adoptablepets {

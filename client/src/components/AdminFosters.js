@@ -6,9 +6,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-export default function AdminFosters({ fosters, setFosters, petFosters, setPetFosters }) {
+export default function AdminFosters({ fosters, setFosters, pets, setPets, petFosters, setPetFosters }) {
   const [showAddFoster, setShowAddFoster] = useState(false);
   const [showEditFoster, setShowEditFoster] = useState(false);
+  const [showAssignFoster, setShowAssignFoster] = useState(false);
   const [fosterToUpdate, setFosterToUpdate] = useState({id: "", first_name: "", last_name: "", phone: "", email: ""});
 
   function addFoster(e) {
@@ -215,6 +216,59 @@ export default function AdminFosters({ fosters, setFosters, petFosters, setPetFo
     setShowEditFoster(true);
   }
 
+  function AssignFosterModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        backdrop="static"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Manage Foster Assignment
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* <h4>Centered Modal</h4> */}
+          <Form onSubmit={(e)=>{addFoster(e)}}>
+          <h4>Add Foster</h4>
+            <Row className="mb-3">
+            <Form.Group as={Col} controlId="formGridSpecies">
+                <Form.Label>Pet</Form.Label>
+                <Form.Select defaultValue="Choose...">
+                  <option>Choose...</option>
+                  {pets.map((pet) => (
+                    <option>{pet.name}</option>
+                  ))}
+                </Form.Select>
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridSpecies">
+                <Form.Label>Foster</Form.Label>
+                <Form.Select defaultValue="Choose...">
+                  <option>Choose...</option>
+                  <option>Dog</option>
+                  <option>Cat</option>
+                  <option>Other</option>
+                </Form.Select>
+              </Form.Group>
+
+            </Row>
+
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </Modal.Body>
+        {/* <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer> */}
+      </Modal>
+    );
+  }
+
   return (
     <div id="admin_fosters">
       <h3>Fosters</h3>
@@ -226,6 +280,17 @@ export default function AdminFosters({ fosters, setFosters, petFosters, setPetFo
         <AddFosterModal
           show={showAddFoster}
           onHide={() => setShowAddFoster(false)}
+        />
+      </>
+
+      <>
+        <Button variant="primary" onClick={() => setShowAssignFoster(true)}>
+          Manage Foster(s)
+        </Button>
+
+        <AssignFosterModal
+          show={showAssignFoster}
+          onHide={() => setShowAssignFoster(false)}
         />
       </>
       

@@ -6,9 +6,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
-export default function AdminPets({ pets, setPets, petFosters, setPetFosters }) {
+export default function AdminPets({ pets, setPets, fosters, setFosters, petFosters, setPetFosters }) {
   const [showAddPet, setShowAddPet] = useState(false);
   const [showEditPet, setShowEditPet] = useState(false);
+  // const [newFoster, setNewFoster] = useState();
   const [petToUpdate, setPetToUpdate] = useState({id: "", name: "", status: "", image: "", species: "", breed: "", age: "", height: "", weight: "", fixed: "", energy_level: "", coat_type: "", coat_color: "", good_w_kids: "", good_w_cats: "", behavioral_issues: "", description: "", rabies_vaccine: "",FVRCP_vaccine: "", distemper_parvo_vaccine: "", dewormed: "", pet_foster: [], foster: []});
 
   function addPet(e) {
@@ -195,22 +196,6 @@ export default function AdminPets({ pets, setPets, petFosters, setPetFosters }) 
 
   function editPet(e) {
     let petObj = {}
-    // e.target[0].value //Name
-      // e.target[1].value //Species
-      // e.target[2].value //Breed
-      // e.target[3].value //Age
-      // e.target[4].value //Height
-      // e.target[5].value //Weigiht
-      // e.target[6].value //Energy
-      // e.target[7].value //Coat type
-      // e.target[8].value //Coat Color
-    // e.target[9].value //Good w kids BOOLEAN
-    // e.target[10].value //Good w cats BOOLEAN
-    // e.target[11].value //Behavioral Issues BOOLEAN
-    // e.target[12].value //Dewormed BOOLEAN
-    // e.target[13].value //Rabies vaccine
-      // e.target[14].value //FVRCP vaccine
-      // e.target[15].value //Description
 
     if (e.target[0].value === "") {
       petObj["name"] = petToUpdate.name;
@@ -338,20 +323,42 @@ export default function AdminPets({ pets, setPets, petFosters, setPetFosters }) 
       petObj["status"] = e.target[16].value;
     } 
 
+    // pet_foster
+    let newFosterID = parseInt(e.target[17].value.split(" ")[1])
+    let fosterToUpdate = petToUpdate.pet_foster[0].foster_id;
+
+    if(newFosterID !== fosterToUpdate) {
+      fetch(`/pet_fosters/${petToUpdate.pet_foster[0].id}`,{
+        method: "PATCH",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+          foster_id: newFosterID
+        })
+      })
+      .then((r)=> {
+        if (r.ok) {
+          r.json().then(pet => {
+            console.log("PATCH /pet_fosters success!", pet)
+          })
+        } else {
+          r.json().then((err) => {
+          console.log("PATCH /pet_fosters error", err);
+        })
+        }
+      })
+    } 
+
     // Fixed
     let isFixed;
-    if (e.target[17].value === "Yes") {
+    if (e.target[18].value === "Yes") {
       isFixed = true;
-    } else if (e.target[17].value === "No") {
+    } else if (e.target[18].value === "No") {
       isFixed = false
     }
 
     if(isFixed !== petToUpdate.fixed) {
       petObj["fixed"] = isFixed;
     } 
-    
-    console.log("petObj.status", petObj.status)
-    console.log("petObj.fixed", petObj.fixed)
 
     fetch(`/pets/${petToUpdate.id}`, {
       method: "PATCH", 
@@ -362,6 +369,7 @@ export default function AdminPets({ pets, setPets, petFosters, setPetFosters }) 
       if (r.ok) {
         r.json().then(pet => {
           console.log("PATCH /pets success!", pet)
+          console.log("PATCH on FOSTER", pet.foster.first_name, pet.foster.last_name)
         })
       } else {
         r.json().then((err) => {
@@ -526,6 +534,24 @@ export default function AdminPets({ pets, setPets, petFosters, setPetFosters }) 
             </Form.Select>
           </Form.Group>
 
+          <Form.Group as={Col} controlId="formGridSpecies">
+            <Form.Label>Foster</Form.Label>
+            <Form.Select>
+              <option>
+               {petToUpdate.foster.length === 0 ? "Foster not assigned" : `
+               
+                id: ${petToUpdate.foster[0].id} - name: ${petToUpdate.foster[0].first_name} ${petToUpdate.foster[0].last_name}
+
+               `}              
+              </option>
+
+
+              {fosters.map((foster) => (
+                <option key={foster.id}>id: {foster.id} - name: {foster.first_name} {foster.last_name}</option>
+              ))}
+            </Form.Select>
+          </Form.Group>
+
           {petToUpdate.fixed ? <div></div> : 
             <>
               <Form.Group as={Col} controlId="formGridSpecies">
@@ -558,7 +584,7 @@ export default function AdminPets({ pets, setPets, petFosters, setPetFosters }) 
   }
 
   return (
-    <div id="admin_pets">
+    <div id="admin_pets" className="petTable">
       <h3>Rescue Pets</h3>
 
       <>

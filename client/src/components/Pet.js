@@ -40,14 +40,15 @@ export default function Pet({ pet, currentUser }) {
   return (
     <div className="pet">
 
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={pet.image} />
+      <Card style={{ width: '15rem' }} className="petCard">
+        <Card.Img variant="top" src={pet.image} className="petImg"/>
         <Card.Body>
           <Card.Title>{pet.name}, {pet.breed}, {pet.age}</Card.Title>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroupItem><Badge bg={statusColor}>{pet.status}</Badge></ListGroupItem>
-          <ListGroupItem>Height: {pet.height} inches, Weight: {pet.weight}lbs</ListGroupItem>
+          <ListGroupItem><Badge bg={statusColor} className="petStatus">{pet.status}</Badge></ListGroupItem>
+          <ListGroupItem>Height: {pet.height} inches</ListGroupItem>
+          <ListGroupItem>Weight: {pet.weight}lbs</ListGroupItem>
           <ListGroupItem>Energy Level: {pet.energy_level}</ListGroupItem>
         </ListGroup>
 

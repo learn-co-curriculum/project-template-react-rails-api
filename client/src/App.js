@@ -167,15 +167,15 @@ function App() {
               setCurrentUser = {setCurrentUser}  
               portal = {portal} setPortal = {setPortal} 
               pets = {pets} setPets = {setPets} 
+              petFosters={petFosters} setPetFosters={setPetFosters}
               users = {users} setUsers = {setUsers} 
               fosters = {fosters} setFosters = {setFosters} 
-              // setUpdateFoster={setUpdateFoster}
               applicants = {applicants} setApplicants = {setApplicants} 
               applications = {applications} setApplications = {setApplications} 
             />
           </Route>
           <Route exact path="/adminportal/pets">
-            <AdminPets pets={pets} setPets={setPets} petFosters={petFosters} setPetFosters={setPetFosters}/>
+            <AdminPets pets={pets} setPets={setPets} fosters={fosters} setFosters={setFosters} petFosters={petFosters} setPetFosters={setPetFosters}/>
           </Route>
           <Route exact path="/adminportal/applications">
             <AdminApplications applications={applications} setApplications={setApplications}/>
@@ -184,7 +184,7 @@ function App() {
             <AdminApplicants pets={pets} applicants={applicants} setApplicants={setApplicants}/>
           </Route>
           <Route exact path="/adminportal/fosters">
-            <AdminFosters fosters={fosters} setFosters={setFosters} petFosters={petFosters} setPetFosters={setPetFosters} />
+            <AdminFosters fosters={fosters} setFosters={setFosters} pets={pets} setPets={setPets} petFosters={petFosters} setPetFosters={setPetFosters} />
           </Route>
         </Switch>
 

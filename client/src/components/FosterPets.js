@@ -378,7 +378,7 @@ export default function FosterPets({ currentUser, petFosters, setPets }) {
   }
 
   return (
-    <div id="foster_portal">
+    <div id="foster_pets" className="petTable">
       <h3>My Fosters</h3>
       
       <Table striped bordered hover responsive>

@@ -16,11 +16,20 @@
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
-  overflow-x: auto;
+}
+.dataTableHeader {
+  background-color: lightgray;
+  border: 1px solid #424242;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 tr:hover {
-  background-color: #9fc94c49;
+  background-color: #df8c5549 !important;
 }
+/* tr:nth-child(even) {
+  background-color: #f2f2f2;
+} */
 
 #home {
   align-items: center;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Table from 'react-bootstrap/Table';
+// import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
@@ -607,76 +607,76 @@ export default function AdminPets({ pets, setPets, fosters, setFosters, petFoste
           onHide={() => setShowAddPet(false)}
         />
       </>
-
-      <Table striped bordered hover responsive>
-        <thead>
-          <tr>
-            <th>Edit</th>
-            <th>Pet #</th>
-            <th>Status</th>
-            <th>Name</th>
-            <th>Foster</th>
-            <th>Picture</th>
-            <th>Species</th>
-            <th>Breed</th>
-            <th>Age</th>
-            <th>Height</th>
-            <th>Weight</th>
-            <th>Fixed</th>
-            <th>Energy Level</th>
-            <th>Coat Type</th>
-            <th>Good w Kids?</th>
-            <th>Good w Cats?</th>
-            <th>Behavioral Issues?</th>
-            <th>Rabies Vaccine</th>
-            <th>FVRCP Vaccine (cat only)</th>
-            <th>Distemper/Parvo Vaccine</th>
-            <th>Dewormed?</th>
-          </tr>
-        </thead>
-        <tbody>
-          {pets.map(pet => (
-            <tr key={pet.id}>
-              <td>
-                <Button onClick={() => openEditPetModal(pet)}
-                  class="btn btn-large"
-                  style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
-                >
-                  Edit
-                </Button>
-
-                <EditPetModal
-                  show={showEditPet}
-                  onHide={() => setShowEditPet(false)}
-                />              
-              </td>
-              <td>{pet.id}</td>
-              <td>{pet.status}</td>
-              <td>{pet.name}</td>
-              <td>{pet.foster.length === 0 ? "-" : `${pet.foster[0].first_name} ${pet.foster[0].last_name}`}</td>
-              <td>
-                <img alt={pet.id} src={pet.image} height="50px"/>
-              </td>
-              <td>{pet.species}</td>
-              <td>{pet.breed}</td>
-              <td>{pet.age}</td>
-              <td>{pet.height}</td>
-              <td>{pet.weight}</td>
-              <td>{pet.fixed ? "Yes" : "No"}</td>
-              <td>{pet.energy_level}</td>
-              <td>{pet.coat_type}</td>
-              <td>{pet.good_w_kids ? "Yes" : "No"}</td>
-              <td>{pet.good_w_cats ? "Yes" : "No"}</td>
-              <td>{pet.behavioral_issues ? "Yes" : "No"}</td>
-              <td>{pet.rabies_vaccine}</td>
-              <td>{pet.species === "Cat" ? pet.FVRCP_vaccine : "---"}</td>
-              <td>{pet.distemper_parvo_vaccine}</td>
-              <td>{pet.dewormed ? "Yes" : "No"}</td>
+      <div style={{overflowX: "auto"}}>
+        <table className="dataTable">
+          {/* <thead> */}
+            <tr className="dataTableHeader">
+              <th className="dataTableHeader">Edit</th>
+              <th className="dataTableHeader">ID</th>
+              <th className="dataTableHeader">Status</th>
+              <th className="dataTableHeader">Name</th>
+              <th className="dataTableHeader">Foster</th>
+              <th className="dataTableHeader">Picture</th>
+              <th className="dataTableHeader">Species</th>
+              <th className="dataTableHeader">Breed</th>
+              <th className="dataTableHeader">Age</th>
+              <th className="dataTableHeader">Height</th>
+              <th className="dataTableHeader">Weight</th>
+              <th className="dataTableHeader">Fixed</th>
+              <th className="dataTableHeader">Energy Level</th>
+              <th className="dataTableHeader">Coat Type</th>
+              <th className="dataTableHeader">Good w Kids?</th>
+              <th className="dataTableHeader">Good w Cats?</th>
+              <th className="dataTableHeader">Behavioral Issues?</th>
+              <th className="dataTableHeader">Rabies Vaccine</th>
+              <th className="dataTableHeader">FVRCP Vaccine (cat only)</th>
+              <th className="dataTableHeader">Distemper/Parvo Vaccine</th>
+              <th className="dataTableHeader">Dewormed?</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          {/* </thead> */}
+          {/* <tbody> */}
+            {pets.map(pet => (
+              <tr key={pet.id} className="dataTable"> 
+                <td className="dataTable">
+                  <Button onClick={() => openEditPetModal(pet)}
+                    class="btn btn-large"
+                    style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+                  >
+                    Edit
+                  </Button>
 
+                  <EditPetModal
+                    show={showEditPet}
+                    onHide={() => setShowEditPet(false)}
+                  />              
+                </td>
+                <td className="dataTable">{pet.id}</td>
+                <td className="dataTable">{pet.status}</td>
+                <td className="dataTable">{pet.name}</td>
+                <td className="dataTable">{pet.foster.length === 0 ? "-" : `${pet.foster[0].first_name} ${pet.foster[0].last_name}`}</td>
+                <td className="dataTable">
+                  <img alt={pet.id} src={pet.image} height="50px"/>
+                </td>
+                <td className="dataTable">{pet.species}</td>
+                <td className="dataTable">{pet.breed}</td>
+                <td className="dataTable">{pet.age}</td>
+                <td className="dataTable">{pet.height}</td>
+                <td className="dataTable">{pet.weight}</td>
+                <td className="dataTable">{pet.fixed ? "Yes" : "No"}</td>
+                <td className="dataTable">{pet.energy_level}</td>
+                <td className="dataTable">{pet.coat_type}</td>
+                <td className="dataTable">{pet.good_w_kids ? "Yes" : "No"}</td>
+                <td className="dataTable">{pet.good_w_cats ? "Yes" : "No"}</td>
+                <td className="dataTable">{pet.behavioral_issues ? "Yes" : "No"}</td>
+                <td className="dataTable">{pet.rabies_vaccine}</td>
+                <td className="dataTable">{pet.species === "Cat" ? pet.FVRCP_vaccine : "---"}</td>
+                <td className="dataTable">{pet.distemper_parvo_vaccine}</td>
+                <td className="dataTable">{pet.dewormed ? "Yes" : "No"}</td>
+              </tr>
+            ))}
+          {/* </tbody> */}
+        </table>
+      </div>
     </div>
   )
 }

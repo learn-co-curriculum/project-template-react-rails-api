@@ -7,102 +7,9 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
 export default function AdminFosters({ fosters, setFosters, pets, setPets, petFosters, setPetFosters }) {
-  // const [showAddFoster, setShowAddFoster] = useState(false);
   const [showEditFoster, setShowEditFoster] = useState(false);
   // const [showAssignFoster, setShowAssignFoster] = useState(false);
   const [fosterToUpdate, setFosterToUpdate] = useState({id: "", first_name: "", last_name: "", phone: "", email: ""});
-
-  // function addFoster(e) {
-  //   // e.preventDefault();
-  
-  //   fetch("/fosters", {
-  //     method: "POST",
-  //     headers: {"Content-Type": "application/json"},
-  //     body: JSON.stringify({
-  //       first_name: e.target[0].value, 
-  //       last_name: e.target[1].value,
-  //       email: e.target[2].value, 
-  //       phone: e.target[3].value
-  //     })
-  //   })
-  //   .then((r) => {
-  //     if (r.ok) {
-  //       r.json().then(foster => {
-  //         setFosters(...fosters, foster)
-  //         console.log("POST /fosters success!", foster)
-  //       })
-  //     } else {
-  //       r.json().then((err) => {
-  //       console.log("POST fosters error", err);
-  //     })
-  //     }
-  //   });
-  // }
-
-  // function AddFosterModal(props) {
-  //   return (
-  //     <Modal
-  //       {...props}
-  //       size="lg"
-  //       backdrop="static"
-  //       aria-labelledby="contained-modal-title-vcenter"
-  //       centered
-  //     >
-  //     <Modal.Header closeButton>
-  //       <Modal.Title id="contained-modal-title-vcenter">
-  //         Add Foster
-  //       </Modal.Title>
-  //     </Modal.Header>
-  //     <Modal.Body>
-  //       {/* <h3>Add Foster</h3> */}
-  //       <Form onSubmit={(e) => addFoster(e)}>
-  //         <Row className="mb-3">
-  //           <Form.Group as={Col} controlId="formGridFirstName">
-  //             <Form.Label>First Name</Form.Label>
-  //             <Form.Control type="string" placeholder="Enter first name" 
-  //             // onChange={(e)=>setFirstName(e.target.value)}
-  //             />
-  //           </Form.Group>
-
-  //           <Form.Group as={Col} controlId="formGridLastName">
-  //             <Form.Label>Last Name</Form.Label>
-  //             <Form.Control type="string" placeholder="Enter last name" 
-  //             // onChange={(e)=>setLastName(e.target.value)}
-  //             />
-  //           </Form.Group>
-  //         </Row>
-
-  //         <Row className="mb-3">
-  //           <Form.Group as={Col} controlId="formGridEmail">
-  //             <Form.Label>Email</Form.Label>
-  //             <Form.Control type="email" placeholder="Enter email" 
-  //             // onChange={(e)=>setEmail(e.target.value)}
-  //             />
-  //           </Form.Group>
-
-  //           <Form.Group as={Col} controlId="formGridPhone">
-  //             <Form.Label>Phone</Form.Label>
-  //             <Form.Control type="phone" placeholder="Enter phone" 
-  //             // onChange={(e)=>setPhone(e.target.value)}
-  //             />
-  //           </Form.Group>
-  //         </Row>
-          
-  //         <Button variant="primary" type="submit">
-  //           Submit
-  //         </Button>
-  //         {/* <Button onClick={props.onHide}>Close</Button> */}
-  //       </Form>
-  //     </Modal.Body>
-  //     {/* <Modal.Footer>
-  //       <Button variant="primary" type="submit">
-  //           Submit
-  //       </Button>
-  //       <Button onClick={props.onHide}>Close</Button>
-  //     </Modal.Footer> */}
-  //     </Modal>
-  //   );
-  // }
 
   function editFoster(e) {
     let fosterObj = {};
@@ -151,7 +58,6 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
   }
 
   function EditFosterModal(props) {
-    // console.log("fosterToUpdate in Edit Modal", fosterToUpdate) // fosterToUpdate is a state
     return (
       <Modal
         {...props}
@@ -210,72 +116,9 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
     setShowEditFoster(true);
   }
 
-  // function AssignFosterModal(props) {
-  //   return (
-  //     <Modal
-  //       {...props}
-  //       size="lg"
-  //       backdrop="static"
-  //       aria-labelledby="contained-modal-title-vcenter"
-  //       centered
-  //     >
-  //       <Modal.Header closeButton>
-  //         <Modal.Title id="contained-modal-title-vcenter">
-  //           Manage Foster Assignment
-  //         </Modal.Title>
-  //       </Modal.Header>
-  //       <Modal.Body>
-  //         {/* <h4>Centered Modal</h4> */}
-  //         <Form onSubmit={(e)=>{addFoster(e)}}>
-  //         {/* <h4>Add Foster</h4> */}
-  //           <Row className="mb-3">
-  //           <Form.Group as={Col} controlId="formGridSpecies">
-  //               <Form.Label>Foster</Form.Label>
-  //               <Form.Select defaultValue="Choose...">
-  //                 <option>Choose...</option>
-  //                 <option>Dog</option>
-  //                 <option>Cat</option>
-  //                 <option>Other</option>
-  //               </Form.Select>
-  //             </Form.Group>
-
-  //           <Form.Group as={Col} controlId="formGridSpecies">
-  //               <Form.Label>Pet</Form.Label>
-  //               <Form.Select defaultValue="Choose...">
-  //                 <option>Choose...</option>
-  //                 {pets.map((pet) => (
-  //                   <option>{pet.name}</option>
-  //                 ))}
-  //               </Form.Select>
-  //             </Form.Group>
-
-  //           </Row>
-
-  //           <Button variant="primary" type="submit">
-  //             Submit
-  //           </Button>
-  //         </Form>
-  //       </Modal.Body>
-  //       {/* <Modal.Footer>
-  //         <Button onClick={props.onHide}>Close</Button>
-  //       </Modal.Footer> */}
-  //     </Modal>
-  //   );
-  // }
-
   return (
     <div id="admin_fosters">
-      <h3>Fosters</h3>
-      {/* <>
-        <Button variant="primary" onClick={() => setShowAddFoster(true)}>
-          Add Foster
-        </Button>
-
-        <AddFosterModal
-          show={showAddFoster}
-          onHide={() => setShowAddFoster(false)}
-        />
-      </> */}
+      <h3 className="pageName">Fosters</h3>
 
       {/* <>
         <Button variant="primary" onClick={() => setShowAssignFoster(true)}>
@@ -288,49 +131,50 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
         />
       </> */}
       
-      <Table striped bordered hover responsive>
-        <thead>
-          <tr>
-            <th>Edit</th>
-            <th>id</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            {/* <th>Foster Pets</th> */}
-          </tr>
-        </thead>
-        <tbody>
-          {fosters.map((f, i) => (
-            <tr key={f.id}>
-              <td>     
-                <Button onClick={() => openEditFosterModal(f)}
-                  class="btn btn-large"
-                  style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
-                >
-                  Edit
-                </Button>
-
-                <EditFosterModal
-                  show={showEditFoster}
-                  onHide={() => setShowEditFoster(false)}
-                />
-              </td>
-              <td>{f.id}</td>
-              <td>{f.first_name} {f.last_name}</td>
-              <td>{f.phone}</td>
-              <td>{f.email}</td>
-              {/* <td>
-                <ul>
-                  {f.pet.map((p)=> (
-                    <li>{p.name}</li>
-                  ))}
-                </ul>
-              </td> */}
+      <div style={{overflowX: "auto"}}>
+        <table className="dataTable">
+          {/* <thead> */}
+            <tr className="dataTableHeader">
+              <th className="dataTableHeader">Edit</th>
+              <th className="dataTableHeader">id</th>
+              <th className="dataTableHeader">Name</th>
+              <th className="dataTableHeader">Phone</th>
+              <th className="dataTableHeader">Email</th>
+              {/* <th>Foster Pets</th> */}
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          {/* </thead> */}
+          {/* <tbody> */}
+            {fosters.map((f, i) => (
+              <tr key={f.id} className="dataTable">
+                <td className="dataTable">     
+                  <Button onClick={() => openEditFosterModal(f)}
+                    class="btn btn-large"
+                    style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+                  >
+                    Edit
+                  </Button>
 
+                  <EditFosterModal
+                    show={showEditFoster}
+                    onHide={() => setShowEditFoster(false)}
+                  />
+                </td>
+                <td className="dataTable">{f.id}</td>
+                <td className="dataTable">{f.first_name} {f.last_name}</td>
+                <td className="dataTable">{f.phone}</td>
+                <td className="dataTable">{f.email}</td>
+                {/* <td>
+                  <ul>
+                    {f.pet.map((p)=> (
+                      <li>{p.name}</li>
+                    ))}
+                  </ul>
+                </td> */}
+              </tr>
+            ))}
+          {/* </tbody> */}
+        </table>
+      </div>
     </div>
   )
 }

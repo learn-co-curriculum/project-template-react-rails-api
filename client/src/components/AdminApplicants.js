@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Table from 'react-bootstrap/Table';
+// import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
@@ -245,62 +245,62 @@ export default function AdminApplicants({ pets, applicants, setApplicants }) {
 
   return (
     <div id="admin_applicants" className="table">
-      <h3>Applicants</h3>
-
-      <Table striped bordered hover responsive>
-        <thead>
-          <tr>
-            <th>Edit</th>
-            <th>id</th>
-            <th>Approved?</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>DOB</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Rent or Own?</th>
-            <th>Home Type</th>
-            <th># Months at Address</th>
-            <th>Yard Description</th>
-            <th>Children?</th>
-            <th>Pet Allergies?</th>
-          </tr>
-        </thead>
-        <tbody>
-          {applicants.map(a => (
-            <tr key={a.id}>
-              <td>
-                <Button onClick={() => openEditApplicantModal(a)}
-                  class="btn btn-large"
-                  style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
-                >
-                  Edit
-                </Button>
-
-                <EditApplicantModal
-                  show={showEditApplicant}
-                  onHide={() => setShowEditApplicant(false)}
-                />
-              
-              </td>
-              <td>{a.id}</td>
-              <td>{a.approved ? "Yes" : "No"}</td>
-              <td>{a.firstName}</td>
-              <td>{a.lastName}</td>
-              <td>{a.dob}</td>
-              <td>{a.email}</td>
-              <td>{a.phone}</td>
-              <td>{a.rent_own}</td>
-              <td>{a.home_type}</td>
-              <td>{a.length_address}</td>
-              <td>{a.yard_description}</td>
-              <td>{a.children}</td>
-              <td>{a.pet_allergy}</td>
+      <h3 className="pageName">Applicants</h3>
+      <div style={{overflowX: "auto"}} >
+        <table className="dataTable">
+          {/* <thead> */}
+            <tr className="dataTableHeader">
+              <th className="dataTableHeader">Edit</th>
+              <th className="dataTableHeader">id</th>
+              <th className="dataTableHeader">Approved?</th>
+              <th className="dataTableHeader">Name</th>
+              {/* <th className="dataTableHeader">Last Name</th> */}
+              <th className="dataTableHeader">DOB</th>
+              <th className="dataTableHeader">Email</th>
+              <th className="dataTableHeader">Phone</th>
+              <th className="dataTableHeader">Rent or Own?</th>
+              <th className="dataTableHeader">Home Type</th>
+              <th className="dataTableHeader"># Months at Address</th>
+              <th className="dataTableHeader">Yard Description</th>
+              <th className="dataTableHeader">Children?</th>
+              <th className="dataTableHeader">Pet Allergies?</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          {/* </thead>
+          <tbody> */}
+            {applicants.map(a => (
+              <tr key={a.id} className="dataTable">
+                <td className="dataTable">
+                  <Button onClick={() => openEditApplicantModal(a)}
+                    class="btn btn-large"
+                    style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+                  >
+                    Edit
+                  </Button>
 
+                  <EditApplicantModal
+                    show={showEditApplicant}
+                    onHide={() => setShowEditApplicant(false)}
+                  />
+                
+                </td>
+                <td className="dataTable">{a.id}</td>
+                <td className="dataTable">{a.approved ? "Yes" : "No"}</td>
+                <td className="dataTable">{a.firstName} {a.lastName}</td>
+                {/* <td className="dataTable">{a.lastName}</td> */}
+                <td className="dataTable">{a.dob}</td>
+                <td className="dataTable">{a.email}</td>
+                <td className="dataTable">{a.phone}</td>
+                <td className="dataTable">{a.rent_own}</td>
+                <td className="dataTable">{a.home_type}</td>
+                <td className="dataTable">{a.length_address}</td>
+                <td className="dataTable">{a.yard_description}</td>
+                <td className="dataTable">{a.children}</td>
+                <td className="dataTable">{a.pet_allergy}</td>
+              </tr>
+            ))}
+          {/* </tbody> */}
+        </table>
+      </div>
     </div>
   )
 }

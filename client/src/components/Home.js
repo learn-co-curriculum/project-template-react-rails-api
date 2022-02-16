@@ -19,13 +19,14 @@ export default function Home() {
         </Col>
         <Col>
           <div id="home_adoptablepets_img">
-            <img width="98%" src="./images/adoptablepets_img.jpg" alt="adoptablepets_img"/>
+            <img width="100%" src="./images/adoptablepets_img.jpg" alt="adoptablepets_img"/>
           </div>
         </Col>
       </Row>
+
       <Row className="home_infocards">
         <Col>
-          <Card style={{ width: '18rem' }}>
+          <Card style={{ width: '20rem', padding: '20px', margin: '20px' }}>
             <Card.Img variant="top" src="./images/adoptionprocess.png" />
             <Card.Body>
               <Card.Title>The Adoption Process</Card.Title>
@@ -38,7 +39,7 @@ export default function Home() {
           </Card>
         </Col>
         <Col>
-          <Card style={{ width: '18rem' }}>
+          <Card style={{ width: '20rem', padding: '20px', margin: '20px' }}>
             <Card.Img variant="top" src="./images/homeapt.jpg" />
             <Card.Body>
               <Card.Title>Renting With Pets</Card.Title>
@@ -51,7 +52,7 @@ export default function Home() {
           </Card>
         </Col>
         <Col>
-          <Card style={{ width: '18rem' }}>
+          <Card style={{ width: '20rem', padding: '20px', margin: '20px' }}>
             <Card.Img variant="top" src="./images/training.jpeg" />
             <Card.Body>
               <Card.Title>Pet Training Resources</Card.Title>

@@ -2,10 +2,15 @@
   color: #424242
 }
 .logo {
-  height: 90px;
+  height: 100px;
+}
+.footerLogo {
+  height: 70px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.navbar, .pageName {
+.navbar, #footer, .pageName {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,7 +36,10 @@ tr:hover {
   background-color: #f2f2f2;
 } */
 
-#home {
+#home_infocards {
+  margin: 20px;
+  display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
@@ -60,15 +68,32 @@ tr:hover {
   text-align: left;
 }
 
-#login {
-  background: #fff url(http://localhost:4000/images/house.jpg) center center/cover no-repeat local;
-  margin: 0px 25px 0px 25px; /* top right bottom left */
-}
-#loginForm {
+#loginForm, #signupForm {
   padding: 45px;
   margin: 60px;
   background-color: white;
   border-radius: 25px;
+  opacity: 0.9;
+}
+#applicant_signup {
+  width: 73%;
+  background-image: url(http://localhost:4000/images/signupImg.jpg);
+  background-size: cover;
+  margin: auto; /*top right bottom left*/
+  display: flex;
+  align-items: center;
+}
+#login {
+  width: 73%;
+  height: 50rem;
+  background-image: url(http://localhost:4000/images/loginImg.jpg);
+  /* center center/cover no-repeat local; */
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto; /*top right bottom left*/
+  display: flex;
+  align-items: center;
 }
 #loginErrors {
   color: red;

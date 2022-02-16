@@ -49,16 +49,15 @@
   margin: 60px;
   background-color: white;
   border-radius: 25px;
-  /* justify-content: left; */
 }
 #loginErrors {
   color: red;
 }
 
 #footer {
-  /* position: fixed;
+  position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%; */
+  width: 100%; 
   text-align: center;
 }

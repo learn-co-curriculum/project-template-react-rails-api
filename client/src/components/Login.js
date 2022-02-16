@@ -36,7 +36,7 @@ export default function Login({ setCurrentUser, portal, setPortal }) {
 
   return (
     <div id="login" className="rescueportal">
-      <form onSubmit={handleSubmit}>
+      <form id="loginForm" onSubmit={handleSubmit}>
         <h3>Log in</h3>
         <div className="form-group">
             <label>Email</label>

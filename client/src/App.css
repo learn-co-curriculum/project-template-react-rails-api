@@ -10,7 +10,6 @@
 
 
 #home {
-  /* display: flex; */
   align-items: center;
   justify-content: center;
 }
@@ -29,14 +28,6 @@
   padding: 10px 0px;
 }
 
-/* #adoptable_pets {
-  height: auto;
-  width: 84%;
-  margin-left: 6%;
-  display: inline-flex;
-  flex-wrap: wrap;
-} */
-
 .pet {
   padding: 5px;
 }
@@ -52,10 +43,11 @@
   margin: 25px;
 }
 #loginForm {
-  padding: 25px;
-  margin: 70px;
+  padding: 45px;
+  margin: 50px;
   background-color: white;
   border-radius: 25px;
+  /* justify-content: left; */
 }
 
 #footer {

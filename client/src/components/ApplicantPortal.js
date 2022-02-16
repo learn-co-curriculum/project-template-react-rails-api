@@ -7,9 +7,6 @@ export default function ApplicantPortal({ currentUser, applications, setApplicat
   return (
     <div id="applicant_portal">
        <Switch>
-       {/* <Route exact path="/applicantportal">
-            <ApplicantPortal currentUser={currentUser} applications={applications} setApplications={setApplications} pets={pets} />
-          </Route> */}
         <Route exact path='/applicantportal'>
           <Applications currentUser={currentUser} applications={applications}/>
         </Route>

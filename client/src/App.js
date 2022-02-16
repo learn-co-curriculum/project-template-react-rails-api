@@ -11,7 +11,7 @@ import Portal from "./components/Portal";
 import AdoptablePets from "./components/AdoptablePets";
 import Applications from "./components/Applications";
 import ApplicantNavBar from "./components/ApplicantNavBar";
-import ApplicantPortal from "./components/ApplicantPortal";
+// import ApplicantPortal from "./components/ApplicantPortal";
 import ApplicantSignUp from "./components/ApplicantSignUp";
 import AdminNavBar from "./components/AdminNavBar";
 import AdminPortal from "./components/AdminPortal";
@@ -145,9 +145,6 @@ function App() {
         <ApplicantNavBar currentUser={currentUser} handleLogOut={handleLogOut}/>
 
         <Switch>
-          {/* <Route exact path="/applicantportal">
-            <ApplicantPortal currentUser={currentUser} applications={applications} setApplications={setApplications} pets={pets} />
-          </Route> */}
           <Route exact path="/applicantportal">
             <Applications currentUser={currentUser} applications={applications}/>
           </Route>

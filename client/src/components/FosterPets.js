@@ -11,27 +11,9 @@ export default function FosterPets({ currentUser, petFosters, setPets }) {
   const [petToUpdate, setPetToUpdate] = useState({id: "", name: "", status: "", image: "", species: "", breed: "", age: "", height: "", weight: "", fixed: "", energy_level: "", coat_type: "", coat_color: "", good_w_kids: "", good_w_cats: "", behavioral_issues: "", description: "", rabies_vaccine: "",FVRCP_vaccine: "", distemper_parvo_vaccine: "", dewormed: "", pet_foster: [], foster: []});
 
   let filteredFosterPets = petFosters.filter(petFoster => currentUser.email === petFoster.foster.email);
-  // console.log("filteredFosterPets", filteredFosterPets)
-
 
   function editPet(e) {
     let petObj = {}
-    // e.target[0].value //Name
-      // e.target[1].value //Species
-      // e.target[2].value //Breed
-      // e.target[3].value //Age
-      // e.target[4].value //Height
-      // e.target[5].value //Weigiht
-      // e.target[6].value //Energy
-      // e.target[7].value //Coat type
-      // e.target[8].value //Coat Color
-      // e.target[9].value //Good w kids BOOLEAN
-      // e.target[10].value //Good w cats BOOLEAN
-      // e.target[11].value //Behavioral Issues BOOLEAN
-      // e.target[12].value //Dewormed BOOLEAN
-      // e.target[13].value //Rabies vaccine
-      // e.target[14].value //FVRCP vaccine
-      // e.target[15].value //Description
 
     if (e.target[0].value === "") {
       petObj["name"] = petToUpdate.name;
@@ -360,7 +342,11 @@ export default function FosterPets({ currentUser, petFosters, setPets }) {
 
               <br />
 
-            <Button variant="primary" type="submit">
+            <Button 
+              type="submit"
+              class="btn btn-large" 
+              style={{ backgroundColor: "#f4805c", color: "white", fontWeight: "bold", "fontSize":"14px"}}  
+            >
               Submit
             </Button>
           </Form>
@@ -385,12 +371,9 @@ export default function FosterPets({ currentUser, petFosters, setPets }) {
         <thead>
           <tr>
             <th>Edit</th>
-            {/* <th>Pet #</th> */}
             <th>Status</th>
             <th>Name</th>
             <th>Picture</th>
-            {/* <th>Foster</th> */}
-            {/* <th>Species</th> */}
             <th>Breed</th>
             <th>Age</th>
             <th>Height</th>
@@ -405,14 +388,16 @@ export default function FosterPets({ currentUser, petFosters, setPets }) {
             <th>FVRCP Vaccine (cat only)</th>
             <th>Distemper/Parvo Vaccine</th>
             <th>Dewormed?</th>
-            {/* <th>Description</th> */}
           </tr>
         </thead>
         <tbody>
           {filteredFosterPets.map(petObj => (
             <tr key={petObj.pet.id}>
               <td>
-                <Button onClick={() => openEditPetModal(petObj.pet)}>
+                <Button 
+                  class="btn btn-large" 
+                  style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+                  onClick={() => openEditPetModal(petObj.pet)}>
                   Edit
                 </Button>
 
@@ -421,14 +406,11 @@ export default function FosterPets({ currentUser, petFosters, setPets }) {
                   onHide={() => setShowEditPet(false)}
                 />              
               </td>
-              {/* <td>{petObj.pet.id}</td> */}
               <td>{petObj.pet.status}</td>
               <td>{petObj.pet.name}</td>
               <td>
                 <img alt={petObj.pet.id} src={petObj.pet.image} height="50px"/>
               </td>
-              {/* <td>{petObj.foster.first_name} {petObj.foster.last_name}</td> */}
-              {/* <td>{petObj.pet.species}</td> */}
               <td>{petObj.pet.breed}</td>
               <td>{petObj.pet.age}</td>
               <td>{petObj.pet.height}</td>
@@ -443,7 +425,6 @@ export default function FosterPets({ currentUser, petFosters, setPets }) {
               <td>{petObj.pet.species === "Cat" ? petObj.pet.FVRCP_vaccine : "---"}</td>
               <td>{petObj.pet.distemper_parvo_vaccine}</td>
               <td>{petObj.pet.dewormed ? "Yes" : "No"}</td>
-              {/* <td>{petObj.pet.description}</td> */}
             </tr>
           ))}
         </tbody>

@@ -226,7 +226,10 @@ export default function AdminApplicants({ pets, applicants, setApplicants }) {
 
               <br/>
 
-              <Button variant="primary" type="submit">
+              <Button type="submit"
+                class="btn btn-large" 
+                style={{ backgroundColor: "#f4805c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+              >
                 Update
               </Button>
             </Form>
@@ -267,7 +270,10 @@ export default function AdminApplicants({ pets, applicants, setApplicants }) {
           {applicants.map(a => (
             <tr key={a.id}>
               <td>
-                <Button onClick={() => openEditApplicantModal(a)}>
+                <Button onClick={() => openEditApplicantModal(a)}
+                  class="btn btn-large"
+                  style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+                >
                   Edit
                 </Button>
 

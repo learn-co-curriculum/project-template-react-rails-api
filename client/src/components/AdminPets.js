@@ -182,7 +182,10 @@ export default function AdminPets({ pets, setPets, fosters, setFosters, petFoste
               <Form.Control as="textarea" rows={2}/>
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button type="submit"
+              class="btn btn-large" 
+              style={{ backgroundColor: "#f4805c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+            >
               Submit
             </Button>
           </Form>
@@ -566,7 +569,10 @@ export default function AdminPets({ pets, setPets, fosters, setFosters, petFoste
 
               <br />
 
-            <Button variant="primary" type="submit">
+            <Button type="submit"
+              class="btn btn-large" 
+              style={{ backgroundColor: "#f4805c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+            >
               Submit
             </Button>
           </Form>
@@ -588,7 +594,11 @@ export default function AdminPets({ pets, setPets, fosters, setFosters, petFoste
       <h3>Rescue Pets</h3>
 
       <>
-        <Button variant="primary" onClick={() => setShowAddPet(true)}>
+        <Button 
+          onClick={() => setShowAddPet(true)}
+          class="btn btn-large"
+          style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+        >
           Add Pet
         </Button>
 
@@ -628,7 +638,10 @@ export default function AdminPets({ pets, setPets, fosters, setFosters, petFoste
           {pets.map(pet => (
             <tr key={pet.id}>
               <td>
-                <Button onClick={() => openEditPetModal(pet)}>
+                <Button onClick={() => openEditPetModal(pet)}
+                  class="btn btn-large"
+                  style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+                >
                   Edit
                 </Button>
 

@@ -8,7 +8,7 @@ export default function Home() {
     <Container id="home">
       <Row className="home_adoptablepets">
         <Col>
-              <h1>Find your next best friend!</h1>
+              <h2>Find your next best friend!</h2>
               <p>With integrity, we aim to protect the abandoned by giving them hope for the future and selecting a home that will fit their needs.</p>
               <Button 
                 type="button" 

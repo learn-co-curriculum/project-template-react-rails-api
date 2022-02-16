@@ -192,18 +192,15 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
               </Form.Group>
             </Row>
             
-            <Button variant="primary" type="submit">
+            <Button type="submit"
+              class="btn btn-large" 
+              style={{ backgroundColor: "#f4805c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+            >
               Submit
             </Button>
             {/* <Button onClick={props.onHide}>Close</Button> */}
           </Form>
         </Modal.Body>
-        {/* <Modal.Footer>
-         <Button variant="primary" type="submit">
-              Submit
-          </Button>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer> */}
       </Modal>
     );
   }
@@ -267,7 +264,7 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
   // }
 
   return (
-    <div id="admin_fosters" class="table">
+    <div id="admin_fosters">
       <h3>Fosters</h3>
       {/* <>
         <Button variant="primary" onClick={() => setShowAddFoster(true)}>
@@ -306,7 +303,10 @@ export default function AdminFosters({ fosters, setFosters, pets, setPets, petFo
           {fosters.map((f, i) => (
             <tr key={f.id}>
               <td>     
-                <Button onClick={() => openEditFosterModal(f)}>
+                <Button onClick={() => openEditFosterModal(f)}
+                  class="btn btn-large"
+                  style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+                >
                   Edit
                 </Button>
 

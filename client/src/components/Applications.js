@@ -3,16 +3,18 @@ import Table from 'react-bootstrap/Table'
 
 export default function Applications({ currentUser, applications }) {
   let userApps = applications.filter(app => app.applicant_id === currentUser.applicant_id);
+  
   return (
     <div id="applications">
       <h3>Pet Application Status</h3>
-      <Table striped bordered hover>
+      <Table bordered hover >
         <thead>
           <tr>
             <th>App #</th>
             <th>App Status</th>
-            <th>Pet</th>
+            <th>Picture</th>
             <th>Pet Status</th>
+            <th>Pet</th>
           </tr>
         </thead>
         <tbody>
@@ -20,8 +22,11 @@ export default function Applications({ currentUser, applications }) {
             <tr>
               <td>{app.id}</td>
               <td>{app.status}</td>
-              <td>{app.pet.name}, {app.pet.age}, {app.pet.breed}</td>
+              <td>
+                <img alt={app.pet.id} src={app.pet.image} height="50px"/>
+              </td>
               <td>{app.pet.status}</td>
+              <td>{app.pet.name}, {app.pet.age}, {app.pet.breed}</td>
             </tr>
           ))}
         </tbody>

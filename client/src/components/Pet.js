@@ -80,7 +80,7 @@ export default function Pet({ pet, currentUser }) {
             <Modal.Footer>
               { currentUser ? 
                 <>
-                  <Button class="btn btn-large" style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}} onClick={handleAdoptRequest}>
+                  <Button class="btn btn-large" style={{ backgroundColor: "#f4805c", color: "white", fontWeight: "bold", "fontSize":"14px"}} onClick={handleAdoptRequest}>
                     Apply to Adopt
                   </Button>
                   <Button variant="secondary" onClick={handleClose}>
@@ -89,7 +89,7 @@ export default function Pet({ pet, currentUser }) {
                 </>
                 : 
                 <>
-                  <Button class="btn btn-large" style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}} href="/homeportal/signup">
+                  <Button class="btn btn-large" style={{ backgroundColor: "#f4805c", color: "white", fontWeight: "bold", "fontSize":"14px"}} href="/homeportal/signup">
                     Register/Log In to Adopt
                   </Button>
                   <Button variant="secondary" onClick={handleClose}>

@@ -65,7 +65,12 @@ export default function AdminApplications({ applications, setApplications }) {
                   </Form.Select>
           </Form.Group>
           
-          <Button variant="primary" type="submit">
+          <br />
+          
+          <Button type="submit"
+            class="btn btn-large" 
+            style={{ backgroundColor: "#f4805c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+          >
             Update
           </Button>
         </Form>
@@ -97,7 +102,10 @@ export default function AdminApplications({ applications, setApplications }) {
           {applications.map(a => (
             <tr key={a.id}>
               <td>
-                <Button onClick={() => openEditAppModal(a)}>
+                <Button onClick={() => openEditAppModal(a)}
+                  class="btn btn-large"
+                  style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+                >
                   Edit
                 </Button>
 

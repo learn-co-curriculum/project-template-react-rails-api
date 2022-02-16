@@ -48,7 +48,7 @@ export default function Pet({ pet, currentUser }) {
     <div className="pet">
 
       <Card style={{ width: '15rem' }} className="petCard">
-        <Card.Img variant="top" src={pet.image} className="petImg"/>
+        <Card.Img variant="top" src={pet.image} className="petImg" onClick={handleShow}/>
         <Card.Body>
           <Card.Title>{pet.name}, {pet.breed}, {pet.age}</Card.Title>
         </Card.Body>
@@ -60,9 +60,9 @@ export default function Pet({ pet, currentUser }) {
         </ListGroup>
 
         <>
-          <Button variant="primary" onClick={handleShow}>
+          {/* <Button variant="primary" onClick={handleShow}>
             More details
-          </Button>
+          </Button> */}
 
           <Modal show={show} onHide={handleClose}>
             <Modal.Header>

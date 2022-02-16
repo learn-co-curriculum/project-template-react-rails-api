@@ -18,7 +18,6 @@ import AdminPortal from "./components/AdminPortal";
 import AdminPets from "./components/AdminPets";
 import AdminApplicants from "./components/AdminApplicants";
 import AdminFosters from "./components/AdminFosters";
-// import EditFoster from "./components/EditFoster";
 import AdminApplications from "./components/AdminApplications";
 import AdminSignUp from "./components/AdminSignUp";
 import FosterNavBar from "./components/FosterNavBar";
@@ -146,6 +145,9 @@ function App() {
         <ApplicantNavBar currentUser={currentUser} handleLogOut={handleLogOut}/>
 
         <Switch>
+          {/* <Route exact path="/applicantportal">
+            <ApplicantPortal currentUser={currentUser} applications={applications} setApplications={setApplications} pets={pets} />
+          </Route> */}
           <Route exact path="/applicantportal">
             <Applications currentUser={currentUser} applications={applications}/>
           </Route>

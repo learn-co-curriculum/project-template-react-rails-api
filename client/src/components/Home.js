@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 export default function Home() {
   return (
-    <Container>
+    <Container id="home">
       <Row className="home_adoptablepets">
         <Col>
               <h1>Find your next best friend!</h1>
@@ -14,7 +14,7 @@ export default function Home() {
         </Col>
         <Col>
           <div id="home_adoptablepets_img">
-            <img width="87%" src="./images/adoptablepets_img.jpg" alt="adoptablepets_img"/>
+            <img width="98%" src="./images/adoptablepets_img.jpg" alt="adoptablepets_img"/>
           </div>
         </Col>
       </Row>

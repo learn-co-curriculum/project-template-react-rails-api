@@ -21,7 +21,7 @@ export default function ApplicantNavBar({ currentUser, handleLogOut }) {
             {/* keep this nav so links render on right side */}
           </Nav>
           <Nav>
-            <Nav.Link href="/applicantportal">Applicant Portal</Nav.Link>
+            <Nav.Link href="/applicantportal">Applications</Nav.Link>
             <Nav.Link href="/applicantportal/adoptablepets">Adoptable Pets</Nav.Link>
             <Nav.Link href="/" onClick={handleLogOut}>Log Out</Nav.Link>
           </Nav>

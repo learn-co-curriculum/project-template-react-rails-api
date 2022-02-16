@@ -1,37 +1,61 @@
 .logo {
-  height: 95px;
+  height: 90px;
 }
 
 .navbar {
-  width: 83%;
-  margin-left: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.pet {
-  padding: 5px;
+
+#home {
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
 }
 
-.home_adoptablepets, .home_infocards {
-  padding: 15px 0px;
-}
-
-#adoptable_pets {
+.adoptablePets {
   height: auto;
   width: 84%;
   margin-left: 6%;
   display: inline-flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
-#pets {
-  margin: 10px;
+.home_infocards {
+  padding: 10px 0px;
+}
+
+/* #adoptable_pets {
+  height: auto;
+  width: 84%;
+  margin-left: 6%;
+  display: inline-flex;
+  flex-wrap: wrap;
+} */
+
+.pet {
+  padding: 5px;
 }
 
 .rescueportal {
-  /* border-style: solid; */
   display: flex;
   justify-content: center;
   text-align: left;
+}
+
+#login {
+  background: #fff url(http://localhost:4000/images/house.jpg) center center/cover no-repeat local;
+  margin: 25px;
+}
+#loginForm {
+  padding: 25px;
+  margin: 70px;
+  background-color: white;
+  border-radius: 25px;
 }
 
 #footer {
@@ -40,46 +64,4 @@
   bottom: 0;
   width: 100%;
   text-align: center;
-
 }
-
-
-
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

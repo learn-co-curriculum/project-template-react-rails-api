@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function AdminNavBar({ currentUser, handleLogOut }) {
   
@@ -23,6 +24,22 @@ export default function AdminNavBar({ currentUser, handleLogOut }) {
           </Nav>
           <Nav>
             <Nav.Link href="/adminportal/pets">Pets</Nav.Link>
+
+
+
+            {/* <NavDropdown title="Pets" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/homeportal">Add Pet</NavDropdown.Item>
+            </NavDropdown> */}
+
+
+
+
+
+
+
+
+
+
             <Nav.Link href="/adminportal/applicants">Applicants</Nav.Link>
             <Nav.Link href="/adminportal/applications">Applications</Nav.Link>
             <Nav.Link href="/adminportal/fosters">Fosters</Nav.Link>

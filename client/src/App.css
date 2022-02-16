@@ -1,3 +1,6 @@
+* {
+  color: #424242
+}
 .logo {
   height: 90px;
 }
@@ -7,7 +10,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 #home {
   align-items: center;
@@ -40,20 +42,20 @@
 
 #login {
   background: #fff url(http://localhost:4000/images/house.jpg) center center/cover no-repeat local;
-  margin: 25px;
+  margin: 0px 25px 0px 25px; /* top right bottom left */
 }
 #loginForm {
   padding: 45px;
-  margin: 50px;
+  margin: 60px;
   background-color: white;
   border-radius: 25px;
   /* justify-content: left; */
 }
 
 #footer {
-  position: fixed;
+  /* position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: 100%; */
   text-align: center;
 }

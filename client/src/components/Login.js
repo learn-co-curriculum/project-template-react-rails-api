@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from 'react-bootstrap/Button';
 
 export default function Login({ setCurrentUser, portal, setPortal }) {
   const [email, setEmail] = useState("");
@@ -26,6 +27,8 @@ export default function Login({ setCurrentUser, portal, setPortal }) {
           endpointToRender = "/fosterportal/pets"
         } 
         setPortal(user.role)
+        // below redirects user to specified url
+        window.location.href = `http://localhost:4000${endpointToRender}`;
       })} else {
         r.json().then((err)=> {
           console.log("Something went wrong w Login component", err)
@@ -51,22 +54,16 @@ export default function Login({ setCurrentUser, portal, setPortal }) {
             <label>Password</label>
             <input type="password" className="form-control" placeholder="Enter password" onChange={(e) => setPassword(e.target.value)}/>
         </div>
-
-        {/* <div className="form-group">
-            <div className="custom-control custom-checkbox">
-                <input type="checkbox" className="custom-control-input" id="customCheck1" />
-            </div>
-        </div> */}
         <br />
 
-        <button type="submit" className="btn btn-dark btn-lg btn-block" href={endpointToRender}>Sign in</button> 
-        {/* make sure to have the href in the above button able to dynamically render correct portal */}
-        <p className="forgot-password text-right">
+        <Button 
+          class="btn btn-large" 
+          style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+          type="submit" 
+        >Sign in</Button> 
+        <p id="linkSignUpInstead">
             <a href="/homeportal/signup">sign up instead?</a>
         </p>
-        {/* <p className="forgot-password text-right">
-            Forgot <a href="#">password?</a>
-        </p> */}
       </form>
     </div>
   )

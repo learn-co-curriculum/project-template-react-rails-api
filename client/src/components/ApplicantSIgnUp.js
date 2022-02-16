@@ -214,7 +214,7 @@ function handleSignUp(e) {
 
             <br/>
 
-            <Button variant="primary" type="submit">
+            <Button class="btn btn-large" style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}} type="submit">
               Submit
             </Button>
             <p className="forgot-password text-right">

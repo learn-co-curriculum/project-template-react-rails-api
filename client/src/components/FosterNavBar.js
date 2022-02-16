@@ -22,7 +22,7 @@ export default function FosterNavBar({ currentUser, handleLogOut }) {
             {/* keep this nav so links render on right side */}
           </Nav>
           <Nav>
-            <Nav.Link href="/fosterportal/pets">Pets</Nav.Link>
+            {/* <Nav.Link href="/fosterportal/pets">Pets</Nav.Link> */}
             <Nav.Link href="/" onClick={handleLogOut}>Log Out</Nav.Link>
           </Nav>
         </Navbar.Collapse>

@@ -11,7 +11,6 @@ import Portal from "./components/Portal";
 import AdoptablePets from "./components/AdoptablePets";
 import Applications from "./components/Applications";
 import ApplicantNavBar from "./components/ApplicantNavBar";
-// import ApplicantPortal from "./components/ApplicantPortal";
 import ApplicantSignUp from "./components/ApplicantSignUp";
 import AdminNavBar from "./components/AdminNavBar";
 import AdminPortal from "./components/AdminPortal";

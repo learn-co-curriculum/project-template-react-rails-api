@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 export default function Login({ setCurrentUser, portal, setPortal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [err, setErr] = useState([]);
 
   let endpointToRender; // this var is set in the .then() of handleSubmit()
 
@@ -32,6 +33,7 @@ export default function Login({ setCurrentUser, portal, setPortal }) {
       })} else {
         r.json().then((err)=> {
           console.log("Something went wrong w Login component", err)
+          setErr(err.errors);
         })
       }
     })
@@ -53,6 +55,10 @@ export default function Login({ setCurrentUser, portal, setPortal }) {
         <div className="form-group">
             <label>Password</label>
             <input type="password" className="form-control" placeholder="Enter password" onChange={(e) => setPassword(e.target.value)}/>
+        </div>
+
+        <div id="loginErrors">
+            {err}
         </div>
         <br />
 

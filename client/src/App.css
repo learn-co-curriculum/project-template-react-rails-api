@@ -51,6 +51,9 @@
   border-radius: 25px;
   /* justify-content: left; */
 }
+#loginErrors {
+  color: red;
+}
 
 #footer {
   /* position: fixed;

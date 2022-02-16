@@ -16,6 +16,9 @@
   justify-content: center;
 }
 
+.table {
+  width: 83%;
+}
 .dataTable, .dataRow {
   border: 1px solid #424242;
   padding: 5px;

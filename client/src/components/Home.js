@@ -26,39 +26,36 @@ export default function Home() {
 
       <Row className="home_infocards">
         <Col>
-          <Card style={{ width: '20rem', padding: '20px', margin: '20px' }}>
+          <Card style={{ width: '22rem', padding: '20px', margin: '20px' }}>
             <Card.Img variant="top" src="./images/adoptionprocess.png" />
             <Card.Body>
               <Card.Title>The Adoption Process</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                Learn about our custom adoption process and how we match pets to their potential homes.
               </Card.Text>
               <Button class="btn btn-large" style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}>Learn More</Button>
             </Card.Body>
           </Card>
         </Col>
         <Col>
-          <Card style={{ width: '20rem', padding: '20px', margin: '20px' }}>
+          <Card style={{ width: '22rem', padding: '20px', margin: '20px' }}>
             <Card.Img variant="top" src="./images/homeapt.jpg" />
             <Card.Body>
               <Card.Title>Renting With Pets</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+              Click to learn about common policies and fees associated with adopting a pet while renting your home.
               </Card.Text>
               <Button class="btn btn-large" style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}>Learn More</Button>
             </Card.Body>
           </Card>
         </Col>
         <Col>
-          <Card style={{ width: '20rem', padding: '20px', margin: '20px' }}>
+          <Card style={{ width: '22rem', padding: '20px', margin: '20px' }}>
             <Card.Img variant="top" src="./images/training.jpeg" />
             <Card.Body>
               <Card.Title>Pet Training Resources</Card.Title>
               <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
+                Every family is unique training not only helps your pet integrate into your family, it strengthen your bond.
               </Card.Text>
               <Button class="btn btn-large" style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}>Learn More</Button>
             </Card.Body>

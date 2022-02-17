@@ -34,9 +34,6 @@
 tr:hover {
   background-color: #df8c5549 !important;
 }
-/* tr:nth-child(even) {
-  background-color: #f2f2f2;
-} */
 
 #home_infocards {
   margin: 20px;
@@ -48,12 +45,12 @@ tr:hover {
 
 .adoptablePets {
   height: auto;
-  width: 84%;
-  margin-left: 6%;
-  display: inline-flex;
+  width: 74%;
+  margin: auto;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  display: flex;
 }
 
 .home_infocards {

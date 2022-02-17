@@ -244,7 +244,7 @@ export default function AdminApplicants({ pets, applicants, setApplicants }) {
   }
 
   return (
-    <div id="admin_applicants" className="table">
+    <div id="admin_applicants">
       <h3 className="pageName">Applicants</h3>
       <div style={{overflowX: "auto", width: "83%", marginLeft: "auto", marginRight: "auto"}}>
         <table className="dataTable">

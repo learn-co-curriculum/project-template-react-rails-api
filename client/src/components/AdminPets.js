@@ -590,23 +590,25 @@ export default function AdminPets({ pets, setPets, fosters, setFosters, petFoste
   }
 
   return (
-    <div id="admin_pets" className="table">
+    <div id="admin_pets">
       <h3 className="pageName">Rescue Pets</h3>
-      <>
-        <Button 
-          onClick={() => setShowAddPet(true)}
-          class="btn btn-large"
-          style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"
-          }}
-        >
-          Add Pet
-        </Button>
+      {/* <> */}
+        <div class="text-center">
+          <Button 
+            onClick={() => setShowAddPet(true)}
+            class="btn btn-large"
+            style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"
+            }}
+          >
+            Add Pet
+          </Button>
 
-        <AddPetModal
-          show={showAddPet}
-          onHide={() => setShowAddPet(false)}
-        />
-      </>
+          <AddPetModal
+            show={showAddPet}
+            onHide={() => setShowAddPet(false)}
+            />
+        </div>
+      {/* </> */}
 
       <div style={{overflowX: "auto", width: "83%", marginLeft: "auto", marginRight: "auto"}}>
         <table className="dataTable">

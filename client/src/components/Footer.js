@@ -7,6 +7,7 @@ export default function Footer() {
       <Button
         class="btn btn-large"
         style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+        href="https://cash.app/$icseen"
       >
         Donate Today!
       </Button>

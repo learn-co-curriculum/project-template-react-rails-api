@@ -85,7 +85,7 @@ export default function AdminApplications({ applications, setApplications }) {
   }
 
   return (
-    <div id="admin_applications" className="table">
+    <div id="admin_applications">
       <h3 className="pageName">Pet Applications</h3>
       {/* <div> */}
       <table className="dataTable">

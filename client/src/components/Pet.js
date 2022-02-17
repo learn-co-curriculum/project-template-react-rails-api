@@ -8,6 +8,7 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem';
 
 export default function Pet({ pet, currentUser }) {
   const [show, setShow] = useState(false);
+  const [onApp, setOnApp] = useState("Apply to Adopt!")
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -35,6 +36,7 @@ export default function Pet({ pet, currentUser }) {
     .then((r) => {
       if (r.ok) { r.json().then(pet => {
           console.log("PET POSTED OK", pet)
+          setOnApp("Submitted!")
         })
       } else {
         r.json().then((err) => {
@@ -83,7 +85,7 @@ export default function Pet({ pet, currentUser }) {
               { currentUser ? 
                 <>
                   <Button class="btn btn-large" style={{ backgroundColor: "#f4805c", color: "white", fontWeight: "bold", "fontSize":"14px"}} onClick={handleAdoptRequest}>
-                    Apply to Adopt
+                    {onApp}
                   </Button>
                   <Button variant="secondary" onClick={handleClose}>
                     Cancel

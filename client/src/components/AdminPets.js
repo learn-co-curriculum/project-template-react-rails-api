@@ -592,12 +592,12 @@ export default function AdminPets({ pets, setPets, fosters, setFosters, petFoste
   return (
     <div id="admin_pets" className="table">
       <h3 className="pageName">Rescue Pets</h3>
-
       <>
         <Button 
           onClick={() => setShowAddPet(true)}
           class="btn btn-large"
-          style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"}}
+          style={{ backgroundColor: "#9fc94c", color: "white", fontWeight: "bold", "fontSize":"14px"
+          }}
         >
           Add Pet
         </Button>
@@ -607,6 +607,7 @@ export default function AdminPets({ pets, setPets, fosters, setFosters, petFoste
           onHide={() => setShowAddPet(false)}
         />
       </>
+
       <div style={{overflowX: "auto", width: "83%", marginLeft: "auto", marginRight: "auto"}}>
         <table className="dataTable">
           {/* <thead> */}

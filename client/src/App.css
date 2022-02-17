@@ -70,17 +70,26 @@ tr:hover {
   text-align: left;
 }
 
-#loginForm, #signupForm {
+#loginForm {
   padding: 45px;
   margin: 60px;
   background-color: white;
   border-radius: 25px;
   opacity: 0.9;
 }
+#signupForm {
+  padding: 45px;
+  margin: 90px;
+  background-color: white;
+  border-radius: 25px;
+  opacity: 0.9;
+}
 #applicant_signup {
   width: 73%;
+  height: 60rem;
   background-image: url(http://localhost:4000/images/signupImg.jpg);
   background-size: cover;
+  padding: 80px;
   margin: auto; /*top right bottom left*/
   display: flex;
   align-items: center;
@@ -93,7 +102,9 @@ tr:hover {
   background-color: white;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: auto; /*top right bottom left*/
+  /* margin: auto; top right bottom left */
+  margin-right: auto;
+  margin-left: auto;
   display: flex;
   align-items: center;
 }
@@ -102,6 +113,7 @@ tr:hover {
 }
 
 #footer {
+  /* background-color: white; */
   position: fixed;
   left: 0;
   bottom: 0;

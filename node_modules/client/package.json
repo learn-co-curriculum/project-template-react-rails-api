@@ -1,0 +1,33 @@
+{
+  "author": "Mark Claydon",
+  "name": "client",
+  "description": "Continuum Bridge Raspberry Pi development package",
+  "version": "0.0.1",
+  "homepage": "http://www.continuumbridge.com/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ContinuumBridge/client.git"
+  },
+  "dependencies": {
+    "backoff": "^2.4.0",
+    "cookie": "^0.1.2",
+    "getenv": "~0.3.0",
+    "q": "~0.9.7",
+    "restler": "~2.0.1",
+    "socket.io-client": "~1.0.6",
+    "underscore": "^1.6.0",
+    "winston": "^0.7.3"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "readmeFilename": "README.md",
+  "gitHead": "e116f2d75fb3aff9a80344507865c1b0e9e29f50",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "BSD"
+}

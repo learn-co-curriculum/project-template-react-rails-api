@@ -1,0 +1,16 @@
+{
+  "name": "parseqs",
+  "version": "0.0.2",
+  "description": "Provides methods for parsing a query string into an object, and vice versa.",
+  "scripts": {
+    "test": "make test"
+  },
+  "devDependencies": {
+    "mocha": "1.17.1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-assert": "~1.0.0"
+  }
+}

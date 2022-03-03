@@ -1,0 +1,16 @@
+{
+  "name": "parseuri",
+  "version": "0.0.2",
+  "description": "Method that parses a URI and returns an array of its components",
+  "scripts": {
+    "test": "make test"
+  },
+  "devDependencies": {
+    "mocha": "1.17.1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-assert": "~1.0.0"
+  }
+}

@@ -1,6 +1,7 @@
 # Project Template: React/Rails API
 Studio Ghibli Film
 TEST
+Test 2
 ## Description
 
 This project is scaffolded so that you can build a React frontend and Rails

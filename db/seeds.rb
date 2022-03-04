@@ -7,13 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "🌱 Seeding users..."
 User.create(
-    username: "Jay",
+    username: "roll20",
+    name: "Jay",
     password_digest: "12345",
     favorite: "Gloomhaven, Wingspan, Root",
     borrowed: "Wingspan",
 )
 User.create(
-    username: "Reece",
+    username: "the_pupper",
+    name: "Reece",
     password_digest: "56789",
     favorite: "Good Dog, Bad Zombie; Dead of Winter",
     borrowed: "Werewolf",

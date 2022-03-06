@@ -34,11 +34,11 @@ function Auth({setIsAuthenticated, setUser}) {
    
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
         </label>
-        <label>
+        {/* <label>
          email
     
         <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
+        </label> */}
         <label>
          Password
     

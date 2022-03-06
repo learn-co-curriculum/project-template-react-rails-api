@@ -10,6 +10,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Home from './components/Home'
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
         });
       }
     });
-  }, []);
+  },[])
 
     // if (!user) return <Login error={'please login'} />;
 
@@ -67,6 +68,8 @@ function App() {
     <Route exact path="/productions/:id">
         <ProductionDetail cart={cart} setCart={setCart}/>
     </Route> */}
+    <Route path="/" element={<Home/>}>
+    </Route>
     <Route path="/sign_up" element={<Auth setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}>
     </Route>
 

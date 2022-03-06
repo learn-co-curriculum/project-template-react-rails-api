@@ -40,6 +40,6 @@ class UsersController < ApplicationController
         params.permit(:username, :favorite, :borrowed)
     end
     def user_params_create
-        params.permit(:username)
+        params.permit(:username, :password)
     end
 end

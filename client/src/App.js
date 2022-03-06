@@ -25,8 +25,8 @@ function App() {
       if (res.ok) {
         res.json()
         .then((user) => {
-          setIsAuthenticated(user);
-          setUser(true);
+          setIsAuthenticated(true);
+          setUser(user);
         });
       }
     });
@@ -34,27 +34,27 @@ function App() {
 
     // if (!user) return <Login error={'please login'} />;
 
-  useEffect(() => {
-    fetch("/boardgames")
-      .then((r) => r.json())
-      // .then((data)=>console.log(data))
-      .then((data) => setBGData(data));
-  }, []);
-  console.log("User:");
-  useEffect(() => {
-    fetch("/users")
-      .then((r) => r.json())
-      // .then((data)=>console.log(data))
-      .then((data) => setUserData(data));
-  }, []);
-  console.log("Boardgame Data:");
-  console.log(bgData);
-  console.log("User:");
-  console.log(userData);
+  // useEffect(() => {
+  //   fetch("/boardgames")
+  //     .then((r) => r.json())
+  //     // .then((data)=>console.log(data))
+  //     .then((data) => setBGData(data));
+  // }, []);
+  // console.log("User:");
+  // useEffect(() => {
+  //   fetch("/users")
+  //     .then((r) => r.json())
+  //     // .then((data)=>console.log(data))
+  //     .then((data) => setUserData(data));
+  // }, []);
+  // console.log("Boardgame Data:");
+  // console.log(bgData);
+  // console.log("User:");
+  // console.log(userData);
 
   return (
     <>
-    <Navigation user={user} setIsAuthenticated={setIsAuthenticated} setUser={setUser}/>
+    <Navigation user={user} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser}/>
     { (!isAuthenticated)? <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />:
 
     <Routes>

@@ -3,15 +3,15 @@ import React, {useState} from 'react'
 function Login({setIsAuthenticated, setUser}) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-   
-    const [errors, setError] = useState([])
+
+    const [errors, setErrors] = useState([])
 
     function onSubmit(e){
         e.preventDefault()
         const user = {
-            username: username,
-            password
-        }
+          username: username,
+          password, 
+      }
        
         fetch(`/login`,{
           method:'POST',
@@ -28,7 +28,7 @@ function Login({setIsAuthenticated, setUser}) {
           
         } else {
           res.json()
-          .then(json => setError(json.error))
+          .then(json => setErrors(json.error))
         }
       })
     }
@@ -48,8 +48,7 @@ function Login({setIsAuthenticated, setUser}) {
        
         <input type="submit" value="Login!" />
       </form>
-      {/* {errors ? errors.map(e => <div>{e}</div>) : null} */}
-      {errors ? console.log(errors) : null}
+      {/* {errors?errors.map(e => <div>{e}</div>):null} */}
         </>
     )
 }

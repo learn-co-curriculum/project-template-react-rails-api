@@ -33,7 +33,19 @@ function App() {
       }
     });
   },[])
-  
+
+  // to pass down to libraryList and to be used to set bgData locally
+
+    useEffect(() => {
+    fetch("/boardgames")
+      .then((r) => r.json())
+      // .then((data)=>console.log(data))
+      .then((data) => setBGData(data));
+  }, []);
+
+  function handleAddBG(addedBG) {
+    setBGData((bgData) => [...bgData, addedBG])
+  }
 
     // if (!user) return <Login error={'please login'} />;
 
@@ -70,13 +82,11 @@ function App() {
     <Route exact path="/productions/:id">
         <ProductionDetail cart={cart} setCart={setCart}/>
     </Route> */}
-    <Route path="/" element={<Home/>}>
-    </Route>
-    <Route path="/sign_up" element={<Auth setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}>
-    </Route>
-    <Route path="/login" element={ <Login  error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}>    </Route>
-    <Route path="/library" element={ <LibraryList />}>
-    </Route>
+    <Route path="/" element={<Home/>}></Route>
+    <Route path="/sign_up" element={<Auth setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}></Route>
+    <Route path="/login" element={ <Login  error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}></Route>
+    <Route path="/library" element={ <LibraryList bgData={bgData} setBGData={setBGData}/>}></Route>
+    <Route path="/newBG" element={ <LibraryForm handleAddBG={handleAddBG} />}></Route>
 
     </Routes>
 }

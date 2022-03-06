@@ -3,10 +3,18 @@ class UsersController < ApplicationController
         render json: User.all, status: :ok
     end
 
+
     def show
-        user = User.find(params[:id])
-        render json: user, status: :ok
-    end
+        if current_user
+          render json: current_user, status: :ok
+        else
+          render json: "No current session stored", status: :unauthorized
+        end
+      end
+    # def show
+    #     user = User.find(params[:id])
+    #     render json: user, status: :ok
+    # end
 
     def update
         user = User.find(params[:id])

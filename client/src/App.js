@@ -1,6 +1,16 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useState, useEffect } from "react";
+import Auth from './components/Auth'
+import Login from './components/LogIn'
+import Navigation from './components/Navigation'
+import React from "react";
+import {
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 function App() {
   const [userData, setUserData] = useState([]);
@@ -22,7 +32,8 @@ function App() {
     });
   }, []);
 
-    if (!user) return <Login error={'please login'} />;
+    // if (!user) return <Login error={'please login'} />;
+
   useEffect(() => {
     fetch("/boardgames")
       .then((r) => r.json())
@@ -42,22 +53,29 @@ function App() {
   console.log(userData);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Navigation user={user} setIsAuthenticated={setIsAuthenticated} setUser={setUser}/>
+    { (!isAuthenticated)? <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />:
+
+    <Routes>
+    {/* <Route exact path="/">
+      <ProductionContainer productions={productions}/>
+    </Route>
+    <Route exact path="/productions/new">
+      <ProductionForm handlePost={handlePost} errors={errors} />
+    </Route>
+    <Route exact path="/productions/:id">
+        <ProductionDetail cart={cart} setCart={setCart}/>
+    </Route> */}
+    <Route path="/sign_up" element={<Auth setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}>
+    </Route>
+
+    <Route path="/login" element={ <Login  error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}>
+    </Route>
+
+    </Routes>
+}
+    </>
   );
 }
 

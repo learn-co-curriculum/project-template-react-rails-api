@@ -17,7 +17,6 @@ function Navigation({cart, user, setIsAuthenticated,setUser}) {
          <div>
           {user?<h1 onClick={logout}> Logout</h1>:<h1><Link to="/login"> Login</Link></h1>}
            <h1><Link to="/sign_up"> Sign Up</Link></h1>
-           <h1><Link to="/productions/new">New Production</Link></h1>
            <h1><Link to="/"> Home</Link></h1>
          </div>
 

@@ -48,7 +48,8 @@ function Login({setIsAuthenticated, setUser}) {
        
         <input type="submit" value="Login!" />
       </form>
-      {errors?errors.map(e => <div>{e}</div>):null}
+      {/* {errors ? errors.map(e => <div>{e}</div>) : null} */}
+      {errors ? console.log(errors) : null}
         </>
     )
 }

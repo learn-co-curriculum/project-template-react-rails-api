@@ -11,6 +11,7 @@ import {
   Link
 } from "react-router-dom";
 import Home from './components/Home'
+import LibraryList from './components/LibraryList'
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
       }
     });
   },[])
+  
 
     // if (!user) return <Login error={'please login'} />;
 
@@ -72,8 +74,8 @@ function App() {
     </Route>
     <Route path="/sign_up" element={<Auth setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}>
     </Route>
-
-    <Route path="/login" element={ <Login  error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}>
+    <Route path="/login" element={ <Login  error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}>    </Route>
+    <Route path="/library" element={ <LibraryList />}>
     </Route>
 
     </Routes>

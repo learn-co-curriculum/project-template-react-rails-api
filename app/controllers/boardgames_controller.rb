@@ -28,6 +28,6 @@ class BoardgamesController < ApplicationController
 
     private
     def boardgame_params
-        params.permit(:name, :picture_url, :num_players, :description, :genre, :est_time, :user_id, :borrow, :available)
+        params.permit(:name, :picture_url, :num_players, :description, :genre, :est_time, :user_id, :borrow)
     end
 end

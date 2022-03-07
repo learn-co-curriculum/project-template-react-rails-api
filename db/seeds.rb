@@ -11,16 +11,14 @@ User.create(
     name: "Jay",
     password: "12345",
     favorite: "Gloomhaven, Wingspan, Root",
-    email: "jay@gloomhaven.com",
-    borrowed: "Wingspan",
+    email: "jay@gloomhaven.com"
 )
 User.create(
     username: "the_pupper",
     name: "Reece",
     password: "12345",
     favorite: "Good Dog, Bad Zombie; Dead of Winter",
-    email: "reece@the_pupper.com",
-    borrowed: "Werewolf",
+    email: "reece@the_pupper.com"
 )
 puts "🌱🌱🌱 Users seeded!!! 🌱🌱🌱"
 puts "🌱 Seeding Boardgames..."

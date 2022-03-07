@@ -43,9 +43,9 @@ class UsersController < ApplicationController
 
     private
     def user_params_update
-        params.permit(:username, :favorite, :borrowed)
+        params.permit(:password, :favorite, :email)
     end
     def user_params_create
-        params.permit(:username, :password)
+        params.permit(:username, :password, :name, :email, :favorite)
     end
 end

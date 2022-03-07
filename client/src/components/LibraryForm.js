@@ -9,7 +9,7 @@ import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 import FormHelperText from "@mui/material/FormHelperText";
 
-function LibraryForm({ handleAddBG }) {
+function LibraryForm({ handleAddBG, libraryForm, setLibraryForm }) {
   const initialState = {
     name: "",
     picture_url: "",
@@ -20,7 +20,6 @@ function LibraryForm({ handleAddBG }) {
     user_id: 1,
     borrow: false,
   };
-  const [libraryForm, setLibraryForm] = useState(initialState);
   function handleSetLibraryForm(att, input) {
     setLibraryForm({ ...libraryForm, [att]: input });
   }
@@ -52,7 +51,7 @@ function LibraryForm({ handleAddBG }) {
       onSubmit={submitHandler}
     >
       <div>
-        {/* <form onSubmit={submitHandler}> */}
+
           <TextField
             required
             id="outlined-required"
@@ -78,6 +77,16 @@ function LibraryForm({ handleAddBG }) {
               handleSetLibraryForm("num_players", e.target.value)
             }
             value={libraryForm.num_players}
+          />
+          <br></br>
+          <TextField
+            required
+            id="outlined-required"
+            label="Genre"
+            onChange={(e) =>
+              handleSetLibraryForm("genre", e.target.value)
+            }
+            value={libraryForm.genre}
           />
           <br></br>
           <TextField
@@ -107,7 +116,7 @@ function LibraryForm({ handleAddBG }) {
           <Button type="submit" variant="contained" id="submit">
             Submit New Game
           </Button>
-        {/* </form> */}
+
       </div>
     </Box>
   );

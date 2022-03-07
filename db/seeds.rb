@@ -91,7 +91,7 @@ Boardgame.create(
 )
 Boardgame.create(
     name: "Dead of Winter: A Crossroads Game",
-    picture_url: "https://cf.geekdo-images.com/rQkNKfuNHy6dQhfXUIn1OA__imagepage/img/81VJRp98V3fGHvbceTr6CIX3up8=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3977966.png",
+    picture_url: "https://cf.geekdo-images.com/g4mV4BH-ZrhMUVgil-yV1A__imagepage/img/CJ6erNGmKfFGhR6ZbxXbBI7XaoE=/fit-in/900x600/filters:no_upscale():strip_icc()/pic3016500.jpg",
     num_players: "2-5",
     description: "Crossroads is a game series from Plaid Hat Games that tests a group of survivors' ability to work together and stay alive while facing crises and challenges from both outside and inside. Dead of Winter: A Crossroads Game, the first title in this series, puts 2-5 players in a small, weakened colony of survivors in a world in which most of humanity is either dead or diseased, flesh-craving monsters. Each player leads a faction of survivors, with dozens of different characters in the game.
 

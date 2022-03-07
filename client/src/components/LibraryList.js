@@ -10,7 +10,9 @@ function LibraryList({bgData}){
 return(
     <div>
         {bgData.map(bg => (
-            <LibraryItem name={bg.name} 
+            <LibraryItem 
+            bg={bg}
+            name={bg.name} 
             id={bg.id} 
             picture_url={bg.picture_url} 
             num_players={bg.num_players} 

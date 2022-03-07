@@ -16,11 +16,22 @@ import LibraryForm from './components/LibraryForm'
 
 
 function App() {
+  const initialState = {
+    name: "",
+    picture_url: "",
+    num_players: "",
+    description: "",
+    genre: "",
+    est_time: "",
+    user_id: 1,
+    borrow: false,
+  }
   const [userData, setUserData] = useState([]);
   const [bgData, setBGData] = useState([]);
   // Authorization
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
+  const [libraryForm, setLibraryForm] = useState(initialState)
 
   useEffect(() => {
     fetch("/authorized_user")
@@ -87,7 +98,8 @@ function App() {
     <Route path="/sign_up" element={<Auth setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}></Route>
     <Route path="/login" element={ <Login  error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}></Route>
     <Route path="/library" element={ <LibraryList bgData={bgData} setBGData={setBGData}/>}></Route>
-    <Route path="/newBG" element={ <LibraryForm handleAddBG={handleAddBG} />}></Route>
+    <Route path="/newBG" element={ <LibraryForm handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
+    <Route path="/editBG" element={ <LibraryEditForm handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm} />}></Route>
 
     </Routes>
 }

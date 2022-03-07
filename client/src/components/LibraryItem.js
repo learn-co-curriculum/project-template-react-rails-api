@@ -8,10 +8,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
+import { CardActionArea } from '@mui/material';
 
 
 
-function LibraryItem({id, name, picture_url, num_players, summary, genre, est_time, borrow, available}) {
+
+function LibraryItem({id, name, picture_url, num_players, summary, genre, est_time, borrow, available, bg}) {
     function deleteCard(){
         console.log(id)
         const config = {method: "DELETE"}
@@ -23,6 +25,7 @@ function LibraryItem({id, name, picture_url, num_players, summary, genre, est_ti
 
     return (
         <Card sx={{ maxWidth: 750 }}>
+          <CardActionArea>
           <CardMedia
             component="img"
             height="140"
@@ -41,11 +44,25 @@ function LibraryItem({id, name, picture_url, num_players, summary, genre, est_ti
               Borrowable: {borrow ? "Yes": "No"}
             </Typography>
           </CardContent>
+          </CardActionArea>
           <CardActions>
             <Button size="small">More Info</Button>
-            <Button size="small">Edit</Button>
-            <IconButton aria-label="delete">
-            <DeleteIcon onClick={() => deleteCard()}/>
+            <Button size="small" label="edit" component={Link} to='/editBG' onClick= {() => {
+            if (bg.id === id) {
+                setLibraryProblem({
+                    name: name,
+                    picture_url: picture_url,
+                    num_players: num_players,
+                    description: description,
+                    genre: genre,
+                    est_time: est_time,
+                    user_id: 1,
+                    borrow: borrow,
+            }
+                )
+            }>Edit</Button>
+            <IconButton aria-label="delete" onClick={() => deleteCard()}>
+            <DeleteIcon />
           </IconButton>
           </CardActions>
         </Card>

@@ -11,6 +11,7 @@ User.create(
     name: "Jay",
     password: "12345",
     favorite: "Gloomhaven, Wingspan, Root",
+    email: "jay@gloomhaven.com",
     borrowed: "Wingspan",
 )
 User.create(
@@ -18,6 +19,7 @@ User.create(
     name: "Reece",
     password: "12345",
     favorite: "Good Dog, Bad Zombie; Dead of Winter",
+    email: "reece@the_pupper.com",
     borrowed: "Werewolf",
 )
 puts "🌱🌱🌱 Users seeded!!! 🌱🌱🌱"

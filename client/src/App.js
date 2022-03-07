@@ -13,6 +13,7 @@ import {
 import Home from './components/Home'
 import LibraryList from './components/LibraryList'
 import LibraryForm from './components/LibraryForm'
+import LibraryEditForm from './components/LibraryEditForm'
 
 
 function App() {
@@ -97,7 +98,7 @@ function App() {
     <Route path="/" element={<Home/>}></Route>
     <Route path="/sign_up" element={<Auth setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}></Route>
     <Route path="/login" element={ <Login  error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}></Route>
-    <Route path="/library" element={ <LibraryList bgData={bgData} setBGData={setBGData}/>}></Route>
+    <Route path="/library" element={ <LibraryList bgData={bgData} setBGData={setBGData} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
     <Route path="/newBG" element={ <LibraryForm handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
     <Route path="/editBG" element={ <LibraryEditForm handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm} />}></Route>
 

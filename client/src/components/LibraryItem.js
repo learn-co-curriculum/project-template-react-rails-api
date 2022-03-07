@@ -9,11 +9,12 @@ import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import { CardActionArea } from '@mui/material';
+import { Link } from "react-router-dom";
 
 
 
 
-function LibraryItem({id, name, picture_url, num_players, summary, genre, est_time, borrow, available, bg}) {
+function LibraryItem({id, name, picture_url, num_players, summary, genre, est_time, borrow, available, bg, setLibraryForm}) {
     function deleteCard(){
         console.log(id)
         const config = {method: "DELETE"}
@@ -49,17 +50,16 @@ function LibraryItem({id, name, picture_url, num_players, summary, genre, est_ti
             <Button size="small">More Info</Button>
             <Button size="small" label="edit" component={Link} to='/editBG' onClick= {() => {
             if (bg.id === id) {
-                setLibraryProblem({
+                setLibraryForm({
                     name: name,
                     picture_url: picture_url,
                     num_players: num_players,
-                    description: description,
+                    summary: summary,
                     genre: genre,
                     est_time: est_time,
                     user_id: 1,
                     borrow: borrow,
-            }
-                )
+            })}}
             }>Edit</Button>
             <IconButton aria-label="delete" onClick={() => deleteCard()}>
             <DeleteIcon />

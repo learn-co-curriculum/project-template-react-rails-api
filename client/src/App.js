@@ -18,6 +18,7 @@ import LibraryEditForm from './components/LibraryEditForm'
 
 function App() {
   const initialState = {
+    id: "",
     name: "",
     picture_url: "",
     num_players: "",
@@ -27,12 +28,14 @@ function App() {
     user_id: 1,
     borrow: false,
   }
+  
   const [userData, setUserData] = useState([]);
   const [bgData, setBGData] = useState([]);
   // Authorization
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [libraryForm, setLibraryForm] = useState(initialState)
+
 
   useEffect(() => {
     fetch("/authorized_user")

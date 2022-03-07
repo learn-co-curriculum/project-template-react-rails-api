@@ -51,6 +51,7 @@ function LibraryItem({id, name, picture_url, num_players, summary, genre, est_ti
             <Button size="small" label="edit" component={Link} to='/editBG' onClick= {() => {
             if (bg.id === id) {
                 setLibraryForm({
+                    id: id,
                     name: name,
                     picture_url: picture_url,
                     num_players: num_players,

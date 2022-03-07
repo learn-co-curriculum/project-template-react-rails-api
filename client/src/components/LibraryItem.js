@@ -6,8 +6,21 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+
+
 
 function LibraryItem({id, name, picture_url, num_players, summary, genre, est_time, borrow, available}) {
+    function deleteCard(){
+        console.log(id)
+        const config = {method: "DELETE"}
+        fetch(`/boardgames/${id}`, config)
+        .then((r) => r.json())
+        .then((data) => console.log(data))
+        window.location.reload()
+      }
+
     return (
         <Card sx={{ maxWidth: 750 }}>
           <CardMedia
@@ -31,7 +44,9 @@ function LibraryItem({id, name, picture_url, num_players, summary, genre, est_ti
           <CardActions>
             <Button size="small">More Info</Button>
             <Button size="small">Edit</Button>
-            <Button size="small">Delete</Button>
+            <IconButton aria-label="delete">
+            <DeleteIcon onClick={() => deleteCard()}/>
+          </IconButton>
           </CardActions>
         </Card>
       );

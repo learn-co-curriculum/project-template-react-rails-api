@@ -1,16 +1,14 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState, useEffect } from "react";
-import Auth from './components/Auth'
 import Login from './components/LogIn'
 import Navigation from './components/Navigation'
 import React from "react";
 import {
   Routes,
   Route,
-  Link
+  // Link
 } from "react-router-dom";
-import Home from './components/Home'
+// import Home from './components/Home'
 import LibraryList from './components/LibraryList'
 import LibraryForm from './components/LibraryForm'
 import LibraryEditForm from './components/LibraryEditForm'
@@ -40,19 +38,23 @@ function App() {
 
 
   useEffect(() => {
-    let isMounted = true
+    let isMounted = true;
     fetch("/authorized_user")
     .then((res) => {
       if (res.ok) {
         res.json()
         .then((user) => {
+          if(isMounted){
           setIsAuthenticated(true);
-          setUser(user);
-          
+          setUser(user);}
         });
+        return () => {
+          isMounted = false;
+          };
       }
     });
   },[])
+  
 
   // to pass down to libraryList and to be used to set bgData locally
 
@@ -105,9 +107,9 @@ function App() {
     {/* <Route path="/" element={<Home/>}></Route> */}
     {/* <Route path="/sign_up" element={<Auth setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}></Route> */}
     <Route path="/login" element={ <Login  error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}></Route>
-    <Route path="/library" element={ <LibraryList bgData={bgData} setBGData={setBGData} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
-    <Route path="/newBG" element={ <LibraryForm handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
-    <Route path="/editBG" element={ <LibraryEditForm handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm} />}></Route>
+    <Route path="/library" element={ <LibraryList user={user} bgData={bgData} setBGData={setBGData} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
+    <Route path="/newBG" element={ <LibraryForm user={user} handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
+    <Route path="/editBG" element={ <LibraryEditForm user={user} handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm} />}></Route>
     <Route path="/sign_up" element={<SignUp setIsAuthenticated={setIsAuthenticated} setUser={setUser}/>}></Route>
     <Route path="/" element={<WelcomeNewUser user={user} bgData={bgData} setBGData={setBGData} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
 

@@ -17,7 +17,7 @@ import Modal from '@mui/material/Modal';
 
 
 
-function LibraryItem({id, name, picture_url, num_players, summary, genre, est_time, borrow, available, bg, setLibraryForm}) {
+function LibraryItem({id, name, picture_url, num_players, summary, genre, est_time, borrow, available, bg, setLibraryForm, user}) {
  
 
 
@@ -107,7 +107,8 @@ function LibraryItem({id, name, picture_url, num_players, summary, genre, est_ti
           </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" label="edit" component={Link} to='/editBG' onClick= {() => {
+            <Button size="small" label="edit" component={Link} to='/editBG' 
+            onClick= {() => {
             if (bg.id === id) {
                 setLibraryForm({
                     id: id,
@@ -117,10 +118,12 @@ function LibraryItem({id, name, picture_url, num_players, summary, genre, est_ti
                     summary: summary,
                     genre: genre,
                     est_time: est_time,
-                    user_id: 1,
+                    // user_id: user.id,
                     borrow: borrow,
+                    
             })}}
-            }>Edit</Button>
+            }
+            >Edit</Button>
             <IconButton aria-label="delete" onClick={() => deleteCard()}>
             <DeleteIcon />
           </IconButton>

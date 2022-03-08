@@ -61,7 +61,7 @@ function Navigation({user, isAuthenticated, setIsAuthenticated, setUser}) {
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
               <Tab label="Home" {...a11yProps(0)} component={Link} to='/' />
-              <Tab label="Sign Up" {...a11yProps(1)} component={Link} to='/sign_up' />
+              <Tab label="Add New Game" {...a11yProps(1)} component={Link} to='/newBG' />
               {/* <Tab label="Login" {...a11yProps(2)} component={Link} to='/login' /> */}
               {user?<Tab onClick={logout} label="Logout" {...a11yProps(2)} />:<Tab label="Login" {...a11yProps(3)} component={Link} to='/login' />}
             </Tabs>

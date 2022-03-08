@@ -8,8 +8,14 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 import FormHelperText from "@mui/material/FormHelperText";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 
-function LibraryForm({ handleAddBG, libraryForm, setLibraryForm }) {
+
+
+function LibraryForm({ handleAddBG, libraryForm, setLibraryForm, user }) {
+  console.log(user)
   const initialState = {
     name: "",
     picture_url: "",
@@ -17,7 +23,7 @@ function LibraryForm({ handleAddBG, libraryForm, setLibraryForm }) {
     description: "",
     genre: "",
     est_time: "",
-    user_id: 1,
+    user_id: user.id,
     borrow: false,
   };
   function handleSetLibraryForm(att, input) {
@@ -41,6 +47,7 @@ function LibraryForm({ handleAddBG, libraryForm, setLibraryForm }) {
   }
 
   return (
+    <Container component="main" maxWidth="m">
     <Box
       component="form"
       sx={{
@@ -53,6 +60,7 @@ function LibraryForm({ handleAddBG, libraryForm, setLibraryForm }) {
       <div>
 
           <TextField
+          fullWidth
             required
             id="outlined-required"
             label="Game Name"
@@ -61,6 +69,7 @@ function LibraryForm({ handleAddBG, libraryForm, setLibraryForm }) {
           />
           <br></br>
           <TextField
+          fullWidth
             id="outlined"
             label="Game Picture URL"
             onChange={(e) =>
@@ -80,6 +89,7 @@ function LibraryForm({ handleAddBG, libraryForm, setLibraryForm }) {
           />
           <br></br>
           <TextField
+          fullWidth
             required
             id="outlined-required"
             label="Genre"
@@ -90,6 +100,7 @@ function LibraryForm({ handleAddBG, libraryForm, setLibraryForm }) {
           />
           <br></br>
           <TextField
+          fullWidth
             id="outlined"
             label="Description"
             onChange={(e) =>
@@ -119,6 +130,7 @@ function LibraryForm({ handleAddBG, libraryForm, setLibraryForm }) {
 
       </div>
     </Box>
+    </Container>
   );
 }
 

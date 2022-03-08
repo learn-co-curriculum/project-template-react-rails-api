@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import {Link} from 'react-router-dom'
 import LibraryItem from './LibraryItem'
 
-function LibraryList({bgData, libraryForm, setLibraryForm}){
+function LibraryList({bgData, libraryForm, setLibraryForm, user}){
     
 
 return(
@@ -12,6 +12,7 @@ return(
         {bgData.map(bg => (
             <LibraryItem 
             setLibraryForm = {setLibraryForm}
+            user={user}
             bg={bg}
             name={bg.name} 
             id={bg.id} 

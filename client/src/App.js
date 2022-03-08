@@ -109,7 +109,7 @@ function App() {
     <Route path="/newBG" element={ <LibraryForm handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
     <Route path="/editBG" element={ <LibraryEditForm handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm} />}></Route>
     <Route path="/sign_up" element={<SignUp setIsAuthenticated={setIsAuthenticated} setUser={setUser}/>}></Route>
-    <Route path="/" element={<WelcomeNewUser user={user}/>}></Route>
+    <Route path="/" element={<WelcomeNewUser user={user} bgData={bgData} setBGData={setBGData} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
 
     </Routes>
 }

@@ -25,7 +25,7 @@ function Login({setIsAuthenticated, setUser}) {
           .then(user=>{
             setUser(user)
             setIsAuthenticated(true)
-            // navigate("/library")
+            navigate("/")
           })
           
           

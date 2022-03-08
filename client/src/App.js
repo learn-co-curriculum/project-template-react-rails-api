@@ -25,7 +25,7 @@ function App() {
     description: "",
     genre: "",
     est_time: "",
-    user_id: 1,
+    user_id: "",
     borrow: false,
   }
   

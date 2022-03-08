@@ -82,7 +82,6 @@ function App() {
   //     }
   //   });
   // },[])
-  const welcomeUser = user
   // to pass down to libraryList and to be used to set bgData locally
 
     useEffect(() => {
@@ -138,7 +137,7 @@ function App() {
     <Route path="/newBG" element={ <LibraryForm user={user} handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
     <Route path="/editBG" element={ <LibraryEditForm user={user} handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm} />}></Route>
     <Route path="/sign_up" element={<SignUp setIsAuthenticated={setIsAuthenticated} setUser={setUser}/>}></Route>
-    <Route path="/" element={<WelcomeNewUser setUser={setUser} user={user} welcomeUser={welcomeUser} bgData={bgData} setBGData={setBGData} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
+    <Route path="/" element={<WelcomeNewUser setUser={setUser} user={user} bgData={bgData} setBGData={setBGData} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
 
     </Routes>
 }

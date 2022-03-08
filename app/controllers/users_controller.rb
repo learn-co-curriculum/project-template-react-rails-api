@@ -6,17 +6,17 @@ class UsersController < ApplicationController
     end
 
 
-    def show
-        render json: current_user, status: :ok
-
-    end 
     # def show
-    #     if current_user
-    #       render json: current_user, status: :ok
-    #     else
-    #       render json: "No current session stored", status: :unauthorized
-    #     end
-    #   end
+    #     render json: current_user, status: :ok
+
+    # end 
+    def show
+        if current_user
+          render json: current_user, status: :ok
+        else
+          render json: "No current session stored", status: :unauthorized
+        end
+      end
     # def show
     #     user = User.find(params[:id])
     #     render json: user, status: :ok

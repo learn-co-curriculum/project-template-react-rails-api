@@ -15,6 +15,7 @@ import LibraryList from './components/LibraryList'
 import LibraryForm from './components/LibraryForm'
 import LibraryEditForm from './components/LibraryEditForm'
 import SignUp from "./components/SignUp";
+import WelcomeNewUser from './components/WelcomeNewUser'
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
     borrow: false,
   }
   
-  const [userData, setUserData] = useState([]);
+  // const [userData, setUserData] = useState([]);
   const [bgData, setBGData] = useState([]);
   // Authorization
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -39,6 +40,7 @@ function App() {
 
 
   useEffect(() => {
+    let isMounted = true
     fetch("/authorized_user")
     .then((res) => {
       if (res.ok) {
@@ -46,6 +48,7 @@ function App() {
         .then((user) => {
           setIsAuthenticated(true);
           setUser(user);
+          
         });
       }
     });
@@ -80,10 +83,10 @@ function App() {
   //     .then((data) => setUserData(data));
   // }, []);
   // console.log("Boardgame Data:");
-  // console.log(bgData);
+  console.log(bgData);
   // console.log("User:");
   // console.log(userData);
-
+  console.log(user)
   return (
     <>
     <Navigation user={user} isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} setUser={setUser}/>
@@ -99,13 +102,14 @@ function App() {
     <Route exact path="/productions/:id">
         <ProductionDetail cart={cart} setCart={setCart}/>
     </Route> */}
-    <Route path="/" element={<Home/>}></Route>
+    {/* <Route path="/" element={<Home/>}></Route> */}
     {/* <Route path="/sign_up" element={<Auth setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}></Route> */}
     <Route path="/login" element={ <Login  error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />}></Route>
     <Route path="/library" element={ <LibraryList bgData={bgData} setBGData={setBGData} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
     <Route path="/newBG" element={ <LibraryForm handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm}/>}></Route>
     <Route path="/editBG" element={ <LibraryEditForm handleAddBG={handleAddBG} libraryForm={libraryForm} setLibraryForm={setLibraryForm} />}></Route>
     <Route path="/sign_up" element={<SignUp setIsAuthenticated={setIsAuthenticated} setUser={setUser}/>}></Route>
+    <Route path="/" element={<WelcomeNewUser user={user}/>}></Route>
 
     </Routes>
 }

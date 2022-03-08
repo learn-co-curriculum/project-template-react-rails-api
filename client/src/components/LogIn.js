@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
-
+import { useNavigate } from 'react-router';
 function Login({setIsAuthenticated, setUser}) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
     const [errors, setErrors] = useState([])
+    let navigate = useNavigate();
 
     function onSubmit(e){
         e.preventDefault()
@@ -24,7 +25,9 @@ function Login({setIsAuthenticated, setUser}) {
           .then(user=>{
             setUser(user)
             setIsAuthenticated(true)
+            // navigate("/library")
           })
+          
           
         } else {
           res.json()

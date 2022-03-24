@@ -5,7 +5,7 @@ class CreateRestaurants < ActiveRecord::Migration[6.1]
       t.string :username
       t.string :address
       t.string :description
-      t.string :delivery_fee
+      t.float :delivery_fee
       t.string :hours
       t.string :password_digest
 

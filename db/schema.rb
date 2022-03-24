@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2022_03_24_183446) do
   create_table "order_items", force: :cascade do |t|
     t.bigint "order_id", null: false
     t.bigint "menu_item_id", null: false
-    t.float "total"
+    t.float "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["menu_item_id"], name: "index_order_items_on_menu_item_id"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2022_03_24_183446) do
     t.string "username"
     t.string "address"
     t.string "description"
-    t.string "delivery_fee"
+    t.float "delivery_fee"
     t.string "hours"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false

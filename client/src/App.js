@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import Login from './components/Login.js'
 import { useState, useEffect } from 'react';
 import Signup from './components/Signup';
@@ -18,6 +16,7 @@ function App() {
 
 
   return (
+    
     <div className="App">
       <Login onLogin={setUser}/>
       <h1>Dating welcome</h1>

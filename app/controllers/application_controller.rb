@@ -8,7 +8,7 @@ class ApplicationController < ActionController::API
 
 # use "current_user" on user controller
   def current_user
-    User.find_by(id:session[:current_user])
+    User.find_by(id:session[:user_id])
   end
 
   def authorized_user

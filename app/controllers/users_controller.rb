@@ -9,8 +9,8 @@ class UsersController < ApplicationController
     def show
         # user = User.find(params[:id])
         # render json: user, status: :ok
-        
         if current_user
+
             render json: current_user, status: :ok
         else
             render json: "No current user", status: :unauthorized
@@ -28,8 +28,8 @@ class UsersController < ApplicationController
 
 
     def create
-        user = User.create(login_params)
-        byebug
+        user = User.create(user_params)
+      
         if user.valid?
           render json: user, status: :created
         else
@@ -52,11 +52,13 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :password, :name, :email, :photo, :location, :age)
+        params.permit(:username, :password,:password_confirmation, :name, :age, :email, :location, :photo)
+      
+
     end
 
-    def login_params
-        params.permit(:username, :password, :password_confirmation)
-    end
+    # def login_params
+    #     params.permit(:username, :password, :password_confirmation)
+    # end
 
 end

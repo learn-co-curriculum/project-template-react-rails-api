@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './components/Login.js'
 import { useState, useEffect } from 'react';
+import Signup from './components/Signup';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -15,14 +16,12 @@ function App() {
   }, []);
 
 
-  function onLogin(u){
-    console.log(u)
-  }
 
   return (
     <div className="App">
       <Login onLogin={setUser}/>
-      <h1>Dating App</h1>
+      <h1>Dating welcome</h1>
+      <Signup onLogin={setUser}/>
     </div>
   );
 }

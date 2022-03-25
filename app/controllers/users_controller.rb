@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     def show
         # user = User.find(params[:id])
         # render json: user, status: :ok
+        
         if current_user
             render json: current_user, status: :ok
         else

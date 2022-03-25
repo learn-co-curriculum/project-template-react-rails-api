@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   #TODO login and delete profile should be in session
 
-  post "/login", to: "sessions#create"
+  post "/login", to: "sessions#login"
   delete "/logout", to: "sessions#destroy"
 
   # Routing logic: fallback requests for React Router.

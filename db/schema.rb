@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 2022_03_24_205501) do
     t.string "text"
     t.string "commentable_type"
     t.bigint "commentable_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -79,6 +81,7 @@ ActiveRecord::Schema.define(version: 2022_03_24_205501) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "comments", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "technologies", "projects"
   add_foreign_key "user_projects", "projects"

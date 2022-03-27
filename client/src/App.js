@@ -5,7 +5,7 @@ import Logout from './components/Logout.js';
 import SwipePage from './components/SwipePage.js';
 import NavBar from './components/NavBar.js';
 import Matches from './components/Matches.js';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -19,7 +19,8 @@ function App() {
     });
   }, []);
 
-  console.log(profiles)
+
+
 
 const welcome = (user ? `Welcome ${user.name}` : "Login to Start Swiping")
 

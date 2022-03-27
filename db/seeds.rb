@@ -1,3 +1,5 @@
+
+
 u1 = User.create(username:"Sam", password_digest:"123", name:"yoon", email:"yoon@gmail.com", photo:"", age:1, location:"newyork")
 
 u2 = User.create(username:"paul", password_digest:"4321", name:"dan", email:"dan@gmail.com", photo:"", age:2, location:"Virginia")

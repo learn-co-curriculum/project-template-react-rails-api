@@ -1,5 +1,5 @@
-import react from "react";
-import { BrowserRouter, Route, NavLink, Switch } from "react-router-dom";
+
+import { NavLink} from "react-router-dom";
 
 
 function NavBar ({ user }){

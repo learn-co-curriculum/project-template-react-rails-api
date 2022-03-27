@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2022_03_24_214238) do
   enable_extension "plpgsql"
 
   create_table "likes", force: :cascade do |t|
+    t.integer "disliked_person_id"
     t.integer "liked_person_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false

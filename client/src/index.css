@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#profile_card{
+  border: 2px solid black;
+  padding: 50 px;
+  margin-left: default;
+  margin-right: default;
+  align-content: center;
+  text-align: center;
+  width: 200 px;
+}

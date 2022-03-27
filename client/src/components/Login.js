@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 
-function Login ({ onLogin }){
+function Login ({ onLogin, fetchProfiles }){
 
     const [login, setLogin] = useState(false);
     const [username, setUserName] = useState("");
@@ -18,7 +18,7 @@ function Login ({ onLogin }){
           body: JSON.stringify({ username, password }),
         })
           .then((r) => r.json())
-          .then((user) => onLogin(user));
+          .then((user) => (user.username ? onLogin(user) : null));
       }
     
     const loginBox = (

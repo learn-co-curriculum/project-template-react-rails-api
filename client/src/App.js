@@ -1,6 +1,7 @@
 import Login from './components/Login.js'
 import { useState, useEffect } from 'react';
 import Signup from './components/Signup';
+import Logout from './components/Logout.js';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -18,9 +19,11 @@ function App() {
   return (
     
     <div className="App">
-      <Login onLogin={setUser}/>
+      <nav className="nav-container">
+        {user ? <Logout onLogout={setUser}/> : <Login onLogin={setUser}/> }
+       </nav> 
       <h1>Dating welcome</h1>
-      <Signup onLogin={setUser}/>
+      {user ? null : <Signup onLogin={setUser}/> }
     </div>
   );
 }

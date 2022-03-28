@@ -1,10 +1,13 @@
 import React, {useState} from "react";
+import { useHistory } from "react-router-dom";
 
 function Login() {
   
   const [user, setUser] = useState("")  
   const [password, setPassword] = useState("")
-  const [errors, setErrors] = useState(null)
+  const [error, setError] = useState(null)
+
+  let history = useHistory();
     
   function handleLogin (e) {
     e.preventDefault()
@@ -16,17 +19,17 @@ function Login() {
     })
       .then(r => r.json())
       .then(data => {
-        if (data.error) {setErrors(data.error)}
+        if (data.error) {setError(data.error)}
         else {
-          setErrors(null)
+          setError(null)
           console.log("Login Success")
+          history.push("/restaurants")
         }
       }) 
   }
   
   return (
     <div>
-      <h1>Login</h1>
       <div className="login-container">
         <div className="login-box">
           <form onSubmit={handleLogin}>
@@ -59,9 +62,8 @@ function Login() {
               >
                 Log in
               </button> 
-              <p className="error">{errors ? errors : null}</p>
+              <p className="error">{error ? error : null}</p>
             </div>
-            
           </form>
         </div>
       </div>

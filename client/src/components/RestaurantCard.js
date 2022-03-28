@@ -1,14 +1,18 @@
 
+import { Link } from "react-router-dom"
+
 
 function RestaurantCard ({restaurant}) {
 
-    const {name, address, description, delivery_fee, hours, image_url} = restaurant 
+    const {name, address, description, delivery_fee, hours, image_url, id} = restaurant 
 
     return (
         <>
-            <div> {name} </div>
-            <div> {description} </div>
-            <img src={image_url} alt={name}></img>
+            <Link to={`/restaurants/${id}`}>
+                <div> {name} </div>
+                <div> {description} </div>
+                <img src={image_url} alt={name}></img>
+            </Link> 
         </>
     )
 }

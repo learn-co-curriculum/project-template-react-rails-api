@@ -1,6 +1,7 @@
 import React from "react"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import MenuItem from "./MenuItem"
 
 
 function MenuPage ({restaurants}) {
@@ -9,10 +10,7 @@ function MenuPage ({restaurants}) {
     const {menu_items} = restaurant
     const singleMenuItem = menu_items.map((item) => (
          <div> 
-             <p>{item.name}</p> 
-             <p>{item.description}</p> 
-             <p>${item.price}</p> 
-             <img src={item.image_url} alt={item.name}></img>  
+             <MenuItem item={item}/>
         </div>
     ))
 

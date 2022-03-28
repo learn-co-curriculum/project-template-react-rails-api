@@ -5,11 +5,13 @@ import HomePage from './Components/Homepage/HomePage'
 import ProfilePage from './Components/Profile/ProfilePage'
 import ProjectPage from './Components/Project/ProjectPage'
 import { Routes, Route } from "react-router-dom"
+import Navbar from './Components/Navbar';
 
 
 function App() {
   return (
     <div>
+      <Navbar />
       <h1>TWIDDLE WAKKA</h1>
       <Routes>
         <Route exact path="/" element={<PreLogin />} />

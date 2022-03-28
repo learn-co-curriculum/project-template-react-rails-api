@@ -212,3 +212,55 @@ nav li a {
 
   }
       
+
+@media only screen and (max-width : 450px) {
+    #prelogin-logo {
+        margin-left: 2%;
+        margin-top: 40%;
+        width: 100%;
+        height: 100%;
+        margin-bottom: -70px;
+    }
+
+    #prelogin-link {
+        font-size: 100px;
+        font-weight: 900;
+        letter-spacing: 10px;
+        color: rgba(255,222,89,255);
+        text-decoration: none;
+        margin-left: 50%;
+    }
+
+    #login-logo {
+        width: 55%;
+        height: 55%;
+        position: absolute;
+        top: -30px;
+        left:30px;
+    }
+
+    .forms {
+        border: black solid 2px;
+        text-align: center;
+        margin-top: 20%;
+        margin-left: 20%;
+        margin-right: 20%
+    }
+
+    .input-field {
+        display: flex;
+        flex-direction: column
+    }
+
+    .blockline {
+        margin-top: 30%;
+        height: 30px;
+        background-color: black;
+        border: 10px solid black
+    }
+
+
+
+
+}
+

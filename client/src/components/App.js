@@ -4,8 +4,19 @@ import Login from './Login'
 import logo from '../logo.svg';
 import '../styles/App.css';
 import RestaurantFeed from './RestaurantFeed';
+import MenuPage from "./MenuPage";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [restaurantsData, setRestaurantsData] = useState([])
+
+  useEffect(() => {
+    fetch("/restaurants")
+  .then((r) => r.json())
+  .then(setRestaurantsData)
+ }, [])
+
+
   return (
     <Switch>
         <Route exact path="/">
@@ -32,6 +43,11 @@ function App() {
         <Route exact path="/restaurants">
             <RestaurantFeed />
         </Route>
+        <Switch> 
+          <Route exact path="/restaurants/:restaurantId">
+              <MenuPage restaurants={restaurantsData}/>
+          </Route>
+        </Switch>
       </Switch>
   );
 }

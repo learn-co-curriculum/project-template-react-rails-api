@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
-import MenuPage from "./MenuPage"
+import MenuPage from "./MenuPage";
+import { Switch, Route } from "react-router-dom";
 
 
 function RestaurantFeed () {
@@ -22,8 +23,6 @@ function RestaurantFeed () {
                         <RestaurantCard key={restaurant.id} restaurant={restaurant}/>
                     ))}
                 </div>
-
-                {/* navlink to menu pass down menu data */} 
             </>
         )
 

@@ -10,7 +10,7 @@ import { Routes, Route } from "react-router-dom"
 function App() {
   return (
     <div>
-      <h1>TWIDDLE WAKKA</h1>
+      {/* <h1>TWIDDLE WAKKA</h1> */}
       <Routes>
         <Route exact path="/" element={<PreLogin />} />
         <Route exact path="/login" element={<Login />} />

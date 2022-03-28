@@ -2,7 +2,7 @@ function MenuItem ({item, handleDeleteItem}) {
     const {name, description, price, image_url, id} = item
 
     function handleDelete () {
-        fetch(`menu_items/${id}`, {
+        fetch(`/menu_items/${id}`, {
             method: "DELETE",
         }) 
             .then((r) => r.json())

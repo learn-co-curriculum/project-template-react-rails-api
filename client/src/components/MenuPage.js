@@ -8,13 +8,20 @@ function MenuPage ({restaurants}) {
     const {restaurantId} = useParams()
     const restaurant = restaurants.find((restaurant) => restaurant.id === parseInt(restaurantId))
     const {menu_items} = restaurant
-    const singleMenuItem = menu_items.map((item) => (
+    const [menuItems, setMenuItems] = useState(menu_items)
+    console.log(menu_items)
+    console.log(menuItems)
+
+    function handleDeleteItem(id) {
+        const updatedItems = menu_items.filter(item => item.id !== id)
+        setMenuItems(updatedItems)
+    }
+
+    const singleMenuItem = menuItems?.map((item) => (
          <div> 
-             <MenuItem item={item}/>
+             <MenuItem item={item} handleDeleteItem={handleDeleteItem}/>
         </div>
     ))
-
-
 
     return(
         <div>

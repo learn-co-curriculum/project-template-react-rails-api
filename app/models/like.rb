@@ -7,8 +7,10 @@ class Like < ApplicationRecord
     user = Like.where(user_id: likedID).take
       if user.liked_person_id === self.user_id
           return "Congratulations #{self.user.username} you matched with #{user.user.username}!"
-      else return nil
+        else return nil
     end
   end
+
+ 
 
 end

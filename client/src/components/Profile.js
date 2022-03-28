@@ -8,13 +8,14 @@ function Profile( { currentProfile }){
     console.log(randomProfile)
     // console.log(randomProfile.name)
    
-
+    // add BIO and rest of attr section after Age. 
     return(
         <div id="profile_card">
             <h2>{randomProfile ? 
             <div>
             <p>{randomProfile.name}</p>
             <p>{randomProfile.age}</p>
+            
             </div>
             
             : null}</h2>

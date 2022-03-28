@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#login"
   delete "/logout", to: "sessions#destroy"
 
+  #Like model route
+  post "/likeProfile", to: "likes#like_profile"
+  post "/dislikedProfile", to: "likes#disliked_profile"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

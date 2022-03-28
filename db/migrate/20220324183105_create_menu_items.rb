@@ -5,6 +5,7 @@ class CreateMenuItems < ActiveRecord::Migration[6.1]
       t.belongs_to :restaurant, null: false, foreign_key: true
       t.string :name
       t.float :price
+      t.string :image_url
       t.string :description
       t.string :item_type
 

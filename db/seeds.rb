@@ -6,10 +6,10 @@
 puts "Seeding..."
 
 #Users
-user = User.create(name: "test", email: "test@test.com", address: "456 Main")
+user = User.create(name: "test", email: "test@test.com", password: "password", address: "456 Main")
 
 #Restaurants
-restaurant = Restaurant.create(name: "test restaurant", username: "test_user", address: "123 Main", description: "A test restaurant", delivery_fee: 5.0, hours: "9am - 10pm")
+restaurant = Restaurant.create(name: "test restaurant", username: "test_user", password: "password", address: "123 Main", description: "A test restaurant", delivery_fee: 5.0, hours: "9am - 10pm")
 
 #Orders
 order = Order.create(user:user, restaurant:restaurant, total: 10.0)
@@ -18,10 +18,10 @@ order = Order.create(user:user, restaurant:restaurant, total: 10.0)
 menu = Menu.create(restaurant: restaurant)
 
 #Menu Items
-menu_item = MenuItem.create(menu: menu, restaurant: restaurant, name: "test menu item", price: 10.0, description: "a test menu item", item_type: "side" )
+menu_item = MenuItem.create(menu: menu, restaurant: restaurant, name: "test menu item", price: 10.0, description: "a test menu item", item_type: "side")
 
 #Order Items
-order_item = OrderItem.create(order: order, menu_item: menu_item, price: 10.0)
+order_item = OrderItem.create(order_id: order.id, menu_item_id: menu_item.id)
 
 puts "Done! 🌱"
 

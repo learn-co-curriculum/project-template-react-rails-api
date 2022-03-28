@@ -16,14 +16,14 @@ class OrdersController < ApplicationController
 
   def update  
     order = Order.find(params[:id])
-    order.update(order_params), status: :updated
-    render json: order
+    order.update(order_params)
+    render json: order, status: :updated
   end
 
   def destroy   
     order = Order.find(params[:id])
-    order.destroy, status: :deleted
-    head :no_content
+    order.destroy
+    head :no_content, status: :deleted
   end
 
   private
@@ -31,5 +31,5 @@ class OrdersController < ApplicationController
   def order_params
     params.permit(:user_id, :restaurant_id, :total)
   end
-
+  
 end

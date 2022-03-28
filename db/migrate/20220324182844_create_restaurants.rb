@@ -7,6 +7,7 @@ class CreateRestaurants < ActiveRecord::Migration[6.1]
       t.string :description
       t.float :delivery_fee
       t.string :hours
+      t.string :image_url
       t.string :password_digest
 
       t.timestamps

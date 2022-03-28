@@ -11,14 +11,14 @@ class OrderItemsController < ApplicationController
 
   def destroy   
     order_item = OrderItem.find(params[:id])
-    order_item.destroy, status: :deleted
-    head :no_content
+    order_item.destroy
+    head :no_content, status: :deleted
   end
 
   private
 
   def order_item_params
-    params.permit(:order_id, :menu_item_id, :price)
+    params.permit(:order_id, :menu_item_id)
   end
 
 end

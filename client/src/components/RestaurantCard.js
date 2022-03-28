@@ -8,7 +8,7 @@ function RestaurantCard ({restaurant}) {
         <>
             <div> {name} </div>
             <div> {description} </div>
-            
+            <img src={image_url} alt={name}></img>
         </>
     )
 }

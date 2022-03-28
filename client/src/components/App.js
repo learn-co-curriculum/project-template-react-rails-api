@@ -1,5 +1,7 @@
 import logo from '../logo.svg';
 import '../styles/App.css';
+import { Switch, Route, Router } from "react-router-dom"; 
+import RestaurantFeed from './RestaurantFeed';
 
 function App() {
   return (
@@ -18,6 +20,11 @@ function App() {
           Learn React
         </a>
       </header>
+        <Switch> 
+          <Route exact path="/restaurants">
+              <RestaurantFeed />
+          </Route>
+        </Switch>
     </div>
   );
 }

@@ -1,32 +1,39 @@
 
+import { useState } from "react"
+
 function MenuItem ({item, handleDeleteItem, onAdd}) {
     const {name, description, price, image_url, id} = item
-    
 
-    function handleDelete () {
+function MenuItem ({item, handleEdit, showEditForm, form, handleDeleteItem}) {
+    const {name, description, price, image_url, id} = item
+    
+    function handleDelete (e) {
         fetch(`/menu_items/${id}`, {
-            method: "DELETE",
+            method: "DELETE"
         }) 
-            .then((r) => r.json())
-            .then(() => console.log("deleted!"))
-            handleDeleteItem(id)
+        .then(() => console.log("deleted!"))
+        handleDeleteItem(id)
     }
 
     
 
     return (
         <div>
-            <p>{name}</p> 
-            <p>{description}</p> 
-            <p>${price}</p> 
-            <img src={image_url} alt={name}></img> 
-            <button onClick={handleDelete}> Delete Menu Item </button>
-            <button onClick={() => onAdd(item)}> Add To Cart </button>
-            
-            {/* <Link to="/shoppingcart" >
-                <div>Shopping Cart</div>
-            </Link> */}
-        </div> 
+            <div className="menu-item-card">
+                <p>{name}</p> 
+                <p>{description}</p> 
+                <p>${price}</p> 
+                <img className="food-img" src={image_url} alt={name}></img> 
+                <div className="edit-item-div">
+                    <button id={id} className ="button" onClick={handleEdit}> Edit </button>
+                    <button id={id} className ="button" onClick={handleDelete}> Delete </button>
+                    <button onClick={() => onAdd(item)}> Add To Cart </button>
+                </div>
+                {showEditForm ? form : null}
+            </div> 
+        </div>
+ 
+
     )
 
 }

@@ -10,7 +10,9 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [restaurantsData, setRestaurantsData] = useState([])
+  const [restaurant, setRestaurant] = useState(null)
   const [menuItems, setMenuItems] = useState([])
+
 
   useEffect(() => {
     fetch("/restaurants")
@@ -54,8 +56,12 @@ function App() {
             <RestaurantFeed />
         </Route>
           <Route exact path="/restaurants/:restaurantId">
-              <MenuPage restaurants={restaurantsData}/>
-          </Route>
+              <MenuPage restaurants={restaurantsData}
+                restaurants={restaurantsData}
+                setRestaurant={setRestaurant}
+                restaurant={restaurant}
+          />
+        </Route>
           {/* <Route exact path="/shoppingcart">
                 <ShoppingCart />
           </Route> */}

@@ -105,8 +105,75 @@
 }
 
 
-.restaurant-img {
+.food-img {
   height: 400px;
   width: 400px;
   object-fit: cover;
+}
+
+.menu-item-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  
+}
+
+.menu-item-card .button {
+  margin-top: 15px;
+  width: 180px;
+}
+
+.menu-item-card > * {
+  margin: 5px;
+}
+
+.edit-item-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-item-card .edit-item-div .button:first-of-type {
+  width: 70px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.menu-item-card .edit-item-div .button:last-of-type {
+  width: 70px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: rgb(255, 118, 118);
+}
+
+#add-new {
+  width: 150px;
+}
+
+.form {
+  display:flex;
+  flex-direction: column;
+  max-width: 200px;
+  align-items: center;
+}
+
+.form label > * {
+  background-color: #dbdbdb;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: rgb(82, 82, 82);
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.form .button {
+  font-size: 15px;
+  width: 60px;
+  height: 30px;
+  margin-top: 15px;
+  text-align: center;
 }

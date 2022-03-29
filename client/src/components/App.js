@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [restaurantsData, setRestaurantsData] = useState([])
+  const [restaurant, setRestaurant] = useState(null)
 
   useEffect(() => {
     fetch("/restaurants")
@@ -44,8 +45,12 @@ function App() {
             <RestaurantFeed />
         </Route>
         <Switch> 
-          <Route exact path="/restaurants/:restaurantId">
-              <MenuPage restaurants={restaurantsData}/>
+          <Route exact path="/restaurants/:restaurantId/menu">
+              <MenuPage 
+                restaurants={restaurantsData}
+                setRestaurant={setRestaurant}
+                restaurant={restaurant}
+              />
           </Route>
         </Switch>
       </Switch>

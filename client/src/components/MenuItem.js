@@ -1,23 +1,30 @@
-function MenuItem ({item, handleDeleteItem}) {
-    const {name, description, price, image_url, id} = item
+import { useState } from "react"
 
-    function handleDelete () {
+function MenuItem ({item, handleEdit, showEditForm, form, handleDeleteItem}) {
+    const {name, description, price, image_url, id} = item
+    
+    function handleDelete (e) {
         fetch(`/menu_items/${id}`, {
-            method: "DELETE",
+            method: "DELETE"
         }) 
-            .then((r) => r.json())
-            .then(() => console.log("deleted!"))
-            handleDeleteItem(id)
+        .then(() => console.log("deleted!"))
+        handleDeleteItem(id)
     }
 
     return (
         <div>
-            <p>{name}</p> 
-            <p>{description}</p> 
-            <p>${price}</p> 
-            <img src={image_url} alt={name}></img> 
-            <button onClick={handleDelete}> Delete Menu Item </button>
-        </div> 
+            <div className="menu-item-card">
+                <p>{name}</p> 
+                <p>{description}</p> 
+                <p>${price}</p> 
+                <img className="food-img" src={image_url} alt={name}></img> 
+                <div className="edit-item-div">
+                    <button id={id} className ="button" onClick={handleEdit}> Edit </button>
+                    <button id={id} className ="button" onClick={handleDelete}> Delete </button>
+                </div>
+                {showEditForm ? form : null}
+            </div> 
+        </div>
     )
 
 }

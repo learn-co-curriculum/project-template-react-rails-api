@@ -21,8 +21,8 @@ order = Order.create(user:user, restaurant:restaurant1, total: 10.0)
 menu = Menu.create(restaurant_id: restaurant1.id)
 
 #Menu Items
-menu_item = MenuItem.create(menu: menu, restaurant: restaurant1, name: "test menu item", price: 10.0, description: "a test menu item", item_type: "side", image_url: "https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
-menu_item2 = MenuItem.create(menu: menu, restaurant: restaurant1, name: "test menu item", price: 10.0, description: "a test menu item", item_type: "side", image_url: "https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
+menu_item = MenuItem.create(menu_id: menu.id, restaurant_id: restaurant1.id, name: "test menu item", price: 10.0, description: "a test menu item", item_type: "side", image_url: "https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
+menu_item2 = MenuItem.create(menu_id: menu.id, restaurant_id: restaurant1.id, name: "test menu item", price: 10.0, description: "a test menu item", item_type: "side", image_url: "https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
 
 
 #Order Items

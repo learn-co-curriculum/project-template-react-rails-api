@@ -1,4 +1,7 @@
 class MenuItemsController < ApplicationController
+  before_action :logged_in_restaurant, only: [:create, :update, :destroy]
+
+
       def index  
         render json: MenuItem.all
       end
@@ -8,6 +11,7 @@ class MenuItemsController < ApplicationController
         render json: menu_item    
       end
     
+      # authenticate if restaurant
       def create 
         menu_item = MenuItem.create(menu_item_params)
         render json: menu_item, status: :created

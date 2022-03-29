@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
-import MenuPage from "./MenuPage";
-import { Switch, Route } from "react-router-dom";
 
 
 function RestaurantFeed () {

@@ -103,3 +103,10 @@
   color: red;
   left: auto;
 }
+
+
+.restaurant-img {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+}

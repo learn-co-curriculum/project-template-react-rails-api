@@ -11,7 +11,7 @@ function RestaurantCard ({restaurant}) {
             <Link to={`/restaurants/${id}`}>
                 <div> {name} </div>
                 <div> {description} </div>
-                <img src={image_url} alt={name}></img>
+                <img className="restaurant-img" src={image_url} alt={name}></img>
             </Link> 
         </>
     )

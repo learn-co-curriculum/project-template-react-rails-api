@@ -9,8 +9,6 @@ function MenuPage ({restaurants}) {
     const restaurant = restaurants.find((restaurant) => restaurant.id === parseInt(restaurantId))
     const {menu_items} = restaurant
     const [menuItems, setMenuItems] = useState(menu_items)
-    console.log(menu_items)
-    console.log(menuItems)
 
     function handleDeleteItem(id) {
         const updatedItems = menu_items.filter(item => item.id !== id)

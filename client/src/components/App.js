@@ -7,15 +7,26 @@ import RestaurantFeed from './RestaurantFeed';
 import MenuPage from "./MenuPage";
 import { useEffect, useState } from "react";
 
+
 function App() {
   const [restaurantsData, setRestaurantsData] = useState([])
   const [restaurant, setRestaurant] = useState(null)
+  const [menuItems, setMenuItems] = useState([])
+
 
   useEffect(() => {
     fetch("/restaurants")
   .then((r) => r.json())
   .then(setRestaurantsData)
  }, [])
+
+  useEffect(() => {
+    fetch("/menu_items")
+    .then((r) => r.json())
+    .then(setMenuItems)
+  }, [])
+
+  console.log(menuItems)
 
 
   return (
@@ -44,15 +55,16 @@ function App() {
         <Route exact path="/restaurants">
             <RestaurantFeed />
         </Route>
-        <Switch> 
-          <Route exact path="/restaurants/:restaurantId/menu">
-              <MenuPage 
+          <Route exact path="/restaurants/:restaurantId">
+              <MenuPage restaurants={restaurantsData}
                 restaurants={restaurantsData}
                 setRestaurant={setRestaurant}
                 restaurant={restaurant}
-              />
-          </Route>
-        </Switch>
+          />
+        </Route>
+          {/* <Route exact path="/shoppingcart">
+                <ShoppingCart />
+          </Route> */}
       </Switch>
   );
 }

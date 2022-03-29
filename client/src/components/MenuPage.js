@@ -2,6 +2,7 @@ import React from "react"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import MenuItem from "./MenuItem"
+import ShoppingCart from "./ShoppingCart"
 
 
 function MenuPage ({restaurants, setRestaurant, restaurant}) {
@@ -11,6 +12,8 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
     const [formInput, setFormInput] = useState({})
     const [showEditForm, setShowEditForm] = useState(false)
     const [editFormInput, setEditFormInput] = useState({})
+    const [restaurant, setRestaurant] = useState({})
+    const [cartItems, setCartItems] = useState([])
 
     useEffect(() => {
         const currentRestaurant = restaurants.find((restaurant) => restaurant.id === parseInt(restaurantId))
@@ -127,7 +130,6 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
     }
 
 
-
     function handleDeleteItem(id) {
         const updatedItems = menuItems.filter(item => item.id !== id)
         setMenuItems(updatedItems)
@@ -148,12 +150,41 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
                     handleEdit={handleEdit}
                     showEditForm={showEditForm}
                     form={form}
+                    onAdd={onAdd}
                 />
             </div>
     ))
 
+    
+    function onAdd(item) {
+        const exist = cartItems.find((cartItem) => cartItem.id === item.id)
+        if (exist) {
+            setCartItems(
+                cartItems.map((cartItem) => 
+                    cartItem.id === item.id ? {...exist, qty: exist.qty +1} : cartItem
+                )
+            )
+        } else {
+            setCartItems([...cartItems, { ...item, qty: 1}])
+        }
+    }
+
+    function onRemove(item) {
+        const exist = cartItems.find((cartItem) => cartItem.id === item.id)
+        if (exist.qty === 1) {
+          setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id))
+        } else {
+          setCartItems(
+            cartItems.map((cartItem) =>
+            cartItem.id === item.id ? { ...exist, qty: exist.qty - 1 } : cartItem
+            )
+          )
+        }
+      }
+
     return(
         <div>
+
             <div>
                 <button className="button" id="add-new" onClick={showNewItemForm}>
                     Add New Menu Item
@@ -161,8 +192,14 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
                 {showForm ? form : null}
             </div>
             <div>
-                <div>{singleMenuItem}</div>
+                <div>{singleMenuItem}</div> 
+            {cartItems.length > 0 ? <ShoppingCart 
+                cartItems={cartItems}
+                onAdd={onAdd}
+                onRemove={onRemove} 
+            /> : null}
             </div>
+
         </div>
     )
 }

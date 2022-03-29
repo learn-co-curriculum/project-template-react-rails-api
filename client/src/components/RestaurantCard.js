@@ -1,7 +1,6 @@
 
 import { Link } from "react-router-dom"
 
-
 function RestaurantCard ({restaurant}) {
 
     const {name, address, description, delivery_fee, hours, image_url, id} = restaurant 

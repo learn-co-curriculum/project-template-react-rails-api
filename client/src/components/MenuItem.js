@@ -1,4 +1,8 @@
+
 import { useState } from "react"
+
+function MenuItem ({item, handleDeleteItem, onAdd}) {
+    const {name, description, price, image_url, id} = item
 
 function MenuItem ({item, handleEdit, showEditForm, form, handleDeleteItem}) {
     const {name, description, price, image_url, id} = item
@@ -11,6 +15,8 @@ function MenuItem ({item, handleEdit, showEditForm, form, handleDeleteItem}) {
         handleDeleteItem(id)
     }
 
+    
+
     return (
         <div>
             <div className="menu-item-card">
@@ -21,10 +27,13 @@ function MenuItem ({item, handleEdit, showEditForm, form, handleDeleteItem}) {
                 <div className="edit-item-div">
                     <button id={id} className ="button" onClick={handleEdit}> Edit </button>
                     <button id={id} className ="button" onClick={handleDelete}> Delete </button>
+                    <button onClick={() => onAdd(item)}> Add To Cart </button>
                 </div>
                 {showEditForm ? form : null}
             </div> 
         </div>
+ 
+
     )
 
 }

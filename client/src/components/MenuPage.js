@@ -6,12 +6,19 @@ import MenuItem from "./MenuItem"
 
 function MenuPage ({restaurants}) {
     const {restaurantId} = useParams()
-    const restaurant = restaurants.find((restaurant) => restaurant.id === parseInt(restaurantId))
-    const {menu_items} = restaurant
-    const [menuItems, setMenuItems] = useState(menu_items)
+    const [menuItems, setMenuItems] = useState([])
+    const [restaurant, setRestaurant] = useState({})
+
+    useEffect(() => {
+        const currentRestaurant = restaurants.find((restaurant) => restaurant.id === parseInt(restaurantId))
+        if (currentRestaurant) {
+            setRestaurant(currentRestaurant)
+            setMenuItems(currentRestaurant.menu_items)
+        } 
+    })
 
     function handleDeleteItem(id) {
-        const updatedItems = menu_items.filter(item => item.id !== id)
+        const updatedItems = menuItems.filter(item => item.id !== id)
         setMenuItems(updatedItems)
     }
 

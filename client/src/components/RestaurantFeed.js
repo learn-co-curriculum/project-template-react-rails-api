@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import Filter from "./Filter"
 
 
 function RestaurantFeed () {
     const [restaurants, setRestaurants] = useState([])
+    const [search, setSearch] = useState("")
 
     useEffect(() => {
         fetch("/restaurants")
@@ -13,10 +15,21 @@ function RestaurantFeed () {
 
      console.log(restaurants)
     
+     const filteredDisplay = restaurants
+     .filter((restaurant) => {
+         return (
+             restaurant.name.toLowerCase().includes(search.toLowerCase()) ||   restaurant.description.toLowerCase().includes(search.toLowerCase())
+         )
+     })
+
         return(
             <>
                 <div>
-                    {restaurants.map((restaurant) => (
+                    <Filter 
+                        search={search}
+                        setSearch={setSearch}
+                    />
+                    {filteredDisplay?.map((restaurant) => (
                         <RestaurantCard 
                             key={restaurant.id} 
                             restaurant={restaurant}

@@ -1,5 +1,4 @@
 class RestaurantsController < ApplicationController
-  before_action :authorize
 
   def index  
     render json: Restaurant.all

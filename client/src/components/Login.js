@@ -6,6 +6,7 @@ function Login() {
   const [user, setUser] = useState("")  
   const [password, setPassword] = useState("")
   const [error, setError] = useState(null)
+  const [currentUser, setCurrentUser] = useState()
 
   let history = useHistory();
     
@@ -23,6 +24,7 @@ function Login() {
         else {
           setError(null)
           console.log("Login Success")
+          setCurrentUser(data)
           history.push("/restaurants")
         }
       }) 

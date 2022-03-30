@@ -1,5 +1,6 @@
 class MenuItemsController < ApplicationController
-  before_action :logged_in_restaurant, only: [:create, :update, :destroy]
+  # before_action :authorize, only: [:create, :update, :destroy]
+  before_action :check_restaurant, only: [:create, :update, :destroy]
 
 
       def index  

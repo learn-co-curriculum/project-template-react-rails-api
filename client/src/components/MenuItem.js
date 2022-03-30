@@ -1,15 +1,19 @@
 
 import { useState } from "react"
 
-function MenuItem ({item, setMenuItemId, handleEdit, showEditForm, form, handleDeleteItem, onAdd}) {
+function MenuItem ({item, handleEdit, showEditForm, form, handleDeleteItem, onAdd}) {
     const {name, description, price, image_url, id} = item
     
     function handleDelete (e) {
         fetch(`/menu_items/${id}`, {
             method: "DELETE"
         }) 
-        .then(() => console.log("deleted!"))
-        handleDeleteItem(id)
+        .then( r => { 
+            if (!r.ok) {
+                window.alert("Unauthorized")    
+            }
+            else {handleDeleteItem(id)}
+        })
     }
 
     return (

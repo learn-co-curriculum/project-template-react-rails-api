@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :username
       t.string :address
+      t.boolean :isRestaurant
       t.string :password_digest
 
       t.timestamps

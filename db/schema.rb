@@ -57,13 +57,11 @@ ActiveRecord::Schema.define(version: 2022_03_24_183446) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
-    t.string "username"
     t.string "address"
     t.string "description"
     t.float "delivery_fee"
     t.string "hours"
     t.string "image_url"
-    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -73,6 +71,7 @@ ActiveRecord::Schema.define(version: 2022_03_24_183446) do
     t.string "username"
     t.string "address"
     t.string "password_digest"
+    t.boolean "isRestaurant"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

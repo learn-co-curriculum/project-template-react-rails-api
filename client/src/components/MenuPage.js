@@ -30,11 +30,14 @@ function MenuPage ({restaurants}) {
     }
 
     const form = 
-    <form className="form"  onSubmit = {showForm ? handleFormSubmit : handleEditFormSubmit}>
+    <form 
+        className="form"  
+        onSubmit = {handleNewFormSubmit}
+    >
         <label>
             Name:
             <input 
-                onChange={showForm ? handleFormInputs : handleEditFormInputs} 
+                onChange={handleNewFormInputs} 
                 type="text" 
                 name="name"
                 value={formInput.name}
@@ -43,46 +46,46 @@ function MenuPage ({restaurants}) {
         <label>
             Description:
             <input 
-                onChange={showForm ? handleFormInputs : handleEditFormInputs} 
+                onChange={handleNewFormInputs} 
                 type="text" 
                 name="description" 
-                vale={formInput.description}
+                value={formInput.description}
             />
         </label>
         <label>
             Price:
             <input 
-                onChange={showForm ? handleFormInputs : handleEditFormInputs} 
+                onChange={handleNewFormInputs} 
                 type="text" 
                 name="price" 
-                vale={formInput.price}
+                value={formInput.price}
             />
         </label>
         <label>
             Image URL:
             <input 
-                onChange={showForm ? handleFormInputs : handleEditFormInputs} 
+                onChange={handleNewFormInputs} 
                 type="text" 
                 name="image_url" 
-                vale={formInput.image_url}
+                value={formInput.image_url}
             />
         </label>
         <label>
             Menu ID:
             <input 
-                onChange={showForm ? handleFormInputs : handleEditFormInputs} 
+                onChange={handleNewFormInputs} 
                 type="text" 
                 name="menu_id" 
-                vale={formInput.menu_id}
+                value={formInput.menu_id}
             />
         </label>
         <label>
             Restaurant ID:
             <input 
-                onChange={showForm ? handleFormInputs : handleEditFormInputs} 
+                onChange={handleNewFormInputs} 
                 type="text" 
                 name="restaurant_id" 
-                vale={formInput.restaurant_id}
+                value={formInput.restaurant_id}
             />
         </label>
         <input 
@@ -92,7 +95,7 @@ function MenuPage ({restaurants}) {
         />
     </form>
 
-    function handleFormInputs (e) {
+    function handleNewFormInputs (e) {
         const input = e.target.value
         setFormInput({...formInput, [e.target.name]: input})
         console.log(formInput)
@@ -104,7 +107,7 @@ function MenuPage ({restaurants}) {
         console.log(formInput)
     }
 
-    function handleFormSubmit (e) {
+    function handleNewFormSubmit (e) {
         e.preventDefault()
 
         if (showForm) {
@@ -112,11 +115,16 @@ function MenuPage ({restaurants}) {
             fetch(`/menu_items`, { 
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(editFormInput)
+                body: JSON.stringify(formInput)
             })
-            .then(r => r.json())
-            .then(newItem => {
-                setMenuItems([...menuItems, newItem]) 
+            .then(r => {
+                if(r.ok){
+                    r.json()
+                    .then(newItem => {
+                        setMenuItems([...menuItems, newItem]) 
+                     })    
+                }
+                else {window.alert("Unauthorized")}
             })
             setShowForm(false)
         }
@@ -144,11 +152,11 @@ function MenuPage ({restaurants}) {
         setMenuItems(updatedItems)
     }
 
-    function handleEdit (id) {
+    function handleEdit (e) {
         setShowEditForm(!showEditForm)
         setShowForm(false)
-        setMenuItemId(id)
-        console.log(id)
+        setMenuItemId(e.target.id)
+        console.log(e.target.id)
     }
 
     let singleMenuItem = menuItems?.map((item) => (

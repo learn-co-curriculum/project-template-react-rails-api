@@ -6,13 +6,17 @@
 puts "Seeding..."
 
 #Users
-user = User.create(name: "test", username: "test@test.com", password: "password", address: "456 Main")
+user = User.create(name: "test", username: "test@test.com", password: "password", address: "456 Main", isRestaurant: false)
+user2 = User.create(name: "Ramen Tatsuya", username: "ramen_tatsuya", password: "password", address: "456 Main", isRestaurant: true)
+user3 = User.create(name: "Taco Deli", username: "taco_deli", password: "password", address: "456 Main", isRestaurant: true)
+user4 = User.create(name: "Kismet Cafe", username: "kismet_cafe", password: "password", address: "456 Main", isRestaurant: true)
+user5 = User.create(name: "Chuy's", username: "chuys", password: "password", address: "456 Main", isRestaurant: true)
 
 #Restaurants
-restaurant1 = Restaurant.create(name: "Ramen Tatsuya", username: "ramen_tatsuya", password: "password", address: "123 Main", description: "A ramen restaurant", delivery_fee: 5.0, hours: "9am - 10pm", image_url: "https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
-restaurant2 = Restaurant.create(name: "Taco Deli", username: "taco_deli", password: "password", address: "123 Austin", description: "A taco restaurant", delivery_fee: 2.0, hours: "9am - 10pm", image_url: "https://s.hdnux.com/photos/60/74/50/12831281/5/ratio3x2_1200.jpg")
-restaurant3 = Restaurant.create(name: "Kismet Cafe", username: "kismet_cafe", password: "password", address: "133 Main", description: "A Mediterranean restaurant", delivery_fee: 1.0, hours: "9am - 10pm", image_url: "https://fastly.4sqi.net/img/general/600x600/540821_TogVyFlWHtaKXt3bFJlszhKcX_JqCnenmBUg5kZm8d4.jpg")
-restaurant4 = Restaurant.create(name: "Chuy's", username: "chuys", password: "password", address: "123 Cesar Chavez", description: "A Mexican restaurant", delivery_fee: 5.0, hours: "9am - 10pm", image_url: "https://fox59.com/wp-content/uploads/sites/21/2019/08/chuy-pic-1-1.jpg")
+restaurant1 = Restaurant.create(name: "Ramen Tatsuya", address: "123 Main", description: "A ramen restaurant", delivery_fee: 5.0, hours: "9am - 10pm", image_url: "https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")
+restaurant2 = Restaurant.create(name: "Taco Deli", address: "123 Austin", description: "A taco restaurant", delivery_fee: 2.0, hours: "9am - 10pm", image_url: "https://s.hdnux.com/photos/60/74/50/12831281/5/ratio3x2_1200.jpg")
+restaurant3 = Restaurant.create(name: "Kismet Cafe", address: "133 Main", description: "A Mediterranean restaurant", delivery_fee: 1.0, hours: "9am - 10pm", image_url: "https://fastly.4sqi.net/img/general/600x600/540821_TogVyFlWHtaKXt3bFJlszhKcX_JqCnenmBUg5kZm8d4.jpg")
+restaurant4 = Restaurant.create(name: "Chuy's", address: "123 Cesar Chavez", description: "A Mexican restaurant", delivery_fee: 5.0, hours: "9am - 10pm", image_url: "https://fox59.com/wp-content/uploads/sites/21/2019/08/chuy-pic-1-1.jpg")
 
 #Orders
 order = Order.create(user:user, restaurant:restaurant1, total: 10.0)

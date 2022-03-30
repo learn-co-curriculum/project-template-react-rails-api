@@ -6,7 +6,7 @@
 puts "Seeding..."
 
 #Users
-user = User.create(name: "test", email: "test@test.com", password: "password", address: "456 Main")
+user = User.create(name: "test", username: "test@test.com", password: "password", address: "456 Main")
 
 #Restaurants
 restaurant1 = Restaurant.create(name: "Ramen Tatsuya", username: "ramen_tatsuya", password: "password", address: "123 Main", description: "A ramen restaurant", delivery_fee: 5.0, hours: "9am - 10pm", image_url: "https://glebekitchen.com/wp-content/uploads/2017/04/tonkotsuramenfront.jpg")

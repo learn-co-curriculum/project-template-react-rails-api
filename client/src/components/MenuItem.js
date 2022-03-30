@@ -1,10 +1,7 @@
 
 import { useState } from "react"
 
-function MenuItem ({item, handleDeleteItem, onAdd}) {
-    const {name, description, price, image_url, id} = item
-
-function MenuItem ({item, handleEdit, showEditForm, form, handleDeleteItem}) {
+function MenuItem ({item, setMenuItemId, handleEdit, showEditForm, form, handleDeleteItem, onAdd}) {
     const {name, description, price, image_url, id} = item
     
     function handleDelete (e) {
@@ -14,8 +11,6 @@ function MenuItem ({item, handleEdit, showEditForm, form, handleDeleteItem}) {
         .then(() => console.log("deleted!"))
         handleDeleteItem(id)
     }
-
-    
 
     return (
         <div>
@@ -32,8 +27,6 @@ function MenuItem ({item, handleEdit, showEditForm, form, handleDeleteItem}) {
                 {showEditForm ? form : null}
             </div> 
         </div>
- 
-
     )
 
 }

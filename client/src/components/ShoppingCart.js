@@ -11,8 +11,8 @@ function ShoppingCart ({ cartItems, onAdd, onRemove, menuItems}) {
         <>
             <h2>Shopping Cart</h2>
             <div>
-                {cartItems.length === 0 && <div>Cart is empty</div>}
-                {cartItems.map((item) => (
+                {cartItems.length === 0 || (!cartItems) ? <div>Cart is empty</div> :
+                cartItems.map((item) => (
                     <div key={item.id} className="row">
                     <div className="col-2">{item.name}</div>
                     <div className="col-2">
@@ -30,7 +30,7 @@ function ShoppingCart ({ cartItems, onAdd, onRemove, menuItems}) {
                   </div>
                 ))}
 
-        {cartItems.length !== 0 && (
+                {cartItems.length !== 0 && (
             <>
                 <hr></hr>
                 <div className="row">

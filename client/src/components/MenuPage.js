@@ -5,7 +5,7 @@ import MenuItem from "./MenuItem"
 import ShoppingCart from "./ShoppingCart"
 
 
-function MenuPage ({restaurants, setRestaurant, restaurant}) {
+function MenuPage ({restaurants}) {
     const {restaurantId} = useParams()
     const [menuItems, setMenuItems] = useState([])
     const [showForm, setShowForm] = useState(false)
@@ -14,6 +14,7 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
     const [editFormInput, setEditFormInput] = useState({})
     const [restaurant, setRestaurant] = useState({})
     const [cartItems, setCartItems] = useState([])
+    const [menuItemId, setMenuItemId] = useState()
 
     useEffect(() => {
         const currentRestaurant = restaurants.find((restaurant) => restaurant.id === parseInt(restaurantId))
@@ -29,11 +30,11 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
     }
 
     const form = 
-    <form className="form"  onSubmit = {handleFormSubmit}>
+    <form className="form"  onSubmit = {showForm ? handleFormSubmit : handleEditFormSubmit}>
         <label>
             Name:
             <input 
-                onChange={handleFormInputs} 
+                onChange={showForm ? handleFormInputs : handleEditFormInputs} 
                 type="text" 
                 name="name"
                 value={formInput.name}
@@ -42,7 +43,7 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
         <label>
             Description:
             <input 
-                onChange={handleFormInputs} 
+                onChange={showForm ? handleFormInputs : handleEditFormInputs} 
                 type="text" 
                 name="description" 
                 vale={formInput.description}
@@ -51,7 +52,7 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
         <label>
             Price:
             <input 
-                onChange={handleFormInputs} 
+                onChange={showForm ? handleFormInputs : handleEditFormInputs} 
                 type="text" 
                 name="price" 
                 vale={formInput.price}
@@ -60,7 +61,7 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
         <label>
             Image URL:
             <input 
-                onChange={handleFormInputs} 
+                onChange={showForm ? handleFormInputs : handleEditFormInputs} 
                 type="text" 
                 name="image_url" 
                 vale={formInput.image_url}
@@ -69,7 +70,7 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
         <label>
             Menu ID:
             <input 
-                onChange={handleFormInputs} 
+                onChange={showForm ? handleFormInputs : handleEditFormInputs} 
                 type="text" 
                 name="menu_id" 
                 vale={formInput.menu_id}
@@ -78,7 +79,7 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
         <label>
             Restaurant ID:
             <input 
-                onChange={handleFormInputs} 
+                onChange={showForm ? handleFormInputs : handleEditFormInputs} 
                 type="text" 
                 name="restaurant_id" 
                 vale={formInput.restaurant_id}
@@ -97,6 +98,12 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
         console.log(formInput)
     }
 
+    function handleEditFormInputs (e) {
+        const input = e.target.value
+        setFormInput({...formInput, [e.target.name]: input})
+        console.log(formInput)
+    }
+
     function handleFormSubmit (e) {
         e.preventDefault()
 
@@ -105,7 +112,7 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
             fetch(`/menu_items`, { 
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(formInput)
+                body: JSON.stringify(editFormInput)
             })
             .then(r => r.json())
             .then(newItem => {
@@ -113,13 +120,16 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
             })
             setShowForm(false)
         }
+    }
 
-        else if (showEditForm) {
-            
+    function handleEditFormSubmit (e) {
+        e.preventDefault()
+
+        if (showEditForm) {
             fetch(`/menu_items/${e.target.id}`, { 
                 method: "PATCH",
                 headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(formInput)
+                body: JSON.stringify(editFormInput)
             })
             .then(r => r.json())
             .then(() => {
@@ -128,16 +138,17 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
             setShowEditForm(false)
         }
     }
-
-
+    
     function handleDeleteItem(id) {
         const updatedItems = menuItems.filter(item => item.id !== id)
         setMenuItems(updatedItems)
     }
 
-    function handleEdit (e) {
+    function handleEdit (id) {
         setShowEditForm(!showEditForm)
         setShowForm(false)
+        setMenuItemId(id)
+        console.log(id)
     }
 
     let singleMenuItem = menuItems?.map((item) => (
@@ -149,6 +160,7 @@ function MenuPage ({restaurants, setRestaurant, restaurant}) {
                     handleDeleteItem={handleDeleteItem}
                     handleEdit={handleEdit}
                     showEditForm={showEditForm}
+                    setMenuItemId={setMenuItemId}
                     form={form}
                     onAdd={onAdd}
                 />

@@ -56,16 +56,16 @@ function App() {
             <RestaurantFeed />
         </Route>
           <Route exact path="/restaurants/:restaurantId">
-              <MenuPage restaurants={restaurantsData}
+              <MenuPage 
                 restaurants={restaurantsData}
                 setRestaurant={setRestaurant}
                 restaurant={restaurant}
-          />
-        </Route>
+              />
+          </Route>
           {/* <Route exact path="/shoppingcart">
                 <ShoppingCart />
           </Route> */}
-      </Switch>
+    </Switch>
   );
 }
 

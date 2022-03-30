@@ -7,7 +7,7 @@ function RestaurantCard ({restaurant}) {
 
     return (
         <>
-            <Link to={`/restaurants/${id}/menu`}>
+            <Link to={`/restaurants/${id}`}>
                 <div> {name} </div>
                 <div> {description} </div>
                 <img className="food-img" src={image_url} alt={name}></img>

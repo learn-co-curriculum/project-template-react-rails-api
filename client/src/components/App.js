@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Switch, Route } from "react-router-dom"
 import StockFeed from './StockFeed'
 import Login from './Login'
+import SignUp from "./SignUp"
 
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
        </Route>
        <Route exact path="/login">
         <Login error={error} setError={setError} setCurrentUser={setCurrentUser} /> 
+       </Route>
+       <Route exact path="/signup">
+        <SignUp error={error} setError={setError} setCurrentUser={setCurrentUser} /> 
        </Route>
      </Switch>
     </div>

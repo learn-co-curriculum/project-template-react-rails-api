@@ -1,5 +1,11 @@
+body {
+  background-color: black;
+}
+
 .App {
   text-align: center;
+  background-color: black;
+  color: white;
 }
 
 .App-logo {
@@ -28,11 +34,110 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.shake {
+  animation: shake 0.3s; 
+  animation-iteration-count: infinite; 
+  background-color:rgba(255, 235, 217, 0.541);
+  width: 100%;
+  height: 100%;
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  column-gap: 10px;
+}
+
+.login-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 400px;
+  box-shadow: 
+    0 0 1px rgba(0, 0, 0, 0.3), 
+    0 3px 7px rgba(0, 0, 0, 0.3), 
+    inset 0 1px rgba(255,255,255,1),
+    inset 0 -3px 2px rgba(0,0,0,0.25);
+  border-radius: 30px;
+  background: linear-gradient(rgb(225, 242, 253), rgba(158, 215, 253, 0.541));
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 100px;
+}
+    
+.login-form {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+}
+
+.login-input-div {
+  height: 50px;
+  padding: 20px;
+}
+
+.login-input {
+  background-color: #99b6f569;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: rgb(82, 82, 82);
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 70%;
+  height: 50px;
+  padding: 20px;
+}
+
+.login-button-div {
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+.button {
+  background-color: rgb(24, 219, 253);
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  text-align: center;
+  width: 50%;
+  font-weight: bold;
+}
+
+.stock-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.stock-card {
+  height: 200px;
+  width: 600px;
+  background-color: gray;
+  border-radius: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

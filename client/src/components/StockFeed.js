@@ -4,21 +4,13 @@ import StockCard from "./StockCard";
 function StockFeed () {
     const [stocks, setStocks] = useState([])
     const [news, setNews] = useState([])
-
-    // const options = {
-    //     method: 'GET',
-    //     headers: {
-    //       'X-RapidAPI-Host': 'schwab.p.rapidapi.com',
-    //       'X-RapidAPI-Key': 'e3f8b2c697msh1303e53d55e4b4fp11ec0djsn1bb893a2d6e2'
-    //     }
-    //   };
     
       useEffect (() => {
         fetch('https://schwab.p.rapidapi.com/market/get-top-mentions', {
         method: 'GET', 
         headers: {
           'X-RapidAPI-Host': 'schwab.p.rapidapi.com',
-          'X-RapidAPI-Key': 'e3f8b2c697msh1303e53d55e4b4fp11ec0djsn1bb893a2d6e2'
+          'X-RapidAPI-Key': process.env.REACT_APP_API_KEY
         }})
           .then(r => r.json())
           .then(r => setStocks(r.TopMentionsApiData))
@@ -30,7 +22,7 @@ function StockFeed () {
         method: 'GET', 
         headers: {
           'X-RapidAPI-Host': 'schwab.p.rapidapi.com',
-          'X-RapidAPI-Key': 'e3f8b2c697msh1303e53d55e4b4fp11ec0djsn1bb893a2d6e2'
+          'X-RapidAPI-Key': process.env.REACT_APP_API_KEY
         }})
       .then(response => response.json())
       .then(response => setNews(response))
@@ -47,10 +39,10 @@ function StockFeed () {
             <h1>Featured</h1>
              {singleStock}
 
-             <h1>News</h1>
+              <h1>News</h1>
                 <div>{news.Headline}</div>
                 <div>{news.Timestamp}</div>
-                <div>{news.Teaser}</div>
+                <div>{news.Teaser}</div> 
         </div>
     )
 }

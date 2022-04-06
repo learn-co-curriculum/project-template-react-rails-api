@@ -29,3 +29,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+#Ignore api key file
+# /client/src/components/StockFeed 
+
+#ignore env
+.env

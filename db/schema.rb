@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2022_04_04_202409) do
 
   create_table "user_stocks", force: :cascade do |t|
     t.string "name"
+    t.string "symbol"
     t.float "price"
     t.float "performance_over_time"
     t.string "sector"

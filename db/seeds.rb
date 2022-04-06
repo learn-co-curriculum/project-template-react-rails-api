@@ -12,10 +12,10 @@ puts "Seeding..."
 u1 = User.create(username: "test", password: "password", email: "felipalouise@gmail.com")
 
 #company
-c = Company.create(name: "GOOG", sector: "technology", performance_over_time: 5.20)
+c = Company.create(name: "Microsoft Corp", sector: "Information Technology", performance_over_time: 5.20)
 
 #userstocks
-us = UserStock.create(name:"GOOG", price: 2872.85, performance_over_time: 5.20, sector: "technology", company_id: c.id, user_id: u1.id )
+us = UserStock.create(name:"Microsoft Corp", symbol:"MSFT", price: 311.90, performance_over_time: -3.07, sector: "Information Technology", company_id: c.id, user_id: u1.id )
 
 
 puts "Done! 🌱"

@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom"
 import StockFeed from './StockFeed'
 import Login from './Login'
 import SignUp from "./SignUp"
+import UserPortfolio from "./UserPortfolio"
 
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
      <Switch>
        <Route exact path="/">
          <StockFeed />
+       </Route>
+       <Route exact path="/portfolio">
+         <UserPortfolio />
        </Route>
        <Route exact path="/login">
         <Login error={error} setError={setError} setCurrentUser={setCurrentUser} /> 

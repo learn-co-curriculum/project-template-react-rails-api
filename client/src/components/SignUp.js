@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useHistory } from "react-router-dom"
 
 function SignUp ({error, setError, setCurrentUser}) {
 
@@ -6,8 +7,29 @@ function SignUp ({error, setError, setCurrentUser}) {
     const [signUpEmail, setSignUpEmail] = useState("")
     const [signUpPassword, setSignUpPassword] = useState("")
 
-    function handleSignUp () {
+    const history = useHistory()
 
+    function handleSignUp (e) {
+        e.preventDefault()
+
+        fetch("/signup", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username: signUpUsername, password: signUpPassword, email: signUpEmail})
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.error) {
+                setError(data.error)
+                e.target.className="shake"
+                setInterval(function() {e.target.className="login-form"}, 500)
+            } else {
+                setError(null)
+                console.log("Signup Success")
+                history.push("/")
+                setCurrentUser(data)
+            }
+        })
     }
 
     return (
@@ -39,7 +61,7 @@ function SignUp ({error, setError, setCurrentUser}) {
                      />
                         </div>
                         <div className="login-button-div">
-                            <button className="button" type="submit"> Log in </button>
+                            <button className="button" type="submit"> Sign Up </button>
                  </div>
                         <p className="error">{error ? error : null}</p>
             </form>

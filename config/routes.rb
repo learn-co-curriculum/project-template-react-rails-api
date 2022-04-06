@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :user_stocks
   resources :companies, only: [:index, :show]
 
-  # resources :users
+  resources :users
   post "/signup", to: "users#create"
   post "/login", to: "sessions#login"
   delete "/logout", to: "sessions#logout"

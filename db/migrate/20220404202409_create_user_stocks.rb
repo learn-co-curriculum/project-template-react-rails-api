@@ -2,6 +2,7 @@ class CreateUserStocks < ActiveRecord::Migration[6.1]
   def change
     create_table :user_stocks do |t|
       t.string :name
+      t.string :symbol
       t.float :price
       t.float :performance_over_time
       t.string :sector

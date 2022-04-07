@@ -32,7 +32,7 @@ function App() {
                   <CharacterList userID = {userID}/>
                 </Route>
                 <Route path = '/login'>
-                  <Login setUser = {setUser}/>
+                  <Login setUser = {setUser} setUserID = {setUserID}/>
                 </Route>
                 <Route path = "/">
                   <Start />

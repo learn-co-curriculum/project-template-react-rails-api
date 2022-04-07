@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-function Login({setUser}) {
+function Login({setUser, setUserID}) {
     const [userName, setUserName] = useState("");
     const [myPassword, setPassword] = useState("");
     const [my_confirm, setConfirm] = useState("");
@@ -37,6 +37,7 @@ function Login({setUser}) {
         }
     }
 
+   
       function handleSubmit(e) {
         e.preventDefault();
         if (option === "sign up") {
@@ -52,7 +53,12 @@ function Login({setUser}) {
             },
             body: JSON.stringify(formData),
       })
-      setUser(userName)}
+      .then((r) =>r.json()).then((r) => {
+        if (r !== null) {
+          setUser(r.username)
+          setUserID(r.id)
+        }
+      })}
       else if (option === "sign up" && myPassword !== my_confirm) {
         alert("Passwords Don't Match")
       }
@@ -66,11 +72,15 @@ function Login({setUser}) {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify(formData),
-              }).then((r) => {
-                if (r.ok) {
-                  r.json().then(setUser(userName));
-                } else {
-                    alert("Incorrect Login Info")
+              })
+              .then((r)=>r.json())
+              .then((r) => {
+                if(r.errors === undefined){
+                  setUser(r.username)
+                  setUserID(r.id)
+                }
+                else{
+                  alert("Invalid Login Info")
                 }
               });
             }    }

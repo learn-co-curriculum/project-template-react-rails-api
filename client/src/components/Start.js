@@ -1,11 +1,16 @@
 import {useState} from 'react'
+import { useHistory } from "react-router-dom";
 
 function Start({setUser}) {
-
+    const history = useHistory();
+    const routeChange = () =>{ 
+        let path = `/moviePage`; 
+        history.push(path);
+    }
 
     return(
         <div>
-            <h1>Start</h1>            
+            <button>Start</button>
         </div>
     )
     

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :users
+  post "/characters", to: "characters#create"
+  get "/character", to: "characters#allChars"
   post "/signup", to: "users#create"
   post "/login", to: "session#create"
   delete "/logout", to: "session#destroy"

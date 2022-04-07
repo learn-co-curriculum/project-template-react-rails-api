@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Start from './components/Start';
 import NavBar from './components/Navbar';
 import CharacterCreator from './components/CharacterCreator';
+import CharacterList from './components/CharacterList';
 
 function App() {
   const [user, setUser] = useState("")
@@ -25,7 +26,10 @@ function App() {
       <NavBar/>
       <Switch>
                 <Route path = '/character'>
-                  <CharacterCreator />
+                  <CharacterCreator userID = {userID}/>
+                </Route>
+                <Route path = '/characters'>
+                  <CharacterList userID = {userID}/>
                 </Route>
                 <Route path = '/login'>
                   <Login setUser = {setUser}/>

@@ -40,7 +40,7 @@ function Login({setUser, setUserID}) {
    
       function handleSubmit(e) {
         e.preventDefault();
-        if (option === "sign up") {
+        if (option === "sign up" && myPassword === my_confirm) {
             const formData = {
             password: myPassword,
             username: userName,
@@ -53,12 +53,12 @@ function Login({setUser, setUserID}) {
             },
             body: JSON.stringify(formData),
       })
-      .then((r) =>r.json()).then((r) => {
-        if (r !== null) {
-          setUser(r.username)
-          setUserID(r.id)
-        }
-      })}
+      .then((r)=>r.json())
+      .then((r) => {
+                if(r.errors === undefined){
+                  setUser(r.username)
+                  setUserID(r.id)
+              }})}
       else if (option === "sign up" && myPassword !== my_confirm) {
         alert("Passwords Don't Match")
       }

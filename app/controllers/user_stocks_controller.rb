@@ -1,5 +1,7 @@
 class UserStocksController < ApplicationController
 
+    before_action :authorize
+    
     def index
         render json: UserStock.all
     end

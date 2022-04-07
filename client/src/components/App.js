@@ -6,6 +6,7 @@ import StockFeed from './StockFeed'
 import Login from './Login'
 import SignUp from "./SignUp"
 import UserPortfolio from "./UserPortfolio"
+import Navbar from "./Navbar"
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
     fetch("/current_user")
     .then(r => r.json())
     .then(data => {
-      data ? setCurrentUser(data) : console.log("No login registered")
+      data ? setCurrentUser(data) : setCurrentUser(null)
   }) 
 }, [])
 
@@ -25,6 +26,10 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar 
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser} 
+      />
      <Switch>
        <Route exact path="/">
          <StockFeed />

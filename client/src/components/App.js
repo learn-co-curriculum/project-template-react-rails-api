@@ -7,6 +7,7 @@ import Login from './Login'
 import SignUp from "./SignUp"
 import UserPortfolio from "./UserPortfolio"
 import Navbar from "./Navbar"
+import MyCompaniesPage from "./MyCompaniesPage"
 
 
 function App() {
@@ -51,6 +52,9 @@ function App() {
        </Route>
        <Route exact path="/signup">
         <SignUp error={error} setError={setError} setCurrentUser={setCurrentUser} /> 
+       </Route>
+       <Route>
+        <MyCompaniesPage exact path="/mycompanies"/>
        </Route>
      </Switch>
     </div>

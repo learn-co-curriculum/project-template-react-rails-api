@@ -4,12 +4,21 @@ function SearchStockCard ({searchResponse, currentUser, userStocks, setUserStock
 // no sector in api options :(
     //prob remove sector, performance, from backend
     //function to find company id, find company with matching symbol and get id from a fetch of companies
+
+    const noDollarSign = LastPrice.slice(1)
+
+    const newPrice = noDollarSign.replaceAll(',','')
+
+    const formattedPrice = parseFloat(newPrice)
+    
+
+
     function handleAddStock () {
         window.alert('Added to Portfolio')
         let newStock = {
             name: Name,
             symbol: Symbol,
-            price: LastPrice,
+            price: formattedPrice,
             performance_over_time: 1,
             sector: "IT",
             company_id: 1,

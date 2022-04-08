@@ -54,6 +54,10 @@ function Navbar ({ currentUser, setCurrentUser }) {
                     <NavLink to="/portfolio" className="nav-link">
                         {currentUser ? <h2 className="navbar-item">My Portfolio</h2> : null}
                     </NavLink> : null }
+                    { currentUser ? 
+                    <NavLink to="/mycompanies" className="nav-link">
+                        {currentUser ? <h2 className="navbar-item">My Companies</h2> : null}
+                    </NavLink> : null }
                 {currentUser ? 
                     <h2 className="navbar-item" onClick={handleLogout}>Logout</h2> : null}
             </div>

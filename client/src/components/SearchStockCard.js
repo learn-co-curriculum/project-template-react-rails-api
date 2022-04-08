@@ -5,9 +5,9 @@ function SearchStockCard ({searchResponse, currentUser, userStocks, setUserStock
     //prob remove sector, performance, from backend
     //function to find company id, find company with matching symbol and get id from a fetch of companies
 
-    const noDollarSign = LastPrice.slice(1)
+    const noDollarSign = LastPrice?.slice(1)
 
-    const newPrice = noDollarSign.replaceAll(',','')
+    const newPrice = noDollarSign?.replaceAll(',','')
 
     const formattedPrice = parseFloat(newPrice)
     

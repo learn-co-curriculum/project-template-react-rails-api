@@ -12,6 +12,7 @@ import Navbar from "./Navbar"
 function App() {
   const [currentUser, setCurrentUser] = useState()
   const [error, setError] = useState(null)
+  const [userStocks, setUserStocks] = useState([])
 
   useEffect (() => {
     fetch("/current_user")
@@ -21,7 +22,15 @@ function App() {
   }) 
 }, [])
 
+  
 
+  useEffect(() => {
+      fetch("/current_user")
+      .then(r => r.json())
+      .then(user => setUserStocks(user.user_stocks))
+  }, [])
+
+  console.log(userStocks)
   
 
   return (
@@ -31,11 +40,11 @@ function App() {
         setCurrentUser={setCurrentUser} 
       />
      <Switch>
-       <Route exact path="/">
-         <StockFeed />
+       <Route exact path={currentUser ? "/" : "login"}>
+         <StockFeed currentUser={currentUser} userStocks={userStocks} setUserStocks={setUserStocks}/>
        </Route>
-       <Route exact path="/portfolio">
-         <UserPortfolio />
+       <Route exact path={currentUser ? "/portfolio" : "login"}>
+         <UserPortfolio userStocks={userStocks} setUserStocks={setUserStocks}/>
        </Route>
        <Route exact path="/login">
         <Login error={error} setError={setError} setCurrentUser={setCurrentUser} /> 

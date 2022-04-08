@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import StockCard from "./StockCard";
 
-function StockFeed () {
+function StockFeed ({currentUser, userStocks, setUserStocks}) {
     const [stocks, setStocks] = useState([])
     const [news, setNews] = useState([])
     
@@ -31,7 +31,15 @@ function StockFeed () {
      
     console.log(news)
 
-   const singleStock = stocks?.map((stock) => <div className="stock-card"><StockCard stock={stock}/></div>)
+   const singleStock = stocks?.map((stock) => ( 
+   <div className="stock-card">
+     <StockCard 
+      currentUser={currentUser} 
+      stock={stock} 
+      userStocks={userStocks} 
+      setUserStocks={setUserStocks}
+     />
+    </div>))
       
 
     return (

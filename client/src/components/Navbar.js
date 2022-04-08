@@ -27,7 +27,7 @@ function Navbar ({ currentUser, setCurrentUser }) {
 
     function pleaseLoginMessage () {
         if (!currentUser) {
-            window.alert("Please login to access portfolio")
+            window.alert("Please login to access site")
         }
     }
 

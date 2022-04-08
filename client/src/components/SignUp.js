@@ -19,14 +19,15 @@ function SignUp ({error, setError, setCurrentUser}) {
         })
         .then(r => r.json())
         .then(data => {
-            if (data.error) {
-                setError(data.error)
+            console.log(data.errors)
+            if (data.errors) {
+                setError(data.errors)
                 e.target.className="shake"
                 setInterval(function() {e.target.className="login-form"}, 500)
             } else {
                 setError(null)
                 console.log("Signup Success")
-                history.push("/")
+                history.push("/portfolio")
                 setCurrentUser(data)
             }
         })

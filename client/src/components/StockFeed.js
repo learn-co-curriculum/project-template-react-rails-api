@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import StockCard from "./StockCard";
+import Query from "./Query"
 
 function StockFeed ({currentUser, userStocks, setUserStocks}) {
     const [stocks, setStocks] = useState([])
@@ -44,6 +45,11 @@ function StockFeed ({currentUser, userStocks, setUserStocks}) {
 
     return (
         <div className="stock-cards-container">
+            <Query 
+              currentUser={currentUser}
+              userStocks={userStocks}
+              setUserStocks={setUserStocks}
+            />
             <h1>Featured</h1>
              {singleStock}
 

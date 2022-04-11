@@ -1,10 +1,13 @@
 function StockCard ({stock, currentUser, setError, userStocks, setUserStocks}) {
     const {DisplayName, Symbol, LastValue} = stock 
+   
+
     // console.log(stock)
 // no sector in api options :(
     //prob remove sector, performance, from backend
     //function to find company id, find company with matching symbol and get id from a fetch of companies
 
+    
     
     function handleAddStock () {
         window.alert('Added to Portfolio')

@@ -131,9 +131,9 @@ body {
 }
 
 .stock-card {
-  height: 200px;
+  height: auto;
   width: 600px;
-  background-color: gray;
+  background-color: rgb(43, 43, 43);
   border-radius: 1em;
   display: flex;
   justify-content: center;

@@ -15,6 +15,27 @@ function App() {
   const [error, setError] = useState(null)
   const [userStocks, setUserStocks] = useState([])
 
+  
+
+    
+   
+
+    // console.log(fetchData["Time Series (Daily)"])
+
+    // const timeSeries = fetchData["Time Series (Daily)"]
+    // const values = Object.values(timeSeries)
+    // const keys = Object.keys(timeSeries)
+
+    // const values2 = Object.values(values)
+    // // console.log(keys)
+
+    // console.log(keys.map((date) => ({x:date})))
+    // console.log(values2.map((value) => ({y:value["4. close"]})))
+
+    // const dataX = keys.map((date) => ({x:date}))
+    // const dataY = values2.map((value) => ({y:value["4. close"]}))
+    
+
   useEffect (() => {
     fetch("/current_user")
     .then(r => r.json())
@@ -31,7 +52,7 @@ function App() {
       .then(user => setUserStocks(user.user_stocks))
   }, [])
 
-  console.log(userStocks)
+  // console.log(userStocks)
   
 
   return (

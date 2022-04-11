@@ -12,7 +12,7 @@ function MyCompaniesPage () {
 
     console.log(userCompanies)
 
-    const singleCompany = userCompanies.map((company) => <CompaniesCard company={company}/>)
+    const singleCompany = userCompanies?.map((company) => <CompaniesCard company={company}/>)
 
     return (
 

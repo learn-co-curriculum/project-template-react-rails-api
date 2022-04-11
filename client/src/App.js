@@ -5,10 +5,16 @@ import Start from './components/Start';
 import NavBar from './components/Navbar';
 import CharacterCreator from './components/CharacterCreator';
 import CharacterList from './components/CharacterList';
+import Map from './components/gameComponents/Map';
+import Fight from './components/gameComponents/Fight';
+import Shop from './components/gameComponents/Shop';
+import Random from './components/gameComponents/Random';
 
 function App() {
+  const [character, setCharacter] = useState(undefined)
   const [user, setUser] = useState("")
   const [userID, setUserID] = useState(null)
+  const [started, setStarted] = useState(false)
 
   useEffect(() => {
     // auto-login
@@ -28,6 +34,18 @@ function App() {
                 <Route path = '/character'>
                   <CharacterCreator userID = {userID}/>
                 </Route>
+                <Route path = '/random'>
+                  <Random/>
+                </Route>
+                <Route path = '/fight'>
+                  <Fight/>
+                </Route>
+                <Route path = '/shop'>
+                  <Shop/>
+                </Route>
+                <Route path = '/map'>
+                  <Map character = {character}/>
+                </Route>
                 <Route path = '/characters'>
                   <CharacterList userID = {userID}/>
                 </Route>
@@ -35,7 +53,7 @@ function App() {
                   <Login setUser = {setUser} setUserID = {setUserID}/>
                 </Route>
                 <Route path = "/">
-                  <Start />
+                  <Start userID = {userID} character={character} setCharacter = {setCharacter}/>
                 </Route>
             </Switch>
     </div>

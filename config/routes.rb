@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :enemies
   resources :users
   post "/characters", to: "characters#create"
   get "/character", to: "characters#allChars"

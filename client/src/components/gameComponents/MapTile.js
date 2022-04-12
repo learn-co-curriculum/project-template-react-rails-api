@@ -23,14 +23,13 @@ useEffect(()=>{
     if(type===1){
         setDisplay(<h1 onClick={fightChange}>Fight</h1>)
     }
-    else if (type ===2){
+    else if (type===2){
         setDisplay(<h1 onClick={randomChange}>?</h1>)
     }
     else{
         setDisplay(<h1 onClick={shopChange}>Shop</h1>)
     }
-    console.log(display)
-    },[])
+    },[type])
     
 
 

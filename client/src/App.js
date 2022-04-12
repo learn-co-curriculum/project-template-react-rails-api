@@ -15,6 +15,7 @@ function App() {
   const [user, setUser] = useState("")
   const [userID, setUserID] = useState(null)
   const [started, setStarted] = useState(false)
+  const [charHealth, setCharHealth] = useState(100)
 
   useEffect(() => {
     // auto-login
@@ -38,7 +39,7 @@ function App() {
                   <Random/>
                 </Route>
                 <Route path = '/fight'>
-                  <Fight/>
+                  <Fight setCharHealth = {setCharHealth} charHealth = {charHealth}/>
                 </Route>
                 <Route path = '/shop'>
                   <Shop/>
@@ -53,7 +54,7 @@ function App() {
                   <Login setUser = {setUser} setUserID = {setUserID}/>
                 </Route>
                 <Route path = "/">
-                  <Start userID = {userID} character={character} setCharacter = {setCharacter}/>
+                  <Start started = {started} setStarted = {setStarted} userID = {userID} character={character} setCharacter = {setCharacter}/>
                 </Route>
             </Switch>
     </div>

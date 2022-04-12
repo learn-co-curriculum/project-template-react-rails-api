@@ -2,8 +2,9 @@ import {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 import MapTile from './MapTile';
 function Map({character}){
+    const [rows, setRows] = useState([])
     const [currentRow, setCurrentRow] = useState([])
-    const [rowCount, setCount] = useState(1)
+    const [rowCount, setCount] = useState(0)
     const history = useHistory();
 
     function quit() { 
@@ -20,9 +21,10 @@ function Map({character}){
     function makeRow(max,min){
         let myRow = [];
         while (myRow.length < 3) {
-            myRow.push(<MapTile value = {rowCount} type = {getRandomInt(min,max)}/>)
+            myRow.push(<MapTile value = {rowCount} rowCount = {rowCount} type = {getRandomInt(min,max)}/>)
         }
         setCurrentRow(myRow)
+        setRows(()=>[[currentRow], ...rows])
         setCount(rowCount + 1)
     }
 
@@ -34,8 +36,9 @@ function Map({character}){
     return(
         <div>
             <button onClick = {quit}>Quit</button>
+            <button onClick={()=>makeRow(0,4)}>Make Row</button>
             <h1>Map</h1>
-            {currentRow}
+            {rows}
         </div>
     )
 }

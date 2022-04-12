@@ -1,8 +1,7 @@
 import {useState, useEffect} from 'react'
-import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-function Start({userID, character, setCharacter}) {
+function Start({userID, character, setCharacter, started, setStarted}) {
     const [list, setList] = useState([])
 
     function handleOption(e){
@@ -15,6 +14,7 @@ function Start({userID, character, setCharacter}) {
         if(character !== null){
             let path = `/map`; 
             history.push(path);
+            setStarted(!started)
         }
         else{
             alert("Need to select a character");

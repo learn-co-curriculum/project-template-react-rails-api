@@ -18,3 +18,8 @@ code {
 .selected{
   border: solid black 5px;
 }
+
+.tile{
+  border: solid black 5px;
+  width: auto;
+}

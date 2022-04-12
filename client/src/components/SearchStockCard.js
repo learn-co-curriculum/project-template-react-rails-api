@@ -1,7 +1,7 @@
 function SearchStockCard ({searchResponse, currentUser, userStocks, setUserStocks}) {
     const {Name, Symbol, LastPrice} = searchResponse
     // console.log(stock)
-// no sector in api options :(
+    // no sector in api options :(
     //prob remove sector, performance, from backend
     //function to find company id, find company with matching symbol and get id from a fetch of companies
 

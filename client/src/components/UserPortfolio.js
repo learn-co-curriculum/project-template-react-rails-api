@@ -1,15 +1,22 @@
 import { useEffect, useState } from "react"
 import UserStockCard from "./UserStockCard"
+import { useHistory } from "react-router-dom"
 
 
 function UserPortfolio ({userStocks, setUserStocks}) {
-    const [fetchData, setFetchData ] = useState({})
     
+   let history= useHistory() 
 
     useEffect(() => {
         fetch("/current_user")
         .then(r => r.json())
-        .then(user => setUserStocks(user.user_stocks))
+        .then(user => {
+            if (!user.error) {
+                setUserStocks(user.user_stocks)
+            } else {
+                history.push("/login")
+            }
+        })
     }, [])
 
     
@@ -25,10 +32,8 @@ function UserPortfolio ({userStocks, setUserStocks}) {
             {userStocks?.map((stock) => (
                 <div className="stock-card">
                     <UserStockCard 
-                    stock={stock} 
-                    handleDeleteStock={handleDeleteStock}
-                    setFetchData={setFetchData}
-                    fetchData={fetchData}
+                        stock={stock} 
+                        handleDeleteStock={handleDeleteStock}
                     /> 
                 </div>)
             )}

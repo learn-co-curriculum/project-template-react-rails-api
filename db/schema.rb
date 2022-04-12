@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 2022_04_04_202409) do
     t.string "name"
     t.string "symbol"
     t.float "price"
-    t.float "performance_over_time"
-    t.string "sector"
     t.bigint "company_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

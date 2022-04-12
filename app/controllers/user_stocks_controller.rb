@@ -34,7 +34,7 @@ class UserStocksController < ApplicationController
 
     #form has name of stock and how many owned, rest get from backend
     def user_stock_params
-        params.permit(:name, :symbol, :price, :performance_over_time, :sector, :company_id, :user_id)
+        params.permit(:name, :symbol, :price, :company_id, :user_id)
     end
 
 end

@@ -15,7 +15,7 @@ u1 = User.create(username: "test", password: "password", email: "felipalouise@gm
 c = Company.create(name: "Microsoft Corp", sector: "Information Technology", performance_over_time: 5.20)
 
 #userstocks
-us = UserStock.create(name:"Microsoft Corp", symbol:"MSFT", price: 311.90, performance_over_time: -3.07, sector: "Information Technology", company_id: c.id, user_id: u1.id )
+us = UserStock.create(name:"Microsoft Corp", symbol:"MSFT", price: 311.90, company_id: c.id, user_id: u1.id )
 
 
 puts "Done! 🌱"

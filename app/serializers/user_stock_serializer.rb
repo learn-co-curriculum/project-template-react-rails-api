@@ -1,5 +1,5 @@
 class UserStockSerializer < ActiveModel::Serializer
-  attributes :id, :name, :symbol, :price, :performance_over_time, :sector
+  attributes :id, :name, :symbol, :price
   has_one :company
   has_one :user
 end

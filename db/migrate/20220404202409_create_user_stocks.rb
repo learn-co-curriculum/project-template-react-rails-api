@@ -4,8 +4,6 @@ class CreateUserStocks < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :symbol
       t.float :price
-      t.float :performance_over_time
-      t.string :sector
       t.belongs_to :company, null: false, foreign_key: true
       t.belongs_to :user, null: false, foreign_key: true
 

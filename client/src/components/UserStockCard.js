@@ -2,10 +2,21 @@ import Chart from "./Chart"
 import { useEffect, useState } from "react"
 
 function UserStockCard ({stock, handleDeleteStock}) {
-    const {name, symbol, price, performance_over_time, sector, id} = stock
+    const {name, symbol, price, id} = stock
+    // console.log(companies)
+    // console.log(user)
     const [showChart, setShowChart] = useState(false)
     const [fetchData, setFetchData] = useState([])
+    const [updatedPrice, setUpdatedPrice] = useState("")
+    const [singleStock, setSingleStock] = useState(null)
 
+    useEffect(() => {
+        fetch(`/user_stocks/${id}`)
+            .then(r => r.json())
+            .then(r => setSingleStock(r))
+    }, [])
+  
+    
     function handleDelete () {
         fetch(`/user_stocks/${id}`, {
             method: "DELETE"
@@ -13,6 +24,26 @@ function UserStockCard ({stock, handleDeleteStock}) {
         .then(r => {
            handleDeleteStock(id)
         })
+    }
+
+    function handleEditFormSubmit (e) {
+        e.preventDefault()
+
+        const updatedStock = {
+            name: name,
+            symbol: symbol,
+            price: updatedPrice,
+            company_id: singleStock?.company.id,
+            user_id: singleStock?.user.id
+        }
+
+        fetch(`/user_stocks/${id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedStock)
+        })
+            .then(r => r.json())
+            .then(r => console.log(r))
     }
 
     function handleShowChart () {
@@ -48,11 +79,17 @@ function UserStockCard ({stock, handleDeleteStock}) {
             <div>Name: {symbol} - {name} </div>
             <div>Initial Purchasing Price: ${price}</div>
             {/* <div>Price Change Since Yesterday: $ {performance_over_time}</div> */}
-            {/* <div>Sector: {sector}</div> */}
             <button className="button" onClick={handleDelete}>Delete Stock</button>
             <div></div>
             <button className="button" onClick={handleShowChart} >Show Weekly Prices</button>
-            {/* one chart rendering throughout - state might fix*/}
+
+            <form  onSubmit={handleEditFormSubmit}>
+                Update Purchase Price:
+                <input onChange={(e) => setUpdatedPrice(e.target.value)} defaultValue="Price" type="text" />
+                <input className="button" type="submit" value="Update" />
+            </form>
+
+            {/* one chart rendering throughout maybe move to portfolio*/}
             {values2.length > 0 && showChart ? renderChart() : null}
             
         </div>

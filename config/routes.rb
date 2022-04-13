@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :user_stocks
-  resources :companies, only: [:index, :show]
+  resources :companies, only: [:index, :show, :create]
 
   resources :users
   post "/signup", to: "users#create"

@@ -1,36 +1,50 @@
+import { useState, useEffect } from "react"
+
 function StockCard ({stock, currentUser, setError, userStocks, setUserStocks}) {
     const {DisplayName, Symbol, LastValue} = stock 
-   
+    const [company, setCompany] = useState({})
 
-    // console.log(stock)
-// no sector in api options :(
-    //prob remove sector, performance, from backend
-    //function to find company id, find company with matching symbol and get id from a fetch of companies
+    useEffect(() => {
+        let newCompany = {
+            name: DisplayName,
+            symbol: Symbol
+        }
 
-    
-    
+        fetch("/companies", {
+            method: "POST", 
+            headers: {"Content-Type": "application/json"}, 
+            body: JSON.stringify(newCompany)
+        })
+            .then(r => r.json())
+            .then(r => {
+                setCompany(r)
+                
+            })     
+    }, [])
+
+
     function handleAddStock () {
         window.alert('Added to Portfolio')
         let newStock = {
             name: DisplayName,
             symbol: Symbol,
             price: LastValue,
-            performance_over_time: 1,
-            sector: "IT",
-            company_id: 1,
+            company_id: company.id,
             user_id: currentUser.id
-        }
-        // console.log(newStock)
-        fetch("/user_stocks", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"}, 
-            body: JSON.stringify(newStock)
-        })
-        .then(r => r.json())
-        .then(r => {
-            setUserStocks([...userStocks, r])
-        })
+         }
+                console.log(newStock)
+                fetch("/user_stocks", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"}, 
+                    body: JSON.stringify(newStock)
+                })
+                .then(r => r.json())
+                .then(r => {
+                    setUserStocks([...userStocks, r])
+                })
+       
     }
+    console.log(company)
 
     return(
         <div>

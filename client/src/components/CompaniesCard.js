@@ -1,9 +1,12 @@
 function CompaniesCard ({company}) {
 
-    const { name } = company
+    const { name, symbol } = company
 
     return (
-        <div>{name}</div>
+        <div>
+            <div>{name}</div>
+            <div>{symbol}</div>
+        </div>
     )
 }
 

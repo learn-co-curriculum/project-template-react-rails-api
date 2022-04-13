@@ -21,11 +21,11 @@ function MyCompaniesPage () {
 
     console.log(userCompanies)
 
-    const singleCompany = userCompanies?.map((company) => <CompaniesCard company={company}/>)
+    const singleCompany = userCompanies?.map((company) => <div className="stock-card"><CompaniesCard company={company}/></div>)
 
     return (
 
-        <div>
+        <div className="stock-cards-container">
              {singleCompany}
         </div>
 

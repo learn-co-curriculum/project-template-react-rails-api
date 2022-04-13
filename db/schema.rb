@@ -17,8 +17,7 @@ ActiveRecord::Schema.define(version: 2022_04_04_202409) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
-    t.string "sector"
-    t.string "performance_over_time"
+    t.string "symbol"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

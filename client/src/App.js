@@ -16,6 +16,7 @@ function App() {
   const [userID, setUserID] = useState(null)
   const [started, setStarted] = useState(false)
   const [charHealth, setCharHealth] = useState(100)
+  const [rowCount, setCount] = useState(1)
 
   useEffect(() => {
     // auto-login
@@ -39,13 +40,13 @@ function App() {
                   <Random/>
                 </Route>
                 <Route path = '/fight'>
-                  <Fight setCharHealth = {setCharHealth} charHealth = {charHealth}/>
+                  <Fight level = {rowCount} setCharHealth = {setCharHealth} charHealth = {charHealth}/>
                 </Route>
                 <Route path = '/shop'>
                   <Shop/>
                 </Route>
                 <Route path = '/map'>
-                  <Map character = {character}/>
+                  <Map character = {character} rowCount = {rowCount} setCount = {setCount}/>
                 </Route>
                 <Route path = '/characters'>
                   <CharacterList userID = {userID}/>

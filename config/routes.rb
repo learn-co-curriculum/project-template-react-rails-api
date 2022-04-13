@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :enemies
   resources :users
+  get "/enemy/", to: "enemies#find_by_level"
   post "/characters", to: "characters#create"
   get "/character", to: "characters#allChars"
   post "/signup", to: "users#create"

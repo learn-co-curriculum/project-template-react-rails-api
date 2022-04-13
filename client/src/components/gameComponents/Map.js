@@ -1,15 +1,15 @@
 import {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 import MapTile from './MapTile';
-function Map({character}){
+function Map({rowCount, setCount}){
     const [rows, setRows] = useState([])
-    const [currentRow, setCurrentRow] = useState([])
-    const [rowCount, setCount] = useState(0)
     const history = useHistory();
+    const [currentRow, setCurrentRow] = useState([])
+
 
     function quit() { 
-            let path = `/start`; 
-            history.push(path);
+        let path = `/start`; 
+        history.push(path);
     }
 
     function getRandomInt(min, max) {
@@ -21,16 +21,16 @@ function Map({character}){
     function makeRow(max,min){
         let myRow = [];
         while (myRow.length < 3) {
-            myRow.push(<MapTile value = {rowCount} rowCount = {rowCount} type = {getRandomInt(min,max)}/>)
+            myRow.push(<MapTile value = {rowCount} type = {getRandomInt(min,max)}/>)
         }
         setCurrentRow(myRow)
-        setRows(()=>[[currentRow], ...rows])
-        setCount(rowCount + 1)
+        setRows([myRow, ...rows])
     }
 
     useEffect(()=>{
+        console.log(rowCount)
         makeRow(0,3)
-    },[])
+    },[rowCount])
     
 
     return(
@@ -38,7 +38,7 @@ function Map({character}){
             <button onClick = {quit}>Quit</button>
             <button onClick={()=>makeRow(0,4)}>Make Row</button>
             <h1>Map</h1>
-            {rows}
+            <div>{rows}</div>
         </div>
     )
 }

@@ -1,10 +1,9 @@
 import Chart from "./Chart"
 import { useEffect, useState } from "react"
 
-function UserStockCard ({stock, handleDeleteStock}) {
+function UserStockCard ({stock, handleDeleteStock, error, setError, setUserStocks, userStocks}) {
     const {name, symbol, price, id} = stock
-    // console.log(companies)
-    // console.log(user)
+    
     const [showChart, setShowChart] = useState(false)
     const [fetchData, setFetchData] = useState([])
     const [updatedPrice, setUpdatedPrice] = useState("")
@@ -43,7 +42,23 @@ function UserStockCard ({stock, handleDeleteStock}) {
             body: JSON.stringify(updatedStock)
         })
             .then(r => r.json())
-            .then(r => console.log(r))
+            .then(r => {
+                if (r.errors) {
+                    setError(r.errors)
+                } else {
+                    const updatedStocks = userStocks.map((stock) => {
+                        if (stock.id === r.id) {
+                            return r
+                        } else {
+                            return stock
+                        }
+                    })
+                    setUserStocks(updatedStocks)
+                    setError(null)
+                    setUpdatedPrice("")
+                }
+                console.log(r)
+            })
     }
 
     function handleShowChart () {
@@ -88,6 +103,7 @@ function UserStockCard ({stock, handleDeleteStock}) {
                 <input onChange={(e) => setUpdatedPrice(e.target.value)} defaultValue="Price" type="text" />
                 <input className="button" type="submit" value="Update" />
             </form>
+            <p className="error">{error ? error : null}</p>
 
             {/* one chart rendering throughout maybe move to portfolio*/}
             {values2.length > 0 && showChart ? renderChart() : null}

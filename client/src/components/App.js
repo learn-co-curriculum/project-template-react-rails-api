@@ -45,7 +45,7 @@ function App() {
          <StockFeed currentUser={currentUser} userStocks={userStocks} setUserStocks={setUserStocks}/>
        </Route>
        <Route exact path={currentUser ? "/portfolio" : "login"}>
-         <UserPortfolio userStocks={userStocks} setUserStocks={setUserStocks}/>
+         <UserPortfolio error={error} setError={setError} userStocks={userStocks} setUserStocks={setUserStocks}/>
        </Route>
        <Route exact path="/login">
         <Login error={error} setError={setError} setCurrentUser={setCurrentUser} /> 

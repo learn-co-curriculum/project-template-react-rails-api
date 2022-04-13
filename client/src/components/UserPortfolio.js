@@ -3,9 +3,9 @@ import UserStockCard from "./UserStockCard"
 import { useHistory } from "react-router-dom"
 
 
-function UserPortfolio ({userStocks, setUserStocks}) {
+function UserPortfolio ({userStocks, setUserStocks, error, setError}) {
     
-   let history= useHistory() 
+   let history = useHistory() 
 
     useEffect(() => {
         fetch("/current_user")
@@ -21,8 +21,8 @@ function UserPortfolio ({userStocks, setUserStocks}) {
 
     
     function handleDeleteStock (id) {
-        const updatedItems = userStocks.filter(item => item.id !== id)
-        setUserStocks(updatedItems)
+        const updatedStocks = userStocks.filter(stock => stock.id !== id)
+        setUserStocks(updatedStocks)
     }
 
     return (
@@ -34,6 +34,10 @@ function UserPortfolio ({userStocks, setUserStocks}) {
                     <UserStockCard 
                         stock={stock} 
                         handleDeleteStock={handleDeleteStock}
+                        error={error} 
+                        setError={setError}
+                        setUserStocks={setUserStocks}
+                        userStocks={userStocks}
                     /> 
                 </div>)
             )}

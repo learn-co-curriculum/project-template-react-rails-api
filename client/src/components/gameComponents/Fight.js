@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function Fight({charHealth, setCharHealth, level}){
-    const [acted, setActed] = useState(false)
     const [enemy, setEnemy] = useState([])
     const [display, setDisplay] = useState(null)
     const [enHealth, setEnHealth] = useState(100)
+    const history = useHistory();
+
 
 
     //deals damage to enemy based on character attack
     function dealDamage(){
         setEnHealth(enHealth-10+enemy.defense)
         if(enHealth-10+enemy.defense <= 0){
-            console.log("You Win")
+            let path = `/win`; 
+            history.push(path);
         }
         setTimeout(()=>{takeDamage()}, 2000)
     }
@@ -19,7 +22,8 @@ function Fight({charHealth, setCharHealth, level}){
     function takeDamage(){
         setCharHealth(charHealth-enemy.attack)
         if(charHealth-enemy.attack <= 0){
-            console.log("You Lose")
+            let path = `/lose`; 
+            history.push(path);
         }
     }
     //gets the data for the enemy when the fight starts

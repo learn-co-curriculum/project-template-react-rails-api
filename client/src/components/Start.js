@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 
-function Start({userID, character, setCharacter, started, setStarted}) {
+function Start({setCharHealth, userID, character, setCharacter, started, setStarted, setRows}) {
     const [list, setList] = useState([])
 
     function handleOption(e){
@@ -15,6 +15,8 @@ function Start({userID, character, setCharacter, started, setStarted}) {
             let path = `/map`; 
             history.push(path);
             setStarted(!started)
+            setCharHealth(100)
+            setRows([])
         }
         else{
             alert("Need to select a character");

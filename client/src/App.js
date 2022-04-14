@@ -9,6 +9,8 @@ import Map from './components/gameComponents/Map';
 import Fight from './components/gameComponents/Fight';
 import Shop from './components/gameComponents/Shop';
 import Random from './components/gameComponents/Random';
+import LoseScreen from './components/gameComponents/LoseScreen';
+import WinScreen from './components/gameComponents/WinScreen';
 
 function App() {
   const [character, setCharacter] = useState(undefined)
@@ -17,6 +19,7 @@ function App() {
   const [started, setStarted] = useState(false)
   const [charHealth, setCharHealth] = useState(100)
   const [rowCount, setCount] = useState(1)
+  const [rows, setRows] = useState([])
 
   useEffect(() => {
     // auto-login
@@ -32,32 +35,38 @@ function App() {
     <div className="App">
       <h1>Hello {user}</h1>
       <NavBar/>
-      <Switch>
-                <Route path = '/character'>
-                  <CharacterCreator userID = {userID}/>
-                </Route>
-                <Route path = '/random'>
-                  <Random/>
-                </Route>
-                <Route path = '/fight'>
-                  <Fight level = {rowCount} setCharHealth = {setCharHealth} charHealth = {charHealth}/>
-                </Route>
-                <Route path = '/shop'>
-                  <Shop/>
-                </Route>
-                <Route path = '/map'>
-                  <Map character = {character} rowCount = {rowCount} setCount = {setCount}/>
-                </Route>
-                <Route path = '/characters'>
-                  <CharacterList userID = {userID}/>
-                </Route>
-                <Route path = '/login'>
-                  <Login setUser = {setUser} setUserID = {setUserID}/>
-                </Route>
-                <Route path = "/">
-                  <Start started = {started} setStarted = {setStarted} userID = {userID} character={character} setCharacter = {setCharacter}/>
-                </Route>
-            </Switch>
+        <Switch>
+        <Route path = '/win'>
+            <WinScreen setCount = {setCount} rowCount={rowCount}/>
+          </Route>
+          <Route path = '/lose'>
+            <LoseScreen setRows={setRows}/>
+          </Route>
+          <Route path = '/character'>
+            <CharacterCreator userID = {userID}/>
+          </Route>
+          <Route path = '/random'>
+            <Random/>
+          </Route>
+          <Route path = '/fight'>
+            <Fight level = {rowCount} setCharHealth = {setCharHealth} charHealth = {charHealth}/>
+          </Route>
+          <Route path = '/shop'>
+            <Shop/>
+          </Route>
+          <Route path = '/map'>
+            <Map rows = {rows} setRows = {setRows} character = {character} rowCount = {rowCount} setCount = {setCount}/>
+          </Route>
+          <Route path = '/characters'>
+            <CharacterList userID = {userID}/>
+          </Route>
+          <Route path = '/login'>
+            <Login setUser = {setUser} setUserID = {setUserID}/>
+          </Route>
+          <Route path = "/">
+            <Start setRows = {setRows} setCharHealth={setCharHealth} started = {started} setStarted = {setStarted} userID = {userID} character={character} setCharacter = {setCharacter}/>
+          </Route>
+        </Switch>
     </div>
   );
 }

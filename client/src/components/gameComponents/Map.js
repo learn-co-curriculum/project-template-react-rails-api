@@ -1,11 +1,8 @@
 import {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 import MapTile from './MapTile';
-function Map({rowCount, setCount}){
-    const [rows, setRows] = useState([])
+function Map({rowCount, setCount, rows, setRows}){
     const history = useHistory();
-    const [currentRow, setCurrentRow] = useState([])
-
 
     function quit() { 
         let path = `/start`; 
@@ -23,14 +20,17 @@ function Map({rowCount, setCount}){
         while (myRow.length < 3) {
             myRow.push(<MapTile value = {rowCount} type = {getRandomInt(min,max)}/>)
         }
-        setCurrentRow(myRow)
         setRows([myRow, ...rows])
     }
 
     useEffect(()=>{
-        console.log(rowCount)
-        makeRow(0,3)
-    },[rowCount])
+        if(rowCount=1){
+            makeRow(0,3)
+        }
+        else{
+            makeRow(0,4)
+        }
+    },[])
     
 
     return(
@@ -38,7 +38,9 @@ function Map({rowCount, setCount}){
             <button onClick = {quit}>Quit</button>
             <button onClick={()=>makeRow(0,4)}>Make Row</button>
             <h1>Map</h1>
-            <div>{rows}</div>
+            <div className='containerContainer'>{rows.map((row)=>{
+                return(<div className='tileContainer'>{row}</div>)
+            })}</div>
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import Chart from "./Chart"
 import { useEffect, useState } from "react"
 
-function UserStockCard ({stock, handleDeleteStock, error, setError, setUserStocks, userStocks}) {
+function UserStockCard ({stock, handleDeleteStock, setUserStocks, userStocks}) {
     const {name, symbol, price, id} = stock
     
     const [showChart, setShowChart] = useState(false)
@@ -9,6 +9,11 @@ function UserStockCard ({stock, handleDeleteStock, error, setError, setUserStock
     const [updatedPrice, setUpdatedPrice] = useState("")
     const [singleStock, setSingleStock] = useState(null)
     const [showForm, setShowForm] = useState(false)
+    const [updateError, setUpdateError] = useState(null)
+    const [values, setValues] = useState([])
+    const [keys, setKeys] = useState([])
+
+    
 
     useEffect(() => {
         fetch(`/user_stocks/${id}`)
@@ -45,7 +50,7 @@ function UserStockCard ({stock, handleDeleteStock, error, setError, setUserStock
             .then(r => r.json())
             .then(r => {
                 if (r.errors) {
-                    setError(r.errors)
+                    setUpdateError(r.errors)
                 } else {
                     const updatedStocks = userStocks.map((stock) => {
                         if (stock.id === r.id) {
@@ -55,22 +60,34 @@ function UserStockCard ({stock, handleDeleteStock, error, setError, setUserStock
                         }
                     })
                     setUserStocks(updatedStocks)
-                    setError(null)
+                    setUpdateError(null)
                     setUpdatedPrice("")
+                    setShowForm(false)
                 }
-                console.log(r)
+                // console.log(r)
             })
     }
 
     function handleShowChart () {
-        setShowChart(false) //this helps with displaying wrong data i think 
-        fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${process.env.REACT_APP_API_KEY}`, {
-        method: 'GET',
-        headers: {'User-Agent': 'request'}
-      })
-        .then(r => r.json())
-        .then(r => setFetchData(r["Time Series (Daily)"]))
         
+        
+
+        if (!showChart) {
+            fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${process.env.REACT_APP_API_KEY}`, {
+            method: 'GET',
+            headers: {'User-Agent': 'request'}
+        })
+            .then(r => r.json())
+            .then(r => { 
+                if (r["Time Series (Daily)"]) {
+                    console.log("response", r["Time Series (Daily)"])
+                     setFetchData(r["Time Series (Daily)"])
+                    const objValues = Object?.values(r["Time Series (Daily)"]) 
+                    setValues(Object?.values(objValues))
+                    setKeys(Object?.keys(r["Time Series (Daily)"]))
+                }
+            })
+        }
         setShowChart(!showChart)
     }
 
@@ -78,19 +95,16 @@ function UserStockCard ({stock, handleDeleteStock, error, setError, setUserStock
         setShowForm(!showForm)
     }
 
-        const values = Object?.values(fetchData) 
-        const values2 = Object?.values(values)
-        const keys = Object?.keys(fetchData)
+    
 
-        function renderChart() {
-            return (
-                <Chart
-                    symbol={symbol}
-                    keys={keys} 
-                    values2={values2} />
-            )
-        }
-
+    function renderChart() {
+        return (
+            <Chart
+                symbol={symbol}
+                keys={keys} 
+                values2={values} />
+        )
+    }
  
     //maybe hide one chart as other is clicked
     return(
@@ -109,10 +123,10 @@ function UserStockCard ({stock, handleDeleteStock, error, setError, setUserStock
                     <input onChange={(e) => setUpdatedPrice(e.target.value)} defaultValue="Price" type="text" />
                     <input className="button" type="submit" value="Update" />
                 </form> : null}
-            <p className="error">{error ? error : null}</p>
+            <p className="error">{updateError ? updateError : null}</p>
 
             {/* one chart rendering throughout maybe move to portfolio*/}
-            {values2.length > 0 && showChart ? renderChart() : null}
+            {values.length > 0 && showChart ? renderChart() : null}
             
         </div>
     )

@@ -1,5 +1,4 @@
 import { NavLink, useHistory } from "react-router-dom"
-import { useEffect } from "react"
 
 function Navbar ({ currentUser, setCurrentUser }) {
 

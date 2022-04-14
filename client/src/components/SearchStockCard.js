@@ -10,27 +10,25 @@ function SearchStockCard ({searchResponse, currentUser, userStocks, setUserStock
 
     const formattedPrice = parseFloat(newPrice)
     
-    //on submit search click, post company to ddb 
 
-    // useEffect(() => {
-    //     let newSearchCompany = {
-    //         name: Name,
-    //         symbol: Symbol
-    //     }
-    //     debugger
-    //     fetch("/companies", {
-    //         method: "POST", 
-    //         headers: {"Content-Type": "application/json"}, 
-    //         body: JSON.stringify(newSearchCompany)
-    //     })
-    //         .then(r => r.json())
-    //         .then(r => {
-    //             setNewCompany(r)
+    useEffect(() => {
+        let newSearchCompany = {
+            name: Name,
+            symbol: Symbol
+        }
+        
+        fetch("/companies", {
+            method: "POST", 
+            headers: {"Content-Type": "application/json"}, 
+            body: JSON.stringify(newSearchCompany)
+        })
+            .then(r => r.json())
+            .then(r => {
+                setNewCompany(r)
                 
-    //         }) 
-    // }, [])
-    //         console.log(newSearchCompany)
-    
+            }) 
+            console.log(newSearchCompany)
+    }, [])
 
     function handleAddStock () {
         window.alert('Added to Portfolio')
@@ -41,7 +39,7 @@ function SearchStockCard ({searchResponse, currentUser, userStocks, setUserStock
             company_id: newCompany.id,
             user_id: currentUser.id
         }
-        // console.log(newStock)
+        
         fetch("/user_stocks", {
             method: "POST",
             headers: {"Content-Type": "application/json"}, 
@@ -52,7 +50,6 @@ function SearchStockCard ({searchResponse, currentUser, userStocks, setUserStock
             setUserStocks([...userStocks, r])
         })
     }
-    console.log(newCompany)
 
     return(
         <div>

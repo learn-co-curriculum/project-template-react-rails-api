@@ -1,11 +1,12 @@
 import { useState } from "react"
 import { useHistory } from "react-router-dom"
 
-function SignUp ({error, setError, setCurrentUser}) {
+function SignUp ({setCurrentUser}) {
 
     const [signUpUsername, setSignUpUsername] = useState("")
     const [signUpEmail, setSignUpEmail] = useState("")
     const [signUpPassword, setSignUpPassword] = useState("")
+    const [signUpError, setSingUpError] = useState(null)
 
     const history = useHistory()
 
@@ -21,11 +22,11 @@ function SignUp ({error, setError, setCurrentUser}) {
         .then(data => {
             console.log(data.errors)
             if (data.errors) {
-                setError(data.errors)
+                setSingUpError(data.errors)
                 e.target.className="shake"
                 setInterval(function() {e.target.className="login-form"}, 500)
             } else {
-                setError(null)
+                setSingUpError(null)
                 console.log("Signup Success")
                 history.push("/portfolio")
                 setCurrentUser(data)
@@ -64,7 +65,7 @@ function SignUp ({error, setError, setCurrentUser}) {
                         <div className="login-button-div">
                             <button className="button" type="submit"> Sign Up </button>
                  </div>
-                        <p className="error">{error ? error : null}</p>
+                        <p className="error">{signUpError ? signUpError : null}</p>
             </form>
          </div>
       </div>

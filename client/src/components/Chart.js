@@ -11,8 +11,8 @@ import {useEffect, useState} from "react"
 
 function Chart ({values2, keys, symbol}) {
     const [data, setData] = useState([])
-    console.log(values2)
-    console.log(keys)
+    // console.log(values2)
+    // console.log(keys)
     
     
     useEffect(() => {

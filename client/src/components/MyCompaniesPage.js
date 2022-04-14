@@ -21,6 +21,10 @@ function MyCompaniesPage () {
 
     console.log(userCompanies)
 
+    
+    
+    //remove duplicates ??
+
     const singleCompany = userCompanies?.map((company) => <div className="stock-card"><CompaniesCard company={company}/></div>)
 
     return (

@@ -3,7 +3,7 @@ import SearchStockCard from "./SearchStockCard";
 
 function Query ({currentUser, userStocks, setUserStocks}) {
     const [search, setSearch] = useState("") 
-    const [searchResponse, setSearchResponse] = useState({})
+    const [searchResponse, setSearchResponse] = useState(null)
     //either pass up search response or put state in higher componenet or render stock card here
     function handleSearchForm (e) {
         e.preventDefault()
@@ -29,9 +29,9 @@ function Query ({currentUser, userStocks, setUserStocks}) {
             </form>
             {searchResponse ? <SearchStockCard  
                 currentUser={currentUser}
-              userStocks={userStocks}
-              setUserStocks={setUserStocks}
-              searchResponse={searchResponse}/> 
+                userStocks={userStocks}
+                setUserStocks={setUserStocks}
+                searchResponse={searchResponse}/> 
               : null}
         </div>
     )

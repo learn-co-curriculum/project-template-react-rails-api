@@ -10,24 +10,27 @@ function SearchStockCard ({searchResponse, currentUser, userStocks, setUserStock
 
     const formattedPrice = parseFloat(newPrice)
     
-    useEffect(() => {
-        let newSearchCompany = {
-            name: Name,
-            symbol: Symbol
-        }
+    //on submit search click, post company to ddb 
 
-        fetch("/companies", {
-            method: "POST", 
-            headers: {"Content-Type": "application/json"}, 
-            body: JSON.stringify(newSearchCompany)
-        })
-            .then(r => r.json())
-            .then(r => {
-                setNewCompany(r)
+    // useEffect(() => {
+    //     let newSearchCompany = {
+    //         name: Name,
+    //         symbol: Symbol
+    //     }
+    //     debugger
+    //     fetch("/companies", {
+    //         method: "POST", 
+    //         headers: {"Content-Type": "application/json"}, 
+    //         body: JSON.stringify(newSearchCompany)
+    //     })
+    //         .then(r => r.json())
+    //         .then(r => {
+    //             setNewCompany(r)
                 
-            })     
-            console.log(newSearchCompany)
-    }, [])
+    //         }) 
+    // }, [])
+    //         console.log(newSearchCompany)
+    
 
     function handleAddStock () {
         window.alert('Added to Portfolio')

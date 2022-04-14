@@ -8,6 +8,7 @@ function UserStockCard ({stock, handleDeleteStock, error, setError, setUserStock
     const [fetchData, setFetchData] = useState([])
     const [updatedPrice, setUpdatedPrice] = useState("")
     const [singleStock, setSingleStock] = useState(null)
+    const [showForm, setShowForm] = useState(false)
 
     useEffect(() => {
         fetch(`/user_stocks/${id}`)
@@ -72,8 +73,11 @@ function UserStockCard ({stock, handleDeleteStock, error, setError, setUserStock
         
         setShowChart(!showChart)
     }
-    
-    
+
+    function handleShowForm() {
+        setShowForm(!showForm)
+    }
+
         const values = Object?.values(fetchData) 
         const values2 = Object?.values(values)
         const keys = Object?.keys(fetchData)
@@ -97,12 +101,14 @@ function UserStockCard ({stock, handleDeleteStock, error, setError, setUserStock
             <button className="button" onClick={handleDelete}>Delete Stock</button>
             <div></div>
             <button className="button" onClick={handleShowChart} >Show Weekly Prices</button>
-
-            <form  onSubmit={handleEditFormSubmit}>
-                Update Purchase Price:
-                <input onChange={(e) => setUpdatedPrice(e.target.value)} defaultValue="Price" type="text" />
-                <input className="button" type="submit" value="Update" />
-            </form>
+            <div></div>
+            <button className="button" onClick={handleShowForm}>Update Initial Price</button>
+            { showForm ? 
+                <form  onSubmit={handleEditFormSubmit}>
+                    Update Purchase Price:
+                    <input onChange={(e) => setUpdatedPrice(e.target.value)} defaultValue="Price" type="text" />
+                    <input className="button" type="submit" value="Update" />
+                </form> : null}
             <p className="error">{error ? error : null}</p>
 
             {/* one chart rendering throughout maybe move to portfolio*/}

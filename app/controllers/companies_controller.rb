@@ -34,4 +34,3 @@ class CompaniesController < ApplicationController
 end
 
 
-# , user_stocks: { :name, :symbol, :price }

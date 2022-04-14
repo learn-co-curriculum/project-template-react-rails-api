@@ -118,7 +118,7 @@ body {
   font-size: 18px;
   height: 50px;
   text-align: center;
-  width: 50%;
+  width: auto;
   font-weight: bold;
 }
 
@@ -136,8 +136,10 @@ body {
   background-color: rgb(43, 43, 43);
   border-radius: 1em;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 .error {

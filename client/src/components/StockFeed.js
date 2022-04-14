@@ -54,9 +54,11 @@ function StockFeed ({currentUser, userStocks, setUserStocks}) {
              {singleStock}
 
               <h1>News</h1>
-                <div>{news.Headline}</div>
+              <div className="stock-card">
+                <strong><div>{news.Headline}</div></strong>
                 <div>{news.Timestamp}</div>
                 <div>{news.Teaser}</div> 
+              </div>
         </div>
     )
 }

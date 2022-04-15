@@ -26,19 +26,22 @@ function CompaniesCard ({company}) {
                 <div>{symbol}</div>
             </strong>
 
-            <button className="button" onClick={() => setShowSummary(!showSummary)}>Show Business Summary</button>
-            <div></div>
-            <button className="button" onClick={() => setShowCompanyNews(!showCompanyNews)}>Show Company News Summary</button>
-            
+            <button className="button" onClick={() => setShowSummary(!showSummary)}>{showSummary ? "Hide Business Summary" : "Show Business Summary"}</button>
+
             {showSummary ? <div>{quoteNews?.CompanyOverviewOutput.BusinessSummary}</div> : null}
+            <div></div>
+
+            <button className="button" onClick={() => setShowCompanyNews(!showCompanyNews)}>{ showCompanyNews ? "Hide Company News Summary" : "Show Company News Summary" }</button>
+            
+            
 
             {showCompanyNews ? 
                 <>
-                    <div><strong>{quoteNews?.StocksNewsOutput.Stories[0].Headline}</strong></div>
-                    <div>{quoteNews?.StocksNewsOutput.Stories[0].Teaser}</div>
-                    <div></div>
                     <div><strong>{quoteNews?.StocksNewsOutput.Stories[1].Headline}</strong></div>
                     <div>{quoteNews?.StocksNewsOutput.Stories[1].Teaser}</div>
+                    <div></div>
+                    <div><strong>{quoteNews?.StocksNewsOutput.Stories[0].Headline}</strong></div>
+                    <div>{quoteNews?.StocksNewsOutput.Stories[0].Teaser}</div>
 
                 </>
                  : null

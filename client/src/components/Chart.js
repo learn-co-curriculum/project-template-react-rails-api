@@ -5,7 +5,7 @@ import {
     CartesianGrid, 
     XAxis, 
     YAxis,
-    Legend 
+    Legend
 } from 'recharts';
 import {useEffect, useState} from "react"
 
@@ -55,24 +55,25 @@ function Chart ({values2, keys, symbol}) {
           ])
 
     }, [])
-
     
 
     const renderLineChart = (
+      
         <LineChart width={400} height={400} data={data}>
-          <Line type="monotone" dataKey="close" stroke="#8884d8" />
-          <CartesianGrid stroke="#ccc" strokeDasharray="5 5"/>
+          <CartesianGrid  strokeDasharray="5 5"/>
           <XAxis dataKey="date" />
-          <YAxis dataKey="close"/>
+          <YAxis />
           <Tooltip />
           <Legend />
+          <Line type="monotone" dataKey="close" stroke="#8884d8" />
         </LineChart>
+        
       )
 
       return (
         <div>
             {symbol}
-          {renderLineChart}
+          { renderLineChart }
         </div>
       )
     }

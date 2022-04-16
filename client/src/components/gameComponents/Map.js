@@ -30,7 +30,7 @@ function Map({rowCount, setCount, rows, setRows}){
         else{
             makeRow(0,4)
         }
-    },[])
+    },[rowCount])
     
 
     return(

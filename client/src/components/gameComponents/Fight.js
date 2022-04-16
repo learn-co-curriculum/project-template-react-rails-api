@@ -33,6 +33,7 @@ function Fight({charHealth, setCharHealth, level}){
         .then((r)=>setEnemy(r[0]))
         console.log(enemy)
     },[])
+    
     //updates the display when the health values are updated
     useEffect(()=>{
         setDisplay(

@@ -13,6 +13,7 @@ import LoseScreen from './components/gameComponents/LoseScreen';
 import WinScreen from './components/gameComponents/WinScreen';
 
 function App() {
+  const [gold, setGold] = useState(0)
   const [character, setCharacter] = useState(undefined)
   const [user, setUser] = useState("")
   const [userID, setUserID] = useState(null)
@@ -20,6 +21,12 @@ function App() {
   const [charHealth, setCharHealth] = useState(100)
   const [rowCount, setCount] = useState(1)
   const [rows, setRows] = useState([])
+
+  function equipItem(item) {
+    fetch(`/character/${item.id}`,{
+      method: "UPDATE"
+    })
+  }
 
   useEffect(() => {
     // auto-login

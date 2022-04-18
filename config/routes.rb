@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#login"
     delete "/logout", to: "sessions#logout"
     get "/current_user", to: "users#show"
+    
 
 
   # Routing logic: fallback requests for React Router.

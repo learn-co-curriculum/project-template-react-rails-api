@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function WinScreen({setCount, rowCount}){
+function WinScreen({gold, setGold, setCount, rowCount, character}){
+    const [refreshCheck, setRefresh] = useState(0)
+    const [newItem, setNewItem] = useState(null)
+    const [display, setDisplay] = useState(undefined)
     const history = useHistory();
+
+    //Random number generator
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
     //Reroutes back to the map on win, adds a new row
     function continueGame() {
@@ -10,10 +21,73 @@ function WinScreen({setCount, rowCount}){
         history.push(path);
     }
 
+    //Creates random item
+    function makeItem(){
+        let myType
+        let myNum = getRandomInt(0,2)
+        if(myNum === 1){
+            myType = "armor"
+        }
+        else if(myNum === 2){
+            myType = "weapon"
+        }
+        else{
+            myType = "trinket"
+        }
+        const formData = {
+            character_id: character.id,
+            itemType: myType,
+            str: getRandomInt(0,29),
+            ag: getRandomInt(0,29),
+            intel: getRandomInt(0,29),
+            exp_gain: getRandomInt(0,29)
+        }
+        fetch("/item", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(r=>r.json())
+        .then(r=>setNewItem(r))
+    }
+
+    //Gets rewards for winning battle
+    useEffect(()=>{
+        makeItem()
+        setGold(gold + (getRandomInt(20, 50)))
+    },[])
+
+    //Displays new item upon win
+    useEffect(()=>{
+        if(newItem === null){
+            console.log(newItem)
+        }
+        else
+        {
+            setDisplay(
+            <div>
+                <h2>{newItem["itemType"]}</h2>
+            <ul>
+                <li>strength:{newItem.str}</li>
+                <li>agility:{newItem.ag}</li>
+                <li>inteligence:{newItem.intel}</li>
+                <li>exp gain:{newItem.exp_gain}</li>
+            </ul></div>
+        )
+    }
+    },[newItem])
+
 return(
     <div>
         <h1>Battle Won!</h1>
         <h2>Rewards:</h2>
+        <h2>Gold: {gold}</h2>
+        {display}
+        <button>Equip</button>
+        <br></br>
+        
         <button onClick={continueGame}>Continue</button>
     </div>
 

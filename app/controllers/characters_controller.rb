@@ -9,7 +9,20 @@ class CharactersController < ApplicationController
         render json: user.characters
     end
 
+    def equip
+        character = Character.find(params[:character_id])
+        character.update()
+    end
+
+    def show
+        character = Character.find_by(name: params[:name])
+        render json: character
+    end
+
     private
+
+    def item_params
+    end
 
     def character_params
         params.permit(:name, :user_id, :str, :ag, :intel, :exp, :exp_gain)

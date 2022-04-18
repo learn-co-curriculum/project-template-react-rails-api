@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2022_04_14_165354) do
 
   create_table "items", force: :cascade do |t|
     t.bigint "character_id", null: false
-    t.string "type"
+    t.string "itemType"
     t.integer "str"
     t.integer "ag"
     t.integer "intel"

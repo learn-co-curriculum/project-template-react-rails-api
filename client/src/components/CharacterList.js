@@ -8,18 +8,17 @@ function CharacterList({userID}){
     useEffect(()=>{
         if(userID !== null)
         {
-            fetch(`/character/?user_id=${userID}`)
+            fetch(`/characters/?user_id=${userID}`)
             .then((r)=>r.json())
             .then((r)=>setList(r))
         }
     },[userID])
 
     useEffect(()=>{
-        if(list[0] !== null){
             let myDisplay = list.map((character)=>{
                 return <CharacterCard character={character} key = {character.id}/>
             })
-        setDisplay(myDisplay)}
+        setDisplay(myDisplay)
     },[list])
 
     return(

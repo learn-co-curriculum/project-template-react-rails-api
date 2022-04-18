@@ -4,10 +4,15 @@ class ItemsController < ApplicationController
         render json: item
     end
 
+    def allItems
+        character = Character.find(params[:character_id])
+        render json: character.items
+    end
+
     private
 
     def item_params
-        params.permit(:character_id, :type, :str, :ag, :intel, :exp_gain)
+        params.permit(:character_id, :itemType, :str, :ag, :intel, :exp_gain)
     end
 
 end

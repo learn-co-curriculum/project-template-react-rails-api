@@ -27,6 +27,13 @@ code {
   margin-top: 20px;
 }
 
+.characterCard{
+  border: solid black 1px;
+  width: 50%;
+  margin: auto;
+  margin-top: 30px;
+}
+
 .tileContainer{
   display: flex;
   justify-content: center;

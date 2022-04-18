@@ -8,7 +8,7 @@ function Fight({charHealth, setCharHealth, level}){
     const history = useHistory();
 
 
-
+    
     //deals damage to enemy based on character attack
     function dealDamage(){
         setEnHealth(enHealth-10+enemy.defense)
@@ -33,7 +33,7 @@ function Fight({charHealth, setCharHealth, level}){
         .then((r)=>setEnemy(r[0]))
         console.log(enemy)
     },[])
-    
+
     //updates the display when the health values are updated
     useEffect(()=>{
         setDisplay(

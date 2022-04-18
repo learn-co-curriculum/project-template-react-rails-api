@@ -1,7 +1,12 @@
 import {useState} from 'react'
 function CharacterCreator({userID}) {
-
+    const [myClass, setMyClass] = useState("crab")
     const [name, setName] = useState("")
+
+    function handleOption(e){
+        console.log(e.target.value)
+        setMyClass(e.target.value)
+    }
 
     function handleSubmit(e){
         e.preventDefault()
@@ -13,7 +18,9 @@ function CharacterCreator({userID}) {
             ag: 0,
             intel: 0,
             exp: 0,
-            exp_gain: 0
+            exp_gain: 0,
+            level: 0,
+            charClass: myClass
         }
         fetch("/characters", {
             method: "POST",
@@ -30,6 +37,14 @@ function CharacterCreator({userID}) {
     return(
         <div>
             <form onSubmit={(e)=>handleSubmit(e)}>
+            <select
+                    className="loginput" 
+                    onChange={handleOption}
+                    value = {myClass}>
+                    <option value= "crab">Crab(Strength)</option>
+                    <option value = "cat">Cat(Agility)</option>
+                    <option value = "owl">Owl(Inteligence)</option>
+                </select>  
                 <input placeholder="Character Name" value = {name} onChange = {(e)=>{setName(e.target.value)}}/>
                 <button>Create</button>
             </form>

@@ -3,15 +3,19 @@ import { useHistory } from "react-router-dom";
 
 function Start({setCharHealth, userID, character, setCharacter, started, setStarted, setRows}) {
     const [list, setList] = useState([])
+    const [myName, setMyName] = useState("")
 
     function handleOption(e){
-        setCharacter(e.target.value)
-        console.log(character)
+        setMyName(e)
+        fetch(`/character/?name=${e}`)
+        .then(r=>r.json())
+        .then(r=>setCharacter(r))
     }    
 
     const history = useHistory();
-    const routeChange = () =>{ 
-        if(character !== null){
+    const routeChange = () =>{  
+        if(character !== null && character !== undefined && character !== ""){
+           
             let path = `/map`; 
             history.push(path);
             setStarted(!started)
@@ -26,17 +30,18 @@ function Start({setCharHealth, userID, character, setCharacter, started, setStar
     useEffect(()=>{
         if(userID !== null)
         {
-            fetch(`/character/?user_id=${userID}`)
+            fetch(`/characters/?user_id=${userID}`)
             .then((r)=>r.json())
-            .then((r)=>setList(r))
-        }
-    },[userID])
+            .then((r)=>{setList(r)
+            handleOption(r[0].name)
+            })
+    }},[userID])
 
     return(
         <div>
             <select
-                onChange={handleOption}
-                value = {character}>
+                onChange={e=>handleOption(e.target.value)}
+                value = {myName}>
                 {list.map((myChar)=>{
                     return <option key={myChar.id} value={myChar.name}>{myChar.name}</option>
                 })}

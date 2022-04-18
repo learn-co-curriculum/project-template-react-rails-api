@@ -21,10 +21,34 @@ function App() {
   const [charHealth, setCharHealth] = useState(100)
   const [rowCount, setCount] = useState(1)
   const [rows, setRows] = useState([])
+  const [charAttack, setCharAttack] = useState(10)
 
-  function equipItem(item) {
-    fetch(`/character/${item.id}`,{
-      method: "UPDATE"
+  function equipItem(character, item) {
+    let formData;
+    if(item.itemType === "armor"){
+      formData = {
+        character_id: character.id,
+        armor: item
+      }
+    }
+    else if(item.itemType === "trinket"){
+      formData = {
+        character_id: character.id,
+        trinket: item
+      }
+    }
+    else if(item.itemType === "weapon"){
+      formData = {
+        character_id: character.id,
+        weapon: item
+      }
+    }
+    fetch(`/character/equip`,{
+      method: "UPDATE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData)
     })
   }
 
@@ -44,7 +68,7 @@ function App() {
       <NavBar/>
         <Switch>
         <Route path = '/win'>
-            <WinScreen setCount = {setCount} rowCount={rowCount}/>
+            <WinScreen gold = {gold} setGold = {setGold} character = {character} setCount = {setCount} rowCount={rowCount}/>
           </Route>
           <Route path = '/lose'>
             <LoseScreen setRows={setRows}/>

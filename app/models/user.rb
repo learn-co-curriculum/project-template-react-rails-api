@@ -3,4 +3,5 @@ class User < ApplicationRecord
     validates :username, presence: true
     validates :username, uniqueness: true
     has_many :characters
+    has_many :items, through: :characters
 end

@@ -1,7 +1,8 @@
 import Chart from "./Chart"
 import { useEffect, useState } from "react"
+import emailjs from '@emailjs/browser';
 
-function UserStockCard ({stock, handleDeleteStock, setUserStocks, userStocks}) {
+function UserStockCard ({stock, handleDeleteStock, setUserStocks, userStocks, currentUser}) {
     const {name, symbol, price, id} = stock
     
     const [showChart, setShowChart] = useState(false)
@@ -13,7 +14,7 @@ function UserStockCard ({stock, handleDeleteStock, setUserStocks, userStocks}) {
     const [values, setValues] = useState([])
     const [keys, setKeys] = useState([])
     const [currentPrice, setCurrentPrice] = useState(null)
-
+    
 
     useEffect(() => {
         fetch(`/user_stocks/${id}`)
@@ -64,7 +65,6 @@ function UserStockCard ({stock, handleDeleteStock, setUserStocks, userStocks}) {
                     setUpdatedPrice("")
                     setShowForm(false)
                 }
-                // console.log(r)
             })
     }
 
@@ -102,8 +102,6 @@ function UserStockCard ({stock, handleDeleteStock, setUserStocks, userStocks}) {
                 values2={values} />
         )
     }
-    // console.log(keys)
-    
 
     useEffect (() => {
         fetch(`https://schwab.p.rapidapi.com/quote/get-summary?symbol=${symbol}`, {
@@ -123,8 +121,31 @@ function UserStockCard ({stock, handleDeleteStock, setUserStocks, userStocks}) {
                     .catch(err => console.error(err));
         }, [])
 
-        console.log(currentPrice)
+       
         const performanceOverTime = currentPrice - price 
+
+        let templateParams = {
+            to_name: currentUser?.username,
+            email: currentUser?.email,
+            name: name,
+            symbol: symbol, 
+            price: price,
+            performance: performanceOverTime
+        }
+
+        function handleSendMePerformance() {
+            emailjs.send(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_TEMPLATE_ID, templateParams, process.env.REACT_APP_PUBLIC_KEY)
+                .then((result) => {
+                    alert("Message Sent, We will get back to you shortly", result.text)
+                    console.log(result)
+            },
+                (error) => {
+                    alert("An error occurred, Please try again", error.text);
+                    console.log(error)
+                })
+    
+        } 
+    
 
     return(
         <div>
@@ -133,7 +154,7 @@ function UserStockCard ({stock, handleDeleteStock, setUserStocks, userStocks}) {
             <div>Price Change Since Purchase: $ {performanceOverTime.toFixed(2)}</div>
             <button className="button" onClick={handleDelete}>Delete Stock</button>
             <div></div>
-            <button className="button" onClick={handleShowChart} >Show Weekly Prices</button>
+            <button className="button" onClick={handleShowChart}>Show Weekly Prices</button>
             <div></div>
             <button className="button" onClick={handleShowForm}>Update Initial Price</button>
 
@@ -147,6 +168,8 @@ function UserStockCard ({stock, handleDeleteStock, setUserStocks, userStocks}) {
             <p className="error">{updateError ? updateError : null}</p>
 
             {values.length > 0 && keys.length > 0 && showChart ? renderChart() : null}
+
+            <button className="button" onClick={handleSendMePerformance}>Email Me Stock Performance</button>
             
         </div>
     )

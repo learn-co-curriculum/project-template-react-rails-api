@@ -11,6 +11,7 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.6.2",
     "react-router": "^6.3.0",
     "react-stock-graph": "^0.1.2"
   }

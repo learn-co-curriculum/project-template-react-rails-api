@@ -1,9 +1,12 @@
-import { useEffect} from "react"
+import { useEffect, useState } from "react"
 import UserStockCard from "./UserStockCard"
 import { useHistory } from "react-router-dom"
+import emailjs from '@emailjs/browser';
+
 
 
 function UserPortfolio ({userStocks, setUserStocks, error, setError}) {
+    const [currentUser, setCurrentUser] = useState({})
     
    let history = useHistory() 
 
@@ -13,34 +16,25 @@ function UserPortfolio ({userStocks, setUserStocks, error, setError}) {
         .then(user => {
             if (!user.error) {
                 setUserStocks(user.user_stocks)
+                setCurrentUser(user)
             } else {
                 history.push("/login")
             }
+
         })
     }, [])
-
     
     function handleDeleteStock (id) {
         const updatedStocks = userStocks.filter(stock => stock.id !== id)
         setUserStocks(updatedStocks)
     }
 
-    // const handleSendMePerformance() {
-
-    //     emailjs.sendForm(`gmail`, apiKey.REACT_APP_TEMPLATE_ID, stateVariable, apiKey.REACT_APP_USER_ID)
-    //         .then((result) => {
-    //             alert("Message Sent, We will get back to you shortly", result.text)
-    //     },
-    //         (error) => {
-    //             alert("An error occurred, Please try again", error.text);
-    //         })
-
-    // }
 
     return (
         <div className="stock-cards-container">
+
             <h1>My Portfolio</h1>
-           
+    
             {userStocks?.map((stock) => (
                 <div className="stock-card">
                     <UserStockCard 
@@ -50,6 +44,7 @@ function UserPortfolio ({userStocks, setUserStocks, error, setError}) {
                         setError={setError}
                         setUserStocks={setUserStocks}
                         userStocks={userStocks}
+                        currentUser={currentUser}
                     /> 
                 </div>)
             )}

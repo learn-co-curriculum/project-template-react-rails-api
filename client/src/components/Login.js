@@ -24,7 +24,7 @@ function Login ({ error, setError, setCurrentUser }) {
                 } else {
                     setError(null)
                     console.log("Login Success")
-                    history.push("/portfolio")
+                    history.push("/")
                     setCurrentUser(data)
                 }
             })

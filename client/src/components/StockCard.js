@@ -44,12 +44,11 @@ function StockCard ({stock, currentUser, setError, userStocks, setUserStocks}) {
                 })
        
     }
-    console.log(company)
+    
 
     return(
         <div>
-            <div>{DisplayName}</div>
-            <div>{Symbol}</div>
+            <div>{DisplayName} - {Symbol}</div> 
             <div>{LastValue}</div>
             <button className="button" onClick={handleAddStock}>Add to Portfolio</button>
         </div>

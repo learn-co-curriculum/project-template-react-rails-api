@@ -1,10 +1,11 @@
 import {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 import MapTile from './MapTile';
-function Map({rowCount, setCount, rows, setRows}){
+function Map({rowCount, setCount, rows, setRows, setStarted}){
     const history = useHistory();
 
     function quit() { 
+        setStarted(false)
         let path = `/start`; 
         history.push(path);
     }
@@ -34,10 +35,9 @@ function Map({rowCount, setCount, rows, setRows}){
     
 
     return(
-        <div>
-            <button onClick = {quit}>Quit</button>
-            <button onClick={()=>makeRow(0,4)}>Make Row</button>
-            <h1>Map</h1>
+        <div className='mapPage'>
+            <button className='quitButton' onClick = {quit}>Quit</button>
+            <h1 className='mapHeader'>Choose A Location</h1>
             <div className='containerContainer'>{rows.map((row)=>{
                 return(<div className='tileContainer'>{row}</div>)
             })}</div>

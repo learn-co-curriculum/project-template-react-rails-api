@@ -1,9 +1,10 @@
 import { useHistory } from "react-router-dom";
 
-function LoseScreen({setRows}){
+function LoseScreen({setRows, setStarted}){
     const history = useHistory();
 
     function quit() { 
+        setStarted(false)
         let path = `/start`; 
         history.push(path);
     }

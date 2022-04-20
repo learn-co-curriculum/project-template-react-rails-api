@@ -1,6 +1,10 @@
 .App {
   text-align: center;
+  margin-top: -2.2%;
+  background-image: url('https://media.istockphoto.com/photos/old-brown-background-texture-with-black-vignette-in-old-vintage-picture-id1293831327?b=1&k=20&m=1293831327&s=170667a&w=0&h=QP7ecZogypmsbxojt0Ue2KGW3780xI3Oh5ovAz35S6Y=');
+  background-size: contain;
 }
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -22,12 +26,13 @@ code {
 .tile{
   border: solid black 5px;
   width: 80px;
-  margin: auto;
-  margin-right: 10px;
+  margin: 90px;
   margin-top: 20px;
+  background-color: wheat;
 }
 
 .characterCard{
+  background: url('https://img.myloview.com/stickers/old-paper-background-700-231640041.jpg');
   border: solid black 1px;
   width: 50%;
   margin: auto;
@@ -39,9 +44,107 @@ code {
   justify-content: center;
 }
 
-.containerContainer{
-} 
+.navbar{
+  background-color: black;
+  border: solid black 3px;
+  padding: 1%;
+  width: auto;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+.navlink{
+  font-family: 'Square Peg', cursive;
+  font-size: 200%;
+  background-color: black;
+  text-align: center;
+  justify-content: center;
+  border: solid white 1px;
+  border-bottom: transparent;
+  border-top: transparent;
+  color: white;
+  padding-bottom:1.6%;
+  padding-top:1.6%;
+  padding-right: 3%;
+  padding-left: 3%;
+  text-decoration: none;
+}
+
+.mapPage{
+  margin-top: -10px;
+  height: 700px;
+  background-image: url("https://wallpaperaccess.com/full/781373.jpg");
+  background-size:cover;
+}
+
+.openingH1{
+  border-bottom: solid black 6px;
+  margin: auto;
+  width: fit-content;
+  padding-top: 2%;
+  color: white;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.start{
+background:none;
+height: 450px;
+}
 
 .hidden{
-  visibility: hidden;
+  display: none;
+}
+
+.title{
+  color: rgb(160, 156, 156);
+  font-family: 'Cinzel', serif;
+  font-size: 60px;
+  border-bottom: solid black 5px;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 1%;
+  margin-top: 20px;
+}
+
+.mapHeader{
+  margin-top: 8%;
+  font-family: 'Square Peg', cursive;
+  font-size: 90px;
+}
+
+.quitButton{
+  margin-top: 40px;
+  margin-right: 1200px;
+  background-color: black;
+  color: white;
+}
+
+.startForm{
+  font-family: 'Square Peg', cursive;
+  width: 200px;
+  background: url('https://img.myloview.com/stickers/old-paper-background-700-231640041.jpg');
+  margin: auto;
+  margin-top: 5%;
+  padding: 2%;
+  border: solid black 3px;
+}
+
+.startButton{
+  margin-top: 50px;
+}
+
+.loginPage{
+  background: none;
+  height: 550px;
+}
+
+.loginForm{
+  background: url('https://img.myloview.com/stickers/old-paper-background-700-231640041.jpg');
+  width: fit-content;
+  margin: auto;
+  border: solid black 3px;
+  margin-top: 5%;
+  padding: 1%;
 }

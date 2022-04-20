@@ -35,8 +35,8 @@ function CharacterCreator({userID}) {
     }
 
     return(
-        <div>
-            <form onSubmit={(e)=>handleSubmit(e)}>
+        <div className='loginPage'>
+            <form className="loginForm" onSubmit={(e)=>handleSubmit(e)}>
             <select
                     className="loginput" 
                     onChange={handleOption}

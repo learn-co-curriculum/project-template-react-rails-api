@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  resources :random_events
   resources :users
+  delete '/character', to: "characters#destroy"
+  delete '/item', to: "items#destroy"
   get "/items", to: "items#allItems"
   get "/character/", to: "characters#show"
   patch "/character/equip", to: "character#equip"

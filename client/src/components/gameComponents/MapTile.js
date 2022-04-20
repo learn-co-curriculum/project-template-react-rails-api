@@ -21,13 +21,13 @@ const randomChange = () =>{
 const [display, setDisplay] = useState(null)
 useEffect(()=>{
     if(type===1){
-        setDisplay(<h1 className = "tile" onClick={fightChange}>Fight</h1>)
+        setDisplay(<h1 className = "tile" onClick={fightChange}>☠</h1>)
     }
     else if (type===2){
         setDisplay(<h1 className = "tile" onClick={randomChange}>?</h1>)
     }
     else{
-        setDisplay(<h1 className = "tile" onClick={shopChange}>Shop</h1>)
+        setDisplay(<h1 className = "tile" onClick={shopChange}>$</h1>)
     }
     },[type])
     

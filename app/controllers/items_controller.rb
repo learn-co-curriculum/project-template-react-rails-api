@@ -5,8 +5,13 @@ class ItemsController < ApplicationController
     end
 
     def allItems
-        character = Character.find(params[:character_id])
+        character = Character.find_by(name:params[:name])
         render json: character.items
+    end
+
+    def destroy
+        item = Item.find(params[:id])
+        item.destroy
     end
 
     private

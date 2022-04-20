@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-function Login({setUser, setUserID}) {
+function Login({setUser, setUserID, user}) {
     const [userName, setUserName] = useState("");
     const [myPassword, setPassword] = useState("");
     const [my_confirm, setConfirm] = useState("");
@@ -86,7 +86,8 @@ function Login({setUser, setUserID}) {
             }    }
 
       return(
-        <div>
+        <div className="loginPage">
+          <h1 className='openingH1'>Hello {user}</h1>
             <button className="outbutton" onClick={handleLogout}>logout</button> 
             <form className="loginForm" onSubmit={handleSubmit}>
             <h1>Log In or Sign Up</h1>
@@ -97,9 +98,13 @@ function Login({setUser, setUserID}) {
                     <option value= "login">Log In</option>
                     <option value = "sign up">Sign Up</option>
                 </select>  
+                <br/>
                 <input type="text"  className="loginput" placeholder = "UserName" onChange={handleUserName} value={userName} />
+                <br/>
                 <input type="text"  className="loginput" placeholder = "Password" onChange={handlePassword} value={myPassword} />
+                <br/>
                 {display ? <input type="text"  className="loginput" placeholder = "Confirm Password" onChange={handleConfirm} value={my_confirm} /> : null}
+                {display ? <br /> : null}
                 <button type="submit">Submit</button>
             </form>
         </div>

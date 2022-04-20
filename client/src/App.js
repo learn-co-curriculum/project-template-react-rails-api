@@ -11,6 +11,9 @@ import Shop from './components/gameComponents/Shop';
 import Random from './components/gameComponents/Random';
 import LoseScreen from './components/gameComponents/LoseScreen';
 import WinScreen from './components/gameComponents/WinScreen';
+import CharacterPage from './components/CharacterPage';
+import knight from '../src/images/knight.png';
+import ogre from '../src/images/246-2465467_cartoon-ogre-png.png'
 
 function App() {
   const [gold, setGold] = useState(0)
@@ -22,6 +25,7 @@ function App() {
   const [rowCount, setCount] = useState(1)
   const [rows, setRows] = useState([])
   const [charAttack, setCharAttack] = useState(10)
+  const [pickedChar, setPickedChar] = useState("")
 
   function equipItem(character, item) {
     let formData;
@@ -51,11 +55,11 @@ function App() {
       body: JSON.stringify(formData)
     })
   }
-
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) =>r.json()).then((r) => {
-      if (r !== null) {
+      console.log(r)
+      if (r !== undefined && r!== null) {
         setUser(r.username)
         setUserID(r.id)
       }
@@ -64,14 +68,19 @@ function App() {
   
   return (
     <div className="App">
-      <h1>Hello {user}</h1>
-      <NavBar/>
+      <div className={started? "hidden" : "myHeader"}>
+        <h1 className='title'>Js Journey</h1>
+        <NavBar/>
+      </div>
         <Switch>
+          <Route path = '/characterPage'>
+            <CharacterPage characterName={pickedChar}/>
+          </Route>
         <Route path = '/win'>
             <WinScreen gold = {gold} setGold = {setGold} character = {character} setCount = {setCount} rowCount={rowCount}/>
           </Route>
           <Route path = '/lose'>
-            <LoseScreen setRows={setRows}/>
+            <LoseScreen setStarted={setStarted} setRows={setRows}/>
           </Route>
           <Route path = '/character'>
             <CharacterCreator userID = {userID}/>
@@ -86,13 +95,13 @@ function App() {
             <Shop/>
           </Route>
           <Route path = '/map'>
-            <Map rows = {rows} setRows = {setRows} character = {character} rowCount = {rowCount} setCount = {setCount}/>
+            <Map setStarted={setStarted} className="mapPage" rows = {rows} setRows = {setRows} character = {character} rowCount = {rowCount} setCount = {setCount}/>
           </Route>
           <Route path = '/characters'>
-            <CharacterList userID = {userID}/>
+            <CharacterList userID = {userID} setPickedChar = {setPickedChar}/>
           </Route>
           <Route path = '/login'>
-            <Login setUser = {setUser} setUserID = {setUserID}/>
+            <Login user = {user} setUser = {setUser} setUserID = {setUserID}/>
           </Route>
           <Route path = "/">
             <Start setRows = {setRows} setCharHealth={setCharHealth} started = {started} setStarted = {setStarted} userID = {userID} character={character} setCharacter = {setCharacter}/>

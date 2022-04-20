@@ -15,10 +15,9 @@ function Start({setCharHealth, userID, character, setCharacter, started, setStar
     const history = useHistory();
     const routeChange = () =>{  
         if(character !== null && character !== undefined && character !== ""){
-           
             let path = `/map`; 
             history.push(path);
-            setStarted(!started)
+            setStarted(true)
             setCharHealth(100)
             setRows([])
         }
@@ -33,20 +32,24 @@ function Start({setCharHealth, userID, character, setCharacter, started, setStar
             fetch(`/characters/?user_id=${userID}`)
             .then((r)=>r.json())
             .then((r)=>{setList(r)
-            handleOption(r[0].name)
+                if(r[0] !== undefined){
+            handleOption(r[0].name)}
             })
     }},[userID])
 
     return(
-        <div>
-            <select
-                onChange={e=>handleOption(e.target.value)}
-                value = {myName}>
-                {list.map((myChar)=>{
-                    return <option key={myChar.id} value={myChar.name}>{myChar.name}</option>
-                })}
-            </select>  
-            <button onClick={routeChange}>Start</button>
+        <div className='start'>
+            <div className='startForm'>
+                <select
+                    onChange={e=>handleOption(e.target.value)}
+                    value = {myName}>
+                    {list.map((myChar)=>{
+                        return <option key={myChar.id} value={myChar.name}>{myChar.name}</option>
+                    })}
+                </select>  
+                <br/>
+                <button className='startButton' onClick={routeChange}>Start</button>
+            </div>
         </div>
     )
     

@@ -29,10 +29,11 @@ function CharacterPage({characterName}){
 
 
     return(
-        <div>
+        <div className="charPage">
             <button onClick ={backButtonClick} >Back</button>
+            <div className="characterCard">
             <h1>{characterName}</h1>
-            {display}
+            {display}</div>
         </div>
     )
 }

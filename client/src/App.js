@@ -12,8 +12,10 @@ import Random from './components/gameComponents/Random';
 import LoseScreen from './components/gameComponents/LoseScreen';
 import WinScreen from './components/gameComponents/WinScreen';
 import CharacterPage from './components/CharacterPage';
-import knight from '../src/images/knight.png';
-import ogre from '../src/images/246-2465467_cartoon-ogre-png.png'
+import owl from "../src/images/owl.png";
+import crab from "../src/images/cat.jpg";
+import cat from "../src/images/crab.jpg";
+
 
 function App() {
   const [gold, setGold] = useState(0)
@@ -26,6 +28,9 @@ function App() {
   const [rows, setRows] = useState([])
   const [charAttack, setCharAttack] = useState(10)
   const [pickedChar, setPickedChar] = useState("")
+
+
+
 
   function equipItem(character, item) {
     let formData;
@@ -89,7 +94,7 @@ function App() {
             <Random/>
           </Route>
           <Route path = '/fight'>
-            <Fight level = {rowCount} setCharHealth = {setCharHealth} charHealth = {charHealth}/>
+            <Fight cat = {cat} crab = {crab} owl = {owl} level = {rowCount} setCharHealth = {setCharHealth} charHealth = {charHealth}/>
           </Route>
           <Route path = '/shop'>
             <Shop/>

@@ -37,6 +37,7 @@ code {
   width: 50%;
   margin: auto;
   margin-top: 30px;
+  padding-bottom: 1%;
 }
 
 .tileContainer{
@@ -147,4 +148,132 @@ height: 450px;
   border: solid black 3px;
   margin-top: 5%;
   padding: 1%;
+}
+
+.fightPage{
+  background: url("https://media.istockphoto.com/photos/old-dark-black-brick-wall-texture-with-vintage-style-for-background-picture-id1064549250?k=20&m=1064549250&s=170667a&w=0&h=_ken35Ds4tAD0DYJ3jgs9UdGbzKd7j9wdDSV41_7dPc=");
+  height: 665px;
+  background-size: contain;
+  margin: auto;
+  width: 800px;
+}
+
+.ceiling{
+  margin-top: 30px;
+  height: 100px;
+  background-color: rgb(8, 8, 8);
+  color: wheat;
+}
+
+.fightButton{
+  font-family: 'Square Peg', cursive;
+  font-size: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 40px;
+  padding-left: 40px;
+  margin-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 167px;
+  background-color: rgb(212, 212, 212);
+}
+
+.fightButtons{
+  margin: auto;  
+}
+
+.healthBar{
+  color: red;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.barHolder{
+  display: flex;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  margin: auto;
+}
+
+.losePage{
+  background-color: black;
+  height: 500px;
+  padding-top: 200px;
+}
+
+.loseHead{
+  font-size: 100px;
+  font-family: 'Cinzel', serif;
+  background-color: black;
+  color: red;
+}
+
+.itemCard{
+  border: solid black 2px;
+  width: fit-content;
+  margin: auto;
+  text-align: center;
+  background-color: white;
+
+  border-radius: 20px;
+  box-shadow: 5px 10px;
+}
+
+.itemAtt{
+  text-align: center;
+  margin: auto;
+  justify-self: center;
+}
+
+.charPage{
+  height: fit-content;
+  min-height: 490px;
+}
+
+.fighter{
+  margin-top: 20%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0px;
+  margin-left: 120px;
+}
+
+.fighterAtk{
+  margin-top: 20%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0px;
+  margin-left: 120px;
+  animation: attack 1000ms both;
+}
+.enemy{
+  margin-top: 20%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0px;
+  margin-right: 120px;
+  margin-left: 350px;
+}
+
+.floor{
+  background: url('https://img.freepik.com/free-photo/sepia-plasterboard-texture_95678-405.jpg?w=2000');
+  color: white;
+  margin-top: 0px;
+  padding-bottom: 5px;
+}
+
+.fighterContainer{
+  display: flex;
+}
+
+@keyframes attack {
+  0% {
+    transform: translateY(0);
+    }
+  40% {
+    transform: translate(150px, -40%);
+    }
+  50% {
+      transform: translate(370px);
+    }
 }

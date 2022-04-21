@@ -15,10 +15,10 @@ function LoseScreen({setRows, setStarted}){
         history.push(path);
     }
     return(
-        <div>
-            <h1>You Lose</h1>
-            <button onClick={restart}>Restart</button>
-            <button onClick={quit}>Back To Menu</button>
+        <div className="losePage">
+            <h1 className="loseHead">You Lose</h1>
+            <button className="endButton" onClick={restart}>Restart</button>
+            <button className="endButton" onClick={quit}>Back To Menu</button>
         </div>
     )
 }

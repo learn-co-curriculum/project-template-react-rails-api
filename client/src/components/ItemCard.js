@@ -16,7 +16,7 @@ function ItemCard({item, setReset, myReset, characterName}){
               "Content-Type": "application/json",
             }})
             .then(r=>r.json())
-            .then(r=>(console.log(r)))
+            .then((r)=>{if(r.errors===undefined){alert("item equipped")}})
     }
 
     function deleteItem(){

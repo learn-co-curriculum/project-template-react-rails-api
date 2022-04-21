@@ -68,7 +68,7 @@ function WinScreen({gold, setGold, setCount, rowCount, character}){
         else
         {
             setDisplay(
-            <ItemCard character={character} item={newItem}/>
+            <ItemCard characterName={character.name} item={newItem}/>
         )
     }
     },[newItem])

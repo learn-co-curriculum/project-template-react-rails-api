@@ -193,6 +193,7 @@ height: 450px;
   text-align: center;
   font-family: 'Cinzel', serif;
   margin: auto;
+  margin-top: -20px;
 }
 
 .losePage{
@@ -244,7 +245,7 @@ height: 450px;
   height: 100px;
   margin-bottom: 0px;
   margin-left: 120px;
-  animation: attack 1000ms both;
+  animation: attack 1000ms;
 }
 .enemy{
   margin-top: 20%;
@@ -253,6 +254,16 @@ height: 450px;
   margin-bottom: 0px;
   margin-right: 120px;
   margin-left: 350px;
+}
+
+.enemyAtk{
+  margin-top: 20%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0px;
+  margin-right: 120px;
+  margin-left: 350px;
+  animation: enemyAttack 1000ms;
 }
 
 .floor{
@@ -276,4 +287,34 @@ height: 450px;
   50% {
       transform: translate(370px);
     }
+}
+
+@keyframes enemyAttack {
+  0% {
+    transform: translateY(0);
+    }
+  40% {
+    transform: translate(-150px, -40%);
+    }
+  50% {
+      transform: translate(-370px);
+    }
+}
+
+.winPage{
+  background: url('https://img.myloview.com/stickers/old-paper-background-700-231640041.jpg');
+  width: fit-content;
+  height: 100%;
+  margin: auto;
+  padding-bottom: 200px;
+  margin-top: -6%;
+}
+
+.winHeader{
+  padding-top: 20%;
+  font-family: 'Cinzel', serif;
+  color: rgb(0, 0, 0);
+  padding-left: 20%;
+  padding-right: 20%;
+  font-size: 60px;
 }

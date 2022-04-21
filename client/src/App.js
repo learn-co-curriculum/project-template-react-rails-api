@@ -23,7 +23,7 @@ function App() {
   const [user, setUser] = useState("")
   const [userID, setUserID] = useState(null)
   const [started, setStarted] = useState(false)
-  const [charHealth, setCharHealth] = useState(100)
+  const [charHealth, setCharHealth] = useState(10)
   const [rowCount, setCount] = useState(1)
   const [rows, setRows] = useState([])
   const [charAttack, setCharAttack] = useState(10)
@@ -109,7 +109,7 @@ function App() {
             <Login user = {user} setUser = {setUser} setUserID = {setUserID}/>
           </Route>
           <Route path = "/">
-            <Start setRows = {setRows} setCharHealth={setCharHealth} started = {started} setStarted = {setStarted} userID = {userID} character={character} setCharacter = {setCharacter}/>
+            <Start setCount = {setCount} setRows = {setRows} setCharHealth={setCharHealth} started = {started} setStarted = {setStarted} userID = {userID} character={character} setCharacter = {setCharacter}/>
           </Route>
         </Switch>
     </div>

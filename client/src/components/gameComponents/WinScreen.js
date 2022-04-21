@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import ItemCard from "../ItemCard";
 
 function WinScreen({gold, setGold, setCount, rowCount, character}){
     const [refreshCheck, setRefresh] = useState(0)
@@ -67,25 +68,17 @@ function WinScreen({gold, setGold, setCount, rowCount, character}){
         else
         {
             setDisplay(
-            <div>
-                <h2>{newItem["itemType"]}</h2>
-            <ul>
-                <li>strength:{newItem.str}</li>
-                <li>agility:{newItem.ag}</li>
-                <li>inteligence:{newItem.intel}</li>
-                <li>exp gain:{newItem.exp_gain}</li>
-            </ul></div>
+            <ItemCard item={newItem}/>
         )
     }
     },[newItem])
 
 return(
-    <div>
-        <h1>Battle Won!</h1>
+    <div className="winPage">
+        <h1 className="winHeader">Battle Won!</h1>
         <h2>Rewards:</h2>
         <h2>Gold: {gold}</h2>
         {display}
-        <button>Equip</button>
         <br></br>
         
         <button onClick={continueGame}>Continue</button>

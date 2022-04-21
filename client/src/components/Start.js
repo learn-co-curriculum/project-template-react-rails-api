@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 
-function Start({setCharHealth, userID, character, setCharacter, started, setStarted, setRows}) {
+function Start({setCharHealth, userID, character, setCharacter, started, setStarted, setRows, setCount}) {
     const [list, setList] = useState([])
     const [myName, setMyName] = useState("")
 
@@ -19,6 +19,7 @@ function Start({setCharHealth, userID, character, setCharacter, started, setStar
             history.push(path);
             setStarted(true)
             setCharHealth(100)
+            setCount(1)
             setRows([])
         }
         else{

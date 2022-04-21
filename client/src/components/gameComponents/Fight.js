@@ -7,30 +7,37 @@ function Fight({charHealth, setCharHealth, level, owl}){
     const [enHealth, setEnHealth] = useState(100)
     const [toggleAtk, setAtkAnim] = useState(true)
     const [toggleEnAtk, setEnAtkAnim] = useState(0)
-    const [display2, setDisplay2] = useState(
-    )
+
+    //State variables for character sprites
+    const [display2, setDisplay2] = useState(<img onAnimationEnd={()=>setAtkAnim(0)} className='fighter' src={owl} />)
+    const [display3, setDisplay3] = useState(<img onAnimationEnd={()=>setEnAtkAnim(0)} className='enemy' src={owl} />)
+
     const history = useHistory();
 
+    useEffect(()=>{setEnHealth(0)},[])
 
-    
     //deals damage to enemy based on character attack
     function dealDamage(){
         setTimeout(()=>{setEnHealth(enHealth-10+enemy.defense)}, 550)
         setAtkAnim(1)
-        if(enHealth-10+enemy.defense <= 0){
+        if((enHealth-10+enemy.defense )<= 0){
             let path = `/win`; 
             history.push(path);
-            
         }
-        setTimeout(()=>{takeDamage()}, 2000)
+        else{
+           console.log( enHealth-10+enemy.defense)
+            setTimeout(()=>{takeDamage()}, 560)
+        }
     }
     //Deals damage to character based on enemy attack
     function takeDamage(){
-        setCharHealth(charHealth-enemy.attack)
-        if(charHealth-enemy.attack <= 0){
+        setEnAtkAnim(1)
+        if(charHealth-enemy.attack <= 0 && enHealth >= 0){
             let path = `/lose`; 
             history.push(path);
+            console.log("lost")
         }
+            setTimeout(()=>{setCharHealth(charHealth-enemy.attack)}, 550)
     }
     //gets the data for the enemy when the fight starts
     useEffect(()=>{
@@ -51,29 +58,28 @@ function Fight({charHealth, setCharHealth, level, owl}){
 
     //Causes attack animation on button click
     useEffect(()=>{
-        if(toggleAtk===1){
-            setDisplay2(<img onAnimationEnd={()=>setAtkAnim(0)} className='fighterAtk' src={owl} />) 
-            console.log(display2)
-        }
-        else{
-                setDisplay2(<img className='fighter' src={owl} />) 
-                console.log(display2)
-
+        if(toggleAtk!==true){
+        setDisplay2(<img onAnimationEnd={()=>setAtkAnim(0)} className={toggleAtk? 'fighterAtk' : 'fighter'} src={owl} />) 
         }
     },[toggleAtk])
 
+    //Causes enemy attack animation
+    useEffect(()=>{
+        if(toggleAtk!==true){
+        setDisplay3(<img onAnimationEnd={()=>setEnAtkAnim(0)} className={toggleEnAtk? 'enemyAtk' : 'enemy'} src={owl} />) 
+        }
+    },[toggleEnAtk])
 
     return(
         <div className="fightPage">
             <div className="ceiling">{display}</div>
             <div className="fighterContainer">
             {display2}
-            <img className='enemy' src={owl} />
+            {display3}
             </div>
             <div className="floor">
             <div className="fightButtons" >
             <button className="fightButton" onClick={dealDamage}>Attack</button>
-            <button className="fightButton" onClick={takeDamage}>Take</button>
             </div>
             </div>
         </div>

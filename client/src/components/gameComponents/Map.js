@@ -25,7 +25,7 @@ function Map({rowCount, setCount, rows, setRows, setStarted}){
     }
 
     useEffect(()=>{
-        if(rowCount=1){
+        if(rowCount===1){
             makeRow(0,3)
         }
         else{

@@ -13,8 +13,8 @@ import LoseScreen from './components/gameComponents/LoseScreen';
 import WinScreen from './components/gameComponents/WinScreen';
 import CharacterPage from './components/CharacterPage';
 import owl from "../src/images/owl.png";
-import crab from "../src/images/cat.jpg";
-import cat from "../src/images/crab.jpg";
+import crab from "../src/images/crab.jpg";
+import cat from "../src/images/cat.jpg";
 
 
 function App() {
@@ -28,38 +28,9 @@ function App() {
   const [rows, setRows] = useState([])
   const [charAttack, setCharAttack] = useState(10)
   const [pickedChar, setPickedChar] = useState("")
+  const [myEvent, setEvent] = useState(null)
+  const [charImage, setImage] = useState(null)
 
-
-
-
-  function equipItem(character, item) {
-    let formData;
-    if(item.itemType === "armor"){
-      formData = {
-        character_id: character.id,
-        armor: item
-      }
-    }
-    else if(item.itemType === "trinket"){
-      formData = {
-        character_id: character.id,
-        trinket: item
-      }
-    }
-    else if(item.itemType === "weapon"){
-      formData = {
-        character_id: character.id,
-        weapon: item
-      }
-    }
-    fetch(`/character/equip`,{
-      method: "UPDATE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData)
-    })
-  }
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) =>r.json()).then((r) => {
@@ -79,7 +50,7 @@ function App() {
       </div>
         <Switch>
           <Route path = '/characterPage'>
-            <CharacterPage characterName={pickedChar}/>
+            <CharacterPage character={character} characterName={pickedChar}/>
           </Route>
         <Route path = '/win'>
             <WinScreen gold = {gold} setGold = {setGold} character = {character} setCount = {setCount} rowCount={rowCount}/>
@@ -88,28 +59,28 @@ function App() {
             <LoseScreen setStarted={setStarted} setRows={setRows}/>
           </Route>
           <Route path = '/character'>
-            <CharacterCreator userID = {userID}/>
+            <CharacterCreator character={character} userID = {userID}/>
           </Route>
           <Route path = '/random'>
-            <Random/>
+            <Random myEvent = {myEvent} setEvent={setEvent} gold = {gold} setGold = {setGold} charHealth = {charHealth} setCharHealth = {setCharHealth}/>
           </Route>
           <Route path = '/fight'>
-            <Fight cat = {cat} crab = {crab} owl = {owl} level = {rowCount} setCharHealth = {setCharHealth} charHealth = {charHealth}/>
+            <Fight charAttack={charAttack} charImage={charImage} level={rowCount} setCharHealth = {setCharHealth} charHealth = {charHealth}/>
           </Route>
           <Route path = '/shop'>
-            <Shop/>
+            <Shop gold={gold} setGold={setGold} charHealth={charHealth} setCharHealth={setCharHealth}/>
           </Route>
           <Route path = '/map'>
             <Map setStarted={setStarted} className="mapPage" rows = {rows} setRows = {setRows} character = {character} rowCount = {rowCount} setCount = {setCount}/>
           </Route>
           <Route path = '/characters'>
-            <CharacterList userID = {userID} setPickedChar = {setPickedChar}/>
+            <CharacterList setCharacter={setCharacter} userID = {userID} setPickedChar = {setPickedChar}/>
           </Route>
           <Route path = '/login'>
             <Login user = {user} setUser = {setUser} setUserID = {setUserID}/>
           </Route>
           <Route path = "/">
-            <Start setCount = {setCount} setRows = {setRows} setCharHealth={setCharHealth} started = {started} setStarted = {setStarted} userID = {userID} character={character} setCharacter = {setCharacter}/>
+            <Start setCharAttack={setCharAttack} owl={owl} crab={crab} cat={cat} charImage = {charImage} setImage={setImage} setCount = {setCount} setRows = {setRows} setCharHealth={setCharHealth} started = {started} setStarted = {setStarted} userID = {userID} character={character} setCharacter = {setCharacter}/>
           </Route>
         </Switch>
     </div>

@@ -9,9 +9,22 @@ class CharactersController < ApplicationController
         render json: user.characters
     end
 
-    def equip
-        character = Character.find(params[:character_id])
-        character.update()
+    def equipTrinket
+        character = Character.find_by(name: params[:name])
+        character.update(trinket: params[:trinket])
+        render json:character
+    end
+
+    def equipWeapon
+        character = Character.find_by(name: params[:name])
+        character.update(weapon: params[:weapon])
+        render json:character
+    end
+
+    def equipArmor
+        character = Character.find_by(name: params[:name])
+        character.update(armor: params[:armor])
+        render json:character
     end
 
     def show
@@ -30,7 +43,7 @@ class CharactersController < ApplicationController
     end
 
     def character_params
-        params.permit(:name, :user_id, :str, :ag, :intel, :exp, :exp_gain)
+        params.permit(:name, :user_id, :str, :ag, :intel, :exp, :exp_gain, :atk, :level, :charClass)
     end
 
 end

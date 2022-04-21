@@ -14,20 +14,25 @@ function CharacterCreator({userID}) {
         const formData = {
             name: name,
             user_id: userID,
+            atk: 10,
             str: 0,
             ag: 0,
             intel: 0,
             exp: 0,
             exp_gain: 0,
             level: 0,
-            charClass: myClass
+            charClass: myClass,
+            trinket: 0,
+            armor: 0,
+            weapon: 0
         }
         fetch("/characters", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(formData),})
+            body: JSON.stringify(formData),}
+            )
         }
         else{
             alert("Name Required")

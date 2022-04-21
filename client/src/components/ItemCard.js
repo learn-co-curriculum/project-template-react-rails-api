@@ -1,9 +1,28 @@
-function ItemCard({item, setReset, myReset}){
+import { useEffect, useState } from "react";
+
+function ItemCard({item, setReset, myReset, characterName}){
+    const [character, setCharacter] = useState(null)
+
+    useEffect(()=>{
+        fetch(`/character/?name=${characterName}`)
+        .then(r=>r.json())
+        .then(r=>setCharacter(r))
+    },[])
+
+    function equip(){
+        fetch(`/character/equip/${item.itemType}/?name=${characterName}&${item.itemType}=${item.atk}`,{
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            }})
+            .then(r=>r.json())
+            .then(r=>(console.log(r)))
+    }
+
     function deleteItem(){
         const formData = {
             id: item.id
         }
-        
         fetch(`/item`,{
             method: "DELETE",
             headers: {
@@ -17,13 +36,14 @@ function ItemCard({item, setReset, myReset}){
         <div className="itemCard">
             <h3>{item.itemType}</h3>
             <ul>
-                <p className="itemAtt">Strength: {item.str}</p>
-                <p className="itemAtt">Agility: {item.ag}</p>
-                <p className="itemAtt">Inteligence: {item.intel}</p>
-                <p className="itemAtt">Exp Gain: {item.exp_gain}</p>
+                <p>Attack: {item.atk}</p>
+                <p>Strength: {item.str}</p>
+                <p>Agility: {item.ag}</p>
+                <p>Inteligence: {item.intel}</p>
+                <p>Exp Gain: {item.exp_gain}</p>
             </ul>
             <button onClick={deleteItem}>X</button>
-            <button>Equip</button>
+            <button onClick={equip}>Equip</button>
         </div>
     )
 }

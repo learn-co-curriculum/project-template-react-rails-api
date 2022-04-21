@@ -74,7 +74,8 @@ code {
 
 .mapPage{
   margin-top: -10px;
-  height: 700px;
+  min-height: 700px;
+  max-height: fit-content;
   background-image: url("https://wallpaperaccess.com/full/781373.jpg");
   background-size:cover;
 }
@@ -214,16 +215,13 @@ height: 450px;
   width: fit-content;
   margin: auto;
   text-align: center;
+  padding: 2%;
   background-color: white;
-
   border-radius: 20px;
   box-shadow: 5px 10px;
 }
 
 .itemAtt{
-  text-align: center;
-  margin: auto;
-  justify-self: center;
 }
 
 .charPage{
@@ -317,4 +315,55 @@ height: 450px;
   padding-left: 20%;
   padding-right: 20%;
   font-size: 60px;
+}
+
+.randBar{
+  margin: auto;
+}
+
+.randomPage{
+  background: url('https://live.staticflickr.com/3603/3398119430_a9e15b99e5_b.jpg');
+  width: 90%;
+  margin: auto;
+  height: 658px;
+}
+
+.eventImage{
+  margin: auto;
+  max-width: 300px;
+  max-height: 300px;
+  border: solid black 3px;
+}
+
+.randButton{
+  font-family: 'Square Peg', serif;
+  font-style: bold;
+  font-size: 50px;
+  background-color: black;
+  color:red;
+  border: none;
+  margin-left: 40px;
+}
+
+.eventText{
+  font-family: 'Square Peg', serif;
+  font-size: 30px;
+}
+
+.buttonHolder{
+  margin: auto;
+}
+
+.dispChar{
+  margin: auto;
+  margin-top:10px;
+  width: 200px;
+  height: 200px;
+}
+
+.shopPage{
+  background: url("https://files.123freevectors.com/wp-content/original/143750-old-paper-texture-background.jpg");
+  width: 900px;
+  margin: auto;
+  padding-bottom: 120px;
 }

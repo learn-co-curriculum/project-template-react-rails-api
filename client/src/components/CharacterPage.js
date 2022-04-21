@@ -6,6 +6,7 @@ function CharacterPage({characterName}){
     const [items, setItems] = useState([])
     const [display, setDisplay] = useState(null)
     const [myReset, setReset] = useState(false)
+    const [character, setCharacter] = useState(null)
     const history = useHistory();
     
     const backButtonClick = () =>{  
@@ -13,16 +14,18 @@ function CharacterPage({characterName}){
         history.push(path);
     }
 
+
+
     useEffect(()=>{
         fetch(`/items/?name=${characterName}`)
         .then(r=>r.json())
         .then(r=>setItems(r))
-    },[characterName,myReset])
+    },[characterName, myReset])
 
     useEffect(()=>{
         setDisplay(
             items.map((item)=>{
-                return <ItemCard setReset = {setReset} myReset={myReset} key = {item.id} item = {item} />
+                return <ItemCard characterName={characterName} setReset = {setReset} myReset={myReset} key = {item.id} item = {item} />
             })
         )
     },[myReset, items])

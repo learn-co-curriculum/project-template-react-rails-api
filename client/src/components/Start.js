@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 
-function Start({setCharHealth, userID, character, setCharacter, started, setStarted, setRows, setCount}) {
+function Start({setCharAttack, owl, cat, crab, charImage, setImage, setCharHealth, userID, character, setCharacter, started, setStarted, setRows, setCount}) {
     const [list, setList] = useState([])
     const [myName, setMyName] = useState("")
 
@@ -10,7 +10,29 @@ function Start({setCharHealth, userID, character, setCharacter, started, setStar
         fetch(`/character/?name=${e}`)
         .then(r=>r.json())
         .then(r=>setCharacter(r))
-    }    
+    }  
+    
+    useEffect(()=>{
+    if(character!==undefined){
+        if(character.charClass==="crab")
+        {
+            setImage(crab)
+        }
+        else if(character.charClass==="cat"){
+            setImage(cat)
+        }
+        else{
+            setImage(owl)
+        }
+        setCharAttack(character.atk + character.trinket + character.weapon + character.armor)
+        console.log(character.atk)
+        console.log(character.trinket)
+        console.log(character.weapon)
+        console.log(character.armor)
+
+    }
+    },[character])
+
 
     const history = useHistory();
     const routeChange = () =>{  
@@ -48,7 +70,7 @@ function Start({setCharHealth, userID, character, setCharacter, started, setStar
                         return <option key={myChar.id} value={myChar.name}>{myChar.name}</option>
                     })}
                 </select>  
-                <br/>
+                <img className='dispChar' src={charImage}/>
                 <button className='startButton' onClick={routeChange}>Start</button>
             </div>
         </div>

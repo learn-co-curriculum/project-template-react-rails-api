@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-function CharacterList({userID, setPickedChar}){
+function CharacterList({userID, setPickedChar, setCharacter}){
     const [list, setList] = useState([])
     const [myReset, setReset] = useState(false)
     const history = useHistory();
@@ -8,6 +8,9 @@ function CharacterList({userID, setPickedChar}){
 
     function routeChange(e){  
         setPickedChar(e.target.value)
+        fetch(`/character/?name=${e.target.value}`)
+        .then(r=>r.json())
+        .then(r=>setCharacter(r))
         let path = `/characterPage`; 
         history.push(path);
     }

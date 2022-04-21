@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function Fight({charHealth, setCharHealth, level, owl}){
+function Fight({charAttack, charImage, charHealth, setCharHealth, level, owl}){
     const [enemy, setEnemy] = useState([])
     const [display, setDisplay] = useState(null)
     const [enHealth, setEnHealth] = useState(100)
@@ -9,18 +9,16 @@ function Fight({charHealth, setCharHealth, level, owl}){
     const [toggleEnAtk, setEnAtkAnim] = useState(0)
 
     //State variables for character sprites
-    const [display2, setDisplay2] = useState(<img onAnimationEnd={()=>setAtkAnim(0)} className='fighter' src={owl} />)
-    const [display3, setDisplay3] = useState(<img onAnimationEnd={()=>setEnAtkAnim(0)} className='enemy' src={owl} />)
+    const [display2, setDisplay2] = useState(<img onAnimationEnd={()=>setAtkAnim(0)} className='fighter' src={charImage} />)
+    const [display3, setDisplay3] = useState(<img onAnimationEnd={()=>setEnAtkAnim(0)} className='enemy' src={"https://media.istockphoto.com/vectors/cartoon-of-a-crazy-green-troll-dressed-in-bearskin-vector-id460272397?k=20&m=460272397&s=612x612&w=0&h=ui_u54WJmN9mDogKq3Is8krPQaGB2FUoRl4rL-3luis="} />)
 
     const history = useHistory();
 
-    useEffect(()=>{setEnHealth(0)},[])
-
     //deals damage to enemy based on character attack
     function dealDamage(){
-        setTimeout(()=>{setEnHealth(enHealth-10+enemy.defense)}, 550)
+        setTimeout(()=>{setEnHealth(enHealth-charAttack+enemy.defense)}, 550)
         setAtkAnim(1)
-        if((enHealth-10+enemy.defense )<= 0){
+        if((enHealth-charAttack+enemy.defense )<= 0){
             let path = `/win`; 
             history.push(path);
         }
@@ -43,7 +41,7 @@ function Fight({charHealth, setCharHealth, level, owl}){
     useEffect(()=>{
         fetch(`/enemy/?level=${level}`)
         .then(r=>r.json())
-        .then((r)=>setEnemy(r[0]))
+        .then((r)=>{setEnemy(r[0])}, (r)=>console.log(r))
     },[])
 
     //updates the display when the health values are updated
@@ -59,14 +57,14 @@ function Fight({charHealth, setCharHealth, level, owl}){
     //Causes attack animation on button click
     useEffect(()=>{
         if(toggleAtk!==true){
-        setDisplay2(<img onAnimationEnd={()=>setAtkAnim(0)} className={toggleAtk? 'fighterAtk' : 'fighter'} src={owl} />) 
+        setDisplay2(<img onAnimationEnd={()=>setAtkAnim(0)} className={toggleAtk? 'fighterAtk' : 'fighter'} src={charImage} />) 
         }
     },[toggleAtk])
 
     //Causes enemy attack animation
     useEffect(()=>{
         if(toggleAtk!==true){
-        setDisplay3(<img onAnimationEnd={()=>setEnAtkAnim(0)} className={toggleEnAtk? 'enemyAtk' : 'enemy'} src={owl} />) 
+        setDisplay3(<img onAnimationEnd={()=>setEnAtkAnim(0)} className={toggleEnAtk? 'enemyAtk' : 'enemy'} src={"https://media.istockphoto.com/vectors/cartoon-of-a-crazy-green-troll-dressed-in-bearskin-vector-id460272397?k=20&m=460272397&s=612x612&w=0&h=ui_u54WJmN9mDogKq3Is8krPQaGB2FUoRl4rL-3luis="} />) 
         }
     },[toggleEnAtk])
 

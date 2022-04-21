@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import ItemCard from "../ItemCard";
 
 function WinScreen({gold, setGold, setCount, rowCount, character}){
-    const [refreshCheck, setRefresh] = useState(0)
     const [newItem, setNewItem] = useState(null)
     const [display, setDisplay] = useState(undefined)
     const history = useHistory();
@@ -41,7 +40,8 @@ function WinScreen({gold, setGold, setCount, rowCount, character}){
             str: getRandomInt(0,29),
             ag: getRandomInt(0,29),
             intel: getRandomInt(0,29),
-            exp_gain: getRandomInt(0,29)
+            exp_gain: getRandomInt(0,29),
+            atk: getRandomInt(0,29)
         }
         fetch("/item", {
             method: "POST",
@@ -68,7 +68,7 @@ function WinScreen({gold, setGold, setCount, rowCount, character}){
         else
         {
             setDisplay(
-            <ItemCard item={newItem}/>
+            <ItemCard character={character} item={newItem}/>
         )
     }
     },[newItem])

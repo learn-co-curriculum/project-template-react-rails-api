@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     private
 
     def item_params
-        params.permit(:character_id, :itemType, :str, :ag, :intel, :exp_gain)
+        params.permit(:character_id, :itemType, :str, :ag, :intel, :exp_gain, :atk)
     end
 
 end

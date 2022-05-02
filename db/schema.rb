@@ -15,13 +15,6 @@ ActiveRecord::Schema.define(version: 2022_04_28_171937) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "causes", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "cities", force: :cascade do |t|
     t.string "city"
     t.string "region"
@@ -40,34 +33,6 @@ ActiveRecord::Schema.define(version: 2022_04_28_171937) do
     t.float "monthly_utilities"
     t.float "monthly_internet"
     t.string "wikidata_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "item_causes", force: :cascade do |t|
-    t.integer "item_id"
-    t.integer "cause_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "items", force: :cascade do |t|
-    t.string "name"
-    t.integer "price"
-    t.string "category"
-    t.string "image"
-    t.text "description"
-    t.string "gender"
-    t.integer "user_id"
-    t.string "condition"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.boolean "seller"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

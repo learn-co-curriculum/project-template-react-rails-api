@@ -9,8 +9,6 @@ import Settings from './Settings';
 import Login from "./Login";
 
 function App(){
-    // const [parents, setParents] = useState([]);
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
     const params = useParams();
 
@@ -18,6 +16,7 @@ function App(){
   fetch(`/users/${params.id}`)
   .then(resp => resp.json())
   .then(data => setUser(data)
+
   )}
 , []);
 
@@ -28,7 +27,7 @@ function App(){
       <Route path="/Home"><Home/></Route>
       <Route path="/Request"><Request /></Route>
       <Route path="/ProfileInfo"><ProfileInfo user={user} /></Route>
-      <Route path="/Settings"><Settings setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user} /></Route>
+      <Route path="/Settings"><Settings setUser={setUser} user={user} /></Route>
       <Route path="/Login"><Login /></Route>
       </Switch>
     </div>

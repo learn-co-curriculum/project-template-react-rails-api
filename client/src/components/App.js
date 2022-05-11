@@ -1,5 +1,4 @@
 import { Switch, Route} from 'react-router-dom';
-import { useParams } from "react-router-dom";
 import {useEffect, useState} from 'react';
 import NavBar from './NavBar';
 import Home from './Home';
@@ -24,7 +23,7 @@ function App(){
     <div className="App">
       <NavBar />
       <Switch>
-      <Route path="/Home"><Home/></Route>
+      <Route path="/Home"><Home parent={parent} setParent={setParent} /></Route>
       <Route path="/Request"><Request /></Route>
       <Route path="/ProfileInfo"><ProfileInfo user={user} /></Route>
       <Route path="/Settings"><Settings setUser={setUser} user={user} /></Route>

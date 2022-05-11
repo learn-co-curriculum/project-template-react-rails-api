@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  
-  # Routing logic: fallback requests for React Router.
-  # Leave this here to help deploy your app later!
-  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+  # resources :tickets, only: [:index, :show, :create, :update, :destroy]
+  resources :users, only: [:index, :show, :create, :update, :destroy]
+  # resources :production_roles
+  # resources :productions, only: [:index, :show, :destroy]
+  resources :conversations, only: :messages
+  # Group Activity => Add Route to Handle "sessions#login" (/login)
+  # post '/login', to: sessions#login
+  post "/login", to: 'sessions#login'
 end

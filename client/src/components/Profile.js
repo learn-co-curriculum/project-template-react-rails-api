@@ -75,11 +75,23 @@ class App extends Component {
 	render() {
 	
 	return (
+        <form>
 		<div>
 			<h3>
 			File Upload using React!
 			</h3>
 			<div>
+            <label>
+                 Name:
+                 <input type="text" name="name" />
+             </label>
+             <label>
+                 Email:
+                 <input type="email" name="email" />
+             </label>
+             <label>Address:
+             <input type="text" name="address" />
+             </label>
 				<input type="file" onChange={this.onFileChange} />
 				<button onClick={this.onFileUpload}>
 				Upload!
@@ -87,36 +99,9 @@ class App extends Component {
 			</div>
 		{this.fileData()}
 		</div>
+        </form>
 	);
 	}
 }
 
 export default App;
-
-// function Profile() {
-
-//     return (
-//         <div className="profile">
-//             <h1>Profile</h1>
-
-//         <form>
-//             <label>
-//                 Name:
-//                 <input type="text" name="name" />
-//             </label>
-//             <label>
-//                 Email:
-//                 <input type="email" name="email" />
-//             </label>
-
-//             <input type="submit" value="Submit" />
-//             <label>Address:
-//             <input type="text" name="address" />
-//             </label>
-//         </form>
-
-//             </div>
-//     )
-// }
-
-// export default Profile;

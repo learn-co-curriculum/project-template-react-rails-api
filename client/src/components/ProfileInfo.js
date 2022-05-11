@@ -20,6 +20,7 @@ function ProfileInfo({user}) {
                 <h2>{early ? '🐓' : null}    {nightOwl ? '🦉' : null} </h2>
                 <h2>{verified ? '✅' : null}</h2>
                 <h2>{emergency ? '🚨' : null}</h2>
+                <button onClick={toggleShow}>Edit</button>
             </div>
 
             {isShow ?   

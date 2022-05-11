@@ -7,6 +7,11 @@ import Settings from './Settings';
 
 
 function App() {
+  useEffect(() => {
+    fetch('http://localhost:3000/Parent')
+    .then(response => response.json())
+    .then(data => console.log(data));
+  }, [] )
   return (
     <div className="App">
       <NavBar />

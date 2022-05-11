@@ -19,7 +19,6 @@ function Home() {
 <h1>{name}</h1>
 <h3>{age}</h3>
 <h3>📍{location} ,📆 {date}</h3>
-<h3>{description}</h3>
 <p> Early Bird or Night Owl: {early ? '🐓' : null}    {nightOwl ? '🦉' : null} </p>
 <p> Verified: {verified ? '✅' : null}
 

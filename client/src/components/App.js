@@ -1,31 +1,34 @@
 import { Switch, Route} from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import {useEffect, useState} from 'react';
 import NavBar from './NavBar';
 import Home from './Home';
 import Request from './Request';
-import Profile from './Profile';
+import ProfileInfo from './ProfileInfo';
 import Settings from './Settings';
 import Login from "./Login";
 
-
 function App(){
-    const [parent, setParent] = useState([]);
-  
+    // const [parents, setParents] = useState([]);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [user, setUser] = useState(null);
+    const params = useParams();
 
-  useEffect(() => {
-    fetch('http://localhost:3000/Parent')
-    .then(response => response.json())
-    .then(data => setParent(data))
-  },[] )
+ useEffect(()=> {
+  fetch(`/users/${params.id}`)
+  .then(resp => resp.json())
+  .then(data => setUser(data)
+  )}
+, []);
 
   return (
     <div className="App">
       <NavBar />
       <Switch>
-      <Route path="/Home"><Home parent={parent} setParent={setParent} /></Route>
+      <Route path="/Home"><Home/></Route>
       <Route path="/Request"><Request /></Route>
-      <Route path="/Profile"><Profile /></Route>
-      <Route path="/Settings"><Settings /></Route>
+      <Route path="/ProfileInfo"><ProfileInfo user={user} /></Route>
+      <Route path="/Settings"><Settings setIsAuthenticated={setIsAuthenticated} setUser={setUser} user={user} /></Route>
       <Route path="/Login"><Login /></Route>
       </Switch>
     </div>

@@ -1,5 +1,5 @@
 puts "Seeding..."
-parent = Parent.create( 
+parent1 = Parent.create( 
     # image: "https://images.pexels.com/photos/2480948/pexels-photo-2480948.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" ,
     name: "Brandon",
     kids: "Billy",

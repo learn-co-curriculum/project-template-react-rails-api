@@ -1,107 +1,27 @@
-import axios from 'axios';
+import ProfileInfo from "./ProfileInfo";
 
-import React,{Component} from 'react';
-
-class App extends Component {
-
-	state = {
-
-	// Initially, no file is selected
-	selectedFile: null
-	};
-	
-	// On file select (from the pop up)
-	onFileChange = event => {
-	
-	// Update the state
-	this.setState({ selectedFile: event.target.files[0] });
-	
-	};
-	
-	// On file upload (click the upload button)
-	onFileUpload = () => {
-	
-	// Create an object of formData
-	const formData = new FormData();
-	
-	// Update the formData object
-	formData.append(
-		"myFile",
-		this.state.selectedFile,
-		this.state.selectedFile.name
-	);
-	
-	// Details of the uploaded file
-	console.log(this.state.selectedFile);
-	
-	// Request made to the backend api
-	// Send formData object
-	axios.post("api/uploadfile", formData);
-	};
-	
-	// File content to be displayed after
-	// file upload is complete
-	fileData = () => {
-	
-	if (this.state.selectedFile) {
-		
-		return (
-		<div>
-			<h2>File Details:</h2>
-			
-<p>File Name: {this.state.selectedFile.name}</p>
-
-			
-<p>File Type: {this.state.selectedFile.type}</p>
-
-			
-<p>
-			Last Modified:{" "}
-			{this.state.selectedFile.lastModifiedDate.toDateString()}
-			</p>
-
-		</div>
-		);
-	} else {
-		return (
-		<div>
-			<br />
-			<h4>Choose before Pressing the Upload button</h4>
-		</div>
-		);
-	}
-	};
-	
-	render() {
-	
+function Profile({parents}) {
+	const renderParents = parents.map(parent => 
+	<><ProfileInfo 
+		key={parents.id}
+		parents={parents}
+		verified={parents.verified}
+		early={parents.early}
+		nightOwl={parents.nightOwl}
+		age={parents.age}
+		name={parents.name}
+		email={parents.email}
+		address={parents.address}
+		image={parents.image}
+		/>
+	</>);
 	return (
-        <form>
-		<div>
-			<h3>
-			File Upload using React!
-			</h3>
-			<div>
-            <label>
-                 Name:
-                 <input type="text" name="name" />
-             </label>
-             <label>
-                 Email:
-                 <input type="email" name="email" />
-             </label>
-             <label>Address:
-             <input type="text" name="address" />
-             </label>
-				<input type="file" onChange={this.onFileChange} />
-				<button onClick={this.onFileUpload}>
-				Upload!
-				</button>
-			</div>
-		{this.fileData()}
-		</div>
-        </form>
-	);
+		<main>
+			{renderParents}
+		</main>
+        
+	)
 	}
-}
 
-export default App;
+
+export default Profile;

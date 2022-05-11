@@ -1,3 +1,4 @@
 class Parent < ApplicationRecord
-    belongs_to :user
+   has_many :playdates
+    has_many :users, through: :playdates
 end

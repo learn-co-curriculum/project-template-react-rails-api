@@ -6,7 +6,7 @@ function NavBar(){
         <div className="navbar">
             <Link to="/Home"><button>Home</button></Link>
             <Link to="/Request"><button>Requests</button></Link>
-            <Link to="/Profile"><button>Profile</button></Link>
+            <Link to="/ProfileInfo"><button>Profile</button></Link>
             <Link to="/settings"><button>Settings</button></Link>
             <Link to="/Login"><button>Login</button></Link>
         </div>

@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-    
+    # Group Activity => Set 'authorize_user' to Skip Create Action
+    # before_action
+    # skip_before_action
+    before_action :authorize_user, except: [:create]
+
     # GET "/users"
     def index 
         render json: User.all
@@ -7,15 +11,15 @@ class UsersController < ApplicationController
 
     # GET "/users/:id"
     def show
-        user = User.find(params[:id])
-        render json: user, include: :tickets
-    end
-    
+        # current_user = User.find_by(id: session[:current_user])
+        render json: current_user
+    end 
+
     # POST "/users"
     def create
         user = User.create!(user_params)
         render json: user, status: :created
-    end
+    end 
 
     # PUT "/users/:id"
     def update
@@ -31,9 +35,10 @@ class UsersController < ApplicationController
         head :no_content
     end
 
-    private
+    private 
 
     def user_params
         params.permit(:name, :email, :admin, :password)
-    end
+    end 
+
 end

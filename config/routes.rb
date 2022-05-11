@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-    resources :kids, only: [:index]
-    resources :playdates 
-    resources :parents, only: [:index, :show]
-  
-  # Routing logic: fallback requests for React Router.
-  # Leave this here to help deploy your app later!
-  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+  resources :parents, only: [:index, :show]
+  # resources :tickets, only: [:index, :show, :create, :update, :destroy]
+  resources :users, only: [:index, :show, :create, :update, :destroy]
+  # resources :production_roles
+  # resources :productions, only: [:index, :show, :destroy]
+  # resources :parents, only: [:index, :show]
+  # Group Activity => Add Route to Handle "sessions#login" (/login)
+  # post '/login', to: sessions#login
+  post "/login", to: 'sessions#login'
+  # index "/parent", to: 'parent#index'
 end

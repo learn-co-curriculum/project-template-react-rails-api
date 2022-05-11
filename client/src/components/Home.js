@@ -1,30 +1,22 @@
-import Login from "./Login";
+// import Login from "./Login";
 
-function Home() {
-    return (<>
-        <Login />
-        <form>
-            <p>parent</p>
-            <input type="text" name="userId" required="required"></input>
-            <input type="hidden" name="number" required="required"></input>
-            <input type="submit" value="submit"></input>
-        </form>
-        </>);
-}
+function Home({parent, setParent}){
 
-<li id="PlayDateCard">
-<div>
+    console.log(parent)
 
-<img className="imageCard" src={img} alt="alt"/>
-<h1>{name}</h1>
-<h3>{age}</h3>
-<h3>📍{location} ,📆 {date}</h3>
-<p> Early Bird or Night Owl: {early ? '🐓' : null}    {nightOwl ? '🦉' : null} </p>
-<p> Verified: {verified ? '✅' : null}
+    return (
+    <>
+    <h1>home</h1>  
 
- </p>
-</div>
-</li>
-</div>
+
+    <div>
+        <img src="img" alt="alt"/>
+        {/* <h1>{name.parent}</h1> */}
+        <h3>"age"</h3>
+        <h3>📍"location"</h3>
+        <p> Early Bird or Night Owl: {"early" ? '🐓' : null}    {"nightOwl" ? '🦉' : null} </p>
+        <p> Verified: {"verified" ? '✅' : null}</p>
+    </div>
+</>);}
 
 export default Home;

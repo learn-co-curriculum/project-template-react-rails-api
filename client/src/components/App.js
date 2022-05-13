@@ -8,26 +8,32 @@ import Settings from './Settings';
 import Login from "./Login";
 
 function App(){
-    const [user, setUser] = useState(null);
-    const params = useParams();
+  const [currentUser, setCurrentUser] = useState();
+  const [user, setUser] = useState({
+  username: '',
+  password: '',
+  email: '',
+  address: "",
+  image: "",
+  name: "",
+  age: "",
+  early: false,
+  nightOwl: false,
+  emergency: false,
+  admin: false,
+  });
+  const [playdates, setPlaydate] = useState(null);
 
- useEffect(()=> {
-  fetch(`/users/${params.id}`)
-  .then(resp => resp.json())
-  .then(data => setUser(data)
-
-  )}
-, []);
 
   return (
     <div className="App">
       <NavBar />
       <Switch>
-      <Route path="/Home"><Home parent={parent} setParent={setParent} /></Route>
-      <Route path="/Request"><Request /></Route>
-      <Route path="/ProfileInfo"><ProfileInfo user={user} /></Route>
+      <Route path="/Home"><Home playdates={playdates} setPlaydate={setPlaydate}/></Route>
+      <Route path="/Request"><Request playdates={playdates}/></Route>
+      <Route path="/ProfileInfo"><ProfileInfo setCurrentUser={setCurrentUser} user={user} setUser={setUser}/></Route>
       <Route path="/Settings"><Settings setUser={setUser} user={user} /></Route>
-      <Route path="/Login"><Login /></Route>
+      <Route path="/Login"><Login user={user} setUser={setUser} currentUser={currentUser} setCurrentUser={setCurrentUser} /></Route>
       </Switch>
     </div>
   );

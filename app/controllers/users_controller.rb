@@ -1,44 +1,34 @@
 class UsersController < ApplicationController
-    # Group Activity => Set 'authorize_user' to Skip Create Action
-    # before_action
-    # skip_before_action
-    before_action :authorize_user, except: [:create]
+    before_action :authorized, only: [:create]
+    rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
-    # GET "/users"
     def index 
-        render json: User.all
-    end 
+        @users = User.all
+        render json: @users, status: :ok
+    end
 
-    # GET "/users/:id"
-    def show
-        # current_user = User.find_by(id: session[:current_user])
-        render json: current_user
-    end 
-
-    # POST "/users"
     def create
         user = User.create!(user_params)
-        render json: user, status: :created
-    end 
-
-    # PUT "/users/:id"
-    def update
-        user = User.find(params[:id])
-        user.update!(user_params)
-        render json: user, status: :created
+        render json: user
     end
 
-    # DELETE "/users/:id"
-    def destroy
-        user = User.find(params[:id])
-        user.destroy
-        head :no_content
+    def show
+        render json: @current_user
     end
 
-    private 
+    def get_receiver
+        receiver = User.find(params[:id])
+        render json: receiver, status: :ok
+    end
+
+    private
 
     def user_params
-        params.permit(:name, :email, :admin, :password)
-    end 
+        params.permit(:username, :email, :admin, :image, :name, :age, :emergency, :address, :nightOwl, :early)
+    end
 
+    def record_invalid(invalid)
+        render json: {errors: invalid.record.errors.full_messages}, status: 422
+    end
+    
 end

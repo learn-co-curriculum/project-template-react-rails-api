@@ -325,3 +325,58 @@ For additional support, check out these guides on Heroku:
 [postgres downloads page]: https://postgresapp.com/downloads.html
 [heroku rails deploying guide]: https://devcenter.heroku.com/articles/getting-started-with-rails6
 [troubleshooting guide on heroku]: https://devcenter.heroku.com/articles/getting-started-with-rails6#troubleshooting
+
+
+
+# PlayDate
+
+## user stories
+    
+    1. Create a User
+    2. Login User
+    3. Update User
+    4. View list of other parents
+    5. View your own profile
+    6. Sort list of parents by distance or other attributes
+    7. Create playdate request with another parent(user)
+    8. View any playdates sorted by pending, accepted, rejected
+    9.  A`ccept or Reject Playdate
+`
+
+## Models and Relationships
+
+    - User (Parent)
+        * has_many playdates
+        * has_many `users` through playdates
+    - Playdate
+        * belongs to two different users
+        * column that stores "pending" "accepted" "rejected"
+    - Conversation
+        * belongs to two different users
+        * has many messages
+    - Message
+        * belongs to conversation
+        * belongs to user
+
+## 1. Create a user
+    - frontend component to accept user info
+    - posts to `/users` 
+    - work on `users#create`f
+    - handle response on frontend
+
+## 2. Login user
+    - component to accept user login info
+    - post to '/login' => "sessions#create"
+    - set session if user is authenticated
+    - handle response on frontend
+    ( am I storing something in state? Where is it being stored? why? what other components might this effect)
+
+## 3. Update User
+
+## 4. View list of other parents
+
+    - frontend component to display all parents
+    - component to display individual parent
+    - get '/users' -> don't include current_user
+    - store response in state
+    - user model and migrate 

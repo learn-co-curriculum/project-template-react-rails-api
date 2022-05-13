@@ -8,7 +8,7 @@ function NavBar(){
             <Link to="/Request"><button>📨</button></Link>
             <Link to="/ProfileInfo"><button>👤</button></Link>
             <Link to="/settings"><button>⚙️</button></Link>
-            <Link to="/Login"><button>Login</button></Link>
+            <Link to="/Login"><button>🚪</button></Link>
         </div>
     )}
 

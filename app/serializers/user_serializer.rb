@@ -1,7 +1,4 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email, :admin
-
-  # has_many :tickets
-  # has_many :productions
+  attributes :id, :username, :email, :admin, :image, :name, :age, :emergency, :address, :nightOwl, :early
 
 end

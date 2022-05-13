@@ -1,62 +1,86 @@
-import {useState} from 'react';   
+import { useState } from "react";
 
-function Auth({setShow, isShow}){
-    function toggleShow() {
-      setShow(!isShow)
-    } 
-    const [username, setUsername] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-   
-    const [errors, setErrors] = useState([])
+function Auth({ setShow, isShow, setCurrentUser }) {
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+    email: "",
+    // address: "",
+    // image: "",
+    // name: "",
+    // age: "",
+    // early: false,
+    // nightOwl: false,
+    // emergency: false,
+    // admin: false,
 
-    function onSubmit(e){
-        e.preventDefault()
-        const user = {
-            name: username,
-            email,
-            password
+  });
+
+  const [errors, setErrors] = useState([]);
+
+  function toggleShow() {
+    setShow(!isShow);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.errors) {
+          console.log(data.errors);
+        } else {
+          setCurrentUser(data);
         }
-       
-        fetch(`http://localhost:3000/users`,{
-          method:'POST',
-          headers:{'Content-Type': 'application/json'},
-          body:JSON.stringify(user)
-        })
-        .then(res => res.json())
-        .then(json => {
-            console.log(json)
-            if(json.errors) setErrors(Object.entries(json.errors))
-        })
-    }
-    return (
-        <>
+      });
+  }
 
-        <h1>Create an account</h1>
-        <form onSubmit={onSubmit}>
+  return (
+    <>
+      <form onSubmit={(e) => handleSubmit(e)} className="template">
+        <h3>Create an account</h3>
         <label>
-          Username
-  
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+          Create Username
+          <input
+            type="text"
+            onChange={(e) => setUser({ ...user, username: e.target.value })}
+            value={user.username}
+
+          />
         </label>
         <label>
-        email
-    
-        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+          Add email
+          <input
+            type="text"
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
+            value={user.email}
+          />
         </label>
         <label>
-        Password
-    
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          Create Password
+          <input
+            type="password"
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
+            value={user.password}
+          />
         </label>
-      
-        <input type="submit" value="Sign up" />
-        <button className="loginBtn"  onClick={toggleShow}>back</button> 
+        <input className="button" type="submit" value="Sign Up" />
+
+        <button className="button" onClick={toggleShow}>
+          back
+        </button>
       </form>
-      {errors?errors.map(e => <div key={errors.length++}>{e[0]+': ' + e[1]}</div>):null}
-      </>
-    )
+      {errors
+        ? errors.map((e) => (
+            <div key={errors.length++}>{e[0] + ": " + e[1]}</div>
+          ))
+        : null}
+    </>
+  );
 }
 
-
-export default Auth
+export default Auth;

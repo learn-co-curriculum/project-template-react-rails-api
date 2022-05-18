@@ -1,0 +1,25 @@
+.logo{
+    height: 80px;
+    font-size: 32px;
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: teal;
+    color: #fff;
+   }
+
+   .nav-links a {
+       color: rgb(98, 205, 87);
+        padding: 70px;
+       
+   }
+   
+   
+   
+
+

@@ -1,8 +1,11 @@
 class ItemsController < ApplicationController
+  
 
 def create
 item = Item.create!(item_params)
-render json: item
+results = Scraper.new(item.name)
+info = results.combined_hash
+render json: info
 end
 
 def index
@@ -11,7 +14,6 @@ render json: item, method: :total_cost
 end
 
 def show
-
 item = Item.find_by!(id: params[:id])
 render json: item
 end

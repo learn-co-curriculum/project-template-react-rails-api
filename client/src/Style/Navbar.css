@@ -6,11 +6,11 @@
 
 .navbar {
     display: flex;
-    align-items: center;
+    /* align-items: center;
     justify-content: space-between;
     padding: 20px;
     background-color: teal;
-    color: #fff;
+    color: #fff; */
    }
 
    .nav-links a {

@@ -5,7 +5,7 @@ class ShoppingListItemsController < ApplicationController
     end
 
     def index
-        sli = ShoppingListItem.all
+        sli = ShoppingListItem.where(item_id: params[:id])
         render json: sli
     end
 
@@ -18,5 +18,10 @@ class ShoppingListItemsController < ApplicationController
         render json: sli
         # sli = ShoppingListItem.create!(params.permit(:item_id, :shopping_list_id))
         # render json: sli
+    end
+
+    def update
+        sli = ShoppingListItem.update(params.permit(:item_id, :shopping_list_id))
+        render json: sli
     end
 end

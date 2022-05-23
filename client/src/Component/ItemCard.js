@@ -3,6 +3,10 @@ import React from 'react'
 function ItemCard({food}) {
     console.log(food)
 
+    function queryfood(){
+      
+    }
+
   function addToCart(){
     fetch('/items',{
       method: 'POST',

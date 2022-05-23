@@ -18,10 +18,13 @@ function Cart() {
      return <CartItem key={item} item={item}/>
    })
 
+
+   console.log(mappedItem)
+
   return (
     <div>
       {mappedItem}
-      <button>Generate Prices and Location</button>
+      <button>Find Prices</button>
     </div>
   )
 }

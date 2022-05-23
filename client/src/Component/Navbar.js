@@ -4,17 +4,17 @@ import '../Style/Navbar.css'
 
 function Navbar() {
   return (
-    <div >
-      <nav className='navbar'>
+    <div className='navbar' >
+      <nav>
         <img className='logo' src="https://codetheweb.blog/assets/img/icon2.png" />
-        <ul className='nav-links'>
-          <span> <Link to='/'>Home</Link> </span>
-          <span><Link to='/about'>About</Link></span>
-          <span> <Link to='/Start_Shopping'>StartShopping</Link> </span>
-          <span><Link to='/profile'>Profile</Link></span>
-          <span><Link to='/cart'>Cart</Link></span>
-          <span><Link to='/shoplist'>ShoppingList</Link></span>
-        </ul>
+        <div className='nav-links'>
+           <Link to='/'>Home</Link> 
+          <Link to='/about'>About</Link>
+           <Link to='/Start_Shopping'>StartShopping</Link>
+          <Link to='/profile'>Profile</Link>
+          <Link to='/cart'>Cart</Link>
+          <Link to='/shoplist'>ShoppingList</Link>
+        </div>
       </nav>
 
     </div>

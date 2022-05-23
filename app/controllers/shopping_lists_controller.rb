@@ -9,4 +9,15 @@ class ShoppingListsController < ApplicationController
         sl = ShoppingList.all.where(user_id: session[:user_id])
         render json: sl
     end
+
+    def create
+        sl = ShoppingList.create!(params.permit(:name, :user_id)) #try to set a default user_id to sessions id
+        render json: sl
+    end
+
+    def update
+        sl = ShoppingList.update(params.permit(:name))
+    end
+
+    
 end

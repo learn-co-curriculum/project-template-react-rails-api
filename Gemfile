@@ -53,3 +53,14 @@ end
 gem "active_model_serializers", "~> 0.10.12"
 
 gem 'faker'
+
+gem 'google_search_results' 
+
+gem 'httparty'
+
+gem 'nokogiri'
+gem 'watir'
+gem 'webdrivers'
+
+
+

@@ -1,11 +1,25 @@
 import React from 'react'
 import '../Style/Home.css'
+import {useEffect, useRef} from 'react'
 
 function Home({user}) {
+  const mounted = useRef(false);
+
+
+  useEffect(() => {
+    mounted.current = true
+
+    return () => {
+    mounted.current = false
+    }
+  },[])
+
+
   return (
-    <div>
-      <p>Welcome {user.name} </p>
-      <p>Meet your financial advisors</p>
+    <div className='home'>
+      <p>Welcome to Shopper App That find alternative cheaper version of a item. {user.name} </p>
+
+      
       
     </div>
   )

@@ -1,0 +1,69 @@
+.modal {
+   
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 50%;
+    top: 50%;
+    width: 70%; /* Full width */
+    height: 70%; /* Full height */
+    overflow-y: scroll; /* Enable scroll if needed */
+    transform: translate(-50%, -50%);
+     /* background-color: rgb(244, 230, 230); */
+    /* background-color: rgba(186, 156, 156, 0.4); */
+  }
+
+  .modal-background-mask{
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      /* background: rgb(161, 133, 133, 0.4); */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .item-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 3rem;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 5%;
+  }
+
+  .each-item{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 25rem;
+    height: 25rem;
+    border: #000 solid .5px;
+  }
+
+  .item-content{
+    text-align: center;
+  }

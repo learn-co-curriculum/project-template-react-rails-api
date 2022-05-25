@@ -4,8 +4,8 @@ class Scraper
 
 attr_reader :url, :browser, :text, :combined_hash
 
-def initialize(text)
-    @url = "https://shopping.google.com/search?q=#{text}"
+def initialize(item)
+    @url = "https://shopping.google.com/search?q=#{item}"
     @browser = Watir::Browser.new(:chrome, headless: true)
     @browser.goto(url)
     wait_until_element_exists()
@@ -17,11 +17,11 @@ def initialize(text)
 end
 
 def combined
-    @price.map.with_index {|p, i| {name: @name[i], price: p[1..-1], store: @storeName[i] } }
+    @price.map.with_index {|p, i| { price: p[1..-1].to_f, store: @storeName[i], name: @name[i] } }
 end
 
 def wait_until_element_exists()
-    browser.element(class: "SpKMTe").wait_until(&:exists?)
+    browser.element(class: "aZK3gc Lhpu7d").wait_until(&:exists?)
 end
 
 def get_text(css)

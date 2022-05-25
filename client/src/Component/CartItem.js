@@ -1,7 +1,7 @@
 import React from 'react'
 
 function CartItem({item}) {
-    console.log('item', item)
+   
   return (
     <div>
         <p>{item.item.name}</p>

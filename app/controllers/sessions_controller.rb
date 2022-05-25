@@ -23,4 +23,6 @@ class SessionsController < ApplicationController
       sli =  ShoppingListItem.where(shopping_list_id: nil)
       render json: sli
     end
+
+
 end

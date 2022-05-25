@@ -14,8 +14,11 @@
    }
 
    .nav-links a {
+       display: flex;
        color: rgb(98, 205, 87);
-        padding: 70px;
+        /* padding: 70px; */
+        text-align: center;
+        justify-content: space-between;
        
    }
    

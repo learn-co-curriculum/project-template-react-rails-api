@@ -13,12 +13,12 @@ Rails.application.routes.draw do
   resources :items do
     resources :shopping_list_items
   end
- 
-  get '/query', to: "items#query"
+  post '/find_items', to: "items#find_items"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/me", to: "users#show"
   get '/cart', to: "sessions#cart"
+  post '/set_list', to: "shopping_list_items#set_list"
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

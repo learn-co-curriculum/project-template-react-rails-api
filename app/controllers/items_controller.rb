@@ -1,11 +1,16 @@
 class ItemsController < ApplicationController
   
 
-def create
-item = Item.create!(item_params)
-results = Scraper.new(item.name)
+def find_items
+results = Scraper.new(params[:name])
 info = results.combined_hash
-render json: info
+filter = info.sort {|a,b| [ a[:price]] <=> [ b[:price]] }
+render json: filter
+end
+
+def create
+    item = Item.create!(item_params)
+   render json: item
 end
 
 def index
@@ -22,7 +27,7 @@ end
 private
 
 def item_params
-    params.permit(:name, :image, :quantity)
+    params.permit(:name, :image, :quantity, :store, :price)
 end
 
 end

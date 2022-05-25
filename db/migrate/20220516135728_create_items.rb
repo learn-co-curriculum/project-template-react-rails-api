@@ -5,6 +5,7 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.string :image
       t.float :price
       t.integer :quantity, :default => 1
+      t.string :store, :default => ""
       t.timestamps
     end
   end

@@ -1,0 +1,2 @@
+class BidsController < ApplicationController
+end

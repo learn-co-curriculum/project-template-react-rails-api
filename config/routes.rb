@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :facts, only: [:index, :show, :create]
   resources :sessions
-  resources :movies
+  resources :movies, only: [:index, :show, :update, :destroy, :create] 
   resources :users, only:[:index, :show, :update, :create]
   post "/signup", to: "users#create"
   get "/me", to: "users#show"

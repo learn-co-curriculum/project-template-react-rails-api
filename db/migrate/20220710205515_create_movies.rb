@@ -3,7 +3,7 @@ class CreateMovies < ActiveRecord::Migration[6.1]
     create_table :movies do |t|
       t.string :location
       t.string :name
-      t.string :Image
+      t.string :image
 
       t.timestamps
     end

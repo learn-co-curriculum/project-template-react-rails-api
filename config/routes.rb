@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :bids
   resources :items
-  resources :users
+  resources :users, except: [:create, :show]
 
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'

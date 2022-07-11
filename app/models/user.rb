@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-    has_many :movies
-    has_many :users, through: :trivium
+    has_many :trivias
+    has_many :movies, through: :trivias
 
-    has_secure_password
+    #has_secure_password
   
     validates :user_name, presence: true, uniqueness: true
 end

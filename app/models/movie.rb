@@ -1,4 +1,4 @@
 class Movie < ApplicationRecord
-    has_many :users
-    has_many :users, through: :trivium
+    has_many :trivias
+    has_many :users, through: :trivias
 end

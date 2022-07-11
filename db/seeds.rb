@@ -8,20 +8,19 @@ Movie.create([
      
    ])
    
-puts 
    User.create([
     { user_name: "Yax", password: "1234" },
     { user_name: "Corey", password: "4321" }
   ])
   
-  Trivium.create([
-    { trivia:"The table at which the scene was filmed now has a plaque on it that reads, 'Where Harry met Sally...hope you have what she had!'", user_id:1, movie_id:2},
-    { trivia:"Used as the exterior site and exemplar of the film's 'Bamford'.", user_id:2, movie_id:4},
-    { trivia:"The MiB headquarters is actually a ventilator shaft for the Holland Tunnel!", user_id:1, movie_id:1},
-    { trivia:"Almost none of the scenes were filmed as scripted, most had at least one ad-lib. Most of Bill Murray's lines are ad-libs.", user_id:1, movie_id:5},
-    { trivia:"Known as the base for both Ghostbusters 1984 and remake 2016.", user_id:2, movie_id:5},
-    { trivia:"The film's climax takes place on the site in Flushing Meadows, New York, where the 1964 World's Fair was held.", user_id:2, movie_id:1},
+  Fact.create([
+    { fact:"The table at which the scene was filmed now has a plaque on it that reads, 'Where Harry met Sally...hope you have what she had!'", user_id:1, movie_id:2},
+    { fact:"Used as the exterior site and exemplar of the film's 'Bamford'.", user_id:2, movie_id:4},
+    { fact:"The MiB headquarters is actually a ventilator shaft for the Holland Tunnel!", user_id:1, movie_id:1},
+    { fact:"Almost none of the scenes were filmed as scripted, most had at least one ad-lib. Most of Bill Murray's lines are ad-libs.", user_id:1, movie_id:5},
+    { fact:"Known as the base for both Ghostbusters 1984 and remake 2016.", user_id:2, movie_id:5},
+    { fact:"The film's climax takes place on the site in Flushing Meadows, New York, where the 1964 World's Fair was held.", user_id:2, movie_id:1}
   
-  
+
   ])
   puts "Seeds Created you shall pass"

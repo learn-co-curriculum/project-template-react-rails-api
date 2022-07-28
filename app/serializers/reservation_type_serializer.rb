@@ -1,3 +1,3 @@
 class ReservationTypeSerializer < ActiveModel::Serializer
-  attributes :id, :type
+  attributes :id, :reservation_type
 end

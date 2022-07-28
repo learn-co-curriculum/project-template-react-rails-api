@@ -66,11 +66,14 @@ Resource.create(rec_center_id: 5, name:"Court 5", sports_type_id: 2)
 
 puts "Seeding reservations..."
 # Reservations
-40.times do
+200.times do
     random_seed = rand(10..17)
     end_time_seed = random_seed + 1
-    start_time = "#{random_seed}:00:00"
-    end_time = "#{end_time_seed}:00:00"
+    faker_date = Faker::Date.between(from: Date.today, to: 7.days.from_now)
+    start_time = "#{faker_date}T#{random_seed}:00:00"
+    end_time = "#{faker_date}T#{end_time_seed}:00:00"
+    
+
     Reservation.create(reservation_type_id: 1, resource_id: rand(1..20), user_id: rand(1..20), datetime_start: start_time, datetime_end: end_time)
 end
 

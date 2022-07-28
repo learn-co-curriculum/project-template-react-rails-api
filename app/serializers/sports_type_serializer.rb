@@ -1,3 +1,3 @@
 class SportsTypeSerializer < ActiveModel::Serializer
-  attributes :id, :type, :image
+  attributes :id, :sports_type, :image
 end

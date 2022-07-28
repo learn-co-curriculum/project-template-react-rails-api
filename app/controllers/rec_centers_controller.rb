@@ -1,0 +1,2 @@
+class RecCentersController < ApplicationController
+end

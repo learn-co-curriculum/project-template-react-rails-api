@@ -1,7 +1,7 @@
-import Calendar from "../reusables/Calendar";
-import DateCarousel from "../reusables/DateCarousel";
-import DetailsContainer from "../reusables/DetailsContainer";
-import RecCenterCarousel from "../reusables/RecCenterCard";
+import Calendar from "./Calendar";
+import DateCarousel from "./DateCarousel";
+import DetailsContainer from "./DetailsContainer";
+import RecCenterCarousel from "./RecCenterCard";
 
 function SpaceContainer() {
   return (

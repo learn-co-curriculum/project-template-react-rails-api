@@ -3,17 +3,21 @@ import AdminContainer from "./admin/AdminContainer";
 import PlayerContainer from "./player/PlayerContainer";
 import EveryoneContainer from "./everyone/EveryoneContainer";
 
-function InformationContainer() {
+
+function InformationContainer({recCenters}) {
+
+
+
   return (
     <Switch>
       <Route path="/admin">
-        <AdminContainer />
+        <AdminContainer recCenters={recCenters}/>
       </Route>
       <Route path="/home">
-        <PlayerContainer />
+        <PlayerContainer/>
       </Route>
       <Route path="/">
-        <EveryoneContainer />
+        <EveryoneContainer recCenters={recCenters}/>
       </Route>
     </Switch>
   );

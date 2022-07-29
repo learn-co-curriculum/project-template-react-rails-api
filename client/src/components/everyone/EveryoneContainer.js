@@ -3,10 +3,10 @@ import DateCarousel from "../reusables/DateCarousel";
 import RecCenterCarousel from "../reusables/RecCenterCarousel";
 import LoginModal from "./LoginModal";
 
-function EveryoneContainer() {
+function EveryoneContainer({recCenters}) {
   return (
     <div>
-      <RecCenterCarousel />
+      <RecCenterCarousel recCenters={recCenters}/>
       <DateCarousel />
       <Calendar />
       <LoginModal />

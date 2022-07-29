@@ -1,8 +1,14 @@
 import { Box, Image } from '@chakra-ui/react'
+import { useHistory } from "react-router-dom";
 
 function RecCenterCard({recCenter}) {
+  const history = useHistory();
+
+  function handleClick(){
+    history.push(`/admin/rec_centers/${recCenter.id}/resources`)
+  }
   return (
-    <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+    <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' onClick={handleClick}>
       <Image src={recCenter.image}/>
 
       <Box p='6'>

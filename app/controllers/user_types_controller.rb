@@ -1,0 +1,2 @@
+class UserTypesController < ApplicationController
+end

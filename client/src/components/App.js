@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Header from "./everyone/Header"
 import InformationContainer from "./InformationContainer";
 import "../App.css";
 

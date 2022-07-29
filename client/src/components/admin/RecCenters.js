@@ -1,12 +1,15 @@
 import RecCenterCard from "../reusables/RecCenterCard";
 
-function RecCenters() {
+function RecCenters({recCenters}) {
+  const recCenterCollection = recCenters.map((recCenter)=>(
+    <RecCenterCard 
+    key={recCenter.id} 
+    recCenter={recCenter}
+    />
+))
   return (
     <div>
-      <RecCenterCard />
-      <RecCenterCard />
-      <RecCenterCard />
-      <RecCenterCard />
+      {recCenterCollection}
     </div>
   );
 }

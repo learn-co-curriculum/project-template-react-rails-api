@@ -52,7 +52,7 @@ function NavBar({ setLoginModalOpen }) {
     <Flex minWidth="max-content" alignItems="center" gap="2">
       <Box p="2">
         <Heading size="md">
-          <img src="../images/reserve_set_play_logo.png"></img>
+          {/* <img src="../images/reserve_set_play_logo.png"></img> */}
         </Heading>
       </Box>
       <Breadcrumb separator="|">

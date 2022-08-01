@@ -37,6 +37,7 @@ function LoginForm({ setSignup, initialRef, setUser, handleClose }) {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify(formData),
     })
       .then((response) => response.json())

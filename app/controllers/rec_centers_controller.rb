@@ -6,4 +6,12 @@ class RecCentersController < ApplicationController
   def index
     render json: RecCenter.all
   end
+
+  # Use to find resources for a specific rec center
+  def resources_index
+    rec_center = RecCenter.find(params[:rec_center_id])
+    resources = rec_center.resources
+    render json: resources
+  end
+
 end

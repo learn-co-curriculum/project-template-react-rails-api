@@ -8,7 +8,10 @@ function App() {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:3000/me")
+    fetch("http://localhost:3000/me", {
+      method: "GET",
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
         if (!data.errors) {

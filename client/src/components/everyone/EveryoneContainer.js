@@ -3,13 +3,20 @@ import DateCarousel from "../reusables/DateCarousel";
 import RecCenterCarousel from "../reusables/RecCenterCarousel";
 import LoginModal from "./LoginModal";
 
-function EveryoneContainer({recCenters}) {
+function EveryoneContainer({
+  recCenters,
+  loginModalOpen,
+  setLoginModalOpen,
+  setUser,
+}) {
   return (
     <div>
-      <RecCenterCarousel recCenters={recCenters}/>
+      <RecCenterCarousel recCenters={recCenters} />
       <DateCarousel />
       <Calendar />
-      <LoginModal />
+      {loginModalOpen ? (
+        <LoginModal setLoginModalOpen={setLoginModalOpen} setUser={setUser} />
+      ) : null}
       <h3> Reserve </h3>
     </div>
   );

@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 function App() {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
   const [user, setUser] = useState({});
+  console.log(user);
 
   useEffect(() => {
     fetch("http://localhost:3000/me", {
@@ -22,11 +23,16 @@ function App() {
 
   return (
     <div className="App">
-      <Header setLoginModalOpen={setLoginModalOpen} />
+      <Header
+        setLoginModalOpen={setLoginModalOpen}
+        user={user}
+        setUser={setUser}
+      />
       <InformationContainer
         loginModalOpen={loginModalOpen}
         setLoginModalOpen={setLoginModalOpen}
         setUser={setUser}
+        user={user}
       />
     </div>
   );

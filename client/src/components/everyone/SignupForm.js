@@ -39,6 +39,7 @@ function SignupForm({ setSignup, initialRef, setUser, handleClose }) {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify(formData),
     })
       .then((response) => response.json())
@@ -109,10 +110,10 @@ function SignupForm({ setSignup, initialRef, setUser, handleClose }) {
           {errors
             ? errors.map((error) => {
                 return (
-                  <>
-                    <p key={error}>{error}</p>
+                  <div key={error}>
+                    <p>{error}</p>
                     <br />
-                  </>
+                  </div>
                 );
               })
             : null}

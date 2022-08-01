@@ -1,9 +1,9 @@
 import NavBar from "./NavBar";
 
-function Header() {
+function Header({ setLoginModalOpen }) {
   return (
     <div>
-      <NavBar/>
+      <NavBar setLoginModalOpen={setLoginModalOpen} />
     </div>
   );
 }

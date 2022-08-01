@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :reservations
   resources :sports_types
   resources :resources
-  resources :users, only: [:index]
+  resources :users, only: %i[index]
   resources :rec_centers
 
   post "/signup", to: "users#create"

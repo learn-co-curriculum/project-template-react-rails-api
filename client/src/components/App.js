@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Header from "./everyone/Header"
 import InformationContainer from "./InformationContainer";
 import "../App.css";
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <InformationContainer />
+      <InformationContainer/>
     </div>
   );
 }

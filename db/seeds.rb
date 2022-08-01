@@ -14,8 +14,8 @@ RecCenter.create(
   address: Faker::Address.full_address,
   phone: Faker::PhoneNumber.cell_phone,
   description: Faker::Lorem.paragraph,
-  opens_at: "08:30:00",
-  closes_at: "20:30:00",
+  opens_at: "08:00:00",
+  closes_at: "21:00:00",
   image: "../images/map_image.png"
 )
 RecCenter.create(
@@ -24,7 +24,7 @@ RecCenter.create(
   phone: Faker::PhoneNumber.cell_phone,
   description: Faker::Lorem.paragraph,
   opens_at: "10:00:00",
-  closes_at: "22:30:00",
+  closes_at: "23:00:00",
   image: "../images/map_image.png"
 )
 RecCenter.create(
@@ -33,16 +33,7 @@ RecCenter.create(
   phone: Faker::PhoneNumber.cell_phone,
   description: Faker::Lorem.paragraph,
   opens_at: "06:00:00",
-  closes_at: "18:30:00",
-  image: "../images/map_image.png"
-)
-RecCenter.create(
-  name: Faker::Company.name,
-  address: Faker::Address.full_address,
-  phone: Faker::PhoneNumber.cell_phone,
-  description: Faker::Lorem.paragraph,
-  opens_at: "08:30:00",
-  closes_at: "21:30:00",
+  closes_at: "19:00:00",
   image: "../images/map_image.png"
 )
 RecCenter.create(
@@ -51,7 +42,16 @@ RecCenter.create(
   phone: Faker::PhoneNumber.cell_phone,
   description: Faker::Lorem.paragraph,
   opens_at: "09:00:00",
-  closes_at: "22:30:00",
+  closes_at: "22:00:00",
+  image: "../images/map_image.png"
+)
+RecCenter.create(
+  name: Faker::Company.name,
+  address: Faker::Address.full_address,
+  phone: Faker::PhoneNumber.cell_phone,
+  description: Faker::Lorem.paragraph,
+  opens_at: "09:00:00",
+  closes_at: "22:00:00",
   image: "../images/map_image.png"
 )
 

@@ -1,10 +1,25 @@
-import { Route, Switch, useParams } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import RecCenters from "./RecCenters";
 import Resources from "./Resources";
 import SpaceContainer from "../reusables/SpaceContainer";
 import LoginModal from "../everyone/LoginModal";
 
-function AdminContainer({ recCenters, loginModalOpen, setLoginModalOpen }) {
+function AdminContainer({
+  recCenters,
+  loginModalOpen,
+  setLoginModalOpen,
+  user,
+}) {
+  const history = useHistory();
+
+  if (user.user_type) {
+    if (user.user_type.user_type !== "admin") {
+      history.push("/");
+    }
+  } else {
+    history.push("/");
+  }
+
   return (
     <div>
       <Switch>
@@ -12,8 +27,7 @@ function AdminContainer({ recCenters, loginModalOpen, setLoginModalOpen }) {
           <LoginModal setLoginModalOpen={setLoginModalOpen} />
         ) : null}
         <Route exact path="/admin/rec_centers">
-          <RecCenters recCenters={recCenters}/>
-
+          <RecCenters recCenters={recCenters} />
         </Route>
         <Route path="/admin/rec_centers/:rec_center_id/resources">
           <Resources />
@@ -27,4 +41,3 @@ function AdminContainer({ recCenters, loginModalOpen, setLoginModalOpen }) {
 }
 
 export default AdminContainer;
-

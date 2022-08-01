@@ -1,9 +1,13 @@
 import NavBar from "./NavBar";
 
-function Header({ setLoginModalOpen }) {
+function Header({ setLoginModalOpen, user, setUser }) {
   return (
     <div>
-      <NavBar setLoginModalOpen={setLoginModalOpen} />
+      <NavBar
+        setLoginModalOpen={setLoginModalOpen}
+        user={user}
+        setUser={setUser}
+      />
     </div>
   );
 }

@@ -1,10 +1,17 @@
 class RecCentersController < ApplicationController
   ### add "skip_before_action :authorize, only: [:the :different :methods]" if a path does not need/shouldn't have user authentication
-  skip_before_action :authorize, only: [:index]
+  
+  #after setting up authorization through the UI, remove :resources_index from permitted routes
+  skip_before_action :authorize, only: [:index, :show, :resources_index]
 
   ############################### /rec_centers
   def index
     render json: RecCenter.all
+  end
+
+  def show
+    rec_center = RecCenter.find(params[:id])
+    render json: rec_center
   end
 
   # Use to find resources for a specific rec center

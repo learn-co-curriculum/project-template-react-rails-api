@@ -1,3 +1,4 @@
+import { SimpleGrid } from "@chakra-ui/react";
 import RecCenterCard from "../reusables/RecCenterCard";
 
 function RecCenters({recCenters}) {
@@ -8,9 +9,9 @@ function RecCenters({recCenters}) {
     />
 ))
   return (
-    <div>
+    <SimpleGrid minChildWidth='340px' spacing='40px'>
       {recCenterCollection}
-    </div>
+    </SimpleGrid>
   );
 }
 

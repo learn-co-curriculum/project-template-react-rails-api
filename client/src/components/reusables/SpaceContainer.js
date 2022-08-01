@@ -1,12 +1,12 @@
 import Calendar from "./Calendar";
 import DateCarousel from "./DateCarousel";
 import DetailsContainer from "./DetailsContainer";
-import RecCenterCarousel from "./RecCenterCard";
+import RecCenterCarousel from "./RecCenterCarousel";
 
-function SpaceContainer() {
+function SpaceContainer({recCenters}) {
   return (
     <div>
-      <RecCenterCarousel />
+      <RecCenterCarousel recCenters = {recCenters}/>
       <DateCarousel />
       <Calendar />
       <DetailsContainer />

@@ -6,4 +6,9 @@ class ResourcesController < ApplicationController
   def index
     render json: Resource.all
   end
+
+  def show
+    resource = Resource.find(params[:id])
+    render json: resource
+  end
 end

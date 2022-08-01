@@ -5,8 +5,14 @@ Rails.application.routes.draw do
   resources :sports_types
   resources :resources
   resources :users, only: [:index]
-  resources :rec_centers
+  resources :rec_centers, only: [:show, :index] do
+    resources :resources, only: [:show, :index]
+  end
+  
+  get "/admin/rec_centers/:rec_center_id/resources", to: "rec_centers#resources_index"
+  get "/resources/:id", to: "resources#show"
 
+  #Authentication routes
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"

@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useParams } from "react-router-dom";
 import RecCenters from "./RecCenters";
 import Resources from "./Resources";
 import SpaceContainer from "../reusables/SpaceContainer";
@@ -11,10 +11,11 @@ function AdminContainer({ recCenters, loginModalOpen, setLoginModalOpen }) {
         {loginModalOpen ? (
           <LoginModal setLoginModalOpen={setLoginModalOpen} />
         ) : null}
-        <Route path="/admin/rec_centers">
-          <RecCenters recCenters={recCenters} />
+        <Route exact path="/admin/rec_centers">
+          <RecCenters recCenters={recCenters}/>
+
         </Route>
-        <Route path="/admin/resources">
+        <Route path="/admin/rec_centers/:rec_center_id/resources">
           <Resources />
         </Route>
         <Route path="/admin">
@@ -26,3 +27,4 @@ function AdminContainer({ recCenters, loginModalOpen, setLoginModalOpen }) {
 }
 
 export default AdminContainer;
+

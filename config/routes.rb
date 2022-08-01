@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   end
   
   get "/admin/rec_centers/:rec_center_id/resources", to: "rec_centers#resources_index"
-  get "/resources/:id", to: "resources#show"
 
   #Authentication routes
   post "/signup", to: "users#create"

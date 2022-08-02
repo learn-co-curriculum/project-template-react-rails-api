@@ -20,6 +20,7 @@ function SignupForm({ setSignup, initialRef, setUser, handleClose }) {
     last_name: "",
     email_address: "",
     password: "",
+    password_confirmation: "",
   };
   const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState([]);
@@ -46,6 +47,11 @@ function SignupForm({ setSignup, initialRef, setUser, handleClose }) {
       .then((data) => {
         if (data.errors) {
           setErrors(data.errors);
+          setFormData({
+            ...formData,
+            password: "",
+            password_confirmation: "",
+          });
         } else {
           setUser(data);
           handleClose();
@@ -103,6 +109,20 @@ function SignupForm({ setSignup, initialRef, setUser, handleClose }) {
               name="password"
               placeholder=""
               value={formData.password}
+              onChange={handleInputChange}
+            />
+          </FormControl>
+          <br />
+          <FormControl isRequired>
+            <FormLabel htmlFor="password_confirmation">
+              Confirm password
+            </FormLabel>
+            <Input
+              id="password_confirmation"
+              type="password"
+              name="password_confirmation"
+              placeholder=""
+              value={formData.password_confirmation}
               onChange={handleInputChange}
             />
           </FormControl>

@@ -15,16 +15,26 @@ class UsersController < ApplicationController
 
   ############################### /signup
   def create
-    user_type_id = UserType.find_by(user_type: "player").id
-    params_hash = user_params.to_h
-    params_hash[:user_type_id] = user_type_id
-    user = User.create!(params_hash)
-    render json: user
+    if params[:password_confirmation] == params[:password]
+      user_type_id = UserType.find_by(user_type: "player").id
+      params_hash = user_params.to_h
+      params_hash[:user_type_id] = user_type_id
+      user = User.create!(params_hash)
+      render json: user
+    else
+      render json: { errors: ["Confirmation password does not match password"] }
+    end
   end
 
   private
 
   def user_params
-    params.permit(:email_address, :password, :first_name, :last_name)
+    params.permit(
+      :email_address,
+      :password,
+      :password_confirmation,
+      :first_name,
+      :last_name
+    )
   end
 end

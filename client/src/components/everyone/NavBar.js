@@ -123,7 +123,7 @@ function NavBar({ setLoginModalOpen, user, setUser }) {
     >
       <Box p="2">
         <Heading size="md">
-          <img src="../../images/reserve_set_play_logo.png"></img>
+          <img src="./reserve_set_play_logo.png"></img>
         </Heading>
       </Box>
       {navigation}

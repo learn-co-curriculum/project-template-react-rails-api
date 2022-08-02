@@ -1,7 +1,7 @@
 class Resource < ApplicationRecord
   belongs_to :rec_center
   belongs_to :sports_type
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
 
   validates :name, presence: true
   validates :rec_center_id, presence: true

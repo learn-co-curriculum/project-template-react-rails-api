@@ -3,7 +3,7 @@ import { useDisclosure } from '@chakra-ui/react'
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton} from '@chakra-ui/react'
 import { useState, useEffect} from "react";
 
-function ResourceEditModal({setEditModalOpen, recCenterId, activeResourceId}) {
+function ResourceEditModal({setEditModalOpen, activeResourceId, removeResource}) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [nameValue, setNameValue] = useState('')
   const [sportValue, setSportValue] = useState('')
@@ -46,12 +46,13 @@ function ResourceEditModal({setEditModalOpen, recCenterId, activeResourceId}) {
     .then((resource) => console.log(resource))
   }
 
-  function handleDeleteResource(e){
+  function handleDeleteResource(){
     handleClose()
     fetch(`http://localhost:3000/resources/${activeResourceId}`, {
       method: "DELETE",
       credentials: 'include'
     })
+    .then(removeResource(activeResourceId))
   }
 
   return (

@@ -32,23 +32,24 @@ function Resources() {
     .then((data)=> setRecCenter(data))
   }, [])
 
-  const resourceItems = resources.map((resource) => (
-    <ResourceCard key={resource.id} resource={resource} setEditModalOpen={setEditModalOpen} setActiveResource={setActiveResource}/>
-  ))
-
   function handleCreateOpen(){
     setCreateModalOpen(true)
   }
 
-  function handleEditOpen(){
-    setEditModalOpen(true)
+  function handleAddResource(newResource){
+    setResources([...resources, newResource])
   }
 
-  function handleAddResource(newResource){
-    console.log(newResource)
-    console.log(resources)
-    setResources(...resources, newResource)
+  function removeResource(deletedResourceId){
+    const updatedList = [resources.filter((resource) => resource.id !== deletedResourceId)]
+    console.log(updatedList)
+    // setResources(updatedList)
   }
+
+  const resourceItems = resources.map((resource) => (
+    <ResourceCard key={resource.id} resource={resource} setEditModalOpen={setEditModalOpen} setActiveResource={setActiveResource}/>
+  ))
+
   return (
     <div>
       <Flex h='100px' >
@@ -61,7 +62,7 @@ function Resources() {
           <ResourceCreateModal setCreateModalOpen={setCreateModalOpen} recCenterId={rec_center_id} handleAddResource={handleAddResource}/>
           ) : null}
         {editModalOpen ? (
-          <ResourceEditModal setEditModalOpen={setEditModalOpen} recCenterId={rec_center_id} activeResourceId={activeResourceId}/>
+          <ResourceEditModal setEditModalOpen={setEditModalOpen} recCenterId={rec_center_id} activeResourceId={activeResourceId} removeResource={removeResource}/>
           ) : null}
         {resourceItems}
       </SimpleGrid>

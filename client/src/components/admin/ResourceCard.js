@@ -5,7 +5,7 @@ function ResourceCard({resource, setEditModalOpen, setActiveResource}) {
     setEditModalOpen(true)
     setActiveResource(resource.id)
   }
-
+  
   return (
     <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
       <Image src={resource.sports_type.image}/>

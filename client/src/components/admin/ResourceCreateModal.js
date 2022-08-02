@@ -17,9 +17,9 @@ function ResourceCreateModal({setCreateModalOpen, recCenterId, handleAddResource
     setCreateModalOpen(false);
     onClose();
   }
-  const handleCreateResource = (event) => {
-    event.preventDefault();
-    const newResource = { name: nameValue, rec_center_id: recCenterId, sports_type_id :sportValue}
+  const handleCreateResource = () => {
+    handleClose();
+    const newResource = { name: nameValue, rec_center_id: recCenterId, sports_type_id :sportValue};
     fetch("http://localhost:3000/resources",{
       method: "POST",
       headers: {

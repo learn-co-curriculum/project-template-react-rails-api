@@ -1,7 +1,18 @@
 .App {
   text-align: center;
-  margin-top: -2.2%;
   background-image: url('https://media.istockphoto.com/photos/old-brown-background-texture-with-black-vignette-in-old-vintage-picture-id1293831327?b=1&k=20&m=1293831327&s=170667a&w=0&h=QP7ecZogypmsbxojt0Ue2KGW3780xI3Oh5ovAz35S6Y=');
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+
   background-size: contain;
 }
 

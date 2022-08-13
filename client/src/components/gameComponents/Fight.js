@@ -39,9 +39,17 @@ function Fight({charAttack, charImage, charHealth, setCharHealth, level, owl}){
     }
     //gets the data for the enemy when the fight starts
     useEffect(()=>{
-        fetch(`/enemy/?level=${level}`)
-        .then(r=>r.json())
-        .then((r)=>{setEnemy(r[0])}, (r)=>console.log(r))
+        if(level <= 2){
+            fetch(`/enemy/?level=${level}`)
+            .then(r=>r.json())
+            .then((r)=>{setEnemy(r[0])}, (r)=>console.log(r))
+        }
+        
+        else{
+            fetch(`/enemy/?level=${2}`)
+            .then(r=>r.json())
+            .then((r)=>{setEnemy(r[0])}, (r)=>console.log(r))
+        }
     },[])
 
     //updates the display when the health values are updated

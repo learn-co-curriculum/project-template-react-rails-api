@@ -37,6 +37,9 @@ function Fight({charAttack, charImage, charHealth, setCharHealth, level}){
         }
             setTimeout(()=>{setCharHealth(charHealth-enemy.attack)}, 550)
     }
+
+    //test
+
     //gets the data for the enemy when the fight starts
     useEffect(()=>{
 

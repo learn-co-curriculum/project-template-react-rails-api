@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function Fight({charAttack, charImage, charHealth, setCharHealth, level, owl}){
+function Fight({charAttack, charImage, charHealth, setCharHealth, level}){
     const [enemy, setEnemy] = useState([])
     const [display, setDisplay] = useState(null)
     const [enHealth, setEnHealth] = useState(100)
@@ -10,7 +10,7 @@ function Fight({charAttack, charImage, charHealth, setCharHealth, level, owl}){
 
     //State variables for character sprites
     const [display2, setDisplay2] = useState(<img onAnimationEnd={()=>setAtkAnim(0)} className='fighter' src={charImage} />)
-    const [display3, setDisplay3] = useState(<img onAnimationEnd={()=>setEnAtkAnim(0)} className='enemy' src={"https://media.istockphoto.com/vectors/cartoon-of-a-crazy-green-troll-dressed-in-bearskin-vector-id460272397?k=20&m=460272397&s=612x612&w=0&h=ui_u54WJmN9mDogKq3Is8krPQaGB2FUoRl4rL-3luis="} />)
+    const [display3, setDisplay3] = useState(<img onAnimationEnd={()=>setEnAtkAnim(0)} className='enemy' src={enemy.sprite} />)
 
     const history = useHistory();
 
@@ -39,16 +39,18 @@ function Fight({charAttack, charImage, charHealth, setCharHealth, level, owl}){
     }
     //gets the data for the enemy when the fight starts
     useEffect(()=>{
-        if(level <= 2){
+
+        if(level <= 3){
             fetch(`/enemy/?level=${level}`)
             .then(r=>r.json())
-            .then((r)=>{setEnemy(r[0])}, (r)=>console.log(r))
+            .then((r)=>{setEnemy(r[0])
+                        console.log(r)})
         }
-        
         else{
-            fetch(`/enemy/?level=${2}`)
+            fetch(`/enemy/?level=${3}`)
             .then(r=>r.json())
-            .then((r)=>{setEnemy(r[0])}, (r)=>console.log(r))
+            .then((r)=>{setEnemy(r[0]) 
+                    console.log(r) } )
         }
     },[])
 
@@ -72,7 +74,7 @@ function Fight({charAttack, charImage, charHealth, setCharHealth, level, owl}){
     //Causes enemy attack animation
     useEffect(()=>{
         if(toggleAtk!==true){
-        setDisplay3(<img onAnimationEnd={()=>setEnAtkAnim(0)} className={toggleEnAtk? 'enemyAtk' : 'enemy'} src={"https://media.istockphoto.com/vectors/cartoon-of-a-crazy-green-troll-dressed-in-bearskin-vector-id460272397?k=20&m=460272397&s=612x612&w=0&h=ui_u54WJmN9mDogKq3Is8krPQaGB2FUoRl4rL-3luis="} />) 
+        setDisplay3(<img onAnimationEnd={()=>setEnAtkAnim(0)} className={toggleEnAtk? 'enemyAtk' : 'enemy'} src={enemy.sprite} />) 
         }
     },[toggleEnAtk])
 

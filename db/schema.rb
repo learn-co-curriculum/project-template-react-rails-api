@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2022_04_21_090544) do
     t.integer "attack"
     t.integer "level"
     t.integer "defense"
+    t.string "sprite"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

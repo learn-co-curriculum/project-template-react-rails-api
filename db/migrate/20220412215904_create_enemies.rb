@@ -5,6 +5,7 @@ class CreateEnemies < ActiveRecord::Migration[6.1]
       t.integer :attack
       t.integer :level
       t.integer :defense
+      t.string :sprite
 
       t.timestamps
     end

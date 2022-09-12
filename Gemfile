@@ -8,9 +8,9 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 
 # ASK ADAM ABOUT THIS LATER
 # Use postgresql as the database for Active Record
-# gem 'pg', '~> 1.1'
+gem 'pg', '~> 1.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3', '>= 1.3.11'
+# gem 'sqlite3', '~> 1.3', '>= 1.3.11'
 
 # Use Puma as the app server
 gem 'puma', '~> 5.0'

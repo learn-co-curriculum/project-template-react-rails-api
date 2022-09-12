@@ -1,6 +1,9 @@
+puts 'rolling back data'
 Appointment.destroy_all
 Patient.destroy_all
 Provider.destroy_all
+
+puts 'seeding...'
 
 20.times do
 	Provider.create(
@@ -9,3 +12,5 @@ Provider.destroy_all
 		provider_avatar_url: "../headshot-placeholder-01.jpg"
 	)
 end
+
+puts 'done!'

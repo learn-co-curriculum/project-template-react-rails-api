@@ -59,7 +59,7 @@
 }
 
 .artist-card{
-  display: flex;
-  margin-left: 25px;
+  display: inline-block;
+  margin-left: 50px;
   margin-top: 20px;
 }

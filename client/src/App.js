@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Signup from './components/Signup';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
@@ -11,36 +11,36 @@ import Login from './components/Login'
 
 function App() {
 
-  const [currentUser,setCurrentUser] = useState({})
+  const [currentUser, setCurrentUser] = useState({})
 
   return (
     <div>
-    <div id="nav-container">
-    <BrowserRouter>
-    <Navbar/>
-      <Switch>
-        <Route exact path='/home'>
-          <Home />
-        </Route>
-        <Route exact path='/lineup'>
-          <Lineup />
-        </Route>
-        <Route exact path='/schedule'>
-          <Schedule/>
-        </Route>
-        <Route exact path= '/tickets'>
-          <Tickets />
-        </Route>
-        <Route exact path='/login'>
-          <Login/>
-        </Route>
-        <Route exact path='/signup'>
-          <Signup setCurrentUser={setCurrentUser}/>
-        </Route>
-      </Switch>
-      </BrowserRouter>
-  </div>
-  </div>
+      <div id="nav-container">
+        <BrowserRouter>
+          <Navbar />
+          <Switch>
+            <Route exact path='/home'>
+              <Home />
+            </Route>
+            <Route exact path='/lineup'>
+              <Lineup />
+            </Route>
+            <Route exact path='/schedule'>
+              <Schedule />
+            </Route>
+            <Route exact path='/tickets'>
+              <Tickets />
+            </Route>
+            <Route exact path='/login'>
+              <Login />
+            </Route>
+            <Route exact path='/signup'>
+              <Signup setCurrentUser={setCurrentUser} />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    </div>
   );
 }
 

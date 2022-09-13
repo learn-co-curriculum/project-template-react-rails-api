@@ -32,16 +32,28 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.stage-container{
+.stage-container {
   display: flex;
+  justify-content: space-evenly;
 }
 
-.stages{
+.stages,
+.stage-info {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.stages {
+  padding-bottom: 20px;
+}
+
+.stage-artist {
+  margin-bottom: -15px;
+}

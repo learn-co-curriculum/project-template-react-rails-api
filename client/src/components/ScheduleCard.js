@@ -1,12 +1,12 @@
 import React from 'react'
 
-function ScheduleCard({artist}) {
-    console.log(artist)
+function ScheduleCard({ artist }) {
+  console.log(artist)
   return (
-    <div> 
-        <h4>{artist.name}</h4>
-        <p> {artist.performance_time} PM </p>
-         </div>
+    <div className='stage-info'>
+      <h4 className='stage-artist'>{artist.name}</h4>
+      <p> {artist.performance_time} PM </p>
+    </div>
   )
 }
 

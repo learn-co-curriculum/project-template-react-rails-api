@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-const Login = () => {
+const Login = ({updatePatient}) => {
 	const [ loginData, setLoginData ] = useState({
 		username: "",
 		password: "",
@@ -25,6 +25,7 @@ const Login = () => {
 			.then(res => {
 					if(res.ok){
 							res.json().then(patient => {
+									updatePatient(patient)
 									history.push(`/appointments`)
 							})
 					}else {

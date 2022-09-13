@@ -1,16 +1,19 @@
 class ArtistsController < ApplicationController
 
+
     def index
-    render json: Artist.all
+    artists = Artist.all
+    render json: artists
     end
 
     def show
-    render json: @artist
+    artist = find_artist
+    render json: artist
     end
 
     private  
 
     def find_artist
-        @artist = Artist.find(params[:id])
+       Artist.find(params[:id])
     end
 end

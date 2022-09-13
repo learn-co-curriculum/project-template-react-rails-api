@@ -18,11 +18,12 @@ function Lineup() {
       return <ArtistCard key={artist.id} artist={artist} />
     }
     )
+    console.log(artists)
 
   return (
 
     <div>
-     <ArtistCard /> 
+    {artistArr}
     </div>
   )
 }

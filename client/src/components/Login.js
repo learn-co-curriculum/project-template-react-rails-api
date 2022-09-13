@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import SignUp from "./SignUp";
 
 const Login = ({updatePatient}) => {
 	const [ loginData, setLoginData ] = useState({
@@ -9,6 +10,8 @@ const Login = ({updatePatient}) => {
 
 	const [errors, setErrors] = useState([])
 	const history = useHistory()
+
+	const {username, password} = loginData
 
 	function onSubmit(e){
 			e.preventDefault()
@@ -48,8 +51,11 @@ const Login = ({updatePatient}) => {
 				<input type="submit" value="Login" />
 			</form>
 			{errors? <div>{errors}</div> : null}
-			<button>Sign Up</button>
-			{/* <Button as = {Link}> </Button> */}
+			
+			{<Link to='/signup'>
+				hello world
+				
+			</Link>}
 		</>
 	)
 }

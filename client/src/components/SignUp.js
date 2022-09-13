@@ -18,6 +18,18 @@ const SignUp = () => {
 	const [errors, setErrors] = useState([])
 	const history = useHistory()
 
+	const {
+		username, 
+		password, 
+		password_confirmation,
+		full_name,
+		email,
+		age,
+		address,
+		phone,
+		avatar_url
+	} = signupData
+
 	function onSubmit(e){
 			e.preventDefault()
 			const patient = {
@@ -80,10 +92,9 @@ const SignUp = () => {
 				<label> Avatar </label>
 				<input type="text" name="avatar_url" value={avatar_url} onChange={handleChange}/>
 
-				<input type="submit" value="Login" />
+				<input type="submit" value="Signup" />
 			</form>
 			{errors? <div>{errors}</div> : null}
-			<button>Sign Up</button>
 			{/* <Button as = {Link}> </Button> */}
 		</>
 	)

@@ -1,8 +1,9 @@
 class AppointmentsController < ApplicationController
 
-  # def index
-    
-  # end
+  def index
+    appointments = Appointment.where( patient_id: session[:patient_id] )
+    render json: appointments, status: :ok
+  end
 
   # def show
     

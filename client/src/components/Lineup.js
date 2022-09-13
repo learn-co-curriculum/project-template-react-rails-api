@@ -22,7 +22,7 @@ function Lineup() {
 
   return (
     <div>
-      <h1> DCL LINEUP </h1> 
+      <h1 className='headline'> DCL LINEUP </h1> 
     <div className = 'artist-container'>
     {artistArr}
     </div>

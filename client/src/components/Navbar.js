@@ -7,7 +7,7 @@ function NavBar() {
     return (
         <div id="navbar">
             <span id="banner">
-                <Link className="route-link" to="/home">Home</Link>
+                <Link className="route-link" to="/home"> DCL </Link>
                 <Link className="route-link" to="/lineup">Lineup</Link>
                 <Link className="route-link" to="/schedule">Schedule</Link>
                 <Link className="route-link" to="/tickets">Tickets</Link>

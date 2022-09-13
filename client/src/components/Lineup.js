@@ -21,9 +21,11 @@ function Lineup() {
     console.log(artists)
 
   return (
-
-    <div className = 'artist-card'>
+    <div>
+      <h1> DCL LINEUP </h1> 
+    <div className = 'artist-container'>
     {artistArr}
+    </div>
     </div>
   )
 }

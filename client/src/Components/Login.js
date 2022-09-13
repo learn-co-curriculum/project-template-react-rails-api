@@ -1,5 +1,6 @@
 import React from "react";
-import { useState, useHistory } from "react";
+import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 //useHistory hook to redirect user to explore after logging in
 export default function Login() {
@@ -9,7 +10,8 @@ export default function Login() {
     email: "",
     password: "",
   });
-  const history = useHistory()
+  
+  const navigate = useNavigate()
   const {name, email, password} = formData
 
   function handleChange(e) {
@@ -21,9 +23,9 @@ export default function Login() {
   
 
   //double check this
-  function handleSubmit() {
+  function handleSubmit(e) {
     e.preventDefault()
-    user = {
+    const user = {
       name, email, password
     }
     fetch('/login', {
@@ -32,7 +34,8 @@ export default function Login() {
       body: JSON.stringify(user)
     })
     .then(res=> res.json())
-    .then(history.push('/explore'))
+    .then(navigate('/explore'))
+    .catch(error => console.log(error))
   }
 
 
@@ -48,5 +51,7 @@ export default function Login() {
         <input type="password" name="password" value={password} onChange={handleChange}/>
       </form>
     </main>
+    //display map over errors array
+    //set timeout to display errors, then reset state back to empty array, trigger rerender
   );
 }

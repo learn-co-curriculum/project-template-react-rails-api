@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import Signup from './components/Signup';
 import './App.css'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
@@ -33,7 +33,7 @@ function App() {
               <Tickets />
             </Route>
             <Route exact path='/login'>
-              <Login />
+              <Login setCurrentUser={setCurrentUser} />
             </Route>
             <Route exact path='/signup'>
               <Signup setCurrentUser={setCurrentUser} />

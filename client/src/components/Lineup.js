@@ -22,7 +22,7 @@ function Lineup() {
 
   return (
 
-    <div>
+    <div className = 'artist-card'>
     {artistArr}
     </div>
   )

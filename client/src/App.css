@@ -57,3 +57,9 @@
 .stage-artist {
   margin-bottom: -15px;
 }
+
+.artist-card{
+  display: flex;
+  margin-left: 25px;
+  margin-top: 20px;
+}

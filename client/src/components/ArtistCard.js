@@ -6,7 +6,7 @@ function ArtistCard({ artist }) {
   console.log(artist)
   return (
     <div className='artist-card'>
-      <div> {artist.name} </div>
+      <h1> {artist.name} </h1>
       <div> {artist.genre} </div>
       <img src={artist.image} alt='' />
       <div> {artist.bio} </div>

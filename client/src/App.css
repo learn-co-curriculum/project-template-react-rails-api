@@ -1,6 +1,6 @@
 body {
   background-color: #eeeb47;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: "Gothic A1", sans-serif;
 }
 
 #home-photos1,
@@ -41,7 +41,6 @@ body {
 }
 
 .route-link {
-  font-family: "Times New Roman", Times, serif;
   text-decoration: none;
   color: black;
   font-weight: bold;
@@ -58,6 +57,14 @@ body {
   display: flex;
   width: 80vw;
   margin: 50px;
+}
+
+#header-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80vw;
+  padding-top: 50px;
 }
 
 #date-header {
@@ -143,7 +150,6 @@ body {
 .headline {
   display: flex;
   justify-content: center;
-  font-family: six caps;
   text-transform: uppercase;
   background: #eeeb47;
   color: rgb(0, 0, 0);

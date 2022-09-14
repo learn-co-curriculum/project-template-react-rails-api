@@ -18,7 +18,7 @@ function App() {
     <div>
       <div id="nav-container">
         <BrowserRouter>
-          <Navbar />
+          <Navbar setCurrentUser={setCurrentUser} />
           <Switch>
             <Route exact path='/home'>
               <Home />

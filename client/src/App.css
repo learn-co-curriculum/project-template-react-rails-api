@@ -1,7 +1,11 @@
+body {
+  background-color: #eeeb47;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 #banner {
   display: flex;
   justify-content: flex-end;
-  font-family: six-caps;
 }
 
 .bannerDCL {
@@ -9,25 +13,26 @@
 }
 
 #navbar {
-  background-color: #FF3743;
+  background-color: #eeeb47;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 20px;
 }
 
 #fest1-container {
-  background-color: lightblue;
+  background-color: #eeeb47;
 }
 
 .home-container {
-  background-color: lightblue;
+  background-color: #eeeb47;
 }
 
 .nav-container {
-  background-color: lightblue;
+  background-color: #eeeb47;
 }
 
 .stage-container {
-  background-color: lightblue;
+  background-color: #eeeb47;
   display: flex;
   justify-content: space-evenly;
 }
@@ -66,11 +71,11 @@
   justify-content: center;
   font-family: six caps;
   text-transform: uppercase;
-  background: #FF3743;
-  color: white;
+  background: #eeeb47;
+  color: #000000;
+  font-weight: bold;
   letter-spacing: .2em;
-  font-size: 3rem;
-  text-shadow: .07em .07em 0 #FF3743, .1em .1em 0 white;
+  font-size: 6rem;
   margin: 0px;
 }
 
@@ -79,11 +84,11 @@
   justify-content: center;
   font-family: six caps;
   text-transform: uppercase;
-  background: #FF3743;
-  color: white;
+  background: #eeeb47;
+  color: rgb(0, 0, 0);
   letter-spacing: .2em;
+  font-weight: bold;
   font-size: 6rem;
-  text-shadow: .07em .07em 0 #FF3743, .1em .1em 0 white;
   margin: 0px;
 }
 
@@ -95,6 +100,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 #type {
   text-align: center;
   background: #000;
@@ -106,28 +112,33 @@
   border: none;
   cursor: pointer;
 }
-#type:hover {
-  background: white;
-  color: black;
+
+#type:active {
+  background: #eeeb47;
+  color: rgb(0, 0, 0);
 }
+
+
 .container {
   display: flex;
 }
+
 #titles {
   display: flex;
   justify-content: center;
   font-family: six caps;
   text-transform: uppercase;
-  background: lightblue;
+  background: #eeeb47;
   background-size: 100%;
-  color: white;
+  color: rgb(0, 0, 0);
   letter-spacing: .2em;
   font-size: 6rem;
-  text-shadow: .07em .07em 0 lightblue, .1em .1em 0 white;
+  font-weight: bold;
 }
+
 #cart-button {
   margin-top: .5%;
-  background-color: lightblue;
+  background-color: #eeeb47;
   border: none;
   border-radius: 10px;
   color: white;
@@ -139,15 +150,17 @@
   font-weight: bold;
   cursor: pointer;
 }
-#cart-button:hover {
-  background-color: white;
-  color: lightblue;
+
+#cart-button:active {
+  background-color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
 }
+
 .ticket-price {
   margin-top: -1%;
 }
+
 #description {
   width: 64%;
   text-align: center;
 }
-

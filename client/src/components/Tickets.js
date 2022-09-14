@@ -47,7 +47,7 @@ function Tickets() {
             onChange={handleChangeGA}
             min="0"
           ></input>
-          <p>Total: {ticketPriceGA}</p>
+          <p className="total">Total: {ticketPriceGA}</p>
           <button id="cart-button">Add to Cart</button>
         </div>
       ) : (
@@ -78,7 +78,7 @@ function Tickets() {
             onChange={handleChangeVIP}
             min="0"
           ></input>
-          <p id="total">Total: {ticketPriceVIP}</p>
+          <p className="total">Total: {ticketPriceVIP}</p>
           <button id="cart-button">Add to Cart</button>
         </div>
       )}

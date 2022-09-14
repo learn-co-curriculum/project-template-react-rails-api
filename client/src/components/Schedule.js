@@ -57,24 +57,32 @@ function Schedule() {
 
   return (
     <div className="stage-container">
-      <div className="stages">
-        <h1>Broncos Stage</h1>
-        {broncoCard}
+
+      <div className="nav-container">
+        <div id="titles">Schedule</div>
       </div>
 
-      <div className="stages">
-        <h1>Avalanche Stage</h1>
-        {avCard}
-      </div>
+      <div id='schedule'>
 
-      <div className="stages">
-        <h1>Rockies Stage</h1>
-        {rockieCard}
-      </div>
+        <div className="stages">
+          <h1>Broncos Stage</h1>
+          {broncoCard}
+        </div>
 
-      <div className="stages">
-        <h1>Nuggets Stage</h1>
-        {nuggetCard}
+        <div className="stages">
+          <h1>Avalanche Stage</h1>
+          {avCard}
+        </div>
+
+        <div className="stages">
+          <h1>Rockies Stage</h1>
+          {rockieCard}
+        </div>
+
+        <div className="stages">
+          <h1>Nuggets Stage</h1>
+          {nuggetCard}
+        </div>
       </div>
     </div>
   );

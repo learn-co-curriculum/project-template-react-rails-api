@@ -10,9 +10,9 @@ function Home() {
       <div id="header-box">
         <div id="dcl-intro">
           <h1 className="home-header">Denver City Limits</h1>
-          <h2>The Mile High Music Experience.</h2>
         </div>
         <div id="date-header">
+          <h2>The Mile High Music Experience.</h2>
           <h4>March 25, 2023</h4>
         </div>
       </div>
@@ -32,9 +32,7 @@ function Home() {
           </div>
         </div>
         <div className="dcl-container">
-          <h1>Friday, March 25, 2023</h1>
-          <h1>-</h1>
-          <h1>Denver-Washington Park</h1>
+          <h1 id='time-and-location'>Friday, March 25, 2023 : Denver - Washington Park</h1>
         </div>
         <div className="dcl-container">
           <div className="dcl-desc">
@@ -48,11 +46,14 @@ function Home() {
           </div>
         </div>
         <div className="dcl-container">
-          <h1>
-            This is where we can fetch, then iterate over some "featured"
-            artists to display their names. Shows that our display can be
-            dynamic with the data.
-          </h1>
+          <div id="testimonials">
+            <h1>
+              <em>"Best weekend of my life"</em> - Snoop Dogg, DCL 2021
+            </h1>
+            <h1>
+              <em>"Peak of my career was in the Rockies, specifically at Denver City Limits."</em> - Tame Impala, DCL 2020
+            </h1>
+          </div>
         </div>
         <div className="dcl-container">
           <div id="fest-3-container">

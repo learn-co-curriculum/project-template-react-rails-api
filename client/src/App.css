@@ -3,9 +3,22 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-img {
-  width: 545px;
+#home-photos1,
+#home-photos2,
+#home-photos3 {
   height: 545px;
+}
+
+#home-photos1 {
+  width: 750px;
+}
+
+#home-photos2 {
+  width: 545px;
+}
+
+#home-photos3 {
+  width: 750px;
 }
 
 #banner {
@@ -43,9 +56,8 @@ img {
 
 .dcl-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
   width: 80vw;
+  margin: 50px;
 }
 
 #date-header {
@@ -75,8 +87,12 @@ img {
   justify-content: space-evenly;
 }
 
-#dcl-desc {
-  margin: 40px;
+.dcl-desc {
+  margin: 130px;
+}
+
+.home-talk {
+  font-size: 20px;
 }
 
 .stages,
@@ -108,8 +124,12 @@ img {
   justify-content: space-around;
 }
 
-.home-header {
+#dcl-intro {
   display: flex;
+  justify-content: flex-start;
+}
+
+.home-header {
   justify-content: center;
   text-transform: uppercase;
   background: #eeeb47;

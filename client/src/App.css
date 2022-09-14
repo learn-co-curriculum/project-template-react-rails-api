@@ -40,6 +40,11 @@ body {
   margin-right: 20px;
 }
 
+#icon:hover{
+  cursor: pointer;
+  transform: scale(1.03)
+}
+
 .route-link {
   text-decoration: none;
   color: black;
@@ -50,6 +55,7 @@ body {
 }
 
 .route-link:hover {
+  text-decoration: underline;
   cursor: pointer;
 }
 

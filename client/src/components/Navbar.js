@@ -1,7 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import icon from '../assets/Icon1.svg'
+
 
 function NavBar({ setCurrentUser }) {
+
+    let history = useHistory()
 
     const handleLogout = () => {
         fetch('/logout', { method: "DELETE" })
@@ -11,12 +15,13 @@ function NavBar({ setCurrentUser }) {
                 }
             })
     }
+    function handleClick(){
+        history.push('./home')
+    }
 
     return (
         <div id="navbar">
-            <div id="DCL-div">
-                <Link className="route-link" id="bannerDCL" to="/home"> DCL </Link>
-            </div>
+            <img id='icon'onClick = {handleClick} src={icon} width='80px' alt=''></img>
             <div id="banner">
                 <Link className="route-link" to="/lineup">Lineup</Link>
                 <Link className="route-link" to="/schedule">Schedule</Link>

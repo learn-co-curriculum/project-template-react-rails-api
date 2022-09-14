@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import fest1 from "../assets/fest-3.jpeg";
 import fest2 from "../assets/fest-1.jpeg";
-import fest3 from "../assets/fest-2.jpeg";
-
+import fest4 from '../assets/fest4.webp'
 function Home() {
   return (
     <div>
@@ -57,7 +56,7 @@ function Home() {
         </div>
         <div className="dcl-container">
           <div id="fest-3-container">
-            <img src={fest3} alt="festival-3" id="home-photos3"></img>
+            <img src={fest4} alt="festival-3" id="home-photos3"></img>
           </div>
           <div className="dcl-desc">
             <p className="home-talk">

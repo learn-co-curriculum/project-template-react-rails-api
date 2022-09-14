@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 
 function ScheduleCard({ artist }) {
-  console.log(artist)
+  console.log(artist);
   return (
-    <div className='stage-info'>
-      <h4 className='stage-artist'>{artist.name}</h4>
+    <div className="stage-info">
+      <h4 className="stage-artist">{artist.name}</h4>
       <p> {artist.performance_time} PM </p>
     </div>
-  )
+  );
 }
 
-export default ScheduleCard
+export default ScheduleCard;

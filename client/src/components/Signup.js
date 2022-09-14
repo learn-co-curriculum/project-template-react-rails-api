@@ -1,69 +1,68 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 function Signup({ setCurrentUser }) {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
+  const { name, email, password } = formData;
 
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    console.log(formData);
+  }
 
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        password: ''
-    })
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((formData) => {
+          setCurrentUser(formData);
+          alert(`Hello ${formData.name}`);
+        });
+      } else {
+        res.json().then((errors) => {
+          console.error(errors);
+        });
+      }
+    });
+  }
 
-    const { name, email, password } = formData
+  return (
+    <div>
+      <form id="sign-up" onSubmit={handleSubmit}>
+        <label>Username</label>
+        <input
+          type="text"
+          name="name"
+          value={name}
+          onChange={handleChange}
+        ></input>
 
-    function handleChange(e) {
-        const { name, value } = e.target
-        setFormData({ ...formData, [name]: value })
-        console.log(formData)
-    }
+        <label>Email</label>
+        <input type="text" name="email" value={email} onChange={handleChange} />
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        fetch("http://localhost:3000/signup", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData)
-        })
-            .then((res) => {
-                if (res.ok) {
-                    res.json().then((formData) => {
-                        setCurrentUser(formData)
-                        alert(`Hello ${formData.name}`)
-                    });
-                } else {
-                    res.json().then((errors) => {
-                        console.error(errors);
-                    });
-                }
-            });
-    }
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
+        />
 
-    return (
-        <div>
-            <form id="sign-up" onSubmit={handleSubmit}>
-                <label>
-                    Username
-                </label>
-                <input type='text' name='name' value={name} onChange={handleChange}></input>
-
-                <label>
-                    Email
-                </label>
-                <input type='text' name='email' value={email} onChange={handleChange} />
-
-                <label>
-                    Password
-                </label>
-                <input type='password' name='password' value={password} onChange={handleChange} />
-
-
-                <input type='submit' value='Sign up!' />
-            </form>
-        </div>
-    )
+        <input type="submit" value="Sign up!" />
+      </form>
+    </div>
+  );
 }
 
-export default Signup
+export default Signup;

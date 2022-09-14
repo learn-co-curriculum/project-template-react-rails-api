@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function Login({ setCurrentUser }) {
   const [formData, setFormData] = useState({
@@ -62,4 +62,4 @@ function Login({ setCurrentUser }) {
   )
 }
 
-export default Login
+export default Login;

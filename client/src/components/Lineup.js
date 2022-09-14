@@ -1,33 +1,28 @@
-import React, {useEffect, useState} from 'react'
-import ArtistCard from "./ArtistCard"
+import React, { useEffect, useState } from "react";
+import ArtistCard from "./ArtistCard";
 
 function Lineup() {
+  const [artists, setArtists] = useState([]);
 
-  const [artists, setArtists] = useState([])
-
-  
   useEffect(() => {
     fetch("/artists")
-    .then((res) => res.json())
-    .then((Arr) => {
-    setArtists(Arr);
-    });
-    }, []);
+      .then((res) => res.json())
+      .then((Arr) => {
+        setArtists(Arr);
+      });
+  }, []);
 
-    const artistArr = artists.map((artist)=> {
-      return <ArtistCard key={artist.id} artist={artist} />
-    }
-    )
-    console.log(artists)
+  const artistArr = artists.map((artist) => {
+    return <ArtistCard key={artist.id} artist={artist} />;
+  });
+  console.log(artists);
 
   return (
-    <div className='nav-container'>
-      <h1 className='headline'> DCL LINEUP </h1> 
-    <div className = 'artist-container'>
-    {artistArr}
+    <div className="nav-container">
+      <h1 className="headline"> DCL LINEUP </h1>
+      <div className="artist-container">{artistArr}</div>
     </div>
-    </div>
-  )
+  );
 }
 
-export default Lineup
+export default Lineup;

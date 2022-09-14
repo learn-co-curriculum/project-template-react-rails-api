@@ -35,7 +35,7 @@ function Tickets() {
           </button>
           <p className="description">The 1-Day GA Ticket allows you admittance to Wash Park for Saturday, March 25th,2023 </p>
           <p className="description">
-            Live music on 4 stages in Denver's Wash Park
+            Live music on 4 stages in Denver's Wash Park.
             Food choices from over 20 local chefs and restaurants including vegan, vegetarian and gluten-free options
             Bars, official band merch, festival merch, free water stations and specialty items from art vendors throughout the park
           </p>

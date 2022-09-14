@@ -5,9 +5,10 @@ class AppointmentsController < ApplicationController
     render json: appointments, status: :ok
   end
 
-  # def show
-    
-  # end
+  def show
+    appointment = Appointment.find_by( patient_id: session[:patient_id], id: params[:id] )
+    render json: appointment, status: :ok
+  end
 
   # def create
   #   patient = Patient.find_by_id(session[:patient_id])

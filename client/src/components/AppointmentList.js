@@ -31,12 +31,10 @@ const AppointmentList = () => {
 		)
 	})
 
-	
-
 	return(
 		<div>
 			{renderAppointments}
-			<SmallCard>
+			<SmallCard as = {Link} to= {`/appointments/create`}>
 				New Appointment
 			</SmallCard>
 		</div>

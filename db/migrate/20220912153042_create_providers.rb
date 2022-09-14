@@ -4,6 +4,7 @@ class CreateProviders < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :specialty
       t.string :provider_avatar_url
+      t.string :location
 
       t.timestamps
     end

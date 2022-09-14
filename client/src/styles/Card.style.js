@@ -11,4 +11,17 @@ const SmallCard = styled.div`
   display: flex;
   justify-content: center;
 `
+
+const LargeCard = styled.div`
+  width: 40%;
+  height: 800px;
+  transition: 0.3s;
+  border-radius: 10px;
+  border: 2px outset #d4af37;
+  box-shadow: 2px 6px 4px black;
+  box-sizing: inherit;
+  display: flex;
+  justify-content: center;
+`
 export default SmallCard;
+export { LargeCard };

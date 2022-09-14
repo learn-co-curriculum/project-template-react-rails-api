@@ -12,6 +12,8 @@ end
 
 times = ['8:00','8:30','9:00','9:30','10:00','10:30','11:00','11:30', '12:00', '12:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30']
 
+days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+
 20.times do
 	Provider.create(
 		name: Faker::Name.unique.name_with_middle,
@@ -38,7 +40,7 @@ end
 70.times do
 	Appointment.create(
 		time: times.sample, 
-		date: Faker::Date.between(from: 2.days.ago, to: Date.today),
+		day: days.sample,
 		location: Provider.all.sample.location, 
 		reason: Faker::Lorem.paragraph(sentence_count: 4), 
 		provider_id: Provider.all.sample.id, 

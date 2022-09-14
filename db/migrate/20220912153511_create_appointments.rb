@@ -2,7 +2,7 @@ class CreateAppointments < ActiveRecord::Migration[6.1]
   def change
     create_table :appointments do |t|
       t.string :time
-      t.date :date
+      t.string :day
       t.string :location
       t.text :reason
       t.belongs_to :provider, null: false, foreign_key: true

@@ -9,8 +9,12 @@ import CreateAppointment from "./CreateAppointment";
 import EditAppointment from "./EditAppointment";
 
 export const TIMES = ['8:00','8:30','9:00','9:30','10:00','10:30','11:00','11:30', '12:00', '12:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30']
+
+export const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+
 const App = () => {
   const [ currentPatient, setCurrentPatient ] = useState("");
+  const [appointments, setAppointments] = useState([])
 
   useEffect( () => {
     fetch(`/auto-login`)
@@ -25,7 +29,9 @@ const App = () => {
 
   const history = useHistory()
 
-  console.log(currentPatient)
+  const addNewAppointment = (newAppt) => {
+		setAppointments(oldAppts => [...oldAppts, newAppt])
+	}
 
   return (
     <div>
@@ -38,7 +44,7 @@ const App = () => {
       {/* {currentPatient ? history.push('/appointments') : history.push('/login')} */}
       <Switch>        
         <Route exact path = "/appointments">
-          <AppointmentList />
+          <AppointmentList setAppointments={setAppointments} appointments= { appointments } />
         </Route> 
         <Route exact path = "/login">
           <Login updatePatient = {updatePatient}/>
@@ -47,7 +53,7 @@ const App = () => {
           <SignUp />
         </Route>
         <Route exact path = "/appointments/create">
-          <CreateAppointment />
+          <CreateAppointment addNewAppointment={addNewAppointment}/>
         </Route>
         <Route exact path = "/appointments/:id">
           <AppointmentDetails />

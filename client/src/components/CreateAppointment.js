@@ -1,21 +1,17 @@
 import { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { LargeCard } from "../styles/Card.style"
-import { TIMES } from "./App"
+import { TIMES, DAYS } from "./App"
 
-const CreateAppointment = () => {
+const CreateAppointment = ({addNewAppointment}) => {
 	const [providers, setProviders] = useState([])
-	const [providerName, setProviderName] = useState("")
-	const [providerLocation, setProviderLocation] = useState("")
+	const [locations, setLocations] = useState([])
+	const [patientId, setPatientId] = useState(0)
+	const [providerId, setProviderId] = useState("")
+	const [formLocation, setFormLocation] = useState("")
+	const [appointmentDay, setAppointmentDay] = useState("")
 	const [appointmentTime, setAppointmentTime] = useState("")
 	const [reason, setReason] = useState("")
-	const [appt, setAppt] = useState({
-		name: "",
-		location: "",
-		date: "",
-		time: "",
-		reason: ""
-	})
 
 	const [errors, setErrors] = useState([])
 	const history = useHistory()
@@ -24,7 +20,11 @@ const CreateAppointment = () => {
 		fetch(`/providers`)
 		.then(res => {
       if(res.ok){
-        res.json().then(providers => setProviders(providers))				
+        res.json().then(data => {
+					setProviders(data[0])
+					setLocations(data[1])
+					setPatientId(data[2])
+				})				
       }else {
         res.json().then(data => { 
 					setErrors(data.error)
@@ -36,7 +36,13 @@ const CreateAppointment = () => {
 
 	const providersList = providers.map((provider) => {
 		return(
-			<option value= {provider.id}>{provider.name}</option>
+			<option value={provider.id}>{provider.name}</option>
+		)
+	})
+
+	const locationsList = locations.map(location => {
+		return(
+			<option>{location}</option>
 		)
 	})
 
@@ -46,46 +52,90 @@ const CreateAppointment = () => {
 		)
 	})
 
-	const handleSubmit = () => {
-		console.log("submit")
+	const daysList = DAYS.map(day => {
+		return(
+			<option>{day}</option>
+		)
+	})
+
+	const handleProviderId = (e) => {
+		setProviderId(parseInt(e.target.value))
 	}
 
-	const findProvider = (e) => {
-		const provider = providers.find((provider) => parseInt(provider.id) === parseInt(e.target.value))
-		return provider.location
+	const handleLocation = (e) => {
+		setFormLocation(e.target.value)
 	}
 
-	// const handleLocation = (e) => {
-	// 	return setProviderLocation(() => findProvider(e))
-	// }
+	const handleDay = (e) => {
+		setAppointmentDay(e.target.value)
+	}
 
-	const handleApptData = (e) => {
-		setProviderLocation(() => findProvider(e))
-		const newAppt = { ...appt,
-			[e.target.name]: e.target.value
+	const handleTime = (e) => {
+		console.log(e.target.value)
+		setAppointmentTime(e.target.value)
+	}
+
+	const handleReason = (e) => {
+		setReason(e.target.value)
+	}	
+
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		const newAppt = {
+			provider_id: providerId,
+			location: formLocation,
+			day: appointmentDay,
+			time: appointmentTime,
+			reason: reason,
+			patient_id: patientId
 		}
+
+		console.log(newAppt)
+
+		fetch('/appointments', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(newAppt)
+		})
+			.then(r => r.json())
+			.then(newAppt => { 
+				addNewAppointment(newAppt)
+				history.push('/appointments')
+			})
 	}
-	console.log(appt)
+
 	return(
 		<div>
 			<LargeCard>
 				<form onSubmit={handleSubmit}>
-					<label> Provider </label>
-					<select name = "name" onChange= {handleApptData}>
+					<label> Name </label>
+					<select name = "id" onChange= {handleProviderId}>
+					<option selected disabled>Choose Provider:</option>
 						{providersList}
 					</select>
 
 					<label> Location </label>
-					<h4>{providerLocation}</h4>
+					<select name = "location" onChange= {handleLocation}>
+						<option selected disabled>Choose Location:</option>
+						{locationsList}
+					</select>
 
-					<label>Date</label>
-					<select name = "date" ></select>
+					<label>Day</label>
+					<select name = "day" onChange= {handleDay}>
+					<option selected disabled>Choose Day of the Week:</option>
+						{daysList}
+					</select>
 
 					<label> Time </label>
-					<select name = "time">{timeList}</select>
+					<select name = "time" onChange= {handleTime}>
+					<option selected disabled>Choose Appointment Time:</option>
+						{timeList}
+					</select>
 
 					<label> Reason </label>
-					<textarea name = "reason"/>
+					<textarea name = "reason" placeholder="Reason for visit..." onChange= {handleReason}/>
 
 					<input type = "submit" />
 				</form>

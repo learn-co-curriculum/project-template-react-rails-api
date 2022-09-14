@@ -7,6 +7,7 @@ body {
 #home-photos2,
 #home-photos3 {
   height: 545px;
+  opacity: 80%;
 }
 
 #home-photos1 {

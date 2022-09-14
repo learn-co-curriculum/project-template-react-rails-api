@@ -8,6 +8,7 @@ import Lineup from './components/Lineup'
 import Schedule from './components/Schedule'
 import Tickets from './components/Tickets'
 import Login from './components/Login'
+import Profile from './components/Profile';
 
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <Route exact path='/signup'>
               <Signup setCurrentUser={setCurrentUser} />
+            </Route>
+            <Route exact path='/profile'>
+              <Profile />
             </Route>
           </Switch>
         </BrowserRouter>

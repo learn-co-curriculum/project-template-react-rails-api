@@ -3,6 +3,11 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+img {
+  width: 545px;
+  height: 545px;
+}
+
 #banner {
   display: flex;
   justify-content: flex-end;
@@ -17,6 +22,16 @@ body {
   display: flex;
   justify-content: space-between;
   padding-bottom: 20px;
+  padding-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.dcl-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75vw;
 }
 
 #fest1-container {
@@ -25,6 +40,10 @@ body {
 
 .home-container {
   background-color: #eeeb47;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .nav-container {

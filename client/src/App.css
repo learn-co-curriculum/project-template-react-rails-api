@@ -1,19 +1,26 @@
-
-
-
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#banner {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-end;
+  font-family: six-caps;
 }
 
+.bannerDCL {
+  display: flex;
+}
+
+#navbar {
+  background-color: #FF3743;
+  display: flex;
+  justify-content: space-between;
+}
+
+#fest1-container {
+  background-color: lightblue;
+}
+
+.home-container {
+  background-color: lightblue;
+}
 
 .nav-container {
   background-color: lightblue;
@@ -40,18 +47,31 @@
   margin-bottom: -15px;
 }
 
-.artist-card{
+.artist-card {
   display: inline-block;
   width: 450px;
   margin-left: 50px;
   margin-top: 20px;
 }
 
-.artist-container{
+.artist-container {
   display: flex;
   flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.home-header {
+  display: flex;
+  justify-content: center;
+  font-family: six caps;
+  text-transform: uppercase;
+  background: #FF3743;
+  color: white;
+  letter-spacing: .2em;
+  font-size: 3rem;
+  text-shadow: .07em .07em 0 #FF3743, .1em .1em 0 white;
+  margin: 0px;
 }
 
 .headline {
@@ -60,11 +80,11 @@
   font-family: six caps;
   text-transform: uppercase;
   background: #FF3743;
-  background-size: 100%;
   color: white;
   letter-spacing: .2em;
   font-size: 6rem;
   text-shadow: .07em .07em 0 #FF3743, .1em .1em 0 white;
+  margin: 0px;
 }
 
 /* Tickets */

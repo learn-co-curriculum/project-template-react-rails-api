@@ -6,9 +6,9 @@ import fest3 from "../assets/fest-2.jpeg";
 
 function Home() {
   return (
-    <div>
+    <div className="home-container">
       <div id="dcl-intro">
-        <h1>Denver City Limits: you'll never go to another festival.</h1>
+        <h1 className="home-header">Denver City Limits</h1>
       </div>
       <h4>March 25, 2023</h4>
       <div id="dcl-desc-container">

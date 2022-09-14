@@ -27,7 +27,7 @@ function Login({ setCurrentUser }) {
       .then(res => {
         if (res.ok) {
           res.json().then(user => {
-            history.push(`/home}`)
+            history.push(`/home`)
             alert(`Welcome ${user.name}!`)
           })
         } else {

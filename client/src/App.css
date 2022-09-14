@@ -21,17 +21,36 @@ img {
   background-color: #eeeb47;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding-bottom: 50px;
+  padding-top: 50px;
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.route-link {
+  font-family: "Times New Roman", Times, serif;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin-left: 4%;
+  margin-right: 4%;
+  font-size: larger;
+}
+
+.route-link:hover {
+  cursor: pointer;
 }
 
 .dcl-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 75vw;
+  width: 80vw;
+}
+
+#date-header {
+  display: flex;
+  justify-content: start;
 }
 
 #fest1-container {
@@ -54,6 +73,10 @@ img {
   background-color: #eeeb47;
   display: flex;
   justify-content: space-evenly;
+}
+
+#dcl-desc {
+  margin: 40px;
 }
 
 .stages,
@@ -88,7 +111,6 @@ img {
 .home-header {
   display: flex;
   justify-content: center;
-  font-family: six caps;
   text-transform: uppercase;
   background: #eeeb47;
   color: #000000;
@@ -145,7 +167,6 @@ img {
 #titles {
   display: flex;
   justify-content: center;
-  font-family: six caps;
   text-transform: uppercase;
   background: #eeeb47;
   background-size: 100%;
@@ -157,7 +178,7 @@ img {
 
 #cart-button {
   margin-top: .5%;
-  background-color: #eeeb47;
+  background-color: #000000;
   border: none;
   border-radius: 10px;
   color: white;
@@ -171,8 +192,8 @@ img {
 }
 
 #cart-button:active {
-  background-color: rgb(255, 0, 0);
-  color: rgb(255, 255, 255);
+  background-color: #eeeb47;
+  color: rgb(0, 0, 0);
 }
 
 .ticket-price {

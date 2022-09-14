@@ -10,11 +10,14 @@ function Home() {
       <div id="dcl-intro">
         <h1 className="home-header">Denver City Limits</h1>
       </div>
-      <h4>March 25, 2023</h4>
+      <div id="date-header">
+        <h4>March 25, 2023</h4>
+      </div>
       <div className="dcl-container">
         <div id="fest1-container">
           <img src={fest1} alt="festival"></img>
         </div>
+
         <div id="dcl-desc">
           <p>
             Dissatisfied by modern music festivals, festival junkies Thing1 and

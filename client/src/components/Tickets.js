@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function Tickets({ loggedIn }) {
+function Tickets({ loggedIn, currentUser }) {
   const [tier, setTier] = useState(true);
   const [ticketPriceGA, setTicketPriceGA] = useState("$0.00");
   const [ticketPriceVIP, setTicketPriceVIP] = useState("$0.00");
@@ -26,14 +26,45 @@ function Tickets({ loggedIn }) {
     history.push(`/login`)
   }
 
+  function loggedIn(tix, ticketType) {
+    alert(`Congratulations, we will see you at Denver City Limits! You have purchased ${tix} ${ticketType} tickets!`)
+    if (ticketType === "General Admission") {
+      ticketType = false
+    } else {
+      ticketType = true
+    }
+
+
+    const ticket = {
+      quantity: tix,
+      vip: ticketType,
+      user_id: currentUser.id,
+      festival_id: 1
+    }
+
+    fetch(`/tickets`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(ticket),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((ticket) => {
+          console.log(ticket);
+        });
+      } else {
+        res.json().then((errors) => {
+          console.error(errors);
+        });
+      }
+    })
+  }
+
   function handleTickets() {
     let ticketType = document.getElementById("tix-type").textContent
-    let Tix = document.getElementById("quantity").value
-    console.log(loggedIn)
-    loggedIn ?
-      (alert(`Congrats, we will see you at Denver City Limits! You have purchased ${Tix} ${ticketType} tickets!`))
-      :
-      notLoggedIn()
+    let tix = document.getElementById("quantity").value
+    loggedIn ? loggedIn(tix, ticketType) : notLoggedIn()
 
   }
 

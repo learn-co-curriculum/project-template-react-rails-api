@@ -9,7 +9,7 @@ class TicketsController < ApplicationController
     private
     
     def ticket_params
-    params.permit(:quantity, :vip, :user_id)
+    params.permit(:quantity, :vip, :user_id, :festival_id)
     end
     
     end

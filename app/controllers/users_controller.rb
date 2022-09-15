@@ -5,6 +5,7 @@ class UsersController < ApplicationController
         if user.valid?
             session[:user_id] = user.id 
             render json: user, status: :created
+            redirect_to '/home'
         else
             render json: user.errors.full_messages, status: :unprocessable_entity
         end

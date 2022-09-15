@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      render json: user, status: :ok
+      redirect_to "/home"
     else
       render json: { error: "Invalid Credentials" }, status: :unauthorized
     end
@@ -28,6 +28,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete :user_id
+    session.destroy
   end
 
 end

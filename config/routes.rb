@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :tickets, only: :create
   resources :festivals
   resources :users, only: [:show, :create]
+  
   post "/signup", to: 'users#create'
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

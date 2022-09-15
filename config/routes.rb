@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :artists, only: [:index, :show, :schedule]
   resources :tickets, only: :create
   resources :festivals
-  resources :users
+  resources :users, only: [:index, :create, :show, :update]
   
   post "/signup", to: 'users#create'
   post "/login", to: "sessions#create"

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function Signup({ setCurrentUser }) {
   const [formData, setFormData] = useState({
@@ -6,6 +7,8 @@ function Signup({ setCurrentUser }) {
     email: "",
     password: "",
   });
+
+  const history = useHistory()
 
   const { name, email, password } = formData;
 
@@ -26,7 +29,7 @@ function Signup({ setCurrentUser }) {
       if (res.ok) {
         res.json().then((formData) => {
           setCurrentUser(formData);
-          alert(`Hello ${formData.name}`);
+          history.push("/profile");
         });
       } else {
         res.json().then((errors) => {

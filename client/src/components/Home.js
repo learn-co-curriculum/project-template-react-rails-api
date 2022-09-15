@@ -68,7 +68,7 @@ function Home() {
         </div>
         <div id="tickets-container">
           <h1>
-            <Link className="route-link" to="/tickets">
+            <Link id="ticket-home-link" to="/tickets">
               Tickets
             </Link>
           </h1>

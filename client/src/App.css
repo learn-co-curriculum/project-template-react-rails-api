@@ -195,6 +195,29 @@ body {
   margin: 0px;
 }
 
+#tickets-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  background-color: rgb(0, 0, 0);
+  height: 600px;
+}
+
+#ticket-home-link {
+  text-decoration: none;
+  font-size: 8rem;
+  color: #eeeb47;
+  font-weight: bold;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+#ticket-home-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 /* Tickets */
 
 #card {

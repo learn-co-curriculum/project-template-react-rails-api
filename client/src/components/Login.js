@@ -43,27 +43,35 @@ function Login() {
   //   setFormData({ ...formData, [name]: value })
   // }
   return (
-    <>
-      <form action='/login' method='post'>
-        <label>
-          Email
-        </label>
-        <input type='text' name='email' />
-
-        <label>
-          Password
-        </label>
-        <input type='password' name='password' />
-
-
-        <input type='submit' value='Log in!' />
-      </form>
-      {errors ? errors.map(e => <div>{e[0] + ': ' + e[1]}</div>) : null}
-      <div id="signup-reroute">
-        <h4>Don't have an account?</h4>
-        <Link className="route-link" to="/signup">Signup</Link>
+    <div id="form-box">
+      <div id="login-box">
+        <h1>Login</h1>
+        <div id="form-container">
+          <form className="login-signup-form" action='/login' method='post'>
+            <section className="input-form">
+              <label>
+                Email:
+              </label>
+              <input type='text' name='email' />
+            </section>
+            <section className="input-form">
+              <label>
+                Password:
+              </label>
+              <input type='password' name='password' />
+            </section>
+            <section className="input-form">
+              <input type='submit' value='Log in!' />
+            </section>
+          </form>
+          {errors ? errors.map(e => <div>{e[0] + ': ' + e[1]}</div>) : null}
+        </div>
+        <div id="signup-reroute">
+          <h4>Don't have an account?</h4>
+          <Link className="route-link" to="/signup">Signup</Link>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 

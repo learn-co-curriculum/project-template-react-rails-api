@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-function Tickets() {
+function Tickets({ loggedIn }) {
   const [tier, setTier] = useState(true);
   const [ticketPriceGA, setTicketPriceGA] = useState("$0.00");
   const [ticketPriceVIP, setTicketPriceVIP] = useState("$0.00");
@@ -18,6 +19,16 @@ function Tickets() {
     setTier(!tier);
   };
 
+  function handleTickets() {
+    let ticketType = document.getElementById("tix-type").textContent
+    let Tix = document.getElementById("quantity").value
+    console.log(loggedIn)
+    loggedIn ?
+      (alert(`Congrats, we will see you at Denver City Limits! You have purchased ${Tix} ${ticketType} tickets!`))
+      :
+      (alert("you are not logged in"))
+  }
+
   return (
     <div id="ticket-box">
       <div className="title-container">
@@ -27,7 +38,7 @@ function Tickets() {
       {tier ? (
         <div id="card">
           <div id="type-container"></div>
-          <h1 class="ticket-title">General Admission</h1>
+          <h1 class="ticket-title" id="tix-type">General Admission</h1>
           <h1 class="ticket-price">$250.00</h1>
           <div id="type-container"></div>
           <button id="type" onClick={toggleTier}>
@@ -48,12 +59,12 @@ function Tickets() {
             min="0"
           ></input>
           <p className="total">Total: {ticketPriceGA}</p>
-          <button id="cart-button">Add to Cart</button>
+          <button id="cart-button" onClick={handleTickets}>Buy Tickets!</button>
         </div>
       ) : (
         <div id="card">
           <div id="type-container"></div>
-          <h1 class="ticket-title">VIP</h1>
+          <h1 class="ticket-title" id="tix-type">VIP</h1>
           <h1 class="ticket-price">$500.00</h1>
           <div id="type-container"></div>
           <button id="type" onClick={toggleTier}>
@@ -79,7 +90,7 @@ function Tickets() {
             min="0"
           ></input>
           <p className="total">Total: {ticketPriceVIP}</p>
-          <button id="cart-button">Add to Cart</button>
+          <button id="cart-button" onClick={handleTickets}>Buy Tickets!</button>
         </div>
       )}
     </div>

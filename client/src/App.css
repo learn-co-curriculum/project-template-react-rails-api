@@ -555,3 +555,7 @@ input[type="file"] {
   background-color: #eeeb47;
   color: rgb(0, 0, 0);
 }
+
+.headline-s {
+  font-weight: 600;
+}

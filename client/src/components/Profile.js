@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import icon from "../assets/icon.jpeg";
 
-function Profile({ currentUser }) {
+function Profile({ currentUser, setCurrentUser }) {
     const [picture, setPicture] = useState("");
     const [formData, setFormData] = useState({
         user: "",
@@ -21,13 +21,13 @@ function Profile({ currentUser }) {
             body: JSON.stringify(formData),
         })
             .then((res) => res.json())
-            .then((data) => console.log(data));
+            .then((data) => setCurrentUser(data));
     }
 
     return (
         <div id="profile-page-container">
             <h1 className="headline"> {currentUser.name} </h1>
-            <p className="headline-s">Welcome back!</p>
+            <p className="headline-s" font-weight="600">Welcome back!</p>
             <div id="profile-container">
                 <img id="profile-picture" src={picture} alt="cannot load"></img>
                 <label class="custom-file-upload">

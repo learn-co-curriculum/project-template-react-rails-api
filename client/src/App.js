@@ -55,7 +55,7 @@ function App() {
               <Signup setCurrentUser={setCurrentUser} />
             </Route>
             <Route exact path='/profile'>
-              <Profile currentUser={currentUser} />
+              <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />
             </Route>
           </Switch>
         </BrowserRouter>

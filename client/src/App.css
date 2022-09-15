@@ -22,9 +22,11 @@ body {
   width: 750px;
 }
 
-#banner {
+.banner {
   display: flex;
   justify-content: flex-end;
+  margin-left: 4%;
+  margin-right: 4%
 }
 
 .bannerDCL {

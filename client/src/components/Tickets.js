@@ -7,6 +7,8 @@ function Tickets({ loggedIn }) {
   const [ticketPriceGA, setTicketPriceGA] = useState("$0.00");
   const [ticketPriceVIP, setTicketPriceVIP] = useState("$0.00");
 
+  const history = useHistory()
+
   let handleChangeGA = (e) => {
     setTicketPriceGA(`$${e.target.value * 250}.00`);
   };
@@ -19,6 +21,11 @@ function Tickets({ loggedIn }) {
     setTier(!tier);
   };
 
+  function notLoggedIn() {
+    alert("You must be logged in to buy tickets.")
+    history.push(`/login`)
+  }
+
   function handleTickets() {
     let ticketType = document.getElementById("tix-type").textContent
     let Tix = document.getElementById("quantity").value
@@ -26,7 +33,8 @@ function Tickets({ loggedIn }) {
     loggedIn ?
       (alert(`Congrats, we will see you at Denver City Limits! You have purchased ${Tix} ${ticketType} tickets!`))
       :
-      (alert("you are not logged in"))
+      notLoggedIn()
+
   }
 
   return (

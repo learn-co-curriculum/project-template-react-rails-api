@@ -3,7 +3,27 @@ import { Link } from "react-router-dom";
 import fest1 from "../assets/fest-3.jpeg";
 import fest2 from "../assets/fest-1.jpeg";
 import fest4 from '../assets/fest4.webp'
+
+
 function Home() {
+  function reveal() {
+    let reveals = document.querySelectorAll(".reveal");
+
+    for (let i = 0; i < reveals.length; i++) {
+      let windowHeight = window.innerHeight;
+      let elementTop = reveals[i].getBoundingClientRect().top;
+      let elementVisible = 50;
+
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
+
+  window.addEventListener("scroll", reveal);
+
   return (
     <div>
       <div id="header-box">
@@ -19,7 +39,7 @@ function Home() {
       <div className="home-container">
         <div className="dcl-container">
           <div id="fest1-container">
-            <img src={fest1} alt="festival" id="home-photos1"></img>
+            <img src={fest1} alt="festival" id="home-photos1" class="reveal"></img>
           </div>
           <div className="dcl-desc">
             <p className="home-talk">
@@ -41,7 +61,7 @@ function Home() {
             </p>
           </div>
           <div id="fest-2-container">
-            <img src={fest2} alt="festival-2" id="home-photos2"></img>
+            <img src={fest2} alt="festival-2" id="home-photos2" class="reveal"></img>
           </div>
         </div>
         <div className="dcl-container">
@@ -56,7 +76,7 @@ function Home() {
         </div>
         <div className="dcl-container">
           <div id="fest-3-container">
-            <img src={fest4} alt="festival-3" id="home-photos3"></img>
+            <img src={fest4} alt="festival-3" id="home-photos3" class="reveal"></img>
           </div>
           <div className="dcl-desc">
             <p className="home-talk">

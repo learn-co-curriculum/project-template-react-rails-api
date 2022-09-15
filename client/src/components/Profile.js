@@ -27,7 +27,7 @@ function Profile({ currentUser, setCurrentUser }) {
     return (
         <div id="profile-page-container">
             <h1 className="headline"> {currentUser.name} </h1>
-            <p className="headline-s" font-weight="600">Welcome back!</p>
+            <p className="headline-s">Welcome back!</p>
             <div id="profile-container">
                 <img id="profile-picture" src={picture} alt="cannot load"></img>
                 <label class="custom-file-upload">

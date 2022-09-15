@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Link, useHistory } from "react-router-dom"
 import SmallCard from "../styles/Card.style"
+import { ContentGrid } from "../styles/Grid.style"
 
 const ProviderList = ( ) => {
 	const [providers, setProviders] = useState([])
@@ -24,20 +25,20 @@ const ProviderList = ( ) => {
 	const renderProviders = providers.map((provider) => {
 		return(
 			<SmallCard key= {provider.id}>
-				<h2>{provider.name}</h2>
-				<h2>{provider.location}</h2>
-				<h2>{provider.specialty}</h2>
+				<h4>Provider: {provider.name}</h4>
+				<h4>Location: {provider.location}</h4>
+				<h4>Specialty: {provider.specialty}</h4>
 			</SmallCard>
 		)
 	})
 
 	return(
-		<div>
+		<ContentGrid>
 			{renderProviders}
 			<SmallCard as = {Link} to= {`/providers/create`}>
-				New Provider
+				Add New Provider
 			</SmallCard>
-		</div>
+		</ContentGrid>
 	)
 }
 

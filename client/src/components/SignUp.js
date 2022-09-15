@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { ContentGrid } from "../styles/Grid.style";
 
 const SignUp = () => {
 
@@ -63,16 +64,16 @@ const SignUp = () => {
 	const handleChange = (e) => { setSignupData({ ...signupData, [e.target.name]: e.target.value }) }
 
 	return(
-		<>
+		<ContentGrid>
 			<form onSubmit={onSubmit}>
 				<label> Username </label>
 				<input type="text" name="username" value= {username} onChange={handleChange}/>
 
 				<label> Password </label>
-				<input type="text" name="password" value={password} onChange={handleChange}/>
+				<input type="password" name="password" value={password} onChange={handleChange}/>
 
 				<label> Confirm Password </label>
-				<input type="text" name="password_confirmation" value={password_confirmation} onChange={handleChange}/>
+				<input type="password" name="password_confirmation" value={password_confirmation} onChange={handleChange}/>
 
 				<label> Full Name </label>
 				<input type="text" name="full_name" value={full_name} onChange={handleChange}/>
@@ -96,7 +97,7 @@ const SignUp = () => {
 			</form>
 			{errors? <div>{errors}</div> : null}
 			{/* <Button as = {Link}> </Button> */}
-		</>
+		</ContentGrid>
 	)
 }
 

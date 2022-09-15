@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { LargeCard } from "../styles/Card.style"
+import { ContentGrid } from "../styles/Grid.style"
 
 const CreateProvider = () => {
 const [providers, setProviders] = useState([])
@@ -44,6 +45,7 @@ const handleSubmit = (e) => {
 			body: JSON.stringify(providerData)
 		})
 			.then(r => r.json())
+			.then(history.push('/providers'))
 	}
 
 	const specialtiesList = specialties.map((specialty) => {
@@ -63,7 +65,7 @@ const handleSubmit = (e) => {
 	}
 
 	return(
-		<div>
+		<ContentGrid>
 			<LargeCard>
 				<form onSubmit={handleSubmit}>
 
@@ -82,9 +84,11 @@ const handleSubmit = (e) => {
 						{locationsList}
 					</select>
 
+					<input type="submit" />
+
 				</form>
 			</LargeCard>
-		</div>
+		</ContentGrid>
 	)
 }
 

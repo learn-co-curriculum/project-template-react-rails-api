@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+    def index
+        render json: User.all
+    end
+
     def create
         user = User.create(user_params)
         if user.valid?
@@ -18,6 +22,13 @@ class UsersController < ApplicationController
           render json: "No current session stored", status: :unauthorized
         end
       end
+
+      def update
+        user = User.find_by(id: params[:id])
+        user.update!(user_params)
+        render json: user, status: :accepted
+      end
+
 
 private 
 

@@ -389,11 +389,11 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 200px;
+  margin-top: 500px;
   margin-bottom: 200px;
   width: 500px;
   height: 500px;
-  border: solid black;
+  border: solid black 10px;
 }
 
 .login-signup-form {

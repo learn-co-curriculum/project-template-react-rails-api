@@ -2,8 +2,8 @@ import { useState, useEffect } from "react"
 import { Link, useHistory } from "react-router-dom"
 import SmallCard from "../styles/Card.style"
 
-const AppointmentList = () => {
-	const [appointments, setAppointments] = useState([])
+const AppointmentList = ({setAppointments, appointments}) => {
+	
 	const [errors, setErrors] = useState([])
 	const history = useHistory()
 
@@ -26,6 +26,7 @@ const AppointmentList = () => {
 	const renderAppointments = appointments.map((appt) => {
 		return(
 			<SmallCard as = {Link} key= {appt.id} to= {`/appointments/${appt.id}`}>
+				<h2>{appt.provider.name}</h2>
 				{appt.time}
 			</SmallCard>
 		)
@@ -36,7 +37,7 @@ const AppointmentList = () => {
 	return(
 		<div>
 			{renderAppointments}
-			<SmallCard>
+			<SmallCard as = {Link} to= {`/appointments/create`}>
 				New Appointment
 			</SmallCard>
 		</div>

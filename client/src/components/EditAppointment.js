@@ -1,3 +1,5 @@
+import { TIMES } from "./App"
+
 const EditAppointment = () => {
 
 	return(

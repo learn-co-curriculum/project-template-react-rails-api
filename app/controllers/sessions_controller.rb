@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate_patient, except: :destroy
 
   def create
-    patient = Patient.find_by(username: params[:username])
+    patient = Patient.find_by_username(params[:username])
     if patient&.authenticate(params[:password])
       session[:patient_id] = patient.id
       render json: patient, status: :created

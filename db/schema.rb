@@ -16,7 +16,8 @@ ActiveRecord::Schema.define(version: 2022_09_12_153511) do
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.datetime "time"
+    t.string "time"
+    t.string "day"
     t.string "location"
     t.text "reason"
     t.bigint "provider_id", null: false
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 2022_09_12_153511) do
     t.string "name"
     t.string "specialty"
     t.string "provider_avatar_url"
+    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

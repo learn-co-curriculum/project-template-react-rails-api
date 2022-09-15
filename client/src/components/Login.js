@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import SignUp from "./SignUp";
 
 const Login = ({updatePatient}) => {
 	const [ loginData, setLoginData ] = useState({
@@ -37,7 +36,8 @@ const Login = ({updatePatient}) => {
 			})
 	}
 
-	const handleChange = (e) => { setLoginData({ ...loginData, [e.target.name]: e.target.value }) }
+	const handleChange = (e) => { 
+		setLoginData({ ...loginData, [e.target.name]: e.target.value }) }
 
 	return(
 		<>
@@ -46,7 +46,7 @@ const Login = ({updatePatient}) => {
 				<input type="text" name="username" value= {username} onChange={handleChange}/>
 
 				<label> Password </label>
-				<input type="text" name="password" value={password} onChange={handleChange}/>
+				<input type="password" name="password" onChange={handleChange}/>
 
 				<input type="submit" value="Login" />
 			</form>

@@ -19,7 +19,7 @@ function Tickets() {
   };
 
   return (
-    <div id="container">
+    <div id="ticket-box">
       <div className="title-container">
         <div id="titles">Tickets</div>
       </div>

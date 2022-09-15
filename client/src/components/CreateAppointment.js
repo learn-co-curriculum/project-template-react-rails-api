@@ -6,7 +6,7 @@ import { TIMES, DAYS } from "./App"
 const CreateAppointment = ({addNewAppointment}) => {
 	const [providers, setProviders] = useState([])
 	const [locations, setLocations] = useState([])
-	const [patientId, setPatientId] = useState(0)
+	const [userId, setUserId] = useState(0)
 	const [providerId, setProviderId] = useState("")
 	const [formLocation, setFormLocation] = useState("")
 	const [appointmentDay, setAppointmentDay] = useState("")
@@ -23,7 +23,7 @@ const CreateAppointment = ({addNewAppointment}) => {
         res.json().then(data => {
 					setProviders(data[0])
 					setLocations(data[1])
-					setPatientId(data[2])
+					setUserId(data[2])
 				})				
       }else {
         res.json().then(data => { 
@@ -87,7 +87,7 @@ const CreateAppointment = ({addNewAppointment}) => {
 			day: appointmentDay,
 			time: appointmentTime,
 			reason: reason,
-			patient_id: patientId
+			user_id: userId
 		}
 
 		console.log(newAppt)

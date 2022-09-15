@@ -21,24 +21,11 @@ ActiveRecord::Schema.define(version: 2022_09_12_153511) do
     t.string "location"
     t.text "reason"
     t.bigint "provider_id", null: false
-    t.bigint "patient_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["patient_id"], name: "index_appointments_on_patient_id"
     t.index ["provider_id"], name: "index_appointments_on_provider_id"
-  end
-
-  create_table "patients", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.string "avatar_url"
-    t.string "full_name"
-    t.integer "age"
-    t.string "address"
-    t.integer "phone"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
   create_table "providers", force: :cascade do |t|
@@ -50,6 +37,20 @@ ActiveRecord::Schema.define(version: 2022_09_12_153511) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "appointments", "patients"
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "avatar_url"
+    t.string "full_name"
+    t.integer "age"
+    t.string "address"
+    t.integer "phone"
+    t.string "email"
+    t.boolean "admin", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "appointments", "providers"
+  add_foreign_key "appointments", "users"
 end

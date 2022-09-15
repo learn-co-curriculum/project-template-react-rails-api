@@ -62,7 +62,7 @@ const EditAppointment = ({updateAppointment}) => {
 			day: appointmentDay,
 			time: appointmentTime,
 			reason: reason,
-			patient_id: appointment.patient.id
+			user_id: appointment.user.id
 		}
 
 		console.log(updatedAppt)

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
   include ActionController::Cookies
-  before_action :authenticate_patient
+  before_action :authenticate_user
 
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
   rescue_from ActiveRecord::RecordInvalid, with: :render_invalid
@@ -15,12 +15,18 @@ class ApplicationController < ActionController::API
     render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
   end
 
-  def current_patient
-    @current_patient ||= Patient.find_by_id(session[:patient_id])
+  def current_user
+    @current_user ||= User.find_by_id(session[:user_id])
   end
 
-  def authenticate_patient
-    render json: { errors: {Patient: "not Authorized"}}, status: :unauthorized unless current_patient
-end
+  def authenticate_user
+    render json: { errors: {User: "not Authorized"}}, status: :unauthorized unless current_user
+  end
+
+     # only give admins the right to do something 
+  def is_authorized? 
+      permitted = current_user.admin? # going true or false based on teh admin attribute of our current user 
+      render json: {errors: {User: "does not have admin permission"}}, status: :forbidden unless permitted
+  end
 
 end

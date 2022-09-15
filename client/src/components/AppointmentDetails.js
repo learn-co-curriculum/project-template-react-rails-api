@@ -3,7 +3,7 @@ import { useParams, useHistory, Link } from "react-router-dom"
 import { LargeCard } from "../styles/Card.style"
 import Button from "../styles/Button.style"
 
-const AppointmentDetails = () => {
+const AppointmentDetails = ({deleteAppointment}) => {
 	const params = useParams()
 	const [appointment, setAppointment] = useState({provider: {name: ""}})
 	const [errors, setErrors] = useState([])
@@ -25,6 +25,16 @@ const AppointmentDetails = () => {
 
 	console.log(appointment.provider)
 
+	const cancelAppointment = () => {
+		fetch(`/appointments/${params.id}`, {
+			method: "DELETE",
+		})
+		.then(() =>{
+			deleteAppointment(params.id)
+			history.push('/appointments')
+		})
+	}
+
 	return(
 		<div>
 			<LargeCard>
@@ -34,7 +44,7 @@ const AppointmentDetails = () => {
 				Location: {appointment.location}
 				Reason: {appointment.reason}
 				<Button  as = {Link} to = {`/appointments/${params.id}/edit`}>Edit Appointment</Button>
-				<Button>Cancel Appointment</Button>
+				<Button onClick={cancelAppointment}>Cancel Appointment</Button>
 			</LargeCard>
 		</div>
 	)

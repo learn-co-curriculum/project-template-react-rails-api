@@ -7,25 +7,29 @@ import AppointmentList from "./AppointmentList";
 import AppointmentDetails from "./AppointmentDetails";
 import CreateAppointment from "./CreateAppointment";
 import EditAppointment from "./EditAppointment";
+import CreateProvider from "./CreateProvider";
+import ProviderList from "./ProviderList";
 
 export const TIMES = ['8:00','8:30','9:00','9:30','10:00','10:30','11:00','11:30', '12:00', '12:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30']
 
 export const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 
 const App = () => {
-  const [ currentPatient, setCurrentPatient ] = useState("");
+  const [ currentUser, setCurrentUser ] = useState("");
   const [appointments, setAppointments] = useState([])
+
+  console.log(currentUser)
 
   useEffect( () => {
     fetch(`/auto-login`)
     .then((r) => {
       if (r.ok) {
-        r.json().then((patient) => setCurrentPatient(patient))
+        r.json().then((user) => setCurrentUser(user))
       }
     })
   }, [])
 
-  const updatePatient = (patient) => setCurrentPatient(patient)
+  const updateUser = (user) => setCurrentUser(user)
 
   const history = useHistory()
 
@@ -38,21 +42,25 @@ const App = () => {
     setAppointments(newAppts)
   }
 
+  const deleteAppointment = (deletedApptId) => {
+    setAppointments(oldAppts => oldAppts.filter(appt => !(appt.id === deletedApptId)))
+  }
+
   return (
     <div>
       FFS WORK!
       <NavBar
-        updatePatient = {updatePatient}
-        currentPatient = {currentPatient}
+        updateUser = {updateUser}
+        currentUser = {currentUser}
       />
 
-      {/* {currentPatient ? history.push('/appointments') : history.push('/login')} */}
+      {/* {currentUser ? history.push('/appointments') : history.push('/login')} */}
       <Switch>        
         <Route exact path = "/appointments">
           <AppointmentList setAppointments={setAppointments} appointments= { appointments } />
         </Route> 
         <Route exact path = "/login">
-          <Login updatePatient = {updatePatient}/>
+          <Login updateUser = {updateUser}/>
         </Route>
         <Route exact path = "/signup">
           <SignUp />
@@ -61,10 +69,16 @@ const App = () => {
           <CreateAppointment addNewAppointment={addNewAppointment}/>
         </Route>
         <Route exact path = "/appointments/:id">
-          <AppointmentDetails />
+          <AppointmentDetails deleteAppointment = {deleteAppointment}/>
         </Route>
         <Route exact path = "/appointments/:id/edit">
           <EditAppointment updateAppointment = {updateAppointment}/>
+        </Route>
+        <Route exact path = "/providers">
+          <ProviderList />
+        </Route>
+        <Route exact path = "/providers/create">
+          <CreateProvider/>
         </Route>
       </Switch>
     </div>

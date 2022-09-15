@@ -68,7 +68,7 @@ function Tickets() {
             Complimentary all-day dining with Festival favorites like eggs benedict and street tacos.
             Jumbo screen with live streaming of the Festival.
             Preferred pricing for locker rentals with mobile charging units
-            Access to all areas available to General Admission
+            Access to all areas available to General
           </p>
           <input
             type="number"

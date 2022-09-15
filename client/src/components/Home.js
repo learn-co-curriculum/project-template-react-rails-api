@@ -81,8 +81,7 @@ function Home() {
           <div className="dcl-desc">
             <p className="home-talk">
               DCL provides you with the most diverse group of musical artists.
-              From EDM, to rock, to jazz, and even the advant-garde "not music",
-              you can be assured your niche musical addiction gets fufilled.
+              
             </p>
           </div>
         </div>

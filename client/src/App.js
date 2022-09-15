@@ -9,6 +9,7 @@ import Schedule from './components/Schedule'
 import Tickets from './components/Tickets'
 import Login from './components/Login'
 import Profile from './components/Profile';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
               <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />
             </Route>
           </Switch>
+          <Footer />
         </BrowserRouter>
       </div>
     </div>

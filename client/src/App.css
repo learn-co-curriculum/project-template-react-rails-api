@@ -559,3 +559,55 @@ input[type="file"] {
 .headline-s {
   font-weight: 600;
 }
+
+/* footer styling */
+
+#footer-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 600px;
+}
+
+#repo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  width: 100%;
+  margin: 15px;
+}
+
+#team-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+#brennan,
+#kelan,
+#noah {
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin-left: 1%;
+  margin-right: 1%;
+  font-size: larger;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footer-links:hover {
+  opacity: 75%;
+}

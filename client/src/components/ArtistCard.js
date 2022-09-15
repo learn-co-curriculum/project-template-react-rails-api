@@ -4,11 +4,11 @@ function ArtistCard({ artist }) {
   console.log(artist);
   return (
     <div className="artist-card">
-      <h1> {artist.name} </h1>
-      <h4> {artist.genre} </h4>
+      <h1 className="artist-name"> {artist.name} </h1>
+      <div className="artist-stage"> {artist.stage} stage </div>
+      <h4 className="artist-genre"> {artist.genre} </h4>
       <img src={artist.image} alt="" />
       <div className="bio-div"> {artist.bio} </div>
-      <div> {artist.stage} stage </div>
     </div>
   );
 }

@@ -153,6 +153,18 @@ body {
   margin-bottom: -15px;
 }
 
+.artist-stage {
+  font-weight: 600;
+}
+
+.artist-stage {
+  margin-top: -20px;
+}
+
+.artist-genre {
+  margin-top: -1px;
+}
+
 .artist-card {
   display: inline-block;
   width: 450px;

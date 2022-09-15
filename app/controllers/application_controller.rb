@@ -20,7 +20,7 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
     def current_user
-         User.find_by(id: session[:user_id])
+        User.find_by(id: session[:user_id])
     end
 
   def render_unprocessable_entity(invalid)

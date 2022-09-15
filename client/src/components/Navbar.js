@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import icon from '../assets/Icon1.svg'
 
 
-function NavBar({ setCurrentUser }) {
+function NavBar({ setCurrentUser, loggedIn, setLoggedIn }) {
 
     let history = useHistory()
 
@@ -15,20 +15,23 @@ function NavBar({ setCurrentUser }) {
                 }
             })
     }
-    function handleClick(){
+    function handleClick() {
         history.push('./home')
     }
 
     return (
         <div id="navbar">
-            <img id='icon'onClick = {handleClick} src={icon} width='80px' alt=''></img>
+            <img id='icon' onClick={handleClick} src={icon} width='80px' alt=''></img>
             <div id="banner">
                 <Link className="route-link" to="/lineup">Lineup</Link>
                 <Link className="route-link" to="/schedule">Schedule</Link>
                 <Link className="route-link" to="/tickets">Tickets</Link>
-                <Link className="route-link" to="/login">Login</Link>
-                <Link className="route-link" to="/signup">Signup</Link>
-                <Link className="route-link" to="/home" onClick={handleLogout}>Logout</Link>
+                {loggedIn ? (<Link className="route-link" to="/home" onClick={handleLogout}>Logout</Link>)
+                    :
+                    (<div><Link className="route-link" to="/login">Login</Link>
+                        <Link className="route-link" to="/signup">Signup</Link></div>)}
+
+
             </div>
         </div>
     );

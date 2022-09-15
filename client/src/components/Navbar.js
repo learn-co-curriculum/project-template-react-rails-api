@@ -23,12 +23,15 @@ function NavBar({ setCurrentUser, loggedIn, setLoggedIn }) {
     return (
         <div id="navbar">
             <img id='icon' onClick={handleClick} src={icon} width='80px' alt=''></img>
-            <div id="banner">
+            <div className="banner">
                 <Link className="route-link" to="/lineup">Lineup</Link>
                 <Link className="route-link" to="/schedule">Schedule</Link>
                 <Link className="route-link" to="/tickets">Tickets</Link>
                 {loggedIn ?
-                    (<Link className="route-link" to="/" onClick={handleLogout}>Logout</Link>)
+                    (<div className="banner">
+                        <Link className="route-link" to="/" onClick={handleLogout}>Logout</Link>
+                        <Link className="route-link" to="/profile">Profile</Link>
+                    </div>)
                     :
                     (<Link className="route-link" to="/login">Login</Link>)}
 

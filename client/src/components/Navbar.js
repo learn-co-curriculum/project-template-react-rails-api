@@ -12,6 +12,7 @@ function NavBar({ setCurrentUser, loggedIn, setLoggedIn }) {
             .then(res => {
                 if (res.ok) {
                     setCurrentUser(null)
+                    setLoggedIn(false)
                     history.push('./')
                 }
             })

@@ -39,7 +39,13 @@ export default function Login() {
   }
 
 
-
+//I would do this in css with flex. You can put all the inputs in a div, give that div an id or class name, 
+//and then set display to flex and flex-direction to column.
+//or try this css:
+// .form-part label {
+//   display: block;
+//   margin: 10px 0 0;
+// }
   return (
     <main className="login-page">
       <form onSubmit={handleSubmit}>

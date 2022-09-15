@@ -55,9 +55,6 @@ const Login = ({updateUser}) => {
 			{<Link to='/signup'>
 				Sign Up
 			</Link>}
-			{<Link to='/provider_login'>
-				Provider Login
-			</Link>}
 		</>
 	)
 }

@@ -1,5 +1,9 @@
 import { useHistory, Link } from 'react-router-dom'
 import { useState } from 'react'
+
+import MenuBack, { MenuBox, MenuDropdown, MenuBurger } from '../styles/Menu.style';
+
+import cross from '../images/MedicCrossWhite.png'
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const NavBar = ({updateUser, currentUser}) => {
@@ -16,24 +20,57 @@ const NavBar = ({updateUser, currentUser}) => {
 			})
 	}
 
+	console.log(currentUser)
+
+	const renderMenuHome = () => {
+		if(currentUser.admin) {
+			return <Link to={`/providers`}>Show Providers</Link>
+		} else if (currentUser) {
+			return <Link to={`/appointments`}>Your Appointments</Link>
+		} else {
+			return <Link to="/signup">Sign Up</Link>
+		}
+	}
+
+	const renderMenuCreate = () => {
+		if(currentUser.admin) {
+			return <li><Link to={`/providers/create`}>Add A Provider</Link></li>
+		} else if (currentUser) {
+			return <li><Link to={`/appointments/create`}>Make An Appointment</Link></li>
+		} else {
+			return null
+		}
+	}
+
 	return(
-		<div>
-			{!menu ? (
-          <div onClick={() => setMenu(!menu)}>
+		<MenuBox>
+			<div></div>
+			<MenuBack varImg= {cross}>
+				<div></div>
+				<div>{!menu ? (
+          <MenuBurger onClick={() => setMenu(!menu)}>
             <GiHamburgerMenu size={30} />
-          </div>
+          </MenuBurger>
         ) : (
-          <ul>
-            <li onClick={() => setMenu(!menu)}><GiHamburgerMenu size={30} /></li>
-            <li>
-              {currentUser ? <Link to={`/appointments`}>Your Appointments</Link> : <Link to="/signup">Sign Up</Link> }
-            </li>
-            <li>
-							{currentUser ? <button onClick={handleLogout}>Log Out</button> : <Link to="/login">Login</Link> }
-            </li>
-          </ul>
-        )}
-		</div>
+					
+					<div onClick={() => setMenu(!menu)}>
+						<MenuBurger><GiHamburgerMenu size={30} /></MenuBurger>
+						<MenuDropdown>						
+							<li>
+								{renderMenuHome()}
+							</li>							
+							{renderMenuCreate()}							
+							<li>
+								{currentUser ? <button onClick={handleLogout}>Log Out</button> : <Link to="/login">Login</Link> }
+							</li>
+						</MenuDropdown>
+					</div>
+					
+        )
+				}
+				</div>
+			</MenuBack>				
+		</MenuBox>
 	)
 }
 

@@ -79,6 +79,8 @@ const EditAppointment = ({updateAppointment}) => {
 				updateAppointment(updatedAppt)
 				history.push(`/appointments/${params.id}`)
 			})
+
+			
 	}
 
 	return(

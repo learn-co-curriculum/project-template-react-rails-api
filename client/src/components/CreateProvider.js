@@ -44,6 +44,7 @@ const handleSubmit = (e) => {
 			body: JSON.stringify(providerData)
 		})
 			.then(r => r.json())
+			.then(history.push('/providers'))
 	}
 
 	const specialtiesList = specialties.map((specialty) => {
@@ -81,6 +82,8 @@ const handleSubmit = (e) => {
 						<option selected disabled>Choose Location:</option>
 						{locationsList}
 					</select>
+
+					<input type="submit" />
 
 				</form>
 			</LargeCard>

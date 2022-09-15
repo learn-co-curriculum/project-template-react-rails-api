@@ -463,3 +463,95 @@ form input {
   background-color: #eeeb47;
   color: rgb(0, 0, 0);
 }
+
+/* profile styling */
+
+#profile-button {
+  margin-top: .5%;
+  background-color: #000000;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+#profile-button:active {
+  background-color: #eeeb47;
+  color: rgb(0, 0, 0);
+}
+
+#profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: solid black 5px;
+  border-radius: 10px;
+  width: 50%;
+  margin-top: 20px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.labels {
+  text-align: center;
+}
+
+.field {
+  margin-top: 20px;
+}
+
+#profile-picture {
+  height: 150px;
+  width: 150px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+#profile-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-field {
+  text-align: center;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  margin-top: .5%;
+  background-color: #000000;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 7.5px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.custom-file-upload:active {
+  background-color: #eeeb47;
+  color: rgb(0, 0, 0);
+}

@@ -43,10 +43,10 @@ function Login() {
   //   setFormData({ ...formData, [name]: value })
   // }
   return (
-    <div id="form-box">
-      <div id="login-box">
+    <div className="form-box">
+      <div className="login-box">
         <h1>Login</h1>
-        <div id="form-container">
+        <div className="form-container">
           <form className="login-signup-form" action='/login' method='post'>
             <section className="input-form">
               <label>
@@ -61,7 +61,7 @@ function Login() {
               <input type='password' name='password' />
             </section>
             <section className="input-form">
-              <input type='submit' value='Log in!' />
+              <input id="type" type='submit' value='Log in!' />
             </section>
           </form>
           {errors ? errors.map(e => <div>{e[0] + ': ' + e[1]}</div>) : null}

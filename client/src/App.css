@@ -6,7 +6,7 @@ body {
 #home-photos1,
 #home-photos2,
 #home-photos3 {
-  height: 545px;
+  height: 475px;
   opacity: 80%;
 }
 
@@ -62,7 +62,9 @@ body {
 
 .dcl-container {
   display: flex;
-  width: 80vw;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 90vw;
   margin: 50px;
 }
 
@@ -99,7 +101,6 @@ body {
 .home-container {
   background-color: #eeeb47;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
   padding-top: 45px;
@@ -128,7 +129,8 @@ body {
 }
 
 .dcl-desc {
-  margin: 130px;
+  margin-left: 130px;
+  margin-right: 130px;
 }
 
 .home-talk {
@@ -273,9 +275,11 @@ body {
 
 /* testing css */
 
-.button-color{
-  background-color: #eeeb47;;
+.button-color {
+  background-color: #eeeb47;
+  ;
 }
+
 .card {
   color: #eeeb47;
   display: flex;
@@ -289,17 +293,19 @@ body {
   margin-bottom: 1.5rem;
   box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
 }
+
 .me-2 {
-  margin-right: .5rem!important;
+  margin-right: .5rem !important;
 }
- .profile-header{
+
+.profile-header {
   padding-bottom: 50px;
   display: flex;
   justify-content: center;
- }
- .container {
+}
+
+.container {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-

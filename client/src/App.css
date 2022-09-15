@@ -26,7 +26,14 @@ body {
   display: flex;
   justify-content: flex-end;
   margin-left: 4%;
-  margin-right: 4%
+  margin-right: 4%;
+}
+
+#banner {
+  display: flex;
+  justify-content: center;
+  margin-left: 4%;
+  margin-right: 4%;
 }
 
 .bannerDCL {
@@ -58,6 +65,20 @@ body {
 }
 
 .route-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#profile-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin-left: 15%;
+  margin-right: 4%;
+  font-size: larger;
+}
+
+#profile-link:hover {
   text-decoration: underline;
   cursor: pointer;
 }

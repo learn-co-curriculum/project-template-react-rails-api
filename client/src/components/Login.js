@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
+import { ContentGrid } from "../styles/Grid.style";
 
 const Login = ({updateUser}) => {
 	const [ loginData, setLoginData ] = useState({
@@ -40,7 +41,7 @@ const Login = ({updateUser}) => {
 		setLoginData({ ...loginData, [e.target.name]: e.target.value }) }
 
 	return(
-		<>
+		<ContentGrid>
 			<form onSubmit={onSubmit}>
 				<label> Username </label>
 				<input type="text" name="username" value= {username} onChange={handleChange}/>
@@ -55,7 +56,7 @@ const Login = ({updateUser}) => {
 			{<Link to='/signup'>
 				Sign Up
 			</Link>}
-		</>
+		</ContentGrid>
 	)
 }
 

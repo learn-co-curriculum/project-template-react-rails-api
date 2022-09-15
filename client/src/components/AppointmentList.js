@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { Link, useHistory } from "react-router-dom"
 import SmallCard from "../styles/Card.style"
 import { WiSunrise, WiDaySunny, WiMoonWaningCrescent3 } from 'react-icons/wi'
+import { ContentGrid } from "../styles/Grid.style"
 
 const AppointmentList = ({setAppointments, appointments, currentUser}) => {
 	
@@ -34,10 +35,10 @@ const AppointmentList = ({setAppointments, appointments, currentUser}) => {
 
 	const renderAppointments = appointments.map((appt) => {
 		return(
-			<SmallCard as = {Link} key= {appt.id} to= {`/appointments/${appt.id}`}>
-				<h2>{appt.provider.name}</h2>
-				{appt.day}
-				{appt.time}
+			<SmallCard as= {Link} key= {appt.id} to= {`/appointments/${appt.id}`}>
+				<h3>Provider: {appt.provider.name}</h3>
+				<h3>Appointment Time: {`${appt.day} at `}</h3>
+				<h3> {`${appt.time}`}</h3>
 			</SmallCard>
 		)
 	})
@@ -45,13 +46,13 @@ const AppointmentList = ({setAppointments, appointments, currentUser}) => {
 	
 
 	return(
-		<div>
+		<ContentGrid>
 			{generateGreeting()}
 			{renderAppointments}
 			<SmallCard as = {Link} to= {`/appointments/create`}>
-				New Appointment
+				Make a New Appointment
 			</SmallCard>
-		</div>
+		</ContentGrid>
 	)
 }
 

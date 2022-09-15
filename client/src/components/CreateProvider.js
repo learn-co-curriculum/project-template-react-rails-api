@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { LargeCard } from "../styles/Card.style"
+import { ContentGrid } from "../styles/Grid.style"
 
 const CreateProvider = () => {
 const [providers, setProviders] = useState([])
@@ -64,7 +65,7 @@ const handleSubmit = (e) => {
 	}
 
 	return(
-		<div>
+		<ContentGrid>
 			<LargeCard>
 				<form onSubmit={handleSubmit}>
 
@@ -87,7 +88,7 @@ const handleSubmit = (e) => {
 
 				</form>
 			</LargeCard>
-		</div>
+		</ContentGrid>
 	)
 }
 

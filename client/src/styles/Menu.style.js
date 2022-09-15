@@ -8,10 +8,9 @@ const MenuBox = styled.div`
 `
 
 const MenuBack = styled.div`
-  display: grid;
-  position: relative;
-  grid-template-rows: 35px;
-  justify-content: right;
+  display: grid; 
+  grid-template-rows: 30px 30px 30px;
+  justify-content: center;
   align-items: baseline;
   height: 100px;
   width: 100px;
@@ -22,6 +21,7 @@ const MenuBack = styled.div`
   div {    
     text-align: center;
     display: inline-block;
+    position: relative;
   }
 `
 
@@ -29,8 +29,23 @@ const MenuBurger = styled.div`
   position: absolute;
 `
 
-const MenuDropdown = styled.div`
-  display: block
+const MenuDropdown = styled.div`  
+  width: 88px;
+  height: auto;
+  background: white;
+  border: 1px solid red;
+  position: absolute;
+
+  li > h4 {
+    padding: 5px;
+    margin: 0;
+  }
+
+  li > a {
+    padding: 0px;
+    font-weight: bold;
+    color: black;
+  }
 `
 
 export default MenuBack

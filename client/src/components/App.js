@@ -11,7 +11,7 @@ import CreateProvider from "./CreateProvider";
 import ProviderList from "./ProviderList";
 
 import GlobalStyles from "../GlobalStyles.style";
-import MainGrid from "../styles/Grid.style";
+import MainGrid, { ContentGrid } from "../styles/Grid.style";
 
 export const TIMES = ['8:00','8:30','9:00','9:30','10:00','10:30','11:00','11:30', '12:00', '12:30', '1:00', '1:30', '2:00', '2:30', '3:00', '3:30', '4:00', '4:30']
 
@@ -54,36 +54,36 @@ const App = () => {
         updateUser = {updateUser}
         currentUser = {currentUser}
       />
-      <Switch>        
-        <Route exact path = "/appointments">
-          <AppointmentList 
-            setAppointments={setAppointments} 
-            appointments= {appointments}
-            currentUser= {currentUser}
-          />
-        </Route> 
-        <Route exact path = "/login">
-          <Login updateUser = {updateUser}/>
-        </Route>
-        <Route exact path = "/signup">
-          <SignUp />
-        </Route>
-        <Route exact path = "/appointments/create">
-          <CreateAppointment addNewAppointment={addNewAppointment}/>
-        </Route>
-        <Route exact path = "/appointments/:id">
-          <AppointmentDetails deleteAppointment = {deleteAppointment}/>
-        </Route>
-        <Route exact path = "/appointments/:id/edit">
-          <EditAppointment updateAppointment = {updateAppointment}/>
-        </Route>
-        <Route exact path = "/providers">
-          <ProviderList />
-        </Route>
-        <Route exact path = "/providers/create">
-          <CreateProvider/>
-        </Route>
-      </Switch>
+        <Switch>        
+          <Route exact path = "/appointments">
+            <AppointmentList 
+              setAppointments={setAppointments} 
+              appointments= {appointments}
+              currentUser= {currentUser}
+            />
+          </Route> 
+          <Route exact path = "/login">
+            <Login updateUser = {updateUser}/>
+          </Route>
+          <Route exact path = "/signup">
+            <SignUp />
+          </Route>
+          <Route exact path = "/appointments/create">
+            <CreateAppointment addNewAppointment={addNewAppointment}/>
+          </Route>
+          <Route exact path = "/appointments/:id">
+            <AppointmentDetails deleteAppointment = {deleteAppointment}/>
+          </Route>
+          <Route exact path = "/appointments/:id/edit">
+            <EditAppointment updateAppointment = {updateAppointment}/>
+          </Route>
+          <Route exact path = "/providers">
+            <ProviderList />
+          </Route>
+          <Route exact path = "/providers/create">
+            <CreateProvider/>
+          </Route>
+        </Switch>
     </MainGrid>
   );
 }

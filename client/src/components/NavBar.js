@@ -47,28 +47,26 @@ const NavBar = ({updateUser, currentUser}) => {
 			<div></div>
 			<MenuBack varImg= {cross}>
 				<div></div>
-				<div>{!menu ? (
-          <MenuBurger onClick={() => setMenu(!menu)}>
+				<div>
+					<MenuBurger onClick={() => setMenu(!menu)}>
             <GiHamburgerMenu size={30} />
           </MenuBurger>
-        ) : (
-					
-					<div onClick={() => setMenu(!menu)}>
-						<MenuBurger><GiHamburgerMenu size={30} /></MenuBurger>
-						<MenuDropdown>						
-							<li>
-								{renderMenuHome()}
-							</li>							
-							{renderMenuCreate()}							
-							<li>
-								{currentUser ? <button onClick={handleLogout}>Log Out</button> : <Link to="/login">Login</Link> }
-							</li>
-						</MenuDropdown>
-					</div>
-					
-        )
-				}
 				</div>
+				<div>
+					
+						{!menu ? null : 					
+							<MenuDropdown>
+								<li>
+									{renderMenuHome()}
+								</li>							
+								{renderMenuCreate()}							
+								<li>
+									{currentUser ? <h4 onClick={handleLogout}>Log Out</h4> : <Link to="/login">Login</Link> }
+								</li>
+							</MenuDropdown>				
+        		}
+					
+				</div>				
 			</MenuBack>				
 		</MenuBox>
 	)

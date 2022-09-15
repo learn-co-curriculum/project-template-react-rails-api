@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { LargeCard } from "../styles/Card.style"
+import { ContentGrid } from "../styles/Grid.style"
 import { TIMES, DAYS } from "./App"
 
 const EditAppointment = ({updateAppointment}) => {
@@ -84,7 +85,7 @@ const EditAppointment = ({updateAppointment}) => {
 	}
 
 	return(
-		<div>
+		<ContentGrid>
 			<LargeCard>
 				<form onSubmit={handleSubmit}>
 
@@ -112,7 +113,7 @@ const EditAppointment = ({updateAppointment}) => {
 					<input type = "submit" />
 				</form>
 			</LargeCard>
-		</div>
+		</ContentGrid>
 	)
 }
 

@@ -46,7 +46,7 @@ function App() {
               <Schedule />
             </Route>
             <Route exact path='/tickets'>
-              <Tickets />
+              <Tickets loggedIn={loggedIn} />
             </Route>
             <Route exact path='/login'>
               <Login setCurrentUser={setCurrentUser} />

@@ -52,16 +52,16 @@ function Login() {
               <label>
                 Email:
               </label>
-              <input type='text' name='email' />
+              <input type='text' name='email' placeholder="  Enter Email" />
             </section>
             <section className="input-form">
               <label>
                 Password:
               </label>
-              <input type='password' name='password' />
+              <input type='password' name='password' placeholder="  Enter Password" />
             </section>
             <section className="input-form">
-              <input id="type" type='submit' value='Log in!' />
+              <input className="lg-su-button" type='submit' value='Log in!' />
             </section>
           </form>
           {errors ? errors.map(e => <div>{e[0] + ': ' + e[1]}</div>) : null}

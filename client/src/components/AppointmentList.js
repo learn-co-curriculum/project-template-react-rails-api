@@ -21,12 +21,11 @@ const AppointmentList = ({setAppointments, appointments}) => {
     })
 	}, [])
 
-	console.log(appointments)
-
 	const renderAppointments = appointments.map((appt) => {
 		return(
 			<SmallCard as = {Link} key= {appt.id} to= {`/appointments/${appt.id}`}>
 				<h2>{appt.provider.name}</h2>
+				{appt.day}
 				{appt.time}
 			</SmallCard>
 		)

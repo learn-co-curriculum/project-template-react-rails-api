@@ -13,7 +13,12 @@ class AppointmentsController < ApplicationController
   def create    
     appointment = Appointment.create!(appointment_params)
     render json: appointment, status: :created
+  end
 
+  def update
+    appointment = Appointment.find_by( patient_id: session[:patient_id], id: params[:id] )
+    appointment.update!(appointment_params)
+    render json: appointment, status: :accepted
   end
 
   private

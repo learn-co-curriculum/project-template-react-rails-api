@@ -53,6 +53,8 @@ end
     )
 end
 
+
+#  272 is no artist
 # Artist.create(
 #     name: "J. Cole" ,
 #     bio: 'Jermaine Lamarr Cole is an American rapper, singer, songwriter, and record producer. He is regarded as one of the most influential rappers of his generation.',
@@ -263,6 +265,22 @@ end
 #     festival_id: 1,)
 # Artist.create(
 #     name: 'ZHU' ,
+#     bio: '',
+#     genre: '',
+#     image: '',
+#     performance_time: "#{rand(12..22)}:30:00",
+#     stage: " ",
+#     festival_id: 1)
+# Artist.create(
+#     name: '' ,
+#     bio: ''
+#     genre: '',
+#     image: ''
+#     performance_time: "#{rand(12..22)}:30:00",
+#     stage: " ",
+#     festival_id: 1,)
+# Artist.create(
+#     name: '' ,
 #     bio: '',
 #     genre: '',
 #     image: '',

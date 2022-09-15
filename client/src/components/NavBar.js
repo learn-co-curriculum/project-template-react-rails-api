@@ -1,7 +1,9 @@
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
+import { useState } from 'react'
+import { GiHamburgerMenu } from "react-icons/gi";
 
-const NavBar = ({updatePatient, currentPatient}) => {
-
+const NavBar = ({updateUser, currentUser}) => {
+	const [menu, setMenu] = useState(false);
 	const history = useHistory()
 
 	const handleLogout = (e) => {
@@ -9,15 +11,28 @@ const NavBar = ({updatePatient, currentPatient}) => {
 			method: 'DELETE'
 		})
 			.then(() => {
-				updatePatient("")
+				updateUser("")
 				history.push('/login')
 			})
 	}
 
 	return(
 		<div>
-			NavBar
-			{currentPatient ? <button onClick={handleLogout}>Log Out</button> : null}
+			{!menu ? (
+          <div onClick={() => setMenu(!menu)}>
+            <GiHamburgerMenu size={30} />
+          </div>
+        ) : (
+          <ul>
+            <li onClick={() => setMenu(!menu)}><GiHamburgerMenu size={30} /></li>
+            <li>
+              {currentUser ? <Link to={`/appointments`}>Your Appointments</Link> : <Link to="/signup">Sign Up</Link> }
+            </li>
+            <li>
+							{currentUser ? <button onClick={handleLogout}>Log Out</button> : <Link to="/login">Login</Link> }
+            </li>
+          </ul>
+        )}
 		</div>
 	)
 }

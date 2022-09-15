@@ -1,19 +1,19 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate_patient, except: :destroy
+  skip_before_action :authenticate_user, except: :destroy
 
   def create
-    patient = Patient.find_by_username(params[:username])
-    if patient&.authenticate(params[:password])
-      session[:patient_id] = patient.id
-      render json: patient, status: :created
+    user = User.find_by_username(params[:username])
+    if user&.authenticate(params[:password])
+      session[:user_id] = user.id
+      render json: user, status: :created
     else
       render json: { errors: ["Not Authorized"]}, status: :unauthorized
     end
   end
 
   def destroy
-    if session[:patient_id]
-      session.delete :patient_id
+    if session[:user_id]
+      session.delete :user_id
       head :no_content
     else
       render json: { errors: ["Not Authorized"]}, status: :unauthorized

@@ -32,7 +32,7 @@ const SignUp = () => {
 
 	function onSubmit(e){
 			e.preventDefault()
-			const patient = {
+			const use = {
 				username,
 				password,
 				password_confirmation,
@@ -43,11 +43,11 @@ const SignUp = () => {
 				phone,
 				avatar_url
 			}
-			// Logs in patient
+			// Logs in use
 			fetch(`/signup`,{
 				method:"POST",
 				headers:{"Content-Type": "application/json"},
-				body:JSON.stringify(patient)
+				body:JSON.stringify(use)
 			})
 			.then(res => {
 					if(res.ok){

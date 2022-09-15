@@ -1,6 +1,6 @@
-class CreatePatients < ActiveRecord::Migration[6.1]
+class CreateUsers < ActiveRecord::Migration[6.1]
   def change
-    create_table :patients do |t|
+    create_table :users do |t|
       t.string :username
       t.string :password_digest
       t.string :avatar_url
@@ -9,6 +9,7 @@ class CreatePatients < ActiveRecord::Migration[6.1]
       t.string :address
       t.integer :phone
       t.string :email
+      t.boolean :admin, default: false
 
       t.timestamps
     end

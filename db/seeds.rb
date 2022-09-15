@@ -272,7 +272,7 @@ end
 #     stage: " ",
 #     festival_id: 1)
 # Artist.create(
-#     name: '' ,
+#     name: 'Radiohead' ,
 #     bio: ''
 #     genre: '',
 #     image: ''

@@ -33,6 +33,11 @@ const App = () => {
 		setAppointments(oldAppts => [...oldAppts, newAppt])
 	}
 
+  const updateAppointment = (updatedAppt) => {
+    const newAppts = appointments.map(appt => appt.id === updatedAppt.id? updatedAppt : appt)
+    setAppointments(newAppts)
+  }
+
   return (
     <div>
       FFS WORK!
@@ -58,8 +63,8 @@ const App = () => {
         <Route exact path = "/appointments/:id">
           <AppointmentDetails />
         </Route>
-        <Route exact path = "/edit-appointment">
-          <EditAppointment />
+        <Route exact path = "/appointments/:id/edit">
+          <EditAppointment updateAppointment = {updateAppointment}/>
         </Route>
       </Switch>
     </div>

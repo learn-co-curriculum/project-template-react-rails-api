@@ -28,9 +28,9 @@ function NavBar({ setCurrentUser, loggedIn, setLoggedIn }) {
                 <Link className="route-link" to="/schedule">Schedule</Link>
                 <Link className="route-link" to="/tickets">Tickets</Link>
                 {loggedIn ?
-                    (<div className="banner">
+                    (<div id="banner">
                         <Link className="route-link" to="/" onClick={handleLogout}>Logout</Link>
-                        <Link className="route-link" to="/profile">Profile</Link>
+                        <Link id="profile-link" to="/profile">Profile</Link>
                     </div>)
                     :
                     (<Link className="route-link" to="/login">Login</Link>)}

@@ -376,7 +376,7 @@ body {
   width: 100%;
 }
 
-#form-box {
+.form-box {
   width: 100vw;
   height: 500px;
   display: flex;
@@ -384,7 +384,7 @@ body {
   align-items: center;
 }
 
-#login-box {
+.login-box {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -396,7 +396,7 @@ body {
   border: solid black;
 }
 
-#login-signup-form {
+.login-signup-form {
   display: flex;
   flex-direction: column;
 }
@@ -406,4 +406,10 @@ body {
   flex-direction: column;
   padding: 10px;
   width: 100%;
+}
+
+form input {
+  border: none;
+  border-radius: 10px;
+  height: 25px;
 }

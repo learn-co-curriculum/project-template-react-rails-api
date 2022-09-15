@@ -38,29 +38,39 @@ function Signup({ setCurrentUser }) {
   }
 
   return (
-    <div>
-      <form id="sign-up" onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleChange}
-        ></input>
+    <div className="form-box">
+      <div className="login-box">
+        <h1>Signup</h1>
+        <div className="form-container">
+          <form className="login-signup-form" onSubmit={handleSubmit}>
+            <section className="input-form">
+              <label>Username:</label>
+              <input
+                type="text"
+                name="name"
+                value={name}
+                onChange={handleChange}>
+              </input>
+            </section>
 
-        <label>Email</label>
-        <input type="text" name="email" value={email} onChange={handleChange} />
-
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-        />
-
-        <input type="submit" value="Sign up!" />
-      </form>
+            <section className="input-form">
+              <label>Email:</label>
+              <input type="text" name="email" value={email} onChange={handleChange} />
+            </section>
+            <section className="input-form">
+              <label>Password:</label>
+              <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={handleChange} />
+            </section>
+            <section className="input-form">
+              <input id="type" type="submit" value="Sign up!" />
+            </section>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

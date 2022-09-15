@@ -362,3 +362,9 @@ body {
   transform: translateY(0);
   opacity: 1;
 }
+
+/* Login/Signup Styling */
+#signup-reroute {
+  display: flex;
+  flex-direction: row;
+}

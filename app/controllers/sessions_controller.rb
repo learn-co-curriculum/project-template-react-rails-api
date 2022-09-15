@@ -12,11 +12,12 @@ class SessionsController < ApplicationController
 
   def logged_in
     if current_user.valid?
-      render json: {
-        logged_in: true,
-        status: :ok,
-        user: current_user
-      }
+      render json: current_user, status: :ok
+      # {
+      #   logged_in: true,
+      #   status: :ok,
+      #   user: current_user
+      # }
     else
       render json: { 
         error: "User not logged in",
@@ -28,7 +29,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.delete :user_id
-    session.destroy
+    # redirect_to "/tickets"
   end
 
 end

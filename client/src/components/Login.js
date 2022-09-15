@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Login() {
   // const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ function Login() {
   //       if (res.ok) {
   //         res.json().then(user => {
   //           history.push(`/home`)
-  //           alert(`Welcome ${user.name}!`)
+  //           setCurrentUser(user)
   //         })
   //       } else {
   //         res.json().then(json => setErrors(Object.entries(json.errors)))
@@ -58,6 +59,10 @@ function Login() {
         <input type='submit' value='Log in!' />
       </form>
       {errors ? errors.map(e => <div>{e[0] + ': ' + e[1]}</div>) : null}
+      <div id="signup-reroute">
+        <h4>Don't have an account?</h4>
+        <Link className="route-link" to="/signup">Signup</Link>
+      </div>
     </>
   )
 }

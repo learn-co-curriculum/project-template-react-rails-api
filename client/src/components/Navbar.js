@@ -12,6 +12,7 @@ function NavBar({ setCurrentUser, loggedIn, setLoggedIn }) {
             .then(res => {
                 if (res.ok) {
                     setCurrentUser(null)
+                    history.push('./')
                 }
             })
     }
@@ -26,10 +27,10 @@ function NavBar({ setCurrentUser, loggedIn, setLoggedIn }) {
                 <Link className="route-link" to="/lineup">Lineup</Link>
                 <Link className="route-link" to="/schedule">Schedule</Link>
                 <Link className="route-link" to="/tickets">Tickets</Link>
-                {loggedIn ? (<Link className="route-link" to="/" onClick={handleLogout}>Logout</Link>)
+                {loggedIn ?
+                    (<Link className="route-link" to="/" onClick={handleLogout}>Logout</Link>)
                     :
-                    (<div><Link className="route-link" to="/login">Login</Link>
-                        <Link className="route-link" to="/signup">Signup</Link></div>)}
+                    (<Link className="route-link" to="/login">Login</Link>)}
 
 
             </div>

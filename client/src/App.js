@@ -22,13 +22,14 @@ function App() {
         if (res.ok) {
           setLoggedIn(true)
           console.log(loggedIn)
+          res.json().then(user => setCurrentUser(user))
         }
-        else {
-          console.log(loggedIn)
-        }
-      })
+
+      }
+      )
   }, loggedIn);
 
+  console.log(currentUser)
   return (
     <div>
       <div id="nav-container">
@@ -54,7 +55,7 @@ function App() {
               <Signup setCurrentUser={setCurrentUser} />
             </Route>
             <Route exact path='/profile'>
-              <Profile />
+              <Profile currentUser={currentUser} />
             </Route>
           </Switch>
         </BrowserRouter>

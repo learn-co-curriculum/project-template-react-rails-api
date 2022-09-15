@@ -16,7 +16,7 @@ function NavBar({ setCurrentUser, loggedIn, setLoggedIn }) {
             })
     }
     function handleClick() {
-        history.push('./home')
+        history.push('./')
     }
 
     return (
@@ -26,7 +26,7 @@ function NavBar({ setCurrentUser, loggedIn, setLoggedIn }) {
                 <Link className="route-link" to="/lineup">Lineup</Link>
                 <Link className="route-link" to="/schedule">Schedule</Link>
                 <Link className="route-link" to="/tickets">Tickets</Link>
-                {loggedIn ? (<Link className="route-link" to="/home" onClick={handleLogout}>Logout</Link>)
+                {loggedIn ? (<Link className="route-link" to="/" onClick={handleLogout}>Logout</Link>)
                     :
                     (<div><Link className="route-link" to="/login">Login</Link>
                         <Link className="route-link" to="/signup">Signup</Link></div>)}

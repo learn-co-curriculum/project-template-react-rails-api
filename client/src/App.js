@@ -35,7 +35,7 @@ function App() {
         <BrowserRouter>
           <Navbar setCurrentUser={setCurrentUser} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
           <Switch>
-            <Route exact path='/home'>
+            <Route exact path='/'>
               <Home />
             </Route>
             <Route exact path='/lineup'>

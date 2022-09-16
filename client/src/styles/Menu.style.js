@@ -2,9 +2,16 @@ import styled from "styled-components";
 import cross from "../images/MedicCrossWhite.png"
 
 const MenuBox = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-content: center;
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  
+  margin-left: 130px;
+  margin-right: 30px;
+
+  div.logo {
+    display: flex;
+    justify-content: center;
+  }
 `
 
 const MenuBack = styled.div`
@@ -35,6 +42,7 @@ const MenuDropdown = styled.div`
   background: white;
   border: 1px solid red;
   position: absolute;
+  overflow: visible;
 
   li > h4 {
     padding: 5px;

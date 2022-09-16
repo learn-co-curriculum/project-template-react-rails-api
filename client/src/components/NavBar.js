@@ -45,7 +45,7 @@ const NavBar = ({updateUser, currentUser}) => {
 
 	return(
 		<MenuBox>
-			<div></div>
+			<div className='logo'><img src= {logo} alt= "dr-aid-logo" /></div>
 			<MenuBack varImg= {cross}>
 				<div></div>
 				<div>

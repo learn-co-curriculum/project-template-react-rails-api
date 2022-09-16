@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { ContentGrid, FormGrid } from "../styles/Grid.style";
+import { ContentGrid } from "../styles/Grid.style";
+import UserForm from "../styles/Form.style"
 import Button from "../styles/Button.style"
 
 const SignUp = () => {
@@ -66,7 +67,7 @@ const SignUp = () => {
 
 	return(
 		<ContentGrid>
-			<FormGrid>
+			<UserForm>
 			<h2>Sign Up</h2>
 				<form onSubmit={onSubmit}>
 					{/* <label> Username </label> */}
@@ -99,8 +100,7 @@ const SignUp = () => {
 					<Button type="submit" value="Signup">Sign Up</Button>
 				</form>
 				{errors? <div>{errors}</div> : null}
-				{/* <Button as = {Link}> </Button> */}
-			</FormGrid>
+			</UserForm>
 		</ContentGrid>
 	)
 }

@@ -51,7 +51,7 @@ const AppointmentList = ({setAppointments, appointments, currentUser}) => {
 			{generateGreeting()}
 			{renderAppointments}
 			<SmallCard as ={Link} to= {`/appointments/create`}>
-					Add New Appointment
+					<h3>Add New Appointment </h3>
 			</SmallCard>
 		</ContentGrid>
 	)

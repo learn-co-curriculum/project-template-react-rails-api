@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { FormGrid, ContentGrid } from "../styles/Grid.style";
+import { ContentGrid } from "../styles/Grid.style";
+import UserForm from "../styles/Form.style"
 import Button from "../styles/Button.style"
 
 const Login = ({updateUser}) => {
@@ -43,7 +44,7 @@ const Login = ({updateUser}) => {
 
 	return(
 		<ContentGrid>
-			<FormGrid>
+			<UserForm>
 				<h2>Login</h2>
 				<form onSubmit={onSubmit}>
 					<div>
@@ -57,7 +58,7 @@ const Login = ({updateUser}) => {
 				</form>
 				{errors? <div>{errors}</div> : null}
 				<p>Not a Member? <Link to='/signup'>Sign up!</Link></p>
-			</FormGrid>
+			</UserForm>
 		</ContentGrid>
 	)
 }

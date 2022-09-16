@@ -43,7 +43,7 @@ const ProviderList = ( ) => {
 			{renderProviders}
 			<SmallCard>
 				<Link to= {`/providers/create`}>
-					Add New Provider
+					<h3>Add New Provider</h3>
 				</Link>
 			</SmallCard>
 		</ContentGrid>

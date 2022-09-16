@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const SmallCard = styled.div`
+  width: 900px;
+  height: auto;
   margin-top: 20px;
   transition: 0.3s;
   border-radius: 10px;
@@ -12,23 +14,43 @@ const SmallCard = styled.div`
   align-items: center;
   align-content: center;
   padding: 12px 20px;
-  width: 900px;
-  height: 150px;
+
+  h3{
+    margin-top: 5px
+  }
+
+  p{
+    margin-bottom: 10px
+  }
+  
 `
 const LargeCard = styled.div`
+  width: 900px;
+  height: 600px;
+  display: grid, inline-block;
+  gap: 10px
   margin-top: 20px;
-  max-width: 900px;
-  height: 400px;
-  transition: 0.3s;
+  padding: 12px 20px;
   border-radius: 10px;
   background-color: #fff;
   border: 2px outset red;
   box-shadow: 2px 6px 4px black;
   box-sizing: border-box;
-  display: block;
   align-items: center;
   align-content: center;
-  padding: 12px 20px;
+  transition: 0.3s;
+ 
+  h4{
+    margin-top: 5px
+  }
+
+  p{
+    margin-bottom: 10px
+  }
+
+  h2{
+    margin: 20px
+  }
 
 `
 export default SmallCard;

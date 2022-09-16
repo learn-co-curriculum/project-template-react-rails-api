@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
-import { LargeCard } from "../styles/Card.style"
-import { ContentGrid, FormGrid } from "../styles/Grid.style"
 import { TIMES, DAYS } from "./App"
+
+import { LargeCard } from "../styles/Card.style"
+import { ContentGrid } from "../styles/Grid.style"
+import { Select, Label, TextArea } from "../styles/Form.style"
+import Button from "../styles/Button.style"
 
 const CreateAppointment = ({addNewAppointment}) => {
 	const [providers, setProviders] = useState([])
@@ -110,35 +113,36 @@ const CreateAppointment = ({addNewAppointment}) => {
 	return(
 		<ContentGrid>
 			<LargeCard>
+				<h2> Make An Appointment </h2>
 				<form onSubmit={handleSubmit}>
-					<label> Name </label>
-					<select name = "id" onChange= {handleProviderId}>
+					<Label> Provider </Label>
+					<Select name = "id" onChange= {handleProviderId}>
 					<option selected disabled>Choose Provider:</option>
 						{providersList}
-					</select>
+					</Select>
 
-					<label> Location </label>
-					<select name = "location" onChange= {handleLocation}>
+					<Label> Location </Label>
+					<Select name = "location" onChange= {handleLocation}>
 						<option selected disabled>Choose Location:</option>
 						{locationsList}
-					</select>
+					</Select>
 
-					<label>Day</label>
-					<select name = "day" onChange= {handleDay}>
+					<Label>Day</Label>
+					<Select name = "day" onChange= {handleDay}>
 					<option selected disabled>Choose Day of the Week:</option>
 						{daysList}
-					</select>
+					</Select>
 
-					<label> Time </label>
-					<select name = "time" onChange= {handleTime}>
+					<Label> Time </Label>
+					<Select name = "time" onChange= {handleTime}>
 					<option selected disabled>Choose Appointment Time:</option>
 						{timeList}
-					</select>
+					</Select>
 
-					<label> Reason </label>
-					<textarea name = "reason" placeholder="Reason for visit..." onChange= {handleReason}/>
+					<Label> Reason </Label>
+					<TextArea name = "reason" placeholder="Reason for visit..." onChange= {handleReason}/>
 
-					<input type = "submit" />
+					<Button type = "submit" >Submit</Button>
 				</form>
 			</LargeCard>
 		</ContentGrid>

@@ -39,19 +39,14 @@ const AppointmentDetails = ({deleteAppointment}) => {
 	return(
 		<ContentGrid>
 			<LargeCard>
-				<h2>Appointment Details</h2>
-				<h4>Provider: </h4>
-				<p>{appointment.provider.name}</p>
-				<h4>Day: </h4>
-				<p>{appointment.day}</p>
-				<h4>Time:</h4>
-				<p>{appointment.time}</p> 
-				<h4>Location:</h4> 
-				<p>{appointment.location}</p>
-				<h4>Reason: </h4>
-				<p>{appointment.reason}</p>
-				<Button  as = {Link} to = {`/appointments/${params.id}/edit`}>Edit Appointment</Button>
-				<Button onClick={cancelAppointment}>Cancel Appointment</Button>
+					<h2>Appointment Details</h2>
+					<h4>Provider: {appointment.provider.name}</h4>
+					<h4>Day: {appointment.day}</h4>
+					<h4>Time: {appointment.time}</h4> 
+					<h4>Location: {appointment.location}</h4> 
+					<h4>Reason: {appointment.reason}</h4>
+					<Button  as = {Link} to = {`/appointments/${params.id}/edit`}>Edit Appointment</Button>
+					<Button onClick={cancelAppointment}>Cancel Appointment</Button>
 			</LargeCard>
 		</ContentGrid>
 	)

@@ -39,19 +39,24 @@ const LargeCard = styled.div`
   align-items: center;
   align-content: center;
   transition: 0.3s;
- 
-  h4{
-    margin-top: 5px
-  }
 
-  p{
-    margin-bottom: 10px
-  }
-
-  h2{
-    margin: 20px
+  h1{
+   padding: 25px
   }
 
 `
+const CardDetails = styled.div`
+ h2{
+  padding-top: 30px;
+  font-weight: normal
+ }
+
+ h3{
+  float;
+  font-weight: normal; 
+  margin: 20px
+ }
+
+`
 export default SmallCard;
-export { LargeCard };
+export { LargeCard, CardDetails };

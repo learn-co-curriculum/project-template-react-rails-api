@@ -44,8 +44,6 @@ const AppointmentList = ({setAppointments, appointments, currentUser}) => {
 		)
 	})
 
-	
-
 	return(
 		<ContentGrid>
 			{generateGreeting()}

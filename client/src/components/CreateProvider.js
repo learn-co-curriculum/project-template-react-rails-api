@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 import { LargeCard } from "../styles/Card.style"
 import { ContentGrid } from "../styles/Grid.style"
 import { Select, Label, Input, Form } from "../styles/Form.style"
-import Button from "../styles/Button.style"
+import {SubmitButton} from "../styles/Button.style"
 
 const CreateProvider = () => {
 const [providers, setProviders] = useState([])
@@ -87,7 +87,7 @@ const handleSubmit = (e) => {
 						{locationsList}
 					</Select>
 
-					<Button type="submit">Submit</Button>
+					<SubmitButton type="submit">Submit</SubmitButton>
 
 				</Form>
 			</LargeCard>

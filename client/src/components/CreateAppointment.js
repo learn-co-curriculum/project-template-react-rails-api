@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 import { TIMES, DAYS } from "./App"
 import { LargeCard } from "../styles/Card.style"
 import { ContentGrid } from "../styles/Grid.style"
-import { Select, Label, TextArea } from "../styles/Form.style"
+import { Select, Label, TextArea, Form } from "../styles/Form.style"
 import Button from "../styles/Button.style"
 
 const CreateAppointment = ({addNewAppointment}) => {
@@ -113,7 +113,7 @@ const CreateAppointment = ({addNewAppointment}) => {
 		<ContentGrid>
 			<LargeCard>
 				<h2> Make An Appointment </h2>
-				<form onSubmit={handleSubmit}>
+				<Form onSubmit={handleSubmit}>
 					<Label> Provider </Label>
 					<Select name = "id" onChange= {handleProviderId}>
 					<option selected disabled>Choose Provider:</option>
@@ -142,7 +142,7 @@ const CreateAppointment = ({addNewAppointment}) => {
 					<TextArea name = "reason" placeholder="Reason for visit..." onChange= {handleReason}/>
 
 					<Button type = "submit" >Submit</Button>
-				</form>
+				</Form>
 			</LargeCard>
 		</ContentGrid>
 	)

@@ -93,10 +93,7 @@ const SignUp = () => {
 
 					{/* <label> Phone </label> */}
 					<input type="text" name="phone" value={phone} placeholder= "Phone Number" onChange={handleChange}/>
-{/* 
-					<label> Avatar </label>
-					<input type="text" name="avatar_url" value={avatar_url}  placeholder="Avatar" onChange={handleChange}/> */}
-
+					
 					<Button type="submit" value="Signup">Sign Up</Button>
 				</form>
 				{errors? <div>{errors}</div> : null}

@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 const SmallCard = styled.div`
   margin-top: 20px;
-  max-width: 800px;
-  height: 100px;
   transition: 0.3s;
   border-radius: 10px;
   background-color: #fff;
@@ -14,6 +12,8 @@ const SmallCard = styled.div`
   align-items: center;
   align-content: center;
   padding: 12px 20px;
+  width: 900px;
+  height: 150px;
 `
 const LargeCard = styled.div`
   margin-top: 20px;
@@ -30,13 +30,6 @@ const LargeCard = styled.div`
   align-content: center;
   padding: 12px 20px;
 
-  h2{
-    margin-bottom: 20px
-  }
-
-  h4{
-    margin-top: 10px
-  }
 `
 export default SmallCard;
 export { LargeCard };

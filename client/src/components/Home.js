@@ -80,8 +80,8 @@ function Home() {
           </div>
           <div className="dcl-desc">
             <p className="home-talk">
-              DCL provides you with the most diverse group of musical artists.
-              
+              DCL provides you with the most diverse group of musical artists. From country star Tyler Childers to hip-hop legend Snoop Dogg, you'll be guaranteed the best show.
+
             </p>
           </div>
         </div>

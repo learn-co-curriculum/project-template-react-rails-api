@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to "/profile"
     else
-      render json: { error: "Invalid Credentials" }, status: :unauthorized
+      redirect_to "/login?error=Invalid+Credentials"
     end
   end
 

@@ -1,78 +1,48 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Login() {
-  // const [formData, setFormData] = useState({
-  //   name: '',
-  //   email: '',
-  //   password: ''
-  // })
-  const [errors, setErrors] = useState([])
-  // const history = useHistory()
+  const search = useLocation().search;
+  const error = new URLSearchParams(search).get("error");
 
-  // const { name, email, password } = formData
-
-  // function onSubmit(e) {
-  //   e.preventDefault()
-  //   const user = {
-  //     email,
-  //     password
-  //   }
-
-  //   fetch(`/login`, {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify(user)
-  //   })
-  //     .then(res => {
-  //       if (res.ok) {
-  //         res.json().then(user => {
-  //           history.push(`/home`)
-  //           setCurrentUser(user)
-  //         })
-  //       } else {
-  //         res.json().then(json => setErrors(Object.entries(json.errors)))
-  //       }
-  //     })
-
-  // }
-
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target
-  //   setFormData({ ...formData, [name]: value })
-  // }
   return (
     <div className="form-box">
       <div className="login-box">
         <h1>Login</h1>
         <div className="form-container">
-          <form className="login-signup-form" action='/login' method='post'>
+          <form className="login-signup-form" action="/login" method="post">
             <section className="input-form">
-              <label>
-                Email:
-              </label>
-              <input type='text' name='email' placeholder="  Enter Email" />
+              <label>Email:</label>
+              <input type="text" name="email" placeholder="  Enter Email" />
             </section>
             <section className="input-form">
-              <label>
-                Password:
-              </label>
-              <input type='password' name='password' placeholder="  Enter Password" />
+              <label>Password:</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="  Enter Password"
+              />
             </section>
             <section className="input-form">
-              <input className="lg-su-button" type='submit' value='Log in!' />
+              <input className="lg-su-button" type="submit" value="Log in!" />
             </section>
           </form>
-          {errors ? errors.map(e => <div>{e[0] + ': ' + e[1]}</div>) : null}
+          {error ? <div className="error-message">{error}</div> : null}
+          {/* {setTimeout(() => {
+            error.style.display = "none";
+          }, 5000)} */}
         </div>
         <div id="signup-reroute">
           <h4>Don't have an account?</h4>
-          <Link className="route-link" to="/signup">Signup</Link>
+          <Link className="route-link" to="/signup">
+            Signup
+          </Link>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Login;

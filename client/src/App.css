@@ -611,3 +611,8 @@ input[type="file"] {
 .footer-links:hover {
   opacity: 75%;
 }
+
+.error-message {
+  text-align: center;
+  color: red;
+}

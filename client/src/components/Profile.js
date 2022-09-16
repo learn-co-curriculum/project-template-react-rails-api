@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import icon from "../assets/icon.jpeg";
+import profile from '../assets/profile.png'
 
 function Profile({ currentUser, setCurrentUser }) {
     const [picture, setPicture] = useState("");
@@ -30,7 +30,7 @@ function Profile({ currentUser, setCurrentUser }) {
             <p className="headline-s">Welcome back!</p>
 
             <div id="profile-container">
-                <img id="profile-picture" src={picture} alt="cannot load"></img>
+                <img id="profile-picture" src={profile} alt="cannot load"></img>
                 <label class="custom-file-upload">
                     <input
                         required

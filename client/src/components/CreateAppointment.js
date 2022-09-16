@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { LargeCard } from "../styles/Card.style"
-import { ContentGrid } from "../styles/Grid.style"
+import { ContentGrid, FormGrid } from "../styles/Grid.style"
 import { TIMES, DAYS } from "./App"
 
 const CreateAppointment = ({addNewAppointment}) => {

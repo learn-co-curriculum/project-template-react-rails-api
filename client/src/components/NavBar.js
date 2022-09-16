@@ -4,6 +4,7 @@ import { useState } from 'react'
 import MenuBack, { MenuBox, MenuDropdown, MenuBurger } from '../styles/Menu.style';
 
 import cross from '../images/MedicCrossWhite.png'
+import logo from '../images/logo.png'
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const NavBar = ({updateUser, currentUser}) => {

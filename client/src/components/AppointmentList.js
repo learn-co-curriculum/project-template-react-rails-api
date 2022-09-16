@@ -36,9 +36,10 @@ const AppointmentList = ({setAppointments, appointments, currentUser}) => {
 	const renderAppointments = appointments.map((appt) => {
 		return(
 			<SmallCard as= {Link} key= {appt.id} to= {`/appointments/${appt.id}`}>
-				<h3>Provider: {appt.provider.name}</h3>
-				<h3>Appointment Time: {`${appt.day} at `}</h3>
-				<h3> {`${appt.time}`}</h3>
+				<h3>Provider:</h3>
+				<p>{appt.provider.name}</p>
+				<h3>Appointment Time:</h3>
+				<p>{`${appt.day} at `} {`${appt.time}`}</p>
 			</SmallCard>
 		)
 	})
@@ -49,8 +50,8 @@ const AppointmentList = ({setAppointments, appointments, currentUser}) => {
 		<ContentGrid>
 			{generateGreeting()}
 			{renderAppointments}
-			<SmallCard as = {Link} to= {`/appointments/create`}>
-				Make a New Appointment
+			<SmallCard as ={Link} to= {`/appointments/create`}>
+					Add New Appointment
 			</SmallCard>
 		</ContentGrid>
 	)

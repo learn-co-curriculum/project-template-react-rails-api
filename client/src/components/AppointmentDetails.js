@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams, useHistory, Link } from "react-router-dom"
 import { LargeCard } from "../styles/Card.style"
+import { ContentGrid } from "../styles/Grid.style"
 import Button from "../styles/Button.style"
 
 const AppointmentDetails = ({deleteAppointment}) => {
@@ -36,17 +37,23 @@ const AppointmentDetails = ({deleteAppointment}) => {
 	}
 
 	return(
-		<div>
+		<ContentGrid>
 			<LargeCard>
-				Provider : {appointment.provider.name}
-				Day: {appointment.day}
-				Time: {appointment.time}
-				Location: {appointment.location}
-				Reason: {appointment.reason}
+				<h2>Appointment Details</h2>
+				<h4>Provider: </h4>
+				<p>{appointment.provider.name}</p>
+				<h4>Day: </h4>
+				<p>{appointment.day}</p>
+				<h4>Time:</h4>
+				<p>{appointment.time}</p> 
+				<h4>Location:</h4> 
+				<p>{appointment.location}</p>
+				<h4>Reason: </h4>
+				<p>{appointment.reason}</p>
 				<Button  as = {Link} to = {`/appointments/${params.id}/edit`}>Edit Appointment</Button>
 				<Button onClick={cancelAppointment}>Cancel Appointment</Button>
 			</LargeCard>
-		</div>
+		</ContentGrid>
 	)
 }
 

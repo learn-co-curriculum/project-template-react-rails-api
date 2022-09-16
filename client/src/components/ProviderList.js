@@ -25,18 +25,26 @@ const ProviderList = ( ) => {
 	const renderProviders = providers.map((provider) => {
 		return(
 			<SmallCard key= {provider.id}>
-				<h4>Provider: {provider.name}</h4>
-				<h4>Location: {provider.location}</h4>
-				<h4>Specialty: {provider.specialty}</h4>
+				<h3>Provider:</h3> 
+				<p>{provider.name}</p>
+				
+				<h3>Location:</h3> 
+				<p>{provider.location}</p>
+				
+				<h3>Specialty:</h3>
+				<p>{provider.specialty}</p>				
 			</SmallCard>
 		)
 	})
 
 	return(
 		<ContentGrid>
+		<h1>All Providers</h1>
 			{renderProviders}
-			<SmallCard as = {Link} to= {`/providers/create`}>
-				Add New Provider
+			<SmallCard>
+				<Link to= {`/providers/create`}>
+					Add New Provider
+				</Link>
 			</SmallCard>
 		</ContentGrid>
 	)

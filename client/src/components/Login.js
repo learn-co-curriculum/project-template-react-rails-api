@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { ContentGrid } from "../styles/Grid.style";
+import { FormGrid, ContentGrid } from "../styles/Grid.style";
+import Button from "../styles/Button.style"
 
 const Login = ({updateUser}) => {
 	const [ loginData, setLoginData ] = useState({
@@ -42,20 +43,21 @@ const Login = ({updateUser}) => {
 
 	return(
 		<ContentGrid>
-			<form onSubmit={onSubmit}>
-				<label> Username </label>
-				<input type="text" name="username" value= {username} onChange={handleChange}/>
+			<FormGrid>
+				<h2>Login</h2>
+				<form onSubmit={onSubmit}>
+					<div>
+						<input type="text" name="username" placeholder="Username" value= {username} onChange={handleChange}/>
 
-				<label> Password </label>
-				<input type="password" name="password" onChange={handleChange}/>
-
-				<input type="submit" value="Login" />
-			</form>
-			{errors? <div>{errors}</div> : null}
-			
-			{<Link to='/signup'>
-				Sign Up
-			</Link>}
+						<input type="password" name="password" placeholder= "Password" onChange={handleChange}/>
+						
+						<Button type="submit" value="Login">Login</Button>
+						
+					</div>
+				</form>
+				{errors? <div>{errors}</div> : null}
+				<p>Not a Member? <Link to='/signup'>Sign up!</Link></p>
+			</FormGrid>
 		</ContentGrid>
 	)
 }

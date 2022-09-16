@@ -14,7 +14,10 @@ const GlobalStyles = createGlobalStyle`
     background-color: #D2E6F6;
   }
 
-
+  section {
+    color: red;
+    font-size: 15px;
+  }
 `
 
 export default GlobalStyles

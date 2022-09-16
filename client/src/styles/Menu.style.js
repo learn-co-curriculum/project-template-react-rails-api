@@ -39,6 +39,7 @@ const MenuDropdown = styled.div`
   li > h4 {
     padding: 5px;
     margin: 0;
+    cursor: pointer;
   }
 
   li > a {

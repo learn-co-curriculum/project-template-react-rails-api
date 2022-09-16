@@ -102,17 +102,27 @@ const CreateAppointment = ({addNewAppointment}) => {
 			},
 			body: JSON.stringify(newAppt)
 		})
-			.then(r => r.json())
-			.then(newAppt => { 
-				addNewAppointment(newAppt)
-				history.push('/appointments')
-			})
+		.then(res => {
+      if(res.ok){
+        res.json().then(newAppt => {
+					addNewAppointment(newAppt)
+					history.push('/appointments')
+				})				
+      }else {
+        res.json().then(data => {
+					setErrors(data.errors)
+				})
+      }
+    })
 	}
+
+	console.log(errors)
 
 	return(
 		<ContentGrid>
 			<LargeCard>
 				<h2> Make An Appointment </h2>
+				{errors ? errors.map(e => <section>{e}</section>):null}
 				<form onSubmit={handleSubmit}>
 					<Label> Provider </Label>
 					<Select name = "id" onChange= {handleProviderId}>

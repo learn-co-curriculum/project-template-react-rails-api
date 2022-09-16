@@ -69,6 +69,7 @@ const SignUp = () => {
 		<ContentGrid>
 			<UserForm>
 			<h2>Sign Up</h2>
+			{errors ? errors.map(e => <section>{e}</section>):null}
 				<form onSubmit={onSubmit}>
 					{/* <label> Username </label> */}
 					<input type="text" name="username" value= {username} placeholder= "Username" onChange={handleChange}/>
@@ -99,7 +100,7 @@ const SignUp = () => {
 
 					<Button type="submit" value="Signup">Sign Up</Button>
 				</form>
-				{errors? <div>{errors}</div> : null}
+				
 			</UserForm>
 		</ContentGrid>
 	)

@@ -21,12 +21,12 @@ function Tickets({ loggedIn, currentUser }) {
     setTier(!tier);
   };
 
-  function notLoggedIn() {
+  function isNotLoggedIn() {
     alert("You must be logged in to buy tickets.")
     history.push(`/login`)
   }
 
-  function loggedIn(tix, ticketType) {
+  function isLoggedIn(tix, ticketType) {
     alert(`Congratulations, we will see you at Denver City Limits! You have purchased ${tix} ${ticketType} tickets!`)
     if (ticketType === "General Admission") {
       ticketType = false
@@ -64,7 +64,7 @@ function Tickets({ loggedIn, currentUser }) {
   function handleTickets() {
     let ticketType = document.getElementById("tix-type").textContent
     let tix = document.getElementById("quantity").value
-    loggedIn ? loggedIn(tix, ticketType) : notLoggedIn()
+    loggedIn ? isLoggedIn(tix, ticketType) : isNotLoggedIn()
 
   }
 

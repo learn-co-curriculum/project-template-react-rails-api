@@ -77,7 +77,7 @@ const EditAppointment = ({updateAppointment}) => {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(updatedAppt)
-		})
+		})		
 			.then(r => r.json())
 			.then(updatedAppt => { 
 				updateAppointment(updatedAppt)
@@ -91,6 +91,7 @@ const EditAppointment = ({updateAppointment}) => {
 		<ContentGrid>
 			<LargeCard>
 			<h2>Edit Your Appointment with</h2>
+			{errors ? errors.map(e => <section>{e}</section>):null}
 				<Form onSubmit={handleSubmit}>
 
 					<h3>{appointment.provider.name}</h3>

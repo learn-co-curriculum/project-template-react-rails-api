@@ -20,8 +20,7 @@ specialties = ['Cardiology', 'Gastroenterology', 'Endocrinology', 'General Pract
 	Provider.create(
 		name: Faker::Name.unique.name_with_middle,
 		specialty: specialties.sample,
-		location: locations.sample,
-		provider_avatar_url: "../headshot-placeholder-01.jpg"
+		location: locations.sample		
 	)
 end
 
@@ -35,7 +34,6 @@ end
 		address: Faker::Address.full_address, 
 		phone: Faker::Number.number(digits: 7), 
 		email: Faker::Internet.email,
-		avatar_url: Faker::Avatar.image,
 		admin: false
 	)
 end

@@ -46,8 +46,19 @@ const handleSubmit = (e) => {
 			},
 			body: JSON.stringify(providerData)
 		})
-			.then(r => r.json())
-			.then(history.push('/providers'))
+		.then(res => {
+      if(res.ok){
+        res.json().then(() => {					
+					history.push('/providers')
+				})				
+      }else {
+        res.json().then(data => {
+					setErrors(data.errors)
+				})
+      }
+    })
+			// .then(r => r.json())
+			// .then(history.push('/providers'))
 	}
 
 	const specialtiesList = specialties.map((specialty) => {
@@ -70,8 +81,8 @@ const handleSubmit = (e) => {
 		<ContentGrid>
 			<LargeCard>
 				<h2>Add a Provider</h2>
-				<Form onSubmit={handleSubmit}>
-
+				{errors ? errors.map(e => <section>{e}</section>):null}
+				<Form onSubmit={handleSubmit}>					
 					<Label> Name </Label>
 					<Input name = "name" placeholder="provider name" onChange={handleChange}/>
 

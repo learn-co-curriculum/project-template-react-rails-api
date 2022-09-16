@@ -46,6 +46,7 @@ const Login = ({updateUser}) => {
 		<ContentGrid>
 			<UserForm>
 				<h2>Login</h2>
+				{errors ? errors.map(e => <section>{e}</section>):null}
 				<form onSubmit={onSubmit}>
 					<div>
 						<input type="text" name="username" placeholder="Username" value= {username} onChange={handleChange}/>
@@ -55,8 +56,7 @@ const Login = ({updateUser}) => {
 						<Button type="submit" value="Login">Login</Button>
 						
 					</div>
-				</form>
-				{errors? <div>{errors}</div> : null}
+				</form>				
 				<p>Not a Member? <Link to='/signup'>Sign up!</Link></p>
 			</UserForm>
 		</ContentGrid>

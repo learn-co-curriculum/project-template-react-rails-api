@@ -28,7 +28,7 @@ const LargeCard = styled.div`
   width: 900px;
   height: 600px;
   display: grid, inline-block;
-  gap: 10px
+  gap: 10px;
   margin-top: 20px;
   padding: 12px 20px;
   border-radius: 10px;

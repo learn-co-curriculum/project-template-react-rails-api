@@ -41,9 +41,8 @@ const AppointmentDetails = ({deleteAppointment}) => {
 			<LargeCard>
 					<h2>Appointment Details</h2>
 					<h4>Provider: {appointment.provider.name}</h4>
-					<h4>Day: {appointment.day}</h4>
-					<h4>Time: {appointment.time}</h4> 
-					<h4>Location: {appointment.location}</h4> 
+					<h4>Where: {appointment.location}</h4>
+					<h4>{`${appointment.day} at ${appointment.time}`}</h4>
 					<h4>Reason: {appointment.reason}</h4>
 					<Button  as = {Link} to = {`/appointments/${params.id}/edit`}>Edit Appointment</Button>
 					<Button onClick={cancelAppointment}>Cancel Appointment</Button>

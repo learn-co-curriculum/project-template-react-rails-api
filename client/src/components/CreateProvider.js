@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { LargeCard } from "../styles/Card.style"
 import { ContentGrid } from "../styles/Grid.style"
-import { Select, Label, Input } from "../styles/Form.style"
+import { Select, Label, Input, Form } from "../styles/Form.style"
 import Button from "../styles/Button.style"
 
 const CreateProvider = () => {
@@ -69,7 +69,8 @@ const handleSubmit = (e) => {
 	return(
 		<ContentGrid>
 			<LargeCard>
-				<form onSubmit={handleSubmit}>
+				<h2>Add a Provider</h2>
+				<Form onSubmit={handleSubmit}>
 
 					<Label> Name </Label>
 					<Input name = "name" placeholder="provider name" onChange={handleChange}/>
@@ -88,7 +89,7 @@ const handleSubmit = (e) => {
 
 					<Button type="submit">Submit</Button>
 
-				</form>
+				</Form>
 			</LargeCard>
 		</ContentGrid>
 	)

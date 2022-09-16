@@ -30,6 +30,10 @@ const UserForm = styled.div`
 }
 `
 // LargeCard Forms
+const Form = styled.form`
+	display: grid;
+	gap: 10px;
+`
 const Select = styled.select`
 	width: 100%;
   height: 35px;
@@ -54,10 +58,9 @@ const TextArea = styled.textarea`
 	border: 1px solid black;
   border-radius: 15px;
 	height: 100px;
-	width: 800px;
-	padding: 10px;
+	width: 850px;
 	font-size: medium;
-	margin: 20px
+	display: flex
 `
 
 const Input = styled.input`
@@ -68,8 +71,9 @@ const Input = styled.input`
   border: 1px solid black;
   border-radius: 15px;
   box-sizing: border-box;
+	font-size: large;
 `
 
 
 export default UserForm;
-export { Select, TextArea, Label, Input };
+export {Form, Select, TextArea, Label, Input };

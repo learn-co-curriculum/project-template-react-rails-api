@@ -52,7 +52,6 @@ const CardDetails = styled.div`
  }
 
  h3{
-  float;
   font-weight: normal; 
   margin: 20px
  }

@@ -1,25 +1,21 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-  display:flex;
   align-items: center;
-  justify-content: center;
-  height: 25px;
-  width: 60px;
+  justify-content: flex-end;
+  display: flex
+  height: auto;
+  width: auto;
+  font-size: medium;
+  margin-top: 10px;
   border-radius: 10px;
-  border: 2px ridge #d4af37;
+  background-color: #fff;
+  border: 2px outset #D2E6F6;
   cursor: pointer;
-  background: radial-gradient(farthest-corner at 0px 0px,
-    #fff 0%, #aaa9ad 100%);
-
-  img {
-    width: 25px;
-    height: auto;
-  }
+  background: #fff;
 
   :hover {
-    background: radial-gradient(farthest-corner at 0px 0px,
-    #fff 0%, #d4af37 100%);
+    background: white
   }
 `
 export default Button;

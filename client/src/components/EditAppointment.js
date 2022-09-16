@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react"
 import { useHistory, useParams } from "react-router-dom"
+import { TIMES, DAYS } from "./App"
 import { LargeCard } from "../styles/Card.style"
 import { ContentGrid } from "../styles/Grid.style"
-import { TIMES, DAYS } from "./App"
+import { Select, Label, TextArea, Form } from "../styles/Form.style"
+import Button from "../styles/Button.style"
+
 
 const EditAppointment = ({updateAppointment}) => {
 	const [appointment, setAppointment] = useState({provider: {name: ""}})
@@ -87,31 +90,29 @@ const EditAppointment = ({updateAppointment}) => {
 	return(
 		<ContentGrid>
 			<LargeCard>
-				<form onSubmit={handleSubmit}>
+			<h2>Edit Your Appointment with</h2>
+				<Form onSubmit={handleSubmit}>
 
-					<label>Provider</label>
 					<h3>{appointment.provider.name}</h3>
-
-					<label>Appointment Location</label>
 					<h3>{appointment.location}</h3>
 
-					<label>Day</label>
-					<select name = "day" onChange= {handleDay}>
+					<Label>Change Day</Label>
+					<Select name = "day" onChange= {handleDay}>
 					<option selected disabled>{appointment.day}</option>
 						{daysList}
-					</select>
+					</Select>
 
-					<label> Time </label>
-					<select name = "time" onChange= {handleTime}>
+					<Label> Change Time </Label>
+					<Select name = "time" onChange= {handleTime}>
 					<option selected disabled>{appointment.time}</option>
 						{timeList}
-					</select>
+					</Select>
 
-					<label> Reason </label>
-					<textarea name = "reason" placeholder={appointment.reason} onChange= {handleReason}/>
+					<Label> Change Reason For Visit </Label>
+					<TextArea name = "reason" placeholder={appointment.reason} onChange= {handleReason}/>
 
-					<input type = "submit" />
-				</form>
+					<Button type = "submit">Submit</Button>
+				</Form>
 			</LargeCard>
 		</ContentGrid>
 	)

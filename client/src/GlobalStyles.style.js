@@ -6,6 +6,8 @@ const GlobalStyles = createGlobalStyle`
     color: black;
     text-decoration: none;
     list-style: none;
+    font-family: 'DM Sans', sans-serif;
+
   }
 
   body {

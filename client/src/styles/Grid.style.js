@@ -8,19 +8,11 @@ const MainGrid = styled.div`
 `
 
 const ContentGrid = styled.div`
-  width: 50%;
   height: 100%;
   margin: auto;
   text-align: center;
-  display: block;
   align-items: center;
   justify-content: center;
-
-  div {
-    width: 100%;
-  }
 `
-
-
 export default MainGrid;
 export { ContentGrid }

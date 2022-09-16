@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { ContentGrid } from "../styles/Grid.style";
+import UserForm from "../styles/Form.style"
+import Button from "../styles/Button.style"
 
 const SignUp = () => {
 
@@ -10,9 +12,9 @@ const SignUp = () => {
 		password_confirmation: "",
 		email: "",
 		full_name: "",
-		age: 0,
+		age: "",
 		address: "",
-		phone: 0,
+		phone: "",
 		avatar_url: ""
 	})
 
@@ -65,38 +67,40 @@ const SignUp = () => {
 
 	return(
 		<ContentGrid>
-			<form onSubmit={onSubmit}>
-				<label> Username </label>
-				<input type="text" name="username" value= {username} onChange={handleChange}/>
+			<UserForm>
+			<h2>Sign Up</h2>
+				<form onSubmit={onSubmit}>
+					{/* <label> Username </label> */}
+					<input type="text" name="username" value= {username} placeholder= "Username" onChange={handleChange}/>
 
-				<label> Password </label>
-				<input type="password" name="password" value={password} onChange={handleChange}/>
+					{/* <label> Password </label> */}
+					<input type="password" name="password" value={password} placeholder="Password" onChange={handleChange}/>
 
-				<label> Confirm Password </label>
-				<input type="password" name="password_confirmation" value={password_confirmation} onChange={handleChange}/>
+					{/* <label> Confirm Password </label> */}
+					<input type="password" name="password_confirmation"  placeholder="Confirm Password"value={password_confirmation} onChange={handleChange}/>
 
-				<label> Full Name </label>
-				<input type="text" name="full_name" value={full_name} onChange={handleChange}/>
+					{/* <label> Full Name </label> */}
+					<input type="text" name="full_name" value={full_name}  placeholder="Full Name"onChange={handleChange}/>
 
-				<label> Email </label>
-				<input type="text" name="email" value={email} onChange={handleChange}/>
+					{/* <label> Email </label> */}
+					<input type="text" name="email" value={email}  placeholder="Email" onChange={handleChange}/>
 
-				<label> Age </label>
-				<input type="text" name="age" value={age} onChange={handleChange}/>
+					{/* <label> Age </label> */}
+					<input type="text" name="age" value={age}  placeholder="Age" onChange={handleChange}/>
 
-				<label> Address </label>
-				<input type="text" name="address" value={address} onChange={handleChange}/>
+					{/* <label> Address </label> */}
+					<input type="text" name="address" value={address} placeholder= "Address"onChange={handleChange}/>
 
-				<label> Phone </label>
-				<input type="text" name="phone" value={phone} onChange={handleChange}/>
+					{/* <label> Phone </label> */}
+					<input type="text" name="phone" value={phone} placeholder= "Phone Number" onChange={handleChange}/>
+{/* 
+					<label> Avatar </label>
+					<input type="text" name="avatar_url" value={avatar_url}  placeholder="Avatar" onChange={handleChange}/> */}
 
-				<label> Avatar </label>
-				<input type="text" name="avatar_url" value={avatar_url} onChange={handleChange}/>
-
-				<input type="submit" value="Signup" />
-			</form>
-			{errors? <div>{errors}</div> : null}
-			{/* <Button as = {Link}> </Button> */}
+					<Button type="submit" value="Signup">Sign Up</Button>
+				</form>
+				{errors? <div>{errors}</div> : null}
+			</UserForm>
 		</ContentGrid>
 	)
 }

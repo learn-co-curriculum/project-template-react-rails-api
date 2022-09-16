@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { useParams, useHistory, Link } from "react-router-dom"
-import { LargeCard } from "../styles/Card.style"
+import { LargeCard, CardDetails } from "../styles/Card.style"
 import { ContentGrid } from "../styles/Grid.style"
-import Button from "../styles/Button.style"
+import { EditAndCancelButton } from "../styles/Button.style"
 
 const AppointmentDetails = ({deleteAppointment}) => {
 	const params = useParams()
@@ -39,13 +39,21 @@ const AppointmentDetails = ({deleteAppointment}) => {
 	return(
 		<ContentGrid>
 			<LargeCard>
-					<h2>Appointment Details</h2>
-					<h4>Provider: {appointment.provider.name}</h4>
-					<h4>Where: {appointment.location}</h4>
-					<h4>{`${appointment.day} at ${appointment.time}`}</h4>
-					<h4>Reason: {appointment.reason}</h4>
-					<Button  as = {Link} to = {`/appointments/${params.id}/edit`}>Edit Appointment</Button>
-					<Button onClick={cancelAppointment}>Cancel Appointment</Button>
+			<h1>Appointment Details</h1>
+				<CardDetails>
+					<h2>You have an appointment with {appointment.provider.name}</h2>
+					<h2>{appointment.location}</h2>
+					<h2>On {`${appointment.day} at ${appointment.time}`}</h2>
+					<h2>Reason:  </h2>
+					<h3> {appointment.reason}</h3>
+					<EditAndCancelButton>
+						<Link to = {`/appointments/${params.id}/edit`}>
+							Edit Appointment
+						</Link>
+					</EditAndCancelButton>
+					
+					<EditAndCancelButton onClick={cancelAppointment}>Cancel Appointment</EditAndCancelButton>
+				</CardDetails>
 			</LargeCard>
 		</ContentGrid>
 	)

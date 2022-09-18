@@ -8,4 +8,4 @@
 
 company1 = Company.create(name: "LS Cleaning")
 
-user1 = User.create(name: 'admin', email: 'admin@admin.com', password: 'admin', is_admin: true, company_id: 1)
+user1 = User.create(name: 'admin', email: 'admin@admin.com', password: 'admin', password_confirmation: 'admin', is_admin: true, company_id: 1)

@@ -12,7 +12,7 @@ backend together, and easily deploy them to Heroku.
 - Heroku CLI
 - Postgresql
 
-See Environment Setup below for instructions on installing these tools if you
+-See Environment Setup below for instructions on installing these tools if you
 don't already have them.
 
 ## Setup

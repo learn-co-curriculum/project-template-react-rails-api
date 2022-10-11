@@ -7,7 +7,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
     end
 
     def show
-        seller = Seller.find(params[:id])
+        seller = find_seller
         render json: seller
     end
 

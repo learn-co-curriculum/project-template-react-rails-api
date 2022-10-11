@@ -2,13 +2,23 @@
 puts "Seeding the database..."
 # using faker to generate fake data
 # user data
-5.times do
-  User.create(
-    username: Faker::Name.name,
-    email: Faker::Internet.email,
-    password_digest: Faker::Internet.password
-  )
-end
+# 5.times do
+#   User.create(
+#     username: Faker::Name.name,
+#     email: Faker::Internet.email,
+#     password_digest: Faker::Internet.password
+#   )
+# end
+user1 = User.create(
+  username: "Nick",
+  email: "nick@gmail.com",
+  password_digest: "hhdyyr78356"
+)
+user2 = User.create(
+  username: "Nicky",
+  email: "nick@gmal.com",
+  password_digest: "hhdyr78356"
+)
 
 # property data
 5.times do

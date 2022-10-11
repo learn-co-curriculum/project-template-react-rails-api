@@ -27,7 +27,14 @@ class BlogsController < ApplicationController
         
     end
     def destroy
-        
+       
+        blog = Blog.find_by(id: params[:id])
+        if blog
+          blog.destroy
+          head :no_content
+        else
+          render json: { error: "Blog not found" }, status: :not_found
+        end
         
     end
 

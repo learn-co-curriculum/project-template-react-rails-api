@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :users
   resources :blogs
   resources :comments
+
+  post "/login", to: "sessions#create"
 end

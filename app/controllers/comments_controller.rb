@@ -8,12 +8,33 @@ class CommentsController < ApplicationController
           render json: comments, status: :created
          
     end
+    def update
+        comment = Comment.find_by(id: params[:id])
+
+        if comment
+            comment.update(comments_params)
+            render :json comment
+        else
+            render json: {error: "Comment not found"}, status: :not_found
+        end
+        
+    end
+    def destroy
+       
+        comment = Comment.find_by(id: params[:id])
+        if comment
+          comment.destroy
+          head :no_content
+        else
+          render json: { error: "Comment not found" }, status: :not_found
+        end
     private
 
       def comment_params
         params.permit(:description, :blog_id, :user_id)
       end
-      def co
+      def comments_params
+        params.permit(:description)
           
       end
 

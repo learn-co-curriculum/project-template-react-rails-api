@@ -1,5 +1,3 @@
-# Project Template: React/Rails API(backend)
-
 ## Description
 
 This project is scaffolded so that you can build a React frontend and Rails

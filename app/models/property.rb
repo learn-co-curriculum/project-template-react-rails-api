@@ -4,4 +4,5 @@ class Property < ApplicationRecord
 
     validates :name, presence: true
     validates :address, uniqueness: true
+    validates :price, numericality: { greater_than: 100000 }
 end

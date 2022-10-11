@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
-    wrap_parameters format: []
+    before_action :authorize
+    skip_before_action :authorize, only: [:index]
+     wrap_parameters format: []
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
    
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
@@ -14,9 +16,44 @@ class BlogsController < ApplicationController
         render :json blog, status: :created
     end
 
+    def update
+        blog = Blog.find_by(id: params[:id])
+
+        if blog
+            blog.update(blogs_params)
+            render :json blog
+        else
+            render json: {error: "Blog not found"}, status: :not_found
+        end
+
+        
+    end
+    def destroy
+       
+        blog = Blog.find_by(id: params[:id])
+        if blog
+          blog.destroy
+          head :no_content
+        else
+          render json: { error: "Blog not found" }, status: :not_found
+        end
+        
+    end
+
     private
     def blog_params
-        params.permit(:user_id, :title, :category, :image_url, :author_id )
+        params.permit(:user_id, :title, :category, :image_url, :author )
     end
-    
+    def blogs_params
+        params.permit(:title, :category)
+        
+    end
+
+    def authorize
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+      end
+
+    def render_unprocessable_entity_response(invalid)
+        render json: { errors: invalid.record.errors }, status: :unprocessable_entity
+      end
 end

@@ -7,6 +7,8 @@ ruby "2.7.4"
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 # Use postgresql 
 gem 'pg', '~> 1.4', '>= 1.4.3'
+# install faker gem
+gem 'faker', '~> 2.18', '>= 2.18.0'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

@@ -1,0 +1,31 @@
+{
+    "Blogs": [
+        {
+            "id": 1,
+            "title": "The outcome of Prague on visas and a possible training mission for Ukraine",
+            "content": "This was the backdrop for our discussions with EU Defence and Foreign Ministers in Prague on 29-31 August. These were informal meetings.",
+            "category": "Politics",
+            "imgUrl": "https://images.pexels.com/photos/9513973/pexels-photo-9513973.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "author": "Uri Geller",
+            "createdOn": "2022-05-21"
+          },
+          {
+            "id": 2,
+            "title": "The outcome of Prague on visas and a possible training mission for Ukraine",
+            "content": "This was the backdrop for our discussions with EU Defence and Foreign Ministers in Prague on 29-31 August. These were informal meetings, so no decisions were taken.",
+            "category": "Lifestyle",
+            "imgUrl": "https://images.pexels.com/photos/9124689/pexels-photo-9124689.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "author": "Kpine",
+            "createdOn": "2022-05-21"
+          },
+          {
+            "id": 3,
+            "title": "The outcome of Prague on visas and a possible training mission for Ukraine",
+            "content": "This was the backdrop for our discussions with EU Defence and Foreign Ministers in Prague on 29-31 August. These were informal meetings, so no decisions were taken. However, we had important debates where we managed to make progress, including on issues .",
+            "category": "Sports",
+            "imgUrl": "https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+            "author": "Chris",
+            "createdOn": "2022-05-21"
+          }
+    ]
+}

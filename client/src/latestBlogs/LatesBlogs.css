@@ -1,0 +1,18 @@
+ .latestBlogsImg {
+	object-fit: cover;
+    width: 100px;
+    height: 100px;
+}
+
+.sideInfo{
+    display: flex;
+    width: 350px;
+    margin-left: 20px;
+}
+
+.sideInfo_h1{
+    font-size: medium;
+    font-weight: bolder;
+    font-family: glory;
+}
+

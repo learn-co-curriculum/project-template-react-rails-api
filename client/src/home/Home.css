@@ -1,0 +1,136 @@
+.Hero{
+  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ),url(https://images.pexels.com/photos/509922/pexels-photo-509922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 550px;
+  width: 96%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border-radius: 15px;
+}
+
+.Hero_content{
+    font-family: glory;
+    color: white;
+    background-color: black;
+    opacity: 0.5;
+    width: 550px;
+    position: absolute;
+    top: 30%;
+    transform: translate(0 -50%);
+    padding: 10px 0;
+    border-radius: 12px;
+    margin-left: 20px;
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.Hero_content > h6{
+    font-size: 0.83em;
+    letter-spacing: 0.1em;
+    border-left: 3px solid green;
+    width: fit-content;
+    padding: 5px;
+    text-transform: uppercase;
+}
+
+.Hero_content > h1{
+    color: rgb(216, 161, 21);
+}
+
+.Hero_content > p{
+    font-size: medium;
+}
+
+.public_blogs{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 95%;
+    /* height: 100vh;
+    overflow: auto;*/
+} 
+
+
+b{
+    font-size: medium;
+    font-family: Calligraffitti;
+    font-weight: lighter;
+}
+
+.over_head{
+    display: flex;
+    justify-content: space-between;
+}
+
+.access_btn{
+    margin-left: 20px;
+    height: 30px;
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    text-transform: capitalize;
+    font-size: medium;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.grey_btn{
+    background-color: gray;
+    color: black;
+    transition: 1s;
+}
+
+.black_btn{
+    background-color: black;
+    color: white;
+    transition: 1s;
+}
+
+.black_btn:hover{
+    background-color: gray;
+    color: black;
+}
+
+.grey_btn:hover{
+    background-color: black;
+    color: white;
+}
+
+
+.access{
+    padding-top: 25px;
+}
+
+.category_p{
+    margin-left: 20px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
+    padding: 15px 0;
+    background-color: rgb(226, 226, 226);
+}
+
+.latest_p{
+    margin-left: 20px;
+    font-weight: bolder;
+    font-size: large;
+    padding: 15px 0;
+    text-align: center;
+    background-color: rgb(226, 226, 226);
+}
+
+.media_p{
+    margin-left: 20px;
+    font-weight: bolder;
+    font-size: large;
+    padding: 15px 0;
+    text-align: center;
+    background-color: rgb(226, 226, 226);
+}
+
+          

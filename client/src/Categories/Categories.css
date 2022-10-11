@@ -1,0 +1,12 @@
+.category > p{
+   text-align: center;
+   padding-top: 30px;
+   color: white;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+.category{
+    width: 90%;
+    margin: 0 auto;
+}

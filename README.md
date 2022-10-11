@@ -1,4 +1,4 @@
-# Project Template: React/Rails API
+# Project Template: React/Rails API(backend)
 
 ## Description
 
@@ -327,7 +327,4 @@ For additional support, check out these guides on Heroku:
 [troubleshooting guide on heroku]: https://devcenter.heroku.com/articles/getting-started-with-rails6#troubleshooting
 
 
-
-
-
-
+new read me

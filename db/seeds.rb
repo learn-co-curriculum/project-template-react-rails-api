@@ -22,9 +22,9 @@ end
 end
 
 # seller data
-5.times do 
+5.times do
     Seller.create(
-        name: Faker::Name.name,
+        name: Faker::Name.name
     )
 end
 

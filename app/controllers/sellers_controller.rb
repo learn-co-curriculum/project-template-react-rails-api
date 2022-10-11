@@ -1,5 +1,5 @@
 class SellersController < ApplicationController
-rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     def index
         sellers = Seller.all
@@ -7,7 +7,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
     end
 
     def show
-        seller = find_seller
+        seller = Seller.find(params[:id])
         render json: seller
     end
 
@@ -16,12 +16,11 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
         Seller.find(params[:id])
     end
 
-    def render_not_found_response
-        render json: { error: "Seller not found" }, status: :not_found
-    end
-
     def render_unprocessable_entity_response(invalid)
         render json: { errors: invalid.record.errors }, status: :unprocessable_entity
     end
 
+    def record_not_found
+        render json: { error: "Seller not found" }, status: :not_found
+    end
 end

@@ -1,0 +1,53 @@
+.singleBlog{
+    display: flex;
+    height: 350px;
+    margin-top: 10px;
+    padding: 15px;
+    margin-right: 30px;
+}
+
+.image {
+	object-fit: cover;
+    width: 400px;
+    height: 280px;
+}
+
+.Content{
+    display: flex;
+    
+}
+
+.left{
+    padding-top: 25px;
+}
+
+.right{
+    padding-left: 25px;
+}
+.right > h5{
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+    font-weight: 800;
+    padding: 5px;
+    text-transform: uppercase;
+    font-family: nunito;
+    color: grey;
+}
+
+.right > h1{
+    font-family: tiro;
+    font-weight: 500;
+}
+
+.blogMeteData{
+    border: 1px solid grey;
+    border-top-style: dotted;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    padding-top: 10px
+}
+
+.date{
+    margin-left: 20px;
+}

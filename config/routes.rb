@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :comments
 
   post "/login", to: "sessions#create"
+  get "/me", to: "users#show"
 end

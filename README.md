@@ -17,8 +17,8 @@ don't already have them.
 
 ## Setup
 
-Start by **cloning** (not forking) the project template repository and removing
-the remote:
+<!-- Start by **cloning** (not forking) the project template repository and removing
+the remote: -->
 
 ```console
 $ git clone git@github.com:learn-co-curriculum/project-template-react-rails-api.git your-project-name

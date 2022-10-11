@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
 
 
+  resources :blogs
   resources :comments
   resources :users
   # Routing logic: fallback requests for React Router.

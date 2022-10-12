@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resources :blogs
   resources :comments
+  resources :categories
 
   post "/login", to: "sessions#create"
   get "/me", to: "users#show"

@@ -18,12 +18,6 @@ Landlord.create!([
         email: 'gladyskamau@gmail.com',
         password-digest: '12345678',
         bio: "My business is built on communication, dedication, and transparency. This recipe has helped me rise to the top 5% of commercial real estate agents nationwide by sales volume."
-    },
-    {
-        name: 'Bonaventure O.',
-        email: 'bonaventureo@gmail.com',
-        password-digest: 'qwertyuiop',
-        bio: "With my sharp knowledge of the local market, I've helped over 500 families in the Lakeview area find their dream home — and I'm confident I can help you find yours too."
     }
 ])
 

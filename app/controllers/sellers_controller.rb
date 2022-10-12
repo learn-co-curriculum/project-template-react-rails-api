@@ -8,10 +8,26 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
     def show
         seller = find_seller
+        render json: seller, Serializer: :SellerSerializer
+    end
+
+    def create
+        seller = Seller.create!(seller_params)
+        render json: seller
+    end
+
+    def update
+        seller = find_seller
+        seller.update!(seller_params)
         render json: seller
     end
 
     private
+
+    def seller_params
+        params.permit(:name, :email)
+    end
+
     def find_seller
         Seller.find(params[:id])
     end

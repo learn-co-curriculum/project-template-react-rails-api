@@ -8,11 +8,11 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
     def show
         user = User.find(params[:id])
-        render json: user, status: :ok
+        render json: user, Serializer: :PropertyAndUserSerializer
     end
 
     def create
-        user = User.create(user_params)
+        user = User.create!(user_params)
         render json: user, status: :created
     end
 

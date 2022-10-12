@@ -9,7 +9,6 @@ import Footer from './components/Footer';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Property from "./components/Property";
-import Home from "./components/Home";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import About from "./components/About";
@@ -39,7 +38,7 @@ function App() {
       <Footer/>
    
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/" element={<Home properties={properties} />}></Route>
         <Route path="/property" element={<Property />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>

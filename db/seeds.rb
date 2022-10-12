@@ -9,3 +9,9 @@ Blog.create!(user_id: "2", title: "A Pinch of Yum", content: "This creamy Red pe
 User.create!(username:"phinic12", password: "nyangate", bio:"enginer", password_confirmation:"nyangate")
 User.create!(username:"nyangate23", password: "ogeto", bio:"doctor", password_confirmation:"ogeto")
 User.create!(username:"ogeto2", password: "phinic", bio:"software developer", password_confirmation:"phinic")
+
+Category.create!(name:"Politics")
+Category.create!(name:"Technology")
+Category.create!(name:"Nutrition")
+Category.create!(name:"Economics")
+Category.create!(name:"Food")

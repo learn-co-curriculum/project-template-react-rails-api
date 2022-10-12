@@ -8,23 +8,23 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
     def show
         user = User.find(params[:id])
-        render json: user
+        render json: user, status: :ok
     end
 
     def create
         user = User.create(user_params)
-        render json: user
+        render json: user, status: :created
     end
 
     def destroy
         user = User.find(params[:id])
         user.destroy
-        render json: user
+        render json: user, status: :ok
     end
 
     private
     def user_params
-        params.permit(:username, :email, :password_digest, :seller_id, :property_id)
+        params.permit(:username, :email, :password_digest)
     end
 
     def render_unprocessable_entity_response(invalid)

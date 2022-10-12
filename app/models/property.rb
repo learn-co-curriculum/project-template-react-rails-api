@@ -1,6 +1,6 @@
 class Property < ApplicationRecord
     belongs_to :seller
-    belongs_to :user
+    has_one :user
 
     validates :name, presence: true
     validates :address, uniqueness: true

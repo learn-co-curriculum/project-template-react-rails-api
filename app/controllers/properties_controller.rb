@@ -8,17 +8,17 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
     def show
         property = find_property
-        render json: property
+        render json: property, Serializer: :PropertySerializer
     end
 
     def create
-        property = Property.create(property_params)
-        render json: property
+        property = Property.create!(property_params)
+        render json: property, Serializer: :PropertySerializer
     end
 
     def update
         property = find_property
-        property.update(property_params)
+        property.update!(property_params)
         render json: property
     end
 

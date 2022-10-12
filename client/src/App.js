@@ -1,17 +1,25 @@
-import React from "react";
+import './App.css';
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
-// import Home from "./components/Home";
-// import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Home from "./components/Home";
 
 function App() {
+  const [properties, setProperties] = useState([]);
+
+  // fetch properties from the server
+  useEffect(() => {
+    fetch("/properties")
+      .then((res) => res.json())
+      .then((properties) => {
+        console.log(properties);
+        setProperties(properties);
+      });
+  }, []);
+
   return (
     <div className="App">
       <Navbar />
-      {/* <Router> */}
-        {/* <Routes>
-          <Route exact path="/" element = {<Home/>}></Route>
-        </Routes> */}
-      {/* </Router> */}
+      <Home properties={properties} />
     </div>
   );
 }

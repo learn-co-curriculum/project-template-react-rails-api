@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 
         if comment
             comment.update(comments_params)
-            render :json comment
+            render json: comment
         else
             render json: {error: "Comment not found"}, status: :not_found
         end
@@ -28,6 +28,7 @@ class CommentsController < ApplicationController
         else
           render json: { error: "Comment not found" }, status: :not_found
         end
+      end
     private
 
       def comment_params

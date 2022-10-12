@@ -21,7 +21,7 @@ function Footer() {
     </div>
 
     <h4>PCNN <FaRegCopyright/>. Made with <FaReact/> by PCNN</h4>
-    </>
+    </div>
 
   )
 }

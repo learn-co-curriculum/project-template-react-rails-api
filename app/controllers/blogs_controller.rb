@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
-    before_action :authorize
-    skip_before_action :authorize, only: [:index]
+    # before_action :authorize
+    # skip_before_action :authorize, only: [:index]
      wrap_parameters format: []
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
    
@@ -8,12 +8,12 @@ class BlogsController < ApplicationController
     
     def index
         blog = Blog.all
-        render :json blog, include: :comments
+        render json: blog, include: :comments
        
     end
     def create
         blog = Blog.create!(blog_params)
-        render :json blog, status: :created
+        render json: blog, status: :created
     end
 
     def update
@@ -21,7 +21,7 @@ class BlogsController < ApplicationController
 
         if blog
             blog.update(blogs_params)
-            render :json blog
+            render json: blog
         else
             render json: {error: "Blog not found"}, status: :not_found
         end
@@ -45,7 +45,7 @@ class BlogsController < ApplicationController
         params.permit(:user_id, :title, :category, :image_url, :author )
     end
     def blogs_params
-        params.permit(:title, :category)
+        params.permit(:title, :content)
         
     end
 

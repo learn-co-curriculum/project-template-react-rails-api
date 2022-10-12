@@ -10,7 +10,7 @@ function Home() {
 	const [pBlogs, setPBlogs] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:5004/Blogs")
+		fetch("/blogs")
 			.then((res) => res.json())
 			.then((data) => setPBlogs(data));
 	}, []);

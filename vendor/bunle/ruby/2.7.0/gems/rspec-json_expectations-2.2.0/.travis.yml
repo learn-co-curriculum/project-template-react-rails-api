@@ -1,0 +1,16 @@
+dist: trusty
+language: ruby
+
+rvm:
+  - 2.1
+  - 2.2
+  - 2.3
+  - 2.4
+
+gemfile:
+  - gemfiles/rspec-3
+
+before_install:
+  - gem install bundler -v "~> 1.0"
+
+script: bundle exec cucumber

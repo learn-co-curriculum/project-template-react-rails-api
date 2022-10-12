@@ -1,0 +1,15 @@
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/websocket-driver-0.7.4/ext/websocket-driver
+/home/gitahievans/.rbenv/versions/2.7.4/bin/ruby -I /home/gitahievans/.rbenv/versions/2.7.4/lib/ruby/2.7.0 -r ./siteconf20221012-138965-hzgfrf.rb extconf.rb
+creating Makefile
+
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/websocket-driver-0.7.4/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/websocket-driver-0.7.4/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/websocket-driver-0.7.4/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20221012-138965-1frosa1

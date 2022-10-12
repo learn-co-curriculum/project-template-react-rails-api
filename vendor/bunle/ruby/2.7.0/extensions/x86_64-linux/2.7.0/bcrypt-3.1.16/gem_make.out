@@ -1,0 +1,22 @@
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/bcrypt-3.1.16/ext/mri
+/home/gitahievans/.rbenv/versions/2.7.4/bin/ruby -I /home/gitahievans/.rbenv/versions/2.7.4/lib/ruby/2.7.0 -r ./siteconf20221012-138965-1w2ix3u.rb extconf.rb
+creating Makefile
+
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/bcrypt-3.1.16/ext/mri
+make "DESTDIR=" clean
+
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/bcrypt-3.1.16/ext/mri
+make "DESTDIR="
+compiling bcrypt_ext.c
+compiling crypt_blowfish.c
+gcc  -D__SKIP_GNU -I/home/gitahievans/.rbenv/versions/2.7.4/include     -c -o x86.o x86.S
+compiling crypt_gensalt.c
+compiling wrapper.c
+wrapper.c:182:60: warning: ‘struct crypt_data’ declared inside parameter list will not be visible outside of this definition or declaration
+  182 | char *crypt_r(const char *key, const char *setting, struct crypt_data *data)
+      |                                                            ^~~~~~~~~~
+linking shared-object bcrypt_ext.so
+
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/bcrypt-3.1.16/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20221012-138965-1teylq1

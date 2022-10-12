@@ -1,0 +1,15 @@
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/bootsnap-1.7.5/ext/bootsnap
+/home/gitahievans/.rbenv/versions/2.7.4/bin/ruby -I /home/gitahievans/.rbenv/versions/2.7.4/lib/ruby/2.7.0 -r ./siteconf20221012-138965-b0vnc5.rb extconf.rb
+creating Makefile
+
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/bootsnap-1.7.5/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/bootsnap-1.7.5/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/bootsnap-1.7.5/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20221012-138965-6lwqr3/bootsnap

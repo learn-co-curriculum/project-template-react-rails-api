@@ -1,0 +1,25 @@
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/puma-5.3.2/ext/puma_http11
+/home/gitahievans/.rbenv/versions/2.7.4/bin/ruby -I /home/gitahievans/.rbenv/versions/2.7.4/lib/ruby/2.7.0 -r ./siteconf20221012-138965-zzay0z.rb extconf.rb
+checking for BIO_read() in -lcrypto... yes
+checking for SSL_CTX_new() in -lssl... yes
+checking for openssl/bio.h... yes
+checking for DTLS_method() in openssl/ssl.h... yes
+checking for TLS_server_method() in openssl/ssl.h... yes
+checking for SSL_CTX_set_min_proto_version(NULL, 0) in openssl/ssl.h... yes
+checking for X509_STORE_up_ref()... yes
+checking for SSL_CTX_set_ecdh_auto(NULL, 0) in openssl/ssl.h... yes
+creating Makefile
+
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/puma-5.3.2/ext/puma_http11
+make "DESTDIR=" clean
+
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/puma-5.3.2/ext/puma_http11
+make "DESTDIR="
+compiling http11_parser.c
+compiling mini_ssl.c
+compiling puma_http11.c
+linking shared-object puma/puma_http11.so
+
+current directory: /home/gitahievans/Development/Code/phase4/final-project/group5-phase4-final-project/vendor/bunle/ruby/2.7.0/gems/puma-5.3.2/ext/puma_http11
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20221012-138965-1qwmrmh/puma

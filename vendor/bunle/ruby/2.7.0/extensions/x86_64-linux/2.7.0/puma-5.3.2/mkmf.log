@@ -1,0 +1,269 @@
+have_library: checking for BIO_read() in -lcrypto... -------------------- yes
+
+"gcc -o conftest -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-linux -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/home/gitahievans/.rbenv/versions/2.7.4/openssl/include -I/home/gitahievans/.rbenv/versions/2.7.4/include    -g -O2 -fPIC conftest.c  -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/lib -lruby  -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+"gcc -o conftest -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-linux -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/home/gitahievans/.rbenv/versions/2.7.4/openssl/include -I/home/gitahievans/.rbenv/versions/2.7.4/include    -g -O2 -fPIC conftest.c  -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/lib -lruby -lcrypto  -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘BIO_read’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))BIO_read; return !p; }
+      |                                                         ^~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))BIO_read; return !p; }
+/* end */
+
+"gcc -o conftest -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-linux -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/home/gitahievans/.rbenv/versions/2.7.4/openssl/include -I/home/gitahievans/.rbenv/versions/2.7.4/include    -g -O2 -fPIC conftest.c  -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic     -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/lib -lruby -lcrypto  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void BIO_read();
+15: int t(void) { BIO_read(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for SSL_CTX_new() in -lssl... -------------------- yes
+
+"gcc -o conftest -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-linux -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/home/gitahievans/.rbenv/versions/2.7.4/openssl/include -I/home/gitahievans/.rbenv/versions/2.7.4/include    -g -O2 -fPIC conftest.c  -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lcrypto  -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/lib -lruby -lssl -lcrypto  -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘SSL_CTX_new’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))SSL_CTX_new; return !p; }
+      |                                                         ^~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))SSL_CTX_new; return !p; }
+/* end */
+
+"gcc -o conftest -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-linux -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/home/gitahievans/.rbenv/versions/2.7.4/openssl/include -I/home/gitahievans/.rbenv/versions/2.7.4/include    -g -O2 -fPIC conftest.c  -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lcrypto  -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/lib -lruby -lssl -lcrypto  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void SSL_CTX_new();
+15: int t(void) { SSL_CTX_new(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for openssl/bio.h... -------------------- yes
+
+"gcc -E -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-linux -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/home/gitahievans/.rbenv/versions/2.7.4/openssl/include -I/home/gitahievans/.rbenv/versions/2.7.4/include    -g -O2 -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <openssl/bio.h>
+/* end */
+
+--------------------
+
+have_func: checking for DTLS_method() in openssl/ssl.h... -------------------- yes
+
+"gcc -o conftest -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-linux -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/home/gitahievans/.rbenv/versions/2.7.4/openssl/include -I/home/gitahievans/.rbenv/versions/2.7.4/include    -g -O2 -fPIC conftest.c  -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lssl -lcrypto  -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/lib -lruby -lssl -lcrypto  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <openssl/ssl.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))DTLS_method; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for TLS_server_method() in openssl/ssl.h... -------------------- yes
+
+"gcc -o conftest -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-linux -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/home/gitahievans/.rbenv/versions/2.7.4/openssl/include -I/home/gitahievans/.rbenv/versions/2.7.4/include    -g -O2 -fPIC conftest.c  -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lssl -lcrypto  -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/lib -lruby -lssl -lcrypto  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <openssl/ssl.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))TLS_server_method; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for SSL_CTX_set_min_proto_version(NULL, 0) in openssl/ssl.h... -------------------- yes
+
+"gcc -o conftest -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-linux -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/home/gitahievans/.rbenv/versions/2.7.4/openssl/include -I/home/gitahievans/.rbenv/versions/2.7.4/include    -g -O2 -fPIC conftest.c  -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lssl -lcrypto  -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/lib -lruby -lssl -lcrypto  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <openssl/ssl.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: 
+17: int t(void) { SSL_CTX_set_min_proto_version(NULL, 0); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for X509_STORE_up_ref()... -------------------- yes
+
+"gcc -o conftest -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-linux -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/home/gitahievans/.rbenv/versions/2.7.4/openssl/include -I/home/gitahievans/.rbenv/versions/2.7.4/include    -g -O2 -fPIC conftest.c  -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lssl -lcrypto  -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/lib -lruby -lssl -lcrypto  -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:14:57: error: ‘X509_STORE_up_ref’ undeclared (first use in this function)
+   14 | int t(void) { void ((*volatile p)()); p = (void ((*)()))X509_STORE_up_ref; return !p; }
+      |                                                         ^~~~~~~~~~~~~~~~~
+conftest.c:14:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))X509_STORE_up_ref; return !p; }
+/* end */
+
+"gcc -o conftest -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-linux -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/home/gitahievans/.rbenv/versions/2.7.4/openssl/include -I/home/gitahievans/.rbenv/versions/2.7.4/include    -g -O2 -fPIC conftest.c  -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lssl -lcrypto  -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/lib -lruby -lssl -lcrypto  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void X509_STORE_up_ref();
+15: int t(void) { X509_STORE_up_ref(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for SSL_CTX_set_ecdh_auto(NULL, 0) in openssl/ssl.h... -------------------- yes
+
+"gcc -o conftest -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-linux -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/home/gitahievans/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/home/gitahievans/.rbenv/versions/2.7.4/openssl/include -I/home/gitahievans/.rbenv/versions/2.7.4/include    -g -O2 -fPIC conftest.c  -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/openssl/lib -L. -L/home/gitahievans/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -rdynamic -Wl,-export-dynamic    -lssl -lcrypto  -Wl,-rpath,/home/gitahievans/.rbenv/versions/2.7.4/lib -L/home/gitahievans/.rbenv/versions/2.7.4/lib -lruby -lssl -lcrypto  -lm   -lc"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <openssl/ssl.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     int (* volatile tp)(void)=(int (*)(void))&t;
+11:     printf("%d", (*tp)());
+12:   }
+13: 
+14:   return !!argv[argc];
+15: }
+16: 
+17: int t(void) { SSL_CTX_set_ecdh_auto(NULL, 0); return 0; }
+/* end */
+
+--------------------
+

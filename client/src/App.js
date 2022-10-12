@@ -30,21 +30,15 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Home properties={properties} />
-      {/* <Router> */}
-        {/* <Routes>
-          <Route exact path="/" element = {<Home/>}></Route>
-        </Routes> */}
-      {/* </Router> */}
-      <Footer/>
-   
       <Routes>
-        <Route path="/" element={<Home properties={properties} />}></Route>
+        <Route exact path="/" element={<Home properties={properties} />}></Route>
         <Route path="/property" element={<Property />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
       </Routes>
+      <Footer/>
+
     </div>
   );
 }

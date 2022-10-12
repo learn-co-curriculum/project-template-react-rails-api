@@ -2,7 +2,10 @@
 .carousel {
   width: 100%;
   height: 80vh;
-  position: relative;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   overflow: hidden;
   margin: 0 auto;
   background: #000;
@@ -15,15 +18,27 @@
   object-fit: cover;
 }
 
-/* style carousel buttons */
-.carousel Button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
+/* style container row */
+.g-4{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+    padding: 30px;
+}
+
+/* style card */
+.card{
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    border-radius: 10px;
+    background: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }

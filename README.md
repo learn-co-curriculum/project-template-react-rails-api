@@ -68,5 +68,3 @@ You can use the following commands to run the application:
 Make sure to also update this README to include documentation about
 your project. Here's a list of some [awesome readmes][] for inspiration.
 
-[awesome readmes]: https://github.com/matiassingers/awesome-readme
-

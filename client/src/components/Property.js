@@ -1,6 +1,7 @@
 import React from "react";
 
-function Property({ property }) {
+function Property() {
+
 
   return (
     <></>

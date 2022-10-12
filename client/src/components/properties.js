@@ -31,7 +31,6 @@ function Properties({ properties }) {
                   <Button
                     variant="primary"
                     className="btn-properties"
-                    onClick={handleClick}
                   >
                     View Property
                   </Button>

@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <div>
-
-
       <ul className="nav justify-content-center">
         <li>
           <Link className="nav-link" to="/home">

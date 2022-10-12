@@ -1,36 +1,41 @@
-import React from "react";
+import React,{useState} from "react";
+import LoginForm from "./LoginForm"
+import Signup from "./Signup"
 
-function Login() {
+
+function Login({ onLogin }) {
+  const [showLogin, setShowLogin] = useState(true);
+
   return (
-    <form>
-      <div className="main">
-        <div>
-          <div>
-            <h1>Login</h1>
-            <div>
-              <input type="text" placeholder="user name" className="name" />
-            </div>
-            <br />
-            <div>
-              <input type="text" placeholder="password" className="name" />
-            </div>
-            <br />
-            <div>
-            <button type="button" class="btn btn-primary btn-lg">
-              Login
+    <div>
+     
+      {showLogin ? (
+        <div className= "main">
+          <LoginForm onLogin={onLogin} />
+          <p>
+            Don't have an account?
+          
+            <button type="button"  className="btn btn-link" onClick={() => setShowLogin(false)}>
+              Sign Up
             </button>
-            </div>
-            
-          </div><br/>
-          <div>
-            <p className="link">
-              <a href="#">Forgot Password ?</a> Or <a href="#">Sign Up</a>
-            </p>
-          </div>
+         
+          </p>
         </div>
-      </div>
-    </form>
+      ) : (
+        <div className= "main">
+          <Signup onLogin={onLogin} />
+          <p>
+            Already have an account?
+            <button type="button" className="btn btn-link"  onClick={() => setShowLogin(true)}>
+              Log In
+            </button>
+          </p>
+        </div>
+      )}
+    </div>
   );
 }
+
+
 
 export default Login;

@@ -2,11 +2,7 @@ import './App.css';
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-
 import Footer from './components/Footer';
-// import Home from "./components/Home";
-// import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Property from "./components/Property";
@@ -14,6 +10,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import About from "./components/About";
 import Properties from './components/properties';
+
 
 function App() {
   const [properties, setProperties] = useState([]);

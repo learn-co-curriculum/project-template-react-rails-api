@@ -14,7 +14,8 @@ end
 5.times do
     Seller.create(
         name: Faker::Name.name,
-        email: Faker::Internet.email
+        email: Faker::Internet.email,
+        message: Faker::Lorem.sentence
     )
 end
 

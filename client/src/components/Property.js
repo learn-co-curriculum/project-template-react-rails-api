@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Container, Button, Form, Modal } from "react-bootstrap";
-import axios from "axios";
 
 function Property() {
   const { id } = useParams();
   const [property, setProperty] = useState([]);
-  // set default to email
-  const [seller, setSeller] = useState("email");
+  const [seller, setSeller] = useState([]);
   useEffect(() => {
     fetch(`/properties/${id}`)
       .then((res) => res.json())
@@ -20,6 +18,9 @@ function Property() {
 
   const Seller = () => {
     const [show, setShow] = useState(false);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -31,28 +32,31 @@ function Property() {
       form.reset();
     };
 
-    // post to seller
-    const handleClick = (seller) => {
-      console.log(seller);
-      const name = seller.name;
-      const email = seller.email;
-      const message = seller.message;
-
-      axios
-        .post("/sellers", {
+    // post request to send email to seller
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      fetch("/sellers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
           name,
           email,
           message,
-        })
-        .then(() => {
-          alert("message successfully sent");
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          alert("Success:", data);
+          navigate("/");
         })
         .catch((error) => {
-          console.log(error);
+          console.error("Error:", error);
         });
-      resetForm();
-      navigate("/");
     };
+
+    
 
     return (
       <>
@@ -73,8 +77,8 @@ function Property() {
                 <Form.Label>Email address</Form.Label>
                 <Form.Control
                   type="email"
-                  value={seller.email}
-                  onChange={(e) => setSeller(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   autoFocus
                 />
               </Form.Group>
@@ -87,8 +91,8 @@ function Property() {
                   as="textarea"
                   rows={3}
                   placeholder="write your message"
-                  value={seller.message}
-                  onChange={(e) => setSeller(e.target.value)}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                 />
               </Form.Group>
             </Form>
@@ -97,7 +101,7 @@ function Property() {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={() => handleClick}>
+            <Button variant="primary" onClick={handleSubmit}>
               Send Message
             </Button>
           </Modal.Footer>

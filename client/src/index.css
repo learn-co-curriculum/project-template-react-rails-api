@@ -11,8 +11,9 @@
   background-color: rgb(235, 195, 64);
   position: fixed;
   bottom: 0;
-  left: 5;
+  left: 0;
   width: 100%;
+<<<<<<< HEAD
 }
 =======
 .navbar{
@@ -34,3 +35,6 @@ flex-direction: row;
   padding-right: 1em;
 }
 }
+=======
+}
+>>>>>>> 1c62c68 (inital commit)

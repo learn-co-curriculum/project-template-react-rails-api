@@ -11,7 +11,7 @@ function Properties({ properties }) {
     console.log(id);
   };
   return (
-    <Container>
+    <Container className="container-properties">
       <Row xs={1} md={3} className="g-4">
         {Array.from({ length: 4 }).map((_, idx) =>
           // select five properties

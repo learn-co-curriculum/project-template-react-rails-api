@@ -13,6 +13,7 @@ import Property from "./components/Property";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import About from "./components/About";
+import Properties from './components/properties';
 
 function App() {
   const [properties, setProperties] = useState([]);
@@ -32,7 +33,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home properties={properties} />}></Route>
-        <Route path="/property" element={<Property />}></Route>
+        <Route path="/properties" element={<Properties />}></Route>
+        <Route path="/properties/:id" element={<Property />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/signin" element={<SignIn />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>

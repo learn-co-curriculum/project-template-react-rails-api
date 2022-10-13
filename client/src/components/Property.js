@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Card from "react-bootstrap/Card";
+import { Container, Button } from "react-bootstrap";
 
 function Property() {
   const { id } = useParams();
@@ -15,25 +15,24 @@ function Property() {
   }, [id]);
 
   return (
-    <Card className="card-property">
-      <Card.Img variant="top" src={property.image_url} />
-      <Card.Body>
-        <Card.Title>{property.name}</Card.Title>
-        {/* <Card.Text>{property.description}</Card.Text> */}
-      </Card.Body>
-      <div>
-        <Card.Text>USD {property.price}.00</Card.Text>
-        <Card.Text>USD {property.description}.00</Card.Text>
+    <Container>
+      <div className="card-container">
+        <img src={property.image_url} alt={property.name}></img>
+        <div className="card-container-details">
+          <h2>{property.name}</h2>
+          <p>{property.description}</p>
+          <p>USD {property.price}.00</p>
+          <div className="property-buttons">
+            <Button variant="primary" className="btn-properties">
+              Purchase
+            </Button>
+            <Button variant="primary" className="btn-properties">
+              Continue Shopping
+            </Button>
+          </div>
+        </div>
       </div>
-      {/* <Link
-        to={`/properties/${property.id}`}
-        onClick={() => <Property key={property.id} />}
-      >
-        <Button variant="primary" className="btn-properties">
-          View Property
-        </Button>
-      </Link> */}
-    </Card>
+    </Container>
   );
 }
 

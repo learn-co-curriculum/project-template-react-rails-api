@@ -27,7 +27,9 @@ function Home({ properties }) {
           View Properties
         </Button>{" "}
       </Carousel>
-      <Properties properties={properties} />
+      <Container className="home-container">
+        <Properties properties={properties} />
+      </Container>
     </>
   );
 }

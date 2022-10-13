@@ -46,3 +46,25 @@ border:1px solid rgb(104, 47, 238);
  width:8em;
  margin-right: 15px;
  }
+
+ .form-control {
+  border:1px solid rgb(8, 8, 8);
+  border-radius: 0px;
+  
+ }
+ .form-control:focus {
+  border:1px solid blueviolet;
+  box-shadow: none;
+ }
+ .save-button{
+  margin: auto;
+align-self: baseline;
+color: #ffff;
+width: 40%;
+height: 2.2em;
+background: blueviolet;
+border-radius: 25px;
+border: none;
+font-weight: 700;
+
+ }

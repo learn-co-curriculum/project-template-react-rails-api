@@ -3,7 +3,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Breadcrumbs from './Breadcrumb';
+// import Breadcrumbs from './Breadcrumb';
 // import { Link } from "react-router-dom";
 
 const Header = ()=> {
@@ -11,7 +11,7 @@ const Header = ()=> {
     <>
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand  to ="/">MY YOGA APP</Navbar.Brand>
+        <Navbar.Brand style={{fontWeight:"700"}}  to ="/">MY YOGA APP</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">

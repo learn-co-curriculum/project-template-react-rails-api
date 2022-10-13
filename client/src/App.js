@@ -18,7 +18,10 @@ const App = () => {
 <Header/>
 <div className='container' style={{background:"#dede"}}> 
 <Breadcrumbs/>
-<YogaTutorials/>
+{/* <YogaTutorials/> */}
+{/* <AddYogaTutorials/> */}
+{/* <Login /> */}
+<Signup/>
 
 <Footer/>
 </div>

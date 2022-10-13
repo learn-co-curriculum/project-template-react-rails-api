@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Logout = () => {
+function Logout (){
 
 <div className='alert alert-danger'>You will be logged out </div>
 }

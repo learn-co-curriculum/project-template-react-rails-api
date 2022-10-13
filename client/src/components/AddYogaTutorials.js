@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddYogaVideos = ()=> {
+function  AddYogaTutorials () {
     return (
         <form method='post'>
         <div className='form-group'>
@@ -20,6 +20,6 @@ const AddYogaVideos = ()=> {
            <button type='submit' className='btn btn-md  btn-block '>Save</button>
             </div> 
         </form> 
-    )
+    );
 }
-export default AddYogaVideos;
+export default AddYogaTutorials;

@@ -41,10 +41,9 @@ function Signup() {
       </div>
       <div className='card-footer align-right'>Have an account ?
 
-          <button type="button" className={"btn btn-secondary"}>
+        <button type="button" className={"btn btn-secondary"}>
             Login
-          </button>
-
+        </button>
       </div>
       </div>
           

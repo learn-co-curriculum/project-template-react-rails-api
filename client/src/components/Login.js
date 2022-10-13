@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 
@@ -42,7 +41,7 @@ const Login = () =>{
         </form> 
       </div>
       <div className='card-footer align-right'>Have an account ?
-<button type='submit' className='btn btn-md   btn-block  ' >Login</button>
+<button type='submit' className='btn btn-md   btn-block  ' > Login</button>
       </div>
       </div>
           

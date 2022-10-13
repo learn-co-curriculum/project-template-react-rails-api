@@ -2,9 +2,8 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const YogaVideos = () => {
+function YogaTutorial (){
   return (
-    <div className='row'>
      <div className="col-md-4 mt-4">
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80" />
@@ -18,8 +17,7 @@ const YogaVideos = () => {
         <Button className='rounded-0 btn-sm' variant="primary">Leave Review</Button>
       </Card.Body>
     </Card>
-        </div>
-    </div>
+     </div>
   )
 }
-export default YogaVideos;
+export default YogaTutorial;

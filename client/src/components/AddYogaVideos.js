@@ -1,9 +1,8 @@
 import React from 'react';
 
-const AddYogaVideos = () => {
-    
-    <div>
-        <form>
+const AddYogaVideos = ()=> {
+    return (
+        <form method='post'>
         <div className='form-group'>
             <label>Trainer Id </label>
             <input type="text" name='name' required className='form-control' />
@@ -19,10 +18,8 @@ const AddYogaVideos = () => {
           
            <div className='form-group mt-4 justify-content-right'>
            <button type='submit' className='btn btn-md  btn-block '>Save</button>
-        
             </div> 
         </form> 
-    </div>
-
+    )
 }
 export default AddYogaVideos;

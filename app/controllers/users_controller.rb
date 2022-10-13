@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
-rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    skip_before_action :verify_authenticity_token
     def index
         users = User.all
         render json: users
@@ -18,7 +17,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
     def create
         user = User.create!(user_params)
         session[:user_id] = user.id
-        render json: user, status: :created
+        render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
     end
 
     def destroy

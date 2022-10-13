@@ -20,12 +20,16 @@ function Property() {
 
   const Seller = () => {
     const [show, setShow] = useState(false);
-    const [message, setMessage] = useState("");
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const navigate = useNavigate();
+
+    const resetForm = () => {
+      let form = document.getElementById("form");
+      form.reset();
+    };
 
     // post to seller
     const handleClick = (seller) => {
@@ -33,12 +37,12 @@ function Property() {
       const name = seller.name;
       const email = seller.email;
       const message = seller.message;
-  
+
       axios
         .post("/sellers", {
           name,
           email,
-          message
+          message,
         })
         .then(() => {
           alert("message successfully sent");
@@ -46,7 +50,8 @@ function Property() {
         .catch((error) => {
           console.log(error);
         });
-        
+      resetForm();
+      navigate("/");
     };
 
     return (
@@ -60,7 +65,7 @@ function Property() {
             <Modal.Title>Contact Seller</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form>
+            <Form id="form">
               <Form.Group
                 className="mb-3"
                 controlId="exampleForm.ControlInput1"
@@ -70,7 +75,6 @@ function Property() {
                   type="email"
                   value={seller.email}
                   onChange={(e) => setSeller(e.target.value)}
-                  
                   autoFocus
                 />
               </Form.Group>
@@ -79,7 +83,13 @@ function Property() {
                 controlId="exampleForm.ControlTextarea1"
               >
                 <Form.Label>Message</Form.Label>
-                <Form.Control as="textarea" rows={3} placeholder="write your message" value={seller.message} onChange={(e) => setSeller(e.target.value)} />
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder="write your message"
+                  value={seller.message}
+                  onChange={(e) => setSeller(e.target.value)}
+                />
               </Form.Group>
             </Form>
           </Modal.Body>
@@ -87,7 +97,7 @@ function Property() {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={() => handleClick(seller)} >
+            <Button variant="primary" onClick={() => handleClick}>
               Send Message
             </Button>
           </Modal.Footer>
@@ -104,10 +114,14 @@ function Property() {
           <h2>{property.name}</h2>
           <p>{property.description}</p>
           <p>USD {property.price}.00</p>
+          <div className="seller">
+            <h4>Seller: {seller.name}</h4>
+            <p>Email: {seller.email}</p>
+          </div>
           <div className="property-buttons">
-          <Button variant="primary" className="btn-properties">
-            <Seller />
-          </Button>
+            <Button variant="primary" className="btn-properties">
+              <Seller />
+            </Button>
             <Button variant="primary" className="btn-properties">
               Continue Shopping
             </Button>

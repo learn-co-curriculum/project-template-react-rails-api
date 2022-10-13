@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 
-function SignUp() {
+function SignUp({setUser}) {
   const navigate = useNavigate();
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -52,6 +52,7 @@ function SignUp() {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
+        setUser(data);
         navigate("/");
       })
       .catch((error) => {

@@ -19,6 +19,8 @@ end
     )
 end
 
+# property data
+
 property_one = Property.create(
     image_url: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
     name: "Pumpkin Key, Florida Keys",
@@ -74,6 +76,36 @@ property_six = Property.create(
     name: "Willow Creek Estanci",
     address: "Marblehead Neck, Marblehea, MA, USA",
     description: "Willow Creek Estancia will appeal to many different lifestyles, but it has the most perks for equestrians, who will be drawn to its 27-stall main barn, additional eight-stall barn and sand arenas.",
+    price: Faker::Number.number(digits: 6),
+    seller_id: Seller.all.sample.id,
+    user_id: User.all.sample.id
+)
+
+property_seven = Property.create(
+    image_url: "https://images.unsplash.com/photo-1600563438938-a9a27216b4f5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    name: "The Village House",
+    address: "Richmond, VA, USA",
+    description: "The Village House is a husband and wife owned restaurant on the Gatineau River in Wakefield, Quebec.",
+    price: Faker::Number.number(digits: 6),
+    seller_id: Seller.all.sample.id,
+    user_id: User.all.sample.id
+)
+
+property_eight = Property.create(
+    image_url: "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+    name: "Condor Peak",
+    address: "Richmond, VA, USA",
+    description: "Once the site of a Getty Oil gas station, this corner in Manhattan's Chelsea neighborhood is now home to a luxury condominium building designed by architect Peter Marino.",
+    price: Faker::Number.number(digits: 6),
+    seller_id: Seller.all.sample.id,
+    user_id: User.all.sample.id
+)
+
+property_nine = Property.create(
+    image_url: "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    name: "The Pent House",
+    address: "Washington, DC, USA",
+    description: "The Pent House is a husband and wife owned restaurant on the Gatineau River in Wakefield, Quebec.",
     price: Faker::Number.number(digits: 6),
     seller_id: Seller.all.sample.id,
     user_id: User.all.sample.id

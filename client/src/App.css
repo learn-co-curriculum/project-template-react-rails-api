@@ -36,12 +36,14 @@
 /* style card */
 .container-properties{
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin: 20px;
-  height: 65vh;
   
 }
 
 .card{
+  width: 300px;
   margin: 10px;
   align-items: center;
   justify-content: center;
@@ -59,6 +61,7 @@
 
 .card-container img{
   width: 50%;
+  height: 50%;
 }
 
 .card-container-details{
@@ -67,5 +70,5 @@
 
 .btn-properties{
   margin: 10px;
-  width: 10rem;
+  width: 10.5rem;
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { Carousel, Row, Col, Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Properties from "./properties";
 
@@ -27,7 +26,9 @@ function Home({ properties }) {
           View Properties
         </Button>{" "}
       </Carousel>
-      <Properties properties={properties} />
+      <Container className="home-container">
+        <Properties properties={properties} />
+      </Container>
     </>
   );
 }

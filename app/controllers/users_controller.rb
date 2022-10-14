@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+    rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     def index
         users = User.all
@@ -7,13 +7,18 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
     end
 
     def show
-        user = User.find(params[:id])
-        render json: user, Serializer: :PropertyAndUserSerializer
+        @user = User.find_by(id: session[:user_id])
+        if user
+            render json: user, only: [:id, :username, :password], serializer: PropertyAndUserSerializer, status: :ok
+        else
+            render json: {error: "Not authorized"}, status: :unauthorized
+        end
     end
 
     def create
         user = User.create!(user_params)
-        render json: user, status: :created
+        session[:user_id] = user.id
+        render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
     end
 
     def destroy
@@ -24,7 +29,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
     private
     def user_params
-        params.permit(:username, :email, :password_digest)
+        params.permit(:username, :email, :password, :password_confirmation)
     end
 
     def render_unprocessable_entity_response(invalid)

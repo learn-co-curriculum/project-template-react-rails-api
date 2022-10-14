@@ -25,7 +25,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
     private
 
     def seller_params
-        params.permit(:name, :email)
+        params.permit( :message, :email)
     end
 
     def find_seller

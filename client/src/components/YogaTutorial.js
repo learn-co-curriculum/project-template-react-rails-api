@@ -1,23 +1,44 @@
-import React from 'react';
+import React,{UseState,UseEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function YogaTutorial (){
+function YogaTutorial(){
+  const [yogatutorials, setYogaTutorails] = useState([])
+  useEffect(() => {
+    const getYogaTutorials = async () => {
+    const YogaTutorials = await fetchYogaTutorials()
+    setYogaTutorails(YogaTutorials)
+    }
+    getYogaTutorials()
+}, [])
+
+const fetchYogaTutorials = async () => {
+  const res = await fetch('/yoga')
+  const data = await res.json()
+  return data
+}
+if(yogatutorials.length >0){
   return (
-     <div className="col-md-4 mt-4">
+    {yogatutorials.map((tutorial, index) => (
+    <div className="col-md-4 mt-4" key={index} yogatutorials={tutorial}  onDelete={deleteTutorial}>
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80" />
+      <Card.Img variant="top" src={tutorial.description} />
       <Card.Body>
-        <Card.Title>Cat-Cow to Awaken the Spine and Ease Back Pain
+        <Card.Title>{tutorial.name}
           <hr></hr>
-</Card.Title>
+  </Card.Title>
         <Card.Text>
-        Get on your mat on all fours with your hands directly below your shoulders and your knees directly below your hips. .
+        {tutorial.description}
         </Card.Text>
-        <Button className='rounded-0 btn-sm' variant="primary">Leave Review</Button>
+        <Button className='rounded-0 btn-sm' variant="primary">Rating</Button>
       </Card.Body>
     </Card>
      </div>
+         ))}
   )
-}
+
+    }else {
+    'No tutorials available for now'
+    }}
+
 export default YogaTutorial;

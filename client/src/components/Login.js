@@ -9,14 +9,12 @@ import React from 'react';
 // import Login from "components/Login"
 // import Signup from "components.Signup"
 
-
 const Login = (onLogin) =>{ 
 const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
 const [errors, setErrors] = useState([]);
 const [isLoading, setIsLoading] = useState(false);
 const [showLogin, setShowLogin] = useState(true);
-
 
   function handleSubmit(e) {
     e.preventDefault();

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 
@@ -6,7 +8,36 @@ import React from 'react';
 // import {useState}from "react";
 // import Login from "components/Login"
 // import Signup from "components.Signup"
-const Login = () =>{ 
+
+
+const Login = (onLogin) =>{ 
+const [username, setUsername] = useState("");
+const [password, setPassword] = useState("");
+const [errors, setErrors] = useState([]);
+const [isLoading, setIsLoading] = useState(false);
+const [showLogin, setShowLogin] = useState(true);
+
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setIsLoading(true);
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({username, password }),
+    }).then((r) => {
+      setIsLoading(false);
+      if (r.ok) {
+        r.json().then((user) => onLogin(user));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  }
+  
+
   return ( 
     <div className="container">
 
@@ -26,30 +57,36 @@ backgroundImage:"url(https://cdn.vectorstock.com/i/1000x1000/95/06/plus-size-bla
 
 <h6 className='alert alert-info rounded-0'>Please login to start your session</h6>
       <div className='card-body'>
-        <form>
+        <form  onSubmit={handleSubmit}>
           <div className='form-group'>
             <label>Username</label>
-            <input type="text" name='name' required className='form-control' />
+            <input type="text" id='username' onChange={(e) => setUsername(e.target.value)}   required className='form-control' />
             </div>
              <div className='form-group'>
             <label>Password</label>
-            <input type="text" required name='password' className='form-control' />
+            <input type="text" required name='password' onChange={(e) => setPassword(e.target.value)}  className='form-control' />
             </div>
              <div className='form-group mt-4 justify-content-right'>
-           <button type='submit' className='btn btn-md  btn-block '>Login</button>
+           <button type='submit' className='btn btn-md  btn-block '>{isLoading ? "Loading..." : "Login"}</button>
         
             </div> 
         </form> 
+        <div>
+            {errors.map((err) => (
+            <div className='alert alert-danger'key={err}>{err}</div>
+            ))}
+            </div>
+
+
       </div>
-      <div className='card-footer align-right'>Dont have an account ?
-<button type='submit' className='btn btn-md   btn-block  ' > Signup</button>
+    
       </div>
-      </div>
+
+
           
       </div>
     </div>
  
-      
 </div>
 </div>
   );

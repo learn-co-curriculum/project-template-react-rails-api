@@ -56,11 +56,9 @@ function Property() {
         });
     };
 
-    
-
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="primary" onClick={handleShow} className="btn-properties">
           Contact Seller
         </Button>
 
@@ -123,12 +121,12 @@ function Property() {
             <p>Email: {seller.email}</p>
           </div>
           <div className="property-buttons">
-            <Button variant="primary" className="btn-properties">
               <Seller />
-            </Button>
-            <Button variant="primary" className="btn-properties">
-              Continue Shopping
-            </Button>
+            <Link to={`/`}>
+              <Button variant="primary" className="btn-properties">
+                Continue Shopping
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

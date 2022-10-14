@@ -13,9 +13,8 @@ The site will be interactive and user's experience thought of as they can easily
 ## Screenshots
  ![image](./src/Assets/Screenshot3.png) 
  ![image](./src/Assets/Screenshot3.png) 
- ![image](./src/Assets/Screenshot3.png) 
- ![image](./src/Assets/Screenshot3.png) 
- ![image](./src/Assets/Screenshot3.png) 
+
+ 
 
  ## Technologies Used
 HTML5
@@ -30,4 +29,4 @@ LinkedIn Profile - [Clement Njeru]
 ***
 ## LICENSE
 MIT License
-Copyright (c) 2022 Clement Njeru
+Copyright (c) 2022 Clement Njeru Kemaro

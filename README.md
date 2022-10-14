@@ -29,4 +29,4 @@ LinkedIn Profile - [Clement Njeru]
 ***
 ## LICENSE
 MIT License
-Copyright (c) 2022 Clement Njeru Kemaro
+Copyright (c) 2022 Clement Njeru K

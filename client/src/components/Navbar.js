@@ -23,9 +23,6 @@ function Navbar1({ user, setUser }) {
             <Nav.Link className="" as={Link} to={"/"}>
               Home
             </Nav.Link>
-            <Nav.Link className="" as={Link} to={"/property"}>
-              Property
-            </Nav.Link>
             <Nav.Link className="" as={Link} to={"/about"}>
               About
             </Nav.Link>

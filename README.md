@@ -12,7 +12,6 @@ The site will be interactive and user's experience thought of as they can easily
 
 ## Screenshots
  ![image](./src/Assets/Screenshot3.png) 
- ![image](./src/Assets/Screenshot3.png) 
 
  
 

@@ -1,56 +1,88 @@
-<Container>
-        <Row className="vh-100 d-flex justify-content-center align-items-center">
-          <Col md={8} lg={6} xs={12}>
-            <div className="border border-3 border-primary"></div>
-            <Card className="shadow">
-              <Card.Body>
-                <div className="mb-3 mt-md-4">
-                  <h2 className="fw-bold mb-2 text-uppercase ">Brand</h2>
-                  <p className=" mb-5">Please enter your login and password!</p>
-                  <div className="mb-3">
-                    <Form>
-                      <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label className="text-center">
-                          Email address
-                        </Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
-                      </Form.Group>
+import { useState } from "react";
 
-                      <Form.Group
-                        className="mb-3"
-                        controlId="formBasicPassword"
-                      >
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                      </Form.Group>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="formBasicCheckbox"
-                      >
-                        <p className="small">
-                          <a className="text-primary" href="#!">
-                            Forgot password?
-                          </a>
-                        </p>
-                      </Form.Group>
-                      <div className="d-grid">
-                        <Button variant="primary" type="submit">
-                          Login
-                        </Button>
-                      </div>
-                    </Form>
-                    <div className="mt-3">
-                      <p className="mb-0  text-center">
-                        Don't have an account?{" "}
-                        <a href="{''}" className="text-primary fw-bold">
-                          Sign Up
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+
+import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+
+// import {useState}from "react";
+// import Login from "components/Login"
+// import Signup from "components.Signup"
+
+const Login = (onLogin) =>{ 
+const [username, setUsername] = useState("");
+const [password, setPassword] = useState("");
+const [errors, setErrors] = useState([]);
+const [isLoading, setIsLoading] = useState(false);
+const [showLogin, setShowLogin] = useState(true);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setIsLoading(true);
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({username, password }),
+    }).then((r) => {
+      setIsLoading(false);
+      if (r.ok) {
+        r.json().then((user) => onLogin(user));
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  }
+  
+
+  return ( 
+    <div className="container">
+
+  <div className='row'>
+  <div className='col-md-8' style={{
+    backgroundColor:"#dede",
+    opacity:"0.1",
+backgroundImage:"url(https://cdn.vectorstock.com/i/1000x1000/95/06/plus-size-black-curvy-lady-at-yoga-class-vector-32749506.webp)"  }}>
+<h1 style={{fontWeight:"900",padding:"30px"}} >YOGA ZONE</h1>
+
+  </div>
+  <div className='col-md-4'>
+
+  <div className="login-card"> 
+
+    <div className='card'>
+
+<h6 className='alert alert-info rounded-0'>Please login to start your session</h6>
+      <div className='card-body'>
+        <form  onSubmit={handleSubmit}>
+          <div className='form-group'>
+            <label>Username</label>
+            <input type="text" id='username' onChange={(e) => setUsername(e.target.value)}   required className='form-control' />
+            </div>
+             <div className='form-group'>
+            <label>Password</label>
+            <input type="text" required name='password' onChange={(e) => setPassword(e.target.value)}  className='form-control' />
+            </div>
+             <div className='form-group mt-4 justify-content-right'>
+           <button type='submit' className='btn btn-md  btn-block '>{isLoading ? "Loading..." : "Login"}</button>
+            </div> 
+        </form> 
+        <div>
+            {errors.map((err) => (
+            <div className='alert alert-danger'key={err}>{err}</div>
+            ))}
+            </div>
+      </div>
+      </div>
+          
+      </div>
+    </div>
+ 
+</div>
+</div>
+  );
+}
+
+export default Login;

@@ -1,39 +1,47 @@
-import React from 'react';
-// import Button from 'react-bootstrap/Button';
-// import Card from 'react-bootstrap/Card';
-import YogaTutorial from './YogaTutorial';
-function YogaTutorials (){
+import React, { useState, useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+const FeaturedProducts = () => {
+  const [products, setProducts] = useState([]);
+useEffect(() => {
+  fetchProducts();
+}, []);
+const fetchProducts = () => {
+  axios
+    .get('https://shoppingapiacme.herokuapp.com/shopping')
+    .then((res) => {
+      console.log(res);
+      setProducts(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+return (
+    <div className='row'>
+      <h4>Featured Yoga Tutorials</h4>
+  {products.map((product) => (
+    <div className="col-md-4 mt-4"key={product.id} >
+    <Card  >
+    <Card.Img variant="top"style={{ height: '18rem' ,padding:"15px"}} src={product.image} />
+    <Card.Body>
+    <Card.Title>{product.brand}   <hr></hr> </Card.Title>
+    <Card.Text>
+    {product.item}
+    </Card.Text>
+    <Button className='rounded-0 btn btn-dark btn-md' variant="primary">Rate</Button>
+    <Button className='rounded-0 btn btn-primary btn-md' variant="primary">Watch</Button>
+    </Card.Body>
+    </Card>
+    </div>
+        ))}
+      </div>
+ 
 
-  onst [yogatutorials, setYogaTutorails] = useState([])
-  useEffect(() => {
-    const getYogaTutorials = async () => {
-    const YogaTutorials = await fetchYogaTutorials()
-    setYogaTutorails(YogaTutorials)
-    }
-    getYogaTutorials()
-}, [])
 
-const fetchYogaTutorials = async () => {
-  const res = await fetch('/yoga')
-  const data = await res.json()
-  return data
-}
 
-<Route path='/'
-exact
-render={(props) => (
-<>
-{showAddConst && <AddConstituency  onAdd={addConstituency} onAddConst={() => setShowAddConst(!showAddConst)} showAddConst={showAddConst} />}
-
-{constituencies.length > 0 ? (
-{yogatutorials.map((tutorial, index) => (
-        <YogaTutorial key={index} constituency={constituency}   />
-      ))}
-
-) : (
-  'No constituency records found'
-)}
-</>
-
-});
-export default YogaTutorials;
+  );
+};
+export default FeaturedProducts;

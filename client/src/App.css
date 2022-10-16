@@ -68,3 +68,59 @@ border: none;
 font-weight: 700;
 
  }
+ .Background {
+  height: 100vh;
+  width: 100vw;
+  background-color: hsl(185, 75%, 39%);
+}
+
+.ProfileCard {
+  width: 350px;
+  border-radius: 20px !important;
+  border: none !important;
+}
+
+.ProfileCardBody {
+  padding-top: 3.5rem !important;
+  padding-bottom: 2rem !important;
+}
+
+.ProfileCardBackgroundImage {
+  width: 350px;
+  height: 140px;
+  border-top-left-radius: 15px  !important;
+  border-top-right-radius: 15px !important;
+}
+
+.ProfileCardImage {
+  width: 96px !important;
+  height: 96px !important;
+  margin: auto;
+  position: absolute;
+  top: 84px;
+  left: 127px;
+  border: 5px white solid;
+  border-radius: 48px !important;
+}
+
+.TextMuted {
+  font-weight: 400;
+  color: hsl(0, 0%, 59%);
+}
+
+.TextBold {
+  font-size: 18px;
+  font-weight: 700;
+
+}
+
+.CardFooter {
+  background-color: white !important;
+  border-bottom-left-radius: 15px  !important;
+  border-bottom-right-radius: 15px !important;
+}
+
+.FooterP {
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+}

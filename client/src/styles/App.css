@@ -1,0 +1,121 @@
+body {
+    background-color: cornflowerblue;
+    color: cornsilk;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  .App {
+    background-color: royalblue;
+    padding: 0 2rem 2rem;
+    max-width: 880px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    width: fit-content;
+  }
+  
+  a {
+    line-height: 1.75;
+    padding: 0.15rem 1rem;
+    text-decoration: none;
+    color: chocolate;
+    background-color: floralwhite;
+    border-radius: 16px;
+    /* border: 5px solid cornflowerblue; */
+  }
+  
+  a:hover {
+    color: cornflowerblue;
+  }
+  
+  .header {
+    background-color: rgb(95, 53, 10);
+    padding: 1.5rem 2rem 0;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .booklist-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  article.book {
+    margin: 1em;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    background-color: lavenderblush;
+    color: darkslategrey;
+  }
+  
+  h4 {
+    color: red;
+  }
+  
+  .new-book {
+    display: flex;
+    flex-direction: column;
+    min-width: 700px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+  
+  .form > label {
+    color: cornsilk;
+  }
+  
+  button {
+    margin-top: 20px;
+    width: fit-content;
+    line-height: 1.75;
+    border-radius: 6px;
+    border: none;
+  }
+  
+  input {
+    line-height: 1.75;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: none;
+    background-color: antiquewhite;
+  }
+  
+  textarea {
+    background-color: antiquewhite;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+  }
+  
+  .login {
+    padding: 2rem;
+    background-color: rgb(95, 53, 10);
+    border-radius: 6px;
+  }
+  
+  .edit > label {
+    min-width: 700px;
+    color: black;
+  }

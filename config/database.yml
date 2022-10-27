@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: react_rails_api_project_template_production
-  username: react_rails_api_project_template
-  password: <%= ENV['REACT_RAILS_API_PROJECT_TEMPLATE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

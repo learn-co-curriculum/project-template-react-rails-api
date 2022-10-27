@@ -90,17 +90,6 @@ account, created a PostgreSQL instance in your account, and set up your
 environment to deploy to Render. If you have not yet completed these steps, see
 the Environment Setup section below.
 
-### Make sure the Build Script is Executable
-
-The `bin` folder contains a `render-build.sh` file that will run the commands to
-deploy the front end and back end code on Render. To make sure the script is
-executable, run the following in the terminal from your project's root
-directory:
-
-```sh
-$ chmod a+x bin/render-build.sh
-```
-
 ### Create a Master Key File
 
 In the project files, delete the `config/credentials.yml.enc` file. Then, in the

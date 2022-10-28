@@ -122,7 +122,7 @@ remote PostgreSQL instance.
 To create the database, run this SQL command:
 
 ```sql
-CREATE DATABASE new-db-name;
+CREATE DATABASE new_db_name;
 ```
 
 Now if you run `\l` from the PSQL prompt, you should see a table that includes
@@ -282,7 +282,7 @@ brew services start postgresql
 
 ### Set Up a Render Account
 
-You can sign up at for a free account at
+You can sign up for a free account at
 [https://dashboard.render.com/register][Render signup]. We recommend that you
 sign up using GitHub as that will make it a little easier for you to connect
 Render to your GitHub account.

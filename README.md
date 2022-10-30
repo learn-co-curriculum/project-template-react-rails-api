@@ -108,6 +108,8 @@ that, you should see both the `credentials.yml.enc` and `master.key` files in
 the `config` folder. You will need the value in the `master.key` file to set up
 the web service in Render.
 
+Commit your changes and push them to GitHub.
+
 ### Create the App Database
 
 Render allows users to create [multiple databases within a single PostgreSQL

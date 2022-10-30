@@ -128,6 +128,8 @@ CREATE DATABASE new_db_name;
 Now if you run `\l` from the PSQL prompt, you should see a table that includes
 your main PostgreSQL instance as well as the database you just created.
 
+Run the `\q` command to exit PSQL.
+
 [multiple dbs]: https://render.com/docs/databases#multiple-databases-in-a-single-postgresql-instance
 [psql]: https://www.postgresql.org/docs/current/app-psql.html
 

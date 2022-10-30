@@ -289,19 +289,20 @@ brew services start postgresql
 You can sign up for a free account at
 [https://dashboard.render.com/register][Render signup]. We recommend that you
 sign up using GitHub as that will make it a little easier for you to connect
-Render to your GitHub account.
+Render to your GitHub account. The instructions below assume you've done that.
 
 [Render signup]: https://dashboard.render.com/register
 
 Once you've completed the signup process, you will be taken to the Render
 dashboard. In order to connect Render to your GitHub account, you'll need to
 click the "New Web Service" button in the "Web Services" box. On the next page,
-you will see a GitHub heading on the right side and below that a link that's
-labeled either "Connect account" or "Configure account". Click that link, then
-in the modal that appears click "Install." You should then be taken back to the
-"Create a New Web Service" page, which should now show a list of your GitHub
-repos. We won't actually create a web service just yet so you are free to
-navigate away from the page at this point.
+you will see a GitHub heading on the right side and below that a link labeled
+"Connect account". (If you didn't sign up using GitHub, it will say "Connect
+account" instead.) Click that link, then in the modal that appears click
+"Install." You should then be taken back to the "Create a New Web Service" page,
+which should now show a list of your GitHub repos. We won't actually create a
+web service just yet so you are free to navigate away from the page at this
+point.
 
 Next, we'll set up a PostgreSQL instance. Click the "New +" button at the top of
 the page and select "PostgreSQL". Enter a name for your PostgreSQL instance. The

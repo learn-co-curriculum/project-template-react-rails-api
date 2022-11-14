@@ -1,5 +1,4 @@
 # Project Template: React/Rails API
-TEST
 
 ## Description
 

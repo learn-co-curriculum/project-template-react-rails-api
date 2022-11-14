@@ -26,8 +26,8 @@ function LoginPage() {
         
         const handleLoginSubmit = (event) => {
            event.preventDefault();
-           let { user, pass } = document.forms[0]
-           const userData = database.find((user) => user.username === user.value);
+           let { uname, pass } = document.forms[0]
+           const userData = database.find((user) => user.username === uname.value);
 
            // Compare user info
            if (userData) {

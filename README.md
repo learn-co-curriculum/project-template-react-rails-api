@@ -21,7 +21,7 @@ SQLite, you will need to make the following changes in the project files:
 - Postgresql
 
 See Environment Setup below for instructions on installing these tools if you
-don't already have them.
+don't already have them..
 
 ## Setup
 

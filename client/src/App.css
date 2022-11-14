@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+#navbar {
+  border-style: dotted;
+  background-color: #aaa;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.navicons {
+  border-style: solid;
+  border-color: blue;
+  padding-left: 5%; 
+  padding-right: 5%; 
+}
+
+ul {
+  display: inline;
+}

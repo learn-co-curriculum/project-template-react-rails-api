@@ -1,3 +1,5 @@
+Sam, Tyler, Nico
+
 # Project Template: React/Rails API
 
 ## Description

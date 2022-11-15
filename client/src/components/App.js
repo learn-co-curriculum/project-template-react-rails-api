@@ -76,11 +76,11 @@ function App() {
             setBands={setBands}
             />
         </Route>
-        <Route path="/profile">
+        {/* <Route path="/profile">
           <Profile
           // user state to be added
           />
-        </Route>
+        </Route> */}
         <Route path="/login">
           <LogIn
           // user state to be added

@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -11,8 +11,36 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+
+
+/*------------ NAVBAR ---------- */
+.nav {
+  width: 100vw;
+  display: flex;
+  justify-content: left;
+  align-items:left;
+  align-content: center;
+  flex-direction: row;
+  /* position: fixed; */
+  z-index: 2;
+  max-width: 1500px;
+  backdrop-filter: blur(5px);
 }
 
+.nav a{
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 25px 0; 
+  margin: 0 25px;
+  transition: 0.2s ease-in-out;
+  color:rgb(52, 49, 49);
+}
+.nav a:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
 /*------------ Login-page ---------- */
 .login-page{
   display: flex;

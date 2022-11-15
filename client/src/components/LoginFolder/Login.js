@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = ({setUser}) => {
     const [username, setUsername] = useState("");
@@ -16,18 +17,18 @@ const Login = ({setUser}) => {
         if (r.ok) {
           r.json().then((user) => setUser(user));
         }
+        ////NEED TO DO ERROR HANDLING AND USER_ID stuff to auth on frontend
       });
     }
   
   return (
-    <div>
-    <form onSubmit={handleSubmit}>
+    <div className='login-page'>
+    <form className='login-form' onSubmit={handleSubmit}>
       <h1>Login</h1>
       <label htmlFor="username">Username</label>
       <input
         type="text"
         id="username"
-        autoComplete="off"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
@@ -35,15 +36,19 @@ const Login = ({setUser}) => {
       <input
         type="password"
         id="password"
-        autoComplete="current-password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
       <button type="submit">Login</button>
     </form>
+
+    <p>Don't have an account?</p>
+    <Link to='/signup'>
+      <button>Sign Up!</button>
+    </Link>
     </div>
-   
-  )
+   )
+
 }
 
 export default Login

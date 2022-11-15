@@ -1,8 +1,15 @@
 import React from 'react'
+import Stubs from './Stubs'
 
-const StubContainer = () => {
+const StubContainer = ({user}) => {
+  const stubs = user.concerts
+  function isStub(date){
+    return date < Date.today
+  }
+  const stubsList = stubs.filter(isStub)
+
   return (
-    <div>StubContainer</div>
+    <div>{stubsList}</div>
   )
 }
 

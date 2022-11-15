@@ -23,9 +23,9 @@ v3 = Venue.create(city: "NYC", name: "The Roxy", logo_url: "link")
 v4 = Venue.create(city: "NYC", name: "The Roxy", logo_url: "link")
 
 puts '🌙 Seeding concerts...'
-c1 = Concert.create(comment: "NA", tickets_remaining: 5, date: "2015-08-08", user_id: u1.id, venue_id: v1.id, band_id: b1.id)
-c2 = Concert.create(comment: "NA", tickets_remaining: 5, date: "2015-08-08", user_id: u2.id, venue_id: v2.id, band_id: b2.id)
-c3 = Concert.create(comment: "NA", tickets_remaining: 5, date: "2015-08-08", user_id: u3.id, venue_id: v3.id, band_id: b3.id)
-c4 = Concert.create(comment: "NA", tickets_remaining: 5, date: "2015-08-08", user_id: u4.id, venue_id: v4.id, band_id: b4.id)
+c1 = Concert.create(comment: "NA", tickets_remaining: 5, date: "2015-08-08".to_date, user_id: u1.id, venue_id: v1.id, band_id: b1.id)
+c2 = Concert.create(comment: "NA", tickets_remaining: 5, date: "2015-08-08".to_date, user_id: u2.id, venue_id: v2.id, band_id: b2.id)
+c3 = Concert.create(comment: "NA", tickets_remaining: 5, date: "2015-08-08".to_date, user_id: u3.id, venue_id: v3.id, band_id: b3.id)
+c4 = Concert.create(comment: "NA", tickets_remaining: 5, date: "2015-08-08".to_date, user_id: u4.id, venue_id: v4.id, band_id: b4.id)
 
 puts '🌙 Done seeding!'

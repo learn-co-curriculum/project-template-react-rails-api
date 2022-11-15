@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import "../App.css";
 import { useState, useEffect } from "react";
 import SearchBar from './SearchBar';
@@ -11,7 +10,6 @@ function App() {
   console.log(bands);
   console.log(venues)
   console.log(concerts)
-  x
 
 
   useEffect(() => {
@@ -32,7 +30,24 @@ function App() {
       .then((data) => setConcerts(data));
   }, []);
 
-  return <div className="App"></div>;
+  const [search, setSearch] = useState("")
+
+  const displayedBands = bands.filter((band) =>
+    band.name.toLowerCase().includes(search.toLowerCase()) ||
+    band.genre.toLowerCase().includes(search.toLowerCase()) ||
+    band.secondary_genre.toLowerCase().includes(search.toLowerCase())
+  )
+
+  const displayedVenues = venues.filter((venue) =>
+    venue.name.toLowerCase().includes(search.toLowerCase()) ||
+    venue.city.toLowerCase().includes(search.toLowerCase())
+  )
+
+  return (
+    <div className="App">
+      <SearchBar search={search} setSearch={setSearch} />
+    </div>
+  );
 
 }
 

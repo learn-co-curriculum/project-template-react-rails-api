@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Concerts = () => {
+const Concerts = ({concerts, setConcerts, venues, setVenues}) => {
   return (
     <div>Concerts</div>
   )

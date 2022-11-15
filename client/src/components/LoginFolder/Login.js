@@ -48,7 +48,6 @@ const Login = ({setUser}) => {
     </Link>
     </div>
    )
-
 }
 
 export default Login

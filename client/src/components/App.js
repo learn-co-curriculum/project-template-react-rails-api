@@ -6,11 +6,17 @@ import SearchBar from "./SearchBar";
 import Home from "./Home";
 import Bands from "./Bands";
 import Profile from "./Profile";
+import Concerts from "./Concerts";
+import LogIn from "./LogIn";
+import SignUp from "./SignUp";
 
 function App() {
   const [bands, setBands] = useState([]);
   const [venues, setVenues] = useState([]);
   const [concerts, setConcerts] = useState([]);
+  const [search, setSearch] = useState("");
+  // user state to be added
+
 
   console.log(bands);
   console.log(venues);
@@ -34,7 +40,6 @@ function App() {
       .then((data) => setConcerts(data));
   }, []);
 
-  const [search, setSearch] = useState("");
 
   const displayedBands = bands.filter(
     (band) =>
@@ -57,11 +62,34 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
+        <Route path="/concerts">
+          <Concerts
+            concerts={concerts}
+            setConcerts={setConcerts}
+            venues={displayedVenues}
+            setVenues={setVenues}
+            />
+        </Route>
         <Route path="/bands">
-          <Bands />
+          <Bands
+            bands={displayedBands}
+            setBands={setBands}
+            />
         </Route>
         <Route path="/profile">
-          <Profile />
+          <Profile
+          // user state to be added
+          />
+        </Route>
+        <Route path="/login">
+          <LogIn
+          // user state to be added
+          />
+        </Route>
+        <Route path="/signup">
+          <SignUp
+            // user state to be added
+          />
         </Route>
       </Switch>
     </div>

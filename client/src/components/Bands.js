@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Bands = () => {
+const Bands = ({bands, setBands}) => {
   return (
     <div>Bands</div>
   )

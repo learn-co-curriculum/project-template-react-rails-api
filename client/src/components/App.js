@@ -1,5 +1,7 @@
+import React, { useState } from 'react';
 import "../App.css";
 import { useState, useEffect } from "react";
+import SearchBar from './SearchBar';
 
 function App() {
   const [bands, setBands] = useState([]);
@@ -31,6 +33,7 @@ function App() {
   }, []);
 
   return <div className="App"></div>;
+
 }
 
 export default App;

@@ -1,12 +1,35 @@
-import '../App.css';
-import React, { useState, useEffect } from "react";
+import "../App.css";
+import { useState, useEffect } from "react";
 
 function App() {
-  const [band, setBands] = useEffect([])
-  return (
-    <div className="App">
-    </div>
-  );
+  const [bands, setBands] = useState([]);
+  const [venues, setVenues] = useState([]);
+  const [concerts, setConcerts] = useState([]);
+
+  console.log(bands);
+  console.log(venues)
+  console.log(concerts)
+
+
+  useEffect(() => {
+    fetch("/bands")
+      .then((res) => res.json())
+      .then((data) => setBands(data));
+  }, []);
+
+  useEffect(() => {
+    fetch("/venues")
+      .then((res) => res.json())
+      .then((data) => setVenues(data));
+  }, []);
+
+  useEffect(() => {
+    fetch("/concerts")
+      .then((res) => res.json())
+      .then((data) => setConcerts(data));
+  }, []);
+
+  return <div className="App"></div>;
 }
 
 export default App;

@@ -17,7 +17,7 @@ function App() {
   const [search, setSearch] = useState("");
 
   console.log(bands);
-  console.log(concerts)
+  console.log(concerts);
   // user state to be added
 
   useEffect(() => {
@@ -37,6 +37,10 @@ function App() {
       .then((res) => res.json())
       .then((data) => setConcerts(data));
   }, []);
+
+  function onAddBand(newBand) {
+    setBands([...bands, newBand]);
+  }
 
   const displayedBands = bands.filter(
     (band) =>
@@ -71,7 +75,7 @@ function App() {
           <Bands
             filteredBands={displayedBands}
             featuredBands={bands}
-            setBands={setBands}
+            onAddBand={onAddBand}
           />
         </Route>
         {/* <Route path="/profile">

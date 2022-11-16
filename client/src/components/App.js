@@ -44,6 +44,21 @@ function App() {
       .then((data) => setConcerts(data));
   }, []);
 
+  //   useEffect(()=>{
+  //     fetch(`/users/${id}`)
+  //     .then(res => {
+  //         if(res.ok){
+  //             res.json().then(user => {
+  //                 setUser(user)
+  //                 setLoading(false)
+  //             })
+  //         }else {
+  //             res.json().then(data => setErrors(data.error))
+  //         }
+  //     })
+
+  // },[])
+
   function onAddBand(newBand) {
     setBands([...bands, newBand]);
   }

@@ -75,3 +75,125 @@ max-width: 100%;
   display: flex;
   justify-content: center;
 }
+
+/* stub css start */
+
+/* .ticket-stubs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+} */
+
+.ticket {
+  font-family: sans-serif;
+
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+  background-color: #04030C;
+  width: 437px;
+  height: 190px;
+  border-radius: 15px;
+  -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+  display: block;
+  margin: 10% auto auto auto;
+  color: #fff;;
+
+}
+
+.date {
+  margin: 15px;
+  -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+}
+
+.date .day{
+  font-size: 25px;
+  float: left;
+  margin-left: 3px;
+  margin-right: 8px;
+}
+
+.date .month-and-time {
+  float: left;
+  margin: 10px 0 0 0;
+}
+
+.artist {
+  font-size: 30px;
+  position: absolute;
+  margin: 50px 40px 0 80px;
+  float: left;
+  font-weight: bold;
+  -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+}
+
+.location {
+  /* float: left; */
+  margin: 20px 50px 0 180px;
+  padding-top: 125px;
+  font-size: 20px;
+  font-weight: bold;
+  -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+}
+
+.location::before {
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/cb/QRCodeWikipedia.png');
+  background-size: 50px 50px;
+  width: 50px;
+  height: 50px;
+  content:"";
+  /* display: inline-block; */
+  float: left;
+  position: absolute;
+  left: -170px;
+  bottom: 10px;
+  -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+}
+
+.rip {
+  border-right: 8px dotted #ffffff;
+  height: 190px;
+  position: absolute;
+  top: 0;
+  left: 350px;
+}
+
+.cta .buy {
+  position: absolute;
+  top: 80px;
+  right: -10px;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #000000;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: #fff;
+  text-decoration: none;
+  -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+  -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+}
+
+.small {
+  font-weight: 200;
+}
+
+/* option 1 */
+/* .ticket-1 {
+    background-image: url(https://images.unsplash.com/photo-1483101974978-cf266fdf1139?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3289&q=80);
+} */
+
+.ticket-1{
+    background-image: url(https://images.unsplash.com/photo-1550184658-ff6132a71714?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2180&q=80);
+}
+
+/* stub css end */
+

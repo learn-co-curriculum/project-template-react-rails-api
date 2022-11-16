@@ -83,7 +83,9 @@ function App() {
           <NavLink to="/bands">Bands</NavLink>
           <br></br>
           <NavLink to="/profile">Profile</NavLink>
+          <br></br>
           {user ? null : <NavLink to="/login">LogIn</NavLink>}
+          <br></br>
           <NavLink to="/signup">SignUp</NavLink>
         </Navbar>
       }

@@ -58,7 +58,7 @@ const ConcertCard = ( {key, id, date, band, image, venue_name, venue_city, ticke
 </Text>
 
 <Button variant="light" color="red" fullWidth mt="md" radius="md">
-{tickets_remaining = 0 ? "SOLD OUT" : <a href={ticket_link} alt="Tickets">Buy tickets</a>}
+{tickets_remaining = 0 ? "SOLD OUT" : <a href={ticket_link} alt="Tickets">Add to my concerts</a>}
 </Button>
 </Card>
   )

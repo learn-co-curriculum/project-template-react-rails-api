@@ -1,6 +1,7 @@
 import "../App.css";
 import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import NavBar from "./NavBar";
 import SearchBar from "./SearchBar";
 import Home from "./Home";
@@ -15,6 +16,9 @@ function App() {
   const [venues, setVenues] = useState([]);
   const [concerts, setConcerts] = useState([]);
   const [search, setSearch] = useState("");
+  const [user, setUser] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [errors, setErrors] = useState(false);
 
   console.log(bands);
   console.log(concerts);
@@ -41,6 +45,21 @@ function App() {
   function onAddBand(newBand) {
     setBands([...bands, newBand]);
   }
+
+  const params = useParams();
+  const { id } = params;
+  useEffect(() => {
+    fetch(`/users/${id}`).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setUser(user);
+          setLoading(false);
+        });
+      } else {
+        res.json().then((data) => setErrors(data.error));
+      }
+    });
+  }, []);
 
   const displayedBands = bands.filter(
     (band) =>
@@ -94,6 +113,9 @@ function App() {
           />
         </Route>
       </Switch>
+      {user.name}
+      if(loading) return <h1>Loading</h1>
+      if(errors) return <h1>{errors}</h1>
     </div>
   );
 }

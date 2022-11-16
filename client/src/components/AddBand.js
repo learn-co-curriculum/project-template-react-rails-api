@@ -19,6 +19,8 @@ const AddBand = ({ onAddBand }) => {
       hometown: hometown,
     };
 
+    console.log(errors);
+
     fetch("/bands", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -34,7 +36,7 @@ const AddBand = ({ onAddBand }) => {
       } else {
         res.json().then((data) => {
           console.log(data.errors);
-          setErrors(Object.entries(data.errors).map((e) => `${e[0]} ${e[1]}`));
+          setErrors(Object.entries(data.errors).map((e) => ` ${e[1]}`));
         });
       }
     });

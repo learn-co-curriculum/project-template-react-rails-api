@@ -4,6 +4,7 @@ function LoginPage( { onLogin, onRegisterClick } ) {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
   function registerClick() {
     onRegisterClick(true)
@@ -27,7 +28,7 @@ function LoginPage( { onLogin, onRegisterClick } ) {
         if (res.ok) {
           res.json().then(onLogin)
         } else {
-          res.json().then(event => console.log(event.errror))
+          res.json().then(event => alert(event.error))
         }
       })
   }

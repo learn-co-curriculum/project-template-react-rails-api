@@ -4,36 +4,45 @@ function RegisterPage({ onLogin, onCancelClick }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const [errors, setErrors] = useState([]);
 
     function handleRegister(event) {
         event.preventDefault();
         const user = {
             username,
             password,
-            password_confirmation: passwordConfirmation,
         }
-        fetch("/register", {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user),
-        })
+        if (password === passwordConfirmation) {
+            fetch("/register", {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user),
+            })
             .then(res => {
                 if (res.ok) {
                     res.json().then(onLogin)
                 } else {
-                    res.json().then(event => console.log(event.errror))
+                    res.json().then(event => alert(event.error))
                 }
             })
+        } else {
+            setUsername("")
+            setPassword("")
+            setPasswordConfirmation("")
+            alert("Yo your PASSWORD don't match DAWG")
+        }
     }
+
+
     function cancelClick() {
         onCancelClick(false)
     }
 
     return (
-        <form onSubmit={handleRegister}>
+        <form onSubmit={handleRegister} id="register-form">
             <label htmlFor="username">Username:</label>
             <input
                 type="text"
@@ -58,7 +67,7 @@ function RegisterPage({ onLogin, onCancelClick }) {
             <button type="submit">Register</button>
             <button type="button" onClick={cancelClick}>Cancel</button>
         </form>
-      );
+    );
 }
 
 export default RegisterPage

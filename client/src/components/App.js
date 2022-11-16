@@ -15,12 +15,10 @@ function App() {
   const [venues, setVenues] = useState([]);
   const [concerts, setConcerts] = useState([]);
   const [search, setSearch] = useState("");
-  // user state to be added
-
 
   console.log(bands);
-  console.log(venues);
-  console.log(concerts);
+  console.log(concerts)
+  // user state to be added
 
   useEffect(() => {
     fetch("/bands")
@@ -39,7 +37,6 @@ function App() {
       .then((res) => res.json())
       .then((data) => setConcerts(data));
   }, []);
-
 
   const displayedBands = bands.filter(
     (band) =>
@@ -68,13 +65,14 @@ function App() {
             setConcerts={setConcerts}
             venues={displayedVenues}
             setVenues={setVenues}
-            />
+          />
         </Route>
         <Route path="/bands">
           <Bands
-            bands={displayedBands}
+            filteredBands={displayedBands}
+            featuredBands={bands}
             setBands={setBands}
-            />
+          />
         </Route>
         <Route path="/profile">
           <Profile
@@ -88,7 +86,7 @@ function App() {
         </Route>
         <Route path="/signup">
           <SignUp
-            // user state to be added
+          // user state to be added
           />
         </Route>
       </Switch>

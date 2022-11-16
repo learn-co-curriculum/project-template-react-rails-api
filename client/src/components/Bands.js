@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import BandContainer from "./BandContainer";
+import FeaturedBandsContainer from "./FeaturedBandsContainer";
 
-const Bands = ({bands, setBands}) => {
+const Bands = ({ featuredBands, filteredBands, setBands }) => {
   return (
-    <div>Bands</div>
-  )
-}
+    <>
+      <FeaturedBandsContainer bands={featuredBands} />
+      <BandContainer bands={filteredBands} />
+    </>
+  );
+};
 
-export default Bands
+export default Bands;

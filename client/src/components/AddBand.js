@@ -96,6 +96,7 @@ const AddBand = ({ onAddBand }) => {
             </h2>
           ))
         : null}
+        
     </>
   );
 };

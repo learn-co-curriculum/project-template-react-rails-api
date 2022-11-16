@@ -10,22 +10,32 @@ function NavBar({ onLogout }) {
 
   return (
     <div>
-      <nav id="navbar">
+      <nav className="nav-bar" id="navbar">
         <NavLink to="/">
-          <ul className="navicons">Calendar</ul>
+          <a href="#calendar" className="navicons">
+            Calendar
+          </a>
         </NavLink>
         <NavLink to="/profile">
-          <ul className="navicons">User</ul>
+          <a href="#user-profile" className="navicons">
+            User
+          </a>
         </NavLink>
         <NavLink to="/workouts">
-          <ul className="navicons">Workouts</ul>
+          <a href="#workouts" className="navicons">
+            Workouts
+          </a>
         </NavLink>
         <NavLink to="/meals">
-          <ul className="navicons">Meals</ul>
+          <a href="#meals" className="navicons">
+            Meals
+          </a>
         </NavLink>
-        <ul className="navicons" onClick={handleLogout}>
-          Log out
-        </ul>
+        <NavLink to="/">
+          <a href="#log-out" className="navicons" onClick={handleLogout}>
+            Log out
+          </a>
+        </NavLink>
       </nav>
     </div>
   );

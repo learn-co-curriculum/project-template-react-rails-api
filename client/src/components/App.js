@@ -117,6 +117,8 @@ function App() {
               setConcerts={setConcerts}
               venues={displayedVenues}
               setVenues={setVenues}
+              user={user}
+              bands={bands}
             />
           </Route>
           <Route path="/bands">

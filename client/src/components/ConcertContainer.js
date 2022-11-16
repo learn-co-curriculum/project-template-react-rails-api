@@ -14,7 +14,7 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
     user.genre_3 === band.secondary_genre
   })
 
-  console.log(filteredBands)
+
   
 const displayed = filteredBands.map((band) => {
   return concerts.map((concert) => {

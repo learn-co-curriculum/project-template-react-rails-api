@@ -3,7 +3,7 @@ import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
 
 const BandCard = ({ band }) => {
     return (
-    <Card shadow="sm" p="lg" radius="md" withBorder>
+    <Card shadow="sm" p="lg" radius="md" withBorder className="card">
       <Card.Section>
         <Image
           src={band.image_url}

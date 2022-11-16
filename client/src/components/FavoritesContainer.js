@@ -6,7 +6,6 @@ const FavoritesContainer = ({genre_1, genre_2, genre_3, favorite_band}) => {
       <div>
         <h1>My favorite band</h1>
         <h3>{favorite_band}</h3>
-        {/* use Martine to let users upload band image? */}
       </div>
 
       <div>

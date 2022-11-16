@@ -39,16 +39,15 @@
 
 .search {
   margin-left: 70%;
-  padding: 30px;
+  padding: 10px;
 }
 
 .search-input {
   padding: 15px;
 }
 
-/* .card {
-  margin-left: 2%;
-  margin-right: 2%;
+.card {
+  margin: 2%;
   padding-left: 20px;
   padding-right: 5px;
   padding-top: 25px;
@@ -60,4 +59,19 @@
   vertical-align: middle;
   border-radius: 3px;
   box-sizing: border-box;
-} */
+}
+
+img {
+max-width: 100%;
+}
+
+.homepage-card {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 3px;
+}
+
+.homepage-flex {
+  display: flex;
+  justify-content: center;
+}

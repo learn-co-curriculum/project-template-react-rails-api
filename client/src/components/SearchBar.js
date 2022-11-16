@@ -3,7 +3,7 @@ import { useState } from 'react';
 function SearchBar({ search, setSearch }) {
     return (
         <div className='search'>
-            <input
+            <input className='search-input'
                 type='text'
                 id='search'
                 placeholder='Search by band, venue, or city'

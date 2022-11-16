@@ -21,7 +21,7 @@ import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
 // export default ConcertCard
 
 
-const ConcertCard = ( {key, id, date, band, image, venue_name, venue_city, tickets_remaining, ticket_link, comment} ) => {
+const ConcertCard = ( {key, id, date, band, image, venue_name, venue_city, venue_state, tickets_remaining, ticket_link, comment} ) => {
 
   return (
     // <div>
@@ -54,7 +54,7 @@ const ConcertCard = ( {key, id, date, band, image, venue_name, venue_city, ticke
   {date}
 </Text>
 <Text size="sm" color="dimmed">
-  {venue_name}, {venue_city}
+  {venue_name}, {venue_city}, {venue_state}
 </Text>
 
 <Button variant="light" color="red" fullWidth mt="md" radius="md">

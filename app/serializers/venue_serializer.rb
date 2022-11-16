@@ -1,3 +1,3 @@
 class VenueSerializer < ActiveModel::Serializer
-  attributes :id, :city, :name, :logo_url
+  attributes :id, :city, :state, :name, :logo_url
 end

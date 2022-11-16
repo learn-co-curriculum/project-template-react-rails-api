@@ -20,6 +20,7 @@ function App() {
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState(false);
+  console.log(user);
 
   console.log(bands);
   console.log(concerts);
@@ -47,21 +48,6 @@ function App() {
     setBands([...bands, newBand]);
   }
 
-  const params = useParams();
-  const { id } = params;
-  useEffect(() => {
-    fetch(`/users/${id}`).then((res) => {
-      if (res.ok) {
-        res.json().then((user) => {
-          setUser(user);
-          setLoading(false);
-        });
-      } else {
-        res.json().then((data) => setErrors(data.error));
-      }
-    });
-  }, []);
-
   const displayedBands = bands.filter(
     (band) =>
       band.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -75,6 +61,16 @@ function App() {
       venue.city.toLowerCase().includes(search.toLowerCase())
   );
 
+  function handleLogin(addUser) {
+    setUser(addUser);
+  }
+
+  function logOut() {
+    fetch("/logout", {
+      method: "DELETE",
+    });
+    setUser(null);
+  }
   return (
     <AppShell
       padding="md"
@@ -87,9 +83,7 @@ function App() {
           <NavLink to="/bands">Bands</NavLink>
           <br></br>
           <NavLink to="/profile">Profile</NavLink>
-          <br></br>
-          <NavLink to="/login">LogIn</NavLink>
-          <br></br>
+          {user ? null : <NavLink to="/login">LogIn</NavLink>}
           <NavLink to="/signup">SignUp</NavLink>
         </Navbar>
       }
@@ -108,6 +102,8 @@ function App() {
       })}
     >
       <div className="App">
+        {user ? user.username : null}{" "}
+        {user ? <button onClick={logOut}>Log Out</button> : null}
         {/* <NavBar /> */}
         <SearchBar search={search} setSearch={setSearch} />
         <Switch>
@@ -120,6 +116,8 @@ function App() {
               setConcerts={setConcerts}
               venues={displayedVenues}
               setVenues={setVenues}
+              user={user}
+              bands={bands}
             />
           </Route>
           <Route path="/bands">
@@ -137,7 +135,8 @@ function App() {
         </Route>
           <Route path="/login">
             <LogIn
-            // user state to be added
+              handleLogin={handleLogin}
+              // user state to be added
             />
           </Route>
           <Route path="/signup">
@@ -146,9 +145,6 @@ function App() {
             />
           </Route>
         </Switch>
-        <h1>{user.username}</h1>
-        if(loading) return <h1>Loading</h1>
-        if(errors) return <h1>{errors}</h1>
       </div>
     </AppShell>
   );

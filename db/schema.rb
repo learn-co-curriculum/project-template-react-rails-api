@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_14_212800) do
+ActiveRecord::Schema.define(version: 2022_11_15_210418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2022_11_14_212800) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "link"
     t.index ["band_id"], name: "index_concerts_on_band_id"
     t.index ["user_id"], name: "index_concerts_on_user_id"
     t.index ["venue_id"], name: "index_concerts_on_venue_id"

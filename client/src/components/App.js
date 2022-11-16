@@ -1,7 +1,7 @@
 import "../App.css";
 import { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { Switch, Route, NavLink } from "react-router-dom";
 import NavBar from "./NavBar";
 import SearchBar from "./SearchBar";
 import Home from "./Home";
@@ -10,6 +10,10 @@ import Profile from "./Profile";
 import Concerts from "./Concerts";
 import LogIn from "./LogIn";
 import SignUp from "./SignUp";
+import { AppShell, Navbar, Header } from '@mantine/core';
+
+
+
 
 function App() {
   const [bands, setBands] = useState([]);
@@ -75,8 +79,23 @@ function App() {
   );
 
   return (
+    <AppShell
+      padding="md"
+      navbar={<Navbar width={{ base: 200 }} height={500} p="xs">
+          <NavLink exact to="/">Home</NavLink>
+          <NavLink to="/concerts">Concerts</NavLink>
+          <NavLink to="/bands">Bands</NavLink>
+          <NavLink to="/profile">Profile</NavLink>
+          <NavLink to="/login">LogIn</NavLink>
+          <NavLink to="/signup">SignUp</NavLink>
+        </Navbar>}
+      header={<Header height={60} p="xl">Concert Tracker</Header>}
+      styles={(theme) => ({
+        main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
+      })}
+    >
     <div className="App">
-      <NavBar />
+      {/* <NavBar /> */}
       <SearchBar search={search} setSearch={setSearch} />
       <Switch>
         <Route exact path="/">
@@ -117,6 +136,7 @@ function App() {
       if(loading) return <h1>Loading</h1>
       if(errors) return <h1>{errors}</h1>
     </div>
+    </AppShell>
   );
 }
 

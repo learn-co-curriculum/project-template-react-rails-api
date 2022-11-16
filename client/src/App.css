@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.search {
+  margin-left: 70%;
+  padding: 30px;
+}
+
+.search-input {
+  padding: 15px;
+}
+
+/* .card {
+  margin-left: 2%;
+  margin-right: 2%;
+  padding-left: 20px;
+  padding-right: 5px;
+  padding-top: 25px;
+  padding-bottom: 30px;
+  flex: 1 300px;
+  max-width: 25%;
+  min-width: 325px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 3px;
+  box-sizing: border-box;
+} */

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ConcertCard from './ConcertCard'
+import { Flex, Button } from '@mantine/core';
+
 
 const ConcertContainer = ( {concerts, setConcerts, displayedVenues, setVenues} ) => {
 
@@ -21,9 +23,11 @@ const ConcertContainer = ( {concerts, setConcerts, displayedVenues, setVenues} )
   })
 
   return (
+    <Flex>
     <div>
       {displayedConcerts}
     </div>
+    </Flex>
   )
 }
 

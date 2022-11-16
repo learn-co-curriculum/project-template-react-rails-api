@@ -2,8 +2,6 @@ import React from 'react'
 import GlobalPlantCard from './GlobalPlantCard'
 const GlobalPlantsList = ({plantPosts}) => {
 
-  console.log(plantPosts)
-  
   const renderGlobalPlantCards = plantPosts.map((oneGlobalCard)=>{
     return (
       <GlobalPlantCard 
@@ -18,6 +16,7 @@ const GlobalPlantsList = ({plantPosts}) => {
       />
     )
   })
+  
   return (
     <div>{renderGlobalPlantCards}</div>
   )

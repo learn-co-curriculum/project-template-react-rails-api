@@ -6,9 +6,9 @@ const GlobalPlantCard = ({name, image,indoor, pet_safe, state, username}) => {
       <h3>{name}</h3>
       <img src={image} alt={name} />
       <p>{username}</p>
-      <p>{indoor}</p>
-      <p>{pet_safe}</p>
-      <p>{state}</p>
+      <p>{indoor ? "Indoor Plant" : "Outdoor Plant"}</p>
+      <p>{pet_safe ? "Pet Safe ✅" : "Unsafe for Pets"}</p>
+      <p>Location: {state}</p>
 
   </div>
   )

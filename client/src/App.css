@@ -79,8 +79,33 @@
 }
 .login-form input, .signup-form input{
   padding: 5px;
-  border: 2px solid var(--main-gold);
+  border: 2px solid;
   border-radius: 5px;
+}
+
+
+/*------------ Plant-Form ---------- */
+.plant-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.plant-form input{
+  padding: 5px;
+  border: 2px solid;
+  border-radius: 5px;
+  margin: 10px 5px;
+}
+
+.plant-form button {
+  margin-top: 20px;
+}
+.plant-form select {
+  margin-top: 20px;
 }
 
 

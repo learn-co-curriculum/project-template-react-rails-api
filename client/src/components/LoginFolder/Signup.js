@@ -29,7 +29,6 @@ const Signup = ({ setUser, fetchGlobalPlants }) => {
       } else {
         res.json().then((err) => setErrors(err.errors))
       }
-      ////NEED TO DO ERROR HANDLING AND USER_ID stuff to auth on frontend
     });
   }
 

@@ -1,6 +1,7 @@
 import "../App.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Switch, Route, NavLink } from "react-router-dom";
 import NavBar from "./NavBar";
 import SearchBar from "./SearchBar";
@@ -20,7 +21,9 @@ function App() {
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState(false);
-  console.log(user);
+
+  const history = useHistory();
+  console.log("hello", user);
 
   console.log(bands);
   console.log(concerts);
@@ -44,23 +47,24 @@ function App() {
       .then((data) => setConcerts(data));
   }, []);
 
-  //   useEffect(()=>{
-  //     fetch(`/users/${id}`)
-  //     .then(res => {
-  //         if(res.ok){
-  //             res.json().then(user => {
-  //                 setUser(user)
-  //                 setLoading(false)
-  //             })
-  //         }else {
-  //             res.json().then(data => setErrors(data.error))
-  //         }
-  //     })
-
-  // },[])
+  useEffect(() => {
+    fetch(`/me`).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setUser(user);
+        });
+      } else {
+        res.json().then((data) => setErrors(data.error));
+      }
+    });
+  }, []);
 
   function onAddBand(newBand) {
     setBands([...bands, newBand]);
+  }
+
+  function handleNewStub(addedStub) {
+    console.log(addedStub);
   }
 
   const displayedBands = bands.filter(
@@ -84,6 +88,7 @@ function App() {
     fetch("/logout", {
       method: "DELETE",
     });
+    history.push(`/`);
     setUser(null);
   }
   return (
@@ -91,7 +96,9 @@ function App() {
       padding="md"
       navbar={
         <Navbar width={{ base: 150 }} height={1000} p="xs">
-          <NavLink exact to="/">Home</NavLink>
+          <NavLink exact to="/">
+            Home
+          </NavLink>
           <br></br>
           <NavLink to="/concerts">Concerts</NavLink>
           <br></br>
@@ -99,7 +106,7 @@ function App() {
           <br></br>
           <NavLink to="/profile">Profile</NavLink>
           {user ? null : <NavLink to="/login">LogIn</NavLink>}
-          <NavLink to="/signup">SignUp</NavLink>
+          {user ? null : <NavLink to="/signup">SignUp</NavLink>}
         </Navbar>
       }
       header={
@@ -133,6 +140,7 @@ function App() {
               setVenues={setVenues}
               user={user}
               bands={bands}
+              handleNewStub={handleNewStub}
             />
           </Route>
           <Route path="/bands">
@@ -143,11 +151,8 @@ function App() {
             />
           </Route>
           <Route path="/profile">
-          <Profile
-          user={user}
-          setUser={setUser}
-          />
-        </Route>
+            <Profile user={user} />
+          </Route>
           <Route path="/login">
             <LogIn
               handleLogin={handleLogin}

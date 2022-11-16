@@ -7,7 +7,7 @@ import Badge from '@mui/material/Badge';
 import { PickersDay } from '@mui/x-date-pickers/PickersDay';
 
 
-function Calender(){
+function Calendar(){
         const [value, setValue] = useState(new Date());
         const [highlightedDays, setHighlightedDays] = useState([]);
         return (
@@ -40,4 +40,4 @@ function Calender(){
           </LocalizationProvider>
         )
 }
-export default Calender
+export default Calendar;

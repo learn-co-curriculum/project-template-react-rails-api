@@ -77,6 +77,19 @@
     0 12px 12px rgba(128, 128, 128, 0.35);
 }
 
+.meals-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.welcome {
+  margin-top: 100px;
+  font-family: Verdana, sans-serif;
+  text-align: center; 
+}
+
 /* .navicons {
   border-style: solid;
   border-radius: 15%;

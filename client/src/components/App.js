@@ -79,14 +79,17 @@ function App() {
     <AppShell
       padding="md"
       navbar={
-        <Navbar width={{ base: 200 }} height={500} p="xs">
-          <NavLink exact to="/">
-            Home
-          </NavLink>
+        <Navbar width={{ base: 150 }} height={1000} p="xs">
+          <NavLink exact to="/">Home</NavLink>
+          <br></br>
           <NavLink to="/concerts">Concerts</NavLink>
+          <br></br>
           <NavLink to="/bands">Bands</NavLink>
+          <br></br>
           <NavLink to="/profile">Profile</NavLink>
+          <br></br>
           <NavLink to="/login">LogIn</NavLink>
+          <br></br>
           <NavLink to="/signup">SignUp</NavLink>
         </Navbar>
       }
@@ -126,11 +129,12 @@ function App() {
               onAddBand={onAddBand}
             />
           </Route>
-          {/* <Route path="/profile">
+          <Route path="/profile">
           <Profile
-          // user state to be added
+          user={user}
+          setUser={setUser}
           />
-        </Route> */}
+        </Route>
           <Route path="/login">
             <LogIn
             // user state to be added

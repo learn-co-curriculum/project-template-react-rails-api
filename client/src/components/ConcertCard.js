@@ -34,7 +34,7 @@ const ConcertCard = ( {key, id, date, band, image, venue_name, venue_city, ticke
     //   <h5>{tickets_remaining = 0 ? "SOLD OUT" : <Button variant="outline" color="indigo"><a href={ticket_link} alt="Tickets">Buy tickets</a></Button>}</h5>
     // </div>
 
-<Card shadow="sm" p="lg" radius="md" withBorder>
+<Card shadow="sm" p="lg" radius="md" withBorder className='card'>
 <Card.Section>
   <Image
     src={image}

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   resources :venues
   resources :concerts
   resources :users

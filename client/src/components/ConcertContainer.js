@@ -5,7 +5,7 @@ import { Flex, Button } from '@mantine/core';
 
 const ConcertContainer = ( {concerts, setConcerts, displayedVenues, setVenues} ) => {
 
-  const displayedConcerts = concerts.map((concert) => {
+  const displayedConcerts = concerts?.map((concert) => {
     return (
       <ConcertCard
         key={concert.id}

@@ -1,12 +1,12 @@
 import React from "react";
 
 const FeaturedBandCard = ({ band, concerts }) => {
-  debugger;
   return (
     <div>
       {concerts.length > 0 ? (
         <div>
-          {band.name} {band.image_url}
+          {band.name}
+          <img src={band.image_url} alt={band.name} />
         </div>
       ) : null}
     </div>

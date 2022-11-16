@@ -1,6 +1,8 @@
 import React from 'react'
 
-const ReviewPlantsList = () => {
+const ReviewPlantsList = ({ reviews }) => {
+
+  
   return (
     <div>ReviewPlantsList</div>
   )

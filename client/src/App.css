@@ -42,7 +42,16 @@
   cursor: pointer;
 }
 /*------------ Login-page ---------- */
-.login-page{
+.login-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.login-page, .signup-page{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,7 +59,7 @@
   align-items: center;
 }
 
-.login-form{
+.login-form, .signup-form{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,13 +67,17 @@
   align-items: center;
 }
 
-.login-form label{
+.login-form button, .signup-form button{
+ margin-top: 20px;
+}
+
+.login-form label, .signup-form label{
   font-family: var(--abril-font);
   font-size: 20px;
   color: var(--main-plum);
 
 }
-.login-form input{
+.login-form input, .signup-form input{
   padding: 5px;
   border: 2px solid var(--main-gold);
   border-radius: 5px;

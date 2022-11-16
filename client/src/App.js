@@ -6,38 +6,62 @@ import About from './components/About';
 import MyPlants from './components/MyPlantsFolder/MyPlants';
 import ReviewPlants from './components/ReviewsFolder/ReviewPlants';
 import GlobalPlants from './components/GlobalPlantsFolder/GlobalPlants';
-import Login from './components/LoginFolder/Login';
-import Signup from './components/LoginFolder/Signup';
+import LoginContainer from './components/LoginFolder/LoginContainer'
+import PlantForm from './components/PlantForm';
 import { Route, Switch } from 'react-router-dom';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [errors, setErrors] = useState([])
+  const [plantPosts, setPlantPosts]=useState([])
+  console.log(user)
 
-
+  // auto-login if user_id in session
   useEffect(() => {
-    // auto-login if user_id in session
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
+    fetch("/me").then((res) => {
+      if (res.ok) {
+        res.json().then((userData) => {
+          setUser(userData)
+          fetchGlobalPlants();
+        });
       }
     });
   }, []);
 
+  // Fetch request for global plants allowing for a user to fetch once when logged in!
+  const fetchGlobalPlants = () => {
+    fetch (`/plant_posts`)
+    .then(res =>{
+      if (res.ok){
+        res.json().then(setPlantPosts)
+      }else{
+        res.json().then(data => setErrors(data.error))
+      }
+    })
+  }
+
+  //figure out how to access both login and signup components if user is not logged in
+
+  if (!user) return <LoginContainer fetchGlobalPlants={fetchGlobalPlants} setUser={setUser} />
+
   return (
     <div className="App">
-      <NavBar/>
+      <NavBar user={user} setUser={setUser}/>
       <Switch>
 
-        <Route exact path="/login">
-          <Login setUser={setUser}/>
+        {/* <Route exact path="/login">
+          <Login/>
         </Route>
 
         <Route exact path="/signup">
           <Signup setUser={setUser}/>
-        </Route>
+        </Route> */}
 
         <Route exact path="/">
           <Home/>
+          <PlantForm 
+          user={user}
+          />
         </Route>
 
         <Route exact path="/about">
@@ -45,15 +69,17 @@ function App() {
         </Route>
 
         <Route exact path="/myPlants">
-          <MyPlants/>
+          <MyPlants user={user}/>
         </Route>
 
         <Route exact path="/reviews">
-          <ReviewPlants/>
+          <ReviewPlants reviews={user.reviews}/>
         </Route>
 
         <Route exact path="/globalPlants">
-          <GlobalPlants/>
+          <GlobalPlants
+            plantPosts={plantPosts}
+          />
         </Route>
 
       </Switch>

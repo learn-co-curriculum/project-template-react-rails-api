@@ -1,8 +1,13 @@
 import React from 'react'
+import ReviewPlantsList from './ReviewPlantsList'
 
-const ReviewPlants = () => {
+const ReviewPlants = ({ reviews }) => {
+ console.log(reviews)
+ 
   return (
-    <div>ReviewPlants</div>
+    <div>
+      <ReviewPlantsList reviews={reviews}/>
+    </div>
   )
 }
 

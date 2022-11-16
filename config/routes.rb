@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :reviews, only: [:index, :show, :create, :update, :destroy]
+  resources :plant_posts, only: [:index, :show, :create, :update, :destroy]
   resources :users, only: []
 
   #unique auth routes

@@ -1,8 +1,14 @@
 import React from 'react'
+import GlobalPlantsList  from './GlobalPlantsList'
 
-const GlobalPlants = () => {
+const GlobalPlants = ({plantPosts}) => {
   return (
-    <div>GlobalPlants</div>
+    <div>
+      <h1>Global Plants</h1>
+      <GlobalPlantsList
+        plantPosts={plantPosts}
+      />
+    </div>
   )
 }
 

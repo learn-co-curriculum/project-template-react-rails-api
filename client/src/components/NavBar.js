@@ -1,7 +1,21 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({ user, setUser }) => {
+
+    const history = useHistory()
+
+    function handleLogoutClick() {
+        fetch("/logout", { method: "DELETE" }).then((res) => {
+          if (res.ok) {
+            setUser(null)
+            history.push('/login')
+          }
+        });
+      }
+
+    //logout logic (delete request)
+
     return (
         <div className='nav'>
             <NavLink to="/">Home</NavLink>
@@ -9,7 +23,8 @@ const NavBar = () => {
             <NavLink to="/myPlants">My Plants</NavLink>
             <NavLink to="/reviews">My Reviews</NavLink>
             <NavLink to="/globalPlants">Global Plants</NavLink>
-            <NavLink to="/login">Logout</NavLink>
+            <span>Hello {user.username}!</span>
+            <button onClick={handleLogoutClick}>Logout</button>
         </div>
 
     )

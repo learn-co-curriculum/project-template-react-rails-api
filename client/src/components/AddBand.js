@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { useForm } from '@mantine/form';
+
 
 const AddBand = ({ onAddBand }) => {
   const [name, setName] = useState("");
@@ -41,7 +43,7 @@ const AddBand = ({ onAddBand }) => {
   }
 
   return (
-    <>
+    <   >
       <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input
@@ -50,6 +52,7 @@ const AddBand = ({ onAddBand }) => {
           placeholder="Name..."
           onChange={(e) => setName(e.target.value)}
         ></input>
+        <br></br>
         <label>Image</label>
         <input
           value={image_url}
@@ -57,6 +60,7 @@ const AddBand = ({ onAddBand }) => {
           placeholder="Image..."
           onChange={(e) => setImage_Url(e.target.value)}
         ></input>
+         <br></br>
         <label>Genre</label>
         <input
           value={genre}
@@ -64,6 +68,7 @@ const AddBand = ({ onAddBand }) => {
           placeholder="Main Genre..."
           onChange={(e) => setGenre(e.target.value)}
         ></input>
+         <br></br>
         <label>Secondary Genre</label>
         <input
           value={secondary_genre}
@@ -71,6 +76,7 @@ const AddBand = ({ onAddBand }) => {
           placeholder="Secondary Genre..."
           onChange={(e) => setSecondary_Genre(e.target.value)}
         ></input>
+         <br></br>
         <label>Hometown</label>
         <input
           value={hometown}
@@ -78,6 +84,7 @@ const AddBand = ({ onAddBand }) => {
           placeholder="Hometown..."
           onChange={(e) => setHometown(e.target.value)}
         ></input>
+         <br></br>
         <button type="submit">Add Band</button>
       </form>
       {errors

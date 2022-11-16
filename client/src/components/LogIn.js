@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { PasswordInput } from "@mantine/core";
 
-const LogIn = () => {
+const LogIn = ({handleLogin}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -23,7 +23,8 @@ const LogIn = () => {
     }).then((res) => {
       if (res.ok) {
         res.json().then((user) => {
-          history.push(`/users/${user.id}`);
+          history.push(`/}`);
+          handleLogin(user);
         });
       } else {
         res.json().then((json) => setErrors(Object.entries(json.errors)));

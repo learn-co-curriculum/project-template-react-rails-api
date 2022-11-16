@@ -10,10 +10,7 @@ import Profile from "./Profile";
 import Concerts from "./Concerts";
 import LogIn from "./LogIn";
 import SignUp from "./SignUp";
-import { AppShell, Navbar, Header } from '@mantine/core';
-
-
-
+import { AppShell, Navbar, Header } from "@mantine/core";
 
 function App() {
   const [bands, setBands] = useState([]);
@@ -81,61 +78,74 @@ function App() {
   return (
     <AppShell
       padding="md"
-      navbar={<Navbar width={{ base: 200 }} height={500} p="xs">
-          <NavLink exact to="/">Home</NavLink>
+      navbar={
+        <Navbar width={{ base: 200 }} height={500} p="xs">
+          <NavLink exact to="/">
+            Home
+          </NavLink>
           <NavLink to="/concerts">Concerts</NavLink>
           <NavLink to="/bands">Bands</NavLink>
           <NavLink to="/profile">Profile</NavLink>
           <NavLink to="/login">LogIn</NavLink>
           <NavLink to="/signup">SignUp</NavLink>
-        </Navbar>}
-      header={<Header height={60} p="xl">Concert Tracker</Header>}
+        </Navbar>
+      }
+      header={
+        <Header height={60} p="xl">
+          Concert Tracker
+        </Header>
+      }
       styles={(theme) => ({
-        main: { backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0] },
+        main: {
+          backgroundColor:
+            theme.colorScheme === "dark"
+              ? theme.colors.dark[8]
+              : theme.colors.gray[0],
+        },
       })}
     >
-    <div className="App">
-      {/* <NavBar /> */}
-      <SearchBar search={search} setSearch={setSearch} />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/concerts">
-          <Concerts
-            concerts={concerts}
-            setConcerts={setConcerts}
-            venues={displayedVenues}
-            setVenues={setVenues}
-          />
-        </Route>
-        <Route path="/bands">
-          <Bands
-            filteredBands={displayedBands}
-            featuredBands={bands}
-            onAddBand={onAddBand}
-          />
-        </Route>
-        {/* <Route path="/profile">
+      <div className="App">
+        {/* <NavBar /> */}
+        <SearchBar search={search} setSearch={setSearch} />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/concerts">
+            <Concerts
+              concerts={concerts}
+              setConcerts={setConcerts}
+              venues={displayedVenues}
+              setVenues={setVenues}
+            />
+          </Route>
+          <Route path="/bands">
+            <Bands
+              filteredBands={displayedBands}
+              featuredBands={bands}
+              onAddBand={onAddBand}
+            />
+          </Route>
+          {/* <Route path="/profile">
           <Profile
           // user state to be added
           />
         </Route> */}
-        <Route path="/login">
-          <LogIn
-          // user state to be added
-          />
-        </Route>
-        <Route path="/signup">
-          <SignUp
-          // user state to be added
-          />
-        </Route>
-      </Switch>
-      {user.name}
-      if(loading) return <h1>Loading</h1>
-      if(errors) return <h1>{errors}</h1>
-    </div>
+          <Route path="/login">
+            <LogIn
+            // user state to be added
+            />
+          </Route>
+          <Route path="/signup">
+            <SignUp
+            // user state to be added
+            />
+          </Route>
+        </Switch>
+        <h1>{user.username}</h1>
+        if(loading) return <h1>Loading</h1>
+        if(errors) return <h1>{errors}</h1>
+      </div>
     </AppShell>
   );
 }

@@ -101,16 +101,23 @@ function WorkOutForm({ getWorkOuts }) {
 //       }
 //     });
 
+    function getWorkOutFromCard(workout) {
+        console.log("this is from workout form")
+        console.log(workout)
+        getWorkOuts(workout)
+    }
 
   // Calls upon the list of workouts and displays information about it to the user
   const workOutListFromAPI = listOfWorkOuts.map((workouts) => {
+    
     return (
       <WorkOutCard
         name={workouts.name}
         equipment={workouts.equipment}
         difficulty={workouts.difficulty}
         muscle={workouts.muscle}
-        getWorkOuts={getWorkOuts}
+        getWorkOuts={getWorkOutFromCard}
+        currentWorkOut={workouts}
       />
     );
   });
@@ -141,7 +148,6 @@ function WorkOutForm({ getWorkOuts }) {
       If nothing shows up, there were no matching exercises. PLEASE TRY AGAIN!
     </h1>
   ) : null;
-  console.log(showState);
 
   return (
     <div className="workouts-page">

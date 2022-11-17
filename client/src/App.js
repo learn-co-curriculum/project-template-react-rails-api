@@ -41,7 +41,10 @@ function App() {
 
   //SETS USER WORKOUTS
   function getUserWorkOut(workout){
+    console.log("this is from app to set the data")
+    console.log(workout)
     setUserWorkOuts([...userWorkOuts, workout])
+    console.log(userWorkOuts)
   }
 
   //REQUEST BACKEND TO UPDATE MY SHIT
@@ -64,6 +67,8 @@ function App() {
       .then((res) => res.json())
   }
 
+ 
+
   if (!user) {
     //RENDER BASED ON REGISTER OR LOGIN
     const componentToRender = needToRegister ? (
@@ -82,7 +87,7 @@ function App() {
           <Route path="/meals" element={<MealForm />} />
           <Route
             path="/profile"
-            element={<Profile user={user} setUser={setUser} />}
+            element={<Profile user={user} setUser={setUser} listOfWorkOuts={userWorkOuts}/>}
           />
           <Route
             path="/profilesettings"

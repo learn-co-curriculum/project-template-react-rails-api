@@ -23,8 +23,24 @@ class UsersController < ApplicationController
         render json: User.all, status: :ok
     end
 
+    def update 
+        user = User.find_by(username: params[:username])
+        if(user) 
+            user.update(user_update_params)
+            render json: user, status: :accepted
+        else 
+            render json: { error: "User not found" }, status: :not_found
+        end
+    end
+
+    private
+
     def user_params 
         params.permit(:username, :password)
+    end
+
+    def user_update_params
+        params.permit(:username, :name, :image, :meal, :workout)
     end
 
 end

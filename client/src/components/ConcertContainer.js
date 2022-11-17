@@ -15,12 +15,6 @@ const ConcertContainer = ({
   const [newLocation, setNewLocation] = useState("");
   const [explore, setExplore] = useState(false);
 
-
-const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues, setVenues} ) => {
-
-  const [newLocation, setNewLocation] = useState("")
-  const [explore, setExplore] = useState(false)
-
   // Filter bands by user's favorite genres
   const filteredBands = bands.filter((band) => {
     return (
@@ -33,7 +27,6 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
     );
   });
 
-
   // Filter concerts by user location
   const filteredConcerts = concerts.filter((concert) => {
     return user.location === concert.venue.state;
@@ -43,7 +36,6 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
   const filteredExploreConcerts = concerts.filter((concert) => {
     return concert.venue.state === newLocation;
   });
-
 
   const exploreSelect = (
     <select
@@ -123,9 +115,9 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
         comment={concert.comment}
         user={user}
         handleNewStub={handleNewStub}
-        />
-      )
-    })
+      />
+    );
+  });
 
   // Concerts in the user's state and matches favorite genres
 
@@ -151,36 +143,38 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
   });
 
   // Render all concerts
-  const allConcerts = filteredExploreConcerts.map((concert) => {
+  const allConcerts = concerts.map((concert) => {
     return (
       <ConcertCard
-          key={concert.id}
-          id={concert.id}
-          date={concert.date}
-          band={concert.band.name}
-          image={concert.band.image_url}
-          venue_name={concert.venue.name}
-          venue_city={concert.venue.city}
-          venue_state={concert.venue.state}
-          tickets_remaining={concert.tickets_remaining}
-          ticket_link={concert.ticket_link}
-          comment={concert.comment}
-        />
-    )
-  })
+      key={concert.id}
+      id={concert.id}
+      date={concert.date}
+      band={concert.band.name}
+      band_id={concert.band.id}
+      image={concert.band.image_url}
+      user={user}
+      venue_name={concert.venue.name}
+      venue_id={concert.venue.id}
+      venue_city={concert.venue.city}
+      venue_state={concert.venue.state}
+      tickets_remaining={concert.tickets_remaining}
+      ticket_link={concert.ticket_link}
+      comment={concert.comment}
+      />
+    );
+  });
 
   return (
     <Flex>
-    <div>
-      {user ? <h3>Here's what's coming up in {user.location}</h3> : null}
-      <h4>Explore what's happening in {exploreSelect}</h4>
-      <div className='flex-parent'>
-        {explore ? exploreConcerts : userConcerts}
+      <div>
+        {user ? <h3>Here's what's coming up in {user.location}</h3> : null}
+        <h4>Explore what's happening in {exploreSelect}</h4>
+        <div className="flex-parent">
+          {user && explore ? exploreConcerts || userConcerts : allConcerts}
+        </div>
       </div>
-      {user && explore ? exploreConcerts || userConcerts : allConcerts}
-    </div>
     </Flex>
-  )}
-  };
+  );
+};
 
 export default ConcertContainer;

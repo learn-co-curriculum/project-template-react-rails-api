@@ -117,16 +117,10 @@ function App() {
             </NavLink>
           ) : null}
           <br></br>
-          {user ? null : (
-            <NavLink to="/login" className="underline-style">
-              LogIn
-            </NavLink>
-          )}
-          {user ? null : (
-            <NavLink to="/signup" className="underline-style">
-              SignUp
-            </NavLink>
-          )}
+          {user ? null : <NavLink className='underline-style' to="/login">LogIn</NavLink>}
+          <br></br>
+          {user ? null : <NavLink className='underline-style' to="/signup">SignUp</NavLink>}
+
         </Navbar>
       }
       header={

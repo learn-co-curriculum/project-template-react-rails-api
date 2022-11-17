@@ -11,11 +11,18 @@ const StubContainer = ({ user }) => {
         venue_name={concert.venue.name}
         venue_city={concert.venue.city}
         date={concert.date}
-      />
-    );
-  });
+        />)
+  })
 
-  return <Flex>{stubs}</Flex>;
-};
+  return (
+    <div>
+      <h2 className='underline-style'>Ticket Stubs</h2>
+      <Flex classname="flex-parent">{stubs}</Flex>
+    </div>
+  )
+
+  }
+
+
 
 export default StubContainer;

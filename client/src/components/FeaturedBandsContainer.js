@@ -11,7 +11,9 @@ const FeaturedBandsContainer = ({ bands }) => {
     );
 
     return (
+      <div  classname="flex-parent">
       <FeaturedBandCard concerts={filteredConcerts} key={band.id} band={band} />
+      </div>
     );
   });
 

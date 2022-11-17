@@ -64,10 +64,21 @@
 
 }
 
+.flex-parent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start
+}
+
+.flex-child {
+
+}
+
 .search {
   margin-left: 70%;
   padding: 10px;
-  position: fixed;
+  /* position: fixed; */
   top: 40;
   right: 5px;
 }
@@ -178,7 +189,7 @@
   box-sizing: border-box;
 }
 
-img {
+.band-card img {
 max-width: 400px;
 min-height: 350px;
 }
@@ -188,7 +199,8 @@ min-height: 350px;
   }
 
 .featured-band-image img {
-  max-width: 350px;
+  max-width: 25%;
+  max-height: 200px;
 }
 
 
@@ -224,8 +236,9 @@ min-height: 350px;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
             filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
   display: block;
-  margin: 10% auto auto auto;
-  color: #fff;;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 

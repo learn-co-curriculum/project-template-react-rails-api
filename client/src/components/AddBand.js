@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { useForm } from '@mantine/form';
+import { Modal, Button, Group } from '@mantine/core';
+
 
 
 const AddBand = ({ onAddBand }) => {
@@ -10,6 +11,8 @@ const AddBand = ({ onAddBand }) => {
   const [secondary_genre, setSecondary_Genre] = useState("");
   const [hometown, setHometown] = useState("");
   const [errors, setErrors] = useState([]);
+  const [opened, setOpened] = useState(false);
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -95,7 +98,7 @@ const AddBand = ({ onAddBand }) => {
             </h2>
           ))
         : null}
-        
+
     </>
   );
 };

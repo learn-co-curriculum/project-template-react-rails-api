@@ -6,7 +6,7 @@ function SearchBar({ search, setSearch }) {
             <input className='search-input'
                 type='text'
                 id='search'
-                placeholder='Search by band, venue, or city'
+                placeholder='Search...'
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
             />

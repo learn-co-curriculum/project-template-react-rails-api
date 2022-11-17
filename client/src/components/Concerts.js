@@ -7,7 +7,7 @@ const Concerts = ({bands, user, concerts, setConcerts, venues, setVenues, displa
   return (
     <div>
       <h2 className='page-header'>Concerts</h2>
-    <SearchBar displayedBands={displayedBands} displayedVenues={displayedVenues} search={search} setSearch={setSearch}/>
+    {/* <SearchBar displayedBands={displayedBands} displayedVenues={displayedVenues} search={search} setSearch={setSearch}/> */}
     <ConcertContainer user={user} bands={bands} concerts={concerts} setConcerts={setConcerts} venues={venues} setVenues={setVenues} />
     </div>
   )

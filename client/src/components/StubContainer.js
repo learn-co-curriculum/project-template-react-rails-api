@@ -16,7 +16,10 @@ const StubContainer = ({user}) => {
   })
 
   return (
-    <Flex>{stubs}</Flex>
+    <div>
+      <h2 className='underline-style'>Ticket Stubs</h2>
+      <div classname="flex-parent">{stubs}</div>
+    </div>
   )
   }
 

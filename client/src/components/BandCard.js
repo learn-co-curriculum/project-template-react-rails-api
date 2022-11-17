@@ -14,6 +14,7 @@ const BandCard = ({ band }) => {
           src={band.image_url}
           height={160}
           alt={band.name}
+          className="band-card-image"
         />
       </Card.Section>
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 const FeaturedBands = () => {
   return (
-    <div>FeaturedBands</div>
+    <div classname="flex-parent">Featured Bands</div>
   )
 }
 

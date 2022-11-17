@@ -4,14 +4,14 @@ import { Flex, Button } from '@mantine/core';
 
 
 const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues, setVenues} ) => {
-  
+
   const [newLocation, setNewLocation] = useState("")
   const [explore, setExplore] = useState(false)
 
   // Filter bands by user's favorite genres
   const filteredBands = bands.filter((band) => {
-    return user.genre_1 === band.genre || 
-    user.genre_2 === band.genre || 
+    return user.genre_1 === band.genre ||
+    user.genre_2 === band.genre ||
     user.genre_3 === band.genre ||
     user.genre_1 === band.secondary_genre ||
     user.genre_2 === band.secondary_genre ||
@@ -28,8 +28,8 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
     return concert.venue.state === newLocation
   })
 
-  const exploreSelect = 
-    <select 
+  const exploreSelect =
+    <select
       type="text"
       onChange={(e) => setNewLocation(e.target.value) & setExplore(true)}
       >
@@ -90,7 +90,7 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
   const exploreConcerts = filteredBands.map((band) => {
     return filteredExploreConcerts.map((concert) => {
       return (
-        <ConcertCard 
+        <ConcertCard
         key={concert.id}
         id={concert.id}
         date={concert.date}
@@ -105,13 +105,13 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
         />
       )
     })
-  })  
-  
+  })
+
   // Concerts in the user's state and matches favorite genres
   const userConcerts = filteredBands.map((band) => {
     return filteredConcerts.map((concert) => {
       return (
-        <ConcertCard 
+        <ConcertCard
           key={concert.id}
           id={concert.id}
           date={concert.date}
@@ -129,13 +129,13 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
   })
 
   return (
-    <Flex>
     <div>
       <h3>Here's what's coming up in {user.location}</h3>
       <h4>Explore what's happening in {exploreSelect}</h4>
+      <div className='flex-parent'>
       {explore ? exploreConcerts : userConcerts}
+      </div>
     </div>
-    </Flex>
   )
 }
 

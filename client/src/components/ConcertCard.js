@@ -34,7 +34,7 @@ const ConcertCard = ( {key, id, date, band, image, venue_name, venue_city, venue
     //   <h5>{tickets_remaining = 0 ? "SOLD OUT" : <Button variant="outline" color="indigo"><a href={ticket_link} alt="Tickets">Buy tickets</a></Button>}</h5>
     // </div>
 
-<Card shadow="sm" p="lg" radius="md" withBorder className='card'>
+<Card shadow="sm" p="lg" radius="md" withBorder className='band-card'>
 <Card.Section>
   <Image
     src={image}
@@ -43,12 +43,12 @@ const ConcertCard = ( {key, id, date, band, image, venue_name, venue_city, venue
   />
 </Card.Section>
 
-<Group position="apart" mt="md" mb="xs">
+{/* <Group position="apart" mt="md" mb="xs">
   <Text weight={500}>{band}</Text>
   <Badge color="red" variant="light">
   {tickets_remaining < 100 ? "Low ticket warning!" : null}
   </Badge>
-</Group>
+</Group> */}
 
 <Text size="sm" color="dimmed">
   {date}

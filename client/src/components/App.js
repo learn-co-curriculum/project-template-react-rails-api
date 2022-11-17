@@ -76,38 +76,37 @@ function App() {
       padding="md"
       navbar={
         <Navbar width={{ base: 150 }} height={1000} p="xs">
-          <NavLink exact to="/">Home</NavLink>
+          <NavLink exact to="/" className='underline-style'>Home</NavLink>
           <br></br>
-          <NavLink to="/concerts">Concerts</NavLink>
+          <NavLink to="/concerts" className='underline-style'>Concerts</NavLink>
           <br></br>
-          <NavLink to="/bands">Bands</NavLink>
+          <NavLink to="/bands" className='underline-style'>Bands</NavLink>
           <br></br>
-          <NavLink to="/profile">Profile</NavLink>
+          <NavLink to="/profile" className='underline-style'>Profile</NavLink>
           <br></br>
-          {user ? null : <NavLink to="/login">LogIn</NavLink>}
+          {user ? null : <NavLink to="/login" className='underline-style'>LogIn</NavLink>}
           <br></br>
-          <NavLink to="/signup">SignUp</NavLink>
+          <NavLink to="/signup" className='underline-style'>SignUp</NavLink>
         </Navbar>
       }
       header={
-        <Header height={60} p="xl">
-          Concert Tracker
+        <Header height={0} p="xs" sx={
+          {
+            alignItems: "center",
+            justifyContent: 'center',
+            fontWeight: "bold",
+        }}>
+          {/* CONCERT TRACKER */}
         </Header>
       }
-      styles={(theme) => ({
-        main: {
-          backgroundColor:
-            theme.colorScheme === "dark"
-              ? theme.colors.dark[8]
-              : theme.colors.gray[0],
-        },
-      })}
     >
       <div className="App">
-        {user ? user.username : null}{" "}
-        {user ? <button onClick={logOut}>Log Out</button> : null}
+        <div className="logout">
+          {user ? user.first_name : null}{" "}
+          {user ? <button onClick={logOut}>Log Out</button> : null}
+        </div>
         {/* <NavBar /> */}
-        <SearchBar search={search} setSearch={setSearch} />
+        {/* <SearchBar search={search} setSearch={setSearch} /> */}
         <Switch>
           <Route exact path="/">
             <Home />
@@ -120,6 +119,9 @@ function App() {
               setVenues={setVenues}
               user={user}
               bands={bands}
+              displayedBands={displayedBands}
+              displayedVenues={displayedVenues}
+              search={search} setSearch={setSearch}
             />
           </Route>
           <Route path="/bands">
@@ -127,6 +129,9 @@ function App() {
               filteredBands={displayedBands}
               featuredBands={bands}
               onAddBand={onAddBand}
+              displayedBands={displayedBands}
+              displayedVenues={displayedVenues}
+              search={search} setSearch={setSearch}
             />
           </Route>
           <Route path="/profile">

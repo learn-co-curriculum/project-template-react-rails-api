@@ -153,7 +153,7 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
   // Render all concerts
   const allConcerts = filteredExploreConcerts.map((concert) => {
     return (
-      <ConcertCard 
+      <ConcertCard
           key={concert.id}
           id={concert.id}
           date={concert.date}
@@ -175,15 +175,12 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
       {user ? <h3>Here's what's coming up in {user.location}</h3> : null}
       <h4>Explore what's happening in {exploreSelect}</h4>
       <div className='flex-parent'>
-      {explore ? exploreConcerts : userConcerts}
+        {explore ? exploreConcerts : userConcerts}
       </div>
-    </div>
-  )
-}
       {user && explore ? exploreConcerts || userConcerts : allConcerts}
     </div>
     </Flex>
-  );
-};
+  )}
+  };
 
 export default ConcertContainer;

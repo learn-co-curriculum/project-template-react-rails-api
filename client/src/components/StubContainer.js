@@ -17,13 +17,12 @@ const StubContainer = ({ user }) => {
   return (
     <div>
       <h2 className='underline-style'>Ticket Stubs</h2>
-      <div classname="flex-parent">{stubs}</div>
+      <Flex classname="flex-parent">{stubs}</Flex>
     </div>
   )
+
   }
 
 
-  return <Flex>{stubs}</Flex>;
-};
 
 export default StubContainer;

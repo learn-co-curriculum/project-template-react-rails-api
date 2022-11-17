@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function WorkOutForm() {
+function WorkOutForm({ getWorkOuts }) {
     //SEO's API KEY CHANGE WITH YOURS!
     //DON'T USE MINE
     const apiKey = "ErjjhwAdbIlQLzPZu5SUyg==VofMpxvT9NyOnEXZ"
@@ -72,6 +72,11 @@ function WorkOutForm() {
             })
     }
 
+    //SENDS SELECTED WORKOUT TO USER LIST
+    function addWorkOutToList(workout) {
+        getWorkOuts(workout)
+    }
+
     // Calls upon the list of workouts and displays information about it to the user
     const workOutListFromAPI = listOfWorkOuts.map((workouts) => {
             return (
@@ -81,35 +86,13 @@ function WorkOutForm() {
                         <h5>{workouts.equipment}</h5>
                         <p>Level: {workouts.difficulty}</p>
                         <p>Target Muscle Group: {workouts.muscle}</p>
-                        <button>Add Workout to Calendar</button>
+                        <button onClick={() => addWorkOutToList(workouts)}>Add Workout to Calendar</button>
                     </div>
                 </div>
             )
     })
 
-    // const workOutListFromAPI = () => {
-    //     console.log(listOfWorkOuts.length)
-    //     if (listOfWorkOuts.length > 0){
-    //         debugger;
-    //         listOfWorkOuts.map((workouts) => {
-    //             return (
-    //                 <div className="workOutsFromAPI">
-    //                     <div className="workOutsINFO" key={workouts.id} id={workouts.id}>
-    //                         <h4>{workouts.name}</h4>
-    //                         <h5>{workouts.equipment}</h5>
-    //                         <p>Level: {workouts.difficulty}</p>
-    //                         <p>Target Muscle Group: {workouts.muscle}</p>
-    //                         <button>Add Workout to Calendar</button>
-    //                     </div>
-    //                 </div>
-    //             )
-    //         })
-    //     } else {
-    //         <h4>message</h4>
-    //     }
-    // }
     const showMessage = showState ? <h1>If nothing shows up, there were no matching exercises. PLEASE TRY AGAIN!</h1>  : null 
-    console.log(showState)
 
 
     return (

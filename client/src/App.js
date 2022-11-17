@@ -15,6 +15,7 @@ import ProfileSettings from "./ProfileSettings";
 function App() {
   const [user, setUser] = useState(null);
   const [needToRegister, setNeedToRegister] = useState(false);
+  const [userWorkOuts, setUserWorkOuts] = useState([])
 
   //CHECKS TO SEE IF CURRENT USER MATCHES SESSION USER
   useEffect(() => {
@@ -38,6 +39,11 @@ function App() {
     setNeedToRegister(value);
   }
 
+  //SETS USER WORKOUTS
+  function getUserWorkOut(workout){
+    setUserWorkOuts([...userWorkOuts, workout])
+  }
+
   //REQUEST BACKEND TO UPDATE MY SHIT
   function updateUserInfo(user) {
     setUser(user)
@@ -56,7 +62,6 @@ function App() {
       }
     })
     .then(res => res.json())
-    .then(console.log)
   }
 
   if (!user) {
@@ -73,9 +78,9 @@ function App() {
         <NavBar onLogout={onLogout} user={user} />
         <Routes>
           <Route path="/" element={<Calendar />} />
-          <Route path="/workouts" element={<WorkOutForm />} />
+          <Route path="/workouts" element={<WorkOutForm getWorkOuts={getUserWorkOut}/>} />
           <Route path="/meals" element={<MealForm />} />
-          <Route path="/profile" element={<Profile user={user} setUser={setUser}/>} />
+          <Route path="/profile" element={<Profile user={user} setUser={setUser} listOfWorkOuts={userWorkOuts}/>} />
           <Route path="/profilesettings" element={<ProfileSettings user={user} updateUserInfo={updateUserInfo}/> } />
         </Routes>
       </div>

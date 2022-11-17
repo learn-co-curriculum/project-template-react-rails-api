@@ -43,21 +43,33 @@ u3 = User.create(username: "Sam123", email: "sam123@gmail.com", password:"passwo
 u4 = User.create(username: "Willa123", email: "willa123@gmail.com", password:"password", first_name: "Nico", last_name: "123", favorite_band: "The Beatles", location: "NJ", genre_1: "Pop", genre_2: "Rock", genre_3: "n Roll")
 
 puts '🌙 Seeding venues...'
-v1 = Venue.create(city: "NYC", state: "NY", name: "The Roxy", logo_url: "link")
-v2 = Venue.create(city: "NYC", state: "NY", name: "The Roxy", logo_url: "link")
-v3 = Venue.create(city: "NYC", state: "NY", name: "The Roxy", logo_url: "link")
-v4 = Venue.create(city: "NYC", state: "NY", name: "The Roxy", logo_url: "link")
-v5 = Venue.create(city: "Asbury Park", state: "NJ", name: "The Stone Pony", logo_url: "link")
+v1 = Venue.create(city: "Brooklyn", state: "NY", name: "Music Hall of Williamsburg", logo_url: "https://d3nxoulyw7bc8u.cloudfront.net/images/venue/None/4ae7eb04-9068-4be8-b266-ed0debe8e750.jpg")
+v2 = Venue.create(city: "Brooklyn", state: "NY", name: "The Bell House", logo_url: "https://pyxis.nymag.com/v1/imgs/add/8b5/f68a9aa49a710ce5ff3c7841ad1449d607-the-bellhouse-01.rsocial.w1200.jpg")
+v3 = Venue.create(city: "NYC", state: "NY", name: "Bowery Ballroom", logo_url: "https://dgm-cover.azureedge.net/1080/gc33.jpg")
+v4 = Venue.create(city: "Brooklyn", state: "NY", name: "Brooklyn Bowl", logo_url: "https://i.ticketweb.com//i/venue/131624_Venue.jpg")
+v5 = Venue.create(city: "Asbury Park", state: "NJ", name: "The Stone Pony", logo_url: "https://www.gannett-cdn.com/presto/2019/01/18/PAPP/c389d18d-f945-49de-aa37-9b4206669ae7-ASBURYPARK0710G.jpg")
+v6 = Venue.create(city: "Asbury Park", state: "NJ", name: "Asbury Lanes", logo_url: "https://images.getbento.com/accounts/c9bae090b94f1c0b71c6b7d6d6c26b52/media/1jsvDlIMRb2MaqVTWhvW_Asbury_Lanes_08d_V2%20copy.jpg?w=1200&fit=crop&auto=compress,format&h=600")
+v7 = Venue.create(city: "Newark", state: "NJ", name: "Prudential Center", logo_url: "https://assets.prucenter.com/event-main/bags.jpg")
+v8 = Venue.create(city: "Jersey City", state: "NJ", name: "White Eagle Hall", logo_url: "https://static.wixstatic.com/media/0f5115_594c10a7a0b74a89a108eab09fd04cad~mv2.png/v1/fill/w_1872,h_1100,al_c/0f5115_594c10a7a0b74a89a108eab09fd04cad~mv2.png")
+v9 = Venue.create(city: "Boston", state: "MA", name: "Paradise Rock Club", logo_url: "https://phishsonian.files.wordpress.com/2015/02/6884147610_d84b5fe3c9.jpg")
+v10 = Venue.create(city: "Chicago", state: "IL", name: "The Hideout", logo_url: "https://www.indieonthemove.com/resize/hideout_8992.jpg")
+v11 = Venue.create(city: "LA", state: "CA", name: "The Roxy", logo_url: "https://venue-media.eventup.com/resized/venue/the-roxy-theatre-aeg-presents/b227.1920x1080.jpg")
+v12 = Venue.create(city: "LA", state: "CA", name: "The Troubadour", logo_url: "https://www.visitwesthollywood.com/wp-content/uploads/2018/09/Troubadour-scaled.jpg")
+v13 = Venue.create(city: "LA", state: "CA", name: "Hollywood Bowl", logo_url: "https://ucarecdn.com/8ae9952d-6848-4d2a-9b5b-69c5578c2e9d/")
+v14 = Venue.create(city: "Philadelphia", state: "PA", name: "Union Transfer", logo_url: "https://www.visitphilly.com/wp-content/uploads/2018/02/Union-Transfer-stage-G.Miller-VP-2200x1237.jpg")
+v15 = Venue.create(city: "Philadelphia", state: "PA", name: "Franklin Music Hall", logo_url: "https://www.visitphilly.com/wp-content/uploads/2017/12/crtsy-electric-factory-crowd-900VP.jpg")
+v16 = Venue.create(city: "Austin", state: "TX", name: "Mohawk", logo_url: "https://lostinaustin.org/wp-content/uploads/2019/02/mohawk-03-1024x683.jpg")
+v17 = Venue.create(city: "Austin", state: "TX", name: "The Continental Club", logo_url: "https://images.squarespace-cdn.com/content/v1/5458172de4b010408a819b69/1457053262678-TZI9ZWSVC3L7VVUJAZM9/Continental+Club+front.png?format=2500w")
+v18 = Venue.create(city: "Morrison", state: "CO", name: "Red Rocks Ampitheatre", logo_url: "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/aa/59/2c.jpg")
 
 puts '🌙 Seeding concerts...'
 
 c1 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.ticketweb.com", date: "2015-08-08".to_datetime, user_id: u1.id, venue_id: v1.id, band_id: b1.id)
-c2 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2015-08-09".to_datetime, user_id: u2.id, venue_id: v2.id, band_id: b1.id)
-c3 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.dice.fm", date: "2015-08-08".to_datetime, user_id: u3.id, venue_id: v3.id, band_id: b3.id)
-c4 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2015-08-08".to_datetime, user_id: u4.id, venue_id: v4.id, band_id: b4.id)
-c5 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2022-11-20".to_datetime, user_id: u3.id, venue_id: v4.id, band_id: b3.id)
-c6 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2022-11-22".to_datetime, user_id: u3.id, venue_id: v4.id, band_id: b2.id)
-c6 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2022-11-22".to_datetime, user_id: u1.id, venue_id: v5.id, band_id: b5.id)
-
+c2 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2015-08-09".to_datetime, user_id: u2.id, venue_id: v2.id, band_id: b3.id)
+c3 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.dice.fm", date: "2015-08-08".to_datetime, user_id: u3.id, venue_id: v4.id, band_id: b5.id)
+c4 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2015-08-08".to_datetime, user_id: u3.id, venue_id: v3.id, band_id: b30.id)
+c5 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2022-11-20".to_datetime, user_id: u4.id, venue_id: v5.id, band_id: b28.id)
+c6 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2022-11-22".to_datetime, user_id: u2.id, venue_id: v8.id, band_id: b17.id)
+c7 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2022-11-22".to_datetime, user_id: u2.id, venue_id: v9.id, band_id: b10.id)
 
 puts '🌙 Done seeding!'

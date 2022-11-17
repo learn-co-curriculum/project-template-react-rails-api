@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import AllVolunteers from "./AllVolunteers";
 import NewVolunteerForm from "./NewVolunteerForm";
 import { Container } from "semantic-ui-react";
 
@@ -22,8 +21,6 @@ function OurTeam() {
       <h1></h1>
       <br />
       <NewVolunteerForm addNewVolunteer={addNewVolunteer} />
-      <br />
-      <AllVolunteers volunteer={volunteer} key={volunteer.id} />
       <br />
     </Container>
   );

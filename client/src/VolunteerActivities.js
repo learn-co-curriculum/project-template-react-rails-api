@@ -26,9 +26,9 @@ function VolunteerActivities() {
               {a.activity_name}: {a.activity_description}
             </p>
             <div className="card-footer">
-              <a href="#" className="btn btn-header btn-footer">
-                Sign Up Now!
-              </a>
+              {/* <a href="#" className="btn btn-header btn-footer"> */}
+              Sign Up Now!
+              {/* </a> */}
             </div>
           </div>
         </div>

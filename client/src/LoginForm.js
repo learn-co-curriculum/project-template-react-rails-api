@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-function LoginForm({}) {
+function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
+  // const [errors, setErrors] = useState([]);
 
   // function registerClick() {
   //   onRegisterClick(true)

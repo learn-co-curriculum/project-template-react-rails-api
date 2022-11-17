@@ -30,7 +30,8 @@ function Home() {
               Mentos fresh and full of Life! Nothing gets to you, stayin' fresh,
               stayin' cool, with Mentos fresh and full of life! Fresh goes
               better! Mentos freshness! Fresh goes better with Mentos, fresh and
-              full of life! Mentos! The Freshmaker! <a href="#">Read more...</a>
+              full of life! Mentos! The Freshmaker!
+              {/* <a href="#">Read more...</a> */}
             </p>
           </div>
         </div>
@@ -46,7 +47,7 @@ function Home() {
               powers were revealed to me the day I held aloft my magic sword and
               said: "By the Power of Greyskull!" I have the power! Together we
               defend Castle Greyskull from the evil forces of Skeletor. He-man!{" "}
-              <a href="#">Read more...</a>
+              {/* <a href="#">Read more...</a> */}
             </p>
           </div>
           <div className="col-sm-5 home-image-container">
@@ -76,7 +77,7 @@ function Home() {
               ways to grow - Reading Rainbow. I can be anything! Take a look,
               it's in a book - Reading Rainbow. Reading Rainbow, Reading
               Rainbow, Reading Rainbow, Reading Rainbow!{" "}
-              <a href="#">Read more...</a>
+              {/* <a href="#">Read more...</a> */}
             </p>
           </div>{" "}
         </div>

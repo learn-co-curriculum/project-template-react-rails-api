@@ -1,38 +1,246 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  min-width:1200;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /* background-image: url("./src/images/park-landscape.png"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  overflow: hidden;
+  max-height: 110px;
+  position:fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.row {
+  margin:0;
+  flex-wrap:nowrap  ;
+}
+
+.header-row {
+  display: flex;
+  flex-direction: row;
+  background-color:silver;
+}
+
+.title-block {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 40vh;
+  text-align: center;
+}
+
+.title-text {
+  font-weight: bold;
+  text-shadow: 2px 2px 5px black;
   font-size: calc(10px + 2vmin);
   color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: block;
+  line-height: 1em;
+  max-height: 2em;
 }
 
-.App-link {
-  color: #61dafb;
+.padding-block {
+  flex: 1 1;
+  min-width: 8vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.buttons-block {
+  top: 0;
+  left: 0vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 70vh;
+  min-width: 600px;
 }
+
+.btn-header {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #fff;
+  background-color: #b66829d0;
+  border-color: #282c34
+}
+
+.btn-header:hover {  
+  background-color: #b66829;
+}
+
+.user-profile-header {
+  right:0
+}
+
+.user-image {
+  justify-content: center;
+  margin: 5px;
+  min-width: 100px;
+  max-width:100%;
+  min-height: 100px;
+  max-height: 100px;
+  border:#282c34;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  aspect-ratio: 1;
+}
+
+.user-image:hover {
+  border:#b66829b7;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+}
+
+.main-window{
+  position:absolute;
+  background-color: lavender;
+  top:110px;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.page-top-container {
+  position: relative;
+  max-width:100%;
+  object-fit:contain;
+  text-align:center;
+}
+
+.page-top-image {
+  display:block;
+  padding:60px;
+  padding-bottom: 30px;
+  max-width:inherit;
+}
+
+.page-title {
+  width: 100vh;
+  width:100%;
+  text-align: center;
+}
+
+.page-title-text {
+  font-weight: bold;
+  text-shadow: 2px 2px 3px #282c34;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  line-height: normal;
+}
+.volunteer-title-text {
+  position:absolute;
+  bottom: 100px;
+  left:50%;
+  transform: translate(-50%, -50%);
+  font-size: calc(30px + 2vmin);
+}
+
+.home-container {
+  margin-top: 50px;
+  width: 80vh;
+  margin-bottom:50px
+}
+
+.home-row {
+  
+  width: 90vh;
+  height:auto;
+  min-height: 100%;
+  margin-top:10px;
+  border:#282c34;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.726);
+}
+
+.home-image-container {
+  height: 400px;
+}
+
+.home-image {
+  object-fit: contain;
+  height:100%;
+  border:#282c34;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+}
+
+.home-text {
+  display: flex;
+  flex-direction: column;
+  padding:40px;
+  font-size: calc(10px + 1vmin);
+  text-align:justify
+}
+
+.home-text-title {
+  font-size: calc(10px + 2vmin);
+}
+
+.card-container {
+  padding-top: 30px;
+  padding:70px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: start;
+  align-content: stretch;
+  position:relative
+}
+
+.activity-card {  
+  flex: 0 0 auto;
+  width: 18rem;
+  margin-bottom: 20px;
+  border:#282c34;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 5px;
+  height:520px
+}
+
+.card-footer {
+  position: absolute;
+  bottom: 15px;
+  font-weight: 700;
+  padding:0;
+  background-color: #fff;
+  border-top: 0px rgb(255, 255, 255);
+}
+
+.btn-footer{
+  font-weight: 400;
+}
+
+.testing-text {
+  margin: 0
+}
+
+.bordered-black {
+  border: 2px solid black
+}
+.bordered-white {
+  border: 2px solid white
+}
+

@@ -23,7 +23,7 @@ const LogIn = ({handleLogin}) => {
     }).then((res) => {
       if (res.ok) {
         res.json().then((user) => {
-          history.push(`/}`);
+          history.push(`/`);
           handleLogin(user);
         });
       } else {

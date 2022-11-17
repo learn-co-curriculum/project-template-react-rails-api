@@ -1,8 +1,16 @@
 import { NavLink } from "react-router-dom";
+import { useState } from 'react';
+import WorkOutReviews from './WorkOutReviews'
+import MealsReviews from './MealsReviews'
 
 function Profile({ user, listOfWorkOuts, setItemToReview, listOfMeals }) {
+    const [showReviewTextBox, setShowReviewTextBox] = useState([]);
     function clickOnReviewButton(workout){
         setItemToReview(workout)
+    }
+
+    const handleClickReviewShow = () => {
+        setShowReviewTextBox((showReviewTextBox) => !showReviewTextBox)
     }
 
 
@@ -19,9 +27,11 @@ function Profile({ user, listOfWorkOuts, setItemToReview, listOfMeals }) {
                     <p>{workout.difficulty}</p>
                     <p>{workout.muscle}</p>
                     <button>Delete Work-Out</button>
-                    <NavLink to="/workoutreview">
+                    {/* <NavLink to="/workoutreview">
                         <button onClick={() => clickOnReviewButton(workout)}>Write A Review</button>
-                    </NavLink>
+                    </NavLink> */}
+                    <button onClick={handleClickReviewShow}>Write Review</button>
+                    {showReviewTextBox ? <WorkOutReviews /> : null}
                 </div>
             )
         })
@@ -36,9 +46,11 @@ function Profile({ user, listOfWorkOuts, setItemToReview, listOfMeals }) {
                     <p>{meal.food.label}</p>
                     <p>{meal.food.nutrients["ENERC_KCAL"]}</p>
                 <button>Delete Meals</button>
-                <NavLink to="/mealreview">
+                {/* <NavLink to="/mealreview">
                     <button onClick={() => clickOnReviewButton(meal)}>Write A Review</button>
-                </NavLink>
+                </NavLink> */}
+                <button onClick={handleClickReviewShow}>Write Review</button>
+                {showReviewTextBox ? <MealsReviews /> : null}
                 </div>
             )
         })

@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 body {
   padding-top: 120px;
 }
@@ -26,19 +15,6 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .nav-bar {
@@ -75,7 +51,7 @@ body {
   display: block;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px;
+  padding: 12px;
   text-decoration: none;
 }
 
@@ -113,20 +89,11 @@ body {
   justify-content: center;
   margin-top: 25px;
   margin-bottom: 20px;
-  /* background-color: rgb(122, 159, 122);
-  border-radius: 10%;
-  background-size: 20px; */
 }
-
-/* .workouts-page-form, label {
-  display: block;
-  margin-bottom: 10px;
-} */
 
 .workouts-page-header {
   text-align: center;
 }
-
 
 h4 {
   text-align: center;
@@ -137,12 +104,6 @@ h4 {
   font-family: Verdana, sans-serif;
   text-align: center; 
 }
-
-
-/* .navicons {
-  border-style: solid;
-  border-radius: 15%;
-} */
 
 ul {
   display: inline;

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_14_204339) do
+ActiveRecord::Schema.define(version: 2022_11_17_165405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,8 +18,7 @@ ActiveRecord::Schema.define(version: 2022_11_14_204339) do
   create_table "meals", force: :cascade do |t|
     t.string "name"
     t.integer "calories"
-    t.string "review"
-    t.string "list_of_ingredients"
+    t.string "reviews"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -47,12 +46,14 @@ ActiveRecord::Schema.define(version: 2022_11_14_204339) do
   end
 
   create_table "workouts", force: :cascade do |t|
-    t.string "length"
     t.string "name"
     t.string "equipment"
     t.string "review"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "muscle"
+    t.string "type"
+    t.string "difficulty"
   end
 
   add_foreign_key "reviews", "meals"

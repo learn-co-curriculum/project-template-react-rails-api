@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
 
-function Profile({ user, listOfWorkOuts }) {
+function Profile({ user, listOfWorkOuts, setItemToReview }) {
+    function clickOnReviewButton(workout){
+        setItemToReview(workout)
+    }
 
     //DISPLAYS USER INFO 
     //MIGHT NEED ADDITIONAL CODE FOR MEALS AND WORKOUTS IF NEED BE
@@ -11,8 +14,12 @@ function Profile({ user, listOfWorkOuts }) {
             return (
                 <div className="show-Work-Out-on-Profile">
                     <p>{workout.name}</p>
-                    {/* <p>{workout.difficulty}</p>
-                    <p>{workout.muscle}</p> */}
+                    <p>{workout.difficulty}</p>
+                    <p>{workout.muscle}</p>
+                    <button>Delete Work-Out</button>
+                    <NavLink to="/workoutreview">
+                        <button onClick={() => clickOnReviewButton(workout)}>Write A Review</button>
+                    </NavLink>
                 </div>
             )
         })

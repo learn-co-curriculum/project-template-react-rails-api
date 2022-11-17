@@ -11,13 +11,15 @@ import Calendar from "./Calendar";
 import WorkOutForm from "./WorkOutForm";
 import Profile from "./Profile";
 import ProfileSettings from "./ProfileSettings";
-import Reviews from "./WorkOutReviews"
+import WorkOutReviews from "./WorkOutReviews"
+import MealsReviews from "./MealsReviews"
 
 function App() {
   const [user, setUser] = useState(null);
   const [needToRegister, setNeedToRegister] = useState(false);
   const [userWorkOuts, setUserWorkOuts] = useState([])
   const [itemToReview, setItemToReview] = useState(null)
+  const [userMeals, setUserMeals] = useState([])
 
   //CHECKS TO SEE IF CURRENT USER MATCHES SESSION USER
   useEffect(() => {
@@ -43,10 +45,12 @@ function App() {
 
   //SETS USER WORKOUTS
   function getUserWorkOut(workout){
-    console.log("this is from app to set the data")
-    console.log(workout)
     setUserWorkOuts([...userWorkOuts, workout])
-    console.log(userWorkOuts)
+  }
+
+  //SETS USER MEALS
+  function getUserMeals(meals){
+    setUserMeals([...userMeals, meals])
   }
 
   //REQUEST BACKEND TO UPDATE MY SHIT
@@ -90,10 +94,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Calendar />} />
           <Route path="/workouts" element={<WorkOutForm getWorkOuts={getUserWorkOut}/>} />
-          <Route path="/meals" element={<MealForm />} />
+          <Route path="/meals" element={<MealForm getMeals={getUserMeals}/>} />
           <Route
             path="/profile"
-            element={<Profile user={user} setUser={setUser} listOfWorkOuts={userWorkOuts} setItemToReview={getItemToReview}/>}
+            element={<Profile user={user} setUser={setUser} listOfWorkOuts={userWorkOuts} listOfMeals={userMeals} setItemToReview={getItemToReview}/>}
           />
           <Route
             path="/profilesettings"
@@ -101,7 +105,8 @@ function App() {
               <ProfileSettings user={user} updateUserInfo={updateUserInfo} />
             }
           />
-          <Route path="/review" element={<Reviews itemToReview={itemToReview}/>} />
+          <Route path="/workoutreview" element={<WorkOutReviews itemToReview={itemToReview}/>} />
+          <Route path="/mealreview" element={<MealsReviews itemToReview={itemToReview}/>} />
         </Routes>
       </div>
     );

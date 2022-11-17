@@ -5,7 +5,12 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-function MealCard({ name, image, calories }) {
+function MealCard({ name, image, calories, getMeals, currentMeal }) {
+
+  function addMealsToList(currentMeal) {
+    getMeals(currentMeal)
+  }
+
   return (
       <div className="cards">
         <Card sx={{ maxWidth: 345 }}>
@@ -22,7 +27,9 @@ function MealCard({ name, image, calories }) {
                   <h3>{calories} calories</h3>
                 </div>
               </Typography>
-              <button>Add Meal to Plan</button>
+              <button onClick={()=> {
+                addMealsToList(currentMeal)
+              }}>Add Meal to Plan</button>
             </CardContent>
           </CardActionArea>
         </Card>

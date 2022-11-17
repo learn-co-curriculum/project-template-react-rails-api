@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import MealCard from "./MealCard";
 
-function MealForm() {
+function MealForm({ getMeals }) {
   const api_id = "28d8ec75";
   const app_key = "79512bd96de025b96b0e26333b95a36e";
   const [mealList, setMealList] = useState([]);
@@ -23,12 +23,18 @@ function MealForm() {
     }
   }
 
+  function getMealsFromCard(meal) {
+    getMeals(meal)
+  }
+
   const apiMeals = mealList.map((meal) => {
     return (
         <MealCard
           name={meal.food.label}
           image={meal.food.image}
           calories={meal.food.nutrients.ENERC_KCAL}
+          getMeals={getMealsFromCard}
+          currentMeal={meal}
         />
     );
   });

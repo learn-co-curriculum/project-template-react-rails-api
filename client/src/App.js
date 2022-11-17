@@ -9,7 +9,6 @@ import { NavLink, Route, Routes } from "react-router-dom";
 import NavBar from "./NavBar";
 import Calendar from "./Calendar";
 import WorkOutForm from "./WorkOutForm";
-
 import Profile from "./Profile";
 
 function App() {

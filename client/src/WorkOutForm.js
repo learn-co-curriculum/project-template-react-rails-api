@@ -57,15 +57,15 @@ function WorkOutForm() {
                     <h5>{workouts.equipment}</h5>
                     <p>Level: {workouts.difficulty}</p>
                     <p>Target Muscle Group: {workouts.muscle}</p>
-                    <button>Add Workout</button>
+                    <button>Add Workout to Calendar</button>
                 </div>
             </div>
         )
     })
 
     return (
-        <div className="workout-form">
-            <form id="work-out-form" onSubmit={callWorkOutApi}>
+        <div className="workouts-form">
+            <form id="workouts-form" onSubmit={callWorkOutApi}>
                 <label htmlFor="workoutSearch">Search</label>
                 <input type="text" id="workoutSearch" name="name" />
                 <div>

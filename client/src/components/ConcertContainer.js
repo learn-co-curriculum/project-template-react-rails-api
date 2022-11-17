@@ -128,12 +128,31 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
     })
   })
 
+  // Render all concerts
+  const allConcerts = filteredExploreConcerts.map((concert) => {
+    return (
+      <ConcertCard 
+          key={concert.id}
+          id={concert.id}
+          date={concert.date}
+          band={concert.band.name}
+          image={concert.band.image_url}
+          venue_name={concert.venue.name}
+          venue_city={concert.venue.city}
+          venue_state={concert.venue.state}
+          tickets_remaining={concert.tickets_remaining}
+          ticket_link={concert.ticket_link}
+          comment={concert.comment}
+        />
+    )
+  })
+
   return (
     <Flex>
     <div>
-      <h3>Here's what's coming up in {user.location}</h3>
+      {user ? <h3>Here's what's coming up in {user.location}</h3> : null}
       <h4>Explore what's happening in {exploreSelect}</h4>
-      {explore ? exploreConcerts : userConcerts}
+      {user && explore ? exploreConcerts || userConcerts : allConcerts}
     </div>
     </Flex>
   )

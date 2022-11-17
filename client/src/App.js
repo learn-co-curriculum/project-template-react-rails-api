@@ -9,6 +9,7 @@ import { NavLink, Route, Routes } from "react-router-dom";
 import NavBar from "./NavBar";
 import Calendar from "./Calendar";
 import Workouts from "./Workouts";
+import Profile from "./Profile";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -47,6 +48,7 @@ function App() {
         <NavBar onLogout={onLogout} user={user} />
         <Routes>
           <Route path="/" element={<Calendar />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/workouts" element={<Workouts />} />
           <Route path="/meals" element={<MealForm />} />
         </Routes>

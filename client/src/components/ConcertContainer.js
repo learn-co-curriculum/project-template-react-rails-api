@@ -146,20 +146,20 @@ const ConcertContainer = ({
   const allConcerts = concerts.map((concert) => {
     return (
       <ConcertCard
-      key={concert.id}
-      id={concert.id}
-      date={concert.date}
-      band={concert.band.name}
-      band_id={concert.band.id}
-      image={concert.band.image_url}
-      user={user}
-      venue_name={concert.venue.name}
-      venue_id={concert.venue.id}
-      venue_city={concert.venue.city}
-      venue_state={concert.venue.state}
-      tickets_remaining={concert.tickets_remaining}
-      ticket_link={concert.ticket_link}
-      comment={concert.comment}
+        key={concert.id}
+        id={concert.id}
+        date={concert.date}
+        band={concert.band.name}
+        band_id={concert.band.id}
+        image={concert.band.image_url}
+        user={user}
+        venue_name={concert.venue.name}
+        venue_id={concert.venue.id}
+        venue_city={concert.venue.city}
+        venue_state={concert.venue.state}
+        tickets_remaining={concert.tickets_remaining}
+        ticket_link={concert.ticket_link}
+        comment={concert.comment}
       />
     );
   });

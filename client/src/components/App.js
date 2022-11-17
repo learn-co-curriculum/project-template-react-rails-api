@@ -89,8 +89,7 @@ function App() {
       method: "DELETE",
     });
     history.push(`/`);
-    setUser(null);
-    setUser([]);
+    setUser("");
   }
   console.log(user);
 
@@ -117,10 +116,17 @@ function App() {
             </NavLink>
           ) : null}
           <br></br>
-          {user ? null : <NavLink className='underline-style' to="/login">LogIn</NavLink>}
+          {user ? null : (
+            <NavLink className="underline-style" to="/login">
+              LogIn
+            </NavLink>
+          )}
           <br></br>
-          {user ? null : <NavLink className='underline-style' to="/signup">SignUp</NavLink>}
-
+          {user ? null : (
+            <NavLink className="underline-style" to="/signup">
+              SignUp
+            </NavLink>
+          )}
         </Navbar>
       }
       header={

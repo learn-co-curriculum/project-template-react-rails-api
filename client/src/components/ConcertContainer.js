@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ConcertCard from "./ConcertCard";
 import { Flex, Button } from "@mantine/core";
 
-// Filter bands by user's favorite genres
+
 const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues, setVenues, handleNewStub, showUserConcerts, setShowUserConcerts} ) => {
 
   const [newLocation, setNewLocation] = useState("")
@@ -33,7 +33,6 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
   const filteredExploreConcerts = concerts.filter((concert) => {
     return concert.venue.state === newLocation;
   });
-
 
   const exploreSelect = (
     <select
@@ -113,9 +112,9 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
         comment={concert.comment}
         user={user}
         handleNewStub={handleNewStub}
-        />
-      )
-    })
+      />
+    );
+  });
 
   // Concerts in the user's state and matches favorite genres
 
@@ -158,6 +157,7 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
         tickets_remaining={concert.tickets_remaining}
         ticket_link={concert.ticket_link}
         comment={concert.comment}
+
         />
     )
   })

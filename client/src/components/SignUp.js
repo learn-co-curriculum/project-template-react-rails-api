@@ -118,6 +118,7 @@ const SignUp = () => {
                 onChange={(e) => setLocation(e.target.value)}
                 class="input-field"
               >
+                <option>Choose a state</option>
                 <option value="AK">AK</option>
                 <option value="AL">AL</option>
                 <option value="AR">AR</option>

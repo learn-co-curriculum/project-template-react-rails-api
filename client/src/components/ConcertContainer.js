@@ -39,6 +39,7 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
       type="text"
       onChange={(e) => setNewLocation(e.target.value) & setExplore(true) & setShowUserConcerts(false)}
     >
+      <option value="">{user ? user.location : "Choose a state"}</option>
       <option value="AK">AK</option>
       <option value="AL">AL</option>
       <option value="AR">AR</option>

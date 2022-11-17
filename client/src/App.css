@@ -51,6 +51,24 @@ body {
   display: inline;
   margin: 0;
   padding: 0;
+  z-index: 1;
+}
+
+.meals-div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 1rem;
+}
+
+.cards {
+  max-width: 300px;
+}
+
+.workout-page {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .nav-bar a {
@@ -102,6 +120,7 @@ body {
   font-family: Verdana, sans-serif;
   text-align: center; 
 }
+
 
 /* .navicons {
   border-style: solid;

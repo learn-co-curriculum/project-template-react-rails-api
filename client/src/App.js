@@ -5,7 +5,7 @@ import Homepage from "./Homepage";
 import LoginPage from "./LoginPage";
 import RegisterPage from "./RegisterPage";
 import MealForm from "./MealForm";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import NavBar from "./NavBar";
 import Calendar from "./Calendar";
 import WorkOutForm from "./WorkOutForm";
@@ -40,8 +40,8 @@ function App() {
 
   //REQUEST BACKEND TO UPDATE MY SHIT
   function updateUserInfo(user) {
-    setUser(user)
-    //call fetch to update current user info on the backend 
+    setUser(user);
+    //call fetch to update current user info on the backend
     fetch("/updateUser", {
       method: "PATCH",
       body: JSON.stringify({
@@ -49,14 +49,14 @@ function App() {
         name: user.name,
         image: user.image,
         meal: user.meal,
-        workout: user.workout
+        workout: user.workout,
       }),
       headers: {
-        "Content-type": "application/json"
-      }
+        "Content-type": "application/json",
+      },
     })
-    .then(res => res.json())
-    .then(console.log)
+      .then((res) => res.json())
+      .then(console.log);
   }
 
   if (!user) {
@@ -75,8 +75,16 @@ function App() {
           <Route path="/" element={<Calendar />} />
           <Route path="/workouts" element={<WorkOutForm />} />
           <Route path="/meals" element={<MealForm />} />
-          <Route path="/profile" element={<Profile user={user} setUser={setUser}/>} />
-          <Route path="/profilesettings" element={<ProfileSettings user={user} updateUserInfo={updateUserInfo}/> } />
+          <Route
+            path="/profile"
+            element={<Profile user={user} setUser={setUser} />}
+          />
+          <Route
+            path="/profilesettings"
+            element={
+              <ProfileSettings user={user} updateUserInfo={updateUserInfo} />
+            }
+          />
         </Routes>
       </div>
     );

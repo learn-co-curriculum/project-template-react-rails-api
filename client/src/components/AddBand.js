@@ -24,7 +24,6 @@ const AddBand = ({ onAddBand }) => {
       hometown: hometown,
     };
 
-    console.log(errors);
 
     fetch("/bands", {
       method: "POST",

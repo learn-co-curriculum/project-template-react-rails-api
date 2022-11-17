@@ -15,6 +15,13 @@ const ConcertContainer = ({
   const [newLocation, setNewLocation] = useState("");
   const [explore, setExplore] = useState(false);
 
+
+const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues, setVenues} ) => {
+
+  const [newLocation, setNewLocation] = useState("")
+  const [explore, setExplore] = useState(false)
+
+  // Filter bands by user's favorite genres
   const filteredBands = bands.filter((band) => {
     return (
       user.genre_1 === band.genre ||
@@ -26,6 +33,7 @@ const ConcertContainer = ({
     );
   });
 
+
   // Filter concerts by user location
   const filteredConcerts = concerts.filter((concert) => {
     return user.location === concert.venue.state;
@@ -35,6 +43,7 @@ const ConcertContainer = ({
   const filteredExploreConcerts = concerts.filter((concert) => {
     return concert.venue.state === newLocation;
   });
+
 
   const exploreSelect = (
     <select
@@ -96,6 +105,7 @@ const ConcertContainer = ({
   );
 
   // Concerts outside of user's state
+
   const exploreConcerts = filteredExploreConcerts.map((concert) => {
     return (
       <ConcertCard
@@ -113,33 +123,9 @@ const ConcertContainer = ({
         comment={concert.comment}
         user={user}
         handleNewStub={handleNewStub}
-      />
-    );
-  });
-
-  const altDisplayed = bands.map((band) => {
-    return concerts.map((concert) => {
-      return (
-        <ConcertCard
-          key={concert.id}
-          id={concert.id}
-          date={concert.date}
-          band={band.name}
-          band_id={band.id}
-          image={band.image_url}
-          venue_name={concert.venue.name}
-          venue_city={concert.venue.city}
-          venue_id={concert.venue.id}
-          venue_state={concert.venue.state}
-          tickets_remaining={concert.tickets_remaining}
-          ticket_link={concert.ticket_link}
-          comment={concert.comment}
-          user={user}
-          handleNewStub={handleNewStub}
         />
-      );
-    });
-  });
+      )
+    })
 
   // Concerts in the user's state and matches favorite genres
 
@@ -184,17 +170,18 @@ const ConcertContainer = ({
   })
 
   return (
-    // <Flex>
-    //   {user.genre_1 ? <div>{displayed}</div> : <div>{altDisplayed}</div>}
-    // </Flex>
-
     <Flex>
     <div>
       {user ? <h3>Here's what's coming up in {user.location}</h3> : null}
       <h4>Explore what's happening in {exploreSelect}</h4>
+      <div className='flex-parent'>
+      {explore ? exploreConcerts : userConcerts}
+      </div>
+    </div>
+  )
+}
       {user && explore ? exploreConcerts || userConcerts : allConcerts}
     </div>
-
     </Flex>
   );
 };

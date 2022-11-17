@@ -1,21 +1,24 @@
 import React from "react";
-import { Flex } from '@mantine/core'
+import { Card, Flex, Image, Text, Badge, Button, Group } from '@mantine/core';
+
 
 
 const FeaturedBandCard = ({ band, concerts }) => {
   return (
-    <Flex
-    wrap="wrap"
-    >
-      <div className="featured-band-image">
+      <div >
         {concerts.length > 0 ? (
-          <div>
-            <div>{band.name}</div>
-            <img src={band.image_url} alt={band.name} />
-          </div>
+         <Flex
+         gap="xl"
+         direction="row"
+         wrap="wrap"
+         >
+          <Card >
+            <Card.Section><Image src={band.image_url} alt={band.name}  height={160} width={160}/></Card.Section>
+            {/* <Group><div>{band.name}</div></Group> */}
+          </Card>
+          </Flex>
         ) : null}
       </div>
-    </Flex>
   );
 };
 

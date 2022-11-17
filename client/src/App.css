@@ -243,4 +243,17 @@
 .bordered-white {
   border: 2px solid white
 }
+.NewItem {
+  border-bottom: 2px solid var(--background-light);
+  border-top: 2px solid var(--background-light);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.user-info {
+  color: rgb(0, 47, 255);
+}
 

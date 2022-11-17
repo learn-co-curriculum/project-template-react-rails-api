@@ -2,7 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
 // import UserProfile from "./UserProfile";
 import VolunteerActivities from "./VolunteerActivities";
-import AllVolunteers from "./AllVolunteers";
+// import AllVolunteers from "./AllVolunteers";
+import OurTeam from "./OurTeam";
 // import CookieTest from "./CookieTest";
 
 function MainWindow({ user }) {
@@ -15,7 +16,7 @@ function MainWindow({ user }) {
           element={<UserProfile user={user} onLogin={onLogin} />}
         /> */}
         <Route path="/activities/" element={<VolunteerActivities />} />
-        <Route path="/volunteers/" element={<AllVolunteers />} />
+        <Route path="/volunteers/" element={<OurTeam />} />
         {/* <Route path="/cookietest/" element={<CookieTest />} /> */}
       </Routes>
     </>

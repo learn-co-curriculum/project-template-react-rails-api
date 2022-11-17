@@ -1,16 +1,13 @@
-import UserProfile from "./UserProfile";
-import { Card } from "semantic-ui-react";
+import React from "react";
+import OurTeam from "./OurTeam";
 
-function AllVolunteers({ volunteers }) {
+function AllVolunteers({ volunteer }) {
   return (
-    <Card.Group itemsPerRow={3}>
-      <h1>Meet Our Wonderful Team</h1>
-      {volunteers
-        ? volunteers.map((volunteer) => (
-            <UserProfile volunteer={volunteer} key={volunteer.id} />
-          ))
-        : null}
-    </Card.Group>
+    <div>
+      {volunteer.map((newVolunteer) => (
+        <OurTeam volunteer={newVolunteer} key={newVolunteer.id} />
+      ))}
+    </div>
   );
 }
 

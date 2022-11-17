@@ -8,7 +8,7 @@ const BandContainer = ({bands}) => {
         return <BandCard key = {band.id} band={band}/>
     })
   return (
-    <div className='flex-parent'>
+    <div className='flex-parent-bands'>
       <>{bandCard}</>
     </div>
   )

@@ -14,7 +14,7 @@ function Stubs ({id, date, band, venue_name, venue_city}) {
         <div class="artist">
           <span class="name">{band.name}</span>
           <br></br>
-          <span className="live small">LIVE</span>
+          {/* <span className="live small">LIVE</span> */}
         </div>
         <div class="location">
           <span>{venue_name}</span>
@@ -27,7 +27,6 @@ function Stubs ({id, date, band, venue_name, venue_city}) {
           <button class="buy" href="#">PARTY ON</button>
         </div>
       </div>
-
     </div>
   )
 }

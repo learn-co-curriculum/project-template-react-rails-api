@@ -71,6 +71,14 @@
   align-content: flex-start
 }
 
+.flex-parent-bands {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+
+}
 .flex-child {
 
 }
@@ -176,15 +184,12 @@
 }
 
 .band-card {
-  margin: 2%;
-  padding-left: 20px;
-  padding-right: 5px;
-  padding-top: 5px;
-  padding-bottom: 30px;
+  margin: 3%;
+  padding: 10px;
   flex: 1 300px;
-  max-width: 25%;
+  /* max-width: 25%; */
   min-width: 325px;
-  min-height: 350px;
+  /* min-height: 350px; */
   border-radius: 3px;
   box-sizing: border-box;
 }
@@ -261,9 +266,11 @@ min-height: 350px;
 }
 
 .artist {
-  font-size: 30px;
+  font-size: 25px;
   position: absolute;
-  margin: 50px 40px 0 80px;
+  /* margin: 40px 90px 30px 50px; */
+  margin: 50px 90px 0 50px;
+
   float: left;
   font-weight: bold;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
@@ -272,9 +279,9 @@ min-height: 350px;
 
 .location {
   /* float: left; */
-  margin: 20px 50px 0 180px;
+  margin: 20px 30px 0 180px;
   padding-top: 125px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
             filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));

@@ -51,13 +51,13 @@ v5 = Venue.create(city: "Asbury Park", state: "NJ", name: "The Stone Pony", logo
 
 puts '🌙 Seeding concerts...'
 
-c1 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.ticketweb.com", date: "2015-08-08".to_date, user_id: u1.id, venue_id: v1.id, band_id: b1.id)
-c2 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2015-08-08".to_date, user_id: u2.id, venue_id: v2.id, band_id: b1.id)
-c3 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.dice.fm", date: "2015-08-08".to_date, user_id: u3.id, venue_id: v3.id, band_id: b3.id)
-c4 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2015-08-08".to_date, user_id: u4.id, venue_id: v4.id, band_id: b4.id)
-c5 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2022-11-20".to_date, user_id: u3.id, venue_id: v4.id, band_id: b3.id)
-c6 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2022-11-22".to_date, user_id: u3.id, venue_id: v4.id, band_id: b2.id)
-c6 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2022-11-22".to_date, user_id: u1.id, venue_id: v5.id, band_id: b5.id)
+c1 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.ticketweb.com", date: "2015-08-08".to_datetime, user_id: u1.id, venue_id: v1.id, band_id: b1.id)
+c2 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2015-08-09".to_datetime, user_id: u2.id, venue_id: v2.id, band_id: b1.id)
+c3 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.dice.fm", date: "2015-08-08".to_datetime, user_id: u3.id, venue_id: v3.id, band_id: b3.id)
+c4 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2015-08-08".to_datetime, user_id: u4.id, venue_id: v4.id, band_id: b4.id)
+c5 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2022-11-20".to_datetime, user_id: u3.id, venue_id: v4.id, band_id: b3.id)
+c6 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2022-11-22".to_datetime, user_id: u3.id, venue_id: v4.id, band_id: b2.id)
+c6 = Concert.create(comment: "NA", tickets_remaining: 5, link: "http://www.eventbrite.com", date: "2022-11-22".to_datetime, user_id: u1.id, venue_id: v5.id, band_id: b5.id)
 
 
 puts '🌙 Done seeding!'

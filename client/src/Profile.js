@@ -11,8 +11,8 @@ function Profile({ user, listOfWorkOuts }) {
             return (
                 <div className="show-Work-Out-on-Profile">
                     <p>{workout.name}</p>
-                    <p>{workout.difficulty}</p>
-                    <p>{workout.muscle}</p>
+                    {/* <p>{workout.difficulty}</p>
+                    <p>{workout.muscle}</p> */}
                 </div>
             )
         })
@@ -25,9 +25,9 @@ function Profile({ user, listOfWorkOuts }) {
                 <button>Edit User Settings</button>
             </NavLink>
             <h3>hi! {user.name}</h3>
-            <h3>this is my avatar: <img alt="avatar" src={user.image} width={100} height={100} /></h3>
-            <h3>Meals List</h3>
-            <h3>Workout List</h3>
+            <img alt="avatar" src={user.image} width={100} height={100} />
+            <h4>Meals List</h4>
+            <h4>Workout List</h4>
             {workOutShowList}
         </div>
     )

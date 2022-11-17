@@ -8,27 +8,17 @@ function MealForm() {
   const [mealIngredients, setMealIngredients] = useState("")
   const [mealList, setMealList] = useState([])
 
-<<<<<<< HEAD
-    const apiURL = "https://api.edamam.com/api/food-database/v2/parser?app_id=28d8ec75&app_key=79512bd96de025b96b0e26333b95a36e"
-    // function onButtonClick() {
-    //     useEffect(() => {
-    //         fetch("https://api.edamam.com/api/food-database/v2/parser?app_id=28d8ec75&app_key=79512bd96de025b96b0e26333b95a36e&ingr=chicken&nutrition-type=cooking")
-    //         .then(response => response.json())
-    //         .then(data => alert(data))
-    //     }, [])
-=======
   function onButtonClick(event) {
     event.preventDefault();
     fetch("https://api.edamam.com/api/food-database/v2/parser?app_id=28d8ec75&app_key=79512bd96de025b96b0e26333b95a36e&ingr=chicken&nutrition-type=cooking")
     .then(response => response.json())
     .then(data => console.log(data))
-        }
+    }
     
 
     // const changeMeal = (newMeal) => {
     //   setCurrentMeal(newMeal)
     //   console.log(newMeal)
->>>>>>> c4ac53cfd6a4b4da2d1e6d8af6b203da04401900
     // }
 
     const changeMealCalories = (newCalories) => {
@@ -41,9 +31,6 @@ function MealForm() {
       console.log(newIngredients)
     }
 
-<<<<<<< HEAD
-    
-=======
     function callMealApi(event) {
       event.preventDefault();
       const ingredientsParam = event.target.ingredientname.value;
@@ -62,7 +49,7 @@ function MealForm() {
         alert("Please enter a valid food")
       }
     }
-    console.log(mealList)
+    
 
     const apiMeals = mealList.map((meal) => {
       return (
@@ -76,7 +63,6 @@ function MealForm() {
         </div>
       )
     })
->>>>>>> c4ac53cfd6a4b4da2d1e6d8af6b203da04401900
 
 
   return (
@@ -85,18 +71,9 @@ function MealForm() {
         <label htmlFor="ingredientname" >Meal Ingredients</label>
         <input name="ingredientname" type="text" id="mealname" />
         <label htmlFor="mealcalories">Meal Calories</label>
-<<<<<<< HEAD
-        <input type="number" id="mealcalories" />
-        <label htmlFor="mealingredients">Meal Ingredients</label>
-        <input type="textarea" name="ingredientlist" />
-        <label htmlFor="dayselection">Day of the Week</label>
-        <input type="textarea" name="dayselection" />
-        <input type="text" id="ingredients" name="ingredients"/ >
-=======
         <input type="number" id="mealcalories" name="calories"/>
         {/* <label htmlFor="dayselection">Day of the Week</label>
         <input type="textarea" name="dayselection" /> */}
->>>>>>> c4ac53cfd6a4b4da2d1e6d8af6b203da04401900
         <button type="submit">Submit</button>
       </form>
       {apiMeals}

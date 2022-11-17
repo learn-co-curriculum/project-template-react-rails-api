@@ -4,70 +4,125 @@ function WorkOutForm() {
     //SEO's API KEY CHANGE WITH YOURS!
     //DON'T USE MINE
     const apiKey = "ErjjhwAdbIlQLzPZu5SUyg==VofMpxvT9NyOnEXZ"
-    const [currentWorkOutType, setCurrentWorkOutType] = useState("")
-    const [currentMuscleGroup, setCurrentMuscleGroup] = useState("")
-    const [currentDifficulty, setCurrentDifficulty] = useState("")
+    const [currentWorkOutType, setCurrentWorkOutType] = useState("cardio")
+    const [currentMuscleGroup, setCurrentMuscleGroup] = useState("abdominal")
+    const [currentDifficulty, setCurrentDifficulty] = useState("beginner")
     const [listOfWorkOuts, setListOfWorkOuts] = useState([])
+    const [showState, setShowState] = useState(false)
 
+    const apiURL = `https://api.api-ninjas.com/v1/exercises?`
+
+    //Values change based on dropdown selection
     const changeWorkOutType = (newWorkOut) => {
         setCurrentWorkOutType(newWorkOut)
-        console.log(newWorkOut)
     }
 
     const changeMuscleGroup = (newMuscleGroup) => {
         setCurrentMuscleGroup(newMuscleGroup)
-        console.log(newMuscleGroup)
-
     }
 
     const changeDifficulty = (newDifficulty) => {
         setCurrentDifficulty(newDifficulty)
-        console.log(newDifficulty)
     }
 
-    function callWorkOutApi(event) {
-
+    //searches workouts based on keyword through the search bar in workouts menu
+    function handleSearchAPI(event) {
+        setShowState(false)
         event.preventDefault()
         const nameParam = event.target.name.value
-        console.log(event.target)
+        const searchApiURL = apiURL + `name=${nameParam}`
+        fetch(searchApiURL, {
+            method: "GET",
+            headers: { 'X-Api-Key': apiKey },
+            contentType: 'application/json',
+        })
+        .then(res => res.json())
+        .then((data) => {
+            setListOfWorkOuts(data)
+            if(data.length > 0 ){
+                setShowState(false)
+            } else {
+                setShowState(true)
+            }
+        })
+    }
+
+    //searches workouts based on three different types of category
+    function callWorkOutApi(event) {
+        setShowState(false)
+        event.preventDefault()
         const workoutParam = `&type=${currentWorkOutType}`
         const muscleParam = `&muscle=${currentMuscleGroup}`
         const difficultyParam = `&difficulty=${currentDifficulty}`
-        const apiURL = `https://api.api-ninjas.com/v1/exercises?name=${nameParam}`
         const fullApiURL = apiURL + workoutParam + muscleParam + difficultyParam
-        console.log(fullApiURL)
-        if (nameParam) {
             fetch(fullApiURL, {
                 method: "GET",
                 headers: { 'X-Api-Key': apiKey },
                 contentType: 'application/json',
             })
-                .then(res => res.json())
-                .then(setListOfWorkOuts)
-        } else {
-            alert("Please Enter a Search Term!")
-        }
+            .then(res => res.json())
+            .then((data) => {
+                setListOfWorkOuts(data)
+                if(data.length > 0 ){
+                    setShowState(false)
+                } else {
+                    setShowState(true)
+                }
+                
+            })
     }
 
+    // Calls upon the list of workouts and displays information about it to the user
     const workOutListFromAPI = listOfWorkOuts.map((workouts) => {
-        return (
-            <div className="workOutsFromAPI">
-                <div className="workOutsINFO" key={workouts.id} id={workouts.id}>
-                    <h4>{workouts.name}</h4>
-                    <h5>{workouts.equipment}</h5>
-                    <p>Level: {workouts.difficulty}</p>
-                    <p>Target Muscle Group: {workouts.muscle}</p>
-                    <button>Add Workout to Calendar</button>
+            return (
+                <div className="workOutsFromAPI">
+                    <div className="workOutsINFO" key={workouts.id} id={workouts.id}>
+                        <h4>{workouts.name}</h4>
+                        <h5>{workouts.equipment}</h5>
+                        <p>Level: {workouts.difficulty}</p>
+                        <p>Target Muscle Group: {workouts.muscle}</p>
+                        <button>Add Workout to Calendar</button>
+                    </div>
                 </div>
-            </div>
-        )
+            )
     })
 
+    // const workOutListFromAPI = () => {
+    //     console.log(listOfWorkOuts.length)
+    //     if (listOfWorkOuts.length > 0){
+    //         debugger;
+    //         listOfWorkOuts.map((workouts) => {
+    //             return (
+    //                 <div className="workOutsFromAPI">
+    //                     <div className="workOutsINFO" key={workouts.id} id={workouts.id}>
+    //                         <h4>{workouts.name}</h4>
+    //                         <h5>{workouts.equipment}</h5>
+    //                         <p>Level: {workouts.difficulty}</p>
+    //                         <p>Target Muscle Group: {workouts.muscle}</p>
+    //                         <button>Add Workout to Calendar</button>
+    //                     </div>
+    //                 </div>
+    //             )
+    //         })
+    //     } else {
+    //         <h4>message</h4>
+    //     }
+    // }
+    const showMessage = showState ? <h1>If nothing shows up, there were no matching exercises. PLEASE TRY AGAIN!</h1>  : null 
+    console.log(showState)
+
+
     return (
-        <div className="workouts-form">
-            <form id="workouts-form" onSubmit={callWorkOutApi}>
-                <label htmlFor="workoutSearch">Search</label>
+        <div className="workouts-page">
+            {/*Two different forms: 1st - search by KEYWORD 2nd - search by three different categories*/}
+            <h4>Search for an Exercise</h4>
+            <form id="workouts-search-by-term" onSubmit={handleSearchAPI}>
+                <label htmlFor="workoutSearch">Search </label>
                 <input type="text" id="workoutSearch" name="name" />
+                <button >Search</button>
+            </form>
+            <form id="workouts-by-type-form" onSubmit={callWorkOutApi}>
+                <h4>Don't know what exercise to choose? Select the type, muscle group to target, and the difficulty.</h4>
                 <div>
                     <label htmlFor="work-out-type">Type</label>
                     <select id="work-out-type-select" onChange={(event) => changeWorkOutType(event.target.value)} value={currentWorkOutType}>
@@ -107,6 +162,7 @@ function WorkOutForm() {
                 </div>
                 <button type="submit">Submit</button>
             </form>
+            {showMessage}
             {workOutListFromAPI}
         </div>
     )

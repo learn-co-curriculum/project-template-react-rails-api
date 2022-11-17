@@ -10,6 +10,7 @@ import NavBar from "./NavBar";
 import Calendar from "./Calendar";
 import WorkOutForm from "./WorkOutForm";
 import Profile from "./Profile";
+import ProfileSettings from "./ProfileSettings";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -50,6 +51,8 @@ function App() {
           <Route path="/" element={<Calendar />} />
           <Route path="/workouts" element={<WorkOutForm />} />
           <Route path="/meals" element={<MealForm />} />
+          <Route path="/profile" element={<Profile user={user}/>} />
+          <Route path="/profilesettings" element={<ProfileSettings user={user}/> } />
         </Routes>
       </div>
     );

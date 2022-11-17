@@ -5,11 +5,11 @@ Concert.destroy_all
 
 
 puts '🌙 Seeding bands...'
-b1 = Band.create(name: "The Beatles", image_url: "link", genre: "Rock 'n Roll", secondary_genre: "Pop", hometown: "London")
-b2 = Band.create(name: "The Doors", image_url: "link", genre: "Rock 'n Roll", secondary_genre: "Pop", hometown: "London")
-b3 = Band.create(name: "Guns n Roses", image_url: "link", genre: "Rock 'n Roll", secondary_genre: "Pop", hometown: "London")
-b4 = Band.create(name: "Rolling Stones", image_url: "link", genre: "Rock 'n Roll", secondary_genre: "Pop", hometown: "London")
-b5 = Band.create(name: "Bruce Springsteen & The E Street Band", genre: "Rock 'n Roll", secondary_genre: "Pop", hometown: "Asbury Park")
+b1 = Band.create(name: "The Beatles", image_url: "https://images.radiox.co.uk/images/67203?crop=16_9&width=660&relax=1&signature=55LkrqcNZrAY4toJIVC2ULMZ_AU=", genre: "Rock n' Roll", secondary_genre: "Pop", hometown: "London")
+b2 = Band.create(name: "The Doors", image_url: "https://upload.wikimedia.org/wikipedia/en/thumb/9/98/TheDoorsTheDoorsalbumcover.jpg/220px-TheDoorsTheDoorsalbumcover.jpg", genre: "Rock 'n Roll", secondary_genre: "Pop", hometown: "London")
+b3 = Band.create(name: "Guns n' Roses", image_url: "https://i.scdn.co/image/ab6761610000e5eb50defaf9fc059a1efc541f4c", genre: "Rock 'n Roll", secondary_genre: "Pop", hometown: "London")
+b4 = Band.create(name: "Rolling Stones", image_url: "https://miro.medium.com/max/1200/1*MvKwnS9TUiLvM7-iqSZi6w.jpeg", genre: "Rock 'n Roll", secondary_genre: "Pop", hometown: "London")
+b5 = Band.create(name: "Bruce Springsteen & The E Street Band", image_url: "https://upload.wikimedia.org/wikipedia/en/7/77/BS%26ESB_Greatest_Hits.jpg", genre: "Rock 'n Roll", secondary_genre: "Pop", hometown: "Asbury Park")
 
 puts '🌙 Seeding users...'
 u1 = User.create(username: "Nico123", email: "nico123@gmail.com", password:"password", first_name: "Nico", last_name: "123", favorite_band: "The Beatles", location: "NY", genre_1: "Pop", genre_2: "Rock", genre_3: "n Roll")

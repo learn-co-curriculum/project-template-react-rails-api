@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div>
-      <h1>Concert Tracker</h1>
+      <h1 className='page-header'>Concert Tracker</h1>
       <div className='homepage-flex'>
       <div className='homepage-card'>
         <img src="https://images.unsplash.com/photo-1620577610365-86c411bad78d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="explore bands"/>

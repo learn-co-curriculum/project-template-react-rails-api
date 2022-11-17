@@ -149,8 +149,8 @@ function App() {
     >
       <div className="App">
         <div className="logout">
-          {user ? user.first_name : null}{" "}
-          {user ? <button onClick={logOut}>Log Out</button> : null}
+          {/* {user ? user.first_name : null}{" "} */}
+          {user ? <button className="logout-button" onClick={logOut}>Log Out</button> : null}
         </div>
         {/* <NavBar /> */}
         {/* <SearchBar search={search} setSearch={setSearch} /> */}

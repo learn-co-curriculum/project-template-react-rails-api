@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { Modal, Button, Group } from '@mantine/core';
 
 
 
@@ -24,6 +23,7 @@ const AddBand = ({ onAddBand }) => {
       hometown: hometown,
     };
 
+    console.log(errors);
 
     fetch("/bands", {
       method: "POST",
@@ -48,46 +48,51 @@ const AddBand = ({ onAddBand }) => {
 
   return (
     <   >
-      <form onSubmit={handleSubmit}>
-        <label>Name</label>
+      <form onSubmit={handleSubmit} className="add-band-form">
+        <label>Name: </label>
         <input
           value={name}
           type="text"
-          placeholder="Name..."
+          placeholder="Name"
           onChange={(e) => setName(e.target.value)}
         ></input>
         <br></br>
-        <label>Image</label>
+        <br></br>
+        <label>Image: </label>
         <input
           value={image_url}
           type="text"
-          placeholder="Image..."
+          placeholder="Add image url"
           onChange={(e) => setImage_Url(e.target.value)}
         ></input>
          <br></br>
-        <label>Genre</label>
+         <br></br>
+        <label>Genre: </label>
         <input
           value={genre}
           type="text"
-          placeholder="Main Genre..."
+          placeholder="Main Genre"
           onChange={(e) => setGenre(e.target.value)}
         ></input>
          <br></br>
-        <label>Secondary Genre</label>
+         <br></br>
+        <label>Secondary Genre: </label>
         <input
           value={secondary_genre}
           type="text"
-          placeholder="Secondary Genre..."
+          placeholder="Secondary Genre"
           onChange={(e) => setSecondary_Genre(e.target.value)}
         ></input>
          <br></br>
-        <label>Hometown</label>
+         <br></br>
+        <label>Hometown: </label>
         <input
           value={hometown}
           type="text"
-          placeholder="Hometown..."
+          placeholder="Hometown"
           onChange={(e) => setHometown(e.target.value)}
         ></input>
+         <br></br>
          <br></br>
         <button type="submit">Add Band</button>
       </form>

@@ -19,12 +19,12 @@ const Concerts = ({
   return (
     <div>
       <h2 className="page-header">Concerts</h2>
-      <SearchBar
+      {/* <SearchBar
         displayedBands={displayedBands}
         displayedVenues={displayedVenues}
         search={search}
         setSearch={setSearch}
-      />
+      /> */}
       <ConcertContainer
         user={user}
         bands={bands}

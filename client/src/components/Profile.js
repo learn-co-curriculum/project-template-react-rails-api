@@ -30,10 +30,7 @@ const Profile = ({ user, setUser }) => {
 
   return (
     <div>
-      <h2 className="page-header">{user.first_name}'s profile</h2>
-      <h4>
-        See your concert stubs, your upcoming concerts, and your favorites!
-      </h4>
+          <div className="update-profile">
       <Button
         onClick={() => setShow((show) => !show)}
         variant="light"
@@ -58,6 +55,13 @@ const Profile = ({ user, setUser }) => {
       >
         Delete Profile
       </Button>
+      </div>
+      <br></br>
+      <h2 className="page-header">{user.first_name}'s profile</h2>
+      <h4>
+        See your concert stubs, your upcoming concerts, and your favorites!
+      </h4>
+
       {/* <UpcomingConcerts user={user}/> */}
       <FavoritesContainer
         genre_1={user.genre_1}

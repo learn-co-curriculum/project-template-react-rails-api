@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {DayPilot, DayPilotCalendar, DayPilotNavigator} from "@daypilot/daypilot-lite-react";
-import "./Calender.css";
+import "./Calendar.css";
 
 const styles = {
   wrap: {
@@ -17,6 +17,7 @@ const styles = {
 class Calendar extends Component {
 
   constructor(props) {
+    console.log(props)
     super(props);
     this.calendarRef = React.createRef();
     this.state = {

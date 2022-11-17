@@ -48,48 +48,79 @@ function WorkOutForm({ getWorkOuts }) {
       });
   }
 
-    //searches workouts based on three different types of category
-    function callWorkOutApi(event) {
-        setShowState(false)
-        event.preventDefault()
-        const workoutParam = `&type=${currentWorkOutType}`
-        const muscleParam = `&muscle=${currentMuscleGroup}`
-        const difficultyParam = `&difficulty=${currentDifficulty}`
-        const fullApiURL = apiURL + workoutParam + muscleParam + difficultyParam
-            fetch(fullApiURL, {
-                method: "GET",
-                headers: { 'X-Api-Key': apiKey },
-                contentType: 'application/json',
-            })
-            .then(res => res.json())
-            .then((data) => {
-                setListOfWorkOuts(data)
-                if(data.length > 0 ){
-                    setShowState(false)
-                } else {
-                    setShowState(true)
-                }
-                
-            })
-    }
+  //searches workouts based on three different types of category
+  function callWorkOutApi(event) {
+    setShowState(false);
+    event.preventDefault();
+    const workoutParam = `&type=${currentWorkOutType}`;
+    const muscleParam = `&muscle=${currentMuscleGroup}`;
+    const difficultyParam = `&difficulty=${currentDifficulty}`;
+    const fullApiURL = apiURL + workoutParam + muscleParam + difficultyParam;
+    fetch(fullApiURL, {
+      method: "GET",
+      headers: { "X-Api-Key": apiKey },
+      contentType: "application/json",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setListOfWorkOuts(data);
+        if (data.length > 0) {
+          setShowState(false);
+        } else {
+          setShowState(true);
+        }
+      });
+  }
 
-    //SENDS SELECTED WORKOUT TO USER LIST
-    function addWorkOutToList(workout) {
+ 
+
+  // Calls upon the list of workouts and displays information about it to the user
+//   const workOutListFromAPI = listOfWorkOuts
+//     .map((workouts) => {
+//       return (
+//         <div className="workOutsFromAPI">
+//           <div className="workOutsINFO" key={workouts.id} id={workouts.id}>
+//             <h4>{workouts.name}</h4>
+//             <h5>{workouts.equipment}</h5>
+//             <p>Level: {workouts.difficulty}</p>
+//             <p>Target Muscle Group: {workouts.muscle}</p>
+//             <button onClick={() => addWorkOutToList(workouts)}>
+//               Add Workout to Calendar
+//             </button>
+//           </div>
+//         </div>
+//       );
+//     })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       setListOfWorkOuts(data);
+//       if (data.length > 0) {
+//         setShowState(false);
+//       } else {
+//         setShowState(true);
+//       }
+//     });
+
+    function getWorkOutFromCard(workout) {
+        console.log("this is from workout form")
+        console.log(workout)
         getWorkOuts(workout)
     }
 
-    const workOutListFromAPI = listOfWorkOuts.map((workouts) => {
+  // Calls upon the list of workouts and displays information about it to the user
+  const workOutListFromAPI = listOfWorkOuts.map((workouts) => {
+    
     return (
       <WorkOutCard
         name={workouts.name}
         equipment={workouts.equipment}
         difficulty={workouts.difficulty}
         muscle={workouts.muscle}
-        getWorkOuts={getWorkOuts}
+        getWorkOuts={getWorkOutFromCard}
+        currentWorkOut={workouts}
       />
     );
-})
-  
+  });
 
   // const workOutListFromAPI = () => {
   //     console.log(listOfWorkOuts.length)
@@ -117,7 +148,6 @@ function WorkOutForm({ getWorkOuts }) {
       If nothing shows up, there were no matching exercises. PLEASE TRY AGAIN!
     </h1>
   ) : null;
-  console.log(showState);
 
   return (
     <div className="workouts-page">
@@ -192,6 +222,6 @@ function WorkOutForm({ getWorkOuts }) {
       <div className="workout-page">{workOutListFromAPI}</div>
     </div>
   );
-  }
+}
 
 export default WorkOutForm;

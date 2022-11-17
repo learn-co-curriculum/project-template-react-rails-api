@@ -11,11 +11,13 @@ import Calendar from "./Calendar";
 import WorkOutForm from "./WorkOutForm";
 import Profile from "./Profile";
 import ProfileSettings from "./ProfileSettings";
+import Reviews from "./WorkOutReviews"
 
 function App() {
   const [user, setUser] = useState(null);
   const [needToRegister, setNeedToRegister] = useState(false);
   const [userWorkOuts, setUserWorkOuts] = useState([])
+  const [itemToReview, setItemToReview] = useState(null)
 
   //CHECKS TO SEE IF CURRENT USER MATCHES SESSION USER
   useEffect(() => {
@@ -41,7 +43,10 @@ function App() {
 
   //SETS USER WORKOUTS
   function getUserWorkOut(workout){
+    console.log("this is from app to set the data")
+    console.log(workout)
     setUserWorkOuts([...userWorkOuts, workout])
+    console.log(userWorkOuts)
   }
 
   //REQUEST BACKEND TO UPDATE MY SHIT
@@ -64,6 +69,12 @@ function App() {
       .then((res) => res.json())
   }
 
+  //GETS THE ITEM TO REVIEW
+  function getItemToReview(item) {
+    setItemToReview(item)
+  }
+ 
+
   if (!user) {
     //RENDER BASED ON REGISTER OR LOGIN
     const componentToRender = needToRegister ? (
@@ -82,7 +93,7 @@ function App() {
           <Route path="/meals" element={<MealForm />} />
           <Route
             path="/profile"
-            element={<Profile user={user} setUser={setUser} />}
+            element={<Profile user={user} setUser={setUser} listOfWorkOuts={userWorkOuts} setItemToReview={getItemToReview}/>}
           />
           <Route
             path="/profilesettings"
@@ -90,6 +101,7 @@ function App() {
               <ProfileSettings user={user} updateUserInfo={updateUserInfo} />
             }
           />
+          <Route path="/review" element={<Reviews itemToReview={itemToReview}/>} />
         </Routes>
       </div>
     );

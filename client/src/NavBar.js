@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import MealForm from "./MealForm";
 
 function NavBar({ onLogout, user }) {
   function handleLogout() {
@@ -31,6 +30,16 @@ function NavBar({ onLogout, user }) {
             Meals
           </a>
         </NavLink>
+          <NavLink to="/workoutreview">
+            <a href="#workoutreview" className="navicons">
+              Workouts Review
+            </a>
+          </NavLink>
+          <NavLink to="/mealreview">
+            <a href="#workoutreview" className="navicons">
+              Meals Reviews
+            </a>
+          </NavLink>
         <NavLink to="/">
           <a href="#log-out" className="navicons" onClick={handleLogout}>
             Log out

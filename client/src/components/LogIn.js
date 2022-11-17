@@ -35,7 +35,8 @@ const LogIn = ({handleLogin}) => {
   return (
     <>
       <form onSubmit={handleSubmit} className="login-form">
-          <h2 className="page-header">Log in</h2>
+          <h2 className="login-page-header">Log in</h2>
+          <img className="login-image" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y29uY2VydHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="log in below"/>
           <div className="login-form">
           <div>
         <label>Username:        </label>

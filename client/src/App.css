@@ -43,17 +43,25 @@
   padding-top: 30px
 }
 
+.login-image {
+  margin-left: auto;
+  margin-right: auto;
+}
+/*
 .form-input {
 
-}
+} */
 
 .logout {
   /* float: right; */
   /* margin: 10px; */
-  position: fixed;
+  /* position: fixed;
   top: 40;
-  right: 200;
+  right: 200; */
   padding: 25px;
+  position: absolute;
+  right: 0px;
+
 }
 
 .search {
@@ -73,6 +81,18 @@
 .page-header {
   text-transform: uppercase;
   padding-top: 30px;
+}
+
+.login-page-header {
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
+.header-background-image {
+  background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y29uY2VydHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60');
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-top: 150px;
 }
 
 .favorite-header {

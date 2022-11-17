@@ -10,6 +10,8 @@ import NavBar from "./NavBar";
 import Calendar from "./Calendar";
 import WorkOutForm from "./WorkOutForm";
 
+import Profile from "./Profile";
+
 function App() {
   const [user, setUser] = useState(null);
   const [needToRegister, setNeedToRegister] = useState(false);
@@ -44,8 +46,7 @@ function App() {
   } else {
     return (
       <div className="nav-links">
-        <h2 className="welcome">Welcome, {user.username}!</h2>
-        <NavBar />
+        <NavBar onLogout={onLogout} user={user} />
         <Routes>
           <Route path="/" element={<Calendar />} />
           <Route path="/workouts" element={<WorkOutForm />} />

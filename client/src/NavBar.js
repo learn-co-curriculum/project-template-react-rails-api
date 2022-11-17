@@ -1,8 +1,7 @@
 import { NavLink } from "react-router-dom";
 import MealForm from "./MealForm";
 
-function NavBar({ onLogout }) {
-    
+function NavBar({ onLogout, user }) {
   function handleLogout() {
     fetch("/logout", {
       method: "DELETE",
@@ -19,7 +18,7 @@ function NavBar({ onLogout }) {
         </NavLink>
         <NavLink to="/profile">
           <a href="#user-profile" className="navicons">
-            User
+            Profile
           </a>
         </NavLink>
         <NavLink to="/workouts">

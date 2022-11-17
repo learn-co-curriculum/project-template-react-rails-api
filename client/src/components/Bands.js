@@ -7,7 +7,7 @@ const Bands = ({ featuredBands, filteredBands, onAddBand }) => {
   return (
     <>
       <FeaturedBandsContainer bands={featuredBands} />
-      <BandContainer bands={filteredBands} />
+      <BandContainer bands={filteredBands}/>
       <AddBand onAddBand={onAddBand} />
     </>
   );

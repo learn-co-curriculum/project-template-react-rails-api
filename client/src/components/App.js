@@ -87,10 +87,13 @@ function App() {
   function logOut() {
     fetch("/logout", {
       method: "DELETE",
-    });
+    })
+      .then((res) => res.json())
+      .then(window.location.reload());
     history.push(`/`);
     setUser(null);
   }
+
   return (
     <AppShell
       padding="md"

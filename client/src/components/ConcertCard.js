@@ -39,9 +39,8 @@ const ConcertCard = ({
       band_id: band_id,
       venue_id: venue_id,
       user_id: user.id,
-      date: date,
+      date: new Date (date),
     };
-    console.log(newConcert);
 
     fetch("/concerts", {
       method: "POST",

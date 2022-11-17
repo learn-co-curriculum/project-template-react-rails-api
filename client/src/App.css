@@ -43,7 +43,6 @@ body {
 
 .nav-bar {
   overflow: hidden;
-  border-style: dotted;
   background-color: #333;
   position: fixed;
   top: 0;
@@ -107,12 +106,30 @@ body {
   margin-top: 25px;
 }
 
-#work-out-form {
+.workouts-page-form {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   margin-top: 25px;
+  margin-bottom: 20px;
+  /* background-color: rgb(122, 159, 122);
+  border-radius: 10%;
+  background-size: 20px; */
+}
+
+/* .workouts-page-form, label {
+  display: block;
+  margin-bottom: 10px;
+} */
+
+.workouts-page-header {
+  text-align: center;
+}
+
+
+h4 {
+  text-align: center;
 }
 
 .welcome {

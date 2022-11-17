@@ -96,27 +96,25 @@ const ConcertContainer = ({
   );
 
   // Concerts outside of user's state
-  const exploreConcerts = filteredBands.map((band) => {
-    return filteredExploreConcerts.map((concert) => {
-      return (
-        <ConcertCard
-          key={concert.id}
-          id={concert.id}
-          date={concert.date}
-          band={band.name}
-          band_id={band.id}
-          image={band.image_url}
-          venue_id={concert.venue.id}
-          venue_name={concert.venue.name}
-          venue_city={concert.venue.city}
-          tickets_remaining={concert.tickets_remaining}
-          ticket_link={concert.ticket_link}
-          comment={concert.comment}
-          user={user}
-          handleNewStub={handleNewStub}
-        />
-      );
-    });
+  const exploreConcerts = filteredExploreConcerts.map((concert) => {
+    return (
+      <ConcertCard
+        key={concert.id}
+        id={concert.id}
+        date={concert.date}
+        band={concert.band.name}
+        band_id={concert.band.id}
+        image={concert.band.image_url}
+        venue_id={concert.venue.id}
+        venue_name={concert.venue.name}
+        venue_city={concert.venue.city}
+        tickets_remaining={concert.tickets_remaining}
+        ticket_link={concert.ticket_link}
+        comment={concert.comment}
+        user={user}
+        handleNewStub={handleNewStub}
+      />
+    );
   });
 
   const altDisplayed = bands.map((band) => {
@@ -144,26 +142,28 @@ const ConcertContainer = ({
   });
 
   // Concerts in the user's state and matches favorite genres
-  const userConcerts = filteredBands.map((band) => {
-    return filteredConcerts.map((concert) => {
-      return (
-        <ConcertCard
-          key={concert.id}
-          id={concert.id}
-          date={concert.date}
-          band={band.name}
-          image={band.image_url}
-          user={user}
-          venue_name={concert.venue.name}
-          venue_city={concert.venue.city}
-          venue_state={concert.venue.state}
-          tickets_remaining={concert.tickets_remaining}
-          ticket_link={concert.ticket_link}
-          comment={concert.comment}
-        />
-      );
-    });
+
+  const userConcerts = filteredConcerts.map((concert) => {
+    return (
+      <ConcertCard
+        key={concert.id}
+        id={concert.id}
+        date={concert.date}
+        band={concert.band.name}
+        band_id={concert.band.id}
+        image={concert.band.image_url}
+        user={user}
+        venue_name={concert.venue.name}
+        venue_id={concert.venue.id}
+        venue_city={concert.venue.city}
+        venue_state={concert.venue.state}
+        tickets_remaining={concert.tickets_remaining}
+        ticket_link={concert.ticket_link}
+        comment={concert.comment}
+      />
+    );
   });
+
   return (
     // <Flex>
     //   {user.genre_1 ? <div>{displayed}</div> : <div>{altDisplayed}</div>}

@@ -66,12 +66,7 @@ const Profile = ({ user, setUser }) => {
         favorite_band={user.favorite_band}
       />
       <StubContainer user={user} />
-      <div className="update-profile">
-        <Button onClick={() => setShow((show) => !show)} variant="light" color="red" fullWidth mt="md" radius="md"> {show ? "Update Profile" : "Cancel Update"}
-        </Button>
-        {show ? <UpdateProfileForm /> : null}
-        {/* <UpcomingConcerts user={user}/> */}
-      </div>
+
     </div>
   );
 };

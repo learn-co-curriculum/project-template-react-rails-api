@@ -78,8 +78,12 @@ const ConcertCard = ({
   {tickets_remaining < 100 ? "Low ticket warning!" : null}
   </Badge>
 </Group> */}
- 
 
+
+
+      <Text size="sm" color="dimmed">
+        {band}
+      </Text>
       <Text size="sm" color="dimmed">
         {date}
       </Text>

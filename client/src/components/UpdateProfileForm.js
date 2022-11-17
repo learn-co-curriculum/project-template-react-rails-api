@@ -211,6 +211,7 @@ const UpdateProfileForm = ({ user, handleUpdate }) => {
                 class="input-field"
               ></input>
             </div>
+            <br></br>
             {/* <div class="action">
 				<button class="action-button">Get started</button>
 			</div> */}

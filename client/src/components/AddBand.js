@@ -49,52 +49,57 @@ const AddBand = ({ onAddBand }) => {
   return (
     <   >
       <form onSubmit={handleSubmit} className="add-band-form">
-        <label>Name: </label>
+        <label></label>
         <input
           value={name}
           type="text"
           placeholder="Name"
           onChange={(e) => setName(e.target.value)}
+          className="add-band-form-input"
         ></input>
         <br></br>
         <br></br>
-        <label>Image: </label>
+        <label></label>
         <input
           value={image_url}
           type="text"
           placeholder="Add image url"
           onChange={(e) => setImage_Url(e.target.value)}
+          className="add-band-form-input"
         ></input>
          <br></br>
          <br></br>
-        <label>Genre: </label>
+        <label></label>
         <input
           value={genre}
           type="text"
           placeholder="Main Genre"
           onChange={(e) => setGenre(e.target.value)}
+          className="add-band-form-input"
         ></input>
          <br></br>
          <br></br>
-        <label>Secondary Genre: </label>
+        <label></label>
         <input
           value={secondary_genre}
           type="text"
           placeholder="Secondary Genre"
           onChange={(e) => setSecondary_Genre(e.target.value)}
+          className="add-band-form-input"
         ></input>
          <br></br>
          <br></br>
-        <label>Hometown: </label>
+        <label></label>
         <input
           value={hometown}
           type="text"
           placeholder="Hometown"
           onChange={(e) => setHometown(e.target.value)}
+          className="add-band-form-input"
         ></input>
          <br></br>
          <br></br>
-        <button type="submit">Add Band</button>
+        <button type="submit" className="add-band-form-button">Add Band</button>
       </form>
       {errors
         ? errors.map((e) => (

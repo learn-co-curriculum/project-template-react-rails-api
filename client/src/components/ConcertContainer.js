@@ -9,16 +9,16 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
   const [explore, setExplore] = useState(false)
 
   // Filter bands by user's favorite genres
-  const filteredBands = bands.filter((band) => {
-    return (
-      user.genre_1 === band.genre ||
-      user.genre_2 === band.genre ||
-      user.genre_3 === band.genre ||
-      user.genre_1 === band.secondary_genre ||
-      user.genre_2 === band.secondary_genre ||
-      user.genre_3 === band.secondary_genre
-    );
-  });
+  // const filteredBands = bands.filter((band) => {
+  //   return (
+  //     user.genre_1 === band.genre ||
+  //     user.genre_2 === band.genre ||
+  //     user.genre_3 === band.genre ||
+  //     user.genre_1 === band.secondary_genre ||
+  //     user.genre_2 === band.secondary_genre ||
+  //     user.genre_3 === band.secondary_genre
+  //   );
+  // });
 
   // Filter concerts by user location
   const filteredConcerts = concerts.filter((concert) => {
@@ -164,7 +164,7 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
       {user ? <h3>Here's what's coming up in {user.location}</h3> : null}
       <h4>Explore what's happening in {exploreSelect}</h4>
       <div className='flex-parent'>
-      {user && explore ? exploreConcerts || userConcerts : allConcerts}
+      {user && explore ? exploreConcerts || userConcerts : exploreConcerts || allConcerts }
       </div>
     </div>
     </Flex>

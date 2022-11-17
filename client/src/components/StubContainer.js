@@ -1,9 +1,8 @@
-import React from 'react'
-import Stubs from './Stubs'
-import { Flex, Button } from '@mantine/core';
+import React from "react";
+import Stubs from "./Stubs";
+import { Flex, Button } from "@mantine/core";
 
-
-const StubContainer = ({user}) => {
+const StubContainer = ({ user }) => {
   const stubs = user.concerts?.map((concert) => {
     return (
       <Stubs
@@ -23,5 +22,8 @@ const StubContainer = ({user}) => {
   )
   }
 
-export default StubContainer
 
+  return <Flex>{stubs}</Flex>;
+};
+
+export default StubContainer;

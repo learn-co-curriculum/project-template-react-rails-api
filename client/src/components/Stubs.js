@@ -1,7 +1,8 @@
 import React from 'react'
 import { Flex } from '@mantine/core'
 
-function Stubs ({key, id, date, band, venue_name, venue_city}) {
+function Stubs ({id, date, band, venue_name, venue_city}) {
+  console.log(band)
 
   return (
     <div className='ticket-stubs'>

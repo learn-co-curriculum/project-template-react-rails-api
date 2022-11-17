@@ -1,6 +1,5 @@
-import React from 'react'
-import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
-
+import React from "react";
+import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
 
 // origal code
 // const ConcertCard = ( {key, id, date, band, image, venue_name, venue_city, tickets_remaining, ticket_link, comment} ) => {
@@ -20,8 +19,37 @@ import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
 
 // export default ConcertCard
 
+const ConcertCard = ({
+  id,
+  date,
+  band,
+  band_id,
+  image,
+  venue_name,
+  venue_city,
+  venue_id,
+  tickets_remaining,
+  ticket_link,
+  user,
+  comment,
+  handleNewStub,
+}) => {
+  function handleAddToMyConcerts() {
+    const newConcert = {
+      band_id: band_id,
+      venue_id: venue_id,
+      user_id: user.id,
+      date: new Date (date),
+    };
 
-const ConcertCard = ( {key, id, date, band, image, venue_name, venue_city, venue_state, tickets_remaining, ticket_link, comment} ) => {
+    fetch("/concerts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newConcert),
+    })
+      .then((res) => res.json())
+      .then(handleNewStub);
+  }
 
   return (
     // <div>
@@ -33,6 +61,7 @@ const ConcertCard = ( {key, id, date, band, image, venue_name, venue_city, venue
     //   <h5>{tickets_remaining < 100 ? "Low ticket warning!" : null}</h5>
     //   <h5>{tickets_remaining = 0 ? "SOLD OUT" : <Button variant="outline" color="indigo"><a href={ticket_link} alt="Tickets">Buy tickets</a></Button>}</h5>
     // </div>
+
 
 <Card shadow="sm" p="lg" radius="md" withBorder className='band-card'>
 <Card.Section>
@@ -49,19 +78,41 @@ const ConcertCard = ( {key, id, date, band, image, venue_name, venue_city, venue
   {tickets_remaining < 100 ? "Low ticket warning!" : null}
   </Badge>
 </Group> */}
+ 
 
-<Text size="sm" color="dimmed">
-  {date}
-</Text>
-<Text size="sm" color="dimmed">
-  {venue_name}, {venue_city}, {venue_state}
-</Text>
+      <Text size="sm" color="dimmed">
+        {date}
+      </Text>
+      <Text size="sm" color="dimmed">
+        {venue_name}, {venue_city}
+      </Text>
 
-<Button variant="light" color="red" fullWidth mt="md" radius="md">
-{tickets_remaining = 0 ? "SOLD OUT" : <a href={ticket_link} alt="Tickets">Add to my concerts</a>}
-</Button>
-</Card>
-  )
-}
+      <Button variant="light" color="red" fullWidth mt="md" radius="md">
+        {
+          (tickets_remaining = 0 ? (
+            "SOLD OUT"
+          ) : (
+            <a href={ticket_link} alt="Tickets">
+              Buy tickets
+            </a>
+          ))
+        }
+      </Button>
 
-export default ConcertCard
+      {user ? (
+        <Button
+          onClick={handleAddToMyConcerts}
+          variant="light"
+          color="red"
+          fullWidth
+          mt="md"
+          radius="md"
+        >
+          Add to My Concerts
+        </Button>
+      ) : null}
+    </Card>
+  );
+};
+
+export default ConcertCard;

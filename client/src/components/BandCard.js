@@ -33,9 +33,6 @@ const BandCard = ({ band }) => {
         {band.hometown}
       </Text>
 
-      <Button variant="light" color="red" fullWidth mt="md" radius="md">
-        {<p>Add like</p>}
-      </Button>
     </Card>
     </Flex>
     );

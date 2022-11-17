@@ -63,7 +63,7 @@ const ConcertCard = ({
     // </div>
 
 
-<Card shadow="sm" p="lg" radius="md" withBorder className='band-card'>
+<Card shadow="sm" p="lg" radius="md" withBorder className='concert-card'>
 <Card.Section>
   <Image
     src={image}
@@ -91,7 +91,7 @@ const ConcertCard = ({
         {venue_name}, {venue_city}
       </Text>
 
-      <Button variant="light" color="red" fullWidth mt="md" radius="md">
+      {/* <Button variant="light" color="red" fullWidth mt="md" radius="md">
         {
           (tickets_remaining = 0 ? (
             "SOLD OUT"
@@ -101,7 +101,7 @@ const ConcertCard = ({
             </a>
           ))
         }
-      </Button>
+      </Button> */}
 
       {user ? (
         <Button

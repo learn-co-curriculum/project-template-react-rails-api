@@ -64,6 +64,12 @@
 
 }
 
+.logout-button {
+  padding: 7px 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .flex-parent {
   display: flex;
   flex-direction: row;
@@ -85,7 +91,7 @@
   max-width: 300px;
   float: right;
   margin-right: 10px;
-  margin-bottom: 10px;
+  margin-top: 75px;
 }
 
 .search {
@@ -105,6 +111,7 @@
 .page-header {
   text-transform: uppercase;
   padding-top: 30px;
+  clear: right;
 }
 
 .login-page-header {
@@ -131,11 +138,11 @@
   position: relative; */
 
   position: relative;
-  padding: 15px 0;
+  /* padding: 15px 0; */
 }
 
 .favorite-body {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 
@@ -173,6 +180,17 @@
   text-transform: uppercase;
 }
 
+.add-band-form {
+  background-color: #FFF;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 500px;
+  min-height: 500px;
+  background-image: url('https://images.unsplash.com/photo-1576967402682-19976eb930f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGNvbmNlcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60');
+  padding: 30px;
+
+}
+
 .card {
   margin: 2%;
   padding-left: 20px;
@@ -186,6 +204,22 @@
   /* vertical-align: middle; */
   border-radius: 3px;
   box-sizing: border-box;
+}
+
+.concert-card {
+  margin: 3%;
+  padding: 10px;
+  flex: 1 300px;
+  max-width: 30%;
+  min-width: 325px;
+  /* min-height: 350px; */
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+.concert-card img {
+max-width: 400px;
+min-height: 350px;
 }
 
 .band-card {
@@ -284,8 +318,8 @@ min-height: 350px;
 
 .location {
   /* float: left; */
-  margin: 20px 30px 0 180px;
-  padding-top: 125px;
+  margin: 20px 75px 0 180px;
+  padding-top: 100px;
   font-size: 18px;
   font-weight: bold;
   -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
@@ -312,13 +346,13 @@ min-height: 350px;
   height: 190px;
   position: absolute;
   top: 0;
-  left: 350px;
+  left: 360px;
 }
 
 .cta .buy {
   position: absolute;
   top: 80px;
-  right: -10px;
+  right: -15px;
   display: block;
   font-size: 12px;
   font-weight: bold;
@@ -442,8 +476,8 @@ input {
 .input-field {
 	border: 0;
 	z-index: 1;
-	background-color: transparent;
-	border-bottom: 2px solid #eee;
+	/* background-color: transparent; */
+	/* border-bottom: 2px solid #eee; */
 	font: inherit;
 	font-size: 1.125rem;
 	padding: .25rem 0;

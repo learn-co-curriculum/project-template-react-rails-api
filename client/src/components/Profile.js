@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import { Button } from "@mantine/core";
 import { useState } from "react";
 
-const Profile = ({ user, setUser }) => {
+const Profile = ({ user, setUser, handleUpdateUser }) => {
   const [show, setShow] = useState(false);
   const history = useHistory();
 
@@ -43,7 +43,7 @@ const Profile = ({ user, setUser }) => {
         {show ? "Cancel Update" : "Update Profile"}
       </Button>
       {show ? (
-        <UpdateProfileForm user={user} handleUpdate={handleUpdate} />
+        <UpdateProfileForm user={user} handleUpdate={handleUpdate} handleUpdateUser={handleUpdateUser} />
       ) : null}
       <Button
         onClick={handleDelete}

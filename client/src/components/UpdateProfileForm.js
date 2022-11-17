@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const UpdateProfileForm = ({ user, handleUpdate }) => {
+const UpdateProfileForm = ({ user, handleUpdate, handleUpdateUser }) => {
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState("");
@@ -41,7 +41,8 @@ const UpdateProfileForm = ({ user, handleUpdate }) => {
       body: JSON.stringify(newUser),
     }).then((res) => {
       if (res.ok) {
-        res.json().then(() => {
+        res.json().then((data) => {
+          handleUpdateUser(data);
           history.push(`/profile`);
           handleUpdate();
         });

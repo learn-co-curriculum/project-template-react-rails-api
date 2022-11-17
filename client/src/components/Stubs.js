@@ -23,7 +23,7 @@ function Stubs ({id, date, band, venue_name, venue_city}) {
         <div class="rip">
         </div>
         <div class="cta">
-          <button class="buy" href="#">PARYT ON</button>
+          <button class="buy" href="#">PARTY ON</button>
         </div>
       </div>
 

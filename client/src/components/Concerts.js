@@ -1,5 +1,9 @@
-import React from "react";
-import ConcertContainer from "./ConcertContainer";
+
+import React from 'react'
+import ConcertContainer from './ConcertContainer'
+import SearchBar  from './SearchBar'
+
+const Concerts = ({bands, user, concerts, setConcerts, venues, setVenues, displayedBands, displayedVenues, search, setSearch }) => {
 
 const Concerts = ({
   bands,
@@ -11,16 +15,12 @@ const Concerts = ({
   handleNewStub
 }) => {
   return (
-    <ConcertContainer
-      user={user}
-      bands={bands}
-      concerts={concerts}
-      setConcerts={setConcerts}
-      venues={venues}
-      setVenues={setVenues}
-      handleNewStub={handleNewStub}
-    />
-  );
-};
+    <div>
+      <h2 className='page-header'>Concerts</h2>
+    <SearchBar displayedBands={displayedBands} displayedVenues={displayedVenues} search={search} setSearch={setSearch}/>
+    <ConcertContainer user={user} bands={bands} concerts={concerts} setConcerts={setConcerts} venues={venues} setVenues={setVenues} handleNewStub={handleNewStub} />
+    </div>
+  )
+}
 
 export default Concerts;

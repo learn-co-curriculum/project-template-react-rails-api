@@ -1,9 +1,14 @@
 import React from "react";
-import { Card, Image, Text, Badge, Button, Group } from '@mantine/core';
+import { Card, Image, Text, Badge, Button, Group, Flex } from '@mantine/core';
 
 const BandCard = ({ band }) => {
     return (
-    <Card shadow="sm" p="lg" radius="md" withBorder className="card">
+      <Flex
+      gap="xl"
+      direction="row"
+      wrap="wrap"
+      >
+    <Card shadow="sm" p="lg" radius="md" withBorder className="band-card">
       <Card.Section>
         <Image
           src={band.image_url}
@@ -28,6 +33,7 @@ const BandCard = ({ band }) => {
       </Text>
 
     </Card>
+    </Flex>
     );
   };
 

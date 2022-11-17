@@ -11,7 +11,7 @@ const Profile = ({ user }) => {
 
   return (
     <div>
-      <h2>Profile</h2>
+      <h2 className='page-header'>{user.first_name}'s profile</h2>
       <h4>
         See your concert stubs, your upcoming concerts, and your favorites!
       </h4>

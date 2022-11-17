@@ -21,6 +21,7 @@ function App() {
   const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState(false);
+  const [showUserConcerts, setShowUserConcerts] = useState(false);
 
   const history = useHistory();
   console.log("hello", user);
@@ -52,6 +53,7 @@ function App() {
       if (res.ok) {
         res.json().then((user) => {
           setUser(user);
+          setShowUserConcerts(true);
         });
       } else {
         res.json().then((data) => setErrors(data.error));
@@ -82,6 +84,7 @@ function App() {
 
   function handleLogin(addUser) {
     setUser(addUser);
+    setShowUserConcerts(true);
   }
 
   function logOut() {
@@ -90,7 +93,8 @@ function App() {
     });
     history.push(`/`);
     setUser(null);
-    setUser([]);
+    setShowUserConcerts(false);
+    setUser("");
   }
   console.log(user);
 
@@ -161,6 +165,8 @@ function App() {
               displayedVenues={displayedVenues}
               search={search}
               setSearch={setSearch}
+              showUserConcerts={showUserConcerts}
+              setShowUserConcerts={setShowUserConcerts}
             />
           </Route>
           <Route path="/bands">

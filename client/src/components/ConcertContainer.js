@@ -3,10 +3,14 @@ import ConcertCard from "./ConcertCard";
 import { Flex, Button } from "@mantine/core";
 
 // Filter bands by user's favorite genres
-const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues, setVenues, handleNewStub} ) => {
+const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues, setVenues, handleNewStub, showUserConcerts, setShowUserConcerts} ) => {
 
   const [newLocation, setNewLocation] = useState("")
   const [explore, setExplore] = useState(false)
+
+  console.log(showUserConcerts)
+  console.log(user)
+  console.log(explore)
 
   // Filter bands by user's favorite genres
   // const filteredBands = bands.filter((band) => {
@@ -34,7 +38,7 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
   const exploreSelect = (
     <select
       type="text"
-      onChange={(e) => setNewLocation(e.target.value) & setExplore(true)}
+      onChange={(e) => setNewLocation(e.target.value) & setExplore(true) & setShowUserConcerts(false)}
     >
       <option value="AK">AK</option>
       <option value="AL">AL</option>
@@ -164,7 +168,9 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
       {user ? <h3>Here's what's coming up in {user.location}</h3> : null}
       <h4>Explore what's happening in {exploreSelect}</h4>
       <div className='flex-parent'>
-      {user && explore ? exploreConcerts || userConcerts : exploreConcerts || allConcerts }
+      {user && showUserConcerts ? userConcerts || allConcerts : exploreConcerts}
+      {explore && !showUserConcerts ? exploreConcerts : userConcerts}
+      {!user && !explore ? allConcerts : exploreConcerts}
       </div>
     </div>
     </Flex>

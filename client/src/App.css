@@ -13,6 +13,10 @@
   }
 }
 
+body {
+  padding-top: 120px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -77,17 +81,19 @@
     0 12px 12px rgba(128, 128, 128, 0.35);
 }
 
-.meals-form {
+#meals-form {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
   margin-top: 25px;
 }
 
-.workouts-form {
+#workouts-form {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
   margin-top: 25px;
 }
 

@@ -8,7 +8,7 @@ import MealForm from "./MealForm";
 import { NavLink, Route, Routes } from "react-router-dom";
 import NavBar from "./NavBar";
 import Calendar from "./Calendar";
-import Workouts from "./Workouts"
+import Workouts from "./Workouts";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -44,8 +44,7 @@ function App() {
   } else {
     return (
       <div className="nav-links">
-        <h2 className="welcome">Welcome, {user.username}!</h2>
-        <NavBar />
+        <NavBar onLogout={onLogout} user={user} />
         <Routes>
           <Route path="/" element={<Calendar />} />
           <Route path="/workouts" element={<Workouts />} />

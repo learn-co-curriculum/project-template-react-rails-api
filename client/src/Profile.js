@@ -12,6 +12,7 @@ function Profile({ user, listOfWorkOuts }) {
                     <p>{workout.name}</p>
                     <p>{workout.difficulty}</p>
                     <p>{workout.muscle}</p>
+                    <button>Delete Work-Out</button>
                 </div>
             )
         })

@@ -68,13 +68,13 @@ function WorkOutForm({ getWorkOuts }) {
                 } else {
                     setShowState(true)
                 }
-                
             })
     }
 
     //SENDS SELECTED WORKOUT TO USER LIST
     function addWorkOutToList(workout) {
         getWorkOuts(workout)
+        
     }
 
     // Calls upon the list of workouts and displays information about it to the user
@@ -92,6 +92,7 @@ function WorkOutForm({ getWorkOuts }) {
             )
     })
 
+    //SHOWS "ERROR" - no workouts from the api
     const showMessage = showState ? <h1>If nothing shows up, there were no matching exercises. PLEASE TRY AGAIN!</h1>  : null 
 
 

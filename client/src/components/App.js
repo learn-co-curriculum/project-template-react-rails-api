@@ -69,6 +69,11 @@ function App() {
     console.log(addedStub);
   }
 
+  function handleUpdateUser(updatedUser) {
+    console.log(updatedUser);
+    setUser(updatedUser);
+  }
+
   const displayedBands = bands.filter(
     (band) =>
       band.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -150,7 +155,11 @@ function App() {
       <div className="App">
         <div className="logout">
           {/* {user ? user.first_name : null}{" "} */}
-          {user ? <button className="logout-button" onClick={logOut}>Log Out</button> : null}
+          {user ? (
+            <button className="logout-button" onClick={logOut}>
+              Log Out
+            </button>
+          ) : null}
         </div>
         {/* <NavBar /> */}
         {/* <SearchBar search={search} setSearch={setSearch} /> */}
@@ -187,7 +196,11 @@ function App() {
             />
           </Route>
           <Route path="/profile">
-            <Profile user={user} setUser={setUser} />
+            <Profile
+              user={user}
+              setUser={setUser}
+              handleUpdateUser={handleUpdateUser}
+            />
           </Route>
           <Route path="/login">
             <LogIn

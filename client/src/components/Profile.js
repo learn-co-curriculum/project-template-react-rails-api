@@ -66,6 +66,7 @@ const Profile = ({ user, setUser }) => {
         favorite_band={user.favorite_band}
       />
       <StubContainer user={user} />
+
     </div>
   );
 };

@@ -13,6 +13,8 @@ const Concerts = ({
   displayedVenues,
   search,
   setSearch,
+  showUserConcerts,
+  setShowUserConcerts
 }) => {
   return (
     <div>
@@ -30,6 +32,8 @@ const Concerts = ({
         setConcerts={setConcerts}
         venues={venues}
         setVenues={setVenues}
+        showUserConcerts={showUserConcerts}
+        setShowUserConcerts={setShowUserConcerts}
       />
     </div>
   );

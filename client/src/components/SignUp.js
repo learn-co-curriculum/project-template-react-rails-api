@@ -214,9 +214,9 @@ const SignUp = () => {
             {/* <div class="action">
 				<button class="action-button">Get started</button>
 			</div> */}
+            <button type="submit">Create Account</button>
           </form>
           <div>
-            <button type="submit">Create Account</button>
             {errors ? errors.map((e) => <div>{e[1]}</div>) : null}
 
             <p>

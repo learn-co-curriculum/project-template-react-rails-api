@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 const UpdateProfileForm = ({ user, handleUpdate }) => {
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
+  const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState(user.first_name);
   const [lastName, setLastName] = useState(user.last_name);
   const [location, setLocation] = useState(user.location);
@@ -22,6 +23,7 @@ const UpdateProfileForm = ({ user, handleUpdate }) => {
     const newUser = {
       username: username,
       email: email,
+      password: password,
       first_name: firstName,
       last_name: lastName,
       favorite_band: favoriteBand,
@@ -31,6 +33,7 @@ const UpdateProfileForm = ({ user, handleUpdate }) => {
       genre_3: genre_3,
     };
     console.log("hi");
+    console.log(newUser);
 
     fetch(`/users/${user.id}`, {
       method: "PATCH",
@@ -40,7 +43,7 @@ const UpdateProfileForm = ({ user, handleUpdate }) => {
       if (res.ok) {
         res.json().then(() => {
           history.push(`/profile`);
-          handleUpdate()
+          handleUpdate();
         });
       } else {
         res.json().then((json) => setErrors(Object.entries(json.errors)));
@@ -53,11 +56,7 @@ const UpdateProfileForm = ({ user, handleUpdate }) => {
       <div class="container">
         <div class="form-card">
           <div class="form-card-image">
-            <h2 class="form-card-heading">
-              Get started
-              <br></br>
-              <small>Create your account</small>
-            </h2>
+            <h2 class="form-card-heading">Update Account</h2>
           </div>
           <form class="form-card-form" onSubmit={handleSubmit}>
             <div class="input">
@@ -77,6 +76,16 @@ const UpdateProfileForm = ({ user, handleUpdate }) => {
                 type="text"
                 placeholder="Email..."
                 onChange={(e) => setEmail(e.target.value)}
+                class="input-field"
+              ></input>
+            </div>
+            <div class="input">
+              <label class="input-label"></label>
+              <input
+                value={password}
+                type="password"
+                placeholder="New Password..."
+                onChange={(e) => setPassword(e.target.value)}
                 class="input-field"
               ></input>
             </div>
@@ -205,11 +214,11 @@ const UpdateProfileForm = ({ user, handleUpdate }) => {
             {/* <div class="action">
 				<button class="action-button">Get started</button>
 			</div> */}
-          </form>
-          <div class="form-card-info">
             <button class="action-button" type="submit">
               Update
             </button>
+          </form>
+          <div class="form-card-info">
             {errors ? errors.map((e) => <div>{e[1]}</div>) : null}
           </div>
         </div>

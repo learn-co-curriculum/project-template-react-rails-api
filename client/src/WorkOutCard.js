@@ -4,7 +4,12 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-function WorkOutCard({ name, difficulty, equipment, muscle }) {
+function WorkOutCard({ name, difficulty, equipment, muscle, getWorkOuts }) {
+ //SENDS SELECTED WORKOUT TO USER LIST
+ function addWorkOutToList(workout) {
+    getWorkOuts(workout);
+  }
+
   return (
     <div className="APIworkouts">
       <Card sx={{ maxWidth: 345 }}>
@@ -30,7 +35,7 @@ function WorkOutCard({ name, difficulty, equipment, muscle }) {
                 <h3>{muscle}</h3>
               </div>
             </Typography>
-            <button>Add Workout to Plan</button>
+            <button onClick={addWorkOutToList}>Add Workout to Plan</button>
           </CardContent>
         </CardActionArea>
       </Card>

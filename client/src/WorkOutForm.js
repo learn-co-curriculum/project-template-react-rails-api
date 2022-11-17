@@ -1,7 +1,7 @@
 import { useState } from "react";
 import WorkOutCard from "./WorkOutCard";
 
-function WorkOutForm() {
+function WorkOutForm({ getWorkOuts }) {
   //SEO's API KEY CHANGE WITH YOURS!
   //DON'T USE MINE
   const apiKey = "ErjjhwAdbIlQLzPZu5SUyg==VofMpxvT9NyOnEXZ";
@@ -72,6 +72,36 @@ function WorkOutForm() {
       });
   }
 
+ 
+
+  // Calls upon the list of workouts and displays information about it to the user
+//   const workOutListFromAPI = listOfWorkOuts
+//     .map((workouts) => {
+//       return (
+//         <div className="workOutsFromAPI">
+//           <div className="workOutsINFO" key={workouts.id} id={workouts.id}>
+//             <h4>{workouts.name}</h4>
+//             <h5>{workouts.equipment}</h5>
+//             <p>Level: {workouts.difficulty}</p>
+//             <p>Target Muscle Group: {workouts.muscle}</p>
+//             <button onClick={() => addWorkOutToList(workouts)}>
+//               Add Workout to Calendar
+//             </button>
+//           </div>
+//         </div>
+//       );
+//     })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       setListOfWorkOuts(data);
+//       if (data.length > 0) {
+//         setShowState(false);
+//       } else {
+//         setShowState(true);
+//       }
+//     });
+
+
   // Calls upon the list of workouts and displays information about it to the user
   const workOutListFromAPI = listOfWorkOuts.map((workouts) => {
     return (
@@ -80,6 +110,7 @@ function WorkOutForm() {
         equipment={workouts.equipment}
         difficulty={workouts.difficulty}
         muscle={workouts.muscle}
+        getWorkOuts={getWorkOuts}
       />
     );
   });

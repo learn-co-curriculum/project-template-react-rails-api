@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+    ## THIS SALT STUFF MIGHT NOT BE NEEDED
     def password=(new_password)
         salt = BCrypt::Engine::generate_salt
         self.password_digest = BCrypt::Engine::hash_secret(new_password, salt)

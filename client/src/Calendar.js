@@ -17,7 +17,6 @@ const styles = {
 class Calendar extends Component {
 
   constructor(props) {
-    console.log(props)
     super(props);
     this.calendarRef = React.createRef();
     this.state = {
@@ -26,14 +25,14 @@ class Calendar extends Component {
       timeRangeSelectedHandling: "Enabled",
       onTimeRangeSelected: async args => {
         const dp = this.calendar;
-        const modal = await DayPilot.Modal.prompt("Create a new event:", "Event 1");
+        const modal = await DayPilot.Modal.prompt("Create a new event:", this.props.userWorkOuts.name);
         dp.clearSelection();
         if (!modal.result) { return; }
         dp.events.add({
           start: args.start,
           end: args.end,
           id: DayPilot.guid(),
-          text: modal.result
+          text: this.props.userWorkOuts.name
         });
       },
       eventDeleteHandling: "Update",
@@ -53,40 +52,11 @@ class Calendar extends Component {
   }
 
   componentDidMount() {
-
-    const events = [
-      {
-        id: 1,
-        text: "Event 1",
-        start: "2022-11-17T10:30:00",
-        end: "2022-11-17T13:00:00"
-      },
-      {
-        id: 2,
-        text: "Event 2",
-        start: "2022-11-18T09:30:00",
-        end: "2022-11-18T11:30:00",
-        backColor: "#6aa84f"
-      },
-      {
-        id: 3,
-        text: "Event 3",
-        start: "2022-11-18T12:00:00",
-        end: "2022-11-18T15:00:00",
-        backColor: "#f1c232"
-      },
-      {
-        id: 4,
-        text: "Event 4",
-        start: "2022-11-16T11:30:00",
-        end: "2022-11-16T14:30:00",
-        backColor: "#cc4125"
-      },
-    ];
-
     const startDate = "2022-11-16";
 
-    this.calendar.update({startDate, events});
+    const workout = this.props.userWorkOuts
+    this.calendar.update({startDate, workout})
+    console.log(workout)
 
   }
 

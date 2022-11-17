@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import MealCard from "./MealCard";
 
 function MealForm({ getMeals }) {
-  const api_id = "28d8ec75";
-  const app_key = "79512bd96de025b96b0e26333b95a36e";
   const [mealList, setMealList] = useState([]);
 
   function callMealApi(event) {

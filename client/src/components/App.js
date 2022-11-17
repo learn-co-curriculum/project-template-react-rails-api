@@ -87,37 +87,58 @@ function App() {
   function logOut() {
     fetch("/logout", {
       method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then(window.location.reload());
+    });
     history.push(`/`);
     setUser(null);
+    setUser([]);
   }
+  console.log(user);
 
   return (
     <AppShell
       padding="md"
       navbar={
         <Navbar width={{ base: 150 }} height={1000} p="xs">
-          <NavLink exact to="/" className='underline-style'>Home</NavLink>
+          <NavLink exact to="/" className="underline-style">
+            Home
+          </NavLink>
           <br></br>
-          <NavLink to="/concerts" className='underline-style'>Concerts</NavLink>
+          <NavLink to="/concerts" className="underline-style">
+            Concerts
+          </NavLink>
           <br></br>
-          <NavLink to="/bands" className='underline-style'>Bands</NavLink>
+          <NavLink to="/bands" className="underline-style">
+            Bands
+          </NavLink>
           <br></br>
-          <NavLink to="/profile" className='underline-style'>Profile</NavLink>
+          {user ? (
+            <NavLink to="/profile" className="underline-style">
+              Profile
+            </NavLink>
+          ) : null}
           <br></br>
-          {user ? null : <NavLink to="/login">LogIn</NavLink>}
-          {user ? null : <NavLink to="/signup">SignUp</NavLink>}
+          {user ? null : (
+            <NavLink to="/login" className="underline-style">
+              LogIn
+            </NavLink>
+          )}
+          {user ? null : (
+            <NavLink to="/signup" className="underline-style">
+              SignUp
+            </NavLink>
+          )}
         </Navbar>
       }
       header={
-        <Header height={0} p="xs" sx={
-          {
+        <Header
+          height={0}
+          p="xs"
+          sx={{
             alignItems: "center",
-            justifyContent: 'center',
+            justifyContent: "center",
             fontWeight: "bold",
-        }}>
+          }}
+        >
           {/* CONCERT TRACKER */}
         </Header>
       }
@@ -144,7 +165,8 @@ function App() {
               handleNewStub={handleNewStub}
               displayedBands={displayedBands}
               displayedVenues={displayedVenues}
-              search={search} setSearch={setSearch}
+              search={search}
+              setSearch={setSearch}
             />
           </Route>
           <Route path="/bands">
@@ -154,11 +176,12 @@ function App() {
               onAddBand={onAddBand}
               displayedBands={displayedBands}
               displayedVenues={displayedVenues}
-              search={search} setSearch={setSearch}
+              search={search}
+              setSearch={setSearch}
             />
           </Route>
           <Route path="/profile">
-            <Profile user={user} />
+            <Profile user={user} setUser={setUser} />
           </Route>
           <Route path="/login">
             <LogIn

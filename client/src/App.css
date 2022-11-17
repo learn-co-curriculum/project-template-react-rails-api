@@ -188,8 +188,25 @@
   min-height: 500px;
   background-image: url('https://images.unsplash.com/photo-1576967402682-19976eb930f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fGNvbmNlcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60');
   padding: 30px;
+}
+
+.add-band-form-input {
+  background-color: #FFF;
+  margin-right: auto;
+  color: #797884;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.add-band-form-button {
+  background-color: #FFF;
+  margin-right: auto;
+  color: #797884;
+  padding: 5px 20px;
+  border-radius: 3px;
 
 }
+
 
 .card {
   margin: 2%;
@@ -498,7 +515,7 @@ input {
 .action-button {
 	font: inherit;
 	font-size: 1.25rem;
-	padding: 1em;
+	padding: 10px;
 	width: 100%;
 	font-weight: 500;
 	background-color: #797884;

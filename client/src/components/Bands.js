@@ -10,7 +10,7 @@ const Bands = ({ featuredBands, filteredBands, onAddBand, displayedBands, displa
     <h2 className="page-header">Bands</h2>
       <SearchBar displayedBands={displayedBands} displayedVenues={displayedVenues} search={search} setSearch={setSearch}/>
       <FeaturedBandsContainer bands={featuredBands} />
-      <BandContainer bands={filteredBands} />
+      <BandContainer bands={filteredBands}/>
       <AddBand onAddBand={onAddBand} />
     </>
   );

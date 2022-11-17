@@ -8,4 +8,6 @@ class UserSerializer < ActiveModel::Serializer
       ActiveModelSerializers::SerializableResource.new(object.concerts, each_serializer: ConcertSerializer)
     end
 
+
+
 end

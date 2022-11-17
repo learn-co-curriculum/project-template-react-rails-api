@@ -1,38 +1,46 @@
-import React, { useEffect, useState } from 'react'
-import ConcertCard from './ConcertCard'
-import { Flex, Button } from '@mantine/core';
+import React, { useEffect, useState } from "react";
+import ConcertCard from "./ConcertCard";
+import { Flex, Button } from "@mantine/core";
 
+// Filter bands by user's favorite genres
+const ConcertContainer = ({
+  user,
+  bands,
+  concerts,
+  setConcerts,
+  displayedVenues,
+  setVenues,
+  handleNewStub,
+}) => {
+  const [newLocation, setNewLocation] = useState("");
+  const [explore, setExplore] = useState(false);
 
-const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues, setVenues} ) => {
-  
-  const [newLocation, setNewLocation] = useState("")
-  const [explore, setExplore] = useState(false)
-
-  // Filter bands by user's favorite genres
   const filteredBands = bands.filter((band) => {
-    return user.genre_1 === band.genre || 
-    user.genre_2 === band.genre || 
-    user.genre_3 === band.genre ||
-    user.genre_1 === band.secondary_genre ||
-    user.genre_2 === band.secondary_genre ||
-    user.genre_3 === band.secondary_genre
-  })
+    return (
+      user.genre_1 === band.genre ||
+      user.genre_2 === band.genre ||
+      user.genre_3 === band.genre ||
+      user.genre_1 === band.secondary_genre ||
+      user.genre_2 === band.secondary_genre ||
+      user.genre_3 === band.secondary_genre
+    );
+  });
 
   // Filter concerts by user location
   const filteredConcerts = concerts.filter((concert) => {
-    return user.location === concert.venue.state
-  })
+    return user.location === concert.venue.state;
+  });
 
   // Explore concerts in other states
   const filteredExploreConcerts = concerts.filter((concert) => {
-    return concert.venue.state === newLocation
-  })
+    return concert.venue.state === newLocation;
+  });
 
-  const exploreSelect = 
-    <select 
+  const exploreSelect = (
+    <select
       type="text"
       onChange={(e) => setNewLocation(e.target.value) & setExplore(true)}
-      >
+    >
       <option value="AK">AK</option>
       <option value="AL">AL</option>
       <option value="AR">AR</option>
@@ -85,48 +93,76 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
       <option value="WV">WV</option>
       <option value="WY">WY</option>
     </select>
+  );
 
   // Concerts outside of user's state
-  const exploreConcerts = filteredBands.map((band) => {
-    return filteredExploreConcerts.map((concert) => {
-      return (
-        <ConcertCard 
+  const exploreConcerts = filteredExploreConcerts.map((concert) => {
+    return (
+      <ConcertCard
         key={concert.id}
         id={concert.id}
         date={concert.date}
-        band={band.name}
-        image={band.image_url}
+        band={concert.band.name}
+        band_id={concert.band.id}
+        image={concert.band.image_url}
+        venue_id={concert.venue.id}
         venue_name={concert.venue.name}
+        venue_city={concert.venue.city}
+        tickets_remaining={concert.tickets_remaining}
+        ticket_link={concert.ticket_link}
+        comment={concert.comment}
+        user={user}
+        handleNewStub={handleNewStub}
+      />
+    );
+  });
+
+  const altDisplayed = bands.map((band) => {
+    return concerts.map((concert) => {
+      return (
+        <ConcertCard
+          key={concert.id}
+          id={concert.id}
+          date={concert.date}
+          band={band.name}
+          band_id={band.id}
+          image={band.image_url}
+          venue_name={concert.venue.name}
+          venue_city={concert.venue.city}
+          venue_id={concert.venue.id}
+          venue_state={concert.venue.state}
+          tickets_remaining={concert.tickets_remaining}
+          ticket_link={concert.ticket_link}
+          comment={concert.comment}
+          user={user}
+          handleNewStub={handleNewStub}
+        />
+      );
+    });
+  });
+
+  // Concerts in the user's state and matches favorite genres
+
+  const userConcerts = filteredConcerts.map((concert) => {
+    return (
+      <ConcertCard
+        key={concert.id}
+        id={concert.id}
+        date={concert.date}
+        band={concert.band.name}
+        band_id={concert.band.id}
+        image={concert.band.image_url}
+        user={user}
+        venue_name={concert.venue.name}
+        venue_id={concert.venue.id}
         venue_city={concert.venue.city}
         venue_state={concert.venue.state}
         tickets_remaining={concert.tickets_remaining}
         ticket_link={concert.ticket_link}
         comment={concert.comment}
-        />
-      )
-    })
-  })  
-  
-  // Concerts in the user's state and matches favorite genres
-  const userConcerts = filteredBands.map((band) => {
-    return filteredConcerts.map((concert) => {
-      return (
-        <ConcertCard 
-          key={concert.id}
-          id={concert.id}
-          date={concert.date}
-          band={band.name}
-          image={band.image_url}
-          venue_name={concert.venue.name}
-          venue_city={concert.venue.city}
-          venue_state={concert.venue.state}
-          tickets_remaining={concert.tickets_remaining}
-          ticket_link={concert.ticket_link}
-          comment={concert.comment}
-        />
-      )
-    })
-  })
+      />
+    );
+  });
 
   // Render all concerts
   const allConcerts = filteredExploreConcerts.map((concert) => {
@@ -148,14 +184,19 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
   })
 
   return (
+    // <Flex>
+    //   {user.genre_1 ? <div>{displayed}</div> : <div>{altDisplayed}</div>}
+    // </Flex>
+
     <Flex>
     <div>
       {user ? <h3>Here's what's coming up in {user.location}</h3> : null}
       <h4>Explore what's happening in {exploreSelect}</h4>
       {user && explore ? exploreConcerts || userConcerts : allConcerts}
     </div>
-    </Flex>
-  )
-}
 
-export default ConcertContainer
+    </Flex>
+  );
+};
+
+export default ConcertContainer;

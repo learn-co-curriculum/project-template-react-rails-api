@@ -15,10 +15,6 @@ const Profile = ({ user }) => {
       <h4>
         See your concert stubs, your upcoming concerts, and your favorites!
       </h4>
-      <Button onClick={() => setShow((show) => !show)} variant="light" color="red" fullWidth mt="md" radius="md"> {show ? "Update Profile" : "Cancel Update"}
-      </Button>
-      {show ? <UpdateProfileForm /> : null}
-      {/* <UpcomingConcerts user={user}/> */}
       <FavoritesContainer
         genre_1={user.genre_1}
         genre_2={user.genre_2}
@@ -26,6 +22,12 @@ const Profile = ({ user }) => {
         favorite_band={user.favorite_band}
       />
       <StubContainer user={user} />
+      <div className="update-profile">
+        <Button onClick={() => setShow((show) => !show)} variant="light" color="red" fullWidth mt="md" radius="md"> {show ? "Update Profile" : "Cancel Update"}
+        </Button>
+        {show ? <UpdateProfileForm /> : null}
+        {/* <UpcomingConcerts user={user}/> */}
+      </div>
     </div>
   );
 };

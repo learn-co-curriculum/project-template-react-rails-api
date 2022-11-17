@@ -79,8 +79,13 @@
   justify-content: center;
 
 }
-.flex-child {
 
+
+.update-profile {
+  max-width: 300px;
+  float: right;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .search {

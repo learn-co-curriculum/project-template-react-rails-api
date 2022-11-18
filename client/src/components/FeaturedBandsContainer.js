@@ -7,7 +7,6 @@ const FeaturedBandsContainer = ({ bands }) => {
       (concert) =>
         Date.parse(concert.date) > Date.now() &&
         Date.parse(concert.date) < Date.now() + 12096e5
-
     );
 
     return (
@@ -16,9 +15,6 @@ const FeaturedBandsContainer = ({ bands }) => {
       </div>
     );
   });
-
-  //   const featuredBand = bands.map((band) => <FeaturedBandCard />);
-  //   console.log(bands);
 
   return <div classname="flex-parent-bands">
     <>{featuredBands}</>

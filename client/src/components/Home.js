@@ -37,11 +37,11 @@ const Home = ({ user }) => {
           <br></br>
           {user ? (
             <Link to="/profile">
-              <button className="button-54">See your tickets!</button>
+              <button className="button-54">See your tickets</button>
             </Link>
           ) : (
             <Link to="/login">
-              <button className="button-54">See your tickets!</button>
+              <button className="button-54">See your tickets</button>
             </Link>
           )}
         </div>

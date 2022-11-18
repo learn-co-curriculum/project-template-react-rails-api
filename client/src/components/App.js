@@ -165,7 +165,7 @@ function App() {
         {/* <SearchBar search={search} setSearch={setSearch} /> */}
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home user={user} />
           </Route>
           <Route path="/concerts">
             <Concerts

@@ -1,7 +1,5 @@
 
 function WorkOutReviews({ itemToReview }) {
-    console.log(itemToReview)
-    console.log(itemToReview.name)
     return (
         <div>
             <h2>{itemToReview.name}</h2>

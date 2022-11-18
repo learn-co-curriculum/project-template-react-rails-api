@@ -166,7 +166,7 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
   return (
     <Flex>
     <div>
-      {user ? <h3>Here's what's coming up in {user.location}</h3> : null}
+      { user ? <h3>Here's what's coming up in {showUserConcerts ? user.location : newLocation}</h3> : null }
       <h4>Explore what's happening in {exploreSelect}</h4>
       <div className='flex-parent'>
       {user && showUserConcerts ? userConcerts || allConcerts : exploreConcerts}

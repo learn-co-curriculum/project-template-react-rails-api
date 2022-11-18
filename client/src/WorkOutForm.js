@@ -170,6 +170,8 @@ function WorkOutForm({ getWorkOuts }) {
           </button>
         </form>
       </div>
+      <br></br>
+      <br></br>
       <form
         id="workouts-by-type-form"
         className="flex flex-col items-center max-h-max p-6"
@@ -180,7 +182,7 @@ function WorkOutForm({ getWorkOuts }) {
           target, and the difficulty.
         </h4>
 
-        <div className="flex flex-col items-center max-h-max p-5">
+        <div className="flex flex-col items-center max-h-max">
           <div className="flex flex-col items-center max-h-max p-3">
             <label htmlFor="work-out-type">Type: </label>
             <div className="p-4 object-center">

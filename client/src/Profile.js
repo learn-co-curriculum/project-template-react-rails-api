@@ -80,6 +80,8 @@ function Profile({ user, listOfWorkOuts, setItemToReview, listOfMeals }) {
         <h3>Saved Meals List:</h3>
       </div>
       {mealShowList}
+      <br></br>
+      <br></br>
       <div className="border-2 border-gray-200 rounded-md text-xl font-bold">
         <h3>Saved Workouts List:</h3>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
 
 // origal code
@@ -34,21 +35,21 @@ const ConcertCard = ({
   comment,
   handleNewStub,
 }) => {
+  const history = useHistory();
   function handleAddToMyConcerts() {
     const newConcert = {
       band_id: band_id,
       venue_id: venue_id,
       user_id: user.id,
-      date: new Date (date),
+      date: new Date(date),
     };
 
     fetch("/concerts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newConcert),
-    })
-      .then((res) => res.json())
-      .then(handleNewStub);
+    }).then((res) => res.json());
+    history.push(`/profile`);
   }
 
   return (
@@ -62,24 +63,17 @@ const ConcertCard = ({
     //   <h5>{tickets_remaining = 0 ? "SOLD OUT" : <Button variant="outline" color="indigo"><a href={ticket_link} alt="Tickets">Buy tickets</a></Button>}</h5>
     // </div>
 
+    <Card shadow="sm" p="lg" radius="md" withBorder className="concert-card">
+      <Card.Section>
+        <Image src={image} height={160} alt={band} />
+      </Card.Section>
 
-<Card shadow="sm" p="lg" radius="md" withBorder className='concert-card'>
-<Card.Section>
-  <Image
-    src={image}
-    height={160}
-    alt={band}
-  />
-</Card.Section>
-
-{/* <Group position="apart" mt="md" mb="xs">
+      {/* <Group position="apart" mt="md" mb="xs">
   <Text weight={500}>{band}</Text>
   <Badge color="red" variant="light">
   {tickets_remaining < 100 ? "Low ticket warning!" : null}
   </Badge>
 </Group> */}
-
-
 
       <Text size="sm" color="dimmed">
         {band}

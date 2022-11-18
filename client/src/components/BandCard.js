@@ -8,32 +8,31 @@ const BandCard = ({ band }) => {
       direction="row"
       wrap="wrap"
       >
-    <Card shadow="sm" p="lg" radius="md" withBorder className="band-card">
-      <Card.Section>
-        <Image
-          src={band.image_url}
-          height={160}
-          alt={band.name}
-          className="band-card-image"
-        />
-      </Card.Section>
+        <Card shadow="sm" p="lg" radius="md" withBorder className="band-card">
+          <Card.Section>
+            <Image
+              src={band.image_url}
+              height={160}
+              alt={band.name}
+              className="band-card-image"
+            />
+          </Card.Section>
 
-      <Group position="apart" mt="md" mb="xs">
-        <Text weight={500}>{band.name}</Text>
-        <Badge color="red" variant="light">
-        {band.genre}
-        </Badge>
-      </Group>
+          <Group position="apart" mt="md" mb="xs">
+            <Text weight={500}>{band.name}</Text>
+            <Badge color="red" variant="light">
+            {band.genre}
+            </Badge>
+          </Group>
 
-      <Text size="sm" color="dimmed">
-        {band.secondary_genre}
-      </Text>
+          <Text size="sm" color="dimmed">
+            {band.secondary_genre}
+          </Text>
 
-      <Text size="sm" color="dimmed">
-        {band.hometown}
-      </Text>
-
-    </Card>
+          <Text size="sm" color="dimmed">
+            {band.hometown}
+          </Text>
+      </Card>
     </Flex>
     );
   };

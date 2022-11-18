@@ -22,7 +22,7 @@ function UserCard({ user, handleLogoutClick }) {
     fetch(`/signups/${id}`, {
       method: "DELETE",
     }).then(() => {
-      let newArray = activeSignups.filter((s) => s.id != id);
+      let newArray = activeSignups.filter((s) => s.id !== id);
       setActiveSignups(newArray);
     });
   }

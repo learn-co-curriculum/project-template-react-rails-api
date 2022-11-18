@@ -156,6 +156,12 @@
   font-size: calc(30px + 2vmin);
 }
 
+.volunteer-page-text {
+  font-size: calc(30px + .3vmin);
+  text-align: center;
+  padding-bottom: 30px;
+}
+
 .home-container {
   margin-top: 50px;
   width: 80vh;
@@ -202,6 +208,7 @@
 .card-container {
   padding-top: 30px;
   padding:70px;
+  padding-bottom: 30px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;

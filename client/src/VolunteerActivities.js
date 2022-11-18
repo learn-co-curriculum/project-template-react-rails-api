@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 function VolunteerActivities({ user }) {
   const navigate = useNavigate();
   const [activities, setActivities] = useState(null);
+  const [showForm, setShowForm] = useState(0);
 
   useEffect(() => {
     fetch(`/activities`, {
@@ -57,6 +58,21 @@ function VolunteerActivities({ user }) {
       ))
     : null;
 
+  let newActivityForm = (
+    <form className="login-form">
+      <div>
+        <label htmlFor="organization">Organization: </label>
+
+        <input type="text" id="organization" />
+      </div>
+      <label htmlFor="description">Description:</label>
+      <input type="text" id="description" />
+      <div>
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  );
+
   return (
     <>
       <div className="page-top-container">
@@ -69,7 +85,14 @@ function VolunteerActivities({ user }) {
           Volunteer Activities
         </h3>
       </div>
+
       <div className="card-container">{activityDisplay}</div>
+      <div className="volunteer-page-text">
+        Know about any other opportunities?
+        <br />
+        Tell us here!
+      </div>
+      <div className="new-activity-form">{newActivityForm}</div>
     </>
   );
 }

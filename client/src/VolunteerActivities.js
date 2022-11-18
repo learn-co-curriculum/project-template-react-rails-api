@@ -22,8 +22,7 @@ function VolunteerActivities({ user }) {
     const newSignup = {
       volunteer_id: user.id,
       activity_id: a.target.value,
-      date: Date.now(),
-      time: "2:00 pm",
+      dateTime: "2022-12-01T07:36:54-06:00",
     };
     fetch("/signups", {
       method: "POST",

@@ -28,6 +28,6 @@ class SignupsController < ApplicationController
   private
 
   def signup_params
-    params.permit(:volunteer_id, :activity_id, :date, :time)
+    params.permit(:volunteer_id, :activity_id, :dateTime)
   end
 end

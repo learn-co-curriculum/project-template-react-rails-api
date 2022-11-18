@@ -4,7 +4,7 @@ import WorkOutReviews from './WorkOutReviews'
 import MealsReviews from './MealsReviews'
 
 function Profile({ user, listOfWorkOuts, setItemToReview, listOfMeals }) {
-    const [showReviewTextBox, setShowReviewTextBox] = useState([]);
+    const [showReviewTextBox, setShowReviewTextBox] = useState(false);
     function clickOnReviewButton(workout){
         setItemToReview(workout)
     }

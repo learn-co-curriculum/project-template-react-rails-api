@@ -40,17 +40,21 @@ function MealForm({ getMeals }) {
   });
 
   return (
-    <div className="meals-form">
-      <form id="meals-form" onSubmit={callMealApi}>
-        <label htmlFor="ingredientname">Meal Ingredients</label>
-        <input name="ingredientname" type="text" id="mealname" />
-        <label htmlFor="mealcalories">Meal Calories</label>
-        <input type="number" id="mealcalories" name="calories" />
+    <div className="justify-center items-center p-10 flex flex-col max-h-max font-mono">
+      <form id="meals-form" className="flex flex-col items-center max-h-max" onSubmit={callMealApi}>
+      <div className="p-4">
+        <label htmlFor="ingredientname">Meal Ingredients:</label>
+        <input className="border-2 border-red-500 rounded-md" name="ingredientname" type="text" id="mealname" />
+        </div>
+        <div className="p-4">
+        <label htmlFor="mealcalories">Meal Calories:</label>
+        <input className="border-2 border-red-500 rounded-md" type="number" id="mealcalories" name="calories" />
+        </div>
         {/* <label htmlFor="dayselection">Day of the Week</label>
         <input type="textarea" name="dayselection" /> */}
-        <button type="submit">Submit</button>
+        <button className="bg-red-400 border-4 border-red-400 rounded-md" type="submit">Submit</button>
       </form>
-      <div className="meals-div">
+      <div className="grid grid-cols-3 gap-2 p-6">
         {apiMeals}
       </div>
     </div>

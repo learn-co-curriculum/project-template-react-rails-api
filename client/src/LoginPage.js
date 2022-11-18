@@ -34,26 +34,32 @@ function LoginPage( { onLogin, onRegisterClick } ) {
   }
 
   return (
-    <form className="login-form">
-    <h1>**title of app here**</h1>
-    <h3 className="bg-red-400">LOGIN</h3>
-      <label htmlFor="username">Username:</label>
+    <div className="justify-center items-center p-10">
+    <form className="flex flex-col items-center max-h-max bg-black">
+    <h1 className="text-gray-100 text-3xl font-mono subpixel-antialiased">SPOT ME</h1>
+    <h2 className="text-gray-100 font-mono subpixel-antialiased">LOGIN</h2>
+      <label className="text-gray-100 font-mono subpixel-antialiased" htmlFor="username">Username:</label>
       <input
+        className="rounded-md"
         type="text"
         id="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
-      <label htmlFor="password">Password:</label>
+      <label className="text-gray-100 font-mono subpixel-antialiased" htmlFor="password">Password:</label>
       <input
+        className="rounded-md"
         type="password"
         id="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button type="submit" onClick={handleLogin}>Login</button>
-      <button type="button" onClick={registerClick} >Register</button>
+      <div className="inline-block space-x-3">
+      <button className=" font-mono subpixel-antialiased shadow-lg bg-red-500 rounded-md" type="submit" onClick={handleLogin}>Login</button>
+      <button className="font-mono subpixel-antialiased shadow-lg bg-red-500 rounded-md" type="button" onClick={registerClick} >Register</button>
+      </div>
     </form>
+    </div>
   );
 }
 

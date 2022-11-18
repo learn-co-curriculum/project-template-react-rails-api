@@ -14,7 +14,7 @@ function WorkOutCard({ name, difficulty, equipment, muscle, getWorkOuts, current
   }
 
   return (
-    <div className="APIworkouts">
+    <div className="">
       <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
           <CardContent>
@@ -38,7 +38,7 @@ function WorkOutCard({ name, difficulty, equipment, muscle, getWorkOuts, current
                 <h3>{muscle}</h3>
               </div>
             </Typography>
-            <button onClick={() => {
+            <button className="border-2 border-red-400 bg-red-400 rounded-md text-sm" onClick={() => {
                 addWorkOutToList(currentWorkOut)
                 }}>Add Workout to Plan</button>
           </CardContent>

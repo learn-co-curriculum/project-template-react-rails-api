@@ -147,82 +147,113 @@ function WorkOutForm({ getWorkOuts }) {
   ) : null;
 
   return (
-    <div className="workouts-page">
+    <div className="justify-center items-center p-10 flex flex-col max-h-max font-mono">
       {/*Two different forms: 1st - search by KEYWORD 2nd - search by three different categories*/}
-      
-      <div className="workouts-page-header"><h4 >Search for an Exercise</h4>
 
-      <form id="workouts-search-by-term" onSubmit={handleSearchAPI}>
-        <label htmlFor="workoutSearch">Search </label>
-        <input type="text" id="workoutSearch" name="name" />
-        <button>Search</button>
-      </form>
+      <div className="flex flex-col items-center max-h-max">
+        <h4>Search for an Exercise</h4>
+
+        <form
+          id="workouts-search-by-term"
+          className="flex flex-col items-center max-h-max"
+          onSubmit={handleSearchAPI}
+        >
+          {/* <label htmlFor="workoutSearch">Search </label> */}
+          <input
+            className="border-2 border-red-500 rounded-md"
+            type="text"
+            id="workoutSearch"
+            name="name"
+          />
+          <button className="border-red-400 bg-red-400 rounded-md border-4">
+            Search
+          </button>
+        </form>
       </div>
-      <form id="workouts-by-type-form" onSubmit={callWorkOutApi}>
+      <form
+        id="workouts-by-type-form"
+        className="flex flex-col items-center max-h-max p-6"
+        onSubmit={callWorkOutApi}
+      >
         <h4>
           Don't know what exercise to choose? Select the type, muscle group to
           target, and the difficulty.
         </h4>
-        
-        <div>
-          <div className="workouts-page-form">
-            <label htmlFor="work-out-type">Type</label>
-            <select
-              id="work-out-type-select"
-              onChange={(event) => changeWorkOutType(event.target.value)}
-              value={currentWorkOutType}
+
+        <div className="flex flex-col items-center max-h-max p-5">
+          <div className="flex flex-col items-center max-h-max p-3">
+            <label htmlFor="work-out-type">Type: </label>
+            <div className="p-4 object-center">
+              <select
+                className="border-8 rounded-sm"
+                id="work-out-type-select"
+                onChange={(event) => changeWorkOutType(event.target.value)}
+                value={currentWorkOutType}
+              >
+                <option value="cardio">Cardio</option>
+                <option value="olympic_weightlifting">
+                  Olympic Weight Lifting
+                </option>
+                <option value="plyometrics">Plyometrics</option>
+                <option value="powerlifting">Powerlifting</option>
+                <option value="strength">Strength</option>
+                <option value="stretching">Stretching</option>
+                <option value="strongman">Strongman</option>
+              </select>
+            </div>
+            <div className="">
+              <label htmlFor="muscle-type">
+                What muscle-group would you like to target?
+              </label>
+
+              <select
+                className="border-8 rounded-sm"
+                id="muscle-group"
+                onChange={(event) => changeMuscleGroup(event.target.value)}
+                value={currentMuscleGroup}
+              >
+                <option value="abdominal">Abdominal</option>
+                <option value="abductor">Abductor</option>
+                <option value="adductor">Adductor</option>
+                <option value="biceps">Biceps</option>
+                <option value="calves">Calves</option>
+                <option value="chest">Chest</option>
+                <option value="forearms">Forearms</option>
+                <option value="glutes">Glutes</option>
+                <option value="hamstrings">Hamstrings</option>
+                <option value="lats">Lats</option>
+                <option value="lower Back">Lower Back</option>
+                <option value="middle Back">Middle Back</option>
+                <option value="neck">Neck</option>
+                <option value="quadriceps">Quadriceps</option>
+                <option value="traps">Traps</option>
+                <option value="triceps">Triceps</option>
+              </select>
+            </div>
+            <div className="p-4">
+              <label htmlFor="difficulty-option">Choose Difficulty: </label>
+              <select
+                className="border-8 rounded-sm"
+                id="difficulty"
+                onChange={(event) => changeDifficulty(event.target.value)}
+                value={currentDifficulty}
+              >
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="expert">Expert</option>
+              </select>
+            </div>
+            <button
+              className="border-4 bg-red-400 border-red-400 rounded-md"
+              type="submit"
             >
-              <option value="cardio">Cardio</option>
-              <option value="olympic_weightlifting">
-                Olympic Weight Lifting
-              </option>
-              <option value="plyometrics">Plyometrics</option>
-              <option value="powerlifting">Powerlifting</option>
-              <option value="strength">Strength</option>
-              <option value="stretching">Stretching</option>
-              <option value="strongman">Strongman</option>
-            </select>
-            <label htmlFor="muscle-type">
-              What muscle-group would you like to target?
-            </label>
-            <select
-              id="muscle-group"
-              onChange={(event) => changeMuscleGroup(event.target.value)}
-              value={currentMuscleGroup}
-            >
-              <option value="abdominal">Abdominal</option>
-              <option value="abductor">Abductor</option>
-              <option value="adductor">Adductor</option>
-              <option value="biceps">Biceps</option>
-              <option value="calves">Calves</option>
-              <option value="chest">Chest</option>
-              <option value="forearms">Forearms</option>
-              <option value="glutes">Glutes</option>
-              <option value="hamstrings">Hamstrings</option>
-              <option value="lats">Lats</option>
-              <option value="lower Back">Lower Back</option>
-              <option value="middle Back">Middle Back</option>
-              <option value="neck">Neck</option>
-              <option value="quadriceps">Quadriceps</option>
-              <option value="traps">Traps</option>
-              <option value="triceps">Triceps</option>
-            </select>
-            <label htmlFor="difficulty-option">Choose Difficulty</label>
-            <select
-              id="difficulty"
-              onChange={(event) => changeDifficulty(event.target.value)}
-              value={currentDifficulty}
-            >
-              <option value="beginner">Beginner</option>
-              <option value="intermediate">Intermediate</option>
-              <option value="expert">Expert</option>
-            </select>
-          <button className="workout-form-button-submit" type="submit">Submit</button>
+              Submit
+            </button>
           </div>
         </div>
       </form>
       {showMessage}
-      <div className="workout-page">{workOutListFromAPI}</div>
+      <div className="grid grid-cols-3 gap-2 p-6">{workOutListFromAPI}</div>
     </div>
   );
 }

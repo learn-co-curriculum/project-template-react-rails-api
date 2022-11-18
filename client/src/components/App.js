@@ -156,7 +156,7 @@ function App() {
         <div className="logout">
           {/* {user ? user.first_name : null}{" "} */}
           {user ? (
-            <button className="logout-button" onClick={logOut}>
+            <button className="button-54" onClick={logOut}>
               Log Out
             </button>
           ) : null}

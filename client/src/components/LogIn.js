@@ -49,7 +49,7 @@ const LogIn = ({handleLogin}) => {
         ></input>
         </div>
         <br></br>
-        <label>Password:        </label>
+        <label class>Password:        </label>
         <input
           placeholder="Password"
           value={password}
@@ -61,7 +61,7 @@ const LogIn = ({handleLogin}) => {
         ></input>
         <br></br>
         <br></br>
-        <button type="submit">Login</button>
+        <button className="button-54" type="submit">Login</button>
         </div>
       </form>
       {errors ? errors.map((e) => <div>{e[0] + ": " + e[1]}</div>) : null}

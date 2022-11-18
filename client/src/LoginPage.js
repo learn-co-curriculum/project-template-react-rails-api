@@ -4,7 +4,6 @@ function LoginPage( { onLogin, onRegisterClick } ) {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
 
   function registerClick() {
     onRegisterClick(true)

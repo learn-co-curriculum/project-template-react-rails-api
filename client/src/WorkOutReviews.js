@@ -1,6 +1,9 @@
 
 function WorkOutReviews({ itemToReview }) {
+<<<<<<< HEAD
+=======
     console.log(itemToReview)
+>>>>>>> da3eb23b99ca3396e69b6bcd8fb70627cac74948
     return (
         <div>
             <h2>{itemToReview}</h2>

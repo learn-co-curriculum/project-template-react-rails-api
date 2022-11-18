@@ -27,9 +27,6 @@ function Profile({ user, listOfWorkOuts, setItemToReview, listOfMeals }) {
                     <p>{workout.difficulty}</p>
                     <p>{workout.muscle}</p>
                     <button>Delete Work-Out</button>
-                    {/* <NavLink to="/workoutreview">
-                        <button onClick={() => clickOnReviewButton(workout)}>Write A Review</button>
-                    </NavLink> */}
                     <button onClick={handleClickReviewShow}>Write Review</button>
                     {showReviewTextBox ? <WorkOutReviews /> : null}
                 </div>
@@ -46,9 +43,6 @@ function Profile({ user, listOfWorkOuts, setItemToReview, listOfMeals }) {
                     <p>{meal.food.label}</p>
                     <p>{meal.food.nutrients["ENERC_KCAL"]}</p>
                 <button>Delete Meals</button>
-                {/* <NavLink to="/mealreview">
-                    <button onClick={() => clickOnReviewButton(meal)}>Write A Review</button>
-                </NavLink> */}
                 <button onClick={handleClickReviewShow}>Write Review</button>
                 {showReviewTextBox ? <MealsReviews /> : null}
                 </div>

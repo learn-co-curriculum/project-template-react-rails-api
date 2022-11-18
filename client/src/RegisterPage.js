@@ -4,7 +4,6 @@ function RegisterPage({ onLogin, onCancelClick }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
-    const [errors, setErrors] = useState([]);
 
     function handleRegister(event) {
         event.preventDefault();

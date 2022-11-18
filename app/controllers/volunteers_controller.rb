@@ -5,13 +5,19 @@ class VolunteersController < ApplicationController
 
   def show
     volunteer = Volunteer.find(params[:id])
-    render json: volunteer,
-           serializer: VolunteerWithActivitiesSerializer,
-           status: :ok
+    render json: volunteer, status: :ok
   end
 
+  # def create
+  #   volunteer = Volunteer.create!(name: params[:name], age: params[:age], email: params[:email], user_id: User.create!(user_params).id)
+  #   render json: volunteer, status: :created
+  # end
+
   def create
-    volunteer = Volunteer.create!(volunteer_params)
+    byebug
+    user= User.create!(user_params)
+    volunteer = Volunteer.create!(volunteer_params, user_id: 
+      user.id)
     render json: volunteer, status: :created
   end
 
@@ -31,5 +37,9 @@ class VolunteersController < ApplicationController
 
   def volunteer_params
     params.permit(:name, :age, :email)
+  end
+
+  def user_params
+    params.permit(:username, :password, :password_confirmation)
   end
 end

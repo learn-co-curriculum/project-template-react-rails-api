@@ -1,7 +1,23 @@
 import React from "react";
+import BandPage from "./BandPage";
+import { Link } from "react-router-dom";
 import { Card, Image, Text, Badge, Button, Group, Flex } from '@mantine/core';
 
 const BandCard = ({ band }) => {
+
+    function goToBandPage() {
+      return (
+        <BandPage
+          band={band.name}
+          image={band.image_url}
+          concerts={band.concerts}
+          genre1={band.genre}
+          genre2={band.secondary_genre}
+          hometown={band.hometown}
+        />
+      )
+    }
+
     return (
       <Flex
       gap="xl"
@@ -19,7 +35,7 @@ const BandCard = ({ band }) => {
       </Card.Section>
 
       <Group position="apart" mt="md" mb="xs">
-        <Text weight={500}>{band.name}</Text>
+        <Link to="/bandpage" onClick={goToBandPage}><Text weight={500}>{band.name}</Text></Link>
         <Badge color="red" variant="light">
         {band.genre}
         </Badge>

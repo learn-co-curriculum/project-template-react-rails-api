@@ -163,15 +163,23 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
     )
   })
 
+  function display() {
+    if (user && showUserConcerts === true) {
+      return userConcerts
+    } else if (explore === true) {
+      return exploreConcerts
+    } else {
+      return allConcerts
+    }
+  }
+
   return (
     <Flex>
     <div>
       { user ? <h3>Here's what's coming up in {showUserConcerts ? user.location : newLocation}</h3> : null }
       <h4>Explore what's happening in {exploreSelect}</h4>
       <div className='flex-parent'>
-      {user && showUserConcerts ? userConcerts || allConcerts : exploreConcerts}
-      {explore && !showUserConcerts ? exploreConcerts : userConcerts}
-      {!user && !explore ? allConcerts : exploreConcerts}
+      {display()}
       </div>
     </div>
     </Flex>

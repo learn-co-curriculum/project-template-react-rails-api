@@ -2,41 +2,6 @@
   text-align: center;
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-} */
-
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-
-/* .App-link {
-  color: #61dafb;
-} */
-
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 .login-form {
   align-content: center;
   align-items: center;
@@ -55,7 +20,7 @@
   font-size: 16px;
   letter-spacing: 2px;
   text-decoration: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #000;
   cursor: pointer;
   border: 3px solid #000;
@@ -95,9 +60,9 @@
 }
 
 .logout {
-  /* float: right; */
-  /* margin: 10px; */
-  /* position: fixed;
+  /* float: right;
+  margin: 10px;
+  position: fixed;
   top: 40;
   right: 200; */
   padding: 25px;
@@ -152,18 +117,7 @@
 }
 
 .favorite-header {
-  /* border-bottom: 2px dashed #e9ecef;
-
-  /* background: linear-gradient(to left, #f69ec4, #f9dd94 100%);
-  background-position: 0 100%;
-  background-size: 100% 2px;
-  background-repeat: repeat-x; */
-
-  /* padding: 30px 0 8px;
-  position: relative; */
-
   position: relative;
-  /* padding: 15px 0; */
 }
 
 .favorite-body {
@@ -428,13 +382,6 @@
   box-sizing: border-box;
 }
 
-/* body {
-	font-family: "DM Sans", sans-serif;
-	line-height: 1.5;
-	background-color: #f1f3fb;
-	padding: 0 2rem;
-} */
-
 img {
   max-width: 100%;
   display: block;
@@ -495,9 +442,6 @@ input {
   flex-direction: column-reverse;
   position: relative;
   padding-top: 1.5rem;
-  /* &+.input {
-		margin-top: 1.5rem;
-	} */
 }
 
 .input-label {
@@ -515,14 +459,6 @@ input {
   font: inherit;
   font-size: 1.125rem;
   padding: 0.25rem 0;
-  /* &:focus, &:valid {
-		outline: 0;
-		border-bottom-color: #6658d3;
-		&+.input-label {
-			color: #6658d3;
-			transform: translateY(-1.5rem);
-		}
-	} */
 }
 
 .action {
@@ -539,9 +475,6 @@ input {
   border-radius: 6px;
   color: #fff;
   border: 0;
-  /* &:focus {
-		outline: 0;
-	} */
 }
 
 .form-card-info {
@@ -549,11 +482,6 @@ input {
   text-align: center;
   font-size: 0.875rem;
   color: #8597a3;
-  /* a {
-		display: block;
-		color: #6658d3;
-		text-decoration: none;
-	} */
 }
 
 /* button 54 */

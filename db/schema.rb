@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_11_17_165405) do
   create_table "meals", force: :cascade do |t|
     t.string "name"
     t.integer "calories"
-    t.string "reviews"
+    t.string "review"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

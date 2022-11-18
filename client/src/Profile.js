@@ -45,7 +45,7 @@ function Profile({ user, listOfWorkOuts, setItemToReview, listOfMeals }) {
       console.log(meal);
       return (
         <div>
-          <img src={meal.food.image} />
+          <img className="w-100 h-100" src={meal.food.image} />
           <p>{meal.food.label}</p>
           <p>{meal.food.nutrients["ENERC_KCAL"]}</p>
           <div className="p-4">

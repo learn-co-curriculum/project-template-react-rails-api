@@ -53,6 +53,7 @@ function LoginPage( { onLogin, onRegisterClick } ) {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+      <br></br>
       <div className="inline-block space-x-3">
       <button className=" font-mono subpixel-antialiased shadow-lg bg-red-500 rounded-md" type="submit" onClick={handleLogin}>Login</button>
       <button className="font-mono subpixel-antialiased shadow-lg bg-red-500 rounded-md" type="button" onClick={registerClick} >Register</button>

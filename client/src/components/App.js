@@ -11,6 +11,7 @@ import Profile from "./Profile";
 import Concerts from "./Concerts";
 import LogIn from "./LogIn";
 import SignUp from "./SignUp";
+import BandPage from "./BandPage";
 import { AppShell, Navbar, Header } from "@mantine/core";
 
 function App() {
@@ -212,6 +213,9 @@ function App() {
             <SignUp
             // user state to be added
             />
+          </Route>
+          <Route path="/bandpage">
+            <BandPage />
           </Route>
         </Switch>
       </div>

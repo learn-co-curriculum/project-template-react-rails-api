@@ -10,15 +10,17 @@ const FeaturedBandsContainer = ({ bands }) => {
     );
 
     return (
-      <div>
-      <FeaturedBandCard concerts={filteredConcerts} key={band.id} band={band} />
-      </div>
+      <>
+        <FeaturedBandCard
+          concerts={filteredConcerts}
+          key={band.id}
+          band={band}
+        />
+      </>
     );
   });
 
-  return <div classname="flex-parent-bands">
-    <>{featuredBands}</>
-    </div>;
+  return <div className="featured-band-parent">{featuredBands}</div>;
 };
 
 export default FeaturedBandsContainer;

@@ -41,14 +41,14 @@ const ConcertCard = ({
       <Card.Section>
         <Image src={image} height={160} alt={band} />
       </Card.Section>
-      <Text size="sm" color="dimmed">
+      <Text size="lg" >
         {band}
       </Text>
       <Text size="sm" color="dimmed">
-        {date}
+        {venue_name}, {venue_city}
       </Text>
       <Text size="sm" color="dimmed">
-        {venue_name}, {venue_city}
+        {date}
       </Text>
       {user ? (
         <Button

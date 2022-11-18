@@ -282,16 +282,20 @@ padding:40px
   border: 2px solid white
 }
 .NewItem {
-  border-bottom: 2px solid var(--background-light);
-  border-top: 2px solid var(--background-light);
   padding: 1rem 0;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
   gap: 1rem;
+  width: 400px;
 }
 
 .user-info {
   color: rgb(0, 47, 255);
+}
+
+.form-input {
+  margin-left:8px
 }
 

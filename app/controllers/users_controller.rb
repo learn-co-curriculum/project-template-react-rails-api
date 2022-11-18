@@ -14,6 +14,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def create_both
+    user = User.create!(username: params[:user], password: params[:password])
+    volunteer =
+      Volunteer.create!(
+        name: params[:name],
+        age: params[:age],
+        email: params[:email],
+        user_id: user.id
+      )
+    render json: volunteer, status: :ok
+  end
+
   private
 
   def user_params

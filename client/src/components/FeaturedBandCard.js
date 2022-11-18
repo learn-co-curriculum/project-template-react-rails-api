@@ -15,8 +15,8 @@ const FeaturedBandCard = ({ band, concerts }) => {
 
          >
           <Card >
-            <Card.Section><Image src={band.image_url} alt={band.name}  height={160} width={160}/></Card.Section>
-            {/* <Group><div>{band.name}</div></Group> */}
+            <Card.Section><Image src={band.image_url} alt={band.name}  height={160} /></Card.Section>
+            <Text size="lg" >{band.name}</Text>
           </Card>
           </Flex>
         ) : null}

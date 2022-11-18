@@ -1,8 +1,12 @@
 class BandsController < ApplicationController
-    skip_before_action :authorize, only: [:index]
+    skip_before_action :authorize, only: [:index, :show]
 
     def index
         render json: Band.all, status: :ok
+    end
+
+    def show
+      render json: Band.find(params[:id])
     end
 
     def create

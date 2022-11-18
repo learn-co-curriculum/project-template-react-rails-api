@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BandPage from "./BandPage";
 import { Link } from "react-router-dom";
 import { Card, Image, Text, Badge, Button, Group, Flex } from '@mantine/core';
 
-const BandCard = ({ band }) => {
+const BandCard = ({band}) => {
 
     function goToBandPage() {
+
+        fetch(`bands/${band.id}`)
+          .then((res) => res.json())
+          .then((data) => console.log(data));
+
+
       return (
         <BandPage
           band={band.name}
@@ -35,7 +41,7 @@ const BandCard = ({ band }) => {
       </Card.Section>
 
       <Group position="apart" mt="md" mb="xs">
-        <Link to="/bandpage" onClick={goToBandPage}><Text weight={500}>{band.name}</Text></Link>
+        <Link to={`/bandpage`} onClick={goToBandPage}><Text weight={500} value={band.id}>{band.name}</Text></Link>
         <Badge color="red" variant="light">
         {band.genre}
         </Badge>

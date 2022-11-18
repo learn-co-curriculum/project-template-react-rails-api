@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ConcertCard from "./ConcertCard";
 
-const BandPage = ({band}) => {
+const BandPage = ({band, image, concerts, genre1, genre2, hometown}) => {
 
-    console.log(band)
     // const bandConcerts = concerts.map((concert) => {
     //      <ConcertCard
     //         venue={concert.venue_name}
@@ -14,7 +13,7 @@ const BandPage = ({band}) => {
 
     return (
         <div>
-            <h1>hi</h1>
+            Hey
         </div>
         // <div>
         //     <h1>{band}</h1>

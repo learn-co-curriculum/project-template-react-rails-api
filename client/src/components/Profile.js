@@ -30,36 +30,36 @@ const Profile = ({ user, setUser, handleUpdateUser }) => {
 
   return (
     <div>
-          <div className="update-profile">
-      <Button
-        onClick={() => setShow((show) => !show)}
-        variant="light"
-        color="red"
-        fullWidth
-        mt="md"
-        radius="md"
-      >
-        {" "}
-        {show ? "Cancel Update" : "Update Profile"}
-      </Button>
-      {show ? (
-        <UpdateProfileForm user={user} handleUpdate={handleUpdate} handleUpdateUser={handleUpdateUser} />
-      ) : null}
-      <Button
-        onClick={handleDelete}
-        variant="light"
-        color="red"
-        fullWidth
-        mt="md"
-        radius="md"
-      >
-        Delete Profile
-      </Button>
+      <div className="update-profile">
+        <Button
+          onClick={() => setShow((show) => !show)}
+          variant="light"
+          color="red"
+          fullWidth
+          mt="md"
+          radius="md"
+        >
+          {" "}
+          {show ? "Cancel Update" : "Update Profile"}
+        </Button>
+        {show ? (
+          <UpdateProfileForm user={user} handleUpdate={handleUpdate} handleUpdateUser={handleUpdateUser} />
+        ) : null}
+        <Button
+          onClick={handleDelete}
+          variant="light"
+          color="red"
+          fullWidth
+          mt="md"
+          radius="md"
+        >
+          Delete Profile
+        </Button>
       </div>
       <br></br>
       <h2 className="page-header">{user.first_name}'s profile</h2>
       <h4>
-        See your concert stubs, your upcoming concerts, and your favorites!
+        Your concert stubs and your favorite band + genres
       </h4>
 
       {/* <UpcomingConcerts user={user}/> */}

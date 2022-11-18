@@ -4,19 +4,17 @@ import { Link } from "react-router-dom";
 const Home = ({ user }) => {
   return (
     <div>
-      <h1 className="page-header">Concert Tracker</h1>
-      <div className="homepage-flex">
-        <div className="homepage-card">
-          <img
-            src="https://images.unsplash.com/photo-1620577610365-86c411bad78d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-            alt="explore bands"
-          />
-          <br></br>
-          <br></br>
-          <Link to="/bands">
-            <button className="button-54">Explore bands</button>
-          </Link>
-        </div>
+      <h1 className='page-header'>GROOVEHOUND</h1>
+      <h3>All of your concerts in one place</h3>
+      <div className='homepage-flex'>
+      <div className='homepage-card'>
+        <img src="https://images.unsplash.com/photo-1620577610365-86c411bad78d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="explore bands"/>
+        <br></br>
+        <br></br>
+        <Link to="/bands">
+          <button className="button-54">Explore bands</button>
+        </Link>
+      </div>
 
         <div className="homepage-card">
           <img

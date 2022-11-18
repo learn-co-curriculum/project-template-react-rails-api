@@ -5,12 +5,6 @@ import Stubs from './Stubs';
 
 
 const UpcomingConcerts = ({user}) => {
-  // const myConcerts = user.concerts
-  // function isUpcoming(date){
-  //   return date >= Date.today
-  // }
-  // const myUpcomingConcerts = myConcerts.filter(isUpcoming)
-
   const myUpcomingConcertList = user.concerts?.map((concert) => {
     return (
       <Stubs

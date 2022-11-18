@@ -158,7 +158,6 @@ const ConcertContainer = ( {user, bands, concerts, setConcerts, displayedVenues,
         tickets_remaining={concert.tickets_remaining}
         ticket_link={concert.ticket_link}
         comment={concert.comment}
-
         />
     )
   })

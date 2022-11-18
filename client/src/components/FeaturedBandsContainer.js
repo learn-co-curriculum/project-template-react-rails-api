@@ -11,7 +11,7 @@ const FeaturedBandsContainer = ({ bands }) => {
     );
 
     return (
-      <div  classname="grid-attempt">
+      <div>
       <FeaturedBandCard concerts={filteredConcerts} key={band.id} band={band} />
       </div>
     );
@@ -20,7 +20,9 @@ const FeaturedBandsContainer = ({ bands }) => {
   //   const featuredBand = bands.map((band) => <FeaturedBandCard />);
   //   console.log(bands);
 
-  return <div>{featuredBands}</div>;
+  return <div classname="flex-parent-bands">
+    <>{featuredBands}</>
+    </div>;
 };
 
 export default FeaturedBandsContainer;

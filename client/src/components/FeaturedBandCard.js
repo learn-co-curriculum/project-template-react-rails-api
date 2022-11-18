@@ -8,9 +8,11 @@ const FeaturedBandCard = ({ band, concerts }) => {
       <div >
         {concerts.length > 0 ? (
          <Flex
-         gap="xl"
-         direction="row"
+         gap="lg"
+         justify="center"
+         align="center"
          wrap="wrap"
+
          >
           <Card >
             <Card.Section><Image src={band.image_url} alt={band.name}  height={160} width={160}/></Card.Section>

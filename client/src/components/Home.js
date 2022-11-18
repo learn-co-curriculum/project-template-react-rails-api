@@ -12,7 +12,7 @@ const Home = () => {
         <br></br>
         <br></br>
         <Link to="/bands">
-          <button className="button">Explore bands</button>
+          <button className="button-54">Explore bands</button>
         </Link>
       </div>
 
@@ -21,7 +21,7 @@ const Home = () => {
         <br></br>
         <br></br>
         <Link to="/concerts">
-          <button className="button">Explore concerts</button>
+          <button className="button-54">Explore concerts</button>
         </Link>
       </div>
 
@@ -30,7 +30,7 @@ const Home = () => {
         <br></br>
         <br></br>
         <Link to="/profile">
-          <button className="button">See your tickets!</button>
+          <button className="button-54">See your tickets!</button>
         </Link>
       </div>
     </div>

@@ -4,7 +4,7 @@
 
 .App-header {
   background-color: #282c34;
-  /* background-image: url("./src/images/park-landscape.png"); */
+  background-image: url("./images/park-landscape.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -28,7 +28,7 @@
 .header-row {
   display: flex;
   flex-direction: row;
-  background-color:silver;
+  /* background-color:silver; */
 }
 
 .title-block {
@@ -162,8 +162,7 @@
   margin-bottom:50px
 }
 
-.home-row {
-  
+.home-row {  
   width: 90vh;
   height:auto;
   min-height: 100%;
@@ -236,12 +235,25 @@
   font-weight: 400;
 }
 
+.login-form {
+padding:40px
+}
+
+.user-container {
+  display:flex;
+  justify-content:center;
+  margin-top: 50px;
+}
+
 .user-profile {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   padding: 20px;
   border-right: 2px solid black;
+}
+
+.active-signups {
+  font-size: calc(10px + .8vmin)
 }
 
 .user-title {

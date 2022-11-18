@@ -6,14 +6,20 @@ import VolunteerActivities from "./VolunteerActivities";
 import OurTeam from "./OurTeam";
 // import CookieTest from "./CookieTest";
 
-function MainWindow({ user, setUser }) {
+function MainWindow({ user, setUser, handleLogoutClick }) {
   return (
     <>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route
           path="/user/"
-          element={<UserProfile user={user} setUser={setUser} />}
+          element={
+            <UserProfile
+              user={user}
+              setUser={setUser}
+              handleLogoutClick={handleLogoutClick}
+            />
+          }
         />
         <Route
           path="/activities/"

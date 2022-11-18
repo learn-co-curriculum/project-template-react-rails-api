@@ -33,8 +33,7 @@ function LoginForm({ setUser, handleDisplay }) {
 
   return (
     <form className="login-form">
-      <h1>**title of app here**</h1>
-      <h3>LOGIN</h3>
+      <h3>PLEASE LOGIN</h3>
       <label htmlFor="username">Username:</label>
       <input
         type="text"

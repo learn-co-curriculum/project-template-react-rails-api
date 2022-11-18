@@ -15,6 +15,14 @@ function App() {
       }
     });
   }, []);
+
+  function handleLogoutClick() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+      }
+    });
+  }
   return (
     <>
       <div className="App">
@@ -23,7 +31,11 @@ function App() {
           <Header user={user} />
         </header>
         <div className="main-window">
-          <MainWindow user={user} setUser={setUser} />
+          <MainWindow
+            user={user}
+            setUser={setUser}
+            handleLogoutClick={handleLogoutClick}
+          />
         </div>
       </div>
     </>

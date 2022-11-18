@@ -3,7 +3,7 @@ import { useState } from "react";
 import WorkOutReviews from "./WorkOutReviews";
 import MealsReviews from "./MealsReviews";
 
-function Profile({ user, listOfWorkOuts, setItemToReview, listOfMeals }) {
+function Profile({ user, listOfWorkOuts, setItemToReview, listOfMeals, deleteReview, review }) {
   const [showReviewTextBox, setShowReviewTextBox] = useState(false);
   function clickOnReviewButton(workout) {
     setItemToReview(workout);
@@ -12,6 +12,17 @@ function Profile({ user, listOfWorkOuts, setItemToReview, listOfMeals }) {
   const handleClickReviewShow = () => {
     setShowReviewTextBox((showReviewTextBox) => !showReviewTextBox);
   };
+
+  //NEED TO ADD THIS TO THE BACKEND TO MAKE IT WORK
+  function handleDeleteClick() {
+    fetch(`/deletereviews`, {
+        method: "DELETE"
+    })
+    .then((response) => response.json())
+    .then(() => {
+        deleteReview(review)
+    })
+  }
 
   //DISPLAYS USER INFO
   //MIGHT NEED ADDITIONAL CODE FOR MEALS AND WORKOUTS IF NEED BE
@@ -24,7 +35,7 @@ function Profile({ user, listOfWorkOuts, setItemToReview, listOfMeals }) {
           <h2>{workout.name}</h2>
           <p>{workout.difficulty}</p>
           <p>{workout.muscle}</p>
-          <button className="border-4 border-red-400 bg-red-400 rounded-md">
+          <button onClick={handleDeleteClick} className="border-4 border-red-400 bg-red-400 rounded-md">
             Delete Work-Out
           </button>
           <button
@@ -49,7 +60,7 @@ function Profile({ user, listOfWorkOuts, setItemToReview, listOfMeals }) {
           <p>{meal.food.label}</p>
           <p>{meal.food.nutrients["ENERC_KCAL"]}</p>
           <div className="p-4">
-            <button className="border-4 border-red-400 bg-red-400 rounded-md">
+            <button onClick={handleDeleteClick} className="border-4 border-red-400 bg-red-400 rounded-md">
               Delete Meals
             </button>
             <button

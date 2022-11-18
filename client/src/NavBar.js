@@ -33,7 +33,7 @@ function NavBar({ onLogout, user }) {
             <a href="#meals">Meals</a>
           </NavLink>
         </div>
-        <div className="hover:scale-110 transition duration-300 ease-in-out">
+        <div className="hover:scale-110 transition duration-300 ease-in-out text-red-300">
           <NavLink to="/">
             <a href="#log-out" onClick={handleLogout}>
               Logout

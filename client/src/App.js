@@ -19,6 +19,7 @@ function App() {
   const [userWorkOuts, setUserWorkOuts] = useState([])
   const [itemToReview, setItemToReview] = useState(null)
   const [userMeals, setUserMeals] = useState([])
+  const [reviews, setReviews] = useState([])
 
   //CHECKS TO SEE IF CURRENT USER MATCHES SESSION USER
   useEffect(() => {
@@ -76,6 +77,12 @@ function App() {
   function getItemToReview(item) {
     setItemToReview(item)
   }
+
+  function deleteReview(reviewToDelete) {
+    const updatedReviews = reviews.filter((review) => review.id !== reviewToDelete.id);
+    setReviews(updatedReviews);
+    alert("Review deleted!")
+  }
  
 
   if (!user) {
@@ -96,7 +103,7 @@ function App() {
           <Route path="/meals" element={<MealForm getMeals={getUserMeals}/>} />
           <Route
             path="/profile"
-            element={<Profile user={user} setUser={setUser} listOfWorkOuts={userWorkOuts} listOfMeals={userMeals} setItemToReview={getItemToReview}/>}
+            element={<Profile deleteReview={deleteReview} review={reviews} user={user} setUser={setUser} listOfWorkOuts={userWorkOuts} listOfMeals={userMeals} setItemToReview={getItemToReview}/>}
           />
           <Route
             path="/profilesettings"

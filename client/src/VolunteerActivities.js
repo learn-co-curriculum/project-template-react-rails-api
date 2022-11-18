@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function VolunteerActivities() {
+function VolunteerActivities({ user }) {
+  const navigate = useNavigate();
   const [activities, setActivities] = useState(null);
 
   useEffect(() => {
@@ -16,19 +18,40 @@ function VolunteerActivities() {
       });
   }, []);
 
+  function handleSignup(a) {
+    const newSignup = {
+      volunteer_id: user.id,
+      activity_id: a.target.value,
+      date: Date.now(),
+      time: "2:00 pm",
+    };
+    fetch("/signups", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newSignup),
+    })
+      .then((r) => r.json())
+      .then(navigate(`/user/`));
+  }
+
   let activityDisplay = activities
-    ? activities.map((a) => (
+    ? activities.map((activity) => (
         <div className="card activity-card">
-          <img className="card-img-top" src={a.image} alt="Card cap" />
+          <img className="card-img-top" src={activity.image} alt="Card cap" />
           <div className="card-body">
-            <h5 className="card-title">{a.organization}</h5>
+            <h5 className="card-title">{activity.organization}</h5>
             <p className="card-text">
-              {a.activity_name}: {a.activity_description}
+              {activity.activity_name}: {activity.activity_description}
             </p>
             <div className="card-footer">
-              {/* <a href="#" className="btn btn-header btn-footer"> */}
-              Sign Up Now!
-              {/* </a> */}
+              <button
+                href="#"
+                value={activity.id}
+                className="btn btn-header btn-footer"
+                onClick={(a) => handleSignup(a)}
+              >
+                Sign Up Now!
+              </button>
             </div>
           </div>
         </div>

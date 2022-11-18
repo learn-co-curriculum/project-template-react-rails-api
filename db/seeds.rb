@@ -157,53 +157,61 @@ activity8 =
   )
 
 puts "Seeding signups..."
-Signup.create(
-  volunteer_id: volunteer1.id,
-  activity_id: activity1.id,
-  date: "11-15-22",
-  time: 11
-)
-Signup.create(
-  volunteer_id: volunteer2.id,
-  activity_id: activity2.id,
-  date: "12-10-22",
-  time: 12
-)
-Signup.create(
-  volunteer_id: volunteer3.id,
-  activity_id: activity3.id,
-  date: "11-20-22",
-  time: 15
-)
-Signup.create(
-  volunteer_id: volunteer4.id,
-  activity_id: activity4.id,
-  date: "11-25-22",
-  time: 11
-)
-Signup.create(
-  volunteer_id: volunteer5.id,
-  activity_id: activity5.id,
-  date: "12-15-22",
-  time: 12
-)
-Signup.create(
-  volunteer_id: volunteer6.id,
-  activity_id: activity6.id,
-  date: "12-20-22",
-  time: 16
-)
-Signup.create(
-  volunteer_id: volunteer7.id,
-  activity_id: activity7.id,
-  date: "12-05-22",
-  time: 11
-)
-Signup.create(
-  volunteer_id: volunteer8.id,
-  activity_id: activity8.id,
-  date: "12-01-22",
-  time: 12
-)
+
+30.times do
+  Signup.create(
+    volunteer_id: rand(0..7),
+    activity_id: rand(0..7),
+    dateTime: DateTime.now + (rand * 21)
+  )
+end
+# Signup.create(
+#   volunteer_id: volunteer1.id,
+#   activity_id: activity1.id,
+#   date: "11-15-22",
+#   time: 11
+# )
+# Signup.create(
+#   volunteer_id: volunteer2.id,
+#   activity_id: activity2.id,
+#   date: "12-10-22",
+#   time: 12
+# )
+# Signup.create(
+#   volunteer_id: volunteer3.id,
+#   activity_id: activity3.id,
+#   date: "11-20-22",
+#   time: 15
+# )
+# Signup.create(
+#   volunteer_id: volunteer4.id,
+#   activity_id: activity4.id,
+#   date: "11-25-22",
+#   time: 11
+# )
+# Signup.create(
+#   volunteer_id: volunteer5.id,
+#   activity_id: activity5.id,
+#   date: "12-15-22",
+#   time: 12
+# )
+# Signup.create(
+#   volunteer_id: volunteer6.id,
+#   activity_id: activity6.id,
+#   date: "12-20-22",
+#   time: 16
+# )
+# Signup.create(
+#   volunteer_id: volunteer7.id,
+#   activity_id: activity7.id,
+#   date: "12-05-22",
+#   time: 11
+# )
+# Signup.create(
+#   volunteer_id: volunteer8.id,
+#   activity_id: activity8.id,
+#   date: "12-01-22",
+#   time: 12
+# )
 
 puts "✅ Done seeding!"

@@ -5,6 +5,11 @@ class VolunteersController < ApplicationController
 
   def show
     volunteer = Volunteer.find(params[:id])
+    render json: volunteer, status: :ok
+  end
+
+  def user
+    volunteer = Volunteer.find_by(user_id: params[:id])
     render json: volunteer,
            serializer: VolunteerWithActivitiesSerializer,
            status: :ok
@@ -31,5 +36,9 @@ class VolunteersController < ApplicationController
 
   def volunteer_params
     params.permit(:name, :age, :email)
+  end
+
+  def user_params
+    params.permit(:username, :password, :password_confirmation)
   end
 end

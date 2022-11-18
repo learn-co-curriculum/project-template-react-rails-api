@@ -23,7 +23,7 @@ function App() {
           <Header user={user} />
         </header>
         <div className="main-window">
-          <MainWindow user={user} />
+          <MainWindow user={user} setUser={setUser} />
         </div>
       </div>
     </>

@@ -1,25 +1,12 @@
+import { useState } from "react";
 import LoginForm from "./LoginForm";
+import UserCard from "./UserCard";
 
-function UserProfile({ user, onLogin }) {
+function UserProfile({ user, setUser }) {
   const display = user ? (
-    <button
-      value="button"
-      onClick={() => {
-        fetch(
-          "http://localhost:4000/me"
-          // , {
-          // method: "GET",
-          // withCredentials: true,
-          // }
-        ).then((response) => {
-          if (response.ok) {
-            response.json().then(console.log);
-          }
-        });
-      }}
-    />
+    <UserCard user={user} />
   ) : (
-    <LoginForm onLogin={onLogin} user={user} />
+    <LoginForm setUser={setUser} user={user} />
   );
 
   return <>{display}</>;

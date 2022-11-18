@@ -1,5 +1,5 @@
 class SignupSerializer < ActiveModel::Serializer
-  attributes :id, :date, :time
+  attributes :id, :dateTime, :activity_id
   has_one :volunteer
   has_one :activity
 end

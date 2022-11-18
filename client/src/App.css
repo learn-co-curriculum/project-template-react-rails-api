@@ -1,5 +1,5 @@
 .App {
-  min-width:1200;
+  width: 100vh;
 }
 
 .App-header {
@@ -114,8 +114,11 @@
   position:absolute;
   background-color: lavender;
   top:110px;
-  min-height: 100vh;
+  min-height: calc(100vh-11px);
   overflow: auto;
+  left: 0;
+  right: 0;
+  bottom: 0
 }
 
 .page-top-container {
@@ -231,6 +234,22 @@
 
 .btn-footer{
   font-weight: 400;
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 20px;
+  border-right: 2px solid black;
+}
+
+.user-title {
+  border-bottom: 2px solid black;
+}
+
+.user-text {
+  font-size: calc(10px + 1.2vmin);
 }
 
 .testing-text {

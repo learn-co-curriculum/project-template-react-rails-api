@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function LoginForm() {
+function LoginForm({ setUser, handleDisplay }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   // const [errors, setErrors] = useState([]);
@@ -24,7 +24,7 @@ function LoginForm() {
       body: JSON.stringify(user),
     }).then((res) => {
       if (res.ok) {
-        res.json().then(console.log);
+        res.json().then(setUser);
       } else {
         res.json().then((event) => alert(event.error));
       }

@@ -1,3 +1,46 @@
+Title : Project-Management-App
+
+Pitch - Project-Management-App would help managers and employees to manage their projects and tasks. 
+
+Functionality - 
+1. User registration/login for employees and managers
+2. Manger would be able to see the main dashboard - 
+   - it will show all the new projects, which are yet to assigned 
+   - it will show all projects for which review is pending 
+   - it will show all projects which are in WIP. 
+   - it show all the projects which are approved and completed. 
+
+3. Mangers will be able to add new projects , add task under each project. 
+4. Managers will be able to assign the project to employees with DL. 
+5. Managers will be able to review the project, Approve if project seems ok , or request for improvement if required, 
+6. In case, of improvement required, managers will be able to put a new DL for the next review. 
+7. If login as an employee, employee would be able to see the projects and tasks allocated to them. 
+8. They can then update the progress by updating if task is completed or pending 
+9. The progress bar will show the progress %  based on task completion. 
+
+
+Technologies - 
+1. React - frontend
+2. Ruby on rails - backend
+3. React Calender - selecting DLs
+
+
+![pic](./wireframe/wireframe1.png)
+![pic](./wireframe/wireframe2.png)
+![pic](./wireframe/wireframe3.png)
+![pic](./wireframe/wireframe4.png)
+![pic](./wireframe/wireframe5.png)
+![pic](./wireframe/wireframe6.png)
+
+
+
+
+
+
+
+
+
+
 # Project Template: React/Rails API
 
 ## Description

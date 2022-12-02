@@ -1,6 +1,7 @@
 # FitnessFriends 
 
-## Project Pitch: FitnessFriend is a fitness app where a user can track their exercise and nutrition in order to achieve their fitness goals!
+## Project Pitch: 
+  FitnessFriend is a fitness app where a user can track their exercise and nutrition in order to achieve their fitness goals!
 
 ## Description
 

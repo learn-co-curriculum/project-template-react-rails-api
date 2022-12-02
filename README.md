@@ -1,5 +1,7 @@
 # FitnessFriends 
 
+## Project Pitch: FitnessFriend is a fitness app where a user can track their exercise and nutrition in order to achieve their fitness goals!
+
 ## Description
 
 FitnessFriends is a fitness app designed to keep track of your daily calories. The app allows you to create an account with a username and password. Then throughout the day the user can add what they’ve eaten and how much calories there was in each meal/food item. The user can also add exercises they’ve done and add the amount of calories each exercise burned. 

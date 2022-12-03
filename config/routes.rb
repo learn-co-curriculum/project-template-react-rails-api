@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :reservations
+  resources :restaurants
   resources :menus
   resources :users
   # Routing logic: fallback requests for React Router.

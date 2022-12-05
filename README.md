@@ -1,5 +1,8 @@
 # Project Template: React/Rails API
 
+##Figma Design Nyama Haven link
+(https://www.figma.com/file/J3scDZHe87L2oBgNCHtrPt/NyamaHaven-React-Rails-Project?node-id=0%3A1&t=UUsi1SRQeVxlJ2Lh-0)
+
 ## Description
 
 This project is scaffolded so that you can build a React frontend and Rails

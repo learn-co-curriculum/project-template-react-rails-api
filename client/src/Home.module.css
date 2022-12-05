@@ -325,243 +325,28 @@
   }
   
 
-
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
   }
-  .logInPageRootRootRoot {
-    width: 866px;
-    height: 1555px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 0px;
-    padding-top: 179px;
-    padding-right: 308px;
-    padding-bottom: 46px;
-    padding-left: 266px;
-    border-width: 0px;
-    box-sizing: content-box;
-    background-color: #ffffff;
-    background-size: cover;
-    background-position: 50% 50%;
-    background-blend-mode: normal, normal;
-    background-image: url(https://file.rendit.io/n/vv3o28jaKZHXSgS7hg8C.jpg),
-      linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
-    overflow: hidden;
+  button{
+    background-color:#090a0a;
+    color: white ;
+    margin:8px 0px ;
+    padding: 14px 18px ;
     cursor: pointer;
   }
-  .logInPageRootRootRoot.error {
-    background-color: #ee7e63;
+
+  button:hover{
+    opacity: 0.8;
   }
-  .logInPageRootRootRoot:hover {
-    opacity: 0.7;
-    box-shadow: 1px 1px 3px #aaaaaa;
+  .container{
+    padding: 16px;
+    border: 3px solid #f1f1f1;
   }
-  .logInPageRootRootRoot:disabled {
-    cursor: not-allowed;
-    pointer-events: none;
-    filter: grayscale(1);
-  }
-  .flexColumn {
-    height: 893px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: stretch;
-  }
-  .logInPageRootRootRoot.loading .flexColumn {
-    display: none;
-  }
-  .logInPageRootRootRoot.error .flexColumn {
-    display: none;
-  }
-  .flexRow {
-    width: 866px;
-    gap: 7px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 0px 0px 66px 0px;
-  }
-  .text1 {
-    font-size: 40px;
-    font-weight: 700;
-    font-family: Poppins;
-    white-space: nowrap;
-  }
-  .image1 {
-    width: 50px;
-    height: 50px;
-    align-self: flex-end;
-  }
-  .loginform {
-    width: 866px;
-    height: 598px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin: 0px 0px 51px 0px;
-  }
-  .username1 {
-    width: 858px;
-    gap: 38px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: flex-start;
-    align-items: flex-start;
-  }
-  .password3 {
-    width: 858px;
-    gap: 38px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  .password1 {
-    display: contents;
-    font-size: 32px;
-    font-weight: 600;
-    font-family: Inter;
-  }
-  .login1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0px 302px 0px 0px;
-  }
-  .mahoganyText {
-    width: 86px;
-    height: 39px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 22px 80px 21px 80px;
-    color: #ffffff;
-    font-size: 32px;
-    font-weight: 600;
-    font-family: Inter;
-    white-space: nowrap;
-    border-radius: 10px;
-    background-color: #cb4e4e;
-  }
-  .line {
-    width: 850px;
-    height: 1px;
-    align-self: flex-end;
-    margin: 0px 0px 42px 0px;
-  }
-  .flexRow1 {
-    width: 718px;
-    gap: 45px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0px 74px;
-  }
-  .text3 {
-    font-size: 32px;
-    font-family: Inter;
-    white-space: nowrap;
-  }
-  .signup {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .whiteText {
-    width: 114px;
-    height: 75px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0px 43px;
-    color: #cb4e4e;
-    font-size: 32px;
-    font-family: Inter;
-    white-space: nowrap;
-    border-radius: 15px;
-    background-color: #fdf0f5;
-  }
-  .text4 {
-    margin: 0px 0px 0px 132px;
-    font-size: 40px;
-    font-weight: 300;
-    font-family: Poppins;
-    white-space: nowrap;
-  }
-  .logInPageRootRootRoot.loading .text4 {
-    display: none;
-  }
-  .logInPageRootRootRoot.error .text4 {
-    display: none;
-  }
-  .loadingSpinner {
-    width: 20px;
-    height: 20px;
-    display: none;
-    border-width: 3px;
-    border-radius: 50%;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-    border-left-color: #f3f3f3;
-    border-bottom-color: #f3f3f3;
-    border-right-color: #f3f3f3;
-    border-top-color: #444444;
-    border-top-style: solid;
-    animation-name: spin;
-    animation-duration: 1500ms;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-  .logInPageRootRootRoot.loading .loadingSpinner {
-    border-top-width: 3px;
-    border-bottom-width: 3px;
-    border-left-width: 3px;
-    border-right-width: 3px;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-    border-left-color: #f3f3f3;
-    border-bottom-color: #f3f3f3;
-    border-right-color: #f3f3f3;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
-    border-top-color: #444444;
-    border-top-style: solid;
-    width: 20px;
-    height: 20px;
-    animation-name: spin;
-    animation-duration: 1500ms;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    display: block;
-  }
-  .logInPageRootRootRoot.error .loadingSpinner {
-    display: none;
-  }
-  .errorBang {
-    width: 29px;
-    height: 29px;
-    display: none;
-  }
-  .logInPageRootRootRoot.error .errorBang {
-    width: 29px;
-    height: 29px;
-    display: block;
-  }
+
   

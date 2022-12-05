@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../NewRootRootRoot1.module.css'
+import styles from '../Home.module.css'
 
 function Restaurant({restaurant}){
 

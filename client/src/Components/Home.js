@@ -1,20 +1,22 @@
 import React from "react";
 import clsx from "clsx";
-import styles from "../NewRootRootRoot1.module.css";
+import styles from "../Home.module.css";
 //import Restaurant from "./Restaurant";
 import RestaurantContainer from "./RestaurantContainer";
+import { Link } from "react-router-dom";
 
 
-const NewRootRootRoot1 = ({ variant = "default" }) => {
+const Home = ({ variant = "default" }) => {
   return (
+    
     <div
-
       className={clsx(
         styles.newRootRootRootRoot,
         { [styles.loading]: variant === "loading" },
         { [styles.error]: variant === "error" }
       )}
     >
+      <Link to='/login'><button>Login</button></Link>
       <div
         className={clsx(
           styles.restaurantPage,
@@ -57,4 +59,4 @@ const NewRootRootRoot1 = ({ variant = "default" }) => {
 };
 
 
-export default NewRootRootRoot1;
+export default Home;

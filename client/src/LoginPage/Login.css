@@ -1,0 +1,41 @@
+.Login h3 {
+    width:70%;
+    margin-left: 14%;
+    padding-left: 1%;
+    border-top-style: solid;
+    border-width: 1px;
+    background-color: rgb(230, 230, 230);
+}
+
+.Login form {
+    text-align: center;
+}
+
+#username {
+    margin-top: 10%
+}
+
+.Login form input {
+    height: 30px;
+    width: 250px;
+    margin: 1%;
+}
+
+#sign-in {
+    height: 50px;
+    background-color: white;
+}
+
+.Login p {
+    text-align: center;
+}
+
+.Login button {
+    height: 50px;
+    width: 250px;
+    position: absolute;
+    margin-top: 1%;
+    right: 50%;
+    transform: translate(50%);
+    background-color: white;
+}

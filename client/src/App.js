@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import {useEffect, useState} from 'react'
-import { BrowserRouter as Route, Routes, Router } from 'react-router-dom'
+import { Route, Routes, Router } from 'react-router-dom'
 import Home from './components/Home'
 
 
@@ -32,16 +32,11 @@ function App() {
   return (
     <>
       <h1>Hello</h1>
-      <Router>
         {/* <NavBar /> */}
         <Routes>
-
-          <Route exact path='/'>
-            <Home  books={books}/>
-          </Route>
+          <Route exact path='/' element={<Home  books={books}/>}/>
 
         </Routes>
-      </Router>
     </>
   );
 }

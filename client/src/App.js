@@ -3,6 +3,7 @@ import React from "react"
 import { Routes , Route, BrowserRouter as Router} from "react-router-dom"
 import LoginForm from './LoginPage/LoginForm';
 import CreateAccountForm from "./CreateAccount/CreateAccountForm"
+import TodayPage from "./TodayPage/Today.js"
 
 function App() {
   return (
@@ -16,10 +17,10 @@ function App() {
           exact path="/create_account" 
           element={<CreateAccountForm/>}
         />
-        {/* <Route
+        <Route
           exact path="/"
-          element={}
-        /> */}
+          element={<TodayPage/>}
+        />
       </Routes>
     </Router>
   );

@@ -1,0 +1,28 @@
+.NavBar > p {
+    text-align: center;
+    width: 15%;
+    height: 20px;
+    margin: 1% 8% 1% 8%;
+    float:left;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 20px;
+}
+
+div.NavBar {
+    height: 50px;
+}
+
+.calories-display > p {
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    width: 16%;
+    height: 30px;
+    line-height: 30px;
+    margin: 1% 4% 1% 4%;
+}
+
+div.calories-display {
+    height: 70px
+}

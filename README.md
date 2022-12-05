@@ -25,5 +25,3 @@ FitnessFriends is a fitness app designed to keep track of your daily calories. T
   ![page_1](https://user-images.githubusercontent.com/99115851/205388974-bd1d3225-9588-428c-b5c9-705fb7261cf6.png)
   ![page_2](https://user-images.githubusercontent.com/99115851/205389070-55c09bd1-e6d8-4cdf-ac9c-a4b5efaf3798.png)
   ![page_3](https://user-images.githubusercontent.com/99115851/205389098-90acf82f-b9d4-412c-8807-257831d4469d.png)
-  
-  

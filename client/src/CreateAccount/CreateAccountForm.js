@@ -5,13 +5,12 @@ const CreateAccountForm = () => {
 
     //Controlled form for username and password
     const [formData, setFormData] = useState({
-        name:"",
+        // name:"",
         age:"",
-        fitnessGoal:"",
-        caloriesGoal:"",
-        caloriesGoal2:"",
+        calories_goal:"",
         username:"", 
-        password:""
+        password:"",
+        sex:"",
     })
 
     const onDataChange = (event) => {
@@ -20,28 +19,34 @@ const CreateAccountForm = () => {
 
     const createAccount = (event) => {
         event.preventDefault()
-        //send data to database to confirm
-        //on confirm, render main page
-        //on deny re-enter data and tell user they're stupid
+        console.log(formData)
+        fetch("/users", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          })
+            .then((r) => r.json())
+            .then(console.log);
     }
 
     return (
         <form className="create-user" onSubmit={createAccount}>
-            <input type="text" name="name" placeholder="Name" onChange={onDataChange} id={"new-name"}/>
-            <br/>
+            {/* <input type="text" name="name" placeholder="Name" onChange={onDataChange} id={"new-name"}/>
+            <br/> */}
             <input type="text" name="age" placeholder="Age" onChange={onDataChange}/>
             <br/>
-            <input type="text" name="fitnessGoal" placeholder="Fitness Goal" onChange={onDataChange}/>
-            <br/>
-            <input type="text" name="caloriesGoal" placeholder="Calories Goal (net)" onChange={onDataChange}/>
-            <br/>
-            <input type="text" name="caloriesGoal2" placeholder="Calories Goal (numeric)" onChange={onDataChange}/>
+            <input type="text" name="calories_goal" placeholder="Calories Goal" onChange={onDataChange}/>
             <br/>
             <input type="text" name="username" placeholder="Username" onChange={onDataChange}/>
             <br/>
             <input type="password" name="password" placeholder="Password" onChange={onDataChange}/>
             <br/>
+            <input type="text" name="sex" placeholder="Sex" onChange={onDataChange}/>
+            <br/>
             <input type="submit" name="create_user" value="Create User" id={"submit-account"} />
+            
         </form>
     )
 }

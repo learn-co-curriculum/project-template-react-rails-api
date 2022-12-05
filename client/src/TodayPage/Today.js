@@ -1,11 +1,19 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import NavBar from "../NavBar/NavBar.js"
 
 
 const TodayPage = () => {
 
+    const [calGoal, setCalGoal] = useState(0)
     //fetch this data in future
-    const calGoal = 2000
+    useEffect(() => {
+        fetch("/me")
+        .then(resp => resp.json())
+        .then(userData => {
+            setCalGoal(userData.calories_goal)
+        })
+    }, [])
+    
     const calBurnt = 400
     const calConsumed = 1800
     const calLeft = calGoal + calBurnt - calConsumed

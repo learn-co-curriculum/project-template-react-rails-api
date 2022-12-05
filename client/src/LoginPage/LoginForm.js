@@ -23,8 +23,8 @@ let LoginForm = () => {
 
     return (
         <>
-        <h3>FitnessFriend</h3>
-        <form>
+        <h3 className="Login">FitnessFriend</h3>
+        <form className="Login">
             <label>
             <input 
                 id="username"
@@ -46,8 +46,8 @@ let LoginForm = () => {
             
 
         </form>
-        <p>OR</p>
-        <button onClick={onCreateAccount}>Create an account</button>
+        <p className="Login">OR</p>
+        <button className="Login" onClick={onCreateAccount}>Create an account</button>
         </>
     )
 }

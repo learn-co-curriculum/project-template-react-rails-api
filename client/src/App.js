@@ -9,11 +9,11 @@ function App() {
     <Router>
       <Routes>
         <Route 
-          exact path="/" 
+          exact path="/Login" 
           element={<LoginForm/>}
         />
         <Route 
-          exact path="/create-account" 
+          exact path="/create_account" 
           element={<CreateAccountForm/>}
         />
       </Routes>

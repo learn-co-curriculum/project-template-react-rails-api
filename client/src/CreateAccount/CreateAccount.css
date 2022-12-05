@@ -1,0 +1,20 @@
+#new-name {
+    margin-top: 7%;
+}
+
+.create-user {
+    text-align: center;
+}
+
+.create-user input {
+    width: 250px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+#submit-account {
+    height: 50px;
+    width: 260px;
+    margin-top: 30px;
+    background-color: white;
+}

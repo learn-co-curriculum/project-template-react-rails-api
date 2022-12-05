@@ -1,4 +1,4 @@
-.Login h3 {
+h3.Login {
     width:70%;
     margin-left: 14%;
     padding-left: 1%;
@@ -7,7 +7,7 @@
     background-color: rgb(230, 230, 230);
 }
 
-.Login form {
+form.Login {
     text-align: center;
 }
 
@@ -15,7 +15,7 @@
     margin-top: 10%
 }
 
-.Login form input {
+form.Login input {
     height: 30px;
     width: 250px;
     margin: 1%;
@@ -26,11 +26,11 @@
     background-color: white;
 }
 
-.Login p {
+p.Login {
     text-align: center;
 }
 
-.Login button {
+button.Login {
     height: 50px;
     width: 250px;
     position: absolute;

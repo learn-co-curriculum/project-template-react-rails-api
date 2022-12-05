@@ -16,6 +16,10 @@ function App() {
           exact path="/create_account" 
           element={<CreateAccountForm/>}
         />
+        {/* <Route
+          exact path="/"
+          element={}
+        /> */}
       </Routes>
     </Router>
   );

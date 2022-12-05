@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-.create-user input {
+input.create-user {
     width: 250px;
     height: 30px;
     margin-bottom: 10px;

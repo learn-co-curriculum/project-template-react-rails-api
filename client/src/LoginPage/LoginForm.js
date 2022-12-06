@@ -23,9 +23,7 @@ let LoginForm = () => {
         console.log(formData)
         fetch("/login", {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify(formData),
         })
         .then((r) => r.json())

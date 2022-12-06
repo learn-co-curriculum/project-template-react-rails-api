@@ -1,4 +1,6 @@
 import React,{useState} from "react"
+import { useNavigate } from  "react-router-dom"
+
 import "./CreateAccount.css"
 
 const CreateAccountForm = () => {
@@ -19,7 +21,6 @@ const CreateAccountForm = () => {
 
     const createAccount = (event) => {
         event.preventDefault()
-        console.log(formData)
         fetch("/users", {
             method: "POST",
             headers: {
@@ -28,7 +29,7 @@ const CreateAccountForm = () => {
             body: JSON.stringify(formData),
           })
             .then((r) => r.json())
-            .then(console.log);
+            .then();
     }
 
     return (

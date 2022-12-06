@@ -1,0 +1,36 @@
+#day-title {
+    text-align: center;
+}
+
+.calorie-info > p {
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    width: 13%;
+    height: 30px;
+    line-height: 30px;
+    margin: 1% 10% 1% 10%;
+    text-align: center;
+}
+
+.calorie-info {
+    height: 100px;
+}
+
+#smaller-container {
+    width: 90%;
+    margin-left: 5%;
+}
+
+#food-div {
+    width: 45%;
+    background-color: cyan;
+    float: left;
+}
+
+#exercise-div {
+    float: right;
+    width: 45%;
+    background-color: lightgreen;
+}
+

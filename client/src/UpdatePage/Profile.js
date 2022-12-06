@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import NavBar from "./NavBar/NavBar";
+import NavBar from "../NavBar/NavBar";
 import ProfileUpdateAge from "./ProfileUpdateAge";
 import ProfileUpdateCalories from "./ProfileUpdateCalories";
 import ProfileUpdateSex from "./ProfileUpdateSex";

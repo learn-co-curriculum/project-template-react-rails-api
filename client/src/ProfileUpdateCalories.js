@@ -12,7 +12,7 @@ function ProfileUpdateCalories({calories_goal, handleCalories, handleCaloriesSub
           <input
            type="submit"
            name="submit"
-           value="Update Sex"
+           value="Update Calories"
            className="submit"
          />
      </form>

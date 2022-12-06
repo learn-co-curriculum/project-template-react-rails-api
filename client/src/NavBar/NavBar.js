@@ -12,10 +12,13 @@ const NavBar = () => {
     function handleClickToday(){
         navigate("/")
     }
+    function handleClickHistory(){
+        navigate("/history")
+    }
 
     return (
         <div className="NavBar">
-            <p>History</p>
+            <p onClick={handleClickHistory}>History</p>
             <p onClick={handleClickToday}>Today</p>
             <p onClick={handleClickProfile} className="profile" >Your Profile</p>
             <br></br>

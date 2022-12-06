@@ -12,7 +12,7 @@ function ProfileUpdateUsername({username, handleUsername, handleUsernameSubmit})
           <input
            type="submit"
            name="submit"
-           value="Update Sex"
+           value="Update Username"
            className="submit"
          />
      </form>

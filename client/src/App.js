@@ -4,10 +4,13 @@ import { Routes , Route, BrowserRouter as Router} from "react-router-dom"
 import LoginForm from './LoginPage/LoginForm';
 import CreateAccountForm from "./CreateAccount/CreateAccountForm"
 import TodayPage from "./TodayPage/Today.js"
+import Profile from './Profile';
+import NavBar from './NavBar/NavBar';
 
 function App() {
   return (
-    <Router>
+    <>
+      <Router>
       <Routes>
         <Route 
           exact path="/Login" 
@@ -21,8 +24,12 @@ function App() {
           exact path="/"
           element={<TodayPage/>}
         />
+        <Route
+          exact path="/profile"
+          element={<Profile/>}
+        />
       </Routes>
-    </Router>
+    </Router>    </>
   );
 }
 

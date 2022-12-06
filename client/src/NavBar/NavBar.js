@@ -1,12 +1,23 @@
 import React from "react";
 import "./Nav.css"
+import { useNavigate } from  "react-router-dom"
+
 
 const NavBar = () => {
+    const navigate = useNavigate()
+
+    function handleClickProfile(){
+        navigate("/profile")
+    }
+    function handleClickToday(){
+        navigate("/")
+    }
+
     return (
         <div className="NavBar">
             <p>History</p>
-            <p>Today</p>
-            <p>Your Profile</p>
+            <p onClick={handleClickToday}>Today</p>
+            <p onClick={handleClickProfile} className="profile" >Your Profile</p>
             <br></br>
         </div>
     )

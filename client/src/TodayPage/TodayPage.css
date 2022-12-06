@@ -1,0 +1,110 @@
+.calories-display > p {
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    width: 16%;
+    height: 30px;
+    line-height: 30px;
+    margin: 1% 4% 1% 4%;
+}
+
+div.calories-display {
+    height: 70px
+}
+
+#main-container {
+    width: 90%;
+    margin-left: 5%;
+}
+
+#track-food {
+    width: 45%;
+    background-color: cyan;
+    height: 200px;
+    float: left;
+}
+
+#track-exercise {
+    margin-left: 50%;
+    background-color: lightgreen;
+    height: 200px
+}
+
+#main-container p {
+    text-align: center;
+    margin-top: 0;
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 1%;
+}
+
+#main-container p.item-header {
+    padding-left: 20px;
+    text-align: left;
+}
+
+.item-1 {
+    width: 25%;
+    margin-right: 1%;
+    float: left;
+}
+
+.item-2 {
+    width: 19%;
+    margin-right: 1%;
+    float: left;
+}
+
+.item-3 {
+    width: 19%;
+    margin-right: 1%;
+    float: left;
+}
+
+#main-container button {
+    float: right;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    width: 30%;
+}
+
+#main-container button.add-item  {
+    float:none;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+#row {
+    height: 43px;
+}
+
+#add {
+    position: fixed;
+    z-index: 1;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: lightgray;
+    width: 500px;
+    height: 300px;
+}
+
+#add button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top:0;
+    right:0;
+}
+
+#add form {
+    text-align: center;
+    margin-left: 50%;
+    margin-top: 20%;
+    transform: translate(-50%);
+}
+
+#add input {
+    margin-top: 2%;
+    text-align: center;
+}

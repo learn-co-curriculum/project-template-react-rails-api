@@ -42,7 +42,7 @@ let LoginForm = () => {
 
 
     return (
-        <>
+        <div className="loginPage">
         <h3 className="Login">FitnessFriend</h3>
         <form className="Login" onSubmit={onLogin}>
             <label>
@@ -68,7 +68,7 @@ let LoginForm = () => {
         </form>
         <p className="Login">OR</p>
         <button className="Login" onClick={onCreateAccount}>Create an account</button>
-        </>
+        </div>
     )
 }
 

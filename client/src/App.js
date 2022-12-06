@@ -6,6 +6,7 @@ import CreateAccountForm from "./CreateAccount/CreateAccountForm"
 import TodayPage from "./TodayPage/Today.js"
 import Profile from './Profile';
 import NavBar from './NavBar/NavBar';
+import HistoryPage from './HistoryPage';
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function App() {
         <Route
           exact path="/profile"
           element={<Profile/>}
+        />
+        <Route
+          exact path="/history"
+          element={<HistoryPage/>}
         />
       </Routes>
     </Router>    </>

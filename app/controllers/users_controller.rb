@@ -19,6 +19,11 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        user = User.find_by(id: sessions[:user_id])
+        user.update(user_params)
+    end
+
     private
     def user_params
         params.permit(:username, :password, :age, :sex, :calories_goal)

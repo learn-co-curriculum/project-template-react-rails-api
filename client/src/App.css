@@ -1,0 +1,22 @@
+.profileInformation{
+    text-align: center;
+    background-color: pink;
+    padding: 1rem;
+    width: 25rem;
+    height: 30 rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+    box-shadow: 2px 2px white ;
+    border: solid;
+    border-width: 1px;
+}
+
+.profileContainer{
+    background-color: skyblue;  
+    height: 1000px;
+    text-align: center;
+    padding: 250px;
+}
+
+
+

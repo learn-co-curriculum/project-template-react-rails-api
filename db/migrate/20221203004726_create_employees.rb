@@ -5,7 +5,7 @@ class CreateEmployees < ActiveRecord::Migration[6.1]
       t.string :last_name
       t.string :position
       t.string :email
-      t.string :password #hash and salt passwords later
+      t.string :password_digest 
       t.string :avatar
 
       t.timestamps

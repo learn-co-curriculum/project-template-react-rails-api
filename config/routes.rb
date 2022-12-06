@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :tasks , only: [:show, :create, :index, :destroy]
   resources :projects
   resources :managers
   resources :employees

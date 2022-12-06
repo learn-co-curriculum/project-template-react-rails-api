@@ -1,0 +1,17 @@
+.backgrounImage {
+    width: 510px;
+    height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: stretch;
+    align-items: flex-start;
+    padding-right: 300px;
+    padding-left: 500px;
+    padding-bottom: 60px;
+    padding-top: 100px;
+    background-size: cover;
+    background-image: url("https://file.rendit.io/n/8UISzafcIPCZZgbgtORf.png");
+  }
+ 
+  

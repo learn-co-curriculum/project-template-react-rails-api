@@ -1,9 +1,36 @@
 import React from 'react'
 import styles from '../Home.module.css'
-
+import { Link } from 'react-router-dom'
+import {useState} from 'react'
 function Restaurant({restaurant}){
+    const [orderItems, setOrderItems] = useState({
+        restaurant_id: "",
+        menu_id: "",
+        price: ""
+    })
+
 
     const menuItems = restaurant.menus.map(m =>{
+        const {restaurant_id, id, price} = m
+        const handleOrderItems = ()=>{
+            
+            setOrderItems({
+                ...orderItems,
+                restaurant_id: restaurant_id,
+                menu_id: id,
+                price: price
+            })
+       
+       
+        fetch("http://localhost:3000/orders", {
+            mode: "no-cors",
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: new URLSearchParams(orderItems),
+          }) 
+        };
         return(
             <div key = {m.id}>
                 <div className={styles.flexColumn}>
@@ -32,7 +59,7 @@ function Restaurant({restaurant}){
                 </div>
                 <div className={styles.login}>
                     <div className={styles.mahoganyFlexColumn}>
-                    <button className={styles.text3}>ORDER</button>
+             <button onClick= {handleOrderItems}  className={styles.text3}>ORDER HERE</button>
                     </div>
                 </div>
                 </div>

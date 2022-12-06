@@ -348,5 +348,69 @@
     padding: 16px;
     border: 3px solid #f1f1f1;
   }
+  .signupFormRootRootRoot {
+    width: 1138px;
+    height: 912px;
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0px;
+    padding-top: 35px;
+    padding-right: 222px;
+    padding-bottom: 35px;
+    padding-left: 152px;
+    border-width: 0px;
+    box-sizing: content-box;
+    background-color: transparent;
+    background-image: linear-gradient(
+      180deg,
+      rgba(109, 157, 197, 0.28) 42%,
+      rgba(6, 141, 157, 0.24) 100%
+    );
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .signupFormRootRootRoot.error {
+    background-color: #ee7e63;
+  }
+  
+  .signupFormRootRootRoot:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    filter: grayscale(1);
+  }
+  .backgrounImage {
+    width: 510px;
+    height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-self: stretch;
+    align-items: flex-start;
+    padding-right: 300px;
+    padding-left: 500px;
+    padding-bottom: 60px;
+    padding-top: 100px;
+    background-size: cover;
+    background-image: url("https://file.rendit.io/n/8UISzafcIPCZZgbgtORf.png");
+  }
+  .signupFormRootRootRoot.loading .backgrounImage {
+    display: none;
+  }
+  .signupFormRootRootRoot.error .backgrounImage {
+    display: none;
+  }
+  
+  .text4 {
+    font-size: 30px;
+    font-weight: 300;
+    font-family: Poppins;
+    white-space: nowrap;
+    text-align: center;
+    background-color: #ee7e63;
+  }
+  
 
   

@@ -1,11 +1,11 @@
 import React from "react";
 import styles from  '../Home.module.css'
-
+import { Link } from 'react-router-dom'
 
 function Login(){
   return(
     <form className="container">
-      <p><b>Sign In to NyamaHaven</b></p>
+      <p><b>Login to NyamaHaven</b></p>
       <label for='username'><b>Username :</b></label>
       <input type='text' placeholder="Enter Username" name="username"></input>
 
@@ -13,7 +13,8 @@ function Login(){
       <input type='password' placeholder='Enter password' name='password' required></input>
       <button type='submit'>Login</button>
       <br></br>
-      <span>Don't have an Account?</span><button> Sign Up</button>
+      <span>Don't have an Account?</span>
+      <Link to = '/signUP'><button> Sign Up</button></Link>
     </form>
   )
 

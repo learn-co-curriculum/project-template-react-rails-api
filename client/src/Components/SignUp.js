@@ -1,42 +1,41 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import clsx from "clsx";
 import styles from "../Home.module.css";
 
 const SignUP = ({ variant = "default" }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [confPassword, setConfPassword] = useState("");
- 
-  const handleName = (e) => {
-    setName(e.target.value);
-  };
+  const [userdata, setUserData] = useState({
+    name: "",
+    userName: "",
+    email: "",
+    password_digest: "",
+  });
 
-  const handleUserName = (e) => {
-    setUserName(e.target.value);
-  };
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleConfPassword = (e) => {
-    setConfPassword(e.target.value);
-  };
-  const handleSubmit = (e) => {
-    if (password != confPassword) {
-      alert("password Not Match");
-    } else {
-      alert("A form was submitted ");
-    }
+  const handleChange = (e) => {
     e.preventDefault();
-    e.form.reset();
+    console.log(e.target.value);
+    setUserData({
+      ...userdata,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userdata),
+    });
+    console.log(userdata);
+    setUserData({
+      name: "",
+      username: "",
+      email: "",
+      password_digest: "",
+    });
   };
 
   return (
@@ -44,70 +43,50 @@ const SignUP = ({ variant = "default" }) => {
       <div className={clsx(styles.backgrounImage)}>
         <h1>SIGN UP HERE!</h1>
         <div className="signUpPage">
-          <form
-            onSubmit={(e) => {
-              handleSubmit(e);
-            }}>
+          <form onSubmit={handleSubmit}>
             <label>Name:</label>
             <br />
             <input
               type="text"
-              value={name}
-              required
-              onChange={(e) => {
-                handleName(e);
-              }}
+              name="name"
+              value={userdata.name}
+              onChange={handleChange}
             />
             <br />
             <label>userName:</label>
             <br />
             <input
               type="text"
-              value={userName}
-              required
-              onChange={(e) => {
-                handleUserName(e);
-              }}
+              name="username"
+              value={userdata.username}
+              onChange={handleChange}
             />
             <br />
             <label>Email:</label>
             <br />
             <input
               type="text"
-              value={email}
-              required
-              onChange={(e) => {
-                handleEmail(e);
-              }}
+              name="email"
+              value={userdata.email}
+              onChange={handleChange}
             />
             <br />
             <label>Password:</label>
             <br />
             <input
               type="password"
-              value={password}
-              required
-              onChange={(e) => {
-                handlePassword(e);
-              }}
+              name="password_digest"
+              value={userdata.password_digest}
+              onChange={handleChange}
             />
-            <br />
-            <label>Confirm Password:</label>
-            <br />
-            <input
-              type="password"
-              value={confPassword}
-              required
-              onChange={(e) => {
-                handleConfPassword(e);
-              }}
-            />
-            <br />
+
             <input type="submit" value="Create Account" />
           </form>
           <h3>
             Already Registered?
-            <Link to = '/Login'><button>LOGIN</button></Link>
+            <Link to="/Login">
+              <button>LOGIN</button>
+            </Link>
           </h3>
         </div>
       </div>

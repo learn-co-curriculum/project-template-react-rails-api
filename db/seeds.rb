@@ -26,7 +26,6 @@ puts "Seeding..."
                         start_date: Faker::Date.between(from: '2022-01-01', to: '2022-07-01'),
                         end_date: Faker::Date.between(from: '2022-01-01', to: '2022-07-01'),
                         goal: Faker::Quote.famous_last_words,
-                        steps: Faker::Quote.singular_siegler,
                         manager_id: rand(1..10),
                         employee_id: rand(1..20)
 

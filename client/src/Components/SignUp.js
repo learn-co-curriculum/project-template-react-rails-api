@@ -12,30 +12,32 @@ const SignUP = ({ variant = "default" }) => {
   });
 
   const handleChange = (e) => {
+    
     e.preventDefault();
-    console.log(e.target.value);
+
     setUserData({
       ...userdata,
       [e.target.name]: e.target.value,
     });
   };
-
+console.log(userdata)
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch("http://localhost:3000/users", {
+      mode: "no-cors",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userdata),
     });
-    console.log(userdata);
-    setUserData({
-      name: "",
-      username: "",
-      email: "",
-      password_digest: "",
-    });
+
+    // setUserData({
+    //   name: "",
+    //   username: "",
+    //   email: "",
+    //   password_digest: "",
+    // });
   };
 
   return (
@@ -80,7 +82,9 @@ const SignUP = ({ variant = "default" }) => {
               onChange={handleChange}
             />
 
-            <input type="submit" value="Create Account" />
+            <button onClick={() => console.log(userdata)} type="submit">
+              CREATE ACCOUNT
+            </button>
           </form>
           <h3>
             Already Registered?

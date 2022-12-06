@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 2022_12_03_005917) do
     t.string "first_name"
     t.string "last_name"
     t.string "position"
-    t.string "department"
     t.string "email"
     t.string "password"
+    t.string "avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 2022_12_03_005917) do
     t.string "first_name"
     t.string "last_name"
     t.string "position"
-    t.string "department"
     t.string "email"
     t.string "password"
+    t.string "avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

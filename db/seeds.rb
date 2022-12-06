@@ -5,7 +5,6 @@ puts "Seeding..."
                           first_name: Faker::Name.first_name,
                           last_name: Faker::Name.last_name,
                           position: Faker::Job.title,
-                          department: Faker::Job.field,
                           email: Faker::Internet.email,
                           password: Faker::Internet.password,
                           avatar: Faker::Avatar.image
@@ -16,7 +15,6 @@ puts "Seeding..."
                          first_name: Faker::Name.first_name,
                          last_name: Faker::Name.last_name,
                          position: Faker::Job.title,
-                         department: Faker::Job.field,
                          email: Faker::Internet.email,
                          password: Faker::Internet.password,
                          avatar: Faker::Avatar.image

@@ -2,7 +2,7 @@ class Restaurant < ApplicationRecord
 
     has_many :users
     has_many :menus
-    has_many :reservations
+    has_many :orders
 
   validates :name, :location, presence: true
 end

@@ -20,10 +20,7 @@
   .newRootRootRootRoot.error {
     background-color: #ee7e63;
   }
-  .newRootRootRootRoot:hover {
-    opacity: 0.7;
-    box-shadow: 1px 1px 3px #aaaaaa;
-  }
+  
   .newRootRootRootRoot:disabled {
     cursor: not-allowed;
     pointer-events: none;
@@ -266,50 +263,8 @@
     font-family: Poppins;
     white-space: nowrap;
   }
-  .loadingSpinner {
-    width: 20px;
-    height: 20px;
-    display: none;
-    border-width: 3px;
-    border-radius: 50%;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-    border-left-color: #f3f3f3;
-    border-bottom-color: #f3f3f3;
-    border-right-color: #f3f3f3;
-    border-top-color: #444444;
-    border-top-style: solid;
-    animation-name: spin;
-    animation-duration: 1500ms;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-  .newRootRootRootRoot.loading .loadingSpinner {
-    border-top-width: 3px;
-    border-bottom-width: 3px;
-    border-left-width: 3px;
-    border-right-width: 3px;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-    border-left-color: #f3f3f3;
-    border-bottom-color: #f3f3f3;
-    border-right-color: #f3f3f3;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
-    border-top-color: #444444;
-    border-top-style: solid;
-    width: 20px;
-    height: 20px;
-    animation-name: spin;
-    animation-duration: 1500ms;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    display: block;
-  }
+  
+
   .newRootRootRootRoot.error .loadingSpinner {
     display: none;
   }
@@ -336,7 +291,7 @@
   button{
     background-color:#090a0a;
     color: white ;
-    margin:8px 0px ;
+    margin:8px 0px 8px 0px;
     padding: 14px 18px ;
     cursor: pointer;
   }

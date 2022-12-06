@@ -16,7 +16,10 @@ const Home = ({ variant = "default" }) => {
         { [styles.error]: variant === "error" }
       )}
     >
+      <div>
       <Link to='/login'><button>Login</button></Link>
+      <Link to='/signUp'><button>signUp</button></Link>
+      </div>
       <div
         className={clsx(
           styles.restaurantPage,

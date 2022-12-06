@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom"
 import clsx from "clsx";
 import styles from "../Home.module.css";
 
 const SignUP = ({ variant = "default" }) => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
-
-  const handleFirstName = (e) => {
-    setFirstName(e.target.value);
+ 
+  const handleName = (e) => {
+    setName(e.target.value);
   };
 
-  const handleLastName = (e) => {
-    setLastName(e.target.value);
+  const handleUserName = (e) => {
+    setUserName(e.target.value);
   };
 
   const handleEmail = (e) => {
@@ -48,32 +48,32 @@ const SignUP = ({ variant = "default" }) => {
             onSubmit={(e) => {
               handleSubmit(e);
             }}>
-            <label>FirstName:</label>
+            <label>Name:</label>
             <br />
             <input
               type="text"
-              value={firstName}
+              value={name}
               required
               onChange={(e) => {
-                handleFirstName(e);
+                handleName(e);
               }}
             />
             <br />
-            <label>LastName:</label>
+            <label>userName:</label>
             <br />
             <input
               type="text"
-              value={lastName}
+              value={userName}
               required
               onChange={(e) => {
-                handleLastName(e);
+                handleUserName(e);
               }}
             />
             <br />
             <label>Email:</label>
             <br />
             <input
-              type="password"
+              type="text"
               value={email}
               required
               onChange={(e) => {
@@ -95,7 +95,7 @@ const SignUP = ({ variant = "default" }) => {
             <label>Confirm Password:</label>
             <br />
             <input
-              type="text"
+              type="password"
               value={confPassword}
               required
               onChange={(e) => {
@@ -107,7 +107,7 @@ const SignUP = ({ variant = "default" }) => {
           </form>
           <h3>
             Already Registered?
-            <button>LOGIN</button>
+            <Link to = '/Login'><button>LOGIN</button></Link>
           </h3>
         </div>
       </div>

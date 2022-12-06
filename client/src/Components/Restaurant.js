@@ -32,7 +32,7 @@ function Restaurant({restaurant}){
                 </div>
                 <div className={styles.login}>
                     <div className={styles.mahoganyFlexColumn}>
-                    <div className={styles.text3}>Add</div>
+                    <button className={styles.text3}>ORDER</button>
                     </div>
                 </div>
                 </div>

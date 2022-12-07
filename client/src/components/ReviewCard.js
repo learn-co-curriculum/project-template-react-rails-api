@@ -12,7 +12,7 @@ function ReviewCard({review}) {
         <p>Rating : {rating}</p>
         <p>Review : {message}</p>
       </div>
-      <img src={image}/>
+      <img alt ={message} src={image}/>
       {/* </Card> */}
      </>
     );

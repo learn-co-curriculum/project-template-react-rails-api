@@ -1,4 +1,3 @@
-import React from "react";
 import React, { useState } from "react";
 import clsx from "clsx";
 import styles from "../Home.module.css";
@@ -9,7 +8,8 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  function handleSubmit(e) {
+  
+  function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
     fetch("/login", {
@@ -26,7 +26,8 @@ const Login = () => {
         r.json().then((err) => setErrors(err.errors));
       }
     });
-  }  return (
+  }  
+  return (
     <div className={clsx(styles.logInPageRootRootRoot)}>
       <div>
         <div className={styles.flexRow}>

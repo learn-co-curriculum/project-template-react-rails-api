@@ -24,8 +24,8 @@ const TodayPage = () => {
         .then(userData => {
             setCalGoal(userData.calories_goal)
             setUserId(userData.id)
-            setFoodList(userData.foods)
-            setExerciseList(userData.exercises)
+            setFoodList(userData.foods.filter(food => food.created_at.slice(0,10) === new Date().toJSON().slice(0, 10)))
+            setExerciseList(userData.exercises.filter(exercise => exercise.created_at.slice(0,10) === new Date().toJSON().slice(0, 10)))
             })
     }, [])
     

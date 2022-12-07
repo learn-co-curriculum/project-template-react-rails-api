@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import clsx from "clsx";
 import styles from "../Home.module.css";
 
-const SignUP = ({ variant = "default" }) => {
+const SignUP = () => {
   const [userdata, setUserData] = useState({
     name: "",
     userName: "",
     email: "",
-    password_digest: "",
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -22,7 +22,7 @@ const SignUP = ({ variant = "default" }) => {
   console.log(userdata);
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/users", {
+    fetch("http://localhost:3000/signup", {
       mode: "no-cors",
       method: "POST",
       headers: {
@@ -80,8 +80,8 @@ const SignUP = ({ variant = "default" }) => {
             <input
               type="password"
               placeholder="Enter Password"
-              name="password_digest"
-              value={userdata.password_digest}
+              name="password"
+              value={userdata.password}
               onChange={handleChange}
             />
 
@@ -101,9 +101,7 @@ const SignUP = ({ variant = "default" }) => {
 
       <img
         src={`https://file.rendit.io/n/VKUDdPXOQEW9F1d6KxwA.png`}
-        className={clsx(styles.errorBang, {
-          [styles.error]: variant === "error",
-        })}
+        className={clsx(styles.errorBang)}
       />
     </>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../Home.module.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useState } from "react";
 function Restaurant({ restaurant }) {
   const [orderItems, setOrderItems] = useState({

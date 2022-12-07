@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import styles from '../Home.module.css'
+import styles from './Order.css'
 
 function Order(){
     const order = {
@@ -18,6 +18,7 @@ function Order(){
         const {restaurant_id, id, price} = m
         return(
             <div key = {m.id}>
+                
                 <div className={styles.flexColumn}>
                 <div className={styles.whiteFlexRow3}>
                 <img

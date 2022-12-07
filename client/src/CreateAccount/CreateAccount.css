@@ -4,8 +4,36 @@
 
 .create-user {
     text-align: center;
+    padding: 1rem;
+    width: 25rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+    box-shadow: 2px 2px white ;
+    background-color: rgb(184, 216, 228);
+    border: solid;
+    border-width: 1px;
+    color: black;
+    opacity: .75;
+   
 }
 
+.create-user input{
+    width: 80%;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+
+
+
+
+.form-container{
+    background-image: url("https://i.imgur.com/5mv40BC.png");
+    background-repeat: no-repeat;
+    background-size: 2000px;
+    text-align: center;
+    padding: 250px;
+
+}
 input.create-user {
     width: 250px;
     height: 30px;
@@ -14,7 +42,8 @@ input.create-user {
 
 #submit-account {
     height: 50px;
-    width: 260px;
-    margin-top: 30px;
-    background-color: white;
+    background-color: rgb(32, 177, 234);
+    width: 50%;
+    margin-left: 50%;
+    transform: translate(-50%);
 }

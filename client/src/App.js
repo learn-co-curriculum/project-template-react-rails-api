@@ -4,7 +4,7 @@ import { Routes , Route, BrowserRouter as Router} from "react-router-dom"
 import LoginForm from './LoginPage/LoginForm';
 import CreateAccountForm from "./CreateAccount/CreateAccountForm"
 import TodayPage from "./TodayPage/Today.js"
-import Profile from './UpdatePage/Profile';
+import Profile from './Profile/Profile';
 import NavBar from './NavBar/NavBar';
 import HistoryPage from './HistoryPage/HistoryPage.js';
 

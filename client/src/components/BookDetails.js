@@ -1,10 +1,11 @@
 import  { Link, useParams, useNavigate } from 'react-router-dom'
 import {useEffect, useState} from 'react'
+import ReviewContainer from './ReviewContainer'
 // import styled from 'styled-components'
 
 function BookDetail({books, reviews}) {
   const [book, setBook] = useState({})
-//   const [review, setReview] = useState({})
+  const [review, setReview] = useState({})
   const [loading, setLoading] = useState(true)
   const [errors, setErrors] = useState(false)
   
@@ -27,21 +28,25 @@ function BookDetail({books, reviews}) {
     })
   },[])
 
-//   //Fetch Reviews
-//   useEffect(() => {
-//     fetchReviews()
-//   },[])
 
-//   const fetchReviews = () => {
-//     fetch(`/books/${params.id}/reviews`)
-//     .then(res => {
-//       if(res.ok){
-//         res.json().then(setReview)
-//       }else {
-//         res.json().then(data => setErrors(data.error))
-//       }
-//     })
-//   }
+  // //Fetch Reviews
+  // useEffect(() => {
+  //   fetchReviews()
+  // },[])
+
+  // const fetchReviews = () => {
+  //   fetch(`/books/${params.id}/reviews`)
+  //   .then(res => {
+  //     if(res.ok){
+  //       res.json().then(data => {
+  //         setReview(data)
+  //         setLoading(false)
+  //       })
+  //     }else {
+  //       res.json().then(data => setErrors(data.error))
+  //     }
+  //   })
+  // }
 
 //   const deleteReview = (id) => setReview(current => current.filter(p => p.id !== id)) 
 
@@ -83,6 +88,7 @@ function BookDetail({books, reviews}) {
   if(errors) return <h1>{errors}</h1>
 
   const {title, author, year, description} = book
+  // const {rating, message} = review
   console.log(book)
 //   const {id, rating, message} = review
 
@@ -101,7 +107,7 @@ function BookDetail({books, reviews}) {
               <p>{description}</p>
                 <h2>Reviews:</h2>
               <ul>
-                {/* {reviews.map(review => <li>{review}</li>)} */}
+                {/* <ReviewContainer reviews={reviews}/> */}
               </ul> 
             </div>
             {/* <img src={image}/> */}

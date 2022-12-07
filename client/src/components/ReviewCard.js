@@ -5,15 +5,13 @@ function ReviewCard({review}) {
     const {rating, message, image, id} = review
     // console.log(review)
     return (
-      // <Card>
       <>
       <div>
-      <Link to={`/reviews/${id}`}></Link>
+      <Link to={`/books/${id}`}></Link>
         <p>Rating : {rating}</p>
         <p>Review : {message}</p>
       </div>
-      <img src={image}/>
-      {/* </Card> */}
+      {/* <img src={image}/> */}
      </>
     );
   }

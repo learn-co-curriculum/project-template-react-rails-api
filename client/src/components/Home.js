@@ -1,12 +1,10 @@
 import BookContainer from './BookContainer'
-import ReviewContainer from './ReviewContainer'
 
-function Home({books, reviews}){
+function Home({books}){
     return(
     <div>
         {/* <Image />  */}
         <BookContainer books={books} />
-        <ReviewContainer reviews={reviews}/>
     </div>
     )
 }

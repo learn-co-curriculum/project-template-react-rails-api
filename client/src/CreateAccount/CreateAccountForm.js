@@ -18,6 +18,7 @@ const CreateAccountForm = () => {
     const onDataChange = (event) => {
         setFormData({...formData, [event.target.name]:event.target.value})
     }
+    const navigate = useNavigate()
 
     const createAccount = (event) => {
         event.preventDefault()
@@ -29,7 +30,7 @@ const CreateAccountForm = () => {
             body: JSON.stringify(formData),
           })
             .then((r) => r.json())
-            .then();
+            .then(navigate("/login"));
     }
 
     return (

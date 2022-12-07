@@ -16,11 +16,22 @@ const NavBar = () => {
         navigate("/history")
     }
 
+    function handleLogout() {
+        fetch("/logout", {
+          method: "DELETE",
+        }).then(() => onLogout());
+      }
+    
+    function onLogout(){
+        navigate("/login")
+    }
+
     return (
         <div className="NavBar">
             <p onClick={handleClickHistory}>History</p>
             <p onClick={handleClickToday}>Today</p>
             <p onClick={handleClickProfile} className="profile" >Your Profile</p>
+            <p onClick={handleLogout}>Logout</p>
             <br></br>
         </div>
     )

@@ -1,4 +1,6 @@
 import React from "react";
+import FoodCard from "./FoodCard";
+import ExerciseCard from "./ExerciseCard";
 
 const HistoryCard = ({dayData}) => {
 
@@ -14,29 +16,27 @@ const HistoryCard = ({dayData}) => {
         else return total
     }, 0)
 
-    const FoodCard = ({name, weight, calories}) => {
-        return (
-            <div>
-                <p className="item-1">{name}</p>
-                <p className="item-2">{`${weight} grams`}</p>
-                <p className="item-3">{`${calories} calories`}</p>
-            </div>
-        )
-    }
-
-    const ExerciseCard = () => {
-        return ( 
-            <></>
-        )
-    }
     const todaysFood = dayData.filter(day => day.calories)
-    const foodElements = todaysFood.map(food => <FoodCard name={food.name} weight={food.weight} calories={food.calories}/>)
-
-
+    const foodElements = todaysFood.map(food => {
+        return <FoodCard 
+                    name={food.name} 
+                    weight={food.weight} 
+                    calories={food.calories}
+                />
+    })
+    
+    const todaysExercises = dayData.filter(day => day.calories_burnt)
+    const exerciseElements = todaysExercises.map(exercise => {
+        return <ExerciseCard 
+                    name={exercise.name} 
+                    duration={exercise.duration} 
+                    calories_burnt={exercise.calories_burnt}
+                />
+    })
 
     return (
-        <>
-            <h2 id={"title"}>{dayData[0].created_at.slice(0,10)}</h2>
+        <div id="big-div">
+            <h2 id="day-title">{dayData[0].created_at.slice(0,10)}</h2>
             <div className="calorie-info">
                 <p>{`Calories Consumed: ${calories_consumed}`}</p>
                 <p>{`Calories Burnt: ${calories_burnt}`}</p>
@@ -46,15 +46,16 @@ const HistoryCard = ({dayData}) => {
 
             <div id="smaller-container">
                 <div id="exercise-div">
-                    <p className="item-header">Exercises</p>
+                    <p className="item-head">Exercises</p>
+                    {exerciseElements}
                 </div>
 
                 <div id="food-div">
-                    <p className="item-header">Foods</p>
+                    <p className="item-head">Foods</p>
                     {foodElements}
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

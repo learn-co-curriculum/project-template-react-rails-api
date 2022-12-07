@@ -6,7 +6,7 @@ import CreateAccountForm from "./CreateAccount/CreateAccountForm"
 import TodayPage from "./TodayPage/Today.js"
 import Profile from './Profile/Profile';
 import NavBar from './NavBar/NavBar';
-import HistoryPage from './HistoryPage';
+import HistoryPage from './HistoryPage/HistoryPage.js';
 
 function App() {
   return (

@@ -26,7 +26,7 @@ div.calories-display {
 #track-exercise {
     margin-left: 50%;
     background-color: lightgreen;
-    height: 200px
+    margin-top: 1%;
 }
 
 #main-container p {

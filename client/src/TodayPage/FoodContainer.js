@@ -1,7 +1,8 @@
-import React from "react";
+import React,{useEffect} from "react";
 import FoodElement from "./FoodElement";
 
-const FoodContainer = ({foodList, setFoodList}) => {
+const FoodContainer = ({foodList, setFoodList}) => { 
+    
     return (
         <div>
             {foodList.map(food => {

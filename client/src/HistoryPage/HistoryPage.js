@@ -1,6 +1,5 @@
-import NavBar from "./NavBar/NavBar";
-import React from "react";
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState }  from "react";
+import NavBar from "../NavBar/NavBar";
 import HistoryCard from "./HistoryCard";
 import "./History.css"
 
@@ -20,10 +19,9 @@ function HistoryPage(){
             dates.forEach(day => {
                 daysArray.push(foodsAndExercises.filter(item => item.created_at.slice(0,10) === day))
             })
-            setData(daysArray)
+            setData(daysArray.reverse())
         })
     }, [])
-    console.log(data)
 
     const CardContainer = ({daysArray}) => {
         const eachDay = data.map(day => <HistoryCard key={day[0].created_at.slice(0,10)} dayData={day}/>)

@@ -36,7 +36,7 @@ const HistoryCard = ({dayData}) => {
 
     return (
         <>
-            <h2 id={"day-title"}>{dayData[0].created_at.slice(0,10)}</h2>
+            <h2 id={"title"}>{dayData[0].created_at.slice(0,10)}</h2>
             <div className="calorie-info">
                 <p>{`Calories Consumed: ${calories_consumed}`}</p>
                 <p>{`Calories Burnt: ${calories_burnt}`}</p>

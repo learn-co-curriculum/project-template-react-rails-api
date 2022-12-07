@@ -1,22 +1,27 @@
 .profileInformation{
     text-align: center;
-    background-color: pink;
+    background-color: bisque;
     padding: 1rem;
     width: 25rem;
     height: 30 rem;
+    opacity: .8;
     display: inline-grid;
     margin: 1rem 2rem;
-    box-shadow: 2px 2px white ;
+    box-shadow: 2px 2px brown ;
+    color: black;
     border: solid;
     border-width: 1px;
 }
 
 .profileContainer{
-    background-color: skyblue;  
-    height: 1000px;
+    background-image: url("https://i.imgur.com/xK7UZTJ.png");
+    background-repeat: no-repeat;
+    background-size:inherit;
+    height: 100%;
     text-align: center;
     padding: 250px;
 }
+
 
 
 

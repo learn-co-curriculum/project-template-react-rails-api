@@ -9,6 +9,8 @@ form.Login {
 .loginPage{
     background-image: url("https://kitchenconfidante.com/wp-content/uploads/2019/05/Homemade-Almond-Butter-Granola-kitchenconfidante.com-9336.jpg");
     height: 1100px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #username {
     margin-top: 10%

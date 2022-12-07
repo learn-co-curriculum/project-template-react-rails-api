@@ -1,3 +1,3 @@
 class RestaurantSerializer < ActiveModel::Serializer
-  attributes :id, :name, :location, :review, :menus, :reservations
+  attributes :id, :name, :location, :review, :menus
 end

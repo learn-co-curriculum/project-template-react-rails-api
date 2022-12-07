@@ -8,8 +8,7 @@ const[restaurantsData, setRestaurantsData ] = useState([])
         fetch ('http://localhost:3000/restaurants')
         .then(resp => resp.json())
         .then(data => setRestaurantsData(data))
-     },
-     [])
+     }, [])
     const restaurantsList = restaurantsData.map(r => {
         return(
             <Restaurant restaurant = {r} />

@@ -4,9 +4,9 @@ import { Routes , Route, BrowserRouter as Router} from "react-router-dom"
 import LoginForm from './LoginPage/LoginForm';
 import CreateAccountForm from "./CreateAccount/CreateAccountForm"
 import TodayPage from "./TodayPage/Today.js"
-import Profile from './Profile';
+import Profile from './UpdatePage/Profile';
 import NavBar from './NavBar/NavBar';
-import HistoryPage from './HistoryPage';
+import HistoryPage from './HistoryPage/HistoryPage.js';
 
 function App() {
   return (

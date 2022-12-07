@@ -20,14 +20,13 @@ div.calories-display {
 #track-food {
     width: 45%;
     background-color: cyan;
-    height: 200px;
     float: left;
 }
 
 #track-exercise {
     margin-left: 50%;
     background-color: lightgreen;
-    height: 200px
+    margin-top: 1%;
 }
 
 #main-container p {

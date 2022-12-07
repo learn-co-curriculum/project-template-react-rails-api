@@ -1,0 +1,67 @@
+#day-title {
+    margin-left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+
+}
+
+.calorie-info > p {
+    box-sizing: border-box;
+    width: 30%;
+    margin-left: 1.66%;
+    margin-right: 1.66%;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.calorie-info {
+    margin-left: 5%;
+    width: 90%;
+}
+
+#smaller-container {
+    box-sizing: border-box;
+    width: 90%;
+    margin-left: 5%;
+    float:left;
+}
+
+#food-div {
+    width: 45%;
+    background-color: cyan;
+    float: left;
+    border-style:solid;
+    border-width: 1px;
+}
+
+#exercise-div {
+    float: right;
+    width: 45%;
+    background-color: lightgreen;
+    border-style:solid;
+    border-width: 1px;
+}
+
+.item-elements > p {
+    box-sizing: border-box;
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+
+.item-head {
+    text-align: center;
+}
+
+#big-div {
+    box-sizing: border-box;
+    float:left;
+    margin: 2.5%;
+    padding-bottom: 2%;
+    width: 45%;
+    border-style: solid;
+}

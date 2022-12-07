@@ -1,7 +1,8 @@
-import React from "react";
+import React,{useEffect} from "react";
 import ExerciseElement from "./ExerciseElement"
 
 const ExerciseContainer = ({exerciseList, setExerciseList}) => {
+
     return (
         <div>
             {exerciseList.map(exercise => {

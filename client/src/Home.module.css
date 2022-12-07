@@ -366,4 +366,89 @@ button:hover {
   background-color: #ee7e63;
 }
 
+.logInPageRootRootRoot {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 
+  padding-top: 159px;
+  padding-right: 50px;
+  padding-bottom: 46px;
+  padding-left: 200px;
+  border-width: 0px;
+  box-sizing: content-box;
+  background-color: #ffffff;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-blend-mode: normal, normal;
+  background-image: url(https://file.rendit.io/n/vv3o28jaKZHXSgS7hg8C.jpg),
+    linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+}
+.logInPageRootRootRoot.error {
+  background-color: #ee7e63;
+}
+
+.logInPageRootRootRoot:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(1);
+}
+
+.flexRow {
+  width: 866px;
+  gap: 7px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0px 0px 66px 0px;
+}
+
+.image1 {
+  width: 50px;
+  height: 50px;
+  align-self: flex-end;
+}
+
+.line {
+  width: 850px;
+  height: 1px;
+  align-self: flex-end;
+  margin: 0px 0px 42px 0px;
+}
+.flexRow1 {
+  width: 718px;
+  gap: 45px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0px 74px;
+}
+.text3 {
+  font-size: 32px;
+  font-family: Inter;
+  white-space: nowrap;
+}
+.signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text4 {
+  margin: 0px 0px 0px 132px;
+  font-size: 40px;
+  font-weight: 300;
+  font-family: Poppins;
+  white-space: nowrap;
+}
+.logInPageRootRootRoot.loading .text4 {
+  display: none;
+}
+.logInPageRootRootRoot.error .text4 {
+  display: none;
+}

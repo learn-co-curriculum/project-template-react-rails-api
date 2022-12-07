@@ -12,7 +12,6 @@ const SignUP = ({ variant = "default" }) => {
   });
 
   const handleChange = (e) => {
-    
     e.preventDefault();
 
     setUserData({
@@ -20,7 +19,7 @@ const SignUP = ({ variant = "default" }) => {
       [e.target.name]: e.target.value,
     });
   };
-console.log(userdata)
+  console.log(userdata);
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch("http://localhost:3000/users", {
@@ -50,6 +49,7 @@ console.log(userdata)
             <br />
             <input
               type="text"
+              placeholder="Enter name"
               name="name"
               value={userdata.name}
               onChange={handleChange}
@@ -59,6 +59,7 @@ console.log(userdata)
             <br />
             <input
               type="text"
+              placeholder="Enter username"
               name="username"
               value={userdata.username}
               onChange={handleChange}
@@ -68,6 +69,7 @@ console.log(userdata)
             <br />
             <input
               type="text"
+              placeholder="Enter email address"
               name="email"
               value={userdata.email}
               onChange={handleChange}
@@ -77,6 +79,7 @@ console.log(userdata)
             <br />
             <input
               type="password"
+              placeholder="Enter Password"
               name="password_digest"
               value={userdata.password_digest}
               onChange={handleChange}

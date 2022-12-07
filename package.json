@@ -11,5 +11,6 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "styled-components": "^5.3.6"
   }
 }

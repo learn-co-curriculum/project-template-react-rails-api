@@ -46,11 +46,10 @@ input {
 
 #project-title {
   display: flex;
+  align-items: center;
   font-size: 50px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   justify-content: center;
-  align-items: center;
-  margin-left: 750px;
   margin-top: 100px;
   color: firebrick;
   background-color: #333;
@@ -89,6 +88,10 @@ input {
   border-radius: 10px;
 }
 
+#edit-button{
+  height: 50px;
+}
+
 .nav {
   overflow: hidden;
   background-color: #333;
@@ -107,7 +110,7 @@ input {
 
 li a:hover {
   background-color: #111;
-  transition-duration: 0.6s;
+  transition-duration: 0.4s;
 }
 
 .NavLink {
@@ -125,6 +128,11 @@ li a:hover {
 
 #logout {
   float: right;
+}
+
+#edit-button {
+  text-decoration: none;
+  color: white;
 }
 
 #login {
@@ -183,6 +191,16 @@ li a:hover {
 }
 
 #book-page{
+  width: 400px;
+  margin: 0px auto;
+  background-color: #333;
+  color:white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 100px;
+}
+
+#edit-form{
   width: 400px;
   margin: 0px auto;
   background-color: #333;

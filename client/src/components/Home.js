@@ -4,7 +4,6 @@ function Home({books, deleteBook}){
     return(
     <div className="content">
         <h1 id="project-title">Flatiron Library</h1>
-        {/* <Image />  */}
         <BookContainer books={books} deleteBook={deleteBook}/>
     </div>
     )

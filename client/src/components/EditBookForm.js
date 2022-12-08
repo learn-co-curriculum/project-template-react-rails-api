@@ -41,7 +41,7 @@ function EditBookForm({updateBook}) {
   }
     return (
         <>
-        <div className='App'>
+        <div id="edit-form" className='App'>
             {/* {errors?errors.map(e => <div>{e}</div>):null} */}
             <div onSubmit={onSubmit}>
                 <label>Title : </label>
@@ -56,7 +56,7 @@ function EditBookForm({updateBook}) {
                 <label>Description : </label>
                 <input type='text' name='description' value={formData.description} onChange={handleChange} />
                     
-                <input type='submit' value='Update Book' />
+                <input id="edit-button" className= "button" type='submit' value='Update Book' />
             {/* {errors?errors.map(e => <h2 style={{color:'red'}}>{e.toUpperCase()}</h2>):null} */}
             </div>
         </div>

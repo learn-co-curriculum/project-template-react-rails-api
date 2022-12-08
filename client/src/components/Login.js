@@ -53,8 +53,10 @@ function Login() {
         <label>Password : </label>
         <input placeholder="Your Password..." type='password' name='password' value={password} onChange={handleChange} />
        
-        <input id="login-form" className="button" type='submit' value='Log In' onClick={onSubmit} />
-        <input type='submit' onClick={() => setSignup(true)} value='Sign Up'/>
+        <input id="login-form" className="button" type='submit' value='Log In' onClick={()=> {
+            onSubmit();
+            setSignup(true);
+        }}/>
 
         {errors? <div>{errors}</div>:null}
         </div>

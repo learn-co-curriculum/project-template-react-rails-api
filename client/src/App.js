@@ -65,7 +65,6 @@ function App() {
 
   return (
     <>
-      <h1>Flatiron Books</h1>
         <NavBar updateUser={updateUser}/>
         {!currentUser ? <Login error={'please login'} updateUser={updateUser}/> :
         <Routes>

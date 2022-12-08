@@ -32,10 +32,8 @@ function BookCard({book, deleteBook}) {
         <p className="book-detail">Author : {author}</p>
         <p className="book-detail">Written in <i>{year}</i></p>
         <p className="book-detail"><b>Genre: </b>{description}</p>
-        {/* <p>{year}</p>
-        <p>{description}</p> */}
-    <button><Link to={`/books/${id}/edit`}>Edit</Link></button>
-    <button onClick={handleDelete}>Delete</button>
+        <button className="button"><Link id="edit-button" to={`/books/${id}/edit`}>Edit</Link></button>
+        <button className="button" onClick={handleDelete}>Delete</button>
     </div>
     </>
   );

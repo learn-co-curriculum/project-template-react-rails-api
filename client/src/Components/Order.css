@@ -1,17 +1,205 @@
-.backgrounImage {
-    width: 510px;
-    height: 560px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-self: stretch;
-    align-items: flex-start;
-    padding-right: 300px;
-    padding-left: 500px;
-    padding-bottom: 60px;
-    padding-top: 100px;
-    background-size: cover;
-    background-image: url("https://file.rendit.io/n/8UISzafcIPCZZgbgtORf.png");
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.orderPageRootRootRoot {
+  width: 1074px;
+  height: 1670px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0px;
+  padding-top: 64px;
+  padding-right: 336px;
+  padding-bottom: 50px;
+  padding-left: 30px;
+  border-width: 0px;
+  box-sizing: content-box;
+  background-color: #ffffff;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-blend-mode: normal, normal;
+  background-image: url(https://file.rendit.io/n/GPEQdXDzz9b8N8RDTxqD.jpg),
+    linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+  overflow: hidden;
+  cursor: pointer;
+}
+.orderPageRootRootRoot.error {
+  background-color: #ee7e63;
+}
+.orderPageRootRootRoot:hover {
+  opacity: 0.7;
+  box-shadow: 1px 1px 3px #aaaaaa;
+}
+.orderPageRootRootRoot:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  filter: grayscale(1);
+}
+.flexRow {
+  width: 1014px;
+  gap: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-self: stretch;
+  align-items: center;
+  margin: 0px 0px 157px 0px;
+  padding: 0px 30px;
+}
+.orderPageRootRootRoot.loading .flexRow {
+  display: none;
+}
+.orderPageRootRootRoot.error .flexRow {
+  display: none;
+}
+.text1 {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: Poppins;
+  white-space: nowrap;
+}
+.image3 {
+  width: 50px;
+  height: 50.1px;
+  align-self: flex-end;
+  margin: 0px 0px 4.89px 0px;
+}
+.text2 {
+  margin: 0px 332px 30px 0px;
+  font-size: 40px;
+  font-weight: 700;
+  font-family: Poppins;
+  white-space: nowrap;
+}
+.orderPageRootRootRoot.loading .text2 {
+  display: none;
+}
+.orderPageRootRootRoot.error .text2 {
+  display: none;
+}
+.flexRow1 {
+  width: 1074px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-self: stretch;
+  align-items: center;
+  margin: 0px 0px 67px 0px;
+}
+.orderPageRootRootRoot.loading .flexRow1 {
+  display: none;
+}
+.orderPageRootRootRoot.error .flexRow1 {
+  display: none;
+}
+.image4 {
+  width: 220px;
+  height: 232px;
+  margin: 0px 29px 0px 0px;
+}
+.image1 {
+  width: 272px;
+  height: 204px;
+  margin: 0px 28.6px 0px 0px;
+}
+.hangerSteak {
+  width: 415px;
+  height: 156px;
+  align-self: flex-end;
+  margin: 0px 0px 14px 0px;
+  font-size: 40px;
+  font-weight: 700;
+  font-family: Poppins;
+  white-space: pre-wrap;
+}
+.flexRow2 {
+  width: 1074px;
+  height: 221px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: stretch;
+  align-items: flex-start;
+  margin: 0px 0px 338px 0px;
+}
+.orderPageRootRootRoot.loading .flexRow2 {
+  display: none;
+}
+.orderPageRootRootRoot.error .flexRow2 {
+  display: none;
+}
+.image5 {
+  width: 220px;
+  height: 204px;
+  margin: 0px 46px 0px 0px;
+}
+.image2 {
+  width: 239px;
+  height: 204px;
+  margin: 0px 45px 0px 0px;
+}
+.ribeyeSteak {
+  width: 524px;
+  height: 152px;
+  align-self: flex-end;
+  font-size: 40px;
+  font-weight: 700;
+  font-family: Poppins;
+  white-space: pre-wrap;
+}
+.login {
+  width: 494px;
+  height: 160px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0px 44px 285px 0px;
+  padding: 0px 78px 0px 209px;
+}
+.orderPageRootRootRoot.loading .login {
+  display: none;
+}
+.orderPageRootRootRoot.error .login {
+  display: none;
+}
+.mahoganyRectangle {
+  width: 781px;
+  height: 82px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  border-radius: 10px;
+  background-color: #cb4e4e;
+}
+.text3 {
+  width: 494px;
+  height: 152px;
+  position: relative;
+  font-size: 40px;
+  font-weight: 700;
+  font-family: Poppins;
+}
+.text4 {
+  margin: 0px 109px 0px 0px;
+  font-size: 40px;
+  font-weight: 300;
+  font-family: Poppins;
+  white-space: nowrap;
+}
+.orderPageRootRootRoot.loading .text4 {
+  display: none;
+}
+.orderPageRootRootRoot.error .text4 {
+  display: none;
+}
+
+
  
   

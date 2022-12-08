@@ -1,62 +1,106 @@
-import React from 'react'
-import { useState } from 'react'
-import styles from './Order.css'
+import React from "react";
+import clsx from "clsx";
+import styles from "./Order.css";
 
-function Order(){
-    const order = {
-        id: 18,
-        name: " mbuzi choma",
-        description: "mbuzi marinated flavorful herb and spice marinade!",
-        restaurant_id: 1,
-        price: 600,
-        img: "https://file.rendit.io/n/g5PgsaWGTl14WWkkpaG3.png",
-        created_at: "2022-12-07T05:51:28.003Z",
-        updated_at: "2022-12-07T05:51:28.003Z"
-    }
-
-    const orderCard = order.map(m =>{
-        const {restaurant_id, id, price} = m
-        return(
-            <div key = {m.id}>
-                
-                <div className={styles.flexColumn}>
-                <div className={styles.whiteFlexRow3}>
-                <img
-                src={m.img}
-                alt = {m.name}
-                className={styles.image3}
-                />
-                <div className={styles.flexColumn7}>
-                <div className={styles.paragraph7}>
-                {m.name}
-                    {
-                    "                                                                            "
-                    }
-                    ksh.{m.price} per k.g
-                    <br />
-                    <div className={styles.paragraph2}>
-                    {m.description}
-                    <br />
-                    </div>
-                    <div className={styles.text2}>
-                    <br />
-                    <br />
-                    </div>
-                </div>
-                <div className={styles.login}>
-                    <div className={styles.mahoganyFlexColumn}>
-             <button className={styles.text3}>DELETE</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </div>
-            </div>
-        )
-    })
-
-    return(
-        {orderCard}
-    )
- }
+ const Order = ({ variant = "default" }) => {
+  
+  
+  return (
+    <div
+     
+      className={clsx(
+        styles.orderPageRootRootRoot,
+        { [styles.loading]: variant === "loading" },
+        { [styles.error]: variant === "error" }
+      )}
+    >
+      <div
+        className={clsx(
+          styles.flexRow,
+          { [styles.loading]: variant === "loading" },
+          { [styles.error]: variant === "error" }
+        )}
+      >
+        <div className={styles.text1}>NyamaHaven</div>
+        <img
+          src={`https://file.rendit.io/n/BjxdPbbj1TZQkyFHgi93.svg`}
+          className={styles.image3}
+        />
+      </div>
+      <div
+        className={clsx(
+          styles.text2,
+          { [styles.loading]: variant === "loading" },
+          { [styles.error]: variant === "error" }
+        )}
+      >
+        YOUR ORDER
+      </div>
+      <div
+        className={clsx(
+          styles.flexRow1,
+          { [styles.loading]: variant === "loading" },
+          { [styles.error]: variant === "error" }
+        )}
+      >
+        <img
+          src={`https://file.rendit.io/n/vNt5cqKYuBBjDQD0lJHV.svg`}
+          className={styles.image4}
+        />
+        <img
+          src={`https://file.rendit.io/n/24vRz4soyFlULW8AXUae.png`}
+          className={styles.image1}
+        />
+        <div className={styles.hangerSteak}>
+          Hanger Steak
+          {"                   "}
+          2800
+        </div>
+      </div>
+      <div
+        className={clsx(
+          styles.flexRow2,
+          { [styles.loading]: variant === "loading" },
+          { [styles.error]: variant === "error" }
+        )}
+      >
+        <img
+          src={`https://file.rendit.io/n/Va8VEdEvsMnA0OXCFfus.svg`}
+          className={styles.image5}
+        />
+        <img
+          src={`https://file.rendit.io/n/tNvF2qMGQMPBlSYS8NCK.png`}
+          className={styles.image2}
+        />
+        <div className={styles.ribeyeSteak}>
+          Ribeye Steak
+          {"                    "}
+          2000
+        </div>
+      </div>
+      <div
+        className={clsx(
+          styles.login,
+          { [styles.loading]: variant === "loading" },
+          { [styles.error]: variant === "error" }
+        )}
+      >
+        <div className={styles.mahoganyRectangle} />
+        <div className={styles.text3}>TOTAL AMOUNT 4800</div>
+      </div>
+      <div
+        className={clsx(
+          styles.text4
+    
+        )}
+      >
+        NyamaHaven | copyright 2022
+      </div>
+      <div
+        
+      />
+     
+    </div>
+  );
+};
 export default Order;

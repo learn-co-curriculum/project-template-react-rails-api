@@ -23,8 +23,8 @@ function UserPage(){
 
     const {first_name, last_name, username, image_url} = user
 
-    if(loading) return <h1>Loading</h1>
-    if(errors) return <h1>{errors}</h1>
+    if(loading) return <div className="loading"><div></div><div></div><div></div><div></div></div>
+    if(errors) return <h1 className="content">{errors}</h1>
 
     return (
         <div>

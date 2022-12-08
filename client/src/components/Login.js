@@ -82,22 +82,21 @@ function Login({currentUser, setCurrentUser}) {
       }
 
     return (
-        <> 
+        <div id="login-page" className="content" > 
         <label>
-          Username
+          <b>Username</b>
           </label>
-        <input type='text' name='username' value={username} onChange={handleChange} />
+        <input placeholder="Your Username..." type='text' name='username' value={username} onChange={handleChange} />
       
         <label>
-         Password
+         <b>Password</b>
          </label>
-        <input type='password' name='password' value={password} onChange={handleChange} />
+        <input placeholder="Your Password..." type='password' name='password' value={password} onChange={handleChange} />
        
        
-        <input type='submit' value='Log in!' onClick={onSubmit} />
-        <input type='submit' onClick={() => setSignup(true)} value='Sign up!'/>
+        <input id="login-form" className="button" type='submit' value='Log in!' onClick={onSubmit} />
       {errors? <div>{errors}</div>:null}
-        </>
+        </div>
     )
 
 }

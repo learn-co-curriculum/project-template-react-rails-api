@@ -6,7 +6,7 @@ function ReviewCard({review}) {
     // console.log(review)
     return (
       <>
-      <div>
+      <div className="content">
       <Link to={`/books/${id}`}></Link>
         <p>Rating : {rating}</p>
         <p>Review : {message}</p>

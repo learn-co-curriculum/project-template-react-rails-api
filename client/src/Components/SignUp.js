@@ -4,39 +4,37 @@ import clsx from "clsx";
 import styles from "../Home.module.css";
 
 const SignUP = () => {
-  const [userdata, setUserData] = useState({
-    name: "",
-    userName: "",
-    email: "",
-    password: "",
-  });
+  // const [userdata, setUserData] = useState({
+  //   name: "",
+  //   userName: "",
+  //   email: "",
+  //   password: "",
+  // });
+  const [name, setName] = useState("");
+  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleChange = (e) => {
-    e.preventDefault();
-
-    setUserData({
-      ...userdata,
-      [e.target.name]: e.target.value,
-    });
-  };
-  console.log(userdata);
   const handleSubmit = (e) => {
     e.preventDefault();
+    const formData = {
+      name: name,
+      username: username,
+      email: email,
+      password: password,
+    };
     fetch("http://localhost:3000/signup", {
       mode: "no-cors",
+      crossorigin: true,
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
+        
       },
-      body: JSON.stringify(userdata),
-    });
-
-    // setUserData({
-    //   name: "",
-    //   username: "",
-    //   email: "",
-    //   password_digest: "",
-    // });
+      body: JSON.stringify(formData),
+    })
+      // .then((resp) => resp.json())
+      // .then((data) => console.log(data));
   };
 
   return (
@@ -50,9 +48,9 @@ const SignUP = () => {
             <input
               type="text"
               placeholder="Enter name"
-              name="name"
-              value={userdata.name}
-              onChange={handleChange}
+              name=":user[name]"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
             <br />
             <label>userName:</label>
@@ -60,9 +58,9 @@ const SignUP = () => {
             <input
               type="text"
               placeholder="Enter username"
-              name="username"
-              value={userdata.username}
-              onChange={handleChange}
+              name=":user[username]"
+              value={username}
+              onChange={(e) => setUserName(e.target.value)}
             />
             <br />
             <label>Email:</label>
@@ -70,9 +68,9 @@ const SignUP = () => {
             <input
               type="text"
               placeholder="Enter email address"
-              name="email"
-              value={userdata.email}
-              onChange={handleChange}
+              name=":user[email]"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <br />
             <label>Password:</label>
@@ -80,19 +78,17 @@ const SignUP = () => {
             <input
               type="password"
               placeholder="Enter Password"
-              name="password"
-              value={userdata.password}
-              onChange={handleChange}
+              name=":user[password]"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
 
-            <button onClick={() => console.log(userdata)} type="submit">
-              CREATE ACCOUNT
-            </button>
+            <button type="submit">CREATE ACCOUNT</button>
           </form>
           <h3>
             Already Registered?
             <Link to="/Login">
-              <button>LOGIN</button>
+              <button >LOGIN</button>
             </Link>
           </h3>
         </div>

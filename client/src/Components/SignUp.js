@@ -28,13 +28,11 @@ const SignUP = () => {
       crossorigin: true,
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
-        
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
-    })
-      // .then((resp) => resp.json())
-      // .then((data) => console.log(data));
+    });
+    console.log(formData);
   };
 
   return (
@@ -88,7 +86,7 @@ const SignUP = () => {
           <h3>
             Already Registered?
             <Link to="/Login">
-              <button >LOGIN</button>
+              <button>LOGIN</button>
             </Link>
           </h3>
         </div>

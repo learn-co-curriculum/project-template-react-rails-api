@@ -1,6 +1,6 @@
 import BookCard from './BookCard'
 
-function BookContainer({books, deleteBook}) {
+function BookContainer({books}) {
     return (
      <div className="content">
          <div className="grid-container">

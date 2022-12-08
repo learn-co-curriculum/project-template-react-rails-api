@@ -104,7 +104,7 @@ function BookDetail() {
               <p>{description}</p>
             </div>
           </div>
-      </>
+      </div>
     )
   }
 

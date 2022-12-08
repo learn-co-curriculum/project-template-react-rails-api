@@ -8,16 +8,16 @@ class BooksController < ApplicationController
         render json: book, serializer: BookReviewSerializer, status: :ok
     end
 
-    # def create
-    #     book = Book.create!(book_params)
-    #     render json: book, status: :created
-    # end
+    def create
+        book = Book.create!(book_params)
+        render json: book, status: :created
+    end
 
-    # def destroy
-    #     book = find_book
-    #     book.destroy
-    #     head :no-content
-    # end
+    def destroy
+        book = find_book
+        book.destroy
+        head :no_content
+    end
 
     private
 
@@ -25,7 +25,7 @@ class BooksController < ApplicationController
         Book.find(params[:id])
     end
 
-    # def book_params
-    #     params.permit(:title, :author, :year, :description)
-    # end
+    def book_params
+        params.permit(:title, :author, :year, :description)
+    end
 end

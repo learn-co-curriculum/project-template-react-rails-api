@@ -16,20 +16,6 @@ function App() {
   const [errors, setErrors] = useState(false)
   const [currentUser, setCurrentUser] = useState([]);
 
-  //Fetch Books
-  // useEffect(() => {
-  //   fetch('authorized_user')
-  //   .then(res => {
-  //     if(res.ok){
-  //       res.json()
-  //       .then(user => {
-  //         setCurrentUser(user)
-  //         fetchBooks()
-  //       })
-  //     }
-  //   })
-  // },[])
-
   useEffect(() => {
     fetchBooks()
   },[])
@@ -45,23 +31,23 @@ function App() {
     })
   }
 
-  //Fetch Reviews
-  useEffect(() => {
-    fetchReviews()
-  },[])
+  // //Fetch Reviews
+  // useEffect(() => {
+  //   fetchReviews()
+  // },[])
 
-  const fetchReviews = () => {
-    fetch('/reviews')
-    .then(res => {
-      if(res.ok){
-        res.json().then(setReviews)
-      }else {
-        res.json().then(data => setErrors(data.error))
-      }
-    })
-  }
+  // const fetchReviews = () => {
+  //   fetch('/reviews')
+  //   .then(res => {
+  //     if(res.ok){
+  //       res.json().then(setReviews)
+  //     }else {
+  //       res.json().then(data => setErrors(data.error))
+  //     }
+  //   })
+  // }
 
-  // const deleteReview = (id) => setReviews(current => current.filter(p => p.id !== id)) 
+  // const deleteBook = (id) => setReviews(current => current.filter(p => p.id !== id)) 
   const updateUser = (user) => setCurrentUser(user)
 
   // useEffect(() => {
@@ -93,7 +79,7 @@ function App() {
 
           <Route path='/login' element={<Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
 
-          <Route path='/users/signup' element={ <SignUp />}/>
+          <Route path='/users/signup' element={ <SignUp/>}/>
 
           <Route path='/books/:id' element={<BookDetail books={books} reviews={reviews} />}/>
         

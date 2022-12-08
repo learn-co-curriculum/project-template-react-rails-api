@@ -4,20 +4,20 @@ import {useNavigate} from 'react-router-dom'
 
 function SignUp() {
     const [formData, setFormData] = useState({
-        name:'',
-        email:'',
+        username:'',
         password:''
     })
     const [errors, setErrors] = useState([])
+    const [isLiked, setIsLiked] = useState(false);
     const navigate = useNavigate()
 
-    const {name, email, password} = formData
+    const {username, password} = formData
 
     function onSubmit(e){
         e.preventDefault()
+       
         const user = {
-            name,
-            email,
+            username,
             password
         }
        
@@ -29,13 +29,17 @@ function SignUp() {
         .then(res => {
             if(res.ok){
                 res.json().then(user => {
-                    navigate.push(`/users/${user.id}`)
+                    navigate(`/users/${user.id}`)
                 })
             }else {
                 res.json().then(json => setErrors(Object.entries(json.errors)))
             }
         })
        
+    }
+
+    const handleClick = () => {
+        setIsLiked(true);
     }
 
     const handleChange = (e) => {
@@ -53,14 +57,17 @@ function SignUp() {
          Email
          </label>
         <input placeholder="Your Email..." type='text' name='email' value={email} onChange={handleChange} />
+          <input type='text' name='username' value={username} onChange={handleChange} />
        
         <label>
          Password
          </label>
         <input placeholder="Your Password..." type='password' name='password' value={password} onChange={handleChange} />
-        
-       
-        <input id="signup-form" className="button" type='submit' value='Sign up!' onSubmit={onSubmit}/>
+     
+        <input id="signup-form" className="button" type='submit' onSubmit={onSubmit} onClick={handleClick}>
+        {isLiked ? "Sign up!" : "Signed up!"}
+        </input>
+
       {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
         </div>
     )

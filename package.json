@@ -12,5 +12,8 @@
   },
   "dependencies": {
     "styled-components": "^5.3.6"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
   }
 }

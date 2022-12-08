@@ -12,7 +12,9 @@ function BookCard({book}) {
         <p className="book-detail"><b>Genre: </b>{description}</p>
         <p className="book-detail">Written in <i>{year}</i></p>
       </div>
-      {/* <img alt ={title} src={image}/> */}
+      <button>Edit</button>
+      <button>Add a review</button>
+      <button>Delete</button>
      </>
     );
   }

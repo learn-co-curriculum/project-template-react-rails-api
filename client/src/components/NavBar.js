@@ -17,14 +17,13 @@ function Navbar({updateUser}) {
   
   return (
     <nav className="nav">
-      <h1>Flatiron Books</h1>
-      <button onClick={handleLogOut}>Back</button>
-      <button onClick={handleLogOut}>Log Out</button>
-        <li><NavLink to='/login'>Login</NavLink></li>
-      <ul>
-        <li className="active"><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to='/users/1'>User Page</NavLink></li>
-        <li><NavLink to='/users/signup'>Sign Up</NavLink></li>
+      <ul className="main-nav">
+        <li className="active"><NavLink id="home" className="NavLink" to="/">Home</NavLink></li>
+        <li><NavLink className="NavLink" to='/users/1'>User Page</NavLink></li>
+        <li><button id="logout" className="button" onClick={handleLogOut}>Log Out</button></li>
+        <li><NavLink id="signup" className="NavLink" to='/users/signup'>Sign Up</NavLink></li>
+        <li><NavLink id="login" className="NavLink" to='/login'>Login</NavLink></li>
+        
         {/* <li><NavLink to='/productions/new'>New Production</NavLink></li> */}
       </ul>
     </nav>

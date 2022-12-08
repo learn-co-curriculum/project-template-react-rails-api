@@ -3,9 +3,8 @@ import BookCard from './BookCard'
 
 function BookContainer({books}) {
     return (
-     <div>
-         <span>FlatIron Books</span>
-         <div>
+     <div className="content">
+         <div className="grid-container">
              {books.map(book => <BookCard key={book.id} book={book}  />)}
          </div>
      </div>

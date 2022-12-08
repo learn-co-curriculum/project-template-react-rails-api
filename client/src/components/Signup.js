@@ -43,26 +43,26 @@ function SignUp() {
         setFormData({ ...formData, [name]: value })
       }
     return (
-        <> 
+        <div id ="signup-page" className="content"> 
         <label>
           Username
           </label>  
-          <input type='text' name='name' value={name} onChange={handleChange} />
+          <input placeholder="Your Username..." type='text' name='name' value={name} onChange={handleChange} />
        
         <label>
          Email
          </label>
-        <input type='text' name='email' value={email} onChange={handleChange} />
+        <input placeholder="Your Email..." type='text' name='email' value={email} onChange={handleChange} />
        
         <label>
          Password
          </label>
-        <input type='password' name='password' value={password} onChange={handleChange} />
+        <input placeholder="Your Password..." type='password' name='password' value={password} onChange={handleChange} />
         
        
-        <input type='submit' value='Sign up!' onSubmit={onSubmit}/>
+        <input id="signup-form" className="button" type='submit' value='Sign up!' onSubmit={onSubmit}/>
       {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
-        </>
+        </div>
     )
 }
 

@@ -84,7 +84,7 @@ function BookDetail({books, reviews}) {
   
   
  
-  if(loading) return <h1>Loading</h1>
+  if(loading) return <div className="loading"><div></div><div></div><div></div><div></div></div>
   if(errors) return <h1>{errors}</h1>
 
   const {title, author, year, description} = book
@@ -95,10 +95,10 @@ function BookDetail({books, reviews}) {
   //Place holder data, will be replaced in the assosiations lecture. 
   // const crew_members = ['Lily-Mai Harding', 'Cathy Luna', 'Tiernan Daugherty', 'Giselle Nava', 'Alister Wallis', 'Aishah Rowland', 'Keiren Bernal', 'Aqsa Parrish', 'Daanyal Laing', 'Hollie Haas']
   return (
-      <>
-        <h1>{title}</h1>
+      <div className="content">
           <div className='wrapper'>
-            <div>
+            <div id="book-page" >
+            <h1>{title}</h1>
               <h3>Author:</h3>
               <p>{author}</p>
               <h3>Year:</h3>
@@ -115,7 +115,7 @@ function BookDetail({books, reviews}) {
       {/* <button><Link to={`/productions/${id}/edit`}>Edit Production</Link></button> */}
       {/* <button onClick={handleDelete}>Delete Review</button> */}
       {/* <button onClick={handleBuy} >Buy Ticket</button> */}
-      </>
+      </div>
     )
   }
 

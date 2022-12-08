@@ -20,11 +20,11 @@ function Navbar({updateUser}) {
       <h1>Flatiron Books</h1>
       <button onClick={handleLogOut}>Back</button>
       <button onClick={handleLogOut}>Log Out</button>
-        <li><NavLink to='/login'>Login</NavLink></li>
       <ul>
         <li className="active"><NavLink to="/">Home</NavLink></li>
         <li><NavLink to='/users/1'>User Page</NavLink></li>
-        <li><NavLink to='/users/signup'>Sign Up</NavLink></li>
+        <li><NavLink to='/login'>Login</NavLink></li>
+        {/* <li><NavLink to='/users/signup'>Sign Up</NavLink></li> */}
         {/* <li><NavLink to='/productions/new'>New Production</NavLink></li> */}
       </ul>
     </nav>

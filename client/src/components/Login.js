@@ -49,7 +49,7 @@ function Login({currentUser, setCurrentUser}) {
     const {username, password} = formData
 
     function onSubmit(e){
-        e.preventDefault()
+        // e.preventDefault()
         const user = {
             username,
             password

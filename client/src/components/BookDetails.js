@@ -105,9 +105,10 @@ function BookDetail({books, reviews}) {
               <p>{year}</p>
               <h3>Description:</h3>
               <p>{description}</p>
-                <h2>Reviews:</h2>
+                {/* <h2>Reviews:</h2> */}
               <ul>
-                {/* <ReviewContainer reviews={reviews}/> */}
+                {/* <ReviewContainer /> */}
+                {}
               </ul> 
             </div>
             {/* <img src={image}/> */}

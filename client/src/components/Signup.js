@@ -4,20 +4,20 @@ import {useNavigate} from 'react-router-dom'
 
 function SignUp() {
     const [formData, setFormData] = useState({
-        name:'',
-        email:'',
+        username:'',
         password:''
     })
     const [errors, setErrors] = useState([])
+    const [isLiked, setIsLiked] = useState(false);
     const navigate = useNavigate()
 
-    const {name, email, password} = formData
+    const {username, password} = formData
 
     function onSubmit(e){
         e.preventDefault()
+       
         const user = {
-            name,
-            email,
+            username,
             password
         }
        
@@ -29,13 +29,17 @@ function SignUp() {
         .then(res => {
             if(res.ok){
                 res.json().then(user => {
-                    navigate.push(`/users/${user.id}`)
+                    navigate(`/users/${user.id}`)
                 })
             }else {
                 res.json().then(json => setErrors(Object.entries(json.errors)))
             }
         })
        
+    }
+
+    const handleClick = () => {
+        setIsLiked(true);
     }
 
     const handleChange = (e) => {
@@ -47,12 +51,7 @@ function SignUp() {
         <label>
           Username
           </label>  
-          <input type='text' name='name' value={name} onChange={handleChange} />
-       
-        <label>
-         Email
-         </label>
-        <input type='text' name='email' value={email} onChange={handleChange} />
+          <input type='text' name='username' value={username} onChange={handleChange} />
        
         <label>
          Password
@@ -60,7 +59,9 @@ function SignUp() {
         <input type='password' name='password' value={password} onChange={handleChange} />
         
        
-        <input type='submit' value='Sign up!' onSubmit={onSubmit}/>
+        <input type='submit' onSubmit={onSubmit} onClick={handleClick}>
+        {isLiked ? "Sign up!" : "Signed up!"}
+        </input>
       {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
         </>
     )

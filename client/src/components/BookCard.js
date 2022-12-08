@@ -12,7 +12,10 @@ function BookCard({book}) {
         <p>{year}</p>
         <p>{description}</p>
       </div>
-      <img alt ={title} src={image}/>
+      <button>Edit</button>
+      <button>Add a review</button>
+      <button>Delete</button>
+
      </>
     );
   }

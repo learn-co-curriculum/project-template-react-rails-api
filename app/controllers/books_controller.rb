@@ -8,6 +8,12 @@ class BooksController < ApplicationController
         render json: book, serializer: BookReviewSerializer, status: :ok
     end
 
+    def update
+        book = find_book
+        book.update!(book_params)
+        render json: book, status: :accepted
+    end
+
     def create
         book = Book.create!(book_params)
         render json: book, status: :created

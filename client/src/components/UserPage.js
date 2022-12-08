@@ -19,7 +19,7 @@ function UserPage(){
                 res.json().then(data => setErrors(data.error))
             }
         })
-    },[])
+    },[params.id])
 
     const {first_name, last_name, username, image_url} = user
 

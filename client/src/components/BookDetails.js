@@ -1,16 +1,16 @@
-import  { Link, useParams, useNavigate } from 'react-router-dom'
+import  { useParams } from 'react-router-dom'
 import {useEffect, useState} from 'react'
-import ReviewContainer from './ReviewContainer'
+// import ReviewContainer from './ReviewContainer'
 // import styled from 'styled-components'
 
-function BookDetail({books, reviews}) {
+function BookDetail() {
   const [book, setBook] = useState({})
-  const [review, setReview] = useState({})
+  // const [review, setReview] = useState({})
   const [loading, setLoading] = useState(true)
   const [errors, setErrors] = useState(false)
   
   const params = useParams()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   useEffect(()=>{
     //GET to '/books/:id'
@@ -26,7 +26,7 @@ function BookDetail({books, reviews}) {
         res.json().then(data => setErrors(data.error))
       }
     })
-  },[])
+  },[params.id])
 
 
   // //Fetch Reviews
@@ -81,19 +81,13 @@ function BookDetail({books, reviews}) {
 //     })
 //   }
 
-  
-  
- 
   if(loading) return <h1>Loading</h1>
   if(errors) return <h1>{errors}</h1>
 
   const {title, author, year, description} = book
-  // const {rating, message} = review
   console.log(book)
-//   const {id, rating, message} = review
+  // const {rating, message} = review
 
-  //Place holder data, will be replaced in the assosiations lecture. 
-  // const crew_members = ['Lily-Mai Harding', 'Cathy Luna', 'Tiernan Daugherty', 'Giselle Nava', 'Alister Wallis', 'Aishah Rowland', 'Keiren Bernal', 'Aqsa Parrish', 'Daanyal Laing', 'Hollie Haas']
   return (
       <>
         <h1>{title}</h1>
@@ -105,17 +99,8 @@ function BookDetail({books, reviews}) {
               <p>{year}</p>
               <h3>Description:</h3>
               <p>{description}</p>
-                {/* <h2>Reviews:</h2> */}
-              <ul>
-                {/* <ReviewContainer /> */}
-                {}
-              </ul> 
             </div>
-            {/* <img src={image}/> */}
           </div>
-      {/* <button><Link to={`/productions/${id}/edit`}>Edit Production</Link></button> */}
-      {/* <button onClick={handleDelete}>Delete Review</button> */}
-      {/* <button onClick={handleBuy} >Buy Ticket</button> */}
       </>
     )
   }

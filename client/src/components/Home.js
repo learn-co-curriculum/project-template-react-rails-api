@@ -1,10 +1,10 @@
 import BookContainer from './BookContainer'
 
-function Home({books}){
+function Home({books, deleteBook}){
     return(
     <div>
         {/* <Image />  */}
-        <BookContainer books={books} />
+        <BookContainer books={books} deleteBook={deleteBook}/>
     </div>
     )
 }

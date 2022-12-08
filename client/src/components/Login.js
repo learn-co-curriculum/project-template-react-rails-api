@@ -45,15 +45,19 @@ function Login() {
 
     return (
         <> 
+        <div id="login-page" className="content" > 
+
         <label>Username : </label>
-        <input type='text' name='username' value={username} onChange={handleChange} />
+        <input placeholder="Your Username..." type='text' name='username' value={username} onChange={handleChange} />
       
         <label>Password : </label>
-        <input type='password' name='password' value={password} onChange={handleChange} />
+        <input placeholder="Your Password..." type='password' name='password' value={password} onChange={handleChange} />
        
-        <input type='submit' value='Log In' onClick={onSubmit} />
+        <input id="login-form" className="button" type='submit' value='Log In' onClick={onSubmit} />
         <input type='submit' onClick={() => setSignup(true)} value='Sign Up'/>
-      {errors? <div>{errors}</div>:null}
+
+        {errors? <div>{errors}</div>:null}
+        </div>
         </>
     )
 

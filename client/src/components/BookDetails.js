@@ -81,7 +81,10 @@ function BookDetail() {
 //     })
 //   }
 
-  if(loading) return <h1>Loading</h1>
+  
+  
+ 
+  if(loading) return <div className="loading"><div></div><div></div><div></div><div></div></div>
   if(errors) return <h1>{errors}</h1>
 
   const {title, author, year, description} = book
@@ -89,10 +92,10 @@ function BookDetail() {
   // const {rating, message} = review
 
   return (
-      <>
-        <h1>{title}</h1>
+      <div className="content">
           <div className='wrapper'>
-            <div>
+            <div id="book-page" >
+            <h1>{title}</h1>
               <h3>Author:</h3>
               <p>{author}</p>
               <h3>Year:</h3>

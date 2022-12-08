@@ -20,6 +20,22 @@ function BookCard({book, deleteBook}) {
       // } else {
         // res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
     })
+function BookCard({book}) {
+    const {title, author, year, description, image, id} = book
+    // console.log(book)
+    return (
+      <>
+      <div className="book">
+      <Link className="item-link" to={`/books/${id}`}> <h2>{title}</h2></Link>
+        <p className="book-detail"><b>Author: </b>{author}</p>
+        <p className="book-detail"><b>Genre: </b>{description}</p>
+        <p className="book-detail">Written in <i>{year}</i></p>
+      </div>
+      <button>Edit</button>
+      <button>Add a review</button>
+      <button>Delete</button>
+     </>
+    );
   }
 
   // if(errors) return <h1>{errors}</h1>
@@ -36,6 +52,7 @@ function BookCard({book, deleteBook}) {
     <button onClick={handleDelete}>Delete</button>
     </>
   );
+}
 }
 
 export default BookCard

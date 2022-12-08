@@ -15,7 +15,7 @@ const Login = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        Accept: "application/json",
       },
       body: JSON.stringify({ username, password }),
     }).then((r) => {
@@ -63,8 +63,11 @@ const Login = () => {
             placeholder="Enter password"
             name="password"
             required></input>
-                   <Link to = "/"><button type="submit">Login</button></Link> 
-                    <br></br>
+                   
+          <Link to="/">
+            <button type="submit">Login</button>
+          </Link>
+                      <br></br>
                     
           <div>
                     

@@ -38,7 +38,7 @@ function BookForm({addBook}) {
     })
   }
     return (
-      <div className='App'>
+      <div id ='book-form' className='content'>
       {/* {errors?errors.map(e => <div>{e}</div>):null} */}
       <div onSubmit={onSubmit}>
         <label>Title : </label>
@@ -56,7 +56,7 @@ function BookForm({addBook}) {
         <label>Description</label>
         <textarea type='text' rows='4' cols='50' name='description' value={formData.description} onChange={handleChange} />
       
-        <input type='submit' value='Add Book' onClick={onSubmit}/>
+        <input id="add-book" className="button" type='submit' value='Add Book' onClick={onSubmit}/>
       </div>
       {/* {errors?errors.map(e => <h2 style={{color:'red'}}>{e.toUpperCase()}</h2>):null} */}
       </div>

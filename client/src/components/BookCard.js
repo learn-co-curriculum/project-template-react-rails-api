@@ -8,22 +8,26 @@ function BookCard({book, deleteBook}) {
   const params = useParams()
   const [errors, setErrors] = useState(false)
 
-  function handleDelete() {
-    fetch(`/books/${params.id}`,{
-      method:'DELETE',
-      headers: {'Content-Type': 'application/json'}
-    })
-    .then(res => {
-      if(res.ok){
-        deleteBook(id)
-        navigate('/')
-      } else {
-        res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
-    }})
+   function handleDelete() {
+     fetch(`/books/${id}`,{
+       method:'DELETE',
+       // headers: {'Content-Type': 'application/json'}
+      })
+      navigate('/')
+    // await deleteBook(id)
+    // await fetch(`/books`)
+    // .then(res => res.json())
+    // .then(data => deleteBook(data))
+    // .then(res => {
+    //   if(res.ok){
+    //     deleteBook(id)
+    //   } else {
+    //     res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+    // }})
   
 
     
-    if(errors) return <h1>{errors}</h1>
+    // if(errors) return <h1>{errors}</h1>
   }
     return (
       <>

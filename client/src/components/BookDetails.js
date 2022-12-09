@@ -27,18 +27,20 @@ function BookDetail() {
   if(loading) return <div className="loading"><div></div><div></div><div></div><div></div></div>
   if(errors) return <h1>{errors}</h1>
 
-  const {title, author, year, description} = book
+  const {title, author, year, genre, description} = book
 
   return (
       <div className="content">
           <div className='wrapper'>
             <div id="book-page" >
             <h1>{title}</h1>
-              <h3>Author:</h3>
+              <h3>Author : </h3>
               <p>{author}</p>
-              <h3>Year:</h3>
+              <h3>Year : </h3>
               <p>{year}</p>
-              <h3>Description:</h3>
+              <h3>Genre : </h3>
+              <p>{genre}</p>
+              <h3>Description : </h3>
               <p>{description}</p>
             </div>
           </div>

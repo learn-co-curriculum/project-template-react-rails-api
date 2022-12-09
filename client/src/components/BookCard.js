@@ -18,7 +18,7 @@ function BookCard({book}) {
         <Link className="item-link" to={`/books/${id}`}> <h2>{title}</h2></Link>
           <p className="book-detail">Author : {author}</p>
           <p className="book-detail">Written in <i>{year}</i></p>
-          <p className="book-detail"><b>Genre: </b>{description}</p>
+          {/* <p className="book-detail"><b>Genre: </b>{genre}</p> */}
           <button className="button"><Link id="edit-button" to={`/books/${id}/edit`}>Edit</Link></button>
           <button className="button" onClick={handleDelete}>Delete</button>
       </div>

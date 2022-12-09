@@ -27,7 +27,7 @@ function SignUp() {
         .then(res => {
             if(res.ok) {
                 res.json().then(user => {
-                    navigate(`/users/${user.id}`)
+                    navigate(`/login`)
                 })
             } else {
                 res.json().then(json => setErrors(Object.entries(json.errors)))
@@ -49,7 +49,7 @@ function SignUp() {
             <label>Password : </label>
             <input placeholder="Your Password..." type='password' name='password' value={password} onChange={handleChange} />
             
-            <input id="signup-form" className="button" type='submit' value="Sign Up" onSubmit={onSubmit}/>
+            <input id="signup-form" className="button" type='submit' value="Sign Up" onClick={onSubmit}/>
             {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
             </div>
         </>

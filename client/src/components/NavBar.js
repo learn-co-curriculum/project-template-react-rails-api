@@ -17,7 +17,7 @@ function Navbar({updateUser}) {
     <nav className="nav">
       <ul className="main-nav">
         <li className="active"><NavLink id="home" className="NavLink" to="/">Home</NavLink></li>
-        <li><NavLink className="NavLink" to='/users/1'>User Page</NavLink></li>
+        <li><NavLink className="NavLink" to='/books/new'>Add a Book</NavLink></li>
         <li><button id="logout" className="button" onClick={handleLogOut}>Log Out</button></li>
         <li><NavLink id="signup" className="NavLink" to='/users/signup'>Sign Up</NavLink></li>
         <li><NavLink id="login" className="NavLink" to='/login'>Login</NavLink></li>

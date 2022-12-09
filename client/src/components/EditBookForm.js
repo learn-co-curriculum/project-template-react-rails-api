@@ -1,7 +1,9 @@
 import React, { useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 function EditBookForm({updateBook}) {
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     title:'',
     author:'',
@@ -33,6 +35,7 @@ function EditBookForm({updateBook}) {
     .then(res => {
       // if(res.ok){
         res.json().then(updateBook)
+        navigate(`/`)
       // } else {
         //Display errors
         // res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
@@ -41,9 +44,9 @@ function EditBookForm({updateBook}) {
   }
     return (
         <>
-        <div id="edit-form" className='App'>
+        <div className='App'>
             {/* {errors?errors.map(e => <div>{e}</div>):null} */}
-            <div onSubmit={onSubmit}>
+            <div >
                 <label>Title : </label>
                 <input type='text' name='title' value={formData.title} onChange={handleChange} />
                 
@@ -56,7 +59,7 @@ function EditBookForm({updateBook}) {
                 <label>Description : </label>
                 <input type='text' name='description' value={formData.description} onChange={handleChange} />
                     
-                <input id="edit-button" className= "button" type='submit' value='Update Book' />
+                <input  className= "button" type='submit' value='Update Book' onClick={onSubmit}/>
             {/* {errors?errors.map(e => <h2 style={{color:'red'}}>{e.toUpperCase()}</h2>):null} */}
             </div>
         </div>

@@ -6,7 +6,7 @@ function BookCard({book, deleteBook}) {
   // console.log(book)
   const navigate = useNavigate()
   const params = useParams()
-  const [errors, setErrors] = useState(false)
+  // const [errors, setErrors] = useState(false)
 
    function handleDelete() {
      fetch(`/books/${id}`,{

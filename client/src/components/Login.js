@@ -12,7 +12,7 @@ function Login() {
     const navigate = useNavigate()
 
     function onSubmit(e){
-        e.preventDefault()
+        // e.preventDefault()
         const user = {
             username,
             password

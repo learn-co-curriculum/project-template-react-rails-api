@@ -35,7 +35,6 @@ function Login() {
                 res.json().then(json => setErrors(json.errors))
             }
         })
-       
     }
 
     const handleChange = (e) => {
@@ -62,7 +61,6 @@ function Login() {
         </div>
         </>
     )
-
 }
 
 export default Login

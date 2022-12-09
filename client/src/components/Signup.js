@@ -7,7 +7,6 @@ function SignUp() {
         password:''
     })
     const [errors, setErrors] = useState([])
-    // const [isLiked, setIsLiked] = useState(false);
     const {username, password} = formData
     const navigate = useNavigate()
 

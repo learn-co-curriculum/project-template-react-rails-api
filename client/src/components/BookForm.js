@@ -9,7 +9,7 @@ function BookForm({addBook}) {
     // image:'',
     description:''
   })
-  const [errors, setErrors] = useState([])
+  // const [errors, setErrors] = useState([])
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -23,24 +23,23 @@ function BookForm({addBook}) {
 
   function onSubmit(e){
     // e.preventDefault()
-    
     fetch('/books',{
       method:'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({...formData, ongoing:true})
     })
     .then(res => {
-      if(res.ok){
+      // if(res.ok){
         res.json().then(addBook)
         navigate("/")
-      } else {
-        res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
-      }
+      // } else {
+      //   res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+      // }
     })
   }
     return (
       <div className='App'>
-      {errors?errors.map(e => <div>{e}</div>):null}
+      {/* {errors?errors.map(e => <div>{e}</div>):null} */}
       <div onSubmit={onSubmit}>
         <label>Title : </label>
         <input type='text' name='title' value={formData.title} onChange={handleChange} />
@@ -59,7 +58,7 @@ function BookForm({addBook}) {
       
         <input type='submit' value='Add Book' onClick={onSubmit}/>
       </div>
-      {errors?errors.map(e => <h2 style={{color:'red'}}>{e.toUpperCase()}</h2>):null}
+      {/* {errors?errors.map(e => <h2 style={{color:'red'}}>{e.toUpperCase()}</h2>):null} */}
       </div>
     )
   }

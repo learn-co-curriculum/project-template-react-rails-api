@@ -14,7 +14,6 @@ function App() {
   const [books, setBooks] = useState([])
   const [errors, setErrors] = useState(false)
   const [currentUser, setCurrentUser] = useState([]);
-  // const [reviews, setReviews] = useState([])
 
   useEffect(() => {
     fetchBooks()
@@ -44,22 +43,6 @@ function App() {
   const addBook = (book) => setBooks(current => [...current, book])
   const deleteBook = (id) => setBooks(current => current.filter(b => b.id !== id)) 
   const updateUser = (user) => setCurrentUser(user)
-  
-    // //Fetch Reviews
-    // useEffect(() => {
-    //   fetchReviews()
-    // },[])
-  
-    // const fetchReviews = () => {
-    //   fetch('/reviews')
-    //   .then(res => {
-    //     if(res.ok){
-    //       res.json().then(setReviews)
-    //     }else {
-    //       res.json().then(data => setErrors(data.error))
-    //     }
-    //   })
-    // }
   
   if(errors) return <h1>{errors}</h1>
 

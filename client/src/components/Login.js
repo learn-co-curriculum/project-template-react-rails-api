@@ -29,7 +29,7 @@ function Login() {
             if(res.ok){
                 res.json().then(user => {
                     sessionStorage.setItem('user_id', user.id)      
-                    navigate(`/users/${user.id}`)
+                    navigate(`/`)
                 })
             } else {
                 res.json().then(json => setErrors(json.errors))

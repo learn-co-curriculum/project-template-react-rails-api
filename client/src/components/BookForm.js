@@ -22,8 +22,7 @@ function BookForm({addBook}) {
 //   }
 
   function onSubmit(e){
-    e.preventDefault()
-    navigate("/")
+    // e.preventDefault()
     
     fetch('/books',{
       method:'POST',
@@ -33,6 +32,7 @@ function BookForm({addBook}) {
     .then(res => {
       if(res.ok){
         res.json().then(addBook)
+        navigate("/")
       } else {
         res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
       }
@@ -51,8 +51,8 @@ function BookForm({addBook}) {
         <label>Year : </label>
         <input type='number' name='year' value={formData.year} onChange={handleChange} />
       
-        {/* <label>Image</label>
-        <input type='text' name='image' value={formData.image} onChange={handleChange} /> */}
+        {/* <label>Genre : </label>
+        <input type='text' name='genre' value={formData.genre} onChange={handleChange} /> */}
             
         <label>Description</label>
         <textarea type='text' rows='4' cols='50' name='description' value={formData.description} onChange={handleChange} />

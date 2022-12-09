@@ -49,8 +49,7 @@ function App() {
   return (
     <>
         <NavBar updateUser={updateUser}/>
-        {!currentUser ? <Login error={'please login'} updateUser={updateUser}/> :
-        <Routes>
+        {!currentUser ? <Routes>
           <Route exact path='/' element={<Home  books={books} deleteBook={deleteBook}/>}/>
 
           <Route path='/login' element={<Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
@@ -65,7 +64,8 @@ function App() {
         
           <Route path='/users/:id' element={<UserPage updateUser={updateUser}/>}/>
        
-        </Routes>
+        </Routes> : <Login error={'please login'} updateUser={updateUser}/>
+        
        } 
     </>
   );

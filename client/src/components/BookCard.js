@@ -10,6 +10,7 @@ function BookCard({book}) {
        method:'DELETE',
       })
       navigate('/')
+      window.location.reload(false);
   }
 
     return (

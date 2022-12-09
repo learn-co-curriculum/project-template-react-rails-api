@@ -44,6 +44,15 @@ input {
   border-width: 1px;
 }
 
+textarea {
+  display: flex;
+  width: 394px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 5px;
+  border-width: 1px;
+}
+
 #project-title {
   display: flex;
   align-items: center;
@@ -89,6 +98,10 @@ input {
 }
 
 #edit-button{
+  height: 50px;
+}
+
+#add-book{
   height: 50px;
 }
 
@@ -210,7 +223,7 @@ li a:hover {
   margin-top: 100px;
 }
 
-#user-page{
+#book-form{
   width: 400px;
   margin: 0px auto;
   background-color: #333;

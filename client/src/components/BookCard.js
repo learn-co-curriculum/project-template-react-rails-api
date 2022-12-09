@@ -1,7 +1,7 @@
 import {Link, useNavigate} from 'react-router-dom'
 
 function BookCard({book}) {
-  const {title, author, id, year, description} = book
+  const {title, author, id, year} = book
   const navigate = useNavigate()
   // const params = useParams()
 

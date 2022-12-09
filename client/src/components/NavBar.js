@@ -1,7 +1,9 @@
 import React from 'react'
-import { NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 function Navbar({updateUser}) {
+  // const navigate = useNavigate()
+
   const handleLogOut = () => {
     fetch(`/logout`, {
       method:"DELETE"
@@ -9,8 +11,11 @@ function Navbar({updateUser}) {
     .then(res => {
       if(res.ok){
         updateUser(false)
+        sessionStorage.clear()
+        // navigate('/login')
       }
     })
+    
   }
   
   return (

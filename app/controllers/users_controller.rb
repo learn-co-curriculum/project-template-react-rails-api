@@ -1,0 +1,21 @@
+class UsersController < ApplicationController
+
+
+    def index
+        render json: User.all, status: :ok
+    end
+
+    def show
+        render json: User.find(params[:id]), status: :ok
+    end
+
+    def create
+        render json: User.create(new_user_params), status: :created
+    end
+
+    private
+
+    def new_user_params
+        params.permit(:username, :avatar, :email, :password)
+    end
+end

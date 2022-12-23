@@ -23,7 +23,6 @@ end
 
 all_users = User.all
 all_posts = Post.all
-
 30.times do
     Comment.create(content: Faker::Quote.famous_last_words, user_id: all_users.sample.id,  post_id:all_posts.sample.id)
 end

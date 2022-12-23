@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import Home from "./Home";
+import NavBar from "./NavBar";
+import Welcome from "./Welcome";
+import PostList from "./PostList"
 
 function App() {
+  const [ postsData, setPostsData ] = useState([])
+
+  useEffect(() => {
+    fetch("/posts")
+    .then(res => res.json())
+    .then(postsArray => setPostsData(postsArray))
+  },[])
+
+  console.log(postsData)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path= "/" element= {<Home />}> </Route>
+        <Route path= "/welcome" element= {<Welcome />}> </Route>
+        <Route path= "/posts" element= {<PostList postsData={postsData}/>}> </Route>
+      </Routes>
+    </>
   );
 }
 

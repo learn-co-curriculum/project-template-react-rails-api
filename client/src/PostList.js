@@ -1,8 +1,19 @@
 import Post from "./Post"
-function PostList({postsData}){
+import PostForm from "./PostForm"
+
+function PostList({postsData, setPostsData}){
+    // console.log(setPostsData)
+    const renderPosts = postsData.map(postObj => {
+        return (
+            <Post key={postObj.id} postObj={postObj}/>
+        )
+    })
+    
+
     return(
         <div>
-           < Post />
+           <PostForm setPostsData={setPostsData} postsData={postsData}/>
+           {renderPosts}
         </div>
     )
 }

@@ -14,7 +14,7 @@ function App() {
     .then(postsArray => setPostsData(postsArray))
   },[])
 
-  console.log(postsData)
+  // console.log(postsData)
   
   return (
     <>
@@ -22,7 +22,7 @@ function App() {
       <Routes>
         <Route path= "/" element= {<Home />}> </Route>
         <Route path= "/welcome" element= {<Welcome />}> </Route>
-        <Route path= "/posts" element= {<PostList postsData={postsData}/>}> </Route>
+        <Route path= "/posts" element= {<PostList setPostsData= {setPostsData} postsData={postsData}/>}> </Route>
       </Routes>
     </>
   );

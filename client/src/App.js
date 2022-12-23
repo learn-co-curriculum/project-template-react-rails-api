@@ -23,8 +23,10 @@ function App() {
       <Routes>
         <Route path= "/" element= {<Home />}> </Route>
         <Route path= "/welcome" element= {<Welcome />}> </Route>
+
+        <Route path= "/posts" element= {<PostList setPostsData= {setPostsData} postsData={postsData}/>}> </Route>
         <Route path = "/comments" element= {<Comment/>}></Route>
-        <Route path= "/posts" element= {<PostList postsData={postsData}/>}> </Route>
+
       </Routes>
     </>
   );

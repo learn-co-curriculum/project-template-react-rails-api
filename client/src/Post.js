@@ -1,9 +1,11 @@
 import Comment from "./Comment"
-function Post(){
+function Post({postObj}){
     return(
-        <div>
-           <h1> Post page </h1> 
-           <Comment />
+        <div className="post-container">
+           {/* <h1> Post page </h1> */}
+            <p className="post-description">{postObj.description}</p>
+            <img className="post-image" src={postObj.image_url}/>
+           {/* <Comment /> */}
         </div>
     )
 }

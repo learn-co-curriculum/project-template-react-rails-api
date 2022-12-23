@@ -4,6 +4,7 @@ import Home from "./Home";
 import NavBar from "./NavBar";
 import Welcome from "./Welcome";
 import PostList from "./PostList"
+import Comment from "./Comment";
 
 function App() {
   const [ postsData, setPostsData ] = useState([])
@@ -14,14 +15,15 @@ function App() {
     .then(postsArray => setPostsData(postsArray))
   },[])
 
-  console.log(postsData)
-  
+  // console.log(postsData)
+
   return (
     <>
       <NavBar />
       <Routes>
         <Route path= "/" element= {<Home />}> </Route>
         <Route path= "/welcome" element= {<Welcome />}> </Route>
+        <Route path = "/comments" element= {<Comment/>}></Route>
         <Route path= "/posts" element= {<PostList postsData={postsData}/>}> </Route>
       </Routes>
     </>

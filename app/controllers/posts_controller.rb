@@ -4,8 +4,11 @@ class PostsController < ApplicationController
     end
 
     def show
-        found_post = Post.find_by_id!(params[:id])
-        render json: found_post
+        render json: Post.find(params[:id])
+    end
+
+    def show_comments
+        render json: Post.find(params[:id]).comments
     end
 
     def create

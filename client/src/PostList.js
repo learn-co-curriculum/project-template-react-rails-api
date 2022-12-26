@@ -11,7 +11,7 @@ function PostList({postsData, setPostsData}){
     
 
     return(
-        <div>
+        <div className= "post-list">
            <PostForm setPostsData={setPostsData} postsData={postsData}/>
            {renderPosts}
         </div>

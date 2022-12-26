@@ -1,6 +1,6 @@
 
 *{
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   margin : 0;
   padding: 0;
 }
@@ -148,4 +148,201 @@ button:hover{
 
 a:hover{
   border-bottom: 1px solid white;
+}
+
+/* .flip-post-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+} */
+
+.flip-post-card{
+  /* display: grid; */
+  /* grid-template-columns: 200px 200px 200px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.post-form{
+  display: flex;
+  justify-content: center;
+}
+
+.post-form-button{
+  margin-top: 100px;
+}
+img{
+  max-width: 200px;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+ .post-card{
+  margin: 10px;
+  width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  /* justify-content: center; */
+ }
+
+ .post-header img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%
+ }
+
+.post-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 250px;
+}
+
+.post-tag{
+  background: #cccccc;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 0;
+  color: #fff;
+  padding: 2px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #626AE3;
+  margin-bottom: 1000px;
+}
+
+/* .post-username{
+  margin-left: 10px;
+} */
+
+.user-profile-pic{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border: 1px solid #000
+}
+
+.post-container-back{
+  margin: 10px;
+  width: 400px; 
+  height: 590px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.post-comments{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 250px;
+}
+
+
+
+/* .tag-whatevecolor{
+  color based on the specific tag/genre
+}*/
+
+
+
+
+/* CSS FOR NAVBAR  */
+.navbar{
+  width: 100vw;
+  box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+}
+.navbar-div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 62px;
+}
+
+.navbar .navbar-list {
+  display: flex;
+}
+.navbar .navbar-div li{
+  list-style: none;
+}
+.navbar .navbar-div a {
+  text-decoration: none;
+  color: #0e2431;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 0.7rem;
+}
+
+.navbar .navbar-div a:hover{
+  font-weight: bolder;
+}
+
+/* .navbar-div {
+  display: block;
+  position: relative;
+  height: 60px;
+} */
+
+/* CSS FOR NAVBAR  */
+
+#comment-con{
+  height: 100%;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#comment-form{
+  justify-content: center;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.sm-btn{
+  font-size:  11px; 
+  background-color: transparent;
+  width: 20px; 
+  color: #474554;
+  float: right;
+}
+
+.lg-btn{
+  width: 170px;
+  background-color: #DB3945;
+}
+
+.comment-list{
+  position: relative;
+  min-width: 300px;
+  border-bottom: 1px black dashed;
+}
+.user-avatar{
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50%;
+  display: block;
+  float: left; 
+}
+.user-content{
+  color: #474554;
+  font-size: 18px;
+  font-weight : 600;
+  margin-bottom: 10px;
+}
+.user-name{
+  color: #444;
 }

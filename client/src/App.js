@@ -8,6 +8,7 @@ import Comment from "./Comment";
 
 function App() {
   const [ postsData, setPostsData ] = useState([])
+  const [currentUser, setCurrentUser] = useState(false)
 
   useEffect(() => {
     fetch("/posts")
@@ -15,13 +16,26 @@ function App() {
     .then(postsArray => setPostsData(postsArray))
   },[])
 
-  // console.log(postsData)
+
+  useEffect(() => {
+      fetch("/authorized_user")
+      .then((res) => {
+        if (res.ok) {
+          res.json()
+          .then((user) => {
+            updateUser(user);
+          });
+        }
+      })
+    },[])
+
+  const updateUser = (user) => setCurrentUser(user)
 
   return (
     <>
-      <NavBar />
+      <NavBar updateUser = {updateUser}/>
       <Routes>
-        <Route path= "/" element= {<Home />}> </Route>
+        <Route path= "/" element= {<Home updateUser = {updateUser}/>}> </Route>
         <Route path= "/welcome" element= {<Welcome />}> </Route>
 
         <Route path= "/posts" element= {<PostList setPostsData= {setPostsData} postsData={postsData}/>}> </Route>

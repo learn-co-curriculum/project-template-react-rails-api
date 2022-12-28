@@ -157,10 +157,11 @@ a:hover{
   border: 1px solid #f1f1f1;
   perspective: 1000px;
 } */
-
+.post-list{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
 .flip-post-card{
-  /* display: grid; */
-  /* grid-template-columns: 200px 200px 200px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -237,7 +238,7 @@ img{
 
 .post-container-back{
   margin: 10px;
-  width: 400px; 
+  width: 400px;
   height: 590px;
   background-color: white;
   border-radius: 10px;
@@ -252,8 +253,12 @@ img{
   padding: 20px;
   min-height: 250px;
 }
-
-
+.logo-name{
+  font-size: 20px;
+  font-style: italic;
+  text-decoration: underline wavy #DB3945 5px;
+  margin-left: 30px;
+}
 
 /* .tag-whatevecolor{
   color based on the specific tag/genre
@@ -265,7 +270,9 @@ img{
 /* CSS FOR NAVBAR  */
 .navbar{
   width: 100vw;
-  box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+  box-shadow: 0 1px 4px rgb(146, 161, 176, 0.2);
+  padding: 0 30px;
+  position: stick;
 }
 .navbar-div{
   display: flex;
@@ -276,10 +283,9 @@ img{
 
 .navbar .navbar-list {
   display: flex;
+
 }
-.navbar .navbar-div li{
-  list-style: none;
-}
+
 .navbar .navbar-div a {
   text-decoration: none;
   color: #0e2431;
@@ -313,9 +319,9 @@ img{
 }
 
 .sm-btn{
-  font-size:  11px; 
+  font-size:  11px;
   background-color: transparent;
-  width: 20px; 
+  /* width: 20px; */
   color: #474554;
   float: right;
 }
@@ -335,7 +341,7 @@ img{
   max-height: 50px;
   border-radius: 50%;
   display: block;
-  float: left; 
+  float: left;
 }
 .user-content{
   color: #474554;

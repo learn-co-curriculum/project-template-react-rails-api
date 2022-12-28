@@ -8,14 +8,16 @@ function PostList({postsData, setPostsData}){
             <Post key={postObj.id} postObj={postObj}/>
         )
     })
-    
+
 
     return(
-        <div className= "post-list">
-           <PostForm setPostsData={setPostsData} postsData={postsData}/>
-           {renderPosts}
+        <div>
+            <PostForm setPostsData={setPostsData} postsData={postsData}/>
+            <div className= "post-list">
+               {renderPosts}
+            </div>
         </div>
-    )
+        )
 }
 
 export default PostList

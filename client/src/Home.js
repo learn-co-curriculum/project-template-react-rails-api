@@ -1,9 +1,9 @@
 import SignupForm from "./Signup"
 import LoginPage from "./Login"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 
-function Home(){
+function Home({updateUser}){
 
     const [slide, setSlide] = useState (false)
 
@@ -23,7 +23,7 @@ function Home(){
                 </div>
             </div>
                 <SignupForm switchPage={switchPage}/>
-                <LoginPage  switchPage={switchPage}/>
+                <LoginPage  switchPage={switchPage} updateUser = {updateUser}/>
             </div>
         </div>
     )

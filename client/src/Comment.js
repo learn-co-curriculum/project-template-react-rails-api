@@ -30,10 +30,10 @@ function Comment ({id}){
 
     return(
         <div id= "comment-con">
-           <h6> Comments:</h6>
+           <h3> Comments:</h3>
            {renderComments}
            <form id = "comment-form" onSubmit={{ handleSubmit }}>
-                <input type='text' placeholder = "enter your comment" onChange={ e => setInput({...commentsAry, content: e.target.value})}/>
+                <input type ='text' placeholder = "enter your comment" onChange={ e => setInput({...commentsAry, content: e.target.value})}/>
                 <button className = "lg-btn"type="submit"> + </button>
 
            </form>

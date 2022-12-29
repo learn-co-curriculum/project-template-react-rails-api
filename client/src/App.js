@@ -51,7 +51,7 @@ function App() {
 
   return (
     <>
-      <NavBar updateUser = {updateUser}/>
+      {currentUser ? <NavBar updateUser = {updateUser}/> : null}
       <Routes>
         <Route path= "/" element= {<Home updateUser = {updateUser}/>}> </Route>
         <Route path= "/welcome" element= {<Welcome />}> </Route>

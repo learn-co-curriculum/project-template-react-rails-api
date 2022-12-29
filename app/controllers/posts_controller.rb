@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     end
 
     def show
-        render json: Post.find(params[:id]), serializer: PostUserSerializer
+        render json: Post.find(params[:id])
     end
 
     def show_comments
@@ -22,6 +22,6 @@ class PostsController < ApplicationController
 
     private
     def post_params
-        params.permit(:description, :image_url)
+        params.permit(:description, :image_url, :tag, :user_id)
     end
 end

@@ -31,13 +31,13 @@ function Comment ({postId, userData}){
         return <CommentItem comment = {comment} setComments= {setComments} setInput = {setInput}/>
     })
 
-    // console.log(input)
+
 
     return(
         <div id= "comment-con">
            <h3> Comments:</h3>
            {renderComments}
-           <form id = "comment-form" onSubmit={{ handleSubmit }}>
+           <form id = "comment-form" onSubmit={ handleSubmit }>
                 <input type ='text' placeholder = "enter your comment" value = {input} onChange={ e => setInput(e.target.value)}/>
                 <button className = "lg-btn"type="submit"> + </button>
 

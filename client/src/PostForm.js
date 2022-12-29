@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react'
 
 // test
-function PostForm ({postsData, setPostsData}){
+function PostForm ({postsData, setPostsData, userData}){
 
     const [showForm, setShowForm] = useState (false)
     // console.log(postsData)
@@ -13,14 +13,16 @@ function PostForm ({postsData, setPostsData}){
             tag: ""
         }
     )
+    console.log(newPostObj, userData.id)
 
     function handleSubmit(e){
         e.preventDefault();
 
         const newPost = {
-            description: "",
-            image_url: "",
-            tag: ""
+            description: newPostObj.description,
+            image_url: newPostObj.image_url,
+            tag: newPostObj.tag,
+            user_id: userData.id
         }
          fetch('/posts', {
             method: "POST",
@@ -32,14 +34,17 @@ function PostForm ({postsData, setPostsData}){
             setPostsData([...postsData, newPostData])
         })
 
-        setNewPostObj({
-            description: "",
-            image_url: "",
-            tag: ""
-        })
+        // setNewPostObj({
+        //     description: "",
+        //     image_url: "",
+        //     tag: "",
+        //     user_id: ""
+        // })
 
         setShowForm(!showForm)
     }
+
+    
     return (
         <div className = "post-form-con">
             <div>

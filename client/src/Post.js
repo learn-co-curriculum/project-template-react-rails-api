@@ -2,9 +2,9 @@ import Comment from "./Comment";
 import {useState} from "react";
 
 function Post({postObj, userData}){
-    // console.log(allUserData)
+    // console.log(postObj.user_data.username)
 
-    console.log(postObj)
+    // console.log(postObj)
     const [showComment, setShowComment] = useState (false)
     const flipPost = () => {
         setShowComment(!showComment)
@@ -32,10 +32,10 @@ function Post({postObj, userData}){
                         <p className="post-description">{postObj.description}</p>
                         {/* <Comment /> */}
                     </div>
-                    <div className="post-user-info">
+                    {/* <div className="post-user-info">
                         <img className="user-profile-pic" src={postObj.user_data.avatar} alt="user"/>
                         <p className="post-username">{postObj.user_data.username}</p>
-                    </div>
+                    </div> */}
             </div>
             </div> )
         }

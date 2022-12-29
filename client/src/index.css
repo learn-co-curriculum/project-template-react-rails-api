@@ -1,6 +1,6 @@
 
 *{
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   margin : 0;
   padding: 0;
 }
@@ -166,14 +166,42 @@ a:hover{
   justify-content: center;
   align-items: center;
 }
-.post-form{
+ .post-form-con h3{
   display: flex;
   justify-content: center;
+  align-items: center;
+  color: #000;
 }
 
-.post-form-button{
-  margin-top: 100px;
+h3{
+  cursor: pointer;
 }
+
+.post-form {
+  display: flex;
+  justify-content: center;
+
+}
+.post-form-button{
+  display: flex;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.post-input{
+  width: 100%;
+  height: 30px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  border: 2px  solid #474554;
+}
+.post-input:focus {
+  color: red;
+}
+.post-input:focus::placeholder{
+  opacity: 0;
+}
+
 img{
   max-width: 200px;
   max-height: 200px;
@@ -253,12 +281,23 @@ img{
   padding: 20px;
   min-height: 250px;
 }
-.logo-name{
-  font-size: 20px;
-  font-style: italic;
-  text-decoration: underline wavy #DB3945 5px;
-  margin-left: 30px;
+
+.post-direction{
+  display: flex;
+  justify-content: center;
+  color: #626AE3;
+  font-weight: 600;
+  margin-top: 30px;
+  padding: 5px;
 }
+
+.post-direction:hover{
+  background-color: #DB3945;
+  color: #fff;
+  cursor: pointer;
+
+}
+
 
 /* .tag-whatevecolor{
   color based on the specific tag/genre
@@ -298,6 +337,21 @@ img{
   font-weight: bolder;
 }
 
+#logout-btn {
+width: 120%;
+font-size: 1rem;
+margin-top: 10px;
+padding: 0 5px;
+border-radius: 0px;
+background-color: #DB3945;
+}
+
+.logo-name{
+  font-size: 20px;
+  font-style: italic;
+  text-decoration: underline wavy #DB3945 5px;
+  margin-left: 50px;
+}
 /* .navbar-div {
   display: block;
   position: relative;
@@ -321,14 +375,27 @@ img{
 .sm-btn{
   font-size:  11px;
   background-color: transparent;
-  /* width: 20px; */
+  width: 20px;
   color: #474554;
+  float: right;
+}
+.md-btn{
+  font-size: 12px;
+  width: 50px;
+  background-color: #474554;
   float: right;
 }
 
 .lg-btn{
   width: 170px;
   background-color: #DB3945;
+}
+
+textarea {
+ width : 65%;
+ resize: none;
+ border: #DB3945 2px dashed;
+ outline: none;
 }
 
 .comment-list{

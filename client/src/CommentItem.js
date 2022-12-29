@@ -1,5 +1,7 @@
-
-function CommentItem( {comment, setComments, setInput}){
+import { useState } from "react"
+function CommentItem( {comment, setComments}){
+    const [ renderEdit, setEdit] = useState( false)
+    const [ updateContent, setUpdateComment ] = useState ("")
 
     const updateComment = (updatedComment) => {
         setComments(current => {
@@ -17,13 +19,16 @@ function CommentItem( {comment, setComments, setInput}){
         fetch(`/comments/${comment.id}`, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json'},
-            body:JSON.stringify( setInput)
+            body:JSON.stringify( {content: updateContent})
         })
-        .then( updateComment )
+        .then ( res => res.json())
+        .then ( newContent => updateComment(newContent))
+
+        setEdit(!renderEdit)
     }
 
     const deleteComment = id => {
-        
+
         setComments(current => current.filter( comment => comment.id !== id ))
     }
 
@@ -32,7 +37,7 @@ function CommentItem( {comment, setComments, setInput}){
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'}
         })
-        .then( res => { deleteComment(comment.id)} )
+        .then( () => { deleteComment(comment.id)} )
 
     }
 
@@ -40,13 +45,21 @@ function CommentItem( {comment, setComments, setInput}){
         <div className="comment-list">
             <div className= "btn-div">
                 <button className = "sm-btn" onClick= {handleDelete} > X </button>
-                <button className = "sm-btn" onClick = {handleUpdate}> edit</button>
+                <button className = "sm-btn" onClick = { () => setEdit(!renderEdit) }> edit</button>
             </div>
             <br/>
             <div className="user-div">
                 <img className = "user-avatar" src = {comment.user.avatar} alt = "user-avatar"/>
                 <p className = "user-name">{comment.user.username}</p>
-                <h5 className = "user-content">{comment.content}</h5>
+                {
+                    renderEdit ?
+                <form onSubmit = {handleUpdate}>
+                    <textarea onChange={ e => { setUpdateComment(e.target.value) }}>{comment.content}</textarea>
+                    <button className = "md-btn" type = "submit" >confirm</button>
+                </form>
+                    :
+                    <h5 className = "user-content">{comment.content}</h5>
+                }
             </div>
         </div>
         )

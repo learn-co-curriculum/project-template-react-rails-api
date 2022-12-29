@@ -1,23 +1,25 @@
 import Comment from "./Comment";
 import {useState} from "react";
 
-function Post({postObj}){
-    const [showComment, setShowComment] = useState (false)
+function Post({postObj, userData}){
+    // console.log(allUserData)
 
+    console.log(postObj)
+    const [showComment, setShowComment] = useState (false)
     const flipPost = () => {
         setShowComment(!showComment)
     }
-console.log(postObj)
+// console.log(postObj.user_data.username)
     return(
     <div className ="flip-post-card" >
-        { showComment ?         
+        { showComment ?
             (<div className="post-container-back">
                 {/* <h1>COMMENTS</h1> */}
                     <div className="post-comments">
-                    <Comment id ={postObj.id} />
+                    <Comment postId ={postObj.id} userData = {userData}/>
                     </div>
-                    <p onClick = {flipPost}>go back</p>
-            </div>)  
+                    <p className="post-direction" onClick = {flipPost}> ---back to the post---</p>
+            </div>)
             :
             (<div className="post-container-front" >
                 <div className="post-card">
@@ -25,16 +27,15 @@ console.log(postObj)
                     <div className="post-header">
                         <img className="post-image" src={postObj.image_url} onClick = {flipPost}/>
                     </div>
-                    <span className="post-tag">Adventure</span>
+                    <span className="post-tag">{postObj.tag}</span>
                     <div className="post-text">
                         <p className="post-description">{postObj.description}</p>
                         {/* <Comment /> */}
                     </div>
                     <div className="post-user-info">
-                        <img className="user-profile-pic" src="http://www.gravatar.com/avatar/ce3bb023d8a98e752c4c2fedaf647964?s=500&d=robohash&r=g" alt="user"/>
-                        <p className="post-username">richard123</p>
+                        <img className="user-profile-pic" src={postObj.user_data.avatar} alt="user"/>
+                        <p className="post-username">{postObj.user_data.username}</p>
                     </div>
-                    
             </div>
             </div> )
         }

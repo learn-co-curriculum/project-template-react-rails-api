@@ -4,12 +4,16 @@ class PostsController < ApplicationController
     end
 
     def show
-        render json: Post.find(params[:id])
+        render json: Post.find(params[:id]), serializer: PostUserSerializer
     end
 
     def show_comments
         render json: Post.find(params[:id]).comments
     end
+
+    # def show_users
+    #     render json: Post.find(params[:id])
+    # end
 
     def create
         new_post = Post.create!(post_params)

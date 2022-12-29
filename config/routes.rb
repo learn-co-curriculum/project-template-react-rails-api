@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create, :show]
 
   get "postcomments/:id", to: "posts#show_comments"
+  # get "postuser/:id", to: "posts#show_users"
   post '/login', to: 'sessions#create'
   delete '/logout', to:'sessions#delete'
   get '/authorized_user', to: 'users#show'

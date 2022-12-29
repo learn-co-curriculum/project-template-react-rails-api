@@ -32,7 +32,7 @@ function NavBar( {updateUser}){
                 <NavLink to="/posts">
                     <a className="posts-nav">Posts</a>
                 </NavLink>
-                <button className= "sm-btn" onClick={handleLogOut}>Log Out</button>
+                <button id= "logout-btn" onClick={handleLogOut}>Log Out</button>
            </div>
         </div>
     </div>

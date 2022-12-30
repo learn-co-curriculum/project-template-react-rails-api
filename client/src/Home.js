@@ -7,7 +7,7 @@ function Home({updateUser}){
 
     const [slide, setSlide] = useState (false)
 
-    const switchPage = (e) => {
+    const switchPage = () => {
         setSlide(!slide)
     }
 

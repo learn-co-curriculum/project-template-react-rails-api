@@ -25,10 +25,12 @@ function NavBar( {updateUser}){
                 <img src = {require("./image/chimelogo-ch.png")} alt = "logo"/>
             </div>
            <div className= "navbar-list">
-                <NavLink to="/">
+                {/* <NavLink to="/">
                     <a className="home-nav">Home</a>
+                </NavLink> */}
+                <NavLink to="/welcome">
+                    <a className="welcome-nav">Welcome!</a>
                 </NavLink>
-
                 <NavLink to="/posts">
                     <a className="posts-nav">Posts</a>
                 </NavLink>

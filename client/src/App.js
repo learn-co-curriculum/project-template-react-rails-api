@@ -9,16 +9,12 @@ function App() {
   const [ postsData, setPostsData ] = useState([])
   const [currentUser, setCurrentUser] = useState(false)
   const [ userData, setUserData ] = useState( [] )
-  // const [allUserData, setAllUserData] =useState( [] )
 
-  // console.log(userData)
   useEffect(() => {
     fetch("/posts")
     .then(res => res.json())
     .then(postsArray => setPostsData(postsArray))
   },[])
-
-
 
   useEffect(() => {
       fetch("/authorized_user")
@@ -40,23 +36,13 @@ function App() {
     .then (setUserData)
   },[])
 
-  // useEffect( () =>{
-  //   fetch ("/users")
-  //   .then ( res => res.json())
-  //   .then (setAllUserData)
-  // },[])
-
-// console.log(allUserData)
-
-
   return (
     <>
       {currentUser ? <NavBar updateUser = {updateUser}/> : null}
       <Routes>
-        <Route path= "/" element= {<Home updateUser = {updateUser}/>}> </Route>
+        <Route path= "/" element= {<Home updateUser = {updateUser} />}> </Route>
         <Route path= "/welcome" element= {<Welcome />}> </Route>
-        <Route path= "/posts" element= {<PostList setPostsData= {setPostsData} postsData={postsData} userData= { userData }/>}> </Route>
-
+        <Route path= "/posts" element= {<PostList setPostsData= {setPostsData} postsData={postsData} userData= { userData } />}> </Route>
         {/* <Route path= "/posts" element= {<PostList allUserData = {allUserData} setPostsData= {setPostsData} postsData={postsData} userData= { userData }/>}> </Route> */}
       </Routes>
     </>

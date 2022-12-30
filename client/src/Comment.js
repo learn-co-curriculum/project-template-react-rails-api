@@ -28,9 +28,8 @@ function Comment ({postId, userData}){
     }
 
     const renderComments = commentsAry.map( comment => {
-        return <CommentItem comment = {comment} setComments= {setComments} setInput = {setInput}/>
+        return <CommentItem comment = {comment} setComments= {setComments} setInput = {setInput} userData = {userData}/>
     })
-
 
 
     return(

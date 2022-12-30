@@ -1,5 +1,6 @@
 import { useState } from "react"
-function CommentItem( {comment, setComments}){
+
+function CommentItem( {comment, setComments, userData}){
     const [ renderEdit, setEdit] = useState( false)
     const [ updateContent, setUpdateComment ] = useState ("")
 
@@ -44,8 +45,14 @@ function CommentItem( {comment, setComments}){
     return (
         <div className="comment-list">
             <div className= "btn-div">
-                <button className = "sm-btn" onClick= {handleDelete} > X </button>
-                <button className = "sm-btn" onClick = { () => setEdit(!renderEdit) }> edit</button>
+                { 
+                comment.user.id == userData.id? (
+                    <div> 
+                        <button className = "sm-btn" onClick= {handleDelete} > X </button>
+                        <button className = "sm-btn" onClick = { () => setEdit(!renderEdit) }> edit</button>
+                    </div>
+                ) : null            
+                }
             </div>
             <br/>
             <div className="user-div">

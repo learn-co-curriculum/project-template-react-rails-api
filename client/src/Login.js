@@ -8,6 +8,7 @@ function LoginPage ( {switchPage, updateUser}){
         password:""
     })
     let navigate = useNavigate()
+    const [errors, setErrors] = useState([])
     const {username, password} = loginData
 
     const handleSubmit = (e) => {
@@ -22,12 +23,16 @@ function LoginPage ( {switchPage, updateUser}){
           headers:{'Content-Type': 'application/json'},
           body:JSON.stringify(user)
         })
-        .then(res => {res.json()})
-        .then(user => {
-            updateUser(user)
-            navigate('/posts')
+        .then(res => {
+            if(res.ok){
+                res.json().then(user => {
+                updateUser(user)
+                navigate('/welcome')
+            })
+            } else{
+                res.json().then(json => setErrors(json.errors))
+            } 
         })
-
     }
 
     const handleChange = (e) => {
@@ -65,6 +70,7 @@ function LoginPage ( {switchPage, updateUser}){
                 <button type="submit"> Login</button>
             </div>
         </form>
+        {errors? <div className = "error-message">{errors}</div>:null}
     </div>
     )
 }

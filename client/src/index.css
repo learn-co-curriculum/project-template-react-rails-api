@@ -87,6 +87,12 @@ input {
   flex: 1;
   height: 100%;
 }
+.error-message{
+  color: yellow;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
 
 .title{
   height: 160px;
@@ -148,6 +154,7 @@ button:hover{
 
 a:hover{
   border-bottom: 1px solid white;
+  cursor: pointer;
 }
 
 /* .flip-post-card {

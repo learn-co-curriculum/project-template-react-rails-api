@@ -29,10 +29,10 @@ function NavBar( {updateUser}){
                     <a className="home-nav">Home</a>
                 </NavLink> */}
                 <NavLink to="/welcome">
-                    <a className="welcome-nav">Welcome!</a>
+                    <p  className="welcome-nav">Welcome!</p>
                 </NavLink>
                 <NavLink to="/posts">
-                    <a className="posts-nav">Posts</a>
+                    <p className="posts-nav">Posts</p>
                 </NavLink>
                 <button id= "logout-btn" onClick={handleLogOut}>Log Out</button>
            </div>

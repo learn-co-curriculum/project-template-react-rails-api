@@ -1,6 +1,6 @@
 import SignupForm from "./Signup"
 import LoginPage from "./Login"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 
 function Home({updateUser}){

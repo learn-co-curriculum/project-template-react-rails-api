@@ -9,7 +9,7 @@ function Comment ({postId, userData}){
     fetch (`/postcomments/${postId}`)
     .then ( r => r.json() )
     .then ( setComments )
-    },[])
+    },[postId])
 
     const handleSubmit = e => {
         e.preventDefault();

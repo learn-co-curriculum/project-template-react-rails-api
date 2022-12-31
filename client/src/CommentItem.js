@@ -45,13 +45,13 @@ function CommentItem( {comment, setComments, userData}){
     return (
         <div className="comment-list">
             <div className= "btn-div">
-                { 
-                comment.user.id == userData.id? (
-                    <div> 
+                {
+                comment.user.id === userData.id? (
+                    <div>
                         <button className = "sm-btn" onClick= {handleDelete} > X </button>
-                        <button className = "sm-btn" onClick = { () => setEdit(!renderEdit) }> edit</button>
+                        <button className = "sm-btn" onClick = { () => setEdit(!renderEdit) }> edit </button>
                     </div>
-                ) : null            
+                ) : <></>
                 }
             </div>
             <br/>

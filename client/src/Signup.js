@@ -75,14 +75,17 @@ function SignupForm ( {switchPage, updateUser} ){
                         value = {password}
                         onChange = {handleChange}
                     />
-                    {submited ? <a onClick = {switchPage}> Successed, log in here</a> : <a onClick = {switchPage}> Have an account? log in</a>}
-                    
+                    {submited ?
+                    <button className = 'link-btn' onClick = {switchPage}> Successed, log in here</button>
+                    :
+                    <button className = 'link-btn' onClick = {switchPage}> Have an account? log in</button>}
+
                 </div>
                 <div className = "btn-box">
                     <button type = "submit">Sign Up</button>
                 </div>
             </form>
-            {errors?errors.map(e => <div className = "error-message">{e[0]+': ' + e[1]}</div>):null}
+            {errors?errors.map(e => <div className = "error-message">{e[0]+': ' + e[1]}</div>) : null}
         </div>
     )
 }

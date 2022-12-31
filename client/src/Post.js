@@ -2,7 +2,7 @@ import Comment from "./Comment";
 import {useState} from "react";
 
 function Post({postObj, userData}){
-    
+
     const [showComment, setShowComment] = useState (false)
     const flipPost = () => {
         setShowComment(!showComment)
@@ -12,7 +12,7 @@ function Post({postObj, userData}){
     <div className ="flip-post-card" >
         { showComment ?
             (<div className="post-container-back">
-                
+
                     <div className="post-comments">
                     <Comment postId ={postObj.id} userData = {userData}/>
                     </div>
@@ -22,7 +22,7 @@ function Post({postObj, userData}){
             (<div className="post-container-front" >
                 <div className="post-card">
                     <div className="post-header">
-                        <img className="post-image" src={postObj.image_url} onClick = {flipPost}/>
+                        <img className="post-image" src={postObj.image_url} onClick = {flipPost} alt = {postObj.description}/>
                     </div>
                     <span className="post-tag">{postObj.tag}</span>
                     <div className="post-text">
@@ -37,7 +37,7 @@ function Post({postObj, userData}){
         }
     </div>
     )
-    
+
 }
 
 

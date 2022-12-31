@@ -31,7 +31,7 @@ function LoginPage ( {switchPage, updateUser}){
             })
             } else{
                 res.json().then(json => setErrors(json.errors))
-            } 
+            }
         })
     }
 
@@ -64,13 +64,13 @@ function LoginPage ( {switchPage, updateUser}){
                     placeholder = 'enter password'
                     onChange = {handleChange}
                     />
-                <a onClick = {switchPage}> create an account</a>
+                <button className = 'link-btn' onClick = {switchPage}> create an account</button>
             </div>
             <div className = "btn-box">
                 <button type="submit"> Login</button>
             </div>
         </form>
-        {errors? <div className = "error-message">{errors}</div>:null}
+        {errors? <div className = "error-message">{errors}</div>: null}
     </div>
     )
 }

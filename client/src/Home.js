@@ -12,8 +12,8 @@ function Home({updateUser}){
     }
 
     return (
-        <div>
-           <h1> HOME </h1>
+        <div id = "bg-con">
+           {/* <h1> HOME </h1> */}
             <div className = "container" >
             <div className = { slide ? "wrapper-slide" : "wrapper" }>
                {slide ?
@@ -25,6 +25,18 @@ function Home({updateUser}){
                 <SignupForm switchPage={switchPage}/>
                 <LoginPage  switchPage={switchPage} updateUser = {updateUser}/>
             </div>
+            {/* <ul className = "bg-squares">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul> */}
         </div>
     )
 

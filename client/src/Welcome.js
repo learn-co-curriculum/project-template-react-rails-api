@@ -3,8 +3,8 @@ import React from "react";
 
 function Welcome(){
     return(
-        <div>
-      <h2>Welcome to Chime </h2>
+        <div id = "welcome-con">
+      <h2 className="welcome-title">Welcome to Chime </h2>
       {/* <img src =  */}
       {/* <ReactLoading type="balls" color="#0000FF"
         height={100} width={50} />
@@ -19,7 +19,7 @@ function Welcome(){
       {/* <ReactLoading type="spin" color="#0000FF"
         height={100} width={50} /> */}
       {/* <ReactLoading type="spokes" color="#000"
-        height={100} width={50} /> */}
+        height={100} width={50}/> */}
       {/* <ReactLoading
         type="spinningBubbles"
         color="#0000FF"

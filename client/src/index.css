@@ -155,13 +155,12 @@ button:hover{
 .link-btn{
   border:  none;
   font-size: 16px;
-  background-color:  none;
   color: white;
 }
 
-.link-button:hover{
+.link-btn:hover{
   border-bottom: 1px solid white;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 
 /* .flip-post-card {

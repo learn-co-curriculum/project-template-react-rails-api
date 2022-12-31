@@ -75,10 +75,12 @@ function SignupForm ( {switchPage, updateUser} ){
                         value = {password}
                         onChange = {handleChange}
                     />
-                    {submited ?
-                    <button className = 'link-btn' onClick = {switchPage}> Successed, log in here</button>
-                    :
-                    <button className = 'link-btn' onClick = {switchPage}> Have an account? log in</button>}
+                    <div style={ {margin : "10px" }}>
+                        {submited ?
+                        <p className = 'link-btn' onClick = {switchPage}> Successed, log in here</p>
+                        :
+                        <p className = 'link-btn' onClick = {switchPage}> Have an account? log in</p>}
+                    </div>
 
                 </div>
                 <div className = "btn-box">

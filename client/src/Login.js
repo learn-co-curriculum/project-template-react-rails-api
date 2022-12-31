@@ -64,7 +64,9 @@ function LoginPage ( {switchPage, updateUser}){
                     placeholder = 'enter password'
                     onChange = {handleChange}
                     />
-                <button className = 'link-btn' onClick = {switchPage}> create an account</button>
+                <div style={ {margin : "10px" }}>
+                    <p className = 'link-btn' onClick = {switchPage}> create an account</p>
+                </div>
             </div>
             <div className = "btn-box">
                 <button type="submit"> Login</button>

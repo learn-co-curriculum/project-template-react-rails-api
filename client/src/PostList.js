@@ -1,3 +1,4 @@
+import React from 'react';
 import Post from "./Post"
 import PostForm from "./PostForm"
 
@@ -9,7 +10,7 @@ function PostList({postsData, setPostsData, userData}){
         )
     })
 
-   
+
     return(
         <div>
             <PostForm setPostsData={setPostsData} postsData={postsData} userData= { userData }/>

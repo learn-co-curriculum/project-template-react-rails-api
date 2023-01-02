@@ -1,4 +1,5 @@
 import { useState } from "react"
+import React from 'react';
 
 function CommentItem( {comment, setComments, userData}){
     const [ renderEdit, setEdit] = useState( false)

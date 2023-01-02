@@ -1,5 +1,6 @@
- import { useState, useEffect} from "react"
- import CommentItem from "./CommentItem"
+import React from 'react';
+import { useState, useEffect} from "react"
+import CommentItem from "./CommentItem"
 
 function Comment ({postId, userData}){
     const [ commentsAry, setComments ] = useState ( [] )

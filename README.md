@@ -1,5 +1,8 @@
 # Project Template: React/Rails API
+
 video
+paul
+
 ## Description
 
 This project is scaffolded so that you can build a React frontend and Rails
@@ -9,7 +12,7 @@ backend together, and easily deploy them to Render.
 SQLite, you will need to make the following changes in the project files:
 
 1. In the `Gemfile`, replace `gem 'pg', '~> 1.1'` with `gem 'sqlite3', '~>
-   1.4'`.
+1.4'`.
 2. In the `database.yml` file, change the line `adapter: postgresql` to
    `adapter: sqlite3`.
 
@@ -287,11 +290,11 @@ brew services start postgresql
 ### Set Up a Render Account
 
 You can sign up for a free account at
-[https://dashboard.render.com/register][Render signup]. We recommend that you
+[https://dashboard.render.com/register][render signup]. We recommend that you
 sign up using GitHub as that will make it a little easier for you to connect
 Render to your GitHub account. The instructions below assume you've done that.
 
-[Render signup]: https://dashboard.render.com/register
+[render signup]: https://dashboard.render.com/register
 
 Once you've completed the signup process, you will be taken to the Render
 dashboard. In order to connect Render to your GitHub account, you'll need to

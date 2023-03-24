@@ -2,7 +2,7 @@
 
 video
 paul
-another one
+another
 
 ## Description
 

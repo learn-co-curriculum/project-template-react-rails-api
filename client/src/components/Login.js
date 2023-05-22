@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../styles/Login.css';
 import libraryImage from '../assets/library.jpg'; // your background image
+import logo from '../assets/logo.png';
 
 class Login extends Component {
     state = {
@@ -43,6 +44,9 @@ class Login extends Component {
     render() {
         return (
             <div className="login-container" style={{backgroundImage: `url(${libraryImage})`}}>
+                <header>
+                    <img src={logo} alt="Logo" className="logo" />
+                </header>
                 <form onSubmit={this.handleSubmit} className="login-form">
                     <input
                         type="text"

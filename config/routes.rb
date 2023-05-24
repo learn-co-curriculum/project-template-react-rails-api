@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  
-  # Routing logic: fallback requests for React Router.
-  # Leave this here to help deploy your app later!
-  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
-  resources :books, only: [:index, :show]
+  resources :books, only: [:index, :show, :create, :update, :destroy]
+  resources :transactions, only: [:new, :create, :index] # Add 'index' action
+  post '/transactions', to: 'transactions#create'
+  get '/transactions/new', to: 'transactions#new'
+  get '/transactions/:id/confirm', to: 'transactions#confirm', as: 'confirm_transaction'
 end

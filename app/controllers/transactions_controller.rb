@@ -1,38 +1,33 @@
 class TransactionsController < ApplicationController
-    def new
-      @transaction = Transaction.new
-    end
+
+  def index
+    @transactions = Transaction.all
+    render json: @transactions
+  end
   
-    def create
-      @transaction = Transaction.new(transaction_params)
-      @transaction.user = current_user
-      @transaction.book = Book.find(params[:book_id])
+  def new
+    @transaction = Transaction.new
+  end
   
-      if @transaction.save
-        charge = Stripe::Charge.create(
-          :amount => (@transaction.book.price * 100).to_i, # Stripe expects amount in cents
-          :currency => "usd",
-          :source => params[:stripeToken], # obtained with Stripe.js
-          :description => "Charge for #{current_user.email}"
-        )
+  def create
+    @transaction = Transaction.new(transaction_params)
+    @transaction.user = @current_user
+    @transaction.book = Book.find(params[:book_id])
   
-        if charge.paid
-          @transaction.update_attributes(transaction_id: charge.id, status: 'Paid')
-          flash[:notice] = "Thanks for your purchase!"
-          redirect_to @transaction
-        else
-          flash[:alert] = "Payment failed. Please try again."
-          render :new
-        end
-      else
-        render :new
-      end
-    end
+    if @transaction.save
+      # Perform any necessary actions for manual confirmation here
+      # Generate confirmation code or success status
   
-    private
-  
-    def transaction_params
-      params.require(:transaction).permit(:amount)
+      # Example response with confirmation code
+      render json: { confirmationCode: 'ABC123' }, status: :ok
+    else
+      render json: { error: 'Failed to create transaction' }, status: :unprocessable_entity
     end
   end
   
+  private
+  
+  def transaction_params
+    params.require(:transaction).permit(:amount)
+  end
+end

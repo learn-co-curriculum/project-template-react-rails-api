@@ -10,16 +10,16 @@ const Library = () => {
     const [username, setUsername] = useState('');
 
     useEffect(() => {
-        getBooks();
         const storedUsername = localStorage.getItem('username');
         setUsername(storedUsername);
-    }, []);
+        getBooks(page);
+    }, [page]);
 
-    const getBooks = () => {
+    const getBooks = (page) => {
         axios
-            .get(`Your API endpoint here`)
+            .get(`/books?page=${page}`)
             .then(response => {
-                setBooks(response.data.items);
+                setBooks(response.data);
             })
             .catch(error => {
                 console.log('book fetch error', error);
@@ -36,21 +36,23 @@ const Library = () => {
         }
     };
 
-    const handlePurchase = (bookId) => {
+    const handlePurchase = (bookId, bookPrice) => {
         axios
             .post('/transactions', {
-                user_id: localStorage.getItem('userId'),
-                book_id: bookId,
-                amount: 9.99, // This should ideally be fetched from the book data
-                transaction_id: '12345', // This should be generated uniquely for each transaction
+                book_id: bookId,  // book_id not nested under transaction
+                transaction: {
+                    amount: bookPrice * 100,  // amount nested under transaction
+                },
             })
-            .then((response) => {
-                alert('Transaction Successful!');
+            .then(response => {
+                const confirmationCode = response.data.confirmationCode;
+                console.log('Transaction confirmed with code:', confirmationCode);
             })
-            .catch((error) => {
-                console.log('Transaction error', error);
+            .catch(error => {
+                console.log('Transaction failed:', error);
             });
     };
+    
 
     return (
         <div className="library-container">
@@ -60,11 +62,11 @@ const Library = () => {
             </header>
             <div className="books-grid">
                 {books.map(book => (
-                    <Book key={book.id} book={book} onPurchase={() => handlePurchase(book.id)} />
+                    <Book key={book.id} book={book} onPurchase={() => handlePurchase(book.id, book.price)} />
                 ))}
             </div>
             <div className="pagination-buttons">
-                <button onClick={handlePreviousPage}>Previous</button>
+                <button onClick={handlePreviousPage} disabled={page === 1}>Previous</button>
                 <button onClick={handleNextPage}>Next</button>
             </div>
         </div>

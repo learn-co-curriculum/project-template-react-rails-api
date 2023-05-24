@@ -21,6 +21,16 @@ class BooksController < ApplicationController
       render json: @book.errors, status: :unprocessable_entity
     end
   end
+
+  # POST /books/upload
+def upload
+  @book = current_user.books.build(book_params)
+  if @book.save
+      render json: @book, status: :created
+  else
+      render json: @book.errors, status: :unprocessable_entity
+  end
+end
   
 
   # PATCH/PUT /books/:id

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :books, only: [:index, :show, :create, :update, :destroy]
+  resources :books, only: [:index, :show, :create, :update, :destroy] do
+    post 'upload', on: :collection
+  end
   resources :transactions, only: [:new, :create, :index] # Add 'index' action
   post '/transactions', to: 'transactions#create'
   get '/transactions/new', to: 'transactions#new'

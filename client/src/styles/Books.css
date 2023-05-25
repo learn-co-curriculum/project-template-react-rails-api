@@ -1,0 +1,84 @@
+.book-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.book-container:hover {
+    transform: scale(1.05);
+}
+
+.book-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+.book-author {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.book-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.buy-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+    background-color: #0056b3;
+}
+
+.book-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000; 
+    margin: 10px 0;
+}
+.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    height: 250px;
+    width: 200px;
+    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+    margin-bottom: 20px;
+}
+
+.book h2, .book p {
+    margin: 0;
+    text-align: center;
+}
+
+.book img {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+

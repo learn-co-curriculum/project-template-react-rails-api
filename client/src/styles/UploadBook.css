@@ -1,0 +1,47 @@
+.upload-book-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('../assets/library.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.upload-book-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+.upload-book-form input, .upload-book-form textarea, .upload-book-form button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.upload-book-form input[type="file"] {
+    padding: 3px;
+}
+
+.upload-book-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: 150px;
+    width: auto;
+    max-width: 100%;
+}

@@ -1,0 +1,60 @@
+.library-container {
+    background-image: url('../assets/library.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+
+.logo {
+    height: 150px;
+    width: auto;
+}
+
+.user-details {
+    margin-top: 10px;
+}
+
+.pagination-buttons {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+.book {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    height: 250px; /* Set the height you want */
+    width: 200px; /* Set the width you want */
+    box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+    margin-bottom: 20px;
+}
+
+.book-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000; 
+    margin: 10px 0;
+}

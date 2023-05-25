@@ -1,0 +1,5 @@
+<%= form_for(@transaction, url: transactions_path(book_id: @book.id)) do |f| %>
+    <%= f.hidden_field :amount, value: @book.price %>
+    <%= f.submit "Confirm Transaction" %>
+  <% end %>
+  

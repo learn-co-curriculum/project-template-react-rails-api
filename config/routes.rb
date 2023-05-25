@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :profiles
   resources :books, only: [:index, :show, :create, :update, :destroy] do
     post 'upload', on: :collection
   end

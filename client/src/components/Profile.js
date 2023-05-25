@@ -9,8 +9,8 @@ const Profile = () => {
     email: '',
     bio: '',
     address: '',
-    image_url: '',
-    phone_number: ''
+    image: '',
+    contacts: ''
   });
 
   useEffect(() => {
@@ -129,24 +129,24 @@ const Profile = () => {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="image_url" className="form-label">Avatar:</label>
+          <label htmlFor="image" className="form-label">Avatar:</label>
           <input
             type="text"
-            id="image_url"
+            id="image"
             className="form-control"
-            name="image_url"
-            value={formData.image_url}
+            name="image"
+            value={formData.image}
             onChange={handleChange}
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="phone_number" className="form-label">Phone Number:</label>
+          <label htmlFor="contacts" className="form-label">contacts:</label>
           <input
             type="number"
-            id="phone_number"
+            id="contacts"
             className="form-control"
-            name="phone_number"
-            value={formData.phone_number}
+            name="contacts"
+            value={formData.contacts}
             onChange={handleChange}
           />
         </div>

@@ -4,6 +4,8 @@ import Library from './components/Library';
 import Book from './components/Book';
 import UploadBook from './components/UploadBook';
 import './App.css';
+import Profile from './components/Profile';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
           <Route path="/library" element={<Library />} />
           <Route path="/library/:bookId" element={<Book />} />
           <Route path="/books/upload" element={<UploadBook />} />
+          <Route path="/profile" element={<Profile/>} />
         </Routes>
       </div>
     </Router>
